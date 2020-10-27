@@ -1,0 +1,35 @@
+{
+    "normalSize": {
+        "main_roundName": 90,
+        "main_clue": 60,
+        "main_hint": 45,
+        "main_answer": 45,
+        "main_timeOut": 70,
+        "oneThird_timeOut": 25,
+        "oneThird_hint": 35,
+        "oneThird_answer": 35,
+        "player_point": 300
+    },
+    "ExtraSize": {
+        "main_roundName": 100,
+        "main_clue": 75,
+        "main_hint": 47,
+        "main_answer": 47,
+        "main_timeOut": 80,
+        "oneThird_timeOut": 25,
+        "oneThird_hint": 35,
+        "oneThird_answer": 35,
+        "player_point": 450
+    },
+    "4kSize": {
+        "main_roundName": 180,
+        "main_clue": 150,
+        "main_hint": 60,
+        "main_answer": 60,
+        "main_timeOut": 80,
+        "oneThird_timeOut": 60,
+        "oneThird_hint": 40,
+        "oneThird_answer": 40,
+        "player_point": 700
+    }
+}

@@ -1,0 +1,56 @@
+[{
+        "id": 1,
+        "name": "OPPOSITE WORD",
+        "questionType": 1,
+        "showfirstAnsChar": true,
+        "hasCategory": false,
+        "categories": [],
+        "timeOut": 10,
+        "point": 10,
+        "questionArray": []
+    },
+    {
+        "id": 2,
+        "name": "WORD COMBO",
+        "questionType": 2,
+        "showfirstAnsChar": false,
+        "hasCategory": false,
+        "categories": [],
+        "timeOut": 15,
+        "point": 15,
+        "questionArray": []
+    },
+    {
+        "id": 3,
+        "name": "HIDDEN WORDS",
+        "questionType": 3,
+        "showfirstAnsChar": false,
+        "hasCategory": false,
+        "categories": [],
+        "timeOut": 20,
+        "point": 20,
+        "questionArray": []
+    },
+    {
+        "id": 4,
+        "name": "SCRAMBLED WORD",
+        "questionType": 4,
+        "showfirstAnsChar": true,
+        "hasCategory": true,
+        "categories": [],
+        "timeOut": 60,
+        "point": 60,
+        "questionArray": []
+    },
+    {
+        "id": 5,
+        "name": "MYSTERY WORD",
+        "questionType": 5,
+        "showfirstAnsChar": false,
+        "hasCategory": false,
+        "categories": [],
+        "timeOut": 30,
+        "point": 30,
+        "questionArray": []
+    }
+]

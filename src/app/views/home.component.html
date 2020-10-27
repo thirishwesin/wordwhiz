@@ -1,0 +1,82 @@
+<div class="container-fluid home_body">
+    <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" [(ngModel)]="userView">
+        <label ngbButtonLabel class="btn-primary main_btn ">
+            <input ngbButton type="radio" [value]="true" /> User View
+        </label>
+        <label ngbButtonLabel class="btn-primary main_btn">
+            <input class="font{{FontSize}}" ngbButton type="radio" [value]="false" /> Admin View
+        </label>
+    </div>
+    <button class="btn whole_close" (click)="open(content,2,'')">X</button>
+    <!-- user view section -->
+    <section>
+        <div class="container-fluid mt3" *ngIf="userView == true">
+            <div class="row mg_60">
+                <div class="col-sm-3" *ngFor="let episode of wordWhiz.episodes" (click)="clickEpisode(episode)" placement="top" ngbPopover="Please setup the question first." popoverTitle="Word Whiz">
+                    <div class="epi_body">
+                        <img [src]="Images.epiImg" class="mx-auto d-block episode_img" />
+                        <p class="epi_text">
+                            <button class="btn epi_btn">EPISODE "{{ episode.id }}"</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of user view section -->
+
+    <!-- Admin View Section -->
+    <section *ngIf="userView == false">
+        <!-- <button class="btn-danger export_btn" (click)="export()">
+          E <br />x<br />p<br />o<br />r<br />t
+        </button> -->
+        <div class="container-fluid mt3">
+            <div class="row mg_60">
+                <div class="col-sm-3 img_bg" *ngFor="let episode of wordWhiz.episodes">
+                    <div class="epi_body">
+                        <img [src]="Images.minus" class="mx-auto d-block top-right" (click)="open(content,0,episode)" />
+                        <div (click)="clickEpisode(episode)">
+                            <img [src]="Images.epiImg" class="mx-auto d-block episode_img" />
+                            <p class="epi_text">
+                                <button class="btn epi_btn">EPISODE "{{ episode.id }}"</button>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-sm-3 add_body">
+                    <button (click)="open(content,1,'')" class="add_btn">
+                        <fa-icon class="add_icon" [icon]="faPlusCircle"></fa-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of Admin View Section -->
+</div>
+
+<ng-template #content let-modal>
+    <div class="bg_img">
+        <div class="modal-header">
+            <h4 class=" modal-title " id=" modal-basic-title ">Word Whiz</h4>
+            <button type=" button " class=" close " aria-label=" Close " (click)=" modal.dismiss( 'Cross click' ) ">
+                <span aria-hidden=" true ">&times;</span>
+            </button>
+        </div>
+        <div class=" modal-body" *ngIf="addModal == 1">
+            <label>Are you sure to add the EPISODE?</label>
+        </div>
+        <div class=" modal-body" *ngIf="addModal == 0">
+            <label>Are you sure to remove the EPISODE "{{episodeId}}" ?</label>
+        </div>
+        <div class=" modal-body" *ngIf="addModal == 2">
+            <label>Are you sure to exit?</label>
+        </div>
+        <div class=" modal-footer ">
+            <button type=" button " class="btn btn-add" (click)=" modal.dismiss( 'Cancel click' ) ">Cancel</button>
+            <button type=" button " class="btn btn-add" (click)=" modal.close( 'Save click' ) ">
+                {{addModal == 1 ? "Add " : addModal == 0 ? 'Remove' : 'Quit'}}
+            </button>
+        </div>
+    </div>
+</ng-template>
