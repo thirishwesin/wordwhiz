@@ -86,8 +86,8 @@ export class MainComponent implements OnInit {
       image.style.background = "url(" + mainBgImage.src + ")";
       image.style.backgroundSize = "cover";
 
-      // this.renderingAPNG = false;
-      this.nz.run(() => {});
+      this.renderingAPNG = false;
+      this.nz.run(() => { });
     };
     cubeImage.onload = () => {
       cube_image.src = cubeImage.src;
@@ -193,7 +193,7 @@ export class MainComponent implements OnInit {
             this.player = null;
             this.log = [];
             this.renderingAPNG = false;
-            this.nz.run(() => {});
+            this.nz.run(() => { });
           }
           this.player = p;
           // player.playbackRate = playbackRate;
