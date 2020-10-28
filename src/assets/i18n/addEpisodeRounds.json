@@ -7,7 +7,9 @@
         "categories": [],
         "timeOut": 10,
         "point": 10,
-        "questionArray": []
+        "questionArray": [],
+        "roundNameFontSize": "90",
+        "clueLabelFontSize": "60"
     },
     {
         "id": 2,
@@ -18,7 +20,9 @@
         "categories": [],
         "timeOut": 15,
         "point": 15,
-        "questionArray": []
+        "questionArray": [],
+        "roundNameFontSize": "90",
+        "clueLabelFontSize": "60"
     },
     {
         "id": 3,
@@ -29,7 +33,9 @@
         "categories": [],
         "timeOut": 20,
         "point": 20,
-        "questionArray": []
+        "questionArray": [],
+        "roundNameFontSize": "90",
+        "clueLabelFontSize": "60"
     },
     {
         "id": 4,
@@ -40,7 +46,9 @@
         "categories": [],
         "timeOut": 60,
         "point": 60,
-        "questionArray": []
+        "questionArray": [],
+        "roundNameFontSize": "90",
+        "clueLabelFontSize": "60"
     },
     {
         "id": 5,
@@ -51,6 +59,8 @@
         "categories": [],
         "timeOut": 30,
         "point": 30,
-        "questionArray": []
+        "questionArray": [],
+        "roundNameFontSize": "90",
+        "clueLabelFontSize": "60"
     }
 ]

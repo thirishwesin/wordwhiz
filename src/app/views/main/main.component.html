@@ -3,11 +3,11 @@
     <!-- header -->
     <section class="top-wrapper">
         <div class="col-sm-12 head-wrapper font{{control.fontSettings.main_roundName}}">
-            <p>
+            <p [ngStyle]="{'font-size': currentRound.roundNameFontSize + 'px'}">
                 ROUND <span class="round_number">{{ currentRound?.id }}</span>
             </p>
             <span> : </span>
-            <p>{{ currentRound?.name }}</p>
+            <p [ngStyle]="{'font-size': currentRound.roundNameFontSize + 'px'}">{{ currentRound?.name }}</p>
         </div>
     </section>
     <!-- End of Header -->
@@ -24,11 +24,11 @@
             </div>
             <div class="col-7">
                 <div>
-                    <p class="clude_txt font{{control.fontSettings.main_clue}}">CLUE:</p>
-
+                    <!-- <p class="clude_txt font{{control.fontSettings.main_clue}}">CLUE:</p> -->
+                    <p class="clude_txt" [ngStyle]="{'font-size': currentRound.clueLabelFontSize + 'px'}">CLUE:</p>
                     <img class="cube_img" name="cube_img" alt="" />
                     <span class="clude_hint clue_fontsize{{ currentRound.hasCategory ? categoryName.length :  currentQuestion?.clue.length }}" *ngIf="control.showQuestion  || control.runCategoryRound">{{ currentRound.hasCategory? categoryName : currentQuestion?.clue }}
-          </span>
+                    </span>
                 </div>
 
                 <div class="alpha_wrapper" *ngIf="control.showQuestion || control.runCategoryRound">
@@ -127,15 +127,15 @@
                                     </p>
                                 </div>
                                 <span *ngIf="currentQuestion?.isAnsCharacter">
-                  <div class="one_word_green retangle{{control.fontSettings.main_answer}}"
-                    [ngClass]="{'animated heartBeat': control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose, 'hide_char' : char == ' '}"
-                    *ngFor="let char of ansCharArr">
-                    <p class="word font{{control.fontSettings.main_answer}}"
-                      [ngClass]="{'animated zoomIn': control.showAns && !control.clickPoint && !control.clickTimer && !control.fontSettingOpenClose && !control.resetCount, 'transparent': !control.showAns }">
-                      {{ char }}
-                    </p>
-                  </div>
-                </span>
+                                    <div class="one_word_green retangle{{control.fontSettings.main_answer}}"
+                                        [ngClass]="{'animated heartBeat': control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose, 'hide_char' : char == ' '}"
+                                        *ngFor="let char of ansCharArr">
+                                        <p class="word font{{control.fontSettings.main_answer}}"
+                                            [ngClass]="{'animated zoomIn': control.showAns && !control.clickPoint && !control.clickTimer && !control.fontSettingOpenClose && !control.resetCount, 'transparent': !control.showAns }">
+                                            {{ char }}
+                                        </p>
+                                    </div>
+                                </span>
                             </div>
 
                             <!-- //! for position 2 right -->
@@ -148,17 +148,17 @@
                                     </p>
                                 </div>
                                 <span *ngIf="currentQuestion?.isAnsCharacter">
-                  <div class="one_word_green retangle{{control.fontSettings.main_answer}}"
-                    [ngClass]="{'animated heartBeat': control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose, 'hide_char' : char == ' '}"
-                    *ngFor="let char of ansCharArr">
-                    <!-- <p class="word animated zoomIn font{{control.fontSettings.main_answer}}" *ngIf="control.showAns">
+                                    <div class="one_word_green retangle{{control.fontSettings.main_answer}}"
+                                        [ngClass]="{'animated heartBeat': control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose, 'hide_char' : char == ' '}"
+                                        *ngFor="let char of ansCharArr">
+                                        <!-- <p class="word animated zoomIn font{{control.fontSettings.main_answer}}" *ngIf="control.showAns">
                                                 {{ char }}</p> -->
-                    <p class="word font{{control.fontSettings.main_answer}}"
-                      [ngClass]="{'animated zoomIn': control.showAns && !control.clickPoint && !control.clickTimer && !control.fontSettingOpenClose && !control.resetCount, 'transparent': !control.showAns}">
-                      {{char}}
-                    </p>
-                  </div>
-                </span>
+                                        <p class="word font{{control.fontSettings.main_answer}}"
+                                            [ngClass]="{'animated zoomIn': control.showAns && !control.clickPoint && !control.clickTimer && !control.fontSettingOpenClose && !control.resetCount, 'transparent': !control.showAns}">
+                                            {{char}}
+                                        </p>
+                                    </div>
+                                </span>
                                 <div class="long_word_blue long_retangle{{control.fontSettings.main_hint}} longBlueRoundTwoLenght{{hint.value.length}}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose ? 'animated heartBeat':''"
                                     *ngIf="!hint?.isCharacter">
                                     <p class="word font{{control.fontSettings.main_hint}}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose ? 'animated zoomIn':''">

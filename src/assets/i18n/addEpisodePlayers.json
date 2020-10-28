@@ -1,16 +1,19 @@
 [{
         "id": 1,
         "name": "Player1",
-        "point": 0
+        "point": 0,
+        "pointFontSize": 300
     },
     {
         "id": 2,
         "name": "Player2",
-        "point": 0
+        "point": 0,
+        "pointFontSize": 300
     },
     {
         "id": 3,
         "name": "Player3",
-        "point": 0
+        "point": 0,
+        "pointFontSize": 300
     }
 ]

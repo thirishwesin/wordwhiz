@@ -2,4 +2,5 @@ export interface Player {
   id: number;
   name: string;
   point: number;
+  pointFontSize: number;
 }

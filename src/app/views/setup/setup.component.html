@@ -125,6 +125,10 @@
                         <label for="" style="width:100px;" class="common_label">CLUE FONT SIZE</label>
                         <input type="text" class="common_input w_321" [(ngModel)]="currentRound.clueLabelFontSize" OnlyNumber="true" />
                     </div>
+                    <div class="form-group">
+                        <label for="" style="width:100px;" class="common_label">PLAYER POINT FONT SIZE</label>
+                        <input type="text" class="common_input w_321" [(ngModel)]="episode.players[0].pointFontSize" (ngModelChange)="changePlayerPointSize($event)" OnlyNumber="true" />
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,3 +1,4 @@
+import { Player } from './../../core/models/player';
 import { Component, OnInit } from "@angular/core";
 import {
   faTimesCircle,
@@ -71,6 +72,8 @@ export class SetupComponent implements OnInit {
 
   noDatabyCategory = false;
   timeoutList: any;
+  players: Player[]
+  playerFontSize: number
 
   constructor(
     private store: Store<{
@@ -489,6 +492,8 @@ export class SetupComponent implements OnInit {
                 _.map(this.wordWhiz.episodes, episode => {
                   if (episode.id == this.oldEpisode.id) {
                     episode.rounds = this.oldEpisode.rounds;
+                    console.log('old episode => ', this.oldEpisode.players)
+                    episode.players = this.oldEpisode.players;
                   }
                 });
                 this.router.navigate(["/home"], {
@@ -650,5 +655,9 @@ export class SetupComponent implements OnInit {
 
     const data = readFileSync(filePath, "utf8");
     this.timeoutList = JSON.parse(data);
+  }
+
+  changePlayerPointSize(pointFontSize) {
+    this.episode.players.map(player => player.pointFontSize = pointFontSize)
   }
 }

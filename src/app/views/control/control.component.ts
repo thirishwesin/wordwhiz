@@ -1,3 +1,4 @@
+import { Player } from './../../core/models/player';
 import { Component, OnInit, NgZone } from "@angular/core";
 import { Store, select } from "@ngrx/store";
 import { Observable, from } from "rxjs";
@@ -106,6 +107,7 @@ export class ControlComponent implements OnInit {
   correctAnswerDisable = false;
   isStartRound4 = false;
   oldCurrentRound: Round
+  oldCurrentPlayer: Player[]
 
   constructor(
     private store: Store<{
@@ -411,6 +413,7 @@ export class ControlComponent implements OnInit {
   }
 
   openModel(content_control) {
+    console.log('word whiz => ', this.wordWhiz.episodes)
     // close all child windows ,save and navigate back
     this.modalService
       .open(content_control, {
@@ -434,7 +437,10 @@ export class ControlComponent implements OnInit {
             //hot reload issue in development
             saveFile(this.wordWhiz, () => { });
           }
+          console.log('word whiz => ', this.wordWhiz.episodes)
+          // saveFile(this.wordWhiz, () => { });
           this.router.navigate(["/home"], { queryParams: { id: "control" } });
+
         },
         reason => reason
       );
@@ -1011,6 +1017,7 @@ export class ControlComponent implements OnInit {
   // font setting
   setting(content_control_setting) {
     this.oldCurrentRound = _.cloneDeep(this.currentRound)
+    this.oldCurrentPlayer = _.cloneDeep(this.episode.players)
     // animation control when change font
     this.control.fontSettingOpenClose = true;
 
@@ -1059,11 +1066,14 @@ export class ControlComponent implements OnInit {
             // this.wordWhiz.fontSettings = this.resetFontValue;
             // this.saveFont();
             this.currentRound = this.oldCurrentRound
+            this.episode.players = this.oldCurrentPlayer
             this.broadcastScreens()
           } else if (reason == "Cross click") {
             this.control.fontSettings = this.resetFontValue;
             this.wordWhiz.fontSettings = this.resetFontValue;
             this.saveFont();
+          } else if (reason == 'Save click') {
+            console.log('save click')
           }
         }
       );
@@ -1078,10 +1088,10 @@ export class ControlComponent implements OnInit {
     localStorage.setItem("control", JSON.stringify(this.control));
   }
 
-  changeFontSetting(id, val) {
-    this.control.fontSettings[id] = val;
-    //this.broadcastScreens();
-  }
+  // changeFontSetting(id, val) {
+  //   this.control.fontSettings[id] = val;
+  //   //this.broadcastScreens();
+  // }
 
   numberOnly(event): boolean {
     const charCode = event.which ? event.which : event.keyCode;
@@ -1136,5 +1146,9 @@ export class ControlComponent implements OnInit {
   applyFontSize() {
     console.log('current round =>>> ', this.currentRound)
     this.broadcastScreens();
+  }
+
+  changePlayerPointSize(pointFontSize) {
+    this.episode.players.map(player => player.pointFontSize = pointFontSize)
   }
 }
