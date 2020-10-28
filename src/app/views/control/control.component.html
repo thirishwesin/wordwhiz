@@ -47,7 +47,8 @@
                         </div>
                         <div class="col-sm-2">
                             <button class="btn adjustMin" (click)="prevRound()">
-                                <</button> </div>
+                                < </button>
+                        </div>
                         <div class="col-sm-2">
                             <button class="btn adjust" (click)="nextRound()">></button>
                         </div>
@@ -90,7 +91,8 @@
 
                         <div class="col-sm-2" *ngIf="!currentRound.hasCategory">
                             <button class="btn adjustMin" (click)="prevQuestion()">
-                                <</button> </div>
+                                < </button>
+                        </div>
                         <div class="col-sm-2" *ngIf="!currentRound.hasCategory">
                             <button class="btn adjust" (click)="nextQuestion()">></button>
                         </div>
@@ -246,60 +248,35 @@
                             <label for="" class="common_label" style="margin-top: 8%;">Title</label>
                             <h6 class="fontsize_limit">Recommended - {{recommendFontSize.main_roundName}}</h6>
                             <div class="container_up">
-                                <input type="number" (keypress)="numberOnly($event)" class="form-control common_input" [(ngModel)]="control.fontSettings.main_roundName" (ngModelChange)="changeFontSetting('main_roundName',$event)">
-                                <div class="spinner">
-                                    <button type="button" class="up button_up" (click)="increaseFontSize('main_roundName')">
-                                        &rsaquo;
-                                    </button>
-                                    <button type="button" class="down button_up" (click)="decreaseFontSize('main_roundName')">
-                                        &lsaquo;
-                                    </button>
-                                </div>
+                                <input OnlyNumber="true" class="form-control common_input" [(ngModel)]="currentRound.roundNameFontSize" (ngModelChange)="changeFontSetting('main_roundName',$event)">
                             </div>
                         </div>
-                        <div class=" form-group col-6 col-md-4">
+                        <!-- <div class=" form-group col-6 col-md-4">
                             <label for="" class="common_label" style="margin-top: 8%;">Timer</label>
                             <h6 class="fontsize_limit">Recommended - {{recommendFontSize.main_timeOut}}</h6>
                             <div class="container_up">
-                                <input type="number" class="form-control common_input " (keypress)="numberOnly($event)" [(ngModel)]="control.fontSettings.main_timeOut" (ngModelChange)="changeFontSetting('main_timeOut',$event)">
-                                <div class="spinner">
-                                    <button type="button" class="up button_up" (click)="increaseFontSize('main_timeOut')">
-                                        &rsaquo;
-                                    </button>
-                                    <button type="button" class="down button_up" (click)="decreaseFontSize('main_timeOut')">
-                                        &lsaquo;
-                                    </button>
-                                </div>
+                                <input class="form-control common_input " OnlyNumber="true" [(ngModel)]="control.fontSettings.main_timeOut" (ngModelChange)="changeFontSetting('main_timeOut',$event)">
                             </div>
-                        </div>
+                        </div> -->
                         <div class=" form-group col-6 col-md-4">
-                            <label for="" class="common_label" style="margin-top: 8%;">Clue</label>
+                            <label for="" class="common_label" style="margin-top: 8%;">Clue Label</label>
                             <h6 class="fontsize_limit">Recommended - {{recommendFontSize.main_clue}}</h6>
                             <div class="container_up">
-                                <input type="number" class="form-control common_input " (keypress)="numberOnly($event)" [(ngModel)]="control.fontSettings.main_clue" (ngModelChange)="changeFontSetting('main_clue',$event)">
-                                <div class="spinner">
-                                    <button type="button" class="up button_up" (click)="increaseFontSize('main_clue')">
-                                        &rsaquo;
-                                    </button>
-                                    <button type="button" class="down button_up" (click)="decreaseFontSize('main_clue')">
-                                        &lsaquo;
-                                    </button>
-                                </div>
+                                <input class="form-control common_input " OnlyNumber="true" [(ngModel)]="currentRound.clueLabelFontSize" (ngModelChange)="changeFontSetting('main_clue',$event)">
                             </div>
                         </div>
                         <div class=" form-group col-6 col-md-4">
+                            <label for="" class="common_label" style="margin-top: 8%;">Clue Name</label>
+                            <h6 class="fontsize_limit">Recommended - {{recommendFontSize.main_clue}}</h6>
+                            <div class="container_up">
+                                <input class="form-control common_input " OnlyNumber="true" [(ngModel)]="currentQuestion.clueFontSize" (ngModelChange)="changeFontSetting('main_clue',$event)">
+                            </div>
+                        </div>
+                        <div class=" form-group col-6 col-md-4" *ngIf="currentQuestion?.hints.length > 0">
                             <label for="" class="common_label" style="margin-top: 8%;">Hint</label>
                             <h6 class="fontsize_limit">Recommended - {{recommendFontSize.main_hint}}</h6>
                             <div class="container_up">
-                                <input type="number" class="form-control common_input " (keypress)="numberOnly($event)" [(ngModel)]="control.fontSettings.main_hint" (ngModelChange)="changeFontSetting('main_hint',$event)">
-                                <div class="spinner">
-                                    <button type="button" class="up button_up" (click)="increaseFontSize('main_hint')">
-                                        &rsaquo;
-                                    </button>
-                                    <button type="button" class="down button_up" (click)="decreaseFontSize('main_hint')">
-                                        &lsaquo;
-                                    </button>
-                                </div>
+                                <input class="form-control common_input " OnlyNumber="true" [(ngModel)]="currentQuestion.hints[0].hintFontSize" (ngModelChange)="changeFontSetting('main_hint',$event)">
                             </div>
 
 
@@ -308,15 +285,7 @@
                             <label for="" class="common_label" style="margin-top: 8%;">Answer</label>
                             <h6 class="fontsize_limit">Recommended - {{recommendFontSize.main_answer}}</h6>
                             <div class="container_up">
-                                <input type="number" class="form-control common_input" (keypress)="numberOnly($event)" [(ngModel)]="control.fontSettings.main_answer" (ngModelChange)="changeFontSetting('main_answer',$event)">
-                                <div class="spinner">
-                                    <button type="button" class="up button_up" (click)="increaseFontSize('main_answer')">
-                                        &rsaquo;
-                                    </button>
-                                    <button type="button" class="down button_up" (click)="decreaseFontSize('main_answer')">
-                                        &lsaquo;
-                                    </button>
-                                </div>
+                                <input class="form-control common_input" OnlyNumber="true" [(ngModel)]="currentQuestion.ansFontSize" (ngModelChange)="changeFontSetting('main_answer',$event)">
                             </div>
                         </div>
                     </div>
@@ -335,45 +304,28 @@
                             <label for="" class="common_label" style="margin-top: 8%;">Timer</label>
                             <h6 class="fontsize_limit">Recommended - {{recommendFontSize.oneThird_timeOut}}</h6>
                             <div class="container_up">
-                                <input type="number" class=" form-control common_input" (keypress)="numberOnly($event)" [(ngModel)]="control.fontSettings.oneThird_timeOut" (ngModelChange)="changeFontSetting('oneThird_timeOut',$event)">
-                                <div class="spinner">
-                                    <button type="button" class="up button_up" (click)="increaseFontSize('oneThird_timeOut')">
-                                        &rsaquo;
-                                    </button>
-                                    <button type="button" class="down button_up" (click)="decreaseFontSize('oneThird_timeOut')">
-                                        &lsaquo;
-                                    </button>
-                                </div>
+                                <input class=" form-control common_input" OnlyNumber="true" [(ngModel)]="control.fontSettings.oneThird_timeOut" (ngModelChange)="changeFontSetting('oneThird_timeOut',$event)">
+                            </div>
+                        </div>
+                        <div class=" form-group col-6 col-md-4">
+                            <label for="" class="common_label" style="margin-top: 8%;">Clue Name</label>
+                            <h6 class="fontsize_limit">Recommended - {{recommendFontSize.main_clue}}</h6>
+                            <div class="container_up">
+                                <input class="form-control common_input " OnlyNumber="true" [ngModel]="currentQuestion.otClueFontSize" (ngModelChange)="changeFontSetting('main_clue',$event)">
                             </div>
                         </div>
                         <div class="form-group col-6 col-md-4">
                             <label for="" class="common_label" style="margin-top: 8%;">Hint</label>
                             <h6 class="fontsize_limit">Recommended - {{recommendFontSize.oneThird_hint}}</h6>
                             <div class="container_up">
-                                <input type="number" class="form-control common_input" (keypress)="numberOnly($event)" [(ngModel)]="control.fontSettings.oneThird_hint" (ngModelChange)="changeFontSetting('oneThird_hint',$event)">
-                                <div class="spinner">
-                                    <button type="button" class="up button_up" (click)="increaseFontSize('oneThird_hint')">
-                                        &rsaquo;
-                                    </button>
-                                    <button type="button" class="down button_up" (click)="decreaseFontSize('oneThird_hint')">
-                                        &lsaquo;
-                                    </button>
-                                </div>
+                                <input class="form-control common_input" OnlyNumber="true" [ngModel]="currentQuestion.hints[0]?.otHintFontSize" (ngModelChange)="changeFontSetting('oneThird_hint',$event)">
                             </div>
                         </div>
                         <div class="form-group col-6 col-md-4">
                             <label for="" class=" common_label" style="margin-top: 8%;">Answer</label>
                             <h6 class="fontsize_limit">Recommended - {{recommendFontSize.oneThird_answer}}</h6>
                             <div class="container_up">
-                                <input type="number" class="form-control common_input" (keypress)="numberOnly($event)" [(ngModel)]="control.fontSettings.oneThird_answer" (ngModelChange)="changeFontSetting('oneThird_answer',$event)">
-                                <div class="spinner">
-                                    <button type="button" class="up button_up" (click)="increaseFontSize('oneThird_answer')">
-                                        &rsaquo;
-                                    </button>
-                                    <button type="button" class="down button_up" (click)="decreaseFontSize('oneThird_answer')">
-                                        &lsaquo;
-                                    </button>
-                                </div>
+                                <input class="form-control common_input" OnlyNumber="true" [(ngModel)]="currentQuestion.otAnsFontSize" (ngModelChange)="changeFontSetting('oneThird_answer',$event)">
                             </div>
                         </div>
                     </div>
@@ -392,16 +344,7 @@
                             <label for="" class="common_label" style="margin-top: 8%;">Point</label>
                             <h6 class="fontsize_limit">Recommended - {{recommendFontSize.player_point}}</h6>
                             <div class="container_up">
-                                <input type="number" class="form-control common_input" (keypress)="numberOnly($event)" [(ngModel)]="control.fontSettings.player_point" (ngModelChange)="changeFontSetting('player_point',$event)">
-                                <div class="spinner">
-                                    <button type="button" class="up button_up" (click)="increaseFontSize('player_point')">
-                                        &rsaquo;
-                                    </button>
-                                    <button type="button" class="down button_up" (click)="decreaseFontSize('player_point')">
-
-                                        &lsaquo;
-                                    </button>
-                                </div>
+                                <input class="form-control common_input" OnlyNumber="true" [(ngModel)]="control.fontSettings.player_point" (ngModelChange)="changeFontSetting('player_point',$event)">
                             </div>
                         </div>
                     </div>
@@ -411,11 +354,10 @@
 
 
             <div class=" modal-footer ">
-
-                <button type=" button " class="btn btn-add__reset" style="margin-right: 69%;" (click)=" modal.dismiss( 'Reset click' ) ">Reset</button>
                 <button type=" button " class="btn btn-add" (click)=" modal.dismiss( 'Cancel click' ) ">Cancel</button>
-                <button type=" button " class='btn btn-add' (click)=" modal.close( 'Save click' ) ">
-                    OK</button>
+                <button type=" button " class="btn btn-add" (click)="applyFontSize()">Apply</button>
+
+                <button type=" button " class='btn btn-add' (click)=" modal.close( 'Save click' ) "> OK</button>
             </div>
         </div>
     </ng-template>

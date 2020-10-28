@@ -7,9 +7,10 @@ import { PageNotFoundComponent } from "./components/";
 import { WebviewDirective } from "./directives/";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+import { OnlyNumber } from "./directives/only-number.directive";
 
 @NgModule({
-  declarations: [PageNotFoundComponent, WebviewDirective],
+  declarations: [PageNotFoundComponent, WebviewDirective, OnlyNumber],
   imports: [CommonModule, TranslateModule],
   exports: [
     TranslateModule,
@@ -17,6 +18,7 @@ import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
     NgbModule,
     FormsModule,
     FontAwesomeModule,
+    OnlyNumber
   ],
 })
-export class SharedModule {}
+export class SharedModule { }

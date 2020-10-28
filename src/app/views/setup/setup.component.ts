@@ -54,12 +54,18 @@ export class SetupComponent implements OnInit {
     categoryId: 0,
     hints: [],
     ans: "",
-    isAnsCharacter: false
+    isAnsCharacter: false,
+    clueFontSize: null,
+    otClueFontSize: null,
+    ansFontSize: null,
+    otAnsFontSize: null
   } as Question;
 
   question = _.cloneDeep(this.initQuestionState);
 
   categoryName: string;
+  categoryFontSize: number;
+  otCategoryFontSize: number;
   invalidCategoryName: boolean;
   isEmptyCategoryName: boolean;
 
@@ -188,7 +194,9 @@ export class SetupComponent implements OnInit {
       categories: [],
       showfirstAnsChar: false,
       hasCategory: false,
-      timeOut: 0
+      timeOut: 0,
+      roundNameFontSize: null,
+      clueLabelFontSize: null,
     });
     let lastIndex = _.last(this.episode.rounds);
     this.store.dispatch(updateCurrentRoundId({ currentRoundId: lastIndex.id }));
@@ -328,14 +336,27 @@ export class SetupComponent implements OnInit {
           }
         });
       if (!this.invalidQuestion) {
+        console.log('selected round id => ', this.currentRound.id)
         this.currentRound.questionArray.map(question => {
           if (question.id == this.question.id && !this.currentRound.hasCategory) {
             question.clue = this.question.clue;
+            question.clueFontSize = +this.question.clueFontSize
+            question.otClueFontSize = +this.question.otClueFontSize
             question.ans = this.question.ans;
+            question.ansFontSize = +this.question.ansFontSize
+            question.otAnsFontSize = +this.question.otAnsFontSize
             question.hints = this.question.hints;
+            if (this.currentRound.id == 2 || this.currentRound.id == 3 || this.currentRound.id == 4) {
+              question.hints[0].hintFontSize = +this.question.hints[0].hintFontSize
+              question.hints[0].otHintFontSize = +this.question.hints[0].otHintFontSize
+            }
           } else if (question.id == this.question.id && this.currentRound.hasCategory) {
             question.ans = this.question.ans;
+            question.ansFontSize = +this.question.ansFontSize
+            question.otAnsFontSize = +this.question.otAnsFontSize
             question.hints = this.question.hints;
+            question.hints[0].hintFontSize = +this.question.hints[0].hintFontSize
+            question.hints[0].otHintFontSize = +this.question.hints[0].otHintFontSize
           }
         });
       }
@@ -477,8 +498,10 @@ export class SetupComponent implements OnInit {
             } else if (isChange === 4) {
               this.removeCategory(type);
             } else if (isChange === 5) {
-              this.addCategory(this.categoryName);
+              this.addCategory(this.categoryName, this.categoryFontSize, this.otCategoryFontSize);
               this.categoryName = "";
+              this.categoryFontSize = null;
+              this.otCategoryFontSize = null;
             }
           },
           reason => {
@@ -487,6 +510,8 @@ export class SetupComponent implements OnInit {
               this.router.navigate(["/home"], { queryParams: { id: "setup" } });
             } else if (isChange === 5) {
               this.categoryName = "";
+              this.categoryFontSize = null;
+              this.otCategoryFontSize = null;
             }
             this.invalidCategoryName = false;
             return reason;
@@ -514,8 +539,14 @@ export class SetupComponent implements OnInit {
   questionClueChanged(event) {
     this.invalidQuestion = false;
   }
+  questionClueFontSizeChanged(event) {
+
+  }
   questionAnsChanged(event) {
     this.invalidQuestion = false;
+  }
+  questionAnsFontSizeChanged(event) {
+
   }
 
   clearQuestionBlock() {
@@ -525,7 +556,7 @@ export class SetupComponent implements OnInit {
     };
   }
 
-  addCategory(categoryName) {
+  addCategory(categoryName, categoryFontSize, otCategoryFontSize) {
     let id;
     // check id undifined
     if (this.currentRound.categories.length > 0)
@@ -533,7 +564,9 @@ export class SetupComponent implements OnInit {
     else id = 0;
     this.currentRound.categories.push({
       id: id,
-      name: categoryName
+      name: categoryName,
+      categoryFontSize: +categoryFontSize,
+      otCategoryFontSize: +otCategoryFontSize
     });
 
     let lastIndex = _.last(this.currentRound.categories);

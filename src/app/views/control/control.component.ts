@@ -105,6 +105,7 @@ export class ControlComponent implements OnInit {
   recommendFontSize: any;
   correctAnswerDisable = false;
   isStartRound4 = false;
+  oldCurrentRound: Round
 
   constructor(
     private store: Store<{
@@ -177,7 +178,7 @@ export class ControlComponent implements OnInit {
         );
         this.count10sec = new Audio(
           process.env.PORTABLE_EXECUTABLE_DIR +
-            "/data/audios/10secCountDown.mp3"
+          "/data/audios/10secCountDown.mp3"
         );
         this.count5sec = new Audio(
           process.env.PORTABLE_EXECUTABLE_DIR + "/data/audios/5secCountDown.mp3"
@@ -187,7 +188,7 @@ export class ControlComponent implements OnInit {
         );
         this.correct_answer_audio = new Audio(
           process.env.PORTABLE_EXECUTABLE_DIR +
-            "/data/audios/Correct_answer.mp3"
+          "/data/audios/Correct_answer.mp3"
         );
       } else {
         timerImag.src = "../../../assets/images/temp/timer.png";
@@ -226,7 +227,7 @@ export class ControlComponent implements OnInit {
     if (this.wordWhiz && this.wordWhiz.questionTypes.length !== 0) {
       //not save in reload state
       window.onbeforeunload = e => {
-        saveFile(this.wordWhiz, () => {});
+        saveFile(this.wordWhiz, () => { });
       };
     }
   }
@@ -241,7 +242,7 @@ export class ControlComponent implements OnInit {
       "id",
       this.control.currentRoundId
     ]);
-
+    console.log('current round => ', this.currentRound)
     //update current question
     this.currentQuestion = _.find(this.currentRound.questionArray, [
       "id",
@@ -427,11 +428,11 @@ export class ControlComponent implements OnInit {
           this.newWindows.map(w => {
             try {
               w.close();
-            } catch (error) {}
+            } catch (error) { }
           });
           if (AppConfig.production) {
             //hot reload issue in development
-            saveFile(this.wordWhiz, () => {});
+            saveFile(this.wordWhiz, () => { });
           }
           this.router.navigate(["/home"], { queryParams: { id: "control" } });
         },
@@ -440,6 +441,12 @@ export class ControlComponent implements OnInit {
   }
 
   broadcastScreens() {
+    let currentRoundIndex = _.findIndex(this.episode.rounds, ['id', this.currentRound.id])
+    console.log('current round index => ', currentRoundIndex)
+    this.episode.rounds[currentRoundIndex] = this.currentRound
+    this.currentQuestion = _.find(this.currentRound.questionArray, ['id', this.currentQuestion.id])
+    console.log('this.oldCurrentRound => ', this.oldCurrentRound)
+    console.log('this.currentRound => ', this.currentRound)
     let broadCastData = {
       control: this.control,
       episode: this.episode
@@ -453,7 +460,7 @@ export class ControlComponent implements OnInit {
     this.newWindows.map(window => {
       try {
         window.webContents.send("word_whizControl", broadCastData);
-      } catch (e) {}
+      } catch (e) { }
     });
   }
 
@@ -787,7 +794,7 @@ export class ControlComponent implements OnInit {
     let checkLastIndex = false;
     if (
       this.currentQuestion.id ==
-        _.last(this.questionArraysByCategory[this.currentCategory.id]).id ||
+      _.last(this.questionArraysByCategory[this.currentCategory.id]).id ||
       this.checkLastIndexExcludeSkip()
     )
       checkLastIndex = true;
@@ -916,7 +923,7 @@ export class ControlComponent implements OnInit {
 
     if (
       this.currentQuestion.id ==
-        _.last(this.questionArraysByCategory[this.currentCategory.id]).id ||
+      _.last(this.questionArraysByCategory[this.currentCategory.id]).id ||
       this.checkLastIndexExcludeSkip()
     )
       checkLastIndex = true;
@@ -1003,6 +1010,7 @@ export class ControlComponent implements OnInit {
 
   // font setting
   setting(content_control_setting) {
+    this.oldCurrentRound = _.cloneDeep(this.currentRound)
     // animation control when change font
     this.control.fontSettingOpenClose = true;
 
@@ -1024,7 +1032,7 @@ export class ControlComponent implements OnInit {
       .result.then(
         result => {
           this.isfontEmpty();
-          this.saveFont();
+          // this.saveFont();
         },
         reason => {
           console.log("reason >> ", reason);
@@ -1045,11 +1053,13 @@ export class ControlComponent implements OnInit {
             this.wordWhiz.fontSettings = defaultFontValue;
 
             this.saveFont();
-            saveFile(this.wordWhiz, () => {});
+            saveFile(this.wordWhiz, () => { });
           } else if (reason == "Cancel click") {
-            this.control.fontSettings = this.resetFontValue;
-            this.wordWhiz.fontSettings = this.resetFontValue;
-            this.saveFont();
+            // this.control.fontSettings = this.resetFontValue;
+            // this.wordWhiz.fontSettings = this.resetFontValue;
+            // this.saveFont();
+            this.currentRound = this.oldCurrentRound
+            this.broadcastScreens()
           } else if (reason == "Cross click") {
             this.control.fontSettings = this.resetFontValue;
             this.wordWhiz.fontSettings = this.resetFontValue;
@@ -1070,8 +1080,7 @@ export class ControlComponent implements OnInit {
 
   changeFontSetting(id, val) {
     this.control.fontSettings[id] = val;
-    this.broadcastScreens();
-    console.log("broadcastScreens >> ");
+    //this.broadcastScreens();
   }
 
   numberOnly(event): boolean {
@@ -1122,5 +1131,10 @@ export class ControlComponent implements OnInit {
     if (!oneThird_hint) this.control.fontSettings.oneThird_hint = 0;
     if (!oneThird_timeOut) this.control.fontSettings.oneThird_timeOut = 0;
     if (!player_point) this.control.fontSettings.player_point = 0;
+  }
+
+  applyFontSize() {
+    console.log('current round =>>> ', this.currentRound)
+    this.broadcastScreens();
   }
 }

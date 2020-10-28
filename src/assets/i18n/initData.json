@@ -36,7 +36,11 @@
               "categoryId": 0,
               "hints": [],
               "ans": "SUNSET",
-              "isAnsCharacter": true
+              "isAnsCharacter": true,
+              "clueFontSize": 45,
+              "ansFontSize": 50,
+              "otClueFontSize": 45,
+              "otAnsFontSize": 45
             },
             {
               "id": 2,
@@ -44,7 +48,11 @@
               "categoryId": 0,
               "hints": [],
               "ans": "CLOSE",
-              "isAnsCharacter": true
+              "isAnsCharacter": true,
+              "clueFontSize": 45,
+              "ansFontSize": 45,
+              "otClueFontSize": 45,
+              "otAnsFontSize": 45
             },
             {
               "id": 3,
@@ -52,7 +60,11 @@
               "categoryId": 0,
               "hints": [],
               "ans": "PULL",
-              "isAnsCharacter": true
+              "isAnsCharacter": true,
+              "clueFontSize": 45,
+              "ansFontSize": 45,
+              "otClueFontSize": 45,
+              "otAnsFontSize": 45
             },
             {
               "id": 4,
@@ -60,7 +72,11 @@
               "categoryId": 0,
               "hints": [],
               "ans": "UGLY",
-              "isAnsCharacter": true
+              "isAnsCharacter": true,
+              "clueFontSize": 45,
+              "ansFontSize": 45,
+              "otClueFontSize": 45,
+              "otAnsFontSize": 45
             },
             {
               "id": 5,
@@ -68,7 +84,11 @@
               "categoryId": 0,
               "hints": [],
               "ans": "DAY",
-              "isAnsCharacter": true
+              "isAnsCharacter": true,
+              "clueFontSize": 45,
+              "ansFontSize": 45,
+              "otClueFontSize": 45,
+              "otAnsFontSize": 45
             },
             {
               "id": 6,
@@ -76,7 +96,11 @@
               "categoryId": 0,
               "hints": [],
               "ans": "FULL",
-              "isAnsCharacter": true
+              "isAnsCharacter": true,
+              "clueFontSize": 45,
+              "ansFontSize": 45,
+              "otClueFontSize": 45,
+              "otAnsFontSize": 45
             },
             {
               "id": 7,
@@ -84,7 +108,11 @@
               "categoryId": 0,
               "hints": [],
               "ans": "NEVER",
-              "isAnsCharacter": true
+              "isAnsCharacter": true,
+              "clueFontSize": 45,
+              "ansFontSize": 45,
+              "otClueFontSize": 45,
+              "otAnsFontSize": 45
             },
             {
               "id": 8,
@@ -92,7 +120,9 @@
               "categoryId": 0,
               "hints": [],
               "ans": "OVER",
-              "isAnsCharacter": true
+              "isAnsCharacter": true,
+              "clueFontSize": 45,
+              "ansFontSize": 45
             },
             {
               "id": 9,
@@ -100,7 +130,11 @@
               "categoryId": 0,
               "hints": [],
               "ans": "SMALL",
-              "isAnsCharacter": true
+              "isAnsCharacter": true,
+              "clueFontSize": 45,
+              "ansFontSize": 45,
+              "otClueFontSize": 45,
+              "otAnsFontSize": 45
             },
             {
               "id": 10,
@@ -108,9 +142,27 @@
               "categoryId": 0,
               "hints": [],
               "ans": "BORROW",
-              "isAnsCharacter": true
+              "isAnsCharacter": true,
+              "clueFontSize": 45,
+              "ansFontSize": 45,
+              "otClueFontSize": 45,
+              "otAnsFontSize": 45
+            },
+            {
+              "id": 11,
+              "clue": "hello question",
+              "categoryId": 0,
+              "hints": [],
+              "ans": "hello answer",
+              "isAnsCharacter": true,
+              "clueFontSize": 20,
+              "ansFontSize": 20,
+              "otClueFontSize": 45,
+              "otAnsFontSize": 45
             }
-          ]
+          ],
+          "roundNameFontSize": "30",
+          "clueLabelFontSize": "20"
         },
         {
           "id": 2,
@@ -131,11 +183,17 @@
                   "id": 1,
                   "value": "TIME",
                   "position": 1,
-                  "isCharacter": false
+                  "isCharacter": false,
+                  "hintFontSize": "80",
+                  "otHintFontSize": 45
                 }
               ],
               "ans": "TABLE",
-              "isAnsCharacter": true
+              "isAnsCharacter": true,
+              "clueFontSize": "70",
+              "ansFontSize": "90",
+              "otClueFontSize": 45,
+              "otAnsFontSize": 45
             },
             {
               "id": 2,
@@ -146,11 +204,17 @@
                   "id": 1,
                   "value": "MAN",
                   "position": 2,
-                  "isCharacter": false
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
                 }
               ],
               "ans": "SNOW",
-              "isAnsCharacter": true
+              "isAnsCharacter": true,
+              "clueFontSize": 45,
+              "ansFontSize": 45,
+              "otClueFontSize": 45,
+              "otAnsFontSize": 45
             },
             {
               "id": 3,
@@ -161,11 +225,17 @@
                   "id": 1,
                   "value": "ROOM",
                   "position": 2,
-                  "isCharacter": false
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
                 }
               ],
               "ans": "BED",
-              "isAnsCharacter": true
+              "isAnsCharacter": true,
+              "clueFontSize": 45,
+              "ansFontSize": 45,
+              "otClueFontSize": null,
+              "otAnsFontSize": 45
             },
             {
               "id": 4,
@@ -176,11 +246,14 @@
                   "id": 1,
                   "value": "CUP",
                   "position": 1,
-                  "isCharacter": false
+                  "isCharacter": false,
+                  "hintFontSize": 45
                 }
               ],
               "ans": "BOARD",
-              "isAnsCharacter": true
+              "isAnsCharacter": true,
+              "clueFontSize": 45,
+              "ansFontSize": 45
             },
             {
               "id": 5,
@@ -191,11 +264,17 @@
                   "id": 1,
                   "value": "FLY",
                   "position": 2,
-                  "isCharacter": false
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
                 }
               ],
               "ans": "BUTTER",
-              "isAnsCharacter": true
+              "isAnsCharacter": true,
+              "clueFontSize": 45,
+              "ansFontSize": 45,
+              "otClueFontSize": null,
+              "otAnsFontSize": 45
             },
             {
               "id": 6,
@@ -206,11 +285,17 @@
                   "id": 1,
                   "value": "MOTOR",
                   "position": 1,
-                  "isCharacter": false
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
                 }
               ],
               "ans": "CYCLE",
-              "isAnsCharacter": true
+              "isAnsCharacter": true,
+              "clueFontSize": 45,
+              "ansFontSize": 45,
+              "otClueFontSize": 45,
+              "otAnsFontSize": 45
             },
             {
               "id": 7,
@@ -221,11 +306,17 @@
                   "id": 1,
                   "value": "BACK",
                   "position": 1,
-                  "isCharacter": false
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
                 }
               ],
               "ans": "PACK",
-              "isAnsCharacter": true
+              "isAnsCharacter": true,
+              "clueFontSize": 45,
+              "ansFontSize": 45,
+              "otClueFontSize": 45,
+              "otAnsFontSize": 45
             },
             {
               "id": 8,
@@ -236,11 +327,17 @@
                   "id": 1,
                   "value": "WATER",
                   "position": 1,
-                  "isCharacter": false
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
                 }
               ],
               "ans": "MELON",
-              "isAnsCharacter": true
+              "isAnsCharacter": true,
+              "clueFontSize": 45,
+              "ansFontSize": 45,
+              "otClueFontSize": 45,
+              "otAnsFontSize": 45
             },
             {
               "id": 9,
@@ -251,11 +348,17 @@
                   "id": 1,
                   "value": "BAND",
                   "position": 2,
-                  "isCharacter": false
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
                 }
               ],
               "ans": "RUBBER",
-              "isAnsCharacter": true
+              "isAnsCharacter": true,
+              "clueFontSize": 45,
+              "ansFontSize": 45,
+              "otClueFontSize": 45,
+              "otAnsFontSize": 45
             },
             {
               "id": 10,
@@ -266,13 +369,21 @@
                   "id": 1,
                   "value": "SPOKEN",
                   "position": 2,
-                  "isCharacter": false
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
                 }
               ],
               "ans": "OUT",
-              "isAnsCharacter": true
+              "isAnsCharacter": true,
+              "clueFontSize": 45,
+              "ansFontSize": 45,
+              "otClueFontSize": 45,
+              "otAnsFontSize": 45
             }
-          ]
+          ],
+          "roundNameFontSize": "50",
+          "clueLabelFontSize": "60"
         },
         {
           "id": 3,
@@ -293,11 +404,17 @@
                   "id": 1,
                   "value": "FLOFAURANA",
                   "position": 0,
-                  "isCharacter": true
+                  "isCharacter": true,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
                 }
               ],
               "ans": "FLORA FAUNA",
-              "isAnsCharacter": true
+              "isAnsCharacter": true,
+              "clueFontSize": 45,
+              "ansFontSize": 45,
+              "otClueFontSize": 45,
+              "otAnsFontSize": 45
             },
             {
               "id": 2,
@@ -308,11 +425,17 @@
                   "id": 1,
                   "value": "CHASTORACRYTERS",
                   "position": 0,
-                  "isCharacter": true
+                  "isCharacter": true,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
                 }
               ],
               "ans": "CHARACTERS STORY",
-              "isAnsCharacter": true
+              "isAnsCharacter": true,
+              "clueFontSize": 45,
+              "ansFontSize": 45,
+              "otClueFontSize": 45,
+              "otAnsFontSize": 45
             },
             {
               "id": 3,
@@ -323,11 +446,17 @@
                   "id": 1,
                   "value": "WATSALERT",
                   "position": 0,
-                  "isCharacter": true
+                  "isCharacter": true,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
                 }
               ],
               "ans": "WATER SALT",
-              "isAnsCharacter": true
+              "isAnsCharacter": true,
+              "clueFontSize": 45,
+              "ansFontSize": 45,
+              "otClueFontSize": 45,
+              "otAnsFontSize": 45
             },
             {
               "id": 4,
@@ -338,11 +467,17 @@
                   "id": 1,
                   "value": "RICSAEND",
                   "position": 0,
-                  "isCharacter": true
+                  "isCharacter": true,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
                 }
               ],
               "ans": "RICE SAND",
-              "isAnsCharacter": true
+              "isAnsCharacter": true,
+              "clueFontSize": 45,
+              "ansFontSize": 45,
+              "otClueFontSize": 45,
+              "otAnsFontSize": 45
             },
             {
               "id": 5,
@@ -353,11 +488,17 @@
                   "id": 1,
                   "value": "ROLADPEDER",
                   "position": 0,
-                  "isCharacter": true
+                  "isCharacter": true,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
                 }
               ],
               "ans": "ROPE LADDER",
-              "isAnsCharacter": true
+              "isAnsCharacter": true,
+              "clueFontSize": 45,
+              "ansFontSize": 45,
+              "otClueFontSize": 45,
+              "otAnsFontSize": 45
             },
             {
               "id": 6,
@@ -368,11 +509,17 @@
                   "id": 1,
                   "value": "TRAPLAINNE",
                   "position": 0,
-                  "isCharacter": true
+                  "isCharacter": true,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
                 }
               ],
               "ans": "TRAIN PLANE",
-              "isAnsCharacter": true
+              "isAnsCharacter": true,
+              "clueFontSize": 45,
+              "ansFontSize": 45,
+              "otClueFontSize": 45,
+              "otAnsFontSize": 45
             },
             {
               "id": 7,
@@ -383,11 +530,17 @@
                   "id": 1,
                   "value": "COFFTEAEE",
                   "position": 0,
-                  "isCharacter": true
+                  "isCharacter": true,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
                 }
               ],
               "ans": "COFFEE TEA",
-              "isAnsCharacter": true
+              "isAnsCharacter": true,
+              "clueFontSize": 45,
+              "ansFontSize": 45,
+              "otClueFontSize": 45,
+              "otAnsFontSize": 45
             },
             {
               "id": 8,
@@ -398,11 +551,17 @@
                   "id": 1,
                   "value": "BREPASTADRY",
                   "position": 0,
-                  "isCharacter": true
+                  "isCharacter": true,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
                 }
               ],
               "ans": "BREAD PASTRY",
-              "isAnsCharacter": true
+              "isAnsCharacter": true,
+              "clueFontSize": 45,
+              "ansFontSize": 45,
+              "otClueFontSize": 45,
+              "otAnsFontSize": 45
             },
             {
               "id": 9,
@@ -413,11 +572,17 @@
                   "id": 1,
                   "value": "BREALUNKFASTCH",
                   "position": 0,
-                  "isCharacter": true
+                  "isCharacter": true,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
                 }
               ],
               "ans": "BREAKFAST LUNCH",
-              "isAnsCharacter": true
+              "isAnsCharacter": true,
+              "clueFontSize": 45,
+              "ansFontSize": 45,
+              "otClueFontSize": 45,
+              "otAnsFontSize": 45
             },
             {
               "id": 10,
@@ -428,11 +593,17 @@
                   "id": 1,
                   "value": "HAPSAPYD",
                   "position": 0,
-                  "isCharacter": true
+                  "isCharacter": true,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
                 }
               ],
               "ans": "HAPPY SAD",
-              "isAnsCharacter": true
+              "isAnsCharacter": true,
+              "clueFontSize": 45,
+              "ansFontSize": 45,
+              "otClueFontSize": 45,
+              "otAnsFontSize": 45
             },
             {
               "id": 11,
@@ -443,13 +614,21 @@
                   "id": 1,
                   "value": "TESTING TESTING",
                   "position": 0,
-                  "isCharacter": true
+                  "isCharacter": true,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
                 }
               ],
               "ans": "TESTING TESTING",
-              "isAnsCharacter": true
+              "isAnsCharacter": true,
+              "clueFontSize": 45,
+              "ansFontSize": 45,
+              "otClueFontSize": 45,
+              "otAnsFontSize": 45
             }
-          ]
+          ],
+          "roundNameFontSize": "90",
+          "clueLabelFontSize": "60"
         },
         {
           "id": 4,
@@ -479,12 +658,15 @@
                   "id": 1,
                   "value": "ARSM",
                   "position": 0,
-                  "isCharacter": false
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
                 }
               ],
               "ans": "MARS",
               "isAnsCharacter": true,
-              "actions": 3
+              "ansFontSize": 45,
+              "otAnsFontSize": 45
             },
             {
               "id": 2,
@@ -495,12 +677,15 @@
                   "id": 1,
                   "value": "NAUTASTRO",
                   "position": 0,
-                  "isCharacter": false
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
                 }
               ],
               "ans": "ASTRONAUT",
               "isAnsCharacter": true,
-              "actions": 0
+              "ansFontSize": 45,
+              "otAnsFontSize": 45
             },
             {
               "id": 3,
@@ -511,12 +696,15 @@
                   "id": 1,
                   "value": "IENAL",
                   "position": 0,
-                  "isCharacter": false
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
                 }
               ],
               "ans": "ALIEN",
               "isAnsCharacter": true,
-              "actions": 0
+              "ansFontSize": 45,
+              "otAnsFontSize": 45
             },
             {
               "id": 4,
@@ -527,12 +715,15 @@
                   "id": 1,
                   "value": "LAXYGA",
                   "position": 0,
-                  "isCharacter": false
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
                 }
               ],
               "ans": "GALAXY",
               "isAnsCharacter": true,
-              "actions": 0
+              "ansFontSize": 45,
+              "otAnsFontSize": 45
             },
             {
               "id": 5,
@@ -543,12 +734,15 @@
                   "id": 1,
                   "value": "ARTS",
                   "position": 0,
-                  "isCharacter": false
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
                 }
               ],
               "ans": "STAR",
               "isAnsCharacter": true,
-              "actions": 0
+              "ansFontSize": 45,
+              "otAnsFontSize": 45
             },
             {
               "id": 6,
@@ -559,12 +753,15 @@
                   "id": 1,
                   "value": "BITOR",
                   "position": 0,
-                  "isCharacter": false
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
                 }
               ],
               "ans": "ORBIT",
               "isAnsCharacter": true,
-              "actions": 0
+              "ansFontSize": 45,
+              "otAnsFontSize": 45
             },
             {
               "id": 7,
@@ -575,12 +772,15 @@
                   "id": 1,
                   "value": "EATHR",
                   "position": 0,
-                  "isCharacter": false
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
                 }
               ],
               "ans": "EARTH",
               "isAnsCharacter": true,
-              "actions": 0
+              "ansFontSize": 45,
+              "otAnsFontSize": 45
             },
             {
               "id": 8,
@@ -591,12 +791,15 @@
                   "id": 1,
                   "value": "TEORME",
                   "position": 0,
-                  "isCharacter": false
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
                 }
               ],
               "ans": "METERO",
               "isAnsCharacter": true,
-              "actions": 0
+              "ansFontSize": 45,
+              "otAnsFontSize": 45
             },
             {
               "id": 9,
@@ -607,12 +810,15 @@
                   "id": 1,
                   "value": "LITESATEL",
                   "position": 0,
-                  "isCharacter": false
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
                 }
               ],
               "ans": "SATELLITE",
               "isAnsCharacter": true,
-              "actions": 0
+              "ansFontSize": 45,
+              "otAnsFontSize": 45
             },
             {
               "id": 10,
@@ -623,12 +829,15 @@
                   "id": 1,
                   "value": "UMVACU",
                   "position": 0,
-                  "isCharacter": false
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
                 }
               ],
               "ans": "VACUUM",
               "isAnsCharacter": true,
-              "actions": 0
+              "ansFontSize": 45,
+              "otAnsFontSize": 45
             },
             {
               "id": 11,
@@ -643,8 +852,7 @@
                 }
               ],
               "ans": "SUBMARINE",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 12,
@@ -659,8 +867,7 @@
                 }
               ],
               "ans": "SHIPWRECK",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 13,
@@ -675,8 +882,7 @@
                 }
               ],
               "ans": "BOTTOM",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 14,
@@ -691,8 +897,7 @@
                 }
               ],
               "ans": "OCTOPUS",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 15,
@@ -707,8 +912,7 @@
                 }
               ],
               "ans": "MYSTERIOUS",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 16,
@@ -723,8 +927,7 @@
                 }
               ],
               "ans": "DIVING",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 17,
@@ -739,8 +942,7 @@
                 }
               ],
               "ans": "SUBMERGE",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 18,
@@ -755,8 +957,7 @@
                 }
               ],
               "ans": "SEABED",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 19,
@@ -771,8 +972,7 @@
                 }
               ],
               "ans": "REEF",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 20,
@@ -787,8 +987,7 @@
                 }
               ],
               "ans": "FISH",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             }
           ]
         },
@@ -808,7 +1007,11 @@
               "categoryId": 0,
               "hints": [],
               "ans": "INTELLIGENT",
-              "isAnsCharacter": true
+              "isAnsCharacter": true,
+              "clueFontSize": 45,
+              "ansFontSize": 45,
+              "otClueFontSize": 45,
+              "otAnsFontSize": 45
             }
           ]
         }
@@ -3639,8 +3842,7 @@
                 }
               ],
               "ans": "ACTOR",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 2,
@@ -3655,8 +3857,7 @@
                 }
               ],
               "ans": "SET",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 3,
@@ -3671,8 +3872,7 @@
                 }
               ],
               "ans": "STORY",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 4,
@@ -3687,8 +3887,7 @@
                 }
               ],
               "ans": "COSTUME",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 5,
@@ -3703,8 +3902,7 @@
                 }
               ],
               "ans": "SCREENPLAY",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 6,
@@ -3719,8 +3917,7 @@
                 }
               ],
               "ans": "ROLE",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 7,
@@ -3735,8 +3932,7 @@
                 }
               ],
               "ans": "SOUNDTRACK",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 8,
@@ -3751,8 +3947,7 @@
                 }
               ],
               "ans": "CREW",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 9,
@@ -3767,8 +3962,7 @@
                 }
               ],
               "ans": "FILM",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 10,
@@ -3783,8 +3977,7 @@
                 }
               ],
               "ans": "STUDIO",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 11,
@@ -3799,8 +3992,7 @@
                 }
               ],
               "ans": "CINEMA",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 12,
@@ -3815,8 +4007,7 @@
                 }
               ],
               "ans": "POPCORN",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 13,
@@ -3831,8 +4022,7 @@
                 }
               ],
               "ans": "SEAT",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 14,
@@ -3847,8 +4037,7 @@
                 }
               ],
               "ans": "TICKET",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 15,
@@ -3863,8 +4052,7 @@
                 }
               ],
               "ans": "WATCH",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 16,
@@ -3879,8 +4067,7 @@
                 }
               ],
               "ans": "ROW",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 17,
@@ -3895,8 +4082,7 @@
                 }
               ],
               "ans": "POSTER",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 18,
@@ -3911,8 +4097,7 @@
                 }
               ],
               "ans": "SCREEN",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 19,
@@ -3927,8 +4112,7 @@
                 }
               ],
               "ans": "ENTERTAINMENT",
-              "isAnsCharacter": true,
-              "actions": 1
+              "isAnsCharacter": true
             },
             {
               "id": 20,
@@ -3943,8 +4127,7 @@
                 }
               ],
               "ans": "QUEUE",
-              "isAnsCharacter": true,
-              "actions": 1
+              "isAnsCharacter": true
             }
           ]
         },
@@ -6779,8 +6962,7 @@
                 }
               ],
               "ans": "DECK",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 2,
@@ -6795,8 +6977,7 @@
                 }
               ],
               "ans": "SAILOR",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 3,
@@ -6811,8 +6992,7 @@
                 }
               ],
               "ans": "ROPE",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 4,
@@ -6827,8 +7007,7 @@
                 }
               ],
               "ans": "CAPTAIN",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 5,
@@ -6843,8 +7022,7 @@
                 }
               ],
               "ans": "CABIN",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 6,
@@ -6859,8 +7037,7 @@
                 }
               ],
               "ans": "NAVIGATE",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 7,
@@ -6875,8 +7052,7 @@
                 }
               ],
               "ans": "CRUISE",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 8,
@@ -6891,8 +7067,7 @@
                 }
               ],
               "ans": "PASSENGER",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 9,
@@ -6907,8 +7082,7 @@
                 }
               ],
               "ans": "PORTHOLE",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 10,
@@ -6923,8 +7097,7 @@
                 }
               ],
               "ans": "HULL",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 11,
@@ -6939,8 +7112,7 @@
                 }
               ],
               "ans": "BOAT",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 12,
@@ -6955,8 +7127,7 @@
                 }
               ],
               "ans": "GULL",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 13,
@@ -6971,8 +7142,7 @@
                 }
               ],
               "ans": "STORM",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 14,
@@ -6987,8 +7157,7 @@
                 }
               ],
               "ans": "WHALE",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 15,
@@ -7003,8 +7172,7 @@
                 }
               ],
               "ans": "FISHING",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 16,
@@ -7019,8 +7187,7 @@
                 }
               ],
               "ans": "WIND",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 17,
@@ -7035,8 +7202,7 @@
                 }
               ],
               "ans": "LIGHTHOUSE",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 18,
@@ -7051,8 +7217,7 @@
                 }
               ],
               "ans": "BUOY",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 19,
@@ -7067,8 +7232,7 @@
                 }
               ],
               "ans": "TSUNAMI",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 20,
@@ -7083,8 +7247,7 @@
                 }
               ],
               "ans": "VOYAGE",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             }
           ]
         },
@@ -7578,8 +7741,7 @@
                 }
               ],
               "ans": "TEACHER",
-              "isAnsCharacter": true,
-              "actions": 1
+              "isAnsCharacter": true
             },
             {
               "id": 2,
@@ -7594,8 +7756,7 @@
                 }
               ],
               "ans": "EXAMINATION",
-              "isAnsCharacter": true,
-              "actions": 3
+              "isAnsCharacter": true
             },
             {
               "id": 3,
@@ -7610,8 +7771,7 @@
                 }
               ],
               "ans": "STUDENT",
-              "isAnsCharacter": true,
-              "actions": 3
+              "isAnsCharacter": true
             },
             {
               "id": 4,
@@ -7626,8 +7786,7 @@
                 }
               ],
               "ans": "HOMEWORK",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 5,
@@ -7642,8 +7801,7 @@
                 }
               ],
               "ans": "PRINCIPAL",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 6,
@@ -7658,8 +7816,7 @@
                 }
               ],
               "ans": "SYLLABUS",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 7,
@@ -7674,8 +7831,7 @@
                 }
               ],
               "ans": "STATIONERY",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 8,
@@ -7690,8 +7846,7 @@
                 }
               ],
               "ans": "UNIFORM",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 9,
@@ -7706,8 +7861,7 @@
                 }
               ],
               "ans": "LEARNING",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 10,
@@ -7722,8 +7876,7 @@
                 }
               ],
               "ans": "RECESS",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 11,
@@ -7738,8 +7891,7 @@
                 }
               ],
               "ans": "BEDROOM",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 12,
@@ -7754,8 +7906,7 @@
                 }
               ],
               "ans": "KITCHEN",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 13,
@@ -7770,8 +7921,7 @@
                 }
               ],
               "ans": "ROOF",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 14,
@@ -7786,8 +7936,7 @@
                 }
               ],
               "ans": "FAMILY",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 15,
@@ -7802,8 +7951,7 @@
                 }
               ],
               "ans": "HOUSE",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 16,
@@ -7818,8 +7966,7 @@
                 }
               ],
               "ans": "PARENT",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 17,
@@ -7834,8 +7981,7 @@
                 }
               ],
               "ans": "HOUSEHOLD",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 18,
@@ -7850,8 +7996,7 @@
                 }
               ],
               "ans": "HAVEN",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 19,
@@ -7866,8 +8011,7 @@
                 }
               ],
               "ans": "REST",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             },
             {
               "id": 20,
@@ -7882,8 +8026,7 @@
                 }
               ],
               "ans": "SIBLING",
-              "isAnsCharacter": true,
-              "actions": 0
+              "isAnsCharacter": true
             }
           ]
         },
@@ -9536,14 +9679,14 @@
     }
   ],
   "fontSettings": {
-    "main_roundName": 50,
-    "main_clue": 50,
-    "main_hint": 50,
-    "main_answer": 50,
-    "main_timeOut": 50,
-    "oneThird_timeOut": 100,
+    "main_roundName": "90",
+    "main_clue": "60",
+    "main_hint": "80",
+    "main_answer": "90",
+    "main_timeOut": 1,
+    "oneThird_timeOut": 25,
     "oneThird_hint": 35,
     "oneThird_answer": 35,
-    "player_point": 134
+    "player_point": 300
   }
 }

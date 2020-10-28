@@ -1,4 +1,3 @@
-import { Round } from "./round";
 import { Question } from "./question";
 import { QuestionCategory } from "./questionCategory";
 
@@ -12,4 +11,6 @@ export interface Round {
   timeOut: number;
   point: number;
   questionArray: Question[];
+  roundNameFontSize: number;
+  clueLabelFontSize: number;
 }
