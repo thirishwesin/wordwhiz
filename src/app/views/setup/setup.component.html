@@ -194,19 +194,118 @@
 
                     <!--  hint   -->
                     <div class="container-fluid" *ngIf="question.hints.length != 0">
-                        <div *ngFor="let hint of question.hints">
-                            <!-- hint show back of answer -->
-                            <div class="row" *ngIf="hint.position == 2">
-                                <div class="col-sm-5">
-                                    <div class="form-group ">
-                                        <label for="" style="width:100px;" class="common_label">ANSWER</label>
-                                        <br />
-                                        <input [readonly]="hint.id == 1 ? false : true" type="text" [ngClass]="
+                        <!-- //! for round 2 -->
+                        <ng-container *ngIf="currentRound.id == 2">
+                            <div class="col-sm-12" *ngFor="let hint of question.hints">
+                                <div class="form-group ">
+                                    <label for="" style="width:100px;" class="common_label">HINT ONE</label><br />
+                                    <input type="text" class="common_input w_100" [(ngModel)]="hint.value" (ngModelChange)="questionAnsChanged($event)" />
+                                    <div class="row">
+                                        <div>
+                                            <label class="common_label">MAIN HINT ONE FONT SIZE</label><br />
+                                            <input type="text" class="common_input w_30" [(ngModel)]="hint.hintFontSize" OnlyNumber="true" />
+                                        </div>
+                                        <div style="margin-left: 30%;">
+                                            <label class="common_label">ONE THIRD HINT ONE FONT SIZE</label><br />
+                                            <input type="text" class="common_input w_30" [(ngModel)]="hint.otHintFontSize" OnlyNumber="true" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group ">
+                                    <label for="" style="width:100px;" class="common_label">ANSWER</label><br />
+                                    <input type="text" class="common_input w_100" [(ngModel)]="question.ans" (ngModelChange)="questionAnsChanged($event)" />
+                                    <div class="row">
+                                        <div>
+                                            <label class="common_label">MAIN ANSWER FONT SIZE</label><br />
+                                            <input type="text" class="common_input w_30" [(ngModel)]="question.ansFontSize" OnlyNumber="true" (ngModelChange)="questionAnsFontSizeChanged($event)" />
+                                        </div>
+                                        <div style="margin-left: 30%;">
+                                            <label class="common_label">ONE THIRD ANSWER FONT SIZE</label><br />
+                                            <input type="text" class="common_input w_30" [(ngModel)]="question.otAnsFontSize" OnlyNumber="true" (ngModelChange)="questionAnsFontSizeChanged($event)" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-container>
+
+                        <ng-container *ngIf="currentRound.id == 3 || currentRound.id == 4">
+                            <div *ngFor="let hint of question.hints">
+                                <!-- hint show back of answer -->
+                                <div class="row" *ngIf="hint.position == 2">
+                                    <div class="col-sm-5">
+                                        <div class="form-group ">
+                                            <label for="" style="width:100px;" class="common_label">ANSWER</label>
+                                            <br />
+                                            <input [readonly]="hint.id == 1 ? false : true" type="text" [ngClass]="
+                                            hint.id == 1
+                                            ? 'common_input w_100'
+                                            : 'common_input w_100 disabled'
+                                        " [(ngModel)]="question.ans" />
+                                            <div class="row">
+                                                <div>
+                                                    <label class="common_label">MAIN ANSWER FONT SIZE</label><br>
+                                                    <input type="text" class="common_input w_30" [(ngModel)]="question.ansFontSize" OnlyNumber="true" />
+                                                </div>
+                                                <div>
+                                                    <label class="common_label">ONE THIRD ANSWER FONT SIZE</label><br>
+                                                    <input type="text" class="common_input w_30" [(ngModel)]="question.otAnsFontSize" OnlyNumber="true" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2 exchange_wrapper">
+                                        <img [src]="Images.exchange_icon" class="exchange_icon" (click)="exchangeHint(1, hint.id)" />
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <div class="form-group">
+                                            <label for="" style="width:100px;" class="common_label">HINT
+                                                {{ question.hints.length <= 1 ? "": hint.id }}</label>
+                                            <br />
+                                            <input type="text" class="common_input w_100" (keyup)="changeHint($event, hint.id)" value="{{ hint.value }}" />
+                                            <div>
+                                                <label class="common_label">MAIN HINT FONT SIZE</label><br>
+                                                <input type="text" class="common_input w_30" [(ngModel)]="hint.hintFontSize" OnlyNumber="true" />
+                                            </div>
+                                            <div>
+                                                <label class="common_label">ONE THIRD HINT FONT SIZE</label><br>
+                                                <input type="text" class="common_input w_30" [(ngModel)]="hint.otHintFontSize" OnlyNumber="true" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- hint show front of answer  -->
+                                <div class="row" *ngIf="hint.position != 2">
+                                    <div class="col-sm-5">
+                                        <div class="form-group">
+                                            <label for="" style="width:100px;" class="common_label">HINT
+                                                {{ question.hints.length <= 1 ? "" : hint.id }}</label>
+                                            <span class="error_msg" *ngIf="invalidQuestion && currentRound.hasCategory">*Already exist in
+                                                question list !</span>
+                                            <br />
+                                            <input type="text" class="common_input w_100" (keyup)="changeHint($event, hint.id)" value="{{ hint.value }}" />
+                                            <div>
+                                                <label class="common_label">MAIN HINT FONT SIZE</label><br>
+                                                <input type="text" class="common_input w_30" [(ngModel)]="hint.hintFontSize" OnlyNumber="true" />
+                                            </div>
+                                            <div>
+                                                <label class="common_label">ONE THIRD HINT FONT SIZE</label><br>
+                                                <input type="text" class="common_input w_30" [(ngModel)]="hint.otHintFontSize" OnlyNumber="true" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2 exchange_wrapper">
+                                        <img [src]="Images.exchange_icon" class="exchange_icon" (click)="exchangeHint(2, hint.id)" />
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <div class="form-group ">
+                                            <label for="" style="width:100px;" class="common_label">ANSWER</label><br />
+                                            <input [readonly]="hint.id == 1 ? false : true" type="text" [ngClass]="
                             hint.id == 1
                               ? 'common_input w_100'
                               : 'common_input w_100 disabled'
                           " [(ngModel)]="question.ans" />
-                                        <div class="row">
                                             <div>
                                                 <label class="common_label">MAIN ANSWER FONT SIZE</label><br>
                                                 <input type="text" class="common_input w_30" [(ngModel)]="question.ansFontSize" OnlyNumber="true" />
@@ -217,71 +316,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-sm-2 exchange_wrapper">
-                                    <img [src]="Images.exchange_icon" class="exchange_icon" (click)="exchangeHint(1, hint.id)" />
-                                </div>
-                                <div class="col-sm-5">
-                                    <div class="form-group">
-                                        <label for="" style="width:100px;" class="common_label">HINT
-                                            {{ question.hints.length <= 1 ? "": hint.id }}</label>
-                                        <br />
-                                        <input type="text" class="common_input w_100" (keyup)="changeHint($event, hint.id)" value="{{ hint.value }}" />
-                                        <div>
-                                            <label class="common_label">MAIN HINT FONT SIZE</label><br>
-                                            <input type="text" class="common_input w_30" [(ngModel)]="hint.hintFontSize" OnlyNumber="true" />
-                                        </div>
-                                        <div>
-                                            <label class="common_label">ONE THIRD HINT FONT SIZE</label><br>
-                                            <input type="text" class="common_input w_30" [(ngModel)]="hint.otHintFontSize" OnlyNumber="true" />
-                                        </div>
-                                    </div>
+                                    <div class="col-sm-4 "></div>
                                 </div>
                             </div>
-                            <!-- hint show front of answer  -->
-                            <div class="row" *ngIf="hint.position != 2">
-                                <div class="col-sm-5">
-                                    <div class="form-group">
-                                        <label for="" style="width:100px;" class="common_label">HINT
-                                            {{ question.hints.length <= 1 ? "" : hint.id }}</label>
-                                        <span class="error_msg" *ngIf="invalidQuestion && currentRound.hasCategory">*Already exist in
-                                            question list !</span>
-                                        <br />
-                                        <input type="text" class="common_input w_100" (keyup)="changeHint($event, hint.id)" value="{{ hint.value }}" />
-                                        <div>
-                                            <label class="common_label">MAIN HINT FONT SIZE</label><br>
-                                            <input type="text" class="common_input w_30" [(ngModel)]="hint.hintFontSize" OnlyNumber="true" />
-                                        </div>
-                                        <div>
-                                            <label class="common_label">ONE THIRD HINT FONT SIZE</label><br>
-                                            <input type="text" class="common_input w_30" [(ngModel)]="hint.otHintFontSize" OnlyNumber="true" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-2 exchange_wrapper">
-                                    <img [src]="Images.exchange_icon" class="exchange_icon" (click)="exchangeHint(2, hint.id)" />
-                                </div>
-                                <div class="col-sm-5">
-                                    <div class="form-group ">
-                                        <label for="" style="width:100px;" class="common_label">ANSWER</label><br />
-                                        <input [readonly]="hint.id == 1 ? false : true" type="text" [ngClass]="
-                            hint.id == 1
-                              ? 'common_input w_100'
-                              : 'common_input w_100 disabled'
-                          " [(ngModel)]="question.ans" />
-                                        <div>
-                                            <label class="common_label">MAIN ANSWER FONT SIZE</label><br>
-                                            <input type="text" class="common_input w_30" [(ngModel)]="question.ansFontSize" OnlyNumber="true" />
-                                        </div>
-                                        <div>
-                                            <label class="common_label">ONE THIRD ANSWER FONT SIZE</label><br>
-                                            <input type="text" class="common_input w_30" [(ngModel)]="question.otAnsFontSize" OnlyNumber="true" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4 "></div>
-                            </div>
-                        </div>
+                        </ng-container>
+
                         <div class="col-sm-12 btn_wrapper">
                             <div class="btn-group btn-group-toggle btn_question">
                                 <button class="btn-primary btn_box button" (click)="saveQuestion()" [disabled]="disabled()">

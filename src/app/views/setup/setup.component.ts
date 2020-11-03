@@ -124,18 +124,14 @@ export class SetupComponent implements OnInit {
     return Array.from(
       {
         length: _.result(
-          _.find(this.wordWhiz.questionTypes, [
-            "id",
-            this.currentRound.questionType
-          ]),
-          "hintsCount"
+          _.find(this.wordWhiz.questionTypes, ["id", this.currentRound.questionType]), "hintsCount"
         )
       },
       (x, i) => {
         return {
           id: i + 1,
           value: "",
-          position: this.currentRound.questionType == 2 ? 1 : 0,                // hint position 1 and 2 is only for round 2, rest all can 0
+          position: 0,                // hint position 1 and 2 is only for round 2, rest all can 0
           isCharacter: this.questionType ? this.questionType.isHintChar : false // round 3 question cannot sperate like a char
         };
       }
@@ -144,10 +140,7 @@ export class SetupComponent implements OnInit {
 
   updateSetupState() {
     //update current round
-    this.currentRound = _.find(this.episode.rounds, [
-      "id",
-      this.control.currentRoundId
-    ]);
+    this.currentRound = _.find(this.episode.rounds, ["id", this.control.currentRoundId]);
     //select the last round and remove condition
     if (this.currentRound == undefined) {
       this.store.dispatch(
@@ -166,7 +159,6 @@ export class SetupComponent implements OnInit {
 
     //update current hint count
     this.question.hints = this.initHintArrByQuestionType();
-
     //initialize current Question Category
     if (!this.currentCategory) {
       this.currentCategory =
@@ -207,7 +199,6 @@ export class SetupComponent implements OnInit {
 
     //clear question block
     this.clearQuestionBlock();
-    console.log("current round name >>  ", this.currentRound.name);
   }
 
   changeQuestionType(questionType) {
@@ -304,10 +295,7 @@ export class SetupComponent implements OnInit {
 
       if (!this.invalidQuestion) {
         //add question
-        let generateId =
-          this.currentRound.questionArray.length == 0
-            ? 1
-            : this.currentRound.questionArray.slice(-1).pop().id + 1;
+        let generateId = this.currentRound.questionArray.length == 0 ? 1 : this.currentRound.questionArray.slice(-1).pop().id + 1;
         this.currentRound.questionArray.push({
           ...this.question,
           id: generateId,
@@ -339,7 +327,6 @@ export class SetupComponent implements OnInit {
           }
         });
       if (!this.invalidQuestion) {
-        console.log('selected round id => ', this.currentRound.id)
         this.currentRound.questionArray.map(question => {
           if (question.id == this.question.id && !this.currentRound.hasCategory) {
             question.clue = this.question.clue;
@@ -406,7 +393,6 @@ export class SetupComponent implements OnInit {
       }
       prevId = question.id;
     });
-    console.log("question array >> ", this.currentRound.questionArray);
 
     this.checkQuestionsByCategory();
   }
