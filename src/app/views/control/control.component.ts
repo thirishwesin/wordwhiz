@@ -219,7 +219,6 @@ export class ControlComponent implements OnInit {
     console.log("wordWhiz state in control", this.wordWhiz);
     console.log("episode state in control", this.episode);
     console.log("control state in control", this.control);
-
     this.updateControlState();
 
     // remote.getCurrentWindow().on("close", e => {
@@ -236,7 +235,7 @@ export class ControlComponent implements OnInit {
   updateControlState() {
     // clear control extraWord array
     this.control.extraWord = [];
-
+    this.control.roundTwoStatus = [{ id: 1, imagePath: '1default' }, { id: 2, imagePath: '2default' }, { id: 3, imagePath: '3default' }]
     if (this.control.finishCategoryRound) this.isStartRound4 = false;
 
     //update current round
@@ -244,12 +243,16 @@ export class ControlComponent implements OnInit {
       "id",
       this.control.currentRoundId
     ]);
-    console.log('current round => ', this.currentRound)
+    console.log('current round => ', this.control)
     //update current question
     this.currentQuestion = _.find(this.currentRound.questionArray, [
       "id",
       this.control.currentQuestionId
     ]);
+
+    if (this.currentRound.id == 2) {
+      this.setDefaultRadioState()
+    }
 
     // push control extraWord
     if (this.currentQuestion && this.currentQuestion.isAnsCharacter)
@@ -631,6 +634,10 @@ export class ControlComponent implements OnInit {
         updateData["showAns"] = true;
         this.updateCurrentQuestion(updateData);
       }, 1000);
+    }
+
+    if (this.currentRound.id === 2) {
+      this.control.roundTwoStatus = [{ id: 1, imagePath: '1default' }, { id: 2, imagePath: '2default' }, { id: 3, imagePath: '3default' }]
     }
   }
 
@@ -1150,5 +1157,40 @@ export class ControlComponent implements OnInit {
 
   changePlayerPointSize(pointFontSize) {
     this.episode.players.map(player => player.pointFontSize = pointFontSize)
+  }
+
+  radioOnChange(event) {
+    let radioValue = event.target.value
+    switch (radioValue) {
+      case '1default':
+        _.find(this.control.roundTwoStatus, ['id', 1]).imagePath = '1default';
+        break;
+      case '2default':
+        _.find(this.control.roundTwoStatus, ['id', 2]).imagePath = '2default';
+        break;
+      case '3default':
+        _.find(this.control.roundTwoStatus, ['id', 3]).imagePath = '3default';
+        break;
+      case '1choose':
+        _.find(this.control.roundTwoStatus, ['id', 1]).imagePath = '1choose';
+        break;
+      case '2choose':
+        _.find(this.control.roundTwoStatus, ['id', 2]).imagePath = '2choose';
+        break;
+      case '3choose':
+        _.find(this.control.roundTwoStatus, ['id', 3]).imagePath = '3choose';
+        break;
+      default:
+        break;
+    }
+    this.broadcastScreens();
+  }
+
+  setDefaultRadioState() {
+    setTimeout(() => {
+      (<HTMLInputElement>document.querySelector('input[value="1default"]')).checked = true;
+      (<HTMLInputElement>document.querySelector('input[value="2default"]')).checked = true;
+      (<HTMLInputElement>document.querySelector('input[value="3default"]')).checked = true;
+    }, 0);
   }
 }

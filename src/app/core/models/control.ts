@@ -1,5 +1,6 @@
 import { ExtraWord } from "./extraWord";
 import { FontSettings } from "./fontSettings";
+import { RoundTwoStatus } from "./roundTwoStatus";
 
 export interface Control {
   currentEpisodeId: number;
@@ -17,5 +18,6 @@ export interface Control {
   clickPoint: boolean;
   clickTimer: boolean;
   animationExtraWord: string
-  fontSettingOpenClose: boolean
+  fontSettingOpenClose: boolean;
+  roundTwoStatus: RoundTwoStatus[];
 }

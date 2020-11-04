@@ -140,9 +140,14 @@
                         <input readonly [ngClass]="control.showQuestion || currentRound.hasCategory && control.startCount ? 'col-sm-9 common_input':'col-sm-9 common_input disabled'" type="text" value={{currentQuestion?.clue}} />
 
                     </div>
-                    <div class="col-sm-8 row" *ngFor="let hint of currentQuestion?.hints">
-                        <label class="col-sm-3 common_label">HINT</label>
+                    <div class="col-sm-8 row" *ngFor="let hint of currentQuestion?.hints; let i = index;">
+                        <label class="col-sm-3 common_label">{{ i == 0 ? 'HINT ONE': i==1 ? 'HINT TWO': 'HINT THREE'}}</label>
                         <input readonly [ngClass]="control.showQuestion || currentRound.hasCategory && control.startCount ? 'col-sm-9 common_input':'col-sm-9 common_input disabled'" type="text" value={{hint.value}} />
+                        <ng-container *ngIf="currentRound.id == 2">
+                            <input type="radio" checked="checked" [name]="i" [value]=" 1 + i + 'default'" (change)="radioOnChange($event)" /><label> Default</label>
+                            <input type="radio" [name]="i" [value]=" 1 + i + 'choose'" (change)="radioOnChange($event)" /><label> Player Choosed</label>
+                        </ng-container>
+
                     </div>
                     <div class="col-sm-8 row">
                         <label class="col-sm-3 common_label">ANSWER</label>
