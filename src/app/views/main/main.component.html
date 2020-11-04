@@ -18,12 +18,12 @@
             <div class="col-5 mt10 left-wrapper">
                 <div class="apng-ani  mx-auto d-block 
                     width{{control.fontSettings.main_timeOut}}"></div>
-                <!-- <img [src]="Images.loading" class=" mx-auto d-block 
-                    width{{control.fontSettings.main_timeOut}}" /> -->
-                <!-- <div class="timer_center font{{control.fontSettings.main_timeOut}}" [ngClass]="counter$ > 3 ? 'timer' : 'timer_style'">{{ counter$ }} </div> -->
+                <img [src]="Images.loading" class=" mx-auto d-block 
+                    width{{control.fontSettings.main_timeOut}}" />
+                <div class="timer_center font{{control.fontSettings.main_timeOut}}" [ngClass]="counter$ > 3 ? 'timer' : 'timer_style'">{{ counter$ }} </div>
             </div>
             <div class="col-7">
-                <div>
+                <div *ngIf="currentRound.id != 2">
                     <!-- <p class="clude_txt font{{control.fontSettings.main_clue}}">CLUE:</p> -->
                     <p class="clude_txt" [ngStyle]="{'font-size': currentRound.clueLabelFontSize + 'px'}">CLUE:</p>
                     <img class="cube_img" name="cube_img" alt="" />
@@ -63,9 +63,9 @@
                         </div>
                     </div>
                     <div class="">
-                        <div *ngFor="let hint of currentQuestion?.hints">
+                        <div *ngFor="let hint of currentQuestion?.hints; let i = index">
                             <!-- //! for position 0 top -->
-                            <div class="text-center " *ngIf="hint.position == 0">
+                            <div class="text-center " *ngIf="hint.position == 0 && currentRound.id != 2">
                                 <div class="long_word_blue longBlueRoundFour{{hint.value.length}} long_retangle{{control.fontSettings.main_hint}}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose || round4hintAnimated && control.startCount ? 'animated heartBeat':''"
                                     *ngIf="!hint?.isCharacter">
                                     <p class="word font{{control.fontSettings.main_hint}}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint ? 'animated zoomIn':''">
@@ -105,6 +105,23 @@
                                     </div>
                                 </div>
                             </div>
+
+
+                            <div class="col-sm-4 text-center" *ngIf="hint.position == 0 && currentRound.id == 2">
+                                <div class="long_word_blue longBlueRoundFour{{hint.value.length}} long_retangle{{control.fontSettings.main_hint}}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose || round4hintAnimated && control.startCount ? 'animated heartBeat':''"
+                                    *ngIf="!hint?.isCharacter">
+                                    <p class="word font{{control.fontSettings.main_hint}}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint ? 'animated zoomIn':''">
+                                        {{ hint.value }}
+                                    </p>
+                                </div>
+                                <br />
+                                <div class="long_word_green pad_top long_retangle{{control.fontSettings.main_answer}}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose ? 'animated heartBeat':''" *ngIf="currentQuestion?.isAnsCharacter && i == 2 && currentRound.id == 2">
+                                    <p class="word animated zoomIn font{{control.fontSettings.main_answer}}" [ngClass]="control.showAns ? 'animated zoomIn' : 'transparent'">
+                                        {{ currentQuestion?.ans }}
+                                    </p>
+                                </div>
+                            </div>
+
 
                             <!-- //! for position 1 left-->
                             <div class="text-center" *ngIf="hint.position == 1">
