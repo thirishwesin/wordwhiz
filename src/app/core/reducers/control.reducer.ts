@@ -47,7 +47,8 @@ export const initialState: Control = {
   clickPoint: false,
   clickTimer: false,
   animationExtraWord: "",
-  fontSettingOpenClose: false
+  fontSettingOpenClose: false,
+  roundTwoStatus: []
 };
 
 const _controlReducer = createReducer(
