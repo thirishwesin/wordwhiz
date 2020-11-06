@@ -59,6 +59,7 @@
     height: 40px;
     margin-bottom: 0px;
     box-shadow: 1px 4px #00000017;
+    width: 100%;
 }
 
 .select_option {
@@ -77,6 +78,7 @@
     margin-bottom: 0px;
     text-align: left;
     padding-bottom: 5px;
+    width: 100%;
     // text-shadow: 0 0 0.5em #41faff, 0 0 0.5em #41faff;
 }
 
@@ -462,4 +464,23 @@
     border: 1px solid #4DB821;
     outline: none;
     opacity: .65;
+}
+.p010{
+    padding: 0 10px;
+}
+.pl40{
+    padding-left: 40px;
+}
+//Round Four
+.alpha_text{
+color: #fff;
+width: 76px;
+text-align: center;
+}
+.option_text{
+    vertical-align: -2px;
+    margin-left: 10px;
+    color: #fff;
+    margin-right: 30px;
+
 }
