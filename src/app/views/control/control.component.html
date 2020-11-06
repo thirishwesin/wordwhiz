@@ -144,8 +144,8 @@
                         <label class="col-sm-3 common_label">{{ i == 0 ? 'HINT ONE': i==1 ? 'HINT TWO': 'HINT THREE'}}</label>
                         <input readonly [ngClass]="control.showQuestion || currentRound.hasCategory && control.startCount ? 'col-sm-9 common_input':'col-sm-9 common_input disabled'" type="text" value={{hint.value}} />
                         <ng-container *ngIf="currentRound.id == 2">
-                            <input type="radio" checked="checked" [name]="i" [value]=" 1 + i + 'default'" (change)="radioOnChange($event)" /><label> Default</label>
-                            <input type="radio" [name]="i" [value]=" 1 + i + 'choose'" (change)="radioOnChange($event)" /><label> Player Choosed</label>
+                            <input type="radio" class="radio_input" checked="checked" [name]="i" [value]=" 1 + i + 'default'" (change)="radioOnChange($event)" /><label class="option_text"> Default</label>
+                            <input type="radio" class="radio_input" [name]="i" [value]=" 1 + i + 'choose'" (change)="radioOnChange($event)" /><label class="option_text"> Player Choosed</label>
                         </ng-container>
 
                     </div>
