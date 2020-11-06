@@ -271,13 +271,25 @@
                             </div>
                         </div>
                         <div class=" form-group col-6 col-md-4" *ngIf="currentQuestion?.hints.length > 0">
-                            <label for="" class="common_label" style="margin-top: 8%;">Hint</label>
+                            <label for="" class="common_label" style="margin-top: 8%;">Hint One</label>
                             <h6 class="fontsize_limit">Recommended - {{recommendFontSize.main_hint}}</h6>
                             <div class="container_up">
                                 <input class="form-control common_input " OnlyNumber="true" [(ngModel)]="currentQuestion.hints[0].hintFontSize">
                             </div>
-
-
+                        </div>
+                        <div class=" form-group col-6 col-md-4" *ngIf="currentRound.id == 2 ">
+                            <label for="" class="common_label" style="margin-top: 8%;">Hint Two</label>
+                            <h6 class="fontsize_limit">Recommended - {{recommendFontSize.main_hint}}</h6>
+                            <div class="container_up">
+                                <input class="form-control common_input " OnlyNumber="true" [(ngModel)]="currentQuestion.hints[1].hintFontSize">
+                            </div>
+                        </div>
+                        <div class=" form-group col-6 col-md-4" *ngIf="currentRound.id == 2 ">
+                            <label for="" class="common_label" style="margin-top: 8%;">Hint Three</label>
+                            <h6 class="fontsize_limit">Recommended - {{recommendFontSize.main_hint}}</h6>
+                            <div class="container_up">
+                                <input class="form-control common_input " OnlyNumber="true" [(ngModel)]="currentQuestion.hints[2].hintFontSize">
+                            </div>
                         </div>
                         <div class=" form-group col-6 col-md-4">
                             <label for="" class="common_label" style="margin-top: 8%;">Answer</label>

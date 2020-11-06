@@ -16,20 +16,21 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-5  left-wrapper">
-                <div class="apng-ani  mx-auto d-block 
-                    width{{control.fontSettings.main_timeOut}}"></div>
-                <img [src]="Images.loading" class=" mx-auto d-block 
-                    width{{control.fontSettings.main_timeOut}}" />
-                <div class="timer_center font{{control.fontSettings.main_timeOut}}" [ngClass]="counter$ > 3 ? 'timer' : 'timer_style'">{{ counter$ }} </div>
+                <div class="apng-ani  mx-auto d-block"></div>
+                <!-- <img [src]="Images.loading" class=" mx-auto d-block 
+                    width{{control.fontSettings.main_timeOut}}" /> -->
+                <!-- <div class="timer_center font{{control.fontSettings.main_timeOut}}" [ngClass]="counter$ > 3 ? 'timer' : 'timer_style'">{{ counter$ }} </div> -->
             </div>
             <div class="col-7">
-                <!-- <div *ngIf="currentRound.id != 2">
-                     <p class="clude_txt font{{control.fontSettings.main_clue}}">CLUE:</p> 
+                <div>
                     <p class="clude_txt" [ngStyle]="{'font-size': currentRound.clueLabelFontSize + 'px'}">CLUE:</p>
                     <img class="cube_img" name="cube_img" alt="" />
-                    <span class="clude_hint clue_fontsize{{ currentRound.hasCategory ? categoryName.length :  currentQuestion?.clue.length }}" *ngIf="control.showQuestion  || control.runCategoryRound">{{ currentRound.hasCategory? categoryName : currentQuestion?.clue }}
-                    </span>
-                </div> -->
+                    <ng-container *ngIf="currentRound.id != 2">
+                        <span class="clude_hint" *ngIf="control.showQuestion  || control.runCategoryRound" [ngStyle]="{'font-size': currentQuestion.clueFontSize + 'px'}">{{ currentRound.hasCategory? categoryName : currentQuestion?.clue }}
+                        </span>
+                    </ng-container>
+
+                </div>
 
                 <div class="alpha_wrapper" *ngIf="control.showQuestion || control.runCategoryRound">
 
@@ -48,10 +49,10 @@
                                 <div class="one_word_green retangle{{control.fontSettings.main_answer}}" [ngClass]="char == ' ' ? 'hide_char': i==0 ? 'blue_bg animated heartBeat': 'animated heartBeat' " *ngFor="let char of ansCharArr; let i=index;">
                                     <!-- <p class="one_word font{{control.fontSettings.main_answer}}" [ngClass]="control.showAns || currentRound.showfirstAnsChar && i==0 ? 'animated zoomIn' : 'transparent'">
                                         {{char}}</p> -->
-                                        <input type="text" placeholder="A" class="round1_text">
+                                    <input type="text" [value]="char" class="round1_text" [ngStyle]="{'font-size': currentQuestion.ansFontSize + 'px'}" [ngClass]="control.showAns || currentRound.showfirstAnsChar && i==0 ? 'animated zoomIn' : 'transparent'">
                                 </div>
                             </div>
-                            
+
                             <div *ngIf="currentRound.questionType == 5">
                                 <div class="one_word_blue retangle{{control.fontSettings.main_answer}} " [ngClass]="{'animated heartBeat': control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose, 'green_bg' : char.visible && control.showAns , 'hide_char' : char.word == ' '}"
                                     *ngFor="let char of control.extraWord">
@@ -62,8 +63,12 @@
                                                 !char.visible  ? 'transparent': ''">
                                         {{char.word}}
                                     </p> -->
-                                    <input type="text" placeholder="C" class="roundthree_text">
-                                    <!-- <input type="text" placeholder="Hello" class=""> -->
+                                    <!-- class="roundthree_text" -->
+                                    <input type="text" [value]="char.word" [ngStyle]="{'font-size': currentQuestion.ansFontSize + 'px'}" class="one_word font{{control.fontSettings.main_answer}}" [ngClass]="
+                                    control.showAns && !control.clickPoint && !control.clickTimer && !control.fontSettingOpenClose && char.visible && !control.resetCount ||
+                                    char.visible && !control.showAns && control.animationExtraWord == char.word && !control.fontSettingOpenClose && !control.resetCount ? 'animated zoomIn': 
+                                    !char.visible  ? 'transparent': ''" class="roundthree_text">
+
                                 </div>
                             </div>
                         </div>
@@ -85,8 +90,8 @@
                                         <!-- <p class="one_word font{{control.fontSettings.main_hint}}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose ? 'animated zoomIn':''">
                                             {{ char }}
                                         </p> -->
-                                        <input type="text" placeholder="A" class="roundthree_text">
-                                        
+                                        <input type="text" [value]="char" [ngStyle]="{'font-size': currentQuestion.hints[0].hintFontSize + 'px'}" class="roundthree_text" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose ? 'animated zoomIn':''">
+
                                     </div>
                                 </div>
                                 <br />
@@ -94,7 +99,7 @@
                                     <p class="word animated zoomIn font{{control.fontSettings.main_answer}}" [ngClass]="control.showAns ? 'animated zoomIn' : 'transparent'">
                                         {{ currentQuestion?.ans }}
                                     </p>
-                                    
+
                                 </div>
                                 <div class="text-center" *ngIf="currentQuestion?.isAnsCharacter">
                                     <div class="one_word_green retangle{{control.fontSettings.main_answer}}" [ngClass]="{'hide_char less8char': char == ' ' , 'animated heartBeat': control.startCount && round4hintAnimated && currentRound.showfirstAnsChar || control.showQuestion && !currentRound.showfirstAnsChar && !control.showAns && !control.startCount && !control.fontSettingOpenClose, 'blue_bg' : i == 0 && currentRound.showfirstAnsChar}"
@@ -104,8 +109,8 @@
                                             <!-- <p class="word font{{control.fontSettings.main_answer}}"
                                                 [ngClass]="{'animated zoomIn' : control.showAns && i != 0, 'transparent' : !control.showAns && i != 0 }">
                                                 {{char}}</p> -->
-                                                <input type="text" placeholder="A" class="roundthree_text">
-                                              
+                                            <input type="text" placeholder="A" class="roundthree_text">
+
                                         </span>
                                         <!-- //! for round 3 -->
                                         <span *ngIf="!currentRound.showfirstAnsChar">
@@ -113,8 +118,11 @@
                                                 [ngClass]="{'animated zoomIn': control.showAns && !control.clickPoint && !control.clickTimer && !control.fontSettingOpenClose && !control.resetCount , 'transparent': !control.showAns && !control.clickPoint  || !control.showAns &&control.clickPoint}">
                                                 {{char}}
                                             </p> -->
-                                            
-                                            <input type="text" placeholder="A" class="roundthree_text">
+
+                                            <input type="text" [value]="char"
+                                                [ngClass]="{'animated zoomIn': control.showAns && !control.clickPoint && !control.clickTimer && !control.fontSettingOpenClose && !control.resetCount , 'transparent': !control.showAns && !control.clickPoint  || !control.showAns &&control.clickPoint}"
+                                                [ngStyle]="{'font-size': currentQuestion.ansFontSize + 'px'}"
+                                                class="roundthree_text">
                                         </span>
                                     </div>
                                 </div>
@@ -123,14 +131,13 @@
                             <!-- Round Two -->
                             <div class="col-sm-4 text-center float_left" *ngIf="hint.position == 0 && currentRound.id == 2">
                                 <!-- longBlueRoundFour{{hint.value.length}} long_retangle{{control.fontSettings.main_hint}} -->
-                                <div class="long_word_blue " [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose || round4hintAnimated && control.startCount ? 'animated heartBeat':''"
-                                    *ngIf="!hint?.isCharacter">
+                                <div class="long_word_blue " [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose || round4hintAnimated && control.startCount ? 'animated heartBeat':''" *ngIf="!hint?.isCharacter">
                                     <!-- <p class="word font{{control.fontSettings.main_hint}}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint ? 'animated zoomIn':''">
                                         {{ hint.value }}
                                     </p> -->
-                                    <input type="text" placeholder="Round Two" class="roundtwo">
+                                    <input type="text" [value]="hint.value" class="roundtwo" [ngStyle]="{'font-size': hint.hintFontSize + 'px'}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint ? 'animated zoomIn':''">
                                 </div>
-                                
+
                                 <!-- long_retangle{{control.fontSettings.main_answer}} -->
                                 <!-- <div class="long_word_green pad_top " [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose ? 'animated heartBeat':''" *ngIf="currentQuestion?.isAnsCharacter && i == 2 && currentRound.id == 2">
                                      <p class="word animated zoomIn font{{control.fontSettings.main_answer}}" [ngClass]="control.showAns ? 'animated zoomIn' : 'transparent'">
@@ -139,12 +146,12 @@
                                     <input type="text" placeholder="Round Two" class="roundtwo">
                                 </div> -->
                             </div>
-                             <!-- long_retangle{{control.fontSettings.main_answer}} -->
-                             <div class="col-sm-4 text-center float_left roundtwo_long_text long_word_green pad_top " [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose ? 'animated heartBeat':''" *ngIf="currentQuestion?.isAnsCharacter && i == 2 && currentRound.id == 2">
+                            <!-- long_retangle{{control.fontSettings.main_answer}} -->
+                            <div class="col-sm-4 text-center float_left roundtwo_long_text long_word_green pad_top " [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose ? 'animated heartBeat':''" *ngIf="currentQuestion?.isAnsCharacter && i == 2 && currentRound.id == 2">
                                 <!-- <p class="word animated zoomIn font{{control.fontSettings.main_answer}}" [ngClass]="control.showAns ? 'animated zoomIn' : 'transparent'">
                                     {{ currentQuestion?.ans }}
                                 </p> -->
-                                <input type="text" placeholder="Round Two" class="roundtwo">
+                                <input type="text" [value]="currentQuestion?.ans" [ngStyle]="{'font-size': currentQuestion?.ansFontSize + 'px'}" class="roundtwo" [ngClass]="control.showAns ? 'animated zoomIn' : 'transparent'">
                             </div>
 
 
@@ -161,7 +168,7 @@
                                     <div class="one_word_blue retangle{{control.fontSettings.main_hint}}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose ? 'animated heartBeat':''" *ngFor="let char of hint.hintCharArr">
                                         <p class="one_word animated zoomIn font{{control.fontSettings.main_hint}}">
                                             {{ char }}</p>
-                                            <input type="text" placeholder="Hello" class="">
+                                        <input type="text" placeholder="Hello" class="">
                                     </div>
                                 </div>
                                 <div class="long_word_green long_retangle{{control.fontSettings.main_answer}}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose ? 'animated heartBeat':''" *ngIf="!currentQuestion?.isAnsCharacter">

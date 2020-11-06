@@ -45,6 +45,7 @@ export class MainComponent implements OnInit {
   log = [];
   round4hintAnimated = true;
   timeoutList: any;
+  cube_image: any
 
   constructor(
     private store: Store<{
@@ -77,7 +78,7 @@ export class MainComponent implements OnInit {
 
     //read for mainBG and cube
     const image = document.getElementById("main_background");
-    const cube_image = document.images.namedItem("cube_img");
+    this.cube_image = document.images.namedItem("cube_img");
 
     const mainBgImage = new Image();
     const cubeImage = new Image();
@@ -90,7 +91,7 @@ export class MainComponent implements OnInit {
       this.nz.run(() => { });
     };
     cubeImage.onload = () => {
-      cube_image.src = cubeImage.src;
+      this.cube_image.src = cubeImage.src;
     };
 
     if (AppConfig.production) {
@@ -124,7 +125,7 @@ export class MainComponent implements OnInit {
       let filePath = "";
 
       let timeOutFileName = time.fileName;
-
+      console.log('timeOutFileName => ', timeOutFileName)
       if (AppConfig.production)
         filePath =
           process.env.PORTABLE_EXECUTABLE_DIR +
@@ -231,6 +232,10 @@ export class MainComponent implements OnInit {
       this.control.currentQuestionId
     ]);
 
+    console.log('current question => ', this.currentQuestion)
+    console.log('current round => ', this.currentRound)
+    console.log('cube image => ', this.cube_image)
+    if (this.currentRound.id == 2) this.cube_image.src = ''
     //update timer count value
     if (this.currentRound.hasCategory) {
       //update only in selecting theme for round 4
