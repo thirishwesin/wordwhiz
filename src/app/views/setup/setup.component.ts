@@ -1,3 +1,4 @@
+import { Hint } from './../../core/models/hint';
 import { Player } from './../../core/models/player';
 import { Component, OnInit } from "@angular/core";
 import {
@@ -74,6 +75,12 @@ export class SetupComponent implements OnInit {
   timeoutList: any;
   players: Player[]
   playerFontSize: number
+  hintValueForR4: string;
+  currentHintForR4: Hint
+  currentHintArrForR4: Hint[]
+  isDefaultOrHint: string
+  gridValue: string
+  pevCategoryId: number
 
   constructor(
     private store: Store<{
@@ -150,7 +157,8 @@ export class SetupComponent implements OnInit {
       );
       this.updateSetupState();
     }
-
+    console.log('this.current round => ', this.currentRound)
+    console.log('question => ', this.question)
     //current QuestionType
     this.questionType = _.find(this.wordWhiz.questionTypes, [
       "id",
@@ -174,7 +182,16 @@ export class SetupComponent implements OnInit {
   clickRound(round) {
     this.store.dispatch(updateCurrentRoundId({ currentRoundId: round.id }));
     this.updateSetupState();
-
+    if (this.currentRound.id == 4 && this.currentCategory !== undefined && this.currentRound.questionArray.length > 0) {
+      if (this.pevCategoryId) this.pevCategoryId = this.currentCategory.id
+      this.currentHintArrForR4 = this.currentRound.questionArray.filter(question =>
+        question.categoryId == this.currentCategory.id).map(question => question.hints[0])
+      this.currentHintForR4 = this.currentHintArrForR4[0]
+      this.gridValue = this.currentHintForR4.value
+      console.log('currentRound question array => ', this.currentRound.questionArray)
+      console.log('this.question => ', this.question)
+      this.setGridValue();
+    }
     //clear question block
     this.clearQuestionBlock();
   }
@@ -215,8 +232,26 @@ export class SetupComponent implements OnInit {
   }
 
   changeCategory(category) {
+    this.pevCategoryId = this.currentCategory !== undefined ? this.currentCategory.id : undefined;
+    console.log('prev id => ', this.pevCategoryId)
+    if (this.pevCategoryId !== undefined) this.clearGridValues(this.pevCategoryId);
     this.currentCategory = category;
+    let question = _.find(this.currentRound.questionArray, ['categoryId', this.currentCategory.id])
+    console.log('question => ', this.question)
+    if (this.currentRound.questionArray.length > 0 && question !== undefined) {
 
+      this.currentHintArrForR4 = this.currentHintArrForR4 = this.currentRound.questionArray.filter(question =>
+        question.categoryId == this.currentCategory.id).map(question => question.hints[0])
+      this.currentHintForR4 = this.currentHintArrForR4[0]
+      this.gridValue = this.currentHintForR4.value
+
+
+      this.setGridValue();
+    } else {
+      this.currentHintArrForR4 = []
+      this.currentHintForR4 = undefined
+      this.gridValue = undefined
+    }
     this.checkQuestionsByCategory();
   }
 
@@ -276,7 +311,7 @@ export class SetupComponent implements OnInit {
 
   saveQuestion() {
     this.invalidQuestion = false;
-
+    console.log('quesiton => ', this.question)
     //new question
     if (this.question.id == 0) {
       //check the question arrays except self
@@ -289,10 +324,10 @@ export class SetupComponent implements OnInit {
             this.invalidQuestion = true;
           }
         } else {
-          if (question.ans.trim().toUpperCase() == this.question.ans.trim().toUpperCase()) this.invalidQuestion = true;
+          // if (question.ans.trim().toUpperCase() == this.question.ans.trim().toUpperCase()) this.invalidQuestion = true;
         }
       });
-
+      console.log('invalid quesiton => ', this.invalidQuestion)
       if (!this.invalidQuestion) {
         //add question
         let generateId = this.currentRound.questionArray.length == 0 ? 1 : this.currentRound.questionArray.slice(-1).pop().id + 1;
@@ -326,6 +361,7 @@ export class SetupComponent implements OnInit {
             }
           }
         });
+
       if (!this.invalidQuestion) {
         this.currentRound.questionArray.map(question => {
           if (question.id == this.question.id && !this.currentRound.hasCategory) {
@@ -341,6 +377,7 @@ export class SetupComponent implements OnInit {
               question.hints[0].otHintFontSize = +this.question.hints[0].otHintFontSize
             }
           } else if (question.id == this.question.id && this.currentRound.hasCategory) {
+            console.log('question => ', question)
             question.ans = this.question.ans;
             question.ansFontSize = +this.question.ansFontSize
             question.otAnsFontSize = +this.question.otAnsFontSize
@@ -351,6 +388,7 @@ export class SetupComponent implements OnInit {
         });
       }
     }
+    console.log('save question => ', this.question)
 
     if (!this.invalidQuestion) {
       //clear question block
@@ -374,10 +412,14 @@ export class SetupComponent implements OnInit {
   }
 
   editQuestionList(question: any) {
+    console.log('question => ', this.question)
     this.question = _.cloneDeep(question);
+    console.log('edit question => ', this.question)
+
   }
 
   deleteQuestionList(question_id: number) {
+    if (this.currentRound.id == 4) this.clearWord(_.find(this.currentRound.questionArray, ['id', question_id]).hints[0].value);
     this.currentRound.questionArray.splice(
       _.findIndex(
         this.currentRound.questionArray,
@@ -393,6 +435,13 @@ export class SetupComponent implements OnInit {
       }
       prevId = question.id;
     });
+
+    if (this.currentRound.id == 4) {
+      this.currentHintArrForR4 = this.currentHintArrForR4 = this.currentRound.questionArray.filter(question =>
+        question.categoryId == this.currentCategory.id).map(question => question.hints[0])
+      this.currentHintForR4 = this.currentHintArrForR4[0]
+      this.gridValue = this.currentHintForR4.value
+    }
 
     this.checkQuestionsByCategory();
   }
@@ -445,6 +494,12 @@ export class SetupComponent implements OnInit {
       if (_.isEmpty(this.categoryName)) this.isEmptyCategoryName = true;
       else this.isEmptyCategoryName = false;
       this.checkModalType = 5;
+    } else if (isChange === 6) {
+      // delete hint
+      this.checkModalType = 6;
+    } else if (isChange === 7) {
+      // add hint
+      this.checkModalType = 7;
     }
 
     // curentRound's name is null
@@ -493,6 +548,10 @@ export class SetupComponent implements OnInit {
               this.categoryName = "";
               this.categoryFontSize = null;
               this.otCategoryFontSize = null;
+            } else if (isChange === 6) {
+              this.removeHintForR4(type)
+            } else if (isChange === 7) {
+              this.addHintValue(this.hintValueForR4)
             }
           },
           reason => {
@@ -571,6 +630,30 @@ export class SetupComponent implements OnInit {
     this.categoryName = "";
   }
 
+  removeHintForR4(hint: Hint) {
+    let questionArr = this.currentRound.questionArray.filter(question =>
+      question.categoryId == this.currentCategory.id && question.hints[0].value == hint.value)
+    this.deleteQuestionList(questionArr[0].id);
+    // remove hint from real array
+    // let questionArrIndex = _.findIndex(this.currentRound.questionArray, ['categoryId', this.currentCategory.id])
+    // let hintIndex = _.findIndex(this.currentRound.questionArray[questionArrIndex].hints, ['value', hint.value])
+    // this.currentRound.questionArray[questionArrIndex].hints.splice(hintIndex, 1)
+
+    // // resort array by id;
+    // let prevId = 0;
+    // this.currentRound.questionArray[questionArrIndex].hints.map((hint: Hint) => {
+    //   if (hint.id != prevId + 1) hint.id = hint.id - 1;
+    //   prevId = hint.id;
+    // });
+    // // update curretn hint array with new values
+    // console.log('question array => ', this.currentRound.questionArray)
+    // console.log('question array with categoryId => ', _.find(this.currentRound.questionArray, ['categoryId', this.currentCategory.id]).hints)
+    // this.currentHintArrForR4 = this.currentHintArrForR4 = this.currentRound.questionArray.filter(question =>
+    //   question.categoryId == this.currentCategory.id).map(question => question.hints[0])
+    // this.currentHintForR4 = this.currentHintArrForR4[0]
+    // console.log('currentHintArrForR4 => ', this.currentHintArrForR4)
+  }
+
   removeCategory(category) {
     this.currentRound.questionArray = this.currentRound.questionArray.filter(
       a => a.categoryId != category.id
@@ -645,5 +728,118 @@ export class SetupComponent implements OnInit {
 
   changePlayerPointSize(pointFontSize) {
     this.episode.players.map(player => player.pointFontSize = pointFontSize)
+  }
+
+  addHintValue(hintValue) {
+    console.log('this.question => ', this.question)
+    this.currentRound.questionArray.push({
+      ...this.question,
+      categoryId: this.currentCategory.id,
+      id: this.currentRound.questionArray.length == 0 ? 1 : this.currentRound.questionArray.slice(-1).pop().id + 1,
+      hints: [
+        { ...this.question.hints[0], value: hintValue, position: [] }
+      ],
+    })
+    this.noDatabyCategory = false
+    this.hintValueForR4 = ''
+    console.log('current round question array => ', this.currentRound.questionArray)
+    console.log('current category id => ', this.currentCategory.id)
+    this.currentHintArrForR4 = this.currentRound.questionArray.filter(question =>
+      question.categoryId == this.currentCategory.id).map(question => question.hints[0])
+    console.log(' currentHintArrForR4 => ', this.currentHintArrForR4)
+    this.currentHintForR4 = this.currentHintArrForR4[0]
+    this.gridValue = this.currentHintForR4.value
+  }
+
+  clickHint(hint: Hint) {
+    this.currentHintForR4 = hint
+    this.gridValue = hint.value
+    console.log('hint => ', this.currentHintForR4)
+  }
+
+  changeGridStatus(event) {
+    this.isDefaultOrHint = event.target.value
+    console.log('grid status => ', this.isDefaultOrHint)
+  }
+
+  clickGrid(id: string) {
+    console.log('grid value => ', this.currentHintForR4, this.gridValue)
+    let questionArr = this.currentRound.questionArray.filter(question =>
+      question.categoryId == this.currentCategory.id && question.hints[0].value == this.currentHintForR4.value)
+    let questionArrIndex = this.currentRound.questionArray.indexOf(questionArr[0])
+    let div = (<HTMLDivElement>document.getElementById(id));
+    if (this.isDefaultOrHint == 'default') {
+      if (this.gridValue) {
+        div.innerText = this.gridValue.charAt(0);
+        this.gridValue = this.gridValue.substring(1);
+        this.currentRound.questionArray[questionArrIndex].hints[0].position.push(id);
+        // this.question.hints[0].value = "test";
+        // this.question.ans = "hello"
+      }
+    } else if (this.isDefaultOrHint == 'hint') {
+      console.log('backgroundColor => ', div.style.backgroundColor)
+      if (div.style.backgroundColor == '') {
+        div.style.backgroundColor = 'red'
+        this.currentRound.questionArray[questionArrIndex].ans = id;
+      } else {
+        div.style.backgroundColor = ''
+        this.currentRound.questionArray[questionArrIndex].ans = '';
+      }
+
+    }
+  }
+
+  setGridValue() {
+    this.currentRound.questionArray.filter(qustion => qustion.categoryId == this.currentCategory.id).forEach(question => {
+      console.log('question => ', question)
+      question.hints.forEach((hint) => {
+        hint.position.forEach((id, index) => {
+          setTimeout(() => {
+            (<HTMLDivElement>document.getElementById(id)).innerText = hint.value.charAt(index);
+          }, 0);
+        });
+      })
+      if (question.ans) {
+        setTimeout(() => {
+          (<HTMLDivElement>document.getElementById(question.ans)).style.backgroundColor = 'red'
+        }, 0);
+      }
+    })
+  }
+
+  clearGridValues(id: number) {
+    this.currentRound.questionArray.filter(qustion => qustion.categoryId == id).forEach(question => {
+      console.log('question => ', question)
+      question.hints.forEach((hint) => {
+        hint.position.forEach((id, index) => {
+          setTimeout(() => {
+            (<HTMLDivElement>document.getElementById(id)).innerText = '';
+          }, 0);
+        });
+      })
+      if (question.ans) {
+        setTimeout(() => {
+          (<HTMLDivElement>document.getElementById(question.ans)).style.backgroundColor = ''
+        }, 0);
+      }
+    })
+  }
+
+  clearWord(currentHintForR4Value: string) {
+    console.log('currentHintForR4Value => ', currentHintForR4Value)
+    let questionArr = this.currentRound.questionArray.filter(question =>
+      question.categoryId == this.currentCategory.id && question.hints[0].value == currentHintForR4Value)
+    let questionArrIndex = this.currentRound.questionArray.indexOf(questionArr[0])
+
+    this.currentRound.questionArray[questionArrIndex].hints[0].position.forEach(id => {
+      (<HTMLDivElement>document.getElementById(id)).innerText = '';
+    });
+    if (this.currentRound.questionArray[questionArrIndex].ans) {
+      (<HTMLDivElement>document.getElementById(this.currentRound.questionArray[questionArrIndex].ans)).style.backgroundColor = '';
+    }
+    this.currentRound.questionArray[questionArrIndex].hints[0].position = []
+    this.currentRound.questionArray[questionArrIndex].ans = ''
+    this.gridValue = currentHintForR4Value
+    this.setGridValue();
   }
 }
