@@ -136,7 +136,7 @@ button {
 }
 
 .alpha_wrapper {
-    top: 49%;
+    top: 58%;
     left: 45%;
     position: absolute;
     transform: translate(-50%, -50%);
@@ -185,7 +185,7 @@ button {
 
 .long_word_blue {
     width: calc(14em + 3vw);
-    background: url(../../../assets/images/bluelong_bg2.png) no-repeat;
+    background: url(../../../assets/images/blue_rectangle.png) no-repeat;
     -webkit-background-size: cover;
     background-size: cover;
     display: inline-block;
@@ -194,7 +194,7 @@ button {
 
 .long_word_green {
     width: calc(14em + 3vw);
-    background: url(../../../assets/images/greenlong_bg2.png) no-repeat;
+    background: url(../../../assets/images/greenlong_bg.png) no-repeat;
     -webkit-background-size: cover;
     background-size: cover;
     display: inline-block;
@@ -772,10 +772,10 @@ button {
         font-size: 37px;
         height: 39px;
         position: absolute;
-        top: 61%;
+        top: 57%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 261px;
+        width: 222px;
         color: #fff;
     }
 }
@@ -788,7 +788,7 @@ button {
     font-size: 37px;
     height: 39px;
     position: absolute;
-    top: 54%;
+    top: 51%;
     left: 44%;
     transform: translate(-50%, -50%);
     width: 261px;
