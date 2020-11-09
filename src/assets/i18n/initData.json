@@ -869,12 +869,13 @@
                   "isCharacter": false
                 }
               ],
-              "ans": "",
+              "ans": 11,
               "isAnsCharacter": false,
               "clueFontSize": null,
               "otClueFontSize": null,
               "ansFontSize": null,
-              "otAnsFontSize": null
+              "otAnsFontSize": null,
+              "actions": 1
             },
             {
               "id": 2,
@@ -895,12 +896,13 @@
                   "isCharacter": false
                 }
               ],
-              "ans": "",
+              "ans": 12,
               "isAnsCharacter": false,
               "clueFontSize": null,
               "otClueFontSize": null,
               "ansFontSize": null,
-              "otAnsFontSize": null
+              "otAnsFontSize": null,
+              "actions": 1
             },
             {
               "id": 3,
@@ -921,12 +923,13 @@
                   "isCharacter": false
                 }
               ],
-              "ans": "",
+              "ans": 13,
               "isAnsCharacter": false,
               "clueFontSize": null,
               "otClueFontSize": null,
               "ansFontSize": null,
-              "otAnsFontSize": null
+              "otAnsFontSize": null,
+              "actions": 1
             },
             {
               "id": 4,
@@ -954,7 +957,8 @@
               "clueFontSize": null,
               "otClueFontSize": null,
               "ansFontSize": null,
-              "otAnsFontSize": null
+              "otAnsFontSize": null,
+              "actions": 0
             },
             {
               "id": 5,
@@ -978,7 +982,8 @@
               "clueFontSize": null,
               "otClueFontSize": null,
               "ansFontSize": null,
-              "otAnsFontSize": null
+              "otAnsFontSize": null,
+              "actions": 0
             }
           ],
           "roundNameFontSize": "90",

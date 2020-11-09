@@ -99,8 +99,8 @@
                                     <p class="word animated zoomIn font{{control.fontSettings.main_answer}}" [ngClass]="control.showAns ? 'animated zoomIn' : 'transparent'">
                                         {{ currentQuestion?.ans }}
                                     </p>
-
                                 </div>
+
                                 <div class="text-center" *ngIf="currentQuestion?.isAnsCharacter">
                                     <div class="one_word_green retangle{{control.fontSettings.main_answer}}" [ngClass]="{'hide_char less8char': char == ' ' , 'animated heartBeat': control.startCount && round4hintAnimated && currentRound.showfirstAnsChar || control.showQuestion && !currentRound.showfirstAnsChar && !control.showAns && !control.startCount && !control.fontSettingOpenClose, 'blue_bg' : i == 0 && currentRound.showfirstAnsChar}"
                                         *ngFor="let char of ansCharArr; let i=index;">
@@ -109,7 +109,7 @@
                                             <!-- <p class="word font{{control.fontSettings.main_answer}}"
                                                 [ngClass]="{'animated zoomIn' : control.showAns && i != 0, 'transparent' : !control.showAns && i != 0 }">
                                                 {{char}}</p> -->
-                                            <input type="text" placeholder="A" class="roundthree_text">
+                                            <!-- <input type="text" placeholder="A" class="roundthree_text"> -->
 
                                         </span>
                                         <!-- //! for round 3 -->
@@ -154,6 +154,54 @@
                                 <input type="text" [value]="currentQuestion?.ans" [ngStyle]="{'font-size': currentQuestion?.ansFontSize + 'px'}" class="roundtwo" [ngClass]="control.showAns ? 'animated zoomIn' : 'transparent'">
                             </div>
 
+                            <!-- //! Round Four -->
+                            <div *ngIf="currentRound.hasCategory" style="margin-left: 20%;">
+                                <div class="row" style="flex-wrap: initial;">
+                                    <div class="col-sm" class="alpha_text" style="border: 1px solid #c9c9c9; height: 51px; width: 51px;" *ngFor="let item of [11,12,13,14,15,16,17,18,19,110]; let i = index" [id]="item">
+
+                                    </div>
+                                </div>
+                                <div class="row" style="flex-wrap: initial;">
+                                    <div class="col-sm" class="alpha_text" style="border: 1px solid #c9c9c9; height: 51px; width: 51px;" *ngFor="let item of [21,22,23,24,25,26,27,28,29,210]; let i = index" [id]="item">
+
+                                    </div>
+                                </div>
+                                <div class="row" style="flex-wrap: initial;">
+                                    <div class="col-sm" class="alpha_text" style="border: 1px solid #c9c9c9; height: 51px; width: 51px;" *ngFor="let item of [31,32,33,34,35,36,37,38,39,310]; let i = index" [id]="item">
+
+                                    </div>
+                                </div>
+                                <div class="row" style="flex-wrap: initial;">
+                                    <div class="col-sm" class="alpha_text" style="border: 1px solid #c9c9c9; height: 51px; width: 51px;" *ngFor="let item of [41,42,43,44,45,46,47,48,49,410]; let i = index" [id]="item">
+
+                                    </div>
+                                </div>
+                                <div class="row" style="flex-wrap: initial;">
+                                    <div class="col-sm" class="alpha_text" style="border: 1px solid #c9c9c9; height: 51px; width: 51px;" *ngFor="let item of [51,52,53,54,55,56,57,58,59,510]; let i = index" [id]="item">
+
+                                    </div>
+                                </div>
+                                <div class="row" style="flex-wrap: initial;">
+                                    <div class="col-sm" class="alpha_text" style="border: 1px solid #c9c9c9; height: 51px; width: 51px;" *ngFor="let item of [61,62,63,64,65,66,67,68,69,610]; let i = index" [id]="item">
+
+                                    </div>
+                                </div>
+                                <div class="row" style="flex-wrap: initial;">
+                                    <div class="col-sm" class="alpha_text" style="border: 1px solid #c9c9c9; height: 51px; width: 51px;" *ngFor="let item of [71,72,73,74,75,76,77,78,79,710]; let i = index" [id]="item">
+
+                                    </div>
+                                </div>
+                                <div class="row" style="flex-wrap: initial;">
+                                    <div class="col-sm" class="alpha_text" style="border: 1px solid #c9c9c9; height: 51px; width: 51px;" *ngFor="let item of [81,82,83,84,85,86,87,88,89,810]; let i = index" [id]="item">
+
+                                    </div>
+                                </div>
+                                <div class="row" style="flex-wrap: initial;">
+                                    <div class="col-sm" class="alpha_text" style="border: 1px solid #c9c9c9; height: 51px; width: 51px;" *ngFor="let item of [91,92,93,94,95,96,97,98,99,910]; let i = index" [id]="item">
+
+                                    </div>
+                                </div>
+                            </div>
 
                             <!-- //! for position 1 left-->
                             <div class="text-center" *ngIf="hint.position == 1">

@@ -46,6 +46,9 @@ export class MainComponent implements OnInit {
   round4hintAnimated = true;
   timeoutList: any;
   cube_image: any
+  round4QuestionList: Question[] = []
+  prevCategoryName: string
+  showedAnswerList: any[] = []
 
   constructor(
     private store: Store<{
@@ -232,12 +235,23 @@ export class MainComponent implements OnInit {
       this.control.currentQuestionId
     ]);
 
-    console.log('current question => ', this.currentQuestion)
-    console.log('current round => ', this.currentRound)
-    console.log('cube image => ', this.cube_image)
+    // console.log('current question => ', this.currentQuestion)
+    // console.log('current round => ', this.currentRound)
+    // console.log('cube image => ', this.cube_image)
     if (this.currentRound.id == 2) this.cube_image.src = ''
     //update timer count value
     if (this.currentRound.hasCategory) {
+      if (this.control.startCount) {
+        if (this.round4QuestionList.length === 0) this.round4QuestionList.push(this.currentQuestion)
+        else if (this.round4QuestionList.every(question => question.hints[0].value !== this.currentQuestion.hints[0].value)) {
+          this.round4QuestionList.push(this.currentQuestion)
+        }
+      }
+      this.setGridValue(this.control.roundFourStatus);
+      if (this.control.showAns) {
+        this.showedAnswerList.push({ ...this.currentQuestion, roundFourStatus: this.control.roundFourStatus })
+        this.showGridEachAnswer();
+      }
       //update only in selecting theme for round 4
       if (
         !this.control.runCategoryRound &&
@@ -259,12 +273,20 @@ export class MainComponent implements OnInit {
         ]),
         "name"
       );
-
+      console.log('category name => ', this.categoryName)
+      if (this.prevCategoryName === undefined) this.prevCategoryName = this.categoryName
+      else if (this.prevCategoryName !== this.categoryName) {
+        this.prevCategoryName = this.categoryName
+        this.round4QuestionList = []
+        this.showedAnswerList = []
+      }
       //check for hint animation for round 4 when changing ques
       if (this.prevCurrentQustion != this.control.currentQuestionId) {
         this.round4hintAnimated = true;
       }
     } else {
+      this.round4QuestionList = []
+      this.showedAnswerList = []
       //update when change ques and change round
       if (
         this.prevCurrentQustion != this.control.currentQuestionId ||
@@ -379,5 +401,49 @@ export class MainComponent implements OnInit {
 
     const data = readFileSync(filePath, "utf8");
     this.timeoutList = JSON.parse(data);
+  }
+
+  setGridValue(roundFourStatus: string) {
+    let color;
+    if (roundFourStatus === 'correct') color = 'green'
+    else if (roundFourStatus === 'wrong') color = 'red';
+    else color = 'rebeccapurple'
+    this.round4QuestionList.forEach(question => {
+      question.hints.forEach(hint => {
+        hint.position.forEach((id, index) => {
+          // console.log('id: ', id, ', ans: ', question.ans)
+          if (id == question.ans) {
+            setTimeout(() => {
+              (<HTMLDivElement>document.getElementById(id)).innerText = hint.value.charAt(index);
+            }, 0);
+          } else {
+            setTimeout(() => {
+              (<HTMLDivElement>document.getElementById(id)).style.background = 'rebeccapurple'
+            }, 0);
+          }
+        })
+      })
+    })
+
+    this.showGridEachAnswer()
+  }
+
+  showGridEachAnswer() {
+    this.showedAnswerList.forEach((question, index) => {
+      console.log('question => ', question)
+      let color;
+      if (question.roundFourStatus === 'correct') color = 'green'
+      else if (question.roundFourStatus === 'wrong') color = 'red';
+      else color = 'rebeccapurple'
+      question.hints.forEach(hint => {
+        hint.position.forEach((id, index) => {
+          setTimeout(() => {
+            (<HTMLDivElement>document.getElementById(id)).innerText = hint.value.charAt(index);
+            (<HTMLDivElement>document.getElementById(id)).style.background = color;
+          }, 0);
+        })
+      })
+    })
+
   }
 }

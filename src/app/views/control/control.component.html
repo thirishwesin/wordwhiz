@@ -72,7 +72,7 @@
                     </div>
 
 
-                    <div class="row col-sm-12 pad_right0">
+                    <div class="row col-sm-12 pad_right0" *ngIf="!currentRound.hasCategory">
 
                         <div ngbDropdown [ngClass]="currentRound.hasCategory ? 'd-inline-block col-sm-12' : 'd-inline-block col-sm-8'">
                             <button class="btn common_input" id="dropdownBasic1" ngbDropdownToggle [disabled]="currentRound.hasCategory && control.startCount || currentRound.hasCategory && !control.finishCategoryRound && isStartRound4">
@@ -125,6 +125,10 @@
                             <button class="btn button ans" (click)="correctAnswer()" [disabled]="!control.startCount || correctAnswerDisable">Correct
                                 Answer</button>
                         </div>
+                        <div class="showans_btn">
+                            <button class="btn button ans" (click)="wrongAnswerForRoundFour()" [disabled]="!control.startCount">Wrong
+                                Answer</button>
+                        </div>
                         <!-- <div class="showans_btn">
                         <button class="btn button ans" (click)="wrongOrskipQuestion(2)" [disabled]="!control.startCount">Wrong
               Answer</button>
@@ -149,7 +153,7 @@
                         </ng-container>
 
                     </div>
-                    <div class="col-sm-8 row">
+                    <div class="col-sm-8 row" *ngIf="!currentRound.hasCategory">
                         <label class="col-sm-3 common_label">ANSWER</label>
                         <input readonly [ngClass]="!control.showAns ? 'col-sm-9 common_input disabled':'col-sm-9 common_input'" type="text" value={{currentQuestion?.ans}} />
                     </div>

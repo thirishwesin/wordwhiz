@@ -20,4 +20,5 @@ export interface Control {
   animationExtraWord: string
   fontSettingOpenClose: boolean;
   roundTwoStatus: RoundTwoStatus[];
+  roundFourStatus: string
 }

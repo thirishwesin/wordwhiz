@@ -451,11 +451,8 @@ export class ControlComponent implements OnInit {
 
   broadcastScreens() {
     let currentRoundIndex = _.findIndex(this.episode.rounds, ['id', this.currentRound.id])
-    console.log('current round index => ', currentRoundIndex)
     this.episode.rounds[currentRoundIndex] = this.currentRound
     this.currentQuestion = _.find(this.currentRound.questionArray, ['id', this.currentQuestion.id])
-    console.log('this.oldCurrentRound => ', this.oldCurrentRound)
-    console.log('this.currentRound => ', this.currentRound)
     let broadCastData = {
       control: this.control,
       episode: this.episode
@@ -607,6 +604,7 @@ export class ControlComponent implements OnInit {
   }
 
   clickQuestion(question, currentQuestionIndex) {
+    console.log('-----------------------click question -------------------------')
     this.disableStart = false;
     if (this.currentRound.hasCategory)
       this.currentQuestionIndex = currentQuestionIndex;
@@ -787,6 +785,7 @@ export class ControlComponent implements OnInit {
   }
 
   correctAnswer() {
+    if (this.currentRound.id == 4) this.control.roundFourStatus = 'correct'
     // play audio if press Correct Answer button
     this.correct_answer_audio.play();
 
@@ -922,6 +921,8 @@ export class ControlComponent implements OnInit {
   }
 
   wrongOrskipQuestion(action) {
+
+    this.control.roundFourStatus = 'skip'
     this.runCategoryRound = true;
     this.store.dispatch(runCategoryRound());
 
@@ -1124,6 +1125,9 @@ export class ControlComponent implements OnInit {
   wrongAnswer() {
     // play audio if press Wrong Answer button
     this.wrong_answer_audio.play();
+    // this.control.roundFourStatus = 'wrong'
+    // if (this.currentRound.id == 4) this.control.showAns = true
+    // this.broadcastScreens();
   }
 
   isfontEmpty() {
@@ -1192,5 +1196,54 @@ export class ControlComponent implements OnInit {
       (<HTMLInputElement>document.querySelector('input[value="2default"]')).checked = true;
       (<HTMLInputElement>document.querySelector('input[value="3default"]')).checked = true;
     }, 0);
+  }
+
+  wrongAnswerForRoundFour() {
+    this.wrong_answer_audio.play();
+    if (this.currentRound.id == 4) this.control.roundFourStatus = 'wrong'
+    // play audio if press Correct Answer button
+    // this.correct_answer_audio.play();
+
+    this.runCategoryRound = true;
+    this.store.dispatch(runCategoryRound());
+
+    //showAnswer
+    this.store.dispatch(ShowAnsForCategoryRound());
+    this.broadcastScreens();
+
+    //mark correct answer in separted arrays
+    // _.find(this.questionArraysByCategory[this.currentCategory.id], [
+    //   "id",
+    //   this.currentQuestion.id
+    // ]).actions = 1;
+
+    //checkLastIndex or not
+    let checkLastIndex = false;
+    if (
+      this.currentQuestion.id ==
+      _.last(this.questionArraysByCategory[this.currentCategory.id]).id ||
+      this.checkLastIndexExcludeSkip()
+    )
+      checkLastIndex = true;
+
+    if (this.control.showAns) this.correctAnswerDisable = true;
+    //after 1s check end of arrays by category
+    setTimeout(() => {
+      //check loopQuestion or not ( if loop again, it will not nextQuestion, it has to jump to skip one)
+      if (this.loopQuestion || checkLastIndex) {
+        //search skip question when in loop condition or lastIndex
+        this.searchSkipQuestion(checkLastIndex);
+
+        this.loopQuestion = true;
+      } else {
+        // show next question
+        const nextQuest = this.nextQuestionByCategoryId();
+        this.clickQuestion(nextQuest, this.currentQuestionIndex + 1);
+      }
+    }, 1000);
+
+    setTimeout(() => {
+      this.correctAnswerDisable = false;
+    }, 1500);
   }
 }
