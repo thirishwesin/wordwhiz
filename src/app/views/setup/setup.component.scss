@@ -78,7 +78,7 @@
     margin-bottom: 0px;
     text-align: left;
     padding-bottom: 5px;
-    width: 100%;
+    width: auto;
     // text-shadow: 0 0 0.5em #41faff, 0 0 0.5em #41faff;
 }
 
@@ -154,6 +154,7 @@
     margin-bottom: 15px;
     background: radial-gradient(#00000029, #ffffff38);
     border-radius: 10px;
+    margin-top: 20px;
 }
 
 .question_txt {
@@ -483,3 +484,7 @@ text-align: center;
     color: #fff;
     margin-right: 30px;
 }
+
+// .mt10{
+//     margin-top: 10px;
+// }
