@@ -102,6 +102,7 @@ button {
     top: 5%;
     left: 45%;
     transform: translate(-50%, -50%);
+    font-size: 60px;
 }
 
 .center {
@@ -296,7 +297,7 @@ button {
 }
 
 .transparent {
-    color: transparent;
+    color: transparent !important;
     text-shadow: none;
 }
 
@@ -812,10 +813,10 @@ button {
 }
 .round_four{
     margin-left: 24%;
-    margin-top: 18%;
+    margin-top: 10%;
 }
 .alpha_text{
-    height: 50px !important;
+    height: 60px !important;
     width: 70px !important;
     text-align: center;
     padding: 9px;
