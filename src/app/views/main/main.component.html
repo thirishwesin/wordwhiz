@@ -23,14 +23,13 @@
             </div>
             <div class="col-7">
                 <div>
-                    <!-- <p class="clude_txt" [ngStyle]="{'font-size': currentRound.clueLabelFontSize + 'px'}">CLUE:</p>
+                    <p class="clude_txt" *ngIf="currentRound.id == 1 || currentRound.id == 3 || currentRound.id == 5" [ngStyle]="{'font-size': currentRound.clueLabelFontSize + 'px'}">CLUE:
+                    </p>
                     <img class="cube_img" name="cube_img" alt="" />
-                    <ng-container *ngIf="currentRound.id != 2">
+                    <ng-container *ngIf="currentRound.id == 1 || currentRound.id == 3 || currentRound.id == 5">
                         <span class="clude_hint" *ngIf="control.showQuestion  || control.runCategoryRound" [ngStyle]="{'font-size': currentQuestion.clueFontSize + 'px'}">{{ currentRound.hasCategory? categoryName : currentQuestion?.clue }}
                         </span>
-                    </ng-container> -->
-
-                    <p class="clude_txt">Fruit</p>
+                    </ng-container>
 
                 </div>
 

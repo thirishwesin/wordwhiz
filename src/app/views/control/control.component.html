@@ -68,24 +68,24 @@
                                 <button ngbDropdownItem *ngFor="let category of currentRound.categories" (click)="changeCategory(category)">{{category.name}}</button>
                             </div>
                         </div>
-
                     </div>
 
 
-                    <div class="row col-sm-12 pad_right0" *ngIf="!currentRound.hasCategory">
+                    <div class="row col-sm-12 pad_right0">
 
                         <div ngbDropdown [ngClass]="currentRound.hasCategory ? 'd-inline-block col-sm-12' : 'd-inline-block col-sm-8'">
                             <button class="btn common_input" id="dropdownBasic1" ngbDropdownToggle [disabled]="currentRound.hasCategory && control.startCount || currentRound.hasCategory && !control.finishCategoryRound && isStartRound4">
                                 <p class="section_text">
-                                    {{currentRound.questionArray.length == 0 || currentRound.hasCategory && noQuestionByCategory ? "*No Question." : currentRound.hasCategory ? "QUESTION "+ currentQuestionIndex : "QUESTION "+ control.currentQuestionId}}
+                                    {{currentRound.questionArray.length == 0 || currentRound.hasCategory && noQuestionByCategory ? "*No Question." : currentRound.hasCategory ? currentQuestion?.hints[0].value : "QUESTION "+ control.currentQuestionId}}
                                 </p>
                                 <img [src]=Images.dropDown class="drop_down_icon">
                             </button>
                             <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                                <button [ngClass]="question.actions==3 ? 'skipQues' : question.actions==1?'correctQues':''" ngbDropdownItem *ngFor="let question of questionDropDownByCategory(); let i=index" (click)="clickQuestion(question,i+1)">QUESTION
-                                    {{currentRound.hasCategory ? i+1 : question.id}} <img *ngIf="question.actions==3"
-                                        [src]=Images.skip_icon class="skip_icon"><img *ngIf="question.actions == 1"
-                                        [src]=Images.correct_icon class="correct_icon"></button>
+                                <button [ngClass]="question.actions==3 ? 'skipQues' : question.actions==1?'correctQues':''" ngbDropdownItem *ngFor="let question of questionDropDownByCategory(); let i=index" (click)="clickQuestion(question,i+1)">
+                                    {{currentRound.hasCategory ? question.hints[0].value : 'QUESTION' + question.id}}
+                                    <img *ngIf="question.actions==3" [src]=Images.skip_icon class="skip_icon"><img
+                                        *ngIf="question.actions == 1" [src]=Images.correct_icon
+                                        class="correct_icon"></button>
                             </div>
                         </div>
 

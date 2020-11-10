@@ -49,6 +49,7 @@ export class MainComponent implements OnInit {
   round4QuestionList: any[] = []
   prevCategoryName: string
   showedAnswerList: any[] = []
+  cubeImage = new Image();
 
   constructor(
     private store: Store<{
@@ -84,7 +85,6 @@ export class MainComponent implements OnInit {
     this.cube_image = document.images.namedItem("cube_img");
 
     const mainBgImage = new Image();
-    const cubeImage = new Image();
 
     mainBgImage.onload = () => {
       image.style.background = "url(" + mainBgImage.src + ")";
@@ -93,19 +93,19 @@ export class MainComponent implements OnInit {
       this.renderingAPNG = false;
       this.nz.run(() => { });
     };
-    cubeImage.onload = () => {
-      this.cube_image.src = cubeImage.src;
+    this.cubeImage.onload = () => {
+      this.cube_image.src = this.cubeImage.src;
     };
 
     if (AppConfig.production) {
       mainBgImage.src =
         process.env.PORTABLE_EXECUTABLE_DIR +
         "/data/images/main_background.png";
-      cubeImage.src =
+      this.cubeImage.src =
         process.env.PORTABLE_EXECUTABLE_DIR + "/data/images/cube.png";
     } else {
       mainBgImage.src = "../../../assets/images/temp/main_background.png";
-      cubeImage.src = "../../../assets/images/temp/cube.png";
+      this.cubeImage.src = "../../../assets/images/temp/cube.png";
     }
 
     this.store.subscribe(item => {
@@ -229,6 +229,8 @@ export class MainComponent implements OnInit {
       }
     }
 
+    console.log('current round => ', this.currentRound)
+
     //update current question
     this.currentQuestion = _.find(this.currentRound.questionArray, [
       "id",
@@ -238,7 +240,8 @@ export class MainComponent implements OnInit {
     // console.log('current question => ', this.currentQuestion)
     // console.log('current round => ', this.currentRound)
     // console.log('cube image => ', this.cube_image)
-    if (this.currentRound.id == 2) this.cube_image.src = ''
+    if (this.control.currentRoundId == 2 || this.control.currentRoundId == 4) this.cube_image.src = ''
+    else this.cube_image.src = this.cubeImage.src;
     //update timer count value
     if (this.currentRound.hasCategory) {
       if (this.control.startCount) {

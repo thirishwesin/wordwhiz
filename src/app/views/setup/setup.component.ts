@@ -66,8 +66,6 @@ export class SetupComponent implements OnInit {
   question = _.cloneDeep(this.initQuestionState);
 
   categoryName: string;
-  categoryFontSize: number;
-  otCategoryFontSize: number;
   invalidCategoryName: boolean;
   isEmptyCategoryName: boolean;
 
@@ -76,6 +74,8 @@ export class SetupComponent implements OnInit {
   players: Player[]
   playerFontSize: number
   hintValueForR4: string;
+  clueValueForR4: string;
+  clueFontSizeForR4: string;
   currentHintForR4: Hint
   currentHintArrForR4: Hint[]
   isDefaultOrHint: string
@@ -544,14 +544,12 @@ export class SetupComponent implements OnInit {
             } else if (isChange === 4) {
               this.removeCategory(type);
             } else if (isChange === 5) {
-              this.addCategory(this.categoryName, this.categoryFontSize, this.otCategoryFontSize);
+              this.addCategory(this.categoryName);
               this.categoryName = "";
-              this.categoryFontSize = null;
-              this.otCategoryFontSize = null;
             } else if (isChange === 6) {
               this.removeHintForR4(type)
             } else if (isChange === 7) {
-              this.addHintValue(this.hintValueForR4)
+              this.addHintValue(this.hintValueForR4, this.clueValueForR4, this.clueFontSizeForR4)
             }
           },
           reason => {
@@ -560,8 +558,6 @@ export class SetupComponent implements OnInit {
               this.router.navigate(["/home"], { queryParams: { id: "setup" } });
             } else if (isChange === 5) {
               this.categoryName = "";
-              this.categoryFontSize = null;
-              this.otCategoryFontSize = null;
             }
             this.invalidCategoryName = false;
             return reason;
@@ -606,7 +602,7 @@ export class SetupComponent implements OnInit {
     };
   }
 
-  addCategory(categoryName, categoryFontSize, otCategoryFontSize) {
+  addCategory(categoryName) {
     let id;
     // check id undifined
     if (this.currentRound.categories.length > 0)
@@ -614,9 +610,7 @@ export class SetupComponent implements OnInit {
     else id = 0;
     this.currentRound.categories.push({
       id: id,
-      name: categoryName,
-      categoryFontSize: +categoryFontSize,
-      otCategoryFontSize: +otCategoryFontSize
+      name: categoryName
     });
 
     let lastIndex = _.last(this.currentRound.categories);
@@ -730,7 +724,7 @@ export class SetupComponent implements OnInit {
     this.episode.players.map(player => player.pointFontSize = pointFontSize)
   }
 
-  addHintValue(hintValue) {
+  addHintValue(hintValue, clueValueForR4, clueFontSizeForR4) {
     console.log('this.question => ', this.question)
     this.currentRound.questionArray.push({
       ...this.question,
@@ -739,9 +733,13 @@ export class SetupComponent implements OnInit {
       hints: [
         { ...this.question.hints[0], value: hintValue, position: [] }
       ],
+      clue: clueValueForR4,
+      clueFontSize: clueFontSizeForR4
     })
     this.noDatabyCategory = false
     this.hintValueForR4 = ''
+    this.clueValueForR4 = '';
+    this.clueFontSizeForR4 = ''
     console.log('current round question array => ', this.currentRound.questionArray)
     console.log('current category id => ', this.currentCategory.id)
     this.currentHintArrForR4 = this.currentRound.questionArray.filter(question =>

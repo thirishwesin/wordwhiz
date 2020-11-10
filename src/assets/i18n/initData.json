@@ -837,15 +837,11 @@
           "categories": [
             {
               "id": 0,
-              "name": "Fruit",
-              "categoryFontSize": null,
-              "otCategoryFontSize": null
+              "name": "Fruit"
             },
             {
               "id": 1,
-              "name": "Animal",
-              "categoryFontSize": 35,
-              "otCategoryFontSize": 35
+              "name": "Animal"
             }
           ],
           "timeOut": 60,
@@ -853,108 +849,108 @@
           "questionArray": [
             {
               "id": 1,
-              "clue": "",
+              "clue": "This color is red",
               "categoryId": 0,
               "hints": [
                 {
                   "id": 1,
                   "value": "apple",
                   "position": [
-                    11,
-                    21,
-                    31,
-                    41,
-                    51
+                    42,
+                    52,
+                    62,
+                    72,
+                    82
                   ],
                   "isCharacter": false
                 }
               ],
-              "ans": 11,
+              "ans": 42,
               "isAnsCharacter": false,
-              "clueFontSize": null,
+              "clueFontSize": "50",
               "otClueFontSize": null,
               "ansFontSize": null,
               "otAnsFontSize": null,
-              "actions": 1
+              "actions": 0
             },
             {
               "id": 2,
-              "clue": "",
+              "clue": "This color is yellow.",
               "categoryId": 0,
               "hints": [
                 {
                   "id": 1,
                   "value": "orange",
                   "position": [
-                    12,
-                    22,
-                    32,
-                    42,
-                    52,
-                    62
+                    24,
+                    34,
+                    44,
+                    54,
+                    64,
+                    74
                   ],
                   "isCharacter": false
                 }
               ],
-              "ans": 12,
+              "ans": 24,
               "isAnsCharacter": false,
-              "clueFontSize": null,
+              "clueFontSize": "51",
               "otClueFontSize": null,
               "ansFontSize": null,
               "otAnsFontSize": null,
-              "actions": 1
+              "actions": 0
             },
             {
               "id": 3,
-              "clue": "",
+              "clue": "This colo is yellow",
               "categoryId": 0,
               "hints": [
                 {
                   "id": 1,
                   "value": "banana",
                   "position": [
-                    13,
-                    23,
-                    33,
+                    41,
+                    42,
                     43,
-                    53,
-                    63
+                    44,
+                    45,
+                    46
                   ],
                   "isCharacter": false
                 }
               ],
-              "ans": 13,
+              "ans": 41,
               "isAnsCharacter": false,
-              "clueFontSize": null,
+              "clueFontSize": "52",
               "otClueFontSize": null,
               "ansFontSize": null,
               "otAnsFontSize": null,
-              "actions": 1
+              "actions": 0
             },
             {
               "id": 4,
-              "clue": "",
+              "clue": "The biggest body",
               "categoryId": 1,
               "hints": [
                 {
                   "id": 1,
                   "value": "elephant",
                   "position": [
-                    11,
-                    12,
-                    13,
-                    14,
-                    15,
-                    16,
-                    17,
-                    18
+                    51,
+                    52,
+                    53,
+                    54,
+                    55,
+                    56,
+                    57,
+                    58
                   ],
                   "isCharacter": false
                 }
               ],
-              "ans": 11,
+              "ans": 51,
               "isAnsCharacter": false,
-              "clueFontSize": null,
+              "clueFontSize": "53",
               "otClueFontSize": null,
               "ansFontSize": null,
               "otAnsFontSize": null,
@@ -962,24 +958,24 @@
             },
             {
               "id": 5,
-              "clue": "",
+              "clue": "get milk from ",
               "categoryId": 1,
               "hints": [
                 {
                   "id": 1,
                   "value": "goat",
                   "position": [
-                    21,
-                    22,
-                    23,
-                    24
+                    28,
+                    38,
+                    48,
+                    58
                   ],
                   "isCharacter": false
                 }
               ],
-              "ans": 21,
+              "ans": 28,
               "isAnsCharacter": false,
-              "clueFontSize": null,
+              "clueFontSize": "54",
               "otClueFontSize": null,
               "ansFontSize": null,
               "otAnsFontSize": null,
@@ -987,7 +983,7 @@
             }
           ],
           "roundNameFontSize": "90",
-          "clueLabelFontSize": "60"
+          "clueLabelFontSize": "90"
         },
         {
           "id": 5,
@@ -1088,15 +1084,11 @@
           "categories": [
             {
               "id": 0,
-              "name": "Fruit",
-              "categoryFontSize": null,
-              "otCategoryFontSize": null
+              "name": "Fruit"
             },
             {
               "id": 1,
-              "name": "Animal",
-              "categoryFontSize": 35,
-              "otCategoryFontSize": 35
+              "name": "Animal"
             }
           ],
           "timeOut": 60,

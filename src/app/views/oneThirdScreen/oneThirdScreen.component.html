@@ -12,8 +12,11 @@
         <div class="col-lg-9 row right_wrapper">
             <div class="col-sm-4">
                 <img class="cube_img_center" name="cube_img" alt="" />
-                <div class="clude_hint" [ngStyle]="{'font-size': currentQuestion.otClueFontSize + 'px'}" *ngIf="control.showQuestion || control.runCategoryRound">
-                    {{ currentRound.hasCategory? categoryName : currentQuestion?.clue }}</div>
+                <ng-container *ngIf="currentRound.id == 1 || currentRound.id == 3 || currentRound.id == 5">
+                    <div class="clude_hint" [ngStyle]="{'font-size': currentQuestion.otClueFontSize + 'px'}" *ngIf="control.showQuestion || control.runCategoryRound">
+                        {{ currentRound.hasCategory? categoryName : currentQuestion?.clue }}</div>
+                </ng-container>
+
             </div>
 
             <div class="col-lg-8" style="text-align: center; top: 3%;">

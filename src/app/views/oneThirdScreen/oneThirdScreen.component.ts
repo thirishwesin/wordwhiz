@@ -43,6 +43,8 @@ export class OneThirdScreenComponent implements OnInit {
   log = [];
   round4hintAnimated = true;
   timeoutList: any;
+  cubeImage = new Image();
+  cube_image: any
 
   constructor(
     private router: Router,
@@ -70,11 +72,10 @@ export class OneThirdScreenComponent implements OnInit {
     this.readAllTimerFiles();
 
     //read for mainBG and cube
-    const cube_image = document.images.namedItem("cube_img");
+    this.cube_image = document.images.namedItem("cube_img");
     const image = document.getElementById("header");
 
     const oneThirdBgImage = new Image();
-    const cubeImage = new Image();
 
     oneThirdBgImage.onload = () => {
       image.style.background = "url(" + oneThirdBgImage.src + ")";
@@ -83,19 +84,19 @@ export class OneThirdScreenComponent implements OnInit {
       // this.renderingAPNG = false;
       this.nz.run(() => { });
     };
-    cubeImage.onload = () => {
-      cube_image.src = cubeImage.src;
+    this.cubeImage.onload = () => {
+      this.cube_image.src = this.cubeImage.src;
     };
 
     if (AppConfig.production) {
       oneThirdBgImage.src =
         process.env.PORTABLE_EXECUTABLE_DIR +
         "/data/images/one_third_header.PNG";
-      cubeImage.src =
+      this.cubeImage.src =
         process.env.PORTABLE_EXECUTABLE_DIR + "/data/images/cube.png";
     } else {
       oneThirdBgImage.src = "../../../assets/images/temp/one_third_header.PNG";
-      cubeImage.src = "../../../assets/images/temp/cube.png";
+      this.cubeImage.src = "../../../assets/images/temp/cube.png";
     }
 
     this.store.subscribe(item => {
@@ -231,6 +232,9 @@ export class OneThirdScreenComponent implements OnInit {
 
     console.log('currentRound => ', this.currentRound)
     console.log('currentQuestion => ', this.currentQuestion)
+
+    if (this.control.currentRoundId == 2 || this.control.currentRoundId == 4) this.cube_image.src = ''
+    else this.cube_image.src = this.cubeImage.src;
 
     //update timer count
     if (this.currentRound.hasCategory) {

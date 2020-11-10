@@ -76,9 +76,8 @@
                             <input type="text" class="common_input w_321" value="{{ currentRound.point }}" OnlyNumber="true" (keyup)="changePoint($event)" />
                         </div>
                         <div class="col-sm-4 mt2">
-                            <label for="" class="common_label">CLUE FONT SIZE</label><br>
+                            <label for="" class="common_label">{{currentRound.id == 4 ? 'WORD FONT SIZE' : 'CLUE FONT SIZE'}}</label><br>
                             <input type="text" class="common_input w_321" [(ngModel)]="currentRound.clueLabelFontSize" OnlyNumber="true" />
-
                         </div>
                         <div class="col-sm-4 mt2">
                             <label class="common_label ">ROUND AND ROUND NAME FONT
@@ -464,9 +463,9 @@
                                     <th scope="col" class="common_label" *ngIf="!currentRound.hasCategory">QUESTION</th>
                                     <th scope="col" class="common_label">ANSWER</th>
                                     <th scope="col" class="common_label" *ngFor="let hint of question.hints">
-                                        HINT {{ question.hints.length
+                                        {{ currentRound.hasCategory ? 'WORD' : 'HINT'}} {{ question.hints.length
                                         <=1 ? "" : hint.id }} </th>
-                                            <th *ngIf="currentRound.hasCategory" class="common_label">GRID POSITION</th>
+                                            <th *ngIf="currentRound.hasCategory" class="common_label">HINT</th>
                                             <th scope="col" class="common_label act_width" *ngIf="currentRound.id != 4">ACTION
                                             </th>
                                 </tr>
@@ -480,7 +479,7 @@
                                     </td>
                                     <ng-container>
                                         <td *ngIf="currentRound.hasCategory" class=" common_data ">
-                                            {{question.hints[0].position.join(', ')}}
+                                            {{question.clue}}
                                         </td>
                                     </ng-container>
 
@@ -562,23 +561,21 @@
                     <input type="text" class="common_input" [(ngModel)]="categoryName" (ngModelChange)="changedCategoryName($event)">
 
                 </div>
-                <div class="col-sm-12 ">
-                    <label class="common_label mr4 ">CATEGORY FONT SIZE : </label>
-                    <input type="text" class="common_input" [(ngModel)]="categoryFontSize" OnlyNumber="true">
-                </div>
-
-                <div class="col-sm-12 ">
-                    <label class="common_label mr4 ">CATEGORY FONT SIZE : </label>
-                    <input type="text" class="common_input" [(ngModel)]="otCategoryFontSize" OnlyNumber="true">
-                </div>
 
             </div>
         </div>
         <div class=" modal-body " *ngIf=" checkModalType===7 ">
             <div class="col-sm-12 ">
-                <label class="common_label mr4 ">HINT NAME : </label>
+                <label class="common_label mr4 ">WORD NAME : </label>
                 <input type="text" class="common_input" [(ngModel)]="hintValueForR4">
-
+            </div>
+            <div class="col-sm-12 ">
+                <label class="common_label mr4 ">HINT NAME : </label>
+                <input type="text" class="common_input" [(ngModel)]="clueValueForR4">
+            </div>
+            <div class="col-sm-12 ">
+                <label class="common_label mr4 ">HIT FONT SIZE : </label>
+                <input type="text" class="common_input" [(ngModel)]="clueFontSizeForR4" OnlyNumber="true">
             </div>
         </div>
         <div class=" modal-footer " *ngIf=" checkModalType !=3 ">
