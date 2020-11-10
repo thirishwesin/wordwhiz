@@ -42,7 +42,7 @@
   background-size: cover;
   display: inline-block;
   min-height: 60px;
-  min-width: 85px;
+  min-width: 106px;
   width: auto;
   margin-left: -23px;
 }
@@ -53,10 +53,19 @@
   background-size: cover;
   display: inline-block;
   min-height: 60px;
-  min-width: 85px;
+  min-width: 106px;
   width: auto;
   margin-left: -23px;
 }
+
+//Round 5
+.round_5blue{
+margin-left: -30px;
+}
+//Round 3
+.round_3img{
+  margin-left: -30px;
+  }
 
 .long_word_blue {
   width: calc(14em + 3vw);
@@ -377,7 +386,7 @@
   min-height: 60px;
   position: relative;
   padding: 0;
-  min-width: 85px;
+  min-width: 106px;
 }
 
 .green_bg {
@@ -705,3 +714,17 @@
 /* .less8char {
   display: table-column;
 } */
+
+.round_one-text{
+  width: 70px;
+  text-align: center;
+  margin: 0;
+  height: 107px;
+  background: none;
+  border: none;
+  font-size: 45px;
+  outline: none;
+  margin-left: 1px;
+  padding-top: 0px;
+  padding-bottom: 8px;
+}
