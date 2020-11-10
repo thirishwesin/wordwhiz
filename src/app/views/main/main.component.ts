@@ -407,8 +407,8 @@ export class MainComponent implements OnInit {
 
 
     this.round4QuestionList.forEach(question => {
-      let color = 'rebeccapurple';
-      if (question.roundFourStatus == 'skip') color = 'white'
+      let color = '#013ad6';
+      if (question.roundFourStatus == 'skip') color = '#eeeeee75'
       question.hints.forEach(hint => {
         hint.position.forEach((id, index) => {
           // console.log('id: ', id, ', ans: ', question.ans)
@@ -433,8 +433,8 @@ export class MainComponent implements OnInit {
     this.showedAnswerList.forEach((question, index) => {
       console.log('question => ', question)
       let color;
-      if (question.roundFourStatus === 'correct') color = 'green'
-      else if (question.roundFourStatus === 'wrong') color = 'red';
+      if (question.roundFourStatus === 'correct') color = '#48B822'
+      else if (question.roundFourStatus === 'wrong') color = '#F00';
       else color = 'rebeccapurple'
       question.hints.forEach(hint => {
         hint.position.forEach((id, index) => {
