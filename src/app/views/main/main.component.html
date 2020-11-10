@@ -90,7 +90,7 @@
                                         <!-- <p class="one_word font{{control.fontSettings.main_hint}}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose ? 'animated zoomIn':''">
                                             {{ char }}
                                         </p> -->
-                                        <input type="text" [value]="char" [ngStyle]="{'font-size': currentQuestion.hints[0].hintFontSize + 'px'}" class="roundthree_text" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose ? 'animated zoomIn':''">
+                                        <input type="text" [value]="char" [ngStyle]="{'font-size': currentQuestion.hints[0].hintFontSize + 'px'}" class="roundthree_text " [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose ? 'animated zoomIn':''">
 
                                     </div>
                                 </div>
@@ -155,7 +155,7 @@
                             </div>
 
                             <!-- //! Round Four -->
-                            <div *ngIf="currentRound.hasCategory" style="margin-left: 20%;">
+                            <div class="round_four" *ngIf="currentRound.hasCategory" style="margin-left: 25%;">
                                 <div class="row" style="flex-wrap: initial;">
                                     <div class="col-sm" class="alpha_text" style="border: 1px solid #c9c9c9; height: 51px; width: 51px;" *ngFor="let item of [11,12,13,14,15,16,17,18,19,110]; let i = index" [id]="item">
 

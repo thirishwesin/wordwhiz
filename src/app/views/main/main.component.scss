@@ -136,7 +136,7 @@ button {
 }
 
 .alpha_wrapper {
-    top: 58%;
+    top: 75%;
     left: 45%;
     position: absolute;
     transform: translate(-50%, -50%);
@@ -808,4 +808,19 @@ button {
     margin-left: 1px;
     padding-top: 0px;
     padding-bottom: 8px;
+    color: #fff;
+}
+.round_four{
+    margin-left: 24%;
+    margin-top: 18%;
+}
+.alpha_text{
+    height: 50px !important;
+    width: 70px !important;
+    text-align: center;
+    padding: 9px;
+    font-weight: bold;
+    border: 1px solid #4DB821 !important;
+    color: #41faff;
+
 }
