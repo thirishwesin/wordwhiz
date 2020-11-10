@@ -46,7 +46,7 @@ export class MainComponent implements OnInit {
   round4hintAnimated = true;
   timeoutList: any;
   cube_image: any
-  round4QuestionList: Question[] = []
+  round4QuestionList: any[] = []
   prevCategoryName: string
   showedAnswerList: any[] = []
 
@@ -404,11 +404,11 @@ export class MainComponent implements OnInit {
   }
 
   setGridValue(roundFourStatus: string) {
-    let color;
-    if (roundFourStatus === 'correct') color = 'green'
-    else if (roundFourStatus === 'wrong') color = 'red';
-    else color = 'rebeccapurple'
+
+
     this.round4QuestionList.forEach(question => {
+      let color = 'rebeccapurple';
+      if (question.roundFourStatus == 'skip') color = 'white'
       question.hints.forEach(hint => {
         hint.position.forEach((id, index) => {
           // console.log('id: ', id, ', ans: ', question.ans)
@@ -418,11 +418,12 @@ export class MainComponent implements OnInit {
             }, 0);
           } else {
             setTimeout(() => {
-              (<HTMLDivElement>document.getElementById(id)).style.background = 'rebeccapurple'
+              (<HTMLDivElement>document.getElementById(id)).style.background = color
             }, 0);
           }
         })
       })
+      question.roundFourStatus = 'skip'
     })
 
     this.showGridEachAnswer()

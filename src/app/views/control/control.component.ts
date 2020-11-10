@@ -1212,10 +1212,10 @@ export class ControlComponent implements OnInit {
     this.broadcastScreens();
 
     //mark correct answer in separted arrays
-    // _.find(this.questionArraysByCategory[this.currentCategory.id], [
-    //   "id",
-    //   this.currentQuestion.id
-    // ]).actions = 1;
+    _.find(this.questionArraysByCategory[this.currentCategory.id], [
+      "id",
+      this.currentQuestion.id
+    ]).actions = 2;
 
     //checkLastIndex or not
     let checkLastIndex = false;

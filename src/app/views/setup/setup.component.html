@@ -19,7 +19,7 @@
                         <div class="col-sm-4 mt2">
                             <div ngbDropdown class="d-inline-block w_321">
                                 <label for="" class="common_label ">
-                                    ROUND NAME
+                                    ROUND
                                 </label><br>
                                 <button class="btn common_input" id="dropdownBasic1" ngbDropdownToggle>
                                     <p class="section_text">ROUND {{ control.currentRoundId }}</p>
@@ -27,9 +27,10 @@
                                     <!-- <fa-icon [icon]="faPlayCircle" class="drop_down_icon"></fa-icon> -->
                                 </button>
                                 <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                                    
+
                                     <button ngbDropdownItem *ngFor="let round of episode.rounds">
-                                        <span class="roundDropDown" (click)="clickRound(round)">ROUND {{ round.id }}</span>
+                                        <span class="roundDropDown" (click)="clickRound(round)">ROUND
+                                            {{ round.id }}</span>
                                         <span>
                                             <fa-icon class="remove_icon" [icon]="faTimesCircle"
                                                 (click)="openModal(content_setup, 1, round)">
@@ -48,7 +49,7 @@
                         <div class="col-sm-4 mt2">
                             <div ngbDropdown class="d-inline-block">
                                 <label for="" class="common_label ">
-                                    CATEGORY
+                                    ROUND NAME
                                 </label><br>
                                 <button class="btn common_input" id="dropdownBasic1" ngbDropdownToggle>
                                     <p class="section_text">
@@ -77,18 +78,18 @@
                         <div class="col-sm-4 mt2">
                             <label for="" class="common_label">CLUE FONT SIZE</label><br>
                             <input type="text" class="common_input w_321" [(ngModel)]="currentRound.clueLabelFontSize" OnlyNumber="true" />
-                        
+
                         </div>
                         <div class="col-sm-4 mt2">
                             <label class="common_label ">ROUND AND ROUND NAME FONT
                                 SIZE</label><br>
                             <input type="text" class="common_input w_321" [(ngModel)]="currentRound.roundNameFontSize" OnlyNumber="true" />
-                        
+
                         </div>
                         <div class="col-sm-4 mt2">
                             <label for="" class="common_label ">PLAYER POINT FONT SIZE</label><br>
                             <input type="text" class="common_input w_321" [(ngModel)]="episode.players[0].pointFontSize" (ngModelChange)="changePlayerPointSize($event)" OnlyNumber="true" />
-                       
+
                         </div>
                         <div class="col-sm-4 mt2">
                             <!-- <input type="text" class="common_input w_321" value="{{ currentRound.timeOut }}" (keypress)="numberOnly($event)" (keyup)="changeTimeout($event)" /> -->
@@ -101,18 +102,18 @@
                                     <img [src]="Images.dropDown" class="drop_down_icon" />
                                 </button>
                                 <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                                    <button  ngbDropdownItem *ngFor="let timeout of timeoutList" (click)="addTimeout(timeout.value)">
+                                    <button ngbDropdownItem *ngFor="let timeout of timeoutList" (click)="addTimeout(timeout.value)">
                                         {{ timeout.value }}
                                     </button>
                                 </div>
                             </div>
-                        
-                    </div>
+
+                        </div>
 
                     </div>
                 </div>
                 <div class="col-sm-1">
-    
+
                 </div>
             </div>
 
@@ -362,9 +363,12 @@
                                     <div class="form-group" style="margin-top: 20px;" *ngIf="currentRound.hasCategory">
 
                                         <div ngbDropdown class="d-inline-block" style="margin-bottom: 13%;">
+                                            <label for="" class="common_label ">
+                                                CATEGORY
+                                            </label><br>
                                             <button class="btn common_input" id="dropdownBasic1" ngbDropdownToggle>
                                                 <p class="section_text">
-                                                    {{ currentCategory ? currentCategory.name : "Add New Theme" }}
+                                                    {{ currentCategory ? currentCategory.name : "Add New Category" }}
                                                 </p>
                                                 <img [src]="Images.dropDown" class="drop_down_icon" />
                                             </button>
@@ -379,7 +383,7 @@
                                                     </span>
                                                 </button>
                                                 <button ngbDropdownItem (click)="openModal(content_setup, 5, categoryName)">
-                                                    Add New Theme
+                                                    Add New Category
                                                     <span>
                                                         <fa-icon class="add_icon" [icon]="faPlusCircle"></fa-icon>
                                                     </span>
@@ -388,6 +392,9 @@
                                         </div>
 
                                         <div ngbDropdown class="d-inline-block" style="margin-bottom: 13%;">
+                                            <label for="" class="common_label ">
+                                                WORD
+                                            </label><br>
                                             <button class="btn common_input" id="dropdownBasic1" ngbDropdownToggle>
                                                 <p class="section_text">
                                                     {{ currentHintForR4 ? currentHintForR4.value : "Add New Word" }}
@@ -415,9 +422,9 @@
 
                                         <div style="margin-left:4px;margin-bottom: 13%;">
                                             <input type="radio" name="gridstatus" value="default" (change)="changeGridStatus($event)" /><label class="option_text">
-                                                Default</label>
+                                                Add Word</label>
                                             <input type="radio" name="gridstatus" value="hint" (change)="changeGridStatus($event)" /><label class="option_text">
-                                                Hint</label>
+                                                Add Hint</label>
                                         </div>
                                         <button class="btn-primary btn_box button" style="width: 100%; margin-left: 5px !important;" (click)="clearWord(currentHintForR4.value)">
                                             Clear Word
@@ -539,7 +546,7 @@
             <label>Are you sure to remove the CATEGORY?</label>
         </div>
         <div class=" modal-body " *ngIf=" checkModalType===6 ">
-            <label>Are you sure to remove the HINT?</label>
+            <label>Are you sure to remove WORD?</label>
         </div>
         <!-- add input field for new category -->
         <div class=" modal-body " *ngIf=" checkModalType===5 ">
