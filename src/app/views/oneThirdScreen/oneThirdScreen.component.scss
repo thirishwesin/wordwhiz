@@ -68,12 +68,12 @@ margin-left: -30px;
   }
 
 .long_word_blue {
-  width: calc(14em + 3vw);
+  width: 100%;
   background: url(../../../assets/images/bluelong_bg2.png) no-repeat;
   -webkit-background-size: cover;
   background-size: cover;
   display: inline-block;
-  min-height: 60px;
+  min-height: 77px;
 }
 
 .long_word_green {
@@ -128,7 +128,7 @@ margin-left: -30px;
 }
 
 .transparent {
-  color: transparent;
+  color: transparent !important;
   text-shadow: none;
 }
 
@@ -397,7 +397,7 @@ margin-left: -30px;
   min-height: 60px;
   position: relative;
   padding: 0;
-  min-width: 85px;
+  min-width: 106px;
 }
 
 // Adjust blue rectangle hint row alignment
@@ -734,16 +734,21 @@ margin-left: -30px;
   background: none;
   outline: none;
   text-align: center;
-  font-size: 37px;
   height: 39px;
   position: absolute;
   top: 51%;
-  left: 44%;
+  left: 50%;
   transform: translate(-50%, -50%);
-  width: 261px;
+  width: 187px;
   color: #fff;
 }
 
 .float_left{
   float: left;
+}
+.Rtwo100{
+  margin-top: 100px;
+}
+.t70{
+  top: -70px;
 }

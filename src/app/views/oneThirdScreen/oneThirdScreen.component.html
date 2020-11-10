@@ -1,5 +1,5 @@
 <!-- <div class="loader" [hidden]="!renderingAPNG"></div> -->
-<div class="one_third_section non_select" [hidden]="false">
+<div class="one_third_section non_select" [hidden]="renderingAPNG">
     <div class="row header" id="header">
 
         <div class="col-lg-3 left_wrapper">
@@ -58,7 +58,7 @@
 
                     <div class="hint_ans_center">
                         <!-- //! start position -->
-                        <div *ngFor="let hint of currentQuestion.hints">
+                        <div *ngFor="let hint of currentQuestion.hints; let i = index">
 
                             <!-- //! for position 0 top -->
                             <div *ngIf="hint.position == 0" class="hint_ans_center">
@@ -83,8 +83,8 @@
                                     </p> -->
                                     <!-- <input type="text" class="round_one-text" placeholder="C"> -->
                                 </div>
-                                <div *ngIf="currentQuestion.isAnsCharacter">
-                                    <div class="one_word_green round_3img retangle{{control.fontSettings.oneThird_answer}}" [ngClass]="{'hide_char less8char': char == ' ' , 'animated heartBeat': control.startCount && round4hintAnimated || control.showQuestion && !currentRound.showfirstAnsChar && !control.showAns && !control.clickTimer && !control.fontSettingOpenClose, 'blue_bg' : i == 0 && currentRound.showfirstAnsChar}"
+                                <div class="" *ngIf="currentQuestion.isAnsCharacter">
+                                    <div class="one_word_green  round_3img Rtwo100 retangle{{control.fontSettings.oneThird_answer}}" [ngClass]="{'hide_char less8char': char == ' ' , 'animated heartBeat': control.startCount && round4hintAnimated || control.showQuestion && !currentRound.showfirstAnsChar && !control.showAns && !control.clickTimer && !control.fontSettingOpenClose, 'blue_bg' : i == 0 && currentRound.showfirstAnsChar}"
                                         *ngFor="let char of ansCharArr; let i=index;">
 
                                         <!-- //! for round 4 -->
@@ -111,16 +111,16 @@
                             </div>
 
                             <!-- //! Round Two -->
-                            <div class="col-sm-4 text-center float_left" *ngIf="hint.position == 0 && currentRound.id == 2">
+                            <div class="col-sm-4 text-center float_left t70" *ngIf="hint.position == 0 && currentRound.id == 2">
 
                                 <div class="long_word_blue " [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose || round4hintAnimated && control.startCount ? 'animated heartBeat':''" *ngIf="!hint?.isCharacter">
 
                                     <input type="text" [value]="hint.value" class="roundtwo" [ngStyle]="{'font-size': hint.hintFontSize + 'px'}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint ? 'animated zoomIn':''">
                                 </div>
                             </div>
-                            <div class="col-sm-4 text-center float_left roundtwo_long_text long_word_green pad_top " [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose ? 'animated heartBeat':''" *ngIf="currentQuestion?.isAnsCharacter && i == 2 && currentRound.id == 2">
+                            <!-- <div class="col-sm-4 text-center float_left roundtwo_long_text long_word_green pad_top " [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose ? 'animated heartBeat':''" *ngIf="currentQuestion?.isAnsCharacter && i == 2 && currentRound.id == 2">
                                 <input type="text" [value]="currentQuestion?.ans" [ngStyle]="{'font-size': currentQuestion?.ansFontSize + 'px'}" class="roundtwo" [ngClass]="control.showAns ? 'animated zoomIn' : 'transparent'">
-                            </div>
+                            </div> -->
 
                             <!-- //! for position 1 left-->
                             <div *ngIf="hint.position == 1">
