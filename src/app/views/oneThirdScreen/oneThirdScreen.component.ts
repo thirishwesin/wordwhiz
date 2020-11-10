@@ -81,7 +81,7 @@ export class OneThirdScreenComponent implements OnInit {
       image.style.backgroundSize = "cover";
 
       // this.renderingAPNG = false;
-      this.nz.run(() => {});
+      this.nz.run(() => { });
     };
     cubeImage.onload = () => {
       cube_image.src = cubeImage.src;
@@ -192,7 +192,7 @@ export class OneThirdScreenComponent implements OnInit {
         }
 
         this.renderingAPNG = false;
-        this.nz.run(() => {});
+        this.nz.run(() => { });
 
         this.player = p;
         // player.playbackRate = playbackRate;
@@ -228,6 +228,9 @@ export class OneThirdScreenComponent implements OnInit {
       "id",
       this.control.currentQuestionId
     ]);
+
+    console.log('currentRound => ', this.currentRound)
+    console.log('currentQuestion => ', this.currentQuestion)
 
     //update timer count
     if (this.currentRound.hasCategory) {
