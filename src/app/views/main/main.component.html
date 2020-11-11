@@ -155,7 +155,7 @@
                             </div>
                             <!-- long_retangle{{control.fontSettings.main_answer}} -->
                             <ng-container *ngIf="currentQuestion?.isAnsCharacter && i == 2 && currentRound.id == 2">
-                                <div class="col-sm-4 text-center float_left roundtwo_long_text long_word_green pad_top " [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose ? 'animated heartBeat':''" *ngFor="let char of ansCharArr">
+                                <div class="col-sm-4 text-center one_word_green" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose ? 'animated heartBeat':''" *ngFor="let char of ansCharArr">
                                     <!-- <p class="word animated zoomIn font{{control.fontSettings.main_answer}}" [ngClass]="control.showAns ? 'animated zoomIn' : 'transparent'">
                                         {{ currentQuestion?.ans }}
                                     </p> -->
