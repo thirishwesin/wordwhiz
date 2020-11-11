@@ -26,8 +26,8 @@
                     <p class="clude_txt" *ngIf="currentRound.id == 1 || currentRound.id == 3 || currentRound.id == 5" [ngStyle]="{'font-size': currentRound.clueLabelFontSize + 'px'}">CLUE:
                     </p>
                     <img class="cube_img" name="cube_img" alt="" />
-                    <ng-container *ngIf="currentRound.id == 1 || currentRound.id == 3 || currentRound.id == 5">
-                        <span class="clude_hint" *ngIf="control.showQuestion  || control.runCategoryRound" [ngStyle]="{'font-size': currentQuestion.clueFontSize + 'px'}">{{ currentRound.hasCategory? categoryName : currentQuestion?.clue }}
+                    <ng-container *ngIf="currentRound.id == 1 || currentRound.id == 3 || currentRound.id == 5 || currentRound.id == 4">
+                        <span class="clude_hint" style="width: 100%;" *ngIf="control.showQuestion  || control.runCategoryRound" [ngStyle]="{'font-size': currentQuestion.clueFontSize + 'px'}">{{ currentQuestion?.clue }}
                         </span>
                     </ng-container>
 
@@ -132,11 +132,12 @@
                             <!-- Round Two -->
                             <div class="col-sm-4 text-right float_left" *ngIf="hint.position == 0 && currentRound.id == 2">
                                 <!-- longBlueRoundFour{{hint.value.length}} long_retangle{{control.fontSettings.main_hint}} -->
-                                <div class="long_word_blue " [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose || round4hintAnimated && control.startCount ? 'animated heartBeat':''" *ngIf="!hint?.isCharacter">
+                                <div class="long_word_blue " [ngStyle]="{'background-image': 'url(' + control.roundTwoStatus[i].imagePath + ')'}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose || round4hintAnimated && control.startCount ? 'animated heartBeat':''"
+                                    *ngIf="!hint?.isCharacter">
                                     <!-- <p class="word font{{control.fontSettings.main_hint}}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint ? 'animated zoomIn':''">
                                         {{ hint.value }}
                                     </p> -->
-                                    <input type="text" [value]="hint.value" class="roundtwo" [ngStyle]="{'font-size': hint.hintFontSize + 'px'}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint ? 'animated zoomIn':''">
+                                    <input type="text" [value]="hint.value" class="roundtwo" [ngStyle]="{'font-size': hint.hintFontSize + 'px'}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint ? 'animated':''">
                                 </div>
 
                                 <!-- long_retangle{{control.fontSettings.main_answer}} -->

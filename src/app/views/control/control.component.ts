@@ -235,7 +235,7 @@ export class ControlComponent implements OnInit {
   updateControlState() {
     // clear control extraWord array
     this.control.extraWord = [];
-    this.control.roundTwoStatus = [{ id: 1, imagePath: '1default' }, { id: 2, imagePath: '2default' }, { id: 3, imagePath: '3default' }]
+    this.control.roundTwoStatus = [{ id: 1, imagePath: './assets/images/blue_rectangle.png' }, { id: 2, imagePath: './assets/images/blue_rectangle.png' }, { id: 3, imagePath: './assets/images/blue_rectangle.png' }]
     if (this.control.finishCategoryRound) this.isStartRound4 = false;
 
     //update current round
@@ -635,7 +635,7 @@ export class ControlComponent implements OnInit {
     }
 
     if (this.currentRound.id === 2) {
-      this.control.roundTwoStatus = [{ id: 1, imagePath: '1default' }, { id: 2, imagePath: '2default' }, { id: 3, imagePath: '3default' }]
+      this.control.roundTwoStatus = [{ id: 1, imagePath: './assets/images/blue_rectangle.png' }, { id: 2, imagePath: './assets/images/blue_rectangle.png' }, { id: 3, imagePath: './assets/images/blue_rectangle.png' }]
     }
   }
 
@@ -1167,22 +1167,22 @@ export class ControlComponent implements OnInit {
     let radioValue = event.target.value
     switch (radioValue) {
       case '1default':
-        _.find(this.control.roundTwoStatus, ['id', 1]).imagePath = '1default';
+        _.find(this.control.roundTwoStatus, ['id', 1]).imagePath = './assets/images/blue_rectangle.png';
         break;
       case '2default':
-        _.find(this.control.roundTwoStatus, ['id', 2]).imagePath = '2default';
+        _.find(this.control.roundTwoStatus, ['id', 2]).imagePath = './assets/images/blue_rectangle.png';
         break;
       case '3default':
-        _.find(this.control.roundTwoStatus, ['id', 3]).imagePath = '3default';
+        _.find(this.control.roundTwoStatus, ['id', 3]).imagePath = './assets/images/blue_rectangle.png';
         break;
       case '1choose':
-        _.find(this.control.roundTwoStatus, ['id', 1]).imagePath = '1choose';
+        _.find(this.control.roundTwoStatus, ['id', 1]).imagePath = './assets/images/orange_rectangle.png';
         break;
       case '2choose':
-        _.find(this.control.roundTwoStatus, ['id', 2]).imagePath = '2choose';
+        _.find(this.control.roundTwoStatus, ['id', 2]).imagePath = './assets/images/orange_rectangle.png';
         break;
       case '3choose':
-        _.find(this.control.roundTwoStatus, ['id', 3]).imagePath = '3choose';
+        _.find(this.control.roundTwoStatus, ['id', 3]).imagePath = './assets/images/orange_rectangle.png';
         break;
       default:
         break;

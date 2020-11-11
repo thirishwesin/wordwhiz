@@ -187,7 +187,7 @@ button {
 
 .long_word_blue {
     width: calc(14em + 3vw);
-    background: url(../../../assets/images/blue_rectangle.png) no-repeat;
+    background: no-repeat;
     -webkit-background-size: cover;
     background-size: cover;
     display: inline-block;
@@ -813,11 +813,13 @@ button {
     padding-bottom: 8px;
     color: #fff;
 }
-.round_four{
+
+.round_four {
     margin-left: 19%;
     margin-top: 6%;
 }
-.alpha_text{
+
+.alpha_text {
     height: 60px !important;
     width: 70px !important;
     text-align: center;
