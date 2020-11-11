@@ -1,7 +1,7 @@
 <div class="loader" [hidden]="!renderingAPNG"></div>
 <div class="main_background non_select" id="main_background" [hidden]="renderingAPNG">
     <!-- header -->
-    <section class="top-wrapper">
+    <section class="top-wrapper" *ngIf="currentRound">
         <div class="col-sm-12 head-wrapper font{{control.fontSettings.main_roundName}}">
             <p [ngStyle]="{'font-size': currentRound.roundNameFontSize + 'px'}">
                 ROUND <span class="round_number">{{ currentRound?.id }}</span>
@@ -23,19 +23,19 @@
             </div>
             <div class="col-7">
                 <div>
-                    <p class="clude_txt" *ngIf="currentRound.id == 1 || currentRound.id == 3 || currentRound.id == 5" [ngStyle]="{'font-size': currentRound.clueLabelFontSize + 'px'}">
+                    <p class="clude_txt" *ngIf="currentRound && (currentRound.id == 1 || currentRound.id == 3 || currentRound.id == 5)" [ngStyle]="{'font-size': currentRound.clueLabelFontSize + 'px'}">
                         CLUE:
                     </p>
-                    <p class="clude_txt" *ngIf="currentRound.id == 4" [ngStyle]="{'font-size': currentQuestion.clueFontSize + 'px'}">
+                    <p class="clude_txt" *ngIf="currentRound && currentRound.id == 4" [ngStyle]="{'font-size': currentQuestion.clueFontSize + 'px'}">
                         {{ currentQuestion?.clue }}
                     </p>
-                   
+
                     <img class="cube_img" name="cube_img" alt="" />
-                    <ng-container *ngIf="currentRound.id == 1 || currentRound.id == 3 || currentRound.id == 5">
+                    <ng-container *ngIf="currentRound && (currentRound.id == 1 || currentRound.id == 3 || currentRound.id == 5)">
                         <span class="clude_hint" style="width: 100%;" *ngIf="control.showQuestion  || control.runCategoryRound" [ngStyle]="{'font-size': currentQuestion.clueFontSize + 'px'}">{{ currentQuestion?.clue }}
                         </span>
                     </ng-container>
-                    
+
                 </div>
 
                 <div class="alpha_wrapper" *ngIf="control.showQuestion || control.runCategoryRound">
@@ -154,12 +154,16 @@
                                 </div> -->
                             </div>
                             <!-- long_retangle{{control.fontSettings.main_answer}} -->
-                            <div class="col-sm-4 text-center float_left roundtwo_long_text long_word_green pad_top " [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose ? 'animated heartBeat':''" *ngIf="currentQuestion?.isAnsCharacter && i == 2 && currentRound.id == 2">
-                                <!-- <p class="word animated zoomIn font{{control.fontSettings.main_answer}}" [ngClass]="control.showAns ? 'animated zoomIn' : 'transparent'">
-                                    {{ currentQuestion?.ans }}
-                                </p> -->
-                                <input type="text" [value]="currentQuestion?.ans" [ngStyle]="{'font-size': currentQuestion?.ansFontSize + 'px'}" class="roundtwo" [ngClass]="control.showAns ? 'animated zoomIn' : 'transparent'">
-                            </div>
+                            <ng-container *ngIf="currentQuestion?.isAnsCharacter && i == 2 && currentRound.id == 2">
+                                <div class="col-sm-4 text-center float_left roundtwo_long_text long_word_green pad_top " [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose ? 'animated heartBeat':''" *ngFor="let char of ansCharArr">
+                                    <!-- <p class="word animated zoomIn font{{control.fontSettings.main_answer}}" [ngClass]="control.showAns ? 'animated zoomIn' : 'transparent'">
+                                        {{ currentQuestion?.ans }}
+                                    </p> -->
+                                    <input type="text" [value]="char" [ngStyle]="{'font-size': currentQuestion?.ansFontSize + 'px'}" class="roundtwo" [ngClass]="control.showAns ? 'animated zoomIn' : 'transparent'">
+                                </div>
+                            </ng-container>
+
+
 
                             <!-- //! Round Four -->
                             <div class="round_four" *ngIf="currentRound.hasCategory">
