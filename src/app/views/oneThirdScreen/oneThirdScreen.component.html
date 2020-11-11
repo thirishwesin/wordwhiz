@@ -12,7 +12,7 @@
         <div class="col-lg-9 row right_wrapper">
             <div class="col-sm-4">
                 <img class="cube_img_center" name="cube_img" alt="" />
-                <ng-container *ngIf="currentRound.id == 1 || currentRound.id == 3 || currentRound.id == 5">
+                <ng-container *ngIf=" currentRound && (currentRound.id == 1 || currentRound.id == 3 || currentRound.id == 5)">
                     <div class="clude_hint" [ngStyle]="{'font-size': currentQuestion.otClueFontSize + 'px'}" *ngIf="control.showQuestion || control.runCategoryRound">
                         {{ currentRound.hasCategory? categoryName : currentQuestion?.clue }}</div>
                 </ng-container>
@@ -116,7 +116,8 @@
                             <!-- //! Round Two -->
                             <div class="col-sm-4 text-center float_left t70" *ngIf="hint.position == 0 && currentRound.id == 2">
 
-                                <div class="long_word_blue " [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose || round4hintAnimated && control.startCount ? 'animated heartBeat':''" *ngIf="!hint?.isCharacter">
+                                <div class="long_word_blue " [ngStyle]="{'background-image': 'url(' + control.roundTwoStatus[i].imagePath + ')'}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose || round4hintAnimated && control.startCount ? 'animated heartBeat':''"
+                                    *ngIf="!hint?.isCharacter">
 
                                     <input type="text" [value]="hint.value" class="roundtwo" [ngStyle]="{'font-size': hint.hintFontSize + 'px'}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint ? 'animated zoomIn':''">
                                 </div>
