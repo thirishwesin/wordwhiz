@@ -79,7 +79,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="">
+                    <div class="text-center">
                         <div *ngFor="let hint of currentQuestion?.hints; let i = index">
                             <!-- //! for position 0 top -->
                             <div class="text-center " *ngIf="hint.position == 0 && currentRound.id != 2">
@@ -110,7 +110,7 @@
                                 <div class="text-center" *ngIf="currentQuestion?.isAnsCharacter">
                                     <div class="one_word_green retangle{{control.fontSettings.main_answer}}" [ngClass]="{'hide_char less8char': char == ' ' , 'animated heartBeat': control.startCount && round4hintAnimated && currentRound.showfirstAnsChar || control.showQuestion && !currentRound.showfirstAnsChar && !control.showAns && !control.startCount && !control.fontSettingOpenClose, 'blue_bg' : i == 0 && currentRound.showfirstAnsChar}"
                                         *ngFor="let char of ansCharArr; let i=index;">
-                                        <h1>hello world</h1>
+                                        
                                         <!-- //! for round 4 -->
                                         <span *ngIf="currentRound.showfirstAnsChar">
                                             <!-- <p class="word font{{control.fontSettings.main_answer}}"
@@ -156,9 +156,9 @@
                             </div>
                             <!-- long_retangle{{control.fontSettings.main_answer}} -->
                             <ng-container *ngIf="currentQuestion?.isAnsCharacter && i == 2 && currentRound.id == 2">
-                                <div class="col-sm-4 text-center one_word_green" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose ? 'animated heartBeat':''" *ngFor="let char of ansCharArr">
+                                <div class="one_word_green" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose ? 'animated heartBeat':''" *ngFor="let char of ansCharArr">
 
-                                    <input type="text" [value]="char" [ngStyle]="{'font-size': currentQuestion?.ansFontSize + 'px'}" class="roundtwo" [ngClass]="control.showAns ? 'animated zoomIn' : 'transparent'">
+                                    <input type="text" [value]="char" [ngStyle]="{'font-size': currentQuestion?.ansFontSize + 'px'}" class="round1_text mrl18" [ngClass]="control.showAns ? 'animated zoomIn' : 'transparent'">
                                 </div>
                             </ng-container>
 
