@@ -130,7 +130,7 @@
                             </div>
 
                             <!-- Round Two -->
-                            <div class="col-sm-4 text-center float_left" *ngIf="hint.position == 0 && currentRound.id == 2">
+                            <div class="col-sm-4 text-right float_left" *ngIf="hint.position == 0 && currentRound.id == 2">
                                 <!-- longBlueRoundFour{{hint.value.length}} long_retangle{{control.fontSettings.main_hint}} -->
                                 <div class="long_word_blue " [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose || round4hintAnimated && control.startCount ? 'animated heartBeat':''" *ngIf="!hint?.isCharacter">
                                     <!-- <p class="word font{{control.fontSettings.main_hint}}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint ? 'animated zoomIn':''">
@@ -156,7 +156,7 @@
                             </div>
 
                             <!-- //! Round Four -->
-                            <div class="round_four" *ngIf="currentRound.hasCategory" style="margin-left: 25%;">
+                            <div class="round_four" *ngIf="currentRound.hasCategory">
                                 <div class="row" style="flex-wrap: initial;">
                                     <div class="col-sm" class="alpha_text" style="border: 1px solid #c9c9c9; height: 51px; width: 51px;" *ngFor="let item of [11,12,13,14,15,16,17,18,19,110]; let i = index" [id]="item">
 

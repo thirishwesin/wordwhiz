@@ -103,6 +103,7 @@ button {
     left: 45%;
     transform: translate(-50%, -50%);
     font-size: 60px;
+    bottom: 58%;
 }
 
 .center {
@@ -138,10 +139,10 @@ button {
 
 .alpha_wrapper {
     top: 75%;
-    left: 45%;
+    left: 56%;
     position: absolute;
     transform: translate(-50%, -50%);
-    width: 122%;
+    width: 100%;
 }
 
 .poll {
@@ -765,7 +766,8 @@ button {
 }
 
 .roundtwo_long_text {
-    left: 33.5%;
+    left: 36.5%;
+    margin-top: 50px;
     .roundtwo {
         border: none;
         background: none;
@@ -791,7 +793,7 @@ button {
     height: 39px;
     position: absolute;
     top: 51%;
-    left: 44%;
+    left: 55%;
     transform: translate(-50%, -50%);
     width: 261px;
     color: #fff;
@@ -812,8 +814,8 @@ button {
     color: #fff;
 }
 .round_four{
-    margin-left: 24%;
-    margin-top: 10%;
+    margin-left: 19%;
+    margin-top: 6%;
 }
 .alpha_text{
     height: 60px !important;
