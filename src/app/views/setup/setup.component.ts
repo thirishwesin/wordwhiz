@@ -457,7 +457,7 @@ export class SetupComponent implements OnInit {
       });
     }
 
-    if (this.question.ans.trim() == "" || this.currentRound.name.trim() == "" || !validHint || (!this.currentRound.hasCategory && this.question.clue.trim() == "")) {
+    if (this.question.ans.trim() == "" || this.currentRound.name.trim() == "" || !validHint || (!this.currentRound.hasCategory && this.currentRound.id != 2 && this.question.clue.trim() == "")) {
       return true;
     }
 
