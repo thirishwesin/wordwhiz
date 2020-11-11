@@ -23,14 +23,19 @@
             </div>
             <div class="col-7">
                 <div>
-                    <p class="clude_txt" *ngIf="currentRound.id == 1 || currentRound.id == 3 || currentRound.id == 5" [ngStyle]="{'font-size': currentRound.clueLabelFontSize + 'px'}">CLUE:
+                    <p class="clude_txt" *ngIf="currentRound.id == 1 || currentRound.id == 3 || currentRound.id == 5" [ngStyle]="{'font-size': currentRound.clueLabelFontSize + 'px'}">
+                        CLUE:
                     </p>
+                    <p class="clude_txt" *ngIf="currentRound.id == 4" [ngStyle]="{'font-size': currentQuestion.clueFontSize + 'px'}">
+                        {{ currentQuestion?.clue }}
+                    </p>
+                   
                     <img class="cube_img" name="cube_img" alt="" />
-                    <ng-container *ngIf="currentRound.id == 1 || currentRound.id == 3 || currentRound.id == 5 || currentRound.id == 4">
+                    <ng-container *ngIf="currentRound.id == 1 || currentRound.id == 3 || currentRound.id == 5">
                         <span class="clude_hint" style="width: 100%;" *ngIf="control.showQuestion  || control.runCategoryRound" [ngStyle]="{'font-size': currentQuestion.clueFontSize + 'px'}">{{ currentQuestion?.clue }}
                         </span>
                     </ng-container>
-
+                    
                 </div>
 
                 <div class="alpha_wrapper" *ngIf="control.showQuestion || control.runCategoryRound">
