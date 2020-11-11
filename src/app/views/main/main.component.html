@@ -135,7 +135,7 @@
                             </div>
 
                             <!-- Round Two -->
-                            <div class="col-sm-4 text-right float_left" *ngIf="hint.position == 0 && currentRound.id == 2">
+                            <div class="col-sm-4 text-right float_left mtm60" *ngIf="hint.position == 0 && currentRound.id == 2">
                                 <!-- longBlueRoundFour{{hint.value.length}} long_retangle{{control.fontSettings.main_hint}} -->
                                 <div class="long_word_blue " [ngStyle]="{'background-image': 'url(' + control.roundTwoStatus[i].imagePath + ')'}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose || round4hintAnimated && control.startCount ? 'animated heartBeat':''"
                                     *ngIf="!hint?.isCharacter">
