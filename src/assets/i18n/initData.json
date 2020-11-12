@@ -865,13 +865,13 @@
                   "isCharacter": false
                 }
               ],
-              "ans": 42,
+              "ans": "42,52,62,",
               "isAnsCharacter": false,
               "clueFontSize": "50",
               "otClueFontSize": null,
               "ansFontSize": null,
               "otAnsFontSize": null,
-              "actions": 0
+              "actions": 3
             },
             {
               "id": 2,
@@ -892,13 +892,13 @@
                   "isCharacter": false
                 }
               ],
-              "ans": 24,
+              "ans": "24,",
               "isAnsCharacter": false,
               "clueFontSize": "51",
               "otClueFontSize": null,
               "ansFontSize": null,
               "otAnsFontSize": null,
-              "actions": 0
+              "actions": 3
             },
             {
               "id": 3,
@@ -919,7 +919,7 @@
                   "isCharacter": false
                 }
               ],
-              "ans": 41,
+              "ans": "41,",
               "isAnsCharacter": false,
               "clueFontSize": "52",
               "otClueFontSize": null,
@@ -948,7 +948,7 @@
                   "isCharacter": false
                 }
               ],
-              "ans": 51,
+              "ans": "51,",
               "isAnsCharacter": false,
               "clueFontSize": "53",
               "otClueFontSize": null,
@@ -973,9 +973,39 @@
                   "isCharacter": false
                 }
               ],
-              "ans": 28,
+              "ans": "28,",
               "isAnsCharacter": false,
               "clueFontSize": "54",
+              "otClueFontSize": null,
+              "ansFontSize": null,
+              "otAnsFontSize": null,
+              "actions": 0
+            },
+            {
+              "id": 6,
+              "clue": "pineapple",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "pineapple",
+                  "position": [
+                    101,
+                    102,
+                    103,
+                    104,
+                    105,
+                    106,
+                    107,
+                    108,
+                    109
+                  ],
+                  "isCharacter": false
+                }
+              ],
+              "ans": "",
+              "isAnsCharacter": false,
+              "clueFontSize": "56",
               "otClueFontSize": null,
               "ansFontSize": null,
               "otAnsFontSize": null,
@@ -1131,7 +1161,7 @@
                   "isCharacter": false
                 }
               ],
-              "ans": 13,
+              "ans": "13,",
               "isAnsCharacter": false,
               "clueFontSize": null,
               "otClueFontSize": null,
@@ -1159,9 +1189,122 @@
                   "isCharacter": false
                 }
               ],
-              "ans": 11,
+              "ans": "11,",
               "isAnsCharacter": false,
               "clueFontSize": null,
+              "otClueFontSize": null,
+              "ansFontSize": null,
+              "otAnsFontSize": null
+            }
+          ],
+          "roundNameFontSize": "90",
+          "clueLabelFontSize": "60"
+        },
+        {
+          "id": 5,
+          "name": "MYSTERY WORD",
+          "questionType": 5,
+          "showfirstAnsChar": false,
+          "hasCategory": false,
+          "categories": [],
+          "timeOut": 30,
+          "point": 30,
+          "questionArray": [],
+          "roundNameFontSize": "90",
+          "clueLabelFontSize": "60"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "players": [
+        {
+          "id": 1,
+          "name": "Player1",
+          "point": 0,
+          "pointFontSize": 300
+        },
+        {
+          "id": 2,
+          "name": "Player2",
+          "point": 0,
+          "pointFontSize": 300
+        },
+        {
+          "id": 3,
+          "name": "Player3",
+          "point": 0,
+          "pointFontSize": 300
+        }
+      ],
+      "rounds": [
+        {
+          "id": 1,
+          "name": "OPPOSITE WORD",
+          "questionType": 1,
+          "showfirstAnsChar": true,
+          "hasCategory": false,
+          "categories": [],
+          "timeOut": 10,
+          "point": 10,
+          "questionArray": [],
+          "roundNameFontSize": "90",
+          "clueLabelFontSize": "60"
+        },
+        {
+          "id": 2,
+          "name": "ODD WORD",
+          "questionType": 2,
+          "showfirstAnsChar": false,
+          "hasCategory": false,
+          "categories": [],
+          "timeOut": 15,
+          "point": 15,
+          "questionArray": [],
+          "roundNameFontSize": "90",
+          "clueLabelFontSize": "60"
+        },
+        {
+          "id": 3,
+          "name": "HIDDEN WORDS",
+          "questionType": 3,
+          "showfirstAnsChar": false,
+          "hasCategory": false,
+          "categories": [],
+          "timeOut": 20,
+          "point": 20,
+          "questionArray": [],
+          "roundNameFontSize": "90",
+          "clueLabelFontSize": "60"
+        },
+        {
+          "id": 4,
+          "name": "SCRAMBLED WORD",
+          "questionType": 4,
+          "showfirstAnsChar": true,
+          "hasCategory": true,
+          "categories": [
+            {
+              "id": 0,
+              "name": "Place"
+            }
+          ],
+          "timeOut": 60,
+          "point": 60,
+          "questionArray": [
+            {
+              "id": 1,
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "test",
+                  "position": [],
+                  "isCharacter": false
+                }
+              ],
+              "ans": "",
+              "isAnsCharacter": false,
               "otClueFontSize": null,
               "ansFontSize": null,
               "otAnsFontSize": null

@@ -360,6 +360,11 @@
 
                                             </div>
                                         </div>
+                                        <div class="row" style="flex-wrap: initial;">
+                                            <div class="col-sm" (click)="clickGrid(item)" class="alpha_text" style="border: 1px solid #4DB821; height: 32px;" *ngFor="let item of [101,102,103,104,105,106,107,108,109,1010]; let i = index" [id]="item">
+
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-4">
@@ -400,7 +405,7 @@
                                             </label><br>
                                             <button class="btn common_input" id="dropdownBasic1" ngbDropdownToggle>
                                                 <p class="section_text">
-                                                    {{ currentHintForR4 ? currentHintForR4.value : "Add New Word" }}
+                                                    {{ currentHintForR4 ? currentHintForR4.value : "Select One Word" }}
                                                 </p>
                                                 <img [src]="Images.dropDown" class="drop_down_icon" />
                                             </button>
@@ -469,7 +474,7 @@
                                         </th>
                                     </ng-container>
 
-                                    <th scope="col" class="common_label">ANSWER</th>
+                                    <th scope="col" class="common_label" *ngIf="!currentRound.hasCategory">ANSWER</th>
                                     <th scope="col" class="common_label" *ngFor="let hint of question.hints">
                                         {{ currentRound.hasCategory ? 'WORD' : 'HINT'}} {{ question.hints.length
                                         <=1 ? "" : hint.id }} </th>
@@ -484,7 +489,7 @@
                                         <td class=" common_data " *ngIf="!currentRound.hasCategory">
                                             {{ question.clue }}</td>
                                     </ng-container>
-                                    <td class=" common_data ">{{ question.ans }}</td>
+                                    <td class=" common_data " *ngIf="!currentRound.hasCategory">{{ question.ans }}</td>
                                     <td class=" common_data " *ngFor=" let hint of question.hints ">
                                         {{ hint.value }}
                                     </td>
@@ -576,9 +581,14 @@
             </div>
         </div>
         <div class=" modal-body " *ngIf=" checkModalType===7 ">
+            <div class="col-sm-12">
+                <label class="common_label" [ngStyle]="{'visibility': invalidWordName ? '': 'hidden', 'color': 'red'}">
+                    *Already exist
+                    in word list ! </label>
+            </div>
             <div class="col-sm-12 ">
                 <label class="common_label mr4 ">WORD NAME : </label>
-                <input type="text" class="common_input" [(ngModel)]="hintValueForR4">
+                <input type="text" class="common_input" [(ngModel)]="hintValueForR4" (ngModelChange)="checkDuplicateWord($event)">
             </div>
             <div class="col-sm-12 ">
                 <label class="common_label mr4 ">HINT NAME : </label>
@@ -596,7 +606,7 @@
             <button type=" button " *ngIf=" checkModalType==2 " class=" button btn-add saveBack " (click)=" modal.close( 'SaveBack' ) ">
                 Save & Back
             </button>
-            <button type=" button " class=" button btn-add " [disabled]="(isEmptyCategoryName && checkModalType == 5) || invalidCategoryName" (click)=" modal.close( 'Back click' ) ">
+            <button type=" button " class=" button btn-add " [disabled]="(isEmptyCategoryName && checkModalType == 5) || invalidCategoryName || (invalidWordName && currentRound.id == 4)" (click)=" modal.close( 'Back click' ) ">
                 {{
               checkModalType == 1 || checkModalType == 4 || checkModalType == 6
                 ? "Remove "

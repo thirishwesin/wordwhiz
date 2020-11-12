@@ -250,7 +250,7 @@ export class MainComponent implements OnInit {
           this.round4QuestionList.push(this.currentQuestion)
         }
       }
-      this.setGridValue(this.control.roundFourStatus);
+      this.setGridValue();
       if (this.control.showAns) {
         this.showedAnswerList.push({ ...this.currentQuestion, roundFourStatus: this.control.roundFourStatus })
         this.showGridEachAnswer();
@@ -406,16 +406,15 @@ export class MainComponent implements OnInit {
     this.timeoutList = JSON.parse(data);
   }
 
-  setGridValue(roundFourStatus: string) {
-
-
+  setGridValue() {
     this.round4QuestionList.forEach(question => {
+      console.log('question => ', question)
       let color = '#013ad6';
       if (question.roundFourStatus == 'skip') color = '#eeeeee75'
       question.hints.forEach(hint => {
         hint.position.forEach((id, index) => {
           // console.log('id: ', id, ', ans: ', question.ans)
-          if (id == question.ans) {
+          if (question.ans.includes(id)) {
             setTimeout(() => {
               (<HTMLDivElement>document.getElementById(id)).innerText = hint.value.charAt(index);
             }, 0);

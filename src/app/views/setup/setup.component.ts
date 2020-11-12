@@ -67,6 +67,7 @@ export class SetupComponent implements OnInit {
 
   categoryName: string;
   invalidCategoryName: boolean;
+  invalidWordName: boolean;
   isEmptyCategoryName: boolean;
 
   noDatabyCategory = false;
@@ -186,8 +187,8 @@ export class SetupComponent implements OnInit {
       if (this.pevCategoryId) this.pevCategoryId = this.currentCategory.id
       this.currentHintArrForR4 = this.currentRound.questionArray.filter(question =>
         question.categoryId == this.currentCategory.id).map(question => question.hints[0])
-      this.currentHintForR4 = this.currentHintArrForR4[0]
-      this.gridValue = this.currentHintForR4.value
+      this.currentHintForR4 = undefined //this.currentHintArrForR4[0]
+      this.gridValue = undefined //this.currentHintForR4.value
       console.log('currentRound question array => ', this.currentRound.questionArray)
       console.log('this.question => ', this.question)
       this.setGridValue();
@@ -407,8 +408,6 @@ export class SetupComponent implements OnInit {
   saveAll(content_setup) {
     this.oldEpisode = _.cloneDeep(this.episode);
     saveFile(this.wordWhiz, () => { });
-
-    // this.openModal(content_setup, 3, "");
   }
 
   editQuestionList(question: any) {
@@ -437,10 +436,18 @@ export class SetupComponent implements OnInit {
     });
 
     if (this.currentRound.id == 4) {
-      this.currentHintArrForR4 = this.currentHintArrForR4 = this.currentRound.questionArray.filter(question =>
+      this.currentHintArrForR4 = this.currentRound.questionArray.filter(question =>
         question.categoryId == this.currentCategory.id).map(question => question.hints[0])
-      this.currentHintForR4 = this.currentHintArrForR4[0]
-      this.gridValue = this.currentHintForR4.value
+      this.currentHintForR4 = {
+        id: -1,
+        value: 'Select One Word',
+        hintFontSize: 20,
+        otHintFontSize: 20,
+        position: [], //position 0 is for top, 1 is for left and 2 is for right
+        isCharacter: false
+      }
+      // this.currentHintForR4 = this.currentHintArrForR4[0]
+      // this.gridValue = this.currentHintForR4.value
     }
 
     this.checkQuestionsByCategory();
@@ -744,9 +751,8 @@ export class SetupComponent implements OnInit {
     console.log('current category id => ', this.currentCategory.id)
     this.currentHintArrForR4 = this.currentRound.questionArray.filter(question =>
       question.categoryId == this.currentCategory.id).map(question => question.hints[0])
-    console.log(' currentHintArrForR4 => ', this.currentHintArrForR4)
-    this.currentHintForR4 = this.currentHintArrForR4[0]
-    this.gridValue = this.currentHintForR4.value
+    // this.currentHintForR4 = this.currentHintArrForR4[0]
+    // this.gridValue = this.currentHintForR4.value
   }
 
   clickHint(hint: Hint) {
@@ -761,7 +767,7 @@ export class SetupComponent implements OnInit {
   }
 
   clickGrid(id: string) {
-    console.log('grid value => ', this.currentHintForR4, this.gridValue)
+    console.log('grid value => ', this.gridValue)
     let questionArr = this.currentRound.questionArray.filter(question =>
       question.categoryId == this.currentCategory.id && question.hints[0].value == this.currentHintForR4.value)
     let questionArrIndex = this.currentRound.questionArray.indexOf(questionArr[0])
@@ -773,15 +779,26 @@ export class SetupComponent implements OnInit {
         this.currentRound.questionArray[questionArrIndex].hints[0].position.push(id);
         // this.question.hints[0].value = "test";
         // this.question.ans = "hello"
+        if (this.gridValue.length == 0) {
+          this.currentHintForR4 = {
+            id: -1,
+            value: 'Select One Word',
+            hintFontSize: 20,
+            otHintFontSize: 20,
+            position: [], //position 0 is for top, 1 is for left and 2 is for right
+            isCharacter: false
+          }
+        }
       }
-    } else if (this.isDefaultOrHint == 'hint') {
-      console.log('backgroundColor => ', div.style.backgroundColor)
+    } else if (this.isDefaultOrHint == 'hint' && this.currentRound.questionArray[questionArrIndex].ans !== undefined) {
       if (div.style.backgroundColor == '') {
         div.style.backgroundColor = 'red'
-        this.currentRound.questionArray[questionArrIndex].ans = id;
+        this.currentRound.questionArray[questionArrIndex].ans += id + ',';
       } else {
         div.style.backgroundColor = ''
-        this.currentRound.questionArray[questionArrIndex].ans = '';
+        console.log('id => ', id)
+        let old = id + ','
+        this.currentRound.questionArray[questionArrIndex].ans = this.currentRound.questionArray[questionArrIndex].ans.replace(old, '');
       }
 
     }
@@ -789,7 +806,6 @@ export class SetupComponent implements OnInit {
 
   setGridValue() {
     this.currentRound.questionArray.filter(qustion => qustion.categoryId == this.currentCategory.id).forEach(question => {
-      console.log('question => ', question)
       question.hints.forEach((hint) => {
         hint.position.forEach((id, index) => {
           setTimeout(() => {
@@ -798,16 +814,20 @@ export class SetupComponent implements OnInit {
         });
       })
       if (question.ans) {
-        setTimeout(() => {
-          (<HTMLDivElement>document.getElementById(question.ans)).style.backgroundColor = 'red'
-        }, 0);
+        console.log('question answer => ', question.ans.split(','))
+        question.ans.split(',').forEach(id => {
+          if (id != '') {
+            setTimeout(() => {
+              (<HTMLDivElement>document.getElementById(id)).style.backgroundColor = 'red'
+            }, 0);
+          }
+        })
       }
     })
   }
 
   clearGridValues(id: number) {
     this.currentRound.questionArray.filter(qustion => qustion.categoryId == id).forEach(question => {
-      console.log('question => ', question)
       question.hints.forEach((hint) => {
         hint.position.forEach((id, index) => {
           setTimeout(() => {
@@ -833,11 +853,33 @@ export class SetupComponent implements OnInit {
       (<HTMLDivElement>document.getElementById(id)).innerText = '';
     });
     if (this.currentRound.questionArray[questionArrIndex].ans) {
-      (<HTMLDivElement>document.getElementById(this.currentRound.questionArray[questionArrIndex].ans)).style.backgroundColor = '';
+      this.currentRound.questionArray[questionArrIndex].ans.split(',').forEach(id => {
+        if (id != '') {
+          (<HTMLDivElement>document.getElementById(id)).style.backgroundColor = '';
+        }
+
+      });
+
     }
     this.currentRound.questionArray[questionArrIndex].hints[0].position = []
     this.currentRound.questionArray[questionArrIndex].ans = ''
     this.gridValue = currentHintForR4Value
     this.setGridValue();
+  }
+
+  checkDuplicateWord(word: string) {
+    if (this.currentHintArrForR4) {
+      for (let i = 0; i < this.currentHintArrForR4.length; i++) {
+        if (
+          this.currentHintArrForR4[i].value.trim().toLocaleLowerCase() ==
+          word.trim().toLocaleLowerCase()
+        ) {
+          this.invalidWordName = true;
+          break;
+        } else {
+          this.invalidWordName = false;
+        }
+      }
+    }
   }
 }
