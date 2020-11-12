@@ -233,7 +233,7 @@ export class OneThirdScreenComponent implements OnInit {
     console.log('currentRound => ', this.currentRound)
     console.log('currentQuestion => ', this.currentQuestion)
 
-    if (this.control.currentRoundId == 2 || this.control.currentRoundId == 4) this.cube_image.src = ''
+    if (this.currentRound.questionType == 2 || this.currentRound.questionType == 4) this.cube_image.src = ''
     else this.cube_image.src = this.cubeImage.src;
 
     //update timer count

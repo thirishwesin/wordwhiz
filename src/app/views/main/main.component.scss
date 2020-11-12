@@ -819,17 +819,23 @@ button {
 }
 
 .alpha_text {
-    height: 50px !important;
-    width: 60px !important;
+    height: 47px !important;
+    width: 47px !important;
     text-align: center;
     padding: 1.5%;
     font-weight: bold;
     border: 1px solid #41faff!important;
     color: #fff;
 }
-.mtm60{
+
+.mtm60 {
     margin-top: -60px;
 }
-.mrl18{
+
+.mrl18 {
     margin-left: 18px;
+}
+
+.grid_normal_bg {
+    background: url(../../../assets/images/grid-normal-bg.png) no-repeat;
 }

@@ -73,7 +73,7 @@
 
                     <div class="row col-sm-12 pad_right0">
 
-                        <div ngbDropdown [ngClass]="currentRound.hasCategory ? 'd-inline-block col-sm-12' : 'd-inline-block col-sm-8'" [ngStyle]="{'visibility': currentRound.id != 2 ? 'unset' : 'hidden' }">
+                        <div ngbDropdown [ngClass]="currentRound.hasCategory ? 'd-inline-block col-sm-12' : 'd-inline-block col-sm-8'" [ngStyle]="{'visibility': currentRound.questionType != 2 ? 'unset' : 'hidden' }">
                             <button class="btn common_input" id="dropdownBasic1" ngbDropdownToggle [disabled]="currentRound.hasCategory && control.startCount || currentRound.hasCategory && !control.finishCategoryRound && isStartRound4">
                                 <p class="section_text">
                                     {{currentRound.questionArray.length == 0 || currentRound.hasCategory && noQuestionByCategory ? "*No Question." : currentRound.hasCategory ? currentQuestion?.hints[0].value : "QUESTION "+ control.currentQuestionId}}
@@ -112,7 +112,7 @@
                             <button class="btn button ans" (click)="wrongAnswer()" [disabled]="!control.showQuestion">Wrong Answer</button>
                         </div>
                         <div class="showans_btn">
-                            <button class="btn button ans" (click)="resetExtraKey()" *ngIf="currentRound.id==5" [disabled]="!control.showQuestion">Reset</button>
+                            <button class="btn button ans" (click)="resetExtraKey()" *ngIf="currentRound.questionType == 5" [disabled]="!control.showQuestion">Reset</button>
                         </div>
                     </div>
 
@@ -139,7 +139,7 @@
                         </div>
                     </div>
 
-                    <ng-container *ngIf="currentRound.id != 2">
+                    <ng-container *ngIf="currentRound.questionType != 2">
                         <div class="col-sm-8 row" *ngIf="!currentRound.hasCategory">
                             <label class="col-sm-3 common_label">CLUE</label>
                             <input readonly [ngClass]="control.showQuestion || currentRound.hasCategory && control.startCount ? 'col-sm-9 common_input':'col-sm-9 common_input disabled'" type="text" value={{currentQuestion?.clue}} />
@@ -149,7 +149,7 @@
                     <div class="col-sm-8 row" *ngFor="let hint of currentQuestion?.hints; let i = index;">
                         <label class="col-sm-3 common_label">{{ i == 0 ? 'HINT ONE': i==1 ? 'HINT TWO': 'HINT THREE'}}</label>
                         <input readonly [ngClass]="control.showQuestion || currentRound.hasCategory && control.startCount ? 'col-sm-9 common_input':'col-sm-9 common_input disabled'" type="text" value={{hint.value}} />
-                        <ng-container *ngIf="currentRound.id == 2">
+                        <ng-container *ngIf="currentRound.questionType == 2">
                             <input type="radio" class="radio_input" checked="checked" [name]="i" [value]=" 1 + i + 'default'" (change)="radioOnChange($event)" /><label class="option_text"> Default</label>
                             <input type="radio" class="radio_input" [name]="i" [value]=" 1 + i + 'choose'" (change)="radioOnChange($event)" /><label class="option_text"> Player Choosed</label>
                         </ng-container>
@@ -196,11 +196,11 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <button class="btn button que"  *ngIf="currentRound.id==5 && currentRound.questionArray.length != 0" (click)="resetKeyExtra()">Reset</button> -->
+                    <!-- <button class="btn button que"  *ngIf="currentRound.questionType==5 && currentRound.questionArray.length != 0" (click)="resetKeyExtra()">Reset</button> -->
                 </div>
             </div>
         </div>
-        <div class="col bottom_col" *ngIf="currentRound.id==5 && currentRound.questionArray.length != 0">
+        <div class="col bottom_col" *ngIf="currentRound.questionType == 5 && currentRound.questionArray.length != 0">
             <div class="row message">
                 <img [src]=Images.footer_top class="footer_top_style">
                 <div class="blank_style"></div>
@@ -263,7 +263,7 @@
                             </div>
                         </div>
                         <div class=" form-group col-6 col-md-4">
-                            <label for="" class="common_label" style="margin-top: 8%;">{{ currentRound.id == 4 ? 'Grid' : 'Clue Label'}}</label>
+                            <label for="" class="common_label" style="margin-top: 8%;">{{ currentRound.questionType == 4 ? 'Grid' : 'Clue Label'}}</label>
                             <h6 class="fontsize_limit">Recommended - {{recommendFontSize.main_clue}}</h6>
                             <div class="container_up">
                                 <input class="form-control common_input " OnlyNumber="true" [(ngModel)]="currentRound.clueLabelFontSize">
@@ -283,14 +283,14 @@
                                 <input class="form-control common_input " OnlyNumber="true" [(ngModel)]="currentQuestion.hints[0].hintFontSize">
                             </div>
                         </div>
-                        <div class=" form-group col-6 col-md-4" *ngIf="currentRound.id == 2 ">
+                        <div class=" form-group col-6 col-md-4" *ngIf="currentRound.questionType == 2 ">
                             <label for="" class="common_label" style="margin-top: 8%;">Hint Two</label>
                             <h6 class="fontsize_limit">Recommended - {{recommendFontSize.main_hint}}</h6>
                             <div class="container_up">
                                 <input class="form-control common_input " OnlyNumber="true" [(ngModel)]="currentQuestion.hints[1].hintFontSize">
                             </div>
                         </div>
-                        <div class=" form-group col-6 col-md-4" *ngIf="currentRound.id == 2 ">
+                        <div class=" form-group col-6 col-md-4" *ngIf="currentRound.questionType == 2 ">
                             <label for="" class="common_label" style="margin-top: 8%;">Hint Three</label>
                             <h6 class="fontsize_limit">Recommended - {{recommendFontSize.main_hint}}</h6>
                             <div class="container_up">

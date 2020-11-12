@@ -250,7 +250,7 @@ export class ControlComponent implements OnInit {
       this.control.currentQuestionId
     ]);
 
-    if (this.currentRound.id == 2) {
+    if (this.currentRound.questionType == 2) {
       this.setDefaultRadioState()
     }
 
@@ -633,7 +633,7 @@ export class ControlComponent implements OnInit {
       }, 1000);
     }
 
-    if (this.currentRound.id === 2) {
+    if (this.currentRound.questionType === 2) {
       this.control.roundTwoStatus = [{ id: 1, imagePath: './assets/images/blue_rectangle.png' }, { id: 2, imagePath: './assets/images/blue_rectangle.png' }, { id: 3, imagePath: './assets/images/blue_rectangle.png' }]
     }
   }
@@ -672,7 +672,7 @@ export class ControlComponent implements OnInit {
 
     // play audio if press Show Answer button
     if (!this.control.showAns) this.correct_answer_audio.play();
-    if (this.currentRound.id == 2 && !this.control.showAns && _.find(this.control.roundTwoStatus, ['imagePath', './assets/images/orange_rectangle.png']) !== undefined) {
+    if (this.currentRound.questionType == 2 && !this.control.showAns && _.find(this.control.roundTwoStatus, ['imagePath', './assets/images/orange_rectangle.png']) !== undefined) {
       _.find(this.control.roundTwoStatus, ['imagePath', './assets/images/orange_rectangle.png']).imagePath = './assets/images/green_rectangle.png'
       console.log('correct answer => ', this.control.roundTwoStatus)
       this.broadcastScreens();
@@ -789,7 +789,7 @@ export class ControlComponent implements OnInit {
   }
 
   correctAnswer() {
-    if (this.currentRound.id == 4) this.control.roundFourStatus = 'correct'
+    if (this.currentRound.questionType == 4) this.control.roundFourStatus = 'correct'
     // play audio if press Correct Answer button
     this.correct_answer_audio.play();
 
@@ -1130,7 +1130,7 @@ export class ControlComponent implements OnInit {
   wrongAnswer() {
     // play audio if press Wrong Answer button
     this.wrong_answer_audio.play();
-    if (this.currentRound.id == 2 && _.find(this.control.roundTwoStatus, ['imagePath', './assets/images/orange_rectangle.png']) !== undefined) {
+    if (this.currentRound.questionType == 2 && _.find(this.control.roundTwoStatus, ['imagePath', './assets/images/orange_rectangle.png']) !== undefined) {
       _.find(this.control.roundTwoStatus, ['imagePath', './assets/images/orange_rectangle.png']).imagePath = './assets/images/red_rectangle.png'
       console.log('wrong answer => ', this.control.roundTwoStatus)
       this.broadcastScreens();
@@ -1207,7 +1207,7 @@ export class ControlComponent implements OnInit {
 
   wrongAnswerForRoundFour() {
     this.wrong_answer_audio.play();
-    if (this.currentRound.id == 4) this.control.roundFourStatus = 'wrong'
+    if (this.currentRound.questionType == 4) this.control.roundFourStatus = 'wrong'
     // play audio if press Correct Answer button
     // this.correct_answer_audio.play();
 

@@ -183,7 +183,7 @@ export class SetupComponent implements OnInit {
   clickRound(round) {
     this.store.dispatch(updateCurrentRoundId({ currentRoundId: round.id }));
     this.updateSetupState();
-    if (this.currentRound.id == 4 && this.currentCategory !== undefined && this.currentRound.questionArray.length > 0) {
+    if (this.currentRound.questionType == 4 && this.currentCategory !== undefined && this.currentRound.questionArray.length > 0) {
       if (this.pevCategoryId) this.pevCategoryId = this.currentCategory.id
       this.currentHintArrForR4 = this.currentRound.questionArray.filter(question =>
         question.categoryId == this.currentCategory.id).map(question => question.hints[0])
@@ -220,6 +220,7 @@ export class SetupComponent implements OnInit {
   }
 
   changeQuestionType(questionType) {
+    console.log('question type => ', questionType)
     //prompt alert to user
     this.currentRound.name = questionType.name;
     this.currentRound.point = 0;
@@ -373,7 +374,7 @@ export class SetupComponent implements OnInit {
             question.ansFontSize = +this.question.ansFontSize
             question.otAnsFontSize = +this.question.otAnsFontSize
             question.hints = this.question.hints;
-            if (this.currentRound.id == 2 || this.currentRound.id == 3 || this.currentRound.id == 4) {
+            if (this.currentRound.questionType == 2 || this.currentRound.questionType == 3 || this.currentRound.questionType == 4) {
               question.hints[0].hintFontSize = +this.question.hints[0].hintFontSize
               question.hints[0].otHintFontSize = +this.question.hints[0].otHintFontSize
             }
@@ -418,7 +419,7 @@ export class SetupComponent implements OnInit {
   }
 
   deleteQuestionList(question_id: number) {
-    if (this.currentRound.id == 4) this.clearWord(_.find(this.currentRound.questionArray, ['id', question_id]).hints[0].value);
+    if (this.currentRound.questionType == 4) this.clearWord(_.find(this.currentRound.questionArray, ['id', question_id]).hints[0].value);
     this.currentRound.questionArray.splice(
       _.findIndex(
         this.currentRound.questionArray,
@@ -435,7 +436,7 @@ export class SetupComponent implements OnInit {
       prevId = question.id;
     });
 
-    if (this.currentRound.id == 4) {
+    if (this.currentRound.questionType == 4) {
       this.currentHintArrForR4 = this.currentRound.questionArray.filter(question =>
         question.categoryId == this.currentCategory.id).map(question => question.hints[0])
       this.currentHintForR4 = {
@@ -464,7 +465,7 @@ export class SetupComponent implements OnInit {
       });
     }
 
-    if (this.question.ans.trim() == "" || this.currentRound.name.trim() == "" || !validHint || (!this.currentRound.hasCategory && this.currentRound.id != 2 && this.question.clue.trim() == "")) {
+    if (this.question.ans.trim() == "" || this.currentRound.name.trim() == "" || !validHint || (!this.currentRound.hasCategory && this.currentRound.questionType != 2 && this.question.clue.trim() == "")) {
       return true;
     }
 
@@ -731,14 +732,14 @@ export class SetupComponent implements OnInit {
     this.episode.players.map(player => player.pointFontSize = pointFontSize)
   }
 
-  addHintValue(hintValue, clueValueForR4, clueFontSizeForR4) {
+  addHintValue(hintValue: string, clueValueForR4, clueFontSizeForR4) {
     console.log('this.question => ', this.question)
     this.currentRound.questionArray.push({
       ...this.question,
       categoryId: this.currentCategory.id,
       id: this.currentRound.questionArray.length == 0 ? 1 : this.currentRound.questionArray.slice(-1).pop().id + 1,
       hints: [
-        { ...this.question.hints[0], value: hintValue, position: [] }
+        { ...this.question.hints[0], value: hintValue.toUpperCase(), position: [] }
       ],
       clue: clueValueForR4,
       clueFontSize: clueFontSizeForR4
@@ -872,8 +873,8 @@ export class SetupComponent implements OnInit {
     if (this.currentHintArrForR4) {
       for (let i = 0; i < this.currentHintArrForR4.length; i++) {
         if (
-          this.currentHintArrForR4[i].value.trim().toLocaleLowerCase() ==
-          word.trim().toLocaleLowerCase()
+          this.currentHintArrForR4[i].value.trim().toUpperCase() ==
+          word.trim().toUpperCase()
         ) {
           this.invalidWordName = true;
           break;
