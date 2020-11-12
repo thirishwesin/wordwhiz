@@ -768,39 +768,40 @@ export class SetupComponent implements OnInit {
 
   clickGrid(id: string) {
     console.log('grid value => ', this.gridValue)
-    let questionArr = this.currentRound.questionArray.filter(question =>
-      question.categoryId == this.currentCategory.id && question.hints[0].value == this.currentHintForR4.value)
-    let questionArrIndex = this.currentRound.questionArray.indexOf(questionArr[0])
-    let div = (<HTMLDivElement>document.getElementById(id));
-    if (this.isDefaultOrHint == 'default') {
-      if (this.gridValue) {
-        div.innerText = this.gridValue.charAt(0);
-        this.gridValue = this.gridValue.substring(1);
-        this.currentRound.questionArray[questionArrIndex].hints[0].position.push(id);
-        // this.question.hints[0].value = "test";
-        // this.question.ans = "hello"
-        if (this.gridValue.length == 0) {
-          this.currentHintForR4 = {
-            id: -1,
-            value: 'Select One Word',
-            hintFontSize: 20,
-            otHintFontSize: 20,
-            position: [], //position 0 is for top, 1 is for left and 2 is for right
-            isCharacter: false
+    if (this.currentHintForR4) {
+      let questionArr = this.currentRound.questionArray.filter(question =>
+        question.categoryId == this.currentCategory.id && question.hints[0].value == this.currentHintForR4.value)
+      let questionArrIndex = this.currentRound.questionArray.indexOf(questionArr[0])
+      let div = (<HTMLDivElement>document.getElementById(id));
+      if (this.isDefaultOrHint == 'default') {
+        if (this.gridValue) {
+          div.innerText = this.gridValue.charAt(0);
+          this.gridValue = this.gridValue.substring(1);
+          this.currentRound.questionArray[questionArrIndex].hints[0].position.push(id);
+          // this.question.hints[0].value = "test";
+          // this.question.ans = "hello"
+          if (this.gridValue.length == 0) {
+            this.currentHintForR4 = {
+              id: -1,
+              value: 'Select One Word',
+              hintFontSize: 20,
+              otHintFontSize: 20,
+              position: [], //position 0 is for top, 1 is for left and 2 is for right
+              isCharacter: false
+            }
           }
         }
+      } else if (this.isDefaultOrHint == 'hint' && this.currentRound.questionArray[questionArrIndex].ans !== undefined) {
+        if (div.style.backgroundColor == '') {
+          div.style.backgroundColor = 'red'
+          this.currentRound.questionArray[questionArrIndex].ans += id + ',';
+        } else {
+          div.style.backgroundColor = ''
+          console.log('id => ', id)
+          let old = id + ','
+          this.currentRound.questionArray[questionArrIndex].ans = this.currentRound.questionArray[questionArrIndex].ans.replace(old, '');
+        }
       }
-    } else if (this.isDefaultOrHint == 'hint' && this.currentRound.questionArray[questionArrIndex].ans !== undefined) {
-      if (div.style.backgroundColor == '') {
-        div.style.backgroundColor = 'red'
-        this.currentRound.questionArray[questionArrIndex].ans += id + ',';
-      } else {
-        div.style.backgroundColor = ''
-        console.log('id => ', id)
-        let old = id + ','
-        this.currentRound.questionArray[questionArrIndex].ans = this.currentRound.questionArray[questionArrIndex].ans.replace(old, '');
-      }
-
     }
   }
 
