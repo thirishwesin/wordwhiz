@@ -407,9 +407,10 @@ export class MainComponent implements OnInit {
   }
 
   setGridValue() {
+    this.showGridEachAnswer()
     this.round4QuestionList.forEach(question => {
       console.log('question => ', question)
-      let color = '#013ad6';
+      let color = 'url(../../../assets/images/grid-normal-bg.png) no-repeat' //'#013ad6';
       if (question.roundFourStatus == 'skip') color = '#eeeeee75'
       question.hints.forEach(hint => {
         hint.position.forEach((id, index) => {
@@ -427,15 +428,17 @@ export class MainComponent implements OnInit {
       })
       question.roundFourStatus = 'skip'
     })
-
-    this.showGridEachAnswer()
   }
 
   showGridEachAnswer() {
+    console.log('current question => ', this.currentQuestion)
+    if (this.control.showAns) this.round4QuestionList = this.round4QuestionList.filter(question => question.hints[0].value !== this.currentQuestion.hints[0].value)
+    console.log('round4QuestionList => ', this.round4QuestionList)
+
+
     this.showedAnswerList.forEach((question, index) => {
-      console.log('question => ', question)
       let color;
-      if (question.roundFourStatus === 'correct') color = '#48B822'
+      if (question.roundFourStatus === 'correct') color = 'url(../../../assets/images/grid-correct-bg.png) no-repeat' //'#48B822'
       else if (question.roundFourStatus === 'wrong') color = '#F00';
       else color = 'rebeccapurple'
       question.hints.forEach(hint => {

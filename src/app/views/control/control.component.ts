@@ -1087,6 +1087,7 @@ export class ControlComponent implements OnInit {
             this.saveFont();
           } else if (reason == 'Save click') {
             console.log('save click')
+            this.applyFontSize();
           }
         }
       );
