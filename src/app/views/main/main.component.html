@@ -32,8 +32,8 @@
 
                     <img class="cube_img" name="cube_img" alt="" />
                     <ng-container *ngIf="currentRound && (currentRound.questionType == 1 || currentRound.questionType == 3 || currentRound.questionType == 5)">
-                        <span class="clude_hint" style="width: 100%;" *ngIf="control.showQuestion  || control.runCategoryRound" [ngStyle]="{'font-size': currentQuestion.clueFontSize + 'px'}">{{ currentQuestion?.clue }}
-                        </span>
+                        <p class="clude_hint" *ngIf="control.showQuestion  || control.runCategoryRound" [ngStyle]="{'font-size': currentQuestion.clueFontSize + 'px'}">{{ currentQuestion?.clue }}
+                        </p>
                     </ng-container>
 
                 </div>
