@@ -411,7 +411,7 @@ export class MainComponent implements OnInit {
     this.round4QuestionList.forEach(question => {
       console.log('question => ', question)
       let color = 'url(../../../assets/images/grid-normal-bg.png) no-repeat' //'#013ad6';
-      if (question.roundFourStatus == 'skip') color = '#eeeeee75'
+      if (question.roundFourStatus == 'skip') color = 'url(../../../assets/images/grid-skip-bg.png) no-repeat' //'#eeeeee75'
       question.hints.forEach(hint => {
         hint.position.forEach((id, index) => {
           // console.log('id: ', id, ', ans: ', question.ans)
@@ -438,8 +438,8 @@ export class MainComponent implements OnInit {
     this.showedAnswerList.forEach((question, index) => {
       let color;
       if (question.roundFourStatus === 'correct') color = 'url(../../../assets/images/grid-correct-bg.png) no-repeat' //'#48B822'
-      else if (question.roundFourStatus === 'wrong') color = '#F00';
-      else color = 'rebeccapurple'
+      // else if (question.roundFourStatus === 'wrong') color = '#F00';
+      // else color = 'rebeccapurple'
       question.hints.forEach(hint => {
         hint.position.forEach((id, index) => {
           setTimeout(() => {
