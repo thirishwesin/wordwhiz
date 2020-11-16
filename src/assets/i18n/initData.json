@@ -188,7 +188,7 @@
                   "position": 0,
                   "isCharacter": false,
                   "hintFontSize": 45,
-                  "otHintFontSize": 45
+                  "otHintFontSize": "45"
                 },
                 {
                   "id": 2,
@@ -212,7 +212,7 @@
               "clueFontSize": 45,
               "ansFontSize": 45,
               "otClueFontSize": 45,
-              "otAnsFontSize": 45
+              "otAnsFontSize": "45"
             },
             {
               "id": 2,
@@ -805,7 +805,7 @@
             },
             {
               "id": 11,
-              "clue": "testing",
+              "clue": "dance",
               "categoryId": 0,
               "hints": [
                 {
@@ -830,7 +830,7 @@
         },
         {
           "id": 4,
-          "name": "SCRAMBLED WORD",
+          "name": "CROSS WORD",
           "questionType": 4,
           "showfirstAnsChar": true,
           "hasCategory": true,
@@ -871,7 +871,7 @@
               "otClueFontSize": null,
               "ansFontSize": null,
               "otAnsFontSize": null,
-              "actions": 0
+              "actions": 3
             },
             {
               "id": 2,
@@ -898,7 +898,7 @@
               "otClueFontSize": null,
               "ansFontSize": null,
               "otAnsFontSize": null,
-              "actions": 0
+              "actions": 3
             },
             {
               "id": 3,
@@ -925,7 +925,7 @@
               "otClueFontSize": null,
               "ansFontSize": null,
               "otAnsFontSize": null,
-              "actions": 0
+              "actions": 1
             },
             {
               "id": 4,
@@ -1007,7 +1007,8 @@
               "isAnsCharacter": false,
               "otClueFontSize": null,
               "ansFontSize": null,
-              "otAnsFontSize": null
+              "otAnsFontSize": null,
+              "actions": 2
             }
           ],
           "roundNameFontSize": "90",
@@ -1105,7 +1106,7 @@
         },
         {
           "id": 4,
-          "name": "SCRAMBLED WORD",
+          "name": "CROSS WORD",
           "questionType": 4,
           "showfirstAnsChar": true,
           "hasCategory": true,
@@ -1264,7 +1265,7 @@
         },
         {
           "id": 2,
-          "name": "SCRAMBLED WORD",
+          "name": "CROSS WORD",
           "questionType": 4,
           "showfirstAnsChar": true,
           "hasCategory": true,
@@ -1479,7 +1480,7 @@
     },
     {
       "id": 4,
-      "name": "SCRAMBLED WORD",
+      "name": "CROSS WORD",
       "hintsCount": 1,
       "isHintChar": false,
       "isAnsChar": true,

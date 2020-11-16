@@ -54,7 +54,7 @@
                         </div>
                     </div>
 
-                    <!-- QUESTION CATEGORY FOR SCRAMBLED WORD -->
+                    <!-- QUESTION CATEGORY FOR CROSS WORD -->
                     <div class="row col-sm-12 pad_right0" *ngIf="currentRound.hasCategory">
 
                         <div ngbDropdown class="d-inline-block col-sm-12">
@@ -323,11 +323,32 @@
                                 <input class="form-control common_input " OnlyNumber="true" [(ngModel)]="currentQuestion.otClueFontSize">
                             </div>
                         </div>
-                        <div class="form-group col-6 col-md-4" *ngIf="currentQuestion?.hints.length > 0">
+                        <!-- <div class="form-group col-6 col-md-4" *ngIf="currentQuestion?.hints.length > 0">
                             <label for="" class="common_label" style="margin-top: 8%;">Hint</label>
                             <h6 class="fontsize_limit">Recommended - {{recommendFontSize.oneThird_hint}}</h6>
                             <div class="container_up">
                                 <input class="form-control common_input" OnlyNumber="true" [(ngModel)]="currentQuestion.hints[0].otHintFontSize">
+                            </div>
+                        </div> -->
+                        <div class=" form-group col-6 col-md-4" *ngIf="currentQuestion?.hints.length > 0">
+                            <label for="" class="common_label" style="margin-top: 8%;">Hint One</label>
+                            <h6 class="fontsize_limit">Recommended - {{recommendFontSize.main_hint}}</h6>
+                            <div class="container_up">
+                                <input class="form-control common_input " OnlyNumber="true" [(ngModel)]="currentQuestion.hints[0].otHintFontSize">
+                            </div>
+                        </div>
+                        <div class=" form-group col-6 col-md-4" *ngIf="currentRound.questionType == 2 ">
+                            <label for="" class="common_label" style="margin-top: 8%;">Hint Two</label>
+                            <h6 class="fontsize_limit">Recommended - {{recommendFontSize.main_hint}}</h6>
+                            <div class="container_up">
+                                <input class="form-control common_input " OnlyNumber="true" [(ngModel)]="currentQuestion.hints[1].otHintFontSize">
+                            </div>
+                        </div>
+                        <div class=" form-group col-6 col-md-4" *ngIf="currentRound.questionType == 2 ">
+                            <label for="" class="common_label" style="margin-top: 8%;">Hint Three</label>
+                            <h6 class="fontsize_limit">Recommended - {{recommendFontSize.main_hint}}</h6>
+                            <div class="container_up">
+                                <input class="form-control common_input " OnlyNumber="true" [(ngModel)]="currentQuestion.hints[2].otHintFontSize">
                             </div>
                         </div>
                         <div class="form-group col-6 col-md-4">

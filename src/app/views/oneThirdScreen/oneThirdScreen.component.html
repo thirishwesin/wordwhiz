@@ -87,7 +87,7 @@
                                     <!-- <input type="text" class="round_one-text" placeholder="C"> -->
                                 </div>
                                 <div class="" *ngIf="currentQuestion.isAnsCharacter">
-                                    <div class="one_word_green  round_3img Rtwo100 retangle{{control.fontSettings.oneThird_answer}}" [ngClass]="{'hide_char less8char': char == ' ' , 'animated heartBeat': control.startCount && round4hintAnimated || control.showQuestion && !currentRound.showfirstAnsChar && !control.showAns && !control.clickTimer && !control.fontSettingOpenClose, 'blue_bg' : i == 0 && currentRound.showfirstAnsChar}"
+                                    <div class="one_word_green  round_3img retangle{{control.fontSettings.oneThird_answer}}" [ngClass]="{'hide_char less8char': char == ' ' , 'animated heartBeat': control.startCount && round4hintAnimated || control.showQuestion && !currentRound.showfirstAnsChar && !control.showAns && !control.clickTimer && !control.fontSettingOpenClose, 'blue_bg' : i == 0 && currentRound.showfirstAnsChar, 'Rtwo100': currentRound.questionType == 2}"
                                         *ngFor="let char of ansCharArr; let i=index;">
 
                                         <!-- //! for round 4 -->
@@ -119,7 +119,7 @@
                                 <div class="long_word_blue " [ngStyle]="{'background-image': 'url(' + control.roundTwoStatus[i].imagePath + ')'}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose || round4hintAnimated && control.startCount ? 'animated heartBeat':''"
                                     *ngIf="!hint?.isCharacter">
 
-                                    <input type="text" [value]="hint.value" class="roundtwo" [ngStyle]="{'font-size': hint.hintFontSize + 'px'}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint ? 'animated zoomIn':''">
+                                    <input type="text" [value]="hint.value" class="roundtwo" [ngStyle]="{'font-size': hint.otHintFontSize + 'px'}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint ? 'animated zoomIn':''">
                                 </div>
                             </div>
                             <!-- <div class="col-sm-4 text-center float_left roundtwo_long_text long_word_green pad_top " [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose ? 'animated heartBeat':''" *ngIf="currentQuestion?.isAnsCharacter && i == 2 && currentRound.id == 2">

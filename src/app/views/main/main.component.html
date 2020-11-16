@@ -26,7 +26,7 @@
                     <p class="clude_txt" *ngIf="currentRound && (currentRound.questionType == 1 || currentRound.questionType == 3 || currentRound.questionType == 5)" [ngStyle]="{'font-size': currentRound.clueLabelFontSize + 'px'}">
                         CLUE:
                     </p>
-                    <p class="clude_txt" *ngIf="currentRound && currentRound.questionType == 4" [ngStyle]="{'font-size': currentQuestion.clueFontSize + 'px'}">
+                    <p class="clude_txt" *ngIf="(currentRound && currentRound.questionType == 4 && control.runCategoryRound) || (currentRound && currentRound.questionType == 4 && control.showQuestion) " [ngStyle]="{'font-size': currentQuestion.clueFontSize + 'px'}">
                         {{ currentQuestion?.clue }}
                     </p>
 
