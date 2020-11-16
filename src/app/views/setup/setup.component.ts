@@ -752,7 +752,14 @@ export class SetupComponent implements OnInit {
     console.log('current category id => ', this.currentCategory.id)
     this.currentHintArrForR4 = this.currentRound.questionArray.filter(question =>
       question.categoryId == this.currentCategory.id).map(question => question.hints[0])
-    // this.currentHintForR4 = this.currentHintArrForR4[0]
+    this.currentHintForR4 = {
+      id: -1,
+      value: 'Select One Word',
+      hintFontSize: 20,
+      otHintFontSize: 20,
+      position: [], //position 0 is for top, 1 is for left and 2 is for right
+      isCharacter: false
+    }
     // this.gridValue = this.currentHintForR4.value
   }
 
@@ -838,9 +845,14 @@ export class SetupComponent implements OnInit {
         });
       })
       if (question.ans) {
-        setTimeout(() => {
-          (<HTMLDivElement>document.getElementById(question.ans)).style.backgroundColor = ''
-        }, 0);
+        question.ans.split(',').forEach(id => {
+          if (id != '') {
+            setTimeout(() => {
+              (<HTMLDivElement>document.getElementById(id)).style.backgroundColor = ''
+            }, 0);
+          }
+        })
+
       }
     })
   }
