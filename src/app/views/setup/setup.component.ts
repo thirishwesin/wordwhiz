@@ -313,7 +313,6 @@ export class SetupComponent implements OnInit {
 
   saveQuestion() {
     this.invalidQuestion = false;
-    console.log('quesiton => ', this.question)
     //new question
     if (this.question.id == 0) {
       //check the question arrays except self
@@ -329,8 +328,15 @@ export class SetupComponent implements OnInit {
           // if (question.ans.trim().toUpperCase() == this.question.ans.trim().toUpperCase()) this.invalidQuestion = true;
         }
       });
-      console.log('invalid quesiton => ', this.invalidQuestion)
       if (!this.invalidQuestion) {
+        if (this.currentRound.questionType == 2) {
+          console.log('quesiton => ', this.question)
+          this.question.hints[0].hintFontSize = 30; this.question.hints[0].otHintFontSize = 30;
+          this.question.hints[1].hintFontSize = 30; this.question.hints[1].otHintFontSize = 30;
+          this.question.hints[2].hintFontSize = 30; this.question.hints[2].otHintFontSize = 30;
+        } else if (this.currentRound.questionType == 3) {
+          this.question.hints[0].hintFontSize = 50; this.question.hints[0].otHintFontSize = 50
+        }
         //add question
         let generateId = this.currentRound.questionArray.length == 0 ? 1 : this.currentRound.questionArray.slice(-1).pop().id + 1;
         this.currentRound.questionArray.push({
@@ -339,7 +345,11 @@ export class SetupComponent implements OnInit {
           categoryId: this.currentRound.hasCategory
             ? this.currentCategory.id
             : 0,
-          isAnsCharacter: this.questionType.isAnsChar
+          isAnsCharacter: this.questionType.isAnsChar,
+          clueFontSize: 50,
+          otClueFontSize: 50,
+          ansFontSize: 50,
+          otAnsFontSize: 50,
         });
 
         this.noDatabyCategory = false;
