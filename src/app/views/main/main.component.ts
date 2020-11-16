@@ -431,9 +431,8 @@ export class MainComponent implements OnInit {
   }
 
   showGridEachAnswer() {
-    console.log('current question => ', this.currentQuestion)
-    if (this.control.showAns) this.round4QuestionList = this.round4QuestionList.filter(question => question.hints[0].value !== this.currentQuestion.hints[0].value)
-    console.log('round4QuestionList => ', this.round4QuestionList)
+    if (this.control.showAns)
+      this.round4QuestionList = this.round4QuestionList.filter(question => question.hints[0].value !== this.currentQuestion.hints[0].value)
 
 
     this.showedAnswerList.forEach((question, index) => {
