@@ -1,6 +1,6 @@
+import { RoundFourStatus } from './roundTwoStatus';
 import { ExtraWord } from "./extraWord";
 import { FontSettings } from "./fontSettings";
-import { RoundTwoStatus } from "./roundTwoStatus";
 
 export interface Control {
   currentEpisodeId: number;
@@ -19,6 +19,6 @@ export interface Control {
   clickTimer: boolean;
   animationExtraWord: string
   fontSettingOpenClose: boolean;
-  roundTwoStatus: RoundTwoStatus[];
-  roundFourStatus: string
+  roundFourStatus: RoundFourStatus[];
+  roundTwoStatus: string
 }

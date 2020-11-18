@@ -46,10 +46,6 @@ export class MainComponent implements OnInit {
   round4hintAnimated = true;
   timeoutList: any;
   cube_image: any
-  round4QuestionList: any[] = []
-  prevCategoryName: string
-  showedAnswerList: any[] = []
-  cubeImage = new Image();
 
   constructor(
     private store: Store<{
@@ -85,6 +81,7 @@ export class MainComponent implements OnInit {
     this.cube_image = document.images.namedItem("cube_img");
 
     const mainBgImage = new Image();
+    const cubeImage = new Image();
 
     mainBgImage.onload = () => {
       image.style.background = "url(" + mainBgImage.src + ")";
@@ -93,19 +90,19 @@ export class MainComponent implements OnInit {
       this.renderingAPNG = false;
       this.nz.run(() => { });
     };
-    this.cubeImage.onload = () => {
-      this.cube_image.src = this.cubeImage.src;
+    cubeImage.onload = () => {
+      this.cube_image.src = cubeImage.src;
     };
 
     if (AppConfig.production) {
       mainBgImage.src =
         process.env.PORTABLE_EXECUTABLE_DIR +
         "/data/images/main_background.png";
-      this.cubeImage.src =
+      cubeImage.src =
         process.env.PORTABLE_EXECUTABLE_DIR + "/data/images/cube.png";
     } else {
       mainBgImage.src = "../../../assets/images/temp/main_background.png";
-      this.cubeImage.src = "../../../assets/images/temp/cube.png";
+      cubeImage.src = "../../../assets/images/temp/cube.png";
     }
 
     this.store.subscribe(item => {
@@ -229,32 +226,16 @@ export class MainComponent implements OnInit {
       }
     }
 
-    console.log('current round => ', this.currentRound)
-
     //update current question
     this.currentQuestion = _.find(this.currentRound.questionArray, [
       "id",
       this.control.currentQuestionId
     ]);
 
-    // console.log('current question => ', this.currentQuestion)
-    // console.log('current round => ', this.currentRound)
-    // console.log('cube image => ', this.cube_image)
-    if (this.currentRound.questionType == 2 || this.currentRound.questionType == 4) this.cube_image.src = ''
-    else this.cube_image.src = this.cubeImage.src;
+    console.log('current question => ', this.currentQuestion)
+    console.log('current round => ', this.currentRound)
     //update timer count value
     if (this.currentRound.hasCategory) {
-      if (this.control.startCount) {
-        if (this.round4QuestionList.length === 0) this.round4QuestionList.push(this.currentQuestion)
-        else if (this.round4QuestionList.every(question => question.hints[0].value !== this.currentQuestion.hints[0].value)) {
-          this.round4QuestionList.push(this.currentQuestion)
-        }
-      }
-      this.setGridValue();
-      if (this.control.showAns) {
-        this.showedAnswerList.push({ ...this.currentQuestion, roundFourStatus: this.control.roundFourStatus })
-        this.showGridEachAnswer();
-      }
       //update only in selecting theme for round 4
       if (
         !this.control.runCategoryRound &&
@@ -276,20 +257,12 @@ export class MainComponent implements OnInit {
         ]),
         "name"
       );
-      console.log('category name => ', this.categoryName)
-      if (this.prevCategoryName === undefined) this.prevCategoryName = this.categoryName
-      else if (this.prevCategoryName !== this.categoryName) {
-        this.prevCategoryName = this.categoryName
-        this.round4QuestionList = []
-        this.showedAnswerList = []
-      }
+
       //check for hint animation for round 4 when changing ques
       if (this.prevCurrentQustion != this.control.currentQuestionId) {
         this.round4hintAnimated = true;
       }
     } else {
-      this.round4QuestionList = []
-      this.showedAnswerList = []
       //update when change ques and change round
       if (
         this.prevCurrentQustion != this.control.currentQuestionId ||
@@ -404,51 +377,5 @@ export class MainComponent implements OnInit {
 
     const data = readFileSync(filePath, "utf8");
     this.timeoutList = JSON.parse(data);
-  }
-
-  setGridValue() {
-    this.showGridEachAnswer()
-    this.round4QuestionList.forEach(question => {
-      console.log('question => ', question)
-      let color = 'url(./assets/images/grid-normal-bg.png) no-repeat' //'#013ad6';
-      if (question.roundFourStatus == 'skip') color = 'url(./assets/images/grid-skip-bg.png) no-repeat' //'#eeeeee75'
-      question.hints.forEach(hint => {
-        hint.position.forEach((id, index) => {
-          // console.log('id: ', id, ', ans: ', question.ans)
-          if (question.ans.includes(id)) {
-            setTimeout(() => {
-              (<HTMLDivElement>document.getElementById(id)).innerText = hint.value.charAt(index);
-            }, 0);
-          } else {
-            setTimeout(() => {
-              (<HTMLDivElement>document.getElementById(id)).style.background = color
-            }, 0);
-          }
-        })
-      })
-      question.roundFourStatus = 'skip'
-    })
-  }
-
-  showGridEachAnswer() {
-    if (this.control.showAns)
-      this.round4QuestionList = this.round4QuestionList.filter(question => question.hints[0].value !== this.currentQuestion.hints[0].value)
-
-
-    this.showedAnswerList.forEach((question, index) => {
-      let color;
-      if (question.roundFourStatus === 'correct') color = 'url(./assets/images/grid-correct-bg.png) no-repeat' //'#48B822'
-      // else if (question.roundFourStatus === 'wrong') color = '#F00';
-      // else color = 'rebeccapurple'
-      question.hints.forEach(hint => {
-        hint.position.forEach((id, index) => {
-          setTimeout(() => {
-            (<HTMLDivElement>document.getElementById(id)).innerText = hint.value.charAt(index);
-            (<HTMLDivElement>document.getElementById(id)).style.background = color;
-          }, 0);
-        })
-      })
-    })
-
   }
 }

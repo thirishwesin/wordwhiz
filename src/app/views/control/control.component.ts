@@ -219,6 +219,7 @@ export class ControlComponent implements OnInit {
     console.log("wordWhiz state in control", this.wordWhiz);
     console.log("episode state in control", this.episode);
     console.log("control state in control", this.control);
+
     this.updateControlState();
 
     // remote.getCurrentWindow().on("close", e => {
@@ -235,7 +236,7 @@ export class ControlComponent implements OnInit {
   updateControlState() {
     // clear control extraWord array
     this.control.extraWord = [];
-    this.control.roundTwoStatus = [{ id: 1, imagePath: './assets/images/blue_rectangle.png' }, { id: 2, imagePath: './assets/images/blue_rectangle.png' }, { id: 3, imagePath: './assets/images/blue_rectangle.png' }]
+    this.control.roundFourStatus = [{ id: 1, imagePath: './assets/images/blue_rectangle.png' }, { id: 2, imagePath: './assets/images/blue_rectangle.png' }, { id: 3, imagePath: './assets/images/blue_rectangle.png' }]
     if (this.control.finishCategoryRound) this.isStartRound4 = false;
 
     //update current round
@@ -243,16 +244,12 @@ export class ControlComponent implements OnInit {
       "id",
       this.control.currentRoundId
     ]);
-    console.log('current round => ', this.control)
+    console.log('current round => ', this.currentRound)
     //update current question
     this.currentQuestion = _.find(this.currentRound.questionArray, [
       "id",
       this.control.currentQuestionId
     ]);
-
-    if (this.currentRound.questionType == 2) {
-      this.setDefaultRadioState()
-    }
 
     // push control extraWord
     if (this.currentQuestion && this.currentQuestion.isAnsCharacter)
@@ -451,8 +448,11 @@ export class ControlComponent implements OnInit {
 
   broadcastScreens() {
     let currentRoundIndex = _.findIndex(this.episode.rounds, ['id', this.currentRound.id])
+    console.log('current round index => ', currentRoundIndex)
     this.episode.rounds[currentRoundIndex] = this.currentRound
     this.currentQuestion = _.find(this.currentRound.questionArray, ['id', this.currentQuestion.id])
+    console.log('this.oldCurrentRound => ', this.oldCurrentRound)
+    console.log('this.currentRound => ', this.currentRound)
     let broadCastData = {
       control: this.control,
       episode: this.episode
@@ -633,8 +633,8 @@ export class ControlComponent implements OnInit {
       }, 1000);
     }
 
-    if (this.currentRound.questionType === 2) {
-      this.control.roundTwoStatus = [{ id: 1, imagePath: './assets/images/blue_rectangle.png' }, { id: 2, imagePath: './assets/images/blue_rectangle.png' }, { id: 3, imagePath: './assets/images/blue_rectangle.png' }]
+    if (this.currentRound.questionType === 4) {
+      this.control.roundFourStatus = [{ id: 1, imagePath: './assets/images/blue_rectangle.png' }, { id: 2, imagePath: './assets/images/blue_rectangle.png' }, { id: 3, imagePath: './assets/images/blue_rectangle.png' }]
     }
   }
 
@@ -672,11 +672,6 @@ export class ControlComponent implements OnInit {
 
     // play audio if press Show Answer button
     if (!this.control.showAns) this.correct_answer_audio.play();
-    if (this.currentRound.questionType == 2 && !this.control.showAns && _.find(this.control.roundTwoStatus, ['imagePath', './assets/images/orange_rectangle.png']) !== undefined) {
-      _.find(this.control.roundTwoStatus, ['imagePath', './assets/images/orange_rectangle.png']).imagePath = './assets/images/green_rectangle.png'
-      console.log('correct answer => ', this.control.roundTwoStatus)
-      this.broadcastScreens();
-    }
 
     this.control.startCount = false;
     this.control.showAns = !this.control.showAns;
@@ -715,6 +710,7 @@ export class ControlComponent implements OnInit {
     if (this.currentRound.hasCategory) {
       this.control.showQuestion = true;
       this.isStartRound4 = true;
+      console.log('is start => ', isStart)
     }
 
     this.store.dispatch(updateStartCount({ control: this.control }));
@@ -789,52 +785,54 @@ export class ControlComponent implements OnInit {
   }
 
   correctAnswer() {
-    if (this.currentRound.questionType == 4) this.control.roundFourStatus = 'correct'
     // play audio if press Correct Answer button
     this.correct_answer_audio.play();
 
-    this.runCategoryRound = true;
-    this.store.dispatch(runCategoryRound());
+    // this.runCategoryRound = true;
+    // this.store.dispatch(runCategoryRound());
 
     //showAnswer
     this.store.dispatch(ShowAnsForCategoryRound());
-
+    if (this.currentRound.questionType == 4 && _.find(this.control.roundFourStatus, ['imagePath', './assets/images/orange_rectangle.png']) !== undefined) {
+      _.find(this.control.roundFourStatus, ['imagePath', './assets/images/orange_rectangle.png']).imagePath = './assets/images/yellow_rectangle.png'
+      console.log('correct answer => ', this.control.roundFourStatus)
+    }
     this.broadcastScreens();
 
-    //mark correct answer in separted arrays
+    // //mark correct answer in separted arrays
     _.find(this.questionArraysByCategory[this.currentCategory.id], [
       "id",
       this.currentQuestion.id
     ]).actions = 1;
 
-    //checkLastIndex or not
-    let checkLastIndex = false;
-    if (
-      this.currentQuestion.id ==
-      _.last(this.questionArraysByCategory[this.currentCategory.id]).id ||
-      this.checkLastIndexExcludeSkip()
-    )
-      checkLastIndex = true;
+    // //checkLastIndex or not
+    // let checkLastIndex = false;
+    // if (
+    //   this.currentQuestion.id ==
+    //   _.last(this.questionArraysByCategory[this.currentCategory.id]).id ||
+    //   this.checkLastIndexExcludeSkip()
+    // )
+    //   checkLastIndex = true;
 
-    if (this.control.showAns) this.correctAnswerDisable = true;
-    //after 1s check end of arrays by category
-    setTimeout(() => {
-      //check loopQuestion or not ( if loop again, it will not nextQuestion, it has to jump to skip one)
-      if (this.loopQuestion || checkLastIndex) {
-        //search skip question when in loop condition or lastIndex
-        this.searchSkipQuestion(checkLastIndex);
+    // if (this.control.showAns) this.correctAnswerDisable = true;
+    // //after 1s check end of arrays by category
+    // setTimeout(() => {
+    //   //check loopQuestion or not ( if loop again, it will not nextQuestion, it has to jump to skip one)
+    //   if (this.loopQuestion || checkLastIndex) {
+    //     //search skip question when in loop condition or lastIndex
+    //     this.searchSkipQuestion(checkLastIndex);
 
-        this.loopQuestion = true;
-      } else {
-        // show next question
-        const nextQuest = this.nextQuestionByCategoryId();
-        this.clickQuestion(nextQuest, this.currentQuestionIndex + 1);
-      }
-    }, 1000);
+    //     this.loopQuestion = true;
+    //   } else {
+    //     // show next question
+    //     const nextQuest = this.nextQuestionByCategoryId();
+    //     this.clickQuestion(nextQuest, this.currentQuestionIndex + 1);
+    //   }
+    // }, 1000);
 
-    setTimeout(() => {
-      this.correctAnswerDisable = false;
-    }, 1500);
+    // setTimeout(() => {
+    //   this.correctAnswerDisable = false;
+    // }, 1500);
   }
 
   nextQuestionByCategoryId() {
@@ -926,8 +924,6 @@ export class ControlComponent implements OnInit {
   }
 
   wrongOrskipQuestion(action) {
-
-    this.control.roundFourStatus = 'skip'
     this.runCategoryRound = true;
     this.store.dispatch(runCategoryRound());
 
@@ -1087,7 +1083,6 @@ export class ControlComponent implements OnInit {
             this.saveFont();
           } else if (reason == 'Save click') {
             console.log('save click')
-            this.applyFontSize();
           }
         }
       );
@@ -1131,9 +1126,10 @@ export class ControlComponent implements OnInit {
   wrongAnswer() {
     // play audio if press Wrong Answer button
     this.wrong_answer_audio.play();
-    if (this.currentRound.questionType == 2 && _.find(this.control.roundTwoStatus, ['imagePath', './assets/images/orange_rectangle.png']) !== undefined) {
-      _.find(this.control.roundTwoStatus, ['imagePath', './assets/images/orange_rectangle.png']).imagePath = './assets/images/red_rectangle.png'
-      console.log('wrong answer => ', this.control.roundTwoStatus)
+    if (this.currentRound.questionType == 4 && _.find(this.control.roundFourStatus, ['imagePath', './assets/images/orange_rectangle.png']) !== undefined) {
+      _.find(this.control.roundFourStatus, ['imagePath', './assets/images/orange_rectangle.png']).imagePath = './assets/images/red_rectangle.png'
+      console.log('wrong answer => ', this.control.roundFourStatus)
+      this.store.dispatch(ShowAnsForCategoryRound());
       this.broadcastScreens();
     }
   }
@@ -1175,22 +1171,22 @@ export class ControlComponent implements OnInit {
     let radioValue = event.target.value
     switch (radioValue) {
       case '1default':
-        _.find(this.control.roundTwoStatus, ['id', 1]).imagePath = './assets/images/blue_rectangle.png';
+        _.find(this.control.roundFourStatus, ['id', 1]).imagePath = './assets/images/blue_rectangle.png';
         break;
       case '2default':
-        _.find(this.control.roundTwoStatus, ['id', 2]).imagePath = './assets/images/blue_rectangle.png';
+        _.find(this.control.roundFourStatus, ['id', 2]).imagePath = './assets/images/blue_rectangle.png';
         break;
       case '3default':
-        _.find(this.control.roundTwoStatus, ['id', 3]).imagePath = './assets/images/blue_rectangle.png';
+        _.find(this.control.roundFourStatus, ['id', 3]).imagePath = './assets/images/blue_rectangle.png';
         break;
       case '1choose':
-        _.find(this.control.roundTwoStatus, ['id', 1]).imagePath = './assets/images/orange_rectangle.png';
+        _.find(this.control.roundFourStatus, ['id', 1]).imagePath = './assets/images/orange_rectangle.png';
         break;
       case '2choose':
-        _.find(this.control.roundTwoStatus, ['id', 2]).imagePath = './assets/images/orange_rectangle.png';
+        _.find(this.control.roundFourStatus, ['id', 2]).imagePath = './assets/images/orange_rectangle.png';
         break;
       case '3choose':
-        _.find(this.control.roundTwoStatus, ['id', 3]).imagePath = './assets/images/orange_rectangle.png';
+        _.find(this.control.roundFourStatus, ['id', 3]).imagePath = './assets/images/orange_rectangle.png';
         break;
       default:
         break;
@@ -1204,54 +1200,5 @@ export class ControlComponent implements OnInit {
       (<HTMLInputElement>document.querySelector('input[value="2default"]')).checked = true;
       (<HTMLInputElement>document.querySelector('input[value="3default"]')).checked = true;
     }, 0);
-  }
-
-  wrongAnswerForRoundFour() {
-    this.wrong_answer_audio.play();
-    if (this.currentRound.questionType == 4) this.control.roundFourStatus = 'wrong'
-    // play audio if press Correct Answer button
-    // this.correct_answer_audio.play();
-
-    this.runCategoryRound = true;
-    this.store.dispatch(runCategoryRound());
-
-    //showAnswer
-    this.store.dispatch(ShowAnsForCategoryRound());
-    this.broadcastScreens();
-
-    //mark correct answer in separted arrays
-    _.find(this.questionArraysByCategory[this.currentCategory.id], [
-      "id",
-      this.currentQuestion.id
-    ]).actions = 2;
-
-    //checkLastIndex or not
-    let checkLastIndex = false;
-    if (
-      this.currentQuestion.id ==
-      _.last(this.questionArraysByCategory[this.currentCategory.id]).id ||
-      this.checkLastIndexExcludeSkip()
-    )
-      checkLastIndex = true;
-
-    if (this.control.showAns) this.correctAnswerDisable = true;
-    //after 1s check end of arrays by category
-    setTimeout(() => {
-      //check loopQuestion or not ( if loop again, it will not nextQuestion, it has to jump to skip one)
-      if (this.loopQuestion || checkLastIndex) {
-        //search skip question when in loop condition or lastIndex
-        this.searchSkipQuestion(checkLastIndex);
-
-        this.loopQuestion = true;
-      } else {
-        // show next question
-        const nextQuest = this.nextQuestionByCategoryId();
-        this.clickQuestion(nextQuest, this.currentQuestionIndex + 1);
-      }
-    }, 1000);
-
-    setTimeout(() => {
-      this.correctAnswerDisable = false;
-    }, 1500);
   }
 }

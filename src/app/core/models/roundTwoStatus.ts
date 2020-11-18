@@ -1,4 +1,4 @@
-export interface RoundTwoStatus {
+export interface RoundFourStatus {
     id: number,
     imagePath: string
 }

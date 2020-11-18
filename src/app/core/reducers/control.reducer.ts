@@ -48,8 +48,8 @@ export const initialState: Control = {
   clickTimer: false,
   animationExtraWord: "",
   fontSettingOpenClose: false,
-  roundTwoStatus: [],
-  roundFourStatus: undefined
+  roundTwoStatus: undefined,
+  roundFourStatus: []
 };
 
 const _controlReducer = createReducer(
@@ -102,7 +102,7 @@ const _controlReducer = createReducer(
     return { ...state, showAns: !state.showAns, startCount: false };
   }),
   on(ShowAnsForCategoryRound, state => {
-    return { ...state, showAns: true };
+    return { ...state, showAns: true, startCount: true };
   }),
   on(updateExraWord, (state, { extraWord }) => {
     return {

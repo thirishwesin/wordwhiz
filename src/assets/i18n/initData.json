@@ -40,8 +40,8 @@
               "hints": [],
               "ans": "SUNSET",
               "isAnsCharacter": true,
-              "clueFontSize": 45,
-              "ansFontSize": 50,
+              "clueFontSize": "45",
+              "ansFontSize": "55",
               "otClueFontSize": 45,
               "otAnsFontSize": 45
             },
@@ -52,7 +52,7 @@
               "hints": [],
               "ans": "CLOSE",
               "isAnsCharacter": true,
-              "clueFontSize": 45,
+              "clueFontSize": "4",
               "ansFontSize": 45,
               "otClueFontSize": 45,
               "otAnsFontSize": 45
@@ -169,7 +169,7 @@
         },
         {
           "id": 2,
-          "name": "ODD WORD",
+          "name": "CROSS WORD",
           "questionType": 2,
           "showfirstAnsChar": false,
           "hasCategory": false,
@@ -184,24 +184,8 @@
               "hints": [
                 {
                   "id": 1,
-                  "value": "TIME ONE",
-                  "position": 0,
-                  "isCharacter": false,
-                  "hintFontSize": 45,
-                  "otHintFontSize": "45"
-                },
-                {
-                  "id": 2,
-                  "value": "TIME TWO",
-                  "position": 0,
-                  "isCharacter": false,
-                  "hintFontSize": 45,
-                  "otHintFontSize": 45
-                },
-                {
-                  "id": 3,
-                  "value": "TIME THREE",
-                  "position": 0,
+                  "value": "TIME",
+                  "position": 1,
                   "isCharacter": false,
                   "hintFontSize": 45,
                   "otHintFontSize": 45
@@ -212,7 +196,7 @@
               "clueFontSize": 45,
               "ansFontSize": 45,
               "otClueFontSize": 45,
-              "otAnsFontSize": "45"
+              "otAnsFontSize": 45
             },
             {
               "id": 2,
@@ -222,23 +206,7 @@
                 {
                   "id": 1,
                   "value": "MAN",
-                  "position": 0,
-                  "isCharacter": false,
-                  "hintFontSize": 45,
-                  "otHintFontSize": 45
-                },
-                {
-                  "id": 2,
-                  "value": "MAN",
-                  "position": 0,
-                  "isCharacter": false,
-                  "hintFontSize": 45,
-                  "otHintFontSize": 45
-                },
-                {
-                  "id": 3,
-                  "value": "MAN",
-                  "position": 0,
+                  "position": 2,
                   "isCharacter": false,
                   "hintFontSize": 45,
                   "otHintFontSize": 45
@@ -259,23 +227,7 @@
                 {
                   "id": 1,
                   "value": "ROOM",
-                  "position": 0,
-                  "isCharacter": false,
-                  "hintFontSize": 45,
-                  "otHintFontSize": 45
-                },
-                {
-                  "id": 2,
-                  "value": "ROOM",
-                  "position": 0,
-                  "isCharacter": false,
-                  "hintFontSize": 45,
-                  "otHintFontSize": 45
-                },
-                {
-                  "id": 3,
-                  "value": "ROOM",
-                  "position": 0,
+                  "position": 2,
                   "isCharacter": false,
                   "hintFontSize": 45,
                   "otHintFontSize": 45
@@ -296,21 +248,7 @@
                 {
                   "id": 1,
                   "value": "CUP",
-                  "position": 0,
-                  "isCharacter": false,
-                  "hintFontSize": 45
-                },
-                {
-                  "id": 2,
-                  "value": "CUP",
-                  "position": 0,
-                  "isCharacter": false,
-                  "hintFontSize": 45
-                },
-                {
-                  "id": 3,
-                  "value": "CUP",
-                  "position": 0,
+                  "position": 1,
                   "isCharacter": false,
                   "hintFontSize": 45
                 }
@@ -328,23 +266,7 @@
                 {
                   "id": 1,
                   "value": "FLY",
-                  "position": 0,
-                  "isCharacter": false,
-                  "hintFontSize": 45,
-                  "otHintFontSize": 45
-                },
-                {
-                  "id": 2,
-                  "value": "FLY",
-                  "position": 0,
-                  "isCharacter": false,
-                  "hintFontSize": 45,
-                  "otHintFontSize": 45
-                },
-                {
-                  "id": 3,
-                  "value": "FLY",
-                  "position": 0,
+                  "position": 2,
                   "isCharacter": false,
                   "hintFontSize": 45,
                   "otHintFontSize": 45
@@ -365,23 +287,7 @@
                 {
                   "id": 1,
                   "value": "MOTOR",
-                  "position": 0,
-                  "isCharacter": false,
-                  "hintFontSize": 45,
-                  "otHintFontSize": 45
-                },
-                {
-                  "id": 2,
-                  "value": "MOTOR",
-                  "position": 0,
-                  "isCharacter": false,
-                  "hintFontSize": 45,
-                  "otHintFontSize": 45
-                },
-                {
-                  "id": 3,
-                  "value": "MOTOR",
-                  "position": 0,
+                  "position": 1,
                   "isCharacter": false,
                   "hintFontSize": 45,
                   "otHintFontSize": 45
@@ -402,23 +308,7 @@
                 {
                   "id": 1,
                   "value": "BACK",
-                  "position": 0,
-                  "isCharacter": false,
-                  "hintFontSize": 45,
-                  "otHintFontSize": 45
-                },
-                {
-                  "id": 2,
-                  "value": "BACK",
-                  "position": 0,
-                  "isCharacter": false,
-                  "hintFontSize": 45,
-                  "otHintFontSize": 45
-                },
-                {
-                  "id": 3,
-                  "value": "BACK",
-                  "position": 0,
+                  "position": 1,
                   "isCharacter": false,
                   "hintFontSize": 45,
                   "otHintFontSize": 45
@@ -439,23 +329,7 @@
                 {
                   "id": 1,
                   "value": "WATER",
-                  "position": 0,
-                  "isCharacter": false,
-                  "hintFontSize": 45,
-                  "otHintFontSize": 45
-                },
-                {
-                  "id": 2,
-                  "value": "WATER",
-                  "position": 0,
-                  "isCharacter": false,
-                  "hintFontSize": 45,
-                  "otHintFontSize": 45
-                },
-                {
-                  "id": 3,
-                  "value": "WATER",
-                  "position": 0,
+                  "position": 1,
                   "isCharacter": false,
                   "hintFontSize": 45,
                   "otHintFontSize": 45
@@ -476,23 +350,7 @@
                 {
                   "id": 1,
                   "value": "BAND",
-                  "position": 0,
-                  "isCharacter": false,
-                  "hintFontSize": 45,
-                  "otHintFontSize": 45
-                },
-                {
-                  "id": 2,
-                  "value": "BAND",
-                  "position": 0,
-                  "isCharacter": false,
-                  "hintFontSize": 45,
-                  "otHintFontSize": 45
-                },
-                {
-                  "id": 3,
-                  "value": "BAND",
-                  "position": 0,
+                  "position": 2,
                   "isCharacter": false,
                   "hintFontSize": 45,
                   "otHintFontSize": 45
@@ -513,23 +371,7 @@
                 {
                   "id": 1,
                   "value": "SPOKEN",
-                  "position": 0,
-                  "isCharacter": false,
-                  "hintFontSize": 45,
-                  "otHintFontSize": 45
-                },
-                {
-                  "id": 2,
-                  "value": "SPOKEN",
-                  "position": 0,
-                  "isCharacter": false,
-                  "hintFontSize": 45,
-                  "otHintFontSize": 45
-                },
-                {
-                  "id": 3,
-                  "value": "SPOKEN",
-                  "position": 0,
+                  "position": 2,
                   "isCharacter": false,
                   "hintFontSize": 45,
                   "otHintFontSize": 45
@@ -541,43 +383,6 @@
               "ansFontSize": 45,
               "otClueFontSize": 45,
               "otAnsFontSize": 45
-            },
-            {
-              "id": 11,
-              "clue": "questino one",
-              "categoryId": 0,
-              "hints": [
-                {
-                  "id": 1,
-                  "value": "hint one",
-                  "position": 0,
-                  "isCharacter": false,
-                  "hintFontSize": "45",
-                  "otHintFontSize": "45"
-                },
-                {
-                  "id": 2,
-                  "value": "hint two",
-                  "position": 0,
-                  "isCharacter": false,
-                  "hintFontSize": "45",
-                  "otHintFontSize": "45"
-                },
-                {
-                  "id": 3,
-                  "value": "hint two",
-                  "position": 0,
-                  "isCharacter": false,
-                  "hintFontSize": "45",
-                  "otHintFontSize": "45"
-                }
-              ],
-              "ans": "Answer ",
-              "isAnsCharacter": true,
-              "clueFontSize": "45",
-              "otClueFontSize": "45",
-              "ansFontSize": "54",
-              "otAnsFontSize": "54"
             }
           ],
           "roundNameFontSize": "90",
@@ -805,7 +610,7 @@
             },
             {
               "id": 11,
-              "clue": "dance",
+              "clue": "testing",
               "categoryId": 0,
               "hints": [
                 {
@@ -830,18 +635,18 @@
         },
         {
           "id": 4,
-          "name": "CROSS WORD",
+          "name": "ODD WORD",
           "questionType": 4,
           "showfirstAnsChar": true,
           "hasCategory": true,
           "categories": [
             {
               "id": 0,
-              "name": "Fruit"
+              "name": "SPACE"
             },
             {
               "id": 1,
-              "name": "Animal"
+              "name": "OCEAN"
             }
           ],
           "timeOut": 60,
@@ -849,170 +654,387 @@
           "questionArray": [
             {
               "id": 1,
-              "clue": "This color is red",
+              "clue": "question one",
               "categoryId": 0,
               "hints": [
                 {
                   "id": 1,
-                  "value": "APPLE",
-                  "position": [
-                    42,
-                    52,
-                    62,
-                    72,
-                    82
-                  ],
-                  "isCharacter": false
+                  "value": "ARSM",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
+                },
+                {
+                  "id": 2,
+                  "value": "ARSM",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
+                },
+                {
+                  "id": 3,
+                  "value": "ARSM",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
                 }
               ],
-              "ans": "42,52,62,",
-              "isAnsCharacter": false,
-              "clueFontSize": "50",
-              "otClueFontSize": null,
-              "ansFontSize": null,
-              "otAnsFontSize": null,
-              "actions": 3
+              "ans": "MARS",
+              "isAnsCharacter": true,
+              "ansFontSize": 45,
+              "otAnsFontSize": 45,
+              "actions": 3,
+              "clueFontSize": 46,
+              "otClueFontSize": 46
             },
             {
               "id": 2,
-              "clue": "This color is yellow.",
+              "clue": "question two",
               "categoryId": 0,
               "hints": [
                 {
                   "id": 1,
-                  "value": "ORANGE",
-                  "position": [
-                    24,
-                    34,
-                    44,
-                    54,
-                    64,
-                    74
-                  ],
-                  "isCharacter": false
+                  "value": "NAUTASTRO",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
+                },
+                {
+                  "id": 2,
+                  "value": "NAUTASTRO",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
+                },
+                {
+                  "id": 3,
+                  "value": "NAUTASTRO",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
                 }
               ],
-              "ans": "24,",
-              "isAnsCharacter": false,
-              "clueFontSize": "51",
-              "otClueFontSize": null,
-              "ansFontSize": null,
-              "otAnsFontSize": null,
-              "actions": 3
+              "ans": "ASTRONAUT",
+              "isAnsCharacter": true,
+              "ansFontSize": 45,
+              "otAnsFontSize": 45,
+              "actions": 3,
+              "clueFontSize": 46,
+              "otClueFontSize": 46
             },
             {
               "id": 3,
-              "clue": "This colo is yellow",
+              "clue": "quetsion three",
               "categoryId": 0,
               "hints": [
                 {
                   "id": 1,
-                  "value": "BANANA",
-                  "position": [
-                    41,
-                    42,
-                    43,
-                    44,
-                    45,
-                    46
-                  ],
-                  "isCharacter": false
+                  "value": "IENAL",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
+                },
+                {
+                  "id": 2,
+                  "value": "IENAL",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
+                },
+                {
+                  "id": 3,
+                  "value": "IENAL",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
                 }
               ],
-              "ans": "41,",
-              "isAnsCharacter": false,
-              "clueFontSize": "52",
-              "otClueFontSize": null,
-              "ansFontSize": null,
-              "otAnsFontSize": null,
-              "actions": 1
+              "ans": "ALIEN",
+              "isAnsCharacter": true,
+              "ansFontSize": 45,
+              "otAnsFontSize": 45,
+              "actions": 3,
+              "clueFontSize": 45,
+              "otClueFontSize": 45
             },
             {
               "id": 4,
-              "clue": "The biggest body",
-              "categoryId": 1,
-              "hints": [
-                {
-                  "id": 1,
-                  "value": "ELEPHANT",
-                  "position": [
-                    51,
-                    52,
-                    53,
-                    54,
-                    55,
-                    56,
-                    57,
-                    58
-                  ],
-                  "isCharacter": false
-                }
-              ],
-              "ans": "51,",
-              "isAnsCharacter": false,
-              "clueFontSize": "53",
-              "otClueFontSize": null,
-              "ansFontSize": null,
-              "otAnsFontSize": null,
-              "actions": 0
-            },
-            {
-              "id": 5,
-              "clue": "get milk from ",
-              "categoryId": 1,
-              "hints": [
-                {
-                  "id": 1,
-                  "value": "GOAT",
-                  "position": [
-                    28,
-                    38,
-                    48,
-                    58
-                  ],
-                  "isCharacter": false
-                }
-              ],
-              "ans": "28,",
-              "isAnsCharacter": false,
-              "clueFontSize": "54",
-              "otClueFontSize": null,
-              "ansFontSize": null,
-              "otAnsFontSize": null,
-              "actions": 0
-            },
-            {
-              "id": 6,
-              "clue": "pineapple",
+              "clue": "questoin four",
               "categoryId": 0,
               "hints": [
                 {
                   "id": 1,
-                  "value": "PINEAPPLE",
-                  "position": [
-                    101,
-                    102,
-                    103,
-                    104,
-                    105,
-                    106,
-                    107,
-                    108,
-                    109
-                  ],
-                  "isCharacter": false
+                  "value": "LAXYGA",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
+                },
+                {
+                  "id": 2,
+                  "value": "LAXYGA",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
+                },
+                {
+                  "id": 3,
+                  "value": "LAXYGA",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
                 }
               ],
-              "ans": "101,109,105,",
-              "isAnsCharacter": false,
-              "otClueFontSize": null,
-              "ansFontSize": null,
-              "otAnsFontSize": null,
-              "actions": 2
+              "ans": "GALAXY",
+              "isAnsCharacter": true,
+              "ansFontSize": 45,
+              "otAnsFontSize": 45,
+              "actions": 3,
+              "clueFontSize": null,
+              "otClueFontSize": null
+            },
+            {
+              "id": 5,
+              "clue": "question five",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "ARTS",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
+                },
+                {
+                  "id": 2,
+                  "value": "ARTS",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
+                },
+                {
+                  "id": 3,
+                  "value": "ARTS",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
+                }
+              ],
+              "ans": "STAR",
+              "isAnsCharacter": true,
+              "ansFontSize": 45,
+              "otAnsFontSize": 45,
+              "actions": 3,
+              "clueFontSize": null,
+              "otClueFontSize": null
+            },
+            {
+              "id": 6,
+              "clue": "question six",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "BITOR",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
+                },
+                {
+                  "id": 2,
+                  "value": "BITOR",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
+                },
+                {
+                  "id": 3,
+                  "value": "BITOR",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
+                }
+              ],
+              "ans": "ORBIT",
+              "isAnsCharacter": true,
+              "ansFontSize": 45,
+              "otAnsFontSize": 45,
+              "actions": 3,
+              "clueFontSize": null,
+              "otClueFontSize": null
+            },
+            {
+              "id": 7,
+              "clue": "quuestoi seven",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "EATHR",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
+                },
+                {
+                  "id": 2,
+                  "value": "EATHR",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
+                },
+                {
+                  "id": 3,
+                  "value": "EATHR",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
+                }
+              ],
+              "ans": "EARTH",
+              "isAnsCharacter": true,
+              "ansFontSize": 45,
+              "otAnsFontSize": 45,
+              "actions": 3,
+              "clueFontSize": 47,
+              "otClueFontSize": 47
+            },
+            {
+              "id": 8,
+              "clue": "questio one",
+              "categoryId": 1,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "RINEMASUB",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
+                },
+                {
+                  "id": 2,
+                  "value": "RINEMASUB",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
+                },
+                {
+                  "id": 3,
+                  "value": "RINEMASUB",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
+                }
+              ],
+              "ans": "SUBMARINE",
+              "isAnsCharacter": true,
+              "actions": 0,
+              "clueFontSize": 45,
+              "otClueFontSize": 45,
+              "ansFontSize": 45,
+              "otAnsFontSize": 45
+            },
+            {
+              "id": 9,
+              "clue": "quesution two",
+              "categoryId": 1,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "WRESHIPCK",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
+                },
+                {
+                  "id": 2,
+                  "value": "WRESHIPCK",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
+                },
+                {
+                  "id": 3,
+                  "value": "WRESHIPCK",
+                  "position": 0,
+                  "isCharacter": false,
+                  "otHintFontSize": 45,
+                  "hintFontSize": 45
+                }
+              ],
+              "ans": "SHIPWRECK",
+              "isAnsCharacter": true,
+              "actions": 0,
+              "clueFontSize": 45,
+              "otClueFontSize": 45,
+              "ansFontSize": 45,
+              "otAnsFontSize": 45
+            },
+            {
+              "id": 10,
+              "clue": "question three",
+              "categoryId": 1,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "OMBOTT",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
+                },
+                {
+                  "id": 2,
+                  "value": "OMBOTT",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
+                },
+                {
+                  "id": 3,
+                  "value": "OMBOTT",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": 45,
+                  "otHintFontSize": 45
+                }
+              ],
+              "ans": "BOTTOM",
+              "isAnsCharacter": true,
+              "actions": 0,
+              "clueFontSize": 45,
+              "otClueFontSize": 45,
+              "ansFontSize": 45,
+              "otAnsFontSize": 45
             }
           ],
           "roundNameFontSize": "90",
-          "clueLabelFontSize": "90"
+          "clueLabelFontSize": "60"
         },
         {
           "id": 5,
@@ -1041,413 +1063,6 @@
           "clueLabelFontSize": "60"
         }
       ]
-    },
-    {
-      "id": 2,
-      "players": [
-        {
-          "id": 1,
-          "name": "Player1",
-          "point": 0,
-          "pointFontSize": 300
-        },
-        {
-          "id": 2,
-          "name": "Player2",
-          "point": 0,
-          "pointFontSize": 300
-        },
-        {
-          "id": 3,
-          "name": "Player3",
-          "point": 0,
-          "pointFontSize": 300
-        }
-      ],
-      "rounds": [
-        {
-          "id": 1,
-          "name": "OPPOSITE WORD",
-          "questionType": 1,
-          "showfirstAnsChar": true,
-          "hasCategory": false,
-          "categories": [],
-          "timeOut": 10,
-          "point": 10,
-          "questionArray": [],
-          "roundNameFontSize": "90",
-          "clueLabelFontSize": "60"
-        },
-        {
-          "id": 2,
-          "name": "ODD WORD",
-          "questionType": 2,
-          "showfirstAnsChar": false,
-          "hasCategory": false,
-          "categories": [],
-          "timeOut": 15,
-          "point": 15,
-          "questionArray": [],
-          "roundNameFontSize": "90",
-          "clueLabelFontSize": "60"
-        },
-        {
-          "id": 3,
-          "name": "HIDDEN WORDS",
-          "questionType": 3,
-          "showfirstAnsChar": false,
-          "hasCategory": false,
-          "categories": [],
-          "timeOut": 20,
-          "point": 20,
-          "questionArray": [],
-          "roundNameFontSize": "90",
-          "clueLabelFontSize": "60"
-        },
-        {
-          "id": 4,
-          "name": "CROSS WORD",
-          "questionType": 4,
-          "showfirstAnsChar": true,
-          "hasCategory": true,
-          "categories": [
-            {
-              "id": 0,
-              "name": "Fruit"
-            },
-            {
-              "id": 1,
-              "name": "Animal"
-            }
-          ],
-          "timeOut": 60,
-          "point": 60,
-          "questionArray": [
-            {
-              "id": 1,
-              "clue": "",
-              "categoryId": 0,
-              "hints": [
-                {
-                  "id": 1,
-                  "value": "ORANGE",
-                  "position": [],
-                  "isCharacter": false
-                }
-              ],
-              "ans": "",
-              "isAnsCharacter": false,
-              "clueFontSize": null,
-              "otClueFontSize": null,
-              "ansFontSize": null,
-              "otAnsFontSize": null
-            },
-            {
-              "id": 2,
-              "clue": "",
-              "categoryId": 0,
-              "hints": [
-                {
-                  "id": 1,
-                  "value": "APPLE",
-                  "position": [
-                    13,
-                    23,
-                    33,
-                    43,
-                    53
-                  ],
-                  "isCharacter": false
-                }
-              ],
-              "ans": "13,",
-              "isAnsCharacter": false,
-              "clueFontSize": null,
-              "otClueFontSize": null,
-              "ansFontSize": null,
-              "otAnsFontSize": null
-            },
-            {
-              "id": 3,
-              "clue": "",
-              "categoryId": 1,
-              "hints": [
-                {
-                  "id": 1,
-                  "value": "ELEPHANT",
-                  "position": [
-                    11,
-                    12,
-                    13,
-                    14,
-                    15,
-                    16,
-                    17,
-                    18
-                  ],
-                  "isCharacter": false
-                }
-              ],
-              "ans": "11,",
-              "isAnsCharacter": false,
-              "clueFontSize": null,
-              "otClueFontSize": null,
-              "ansFontSize": null,
-              "otAnsFontSize": null
-            }
-          ],
-          "roundNameFontSize": "90",
-          "clueLabelFontSize": "60"
-        },
-        {
-          "id": 5,
-          "name": "MYSTERY WORD",
-          "questionType": 5,
-          "showfirstAnsChar": false,
-          "hasCategory": false,
-          "categories": [],
-          "timeOut": 30,
-          "point": 30,
-          "questionArray": [],
-          "roundNameFontSize": "90",
-          "clueLabelFontSize": "60"
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "players": [
-        {
-          "id": 1,
-          "name": "Player1",
-          "point": 0,
-          "pointFontSize": 300
-        },
-        {
-          "id": 2,
-          "name": "Player2",
-          "point": 0,
-          "pointFontSize": 300
-        },
-        {
-          "id": 3,
-          "name": "Player3",
-          "point": 0,
-          "pointFontSize": 300
-        }
-      ],
-      "rounds": [
-        {
-          "id": 1,
-          "name": "MYSTERY WORD",
-          "questionType": 5,
-          "showfirstAnsChar": false,
-          "hasCategory": false,
-          "categories": [],
-          "timeOut": 30,
-          "point": 10,
-          "questionArray": [
-            {
-              "id": 1,
-              "clue": "GREAT MENTAL ABILITY",
-              "categoryId": 0,
-              "hints": [],
-              "ans": "INTELLIGENT",
-              "isAnsCharacter": true,
-              "clueFontSize": "50",
-              "otClueFontSize": "50",
-              "ansFontSize": "50",
-              "otAnsFontSize": "50"
-            }
-          ],
-          "roundNameFontSize": "50",
-          "clueLabelFontSize": "50"
-        },
-        {
-          "id": 2,
-          "name": "CROSS WORD",
-          "questionType": 4,
-          "showfirstAnsChar": true,
-          "hasCategory": true,
-          "categories": [
-            {
-              "id": 0,
-              "name": "Fruit"
-            }
-          ],
-          "timeOut": 60,
-          "point": 10,
-          "questionArray": [
-            {
-              "id": 1,
-              "clue": "This is red color and like a circle",
-              "categoryId": 0,
-              "hints": [
-                {
-                  "id": 1,
-                  "value": "APPLE",
-                  "position": [
-                    11,
-                    12,
-                    13,
-                    14,
-                    15
-                  ],
-                  "isCharacter": false
-                }
-              ],
-              "ans": "11,15,13,",
-              "isAnsCharacter": false,
-              "clueFontSize": "60",
-              "otClueFontSize": null,
-              "ansFontSize": null,
-              "otAnsFontSize": null,
-              "actions": 0
-            },
-            {
-              "id": 2,
-              "clue": "This color is yellow and also like a circle.",
-              "categoryId": 0,
-              "hints": [
-                {
-                  "id": 1,
-                  "value": "ORANGE",
-                  "position": [
-                    21,
-                    22,
-                    23,
-                    24,
-                    25,
-                    26
-                  ],
-                  "isCharacter": false
-                }
-              ],
-              "ans": "21,26,23,",
-              "isAnsCharacter": false,
-              "clueFontSize": "60",
-              "otClueFontSize": null,
-              "ansFontSize": null,
-              "otAnsFontSize": null,
-              "actions": 0
-            }
-          ],
-          "roundNameFontSize": "60",
-          "clueLabelFontSize": "60"
-        },
-        {
-          "id": 3,
-          "name": "HIDDEN WORDS",
-          "questionType": 3,
-          "showfirstAnsChar": false,
-          "hasCategory": false,
-          "categories": [],
-          "timeOut": 15,
-          "point": 15,
-          "questionArray": [
-            {
-              "id": 1,
-              "clue": "BOOKS",
-              "categoryId": 0,
-              "hints": [
-                {
-                  "id": 1,
-                  "value": "CHASTORACRYTERS",
-                  "position": 0,
-                  "isCharacter": true,
-                  "hintFontSize": "75",
-                  "otHintFontSize": "75"
-                }
-              ],
-              "ans": "CHARACTERS STORY",
-              "isAnsCharacter": true,
-              "clueFontSize": "75",
-              "otClueFontSize": "75",
-              "ansFontSize": "75",
-              "otAnsFontSize": "75"
-            }
-          ],
-          "roundNameFontSize": "90",
-          "clueLabelFontSize": "60"
-        },
-        {
-          "id": 4,
-          "name": "ODD WORD",
-          "questionType": 2,
-          "showfirstAnsChar": false,
-          "hasCategory": false,
-          "categories": [],
-          "timeOut": 10,
-          "point": 10,
-          "questionArray": [
-            {
-              "id": 1,
-              "clue": "",
-              "categoryId": 0,
-              "hints": [
-                {
-                  "id": 1,
-                  "value": "Time One",
-                  "position": 0,
-                  "isCharacter": false,
-                  "hintFontSize": "65",
-                  "otHintFontSize": "65"
-                },
-                {
-                  "id": 2,
-                  "value": "Time Two",
-                  "position": 0,
-                  "isCharacter": false,
-                  "hintFontSize": "65",
-                  "otHintFontSize": "65"
-                },
-                {
-                  "id": 3,
-                  "value": "Time Three",
-                  "position": 0,
-                  "isCharacter": false,
-                  "hintFontSize": "65",
-                  "otHintFontSize": "65"
-                }
-              ],
-              "ans": "Time Three",
-              "isAnsCharacter": true,
-              "clueFontSize": null,
-              "otClueFontSize": null,
-              "ansFontSize": "65",
-              "otAnsFontSize": "65"
-            }
-          ],
-          "roundNameFontSize": "90",
-          "clueLabelFontSize": "60"
-        },
-        {
-          "id": 5,
-          "name": "OPPOSITE WORD",
-          "questionType": 1,
-          "showfirstAnsChar": true,
-          "hasCategory": false,
-          "categories": [],
-          "timeOut": 10,
-          "point": 0,
-          "questionArray": [
-            {
-              "id": 1,
-              "clue": "OPEN",
-              "categoryId": 0,
-              "hints": [],
-              "ans": "CLOSE",
-              "isAnsCharacter": true,
-              "clueFontSize": "70",
-              "otClueFontSize": "70",
-              "ansFontSize": "70",
-              "otAnsFontSize": "70"
-            }
-          ],
-          "roundNameFontSize": "90",
-          "clueLabelFontSize": "60"
-        }
-      ]
     }
   ],
   "questionTypes": [
@@ -1462,8 +1077,8 @@
     },
     {
       "id": 2,
-      "name": "ODD WORD",
-      "hintsCount": 3,
+      "name": "CROSS WORD",
+      "hintsCount": 1,
       "isHintChar": false,
       "isAnsChar": true,
       "showfirstAnsChar": false,
@@ -1480,11 +1095,11 @@
     },
     {
       "id": 4,
-      "name": "CROSS WORD",
-      "hintsCount": 1,
+      "name": "ODD WORD",
+      "hintsCount": 3,
       "isHintChar": false,
       "isAnsChar": true,
-      "showfirstAnsChar": true,
+      "showfirstAnsChar": false,
       "hasCategory": true
     },
     {

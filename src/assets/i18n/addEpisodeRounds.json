@@ -13,7 +13,7 @@
     },
     {
         "id": 2,
-        "name": "ODD WORD",
+        "name": "CROSS WORD",
         "questionType": 2,
         "showfirstAnsChar": false,
         "hasCategory": false,
@@ -39,7 +39,7 @@
     },
     {
         "id": 4,
-        "name": "CROSS WORD",
+        "name": "ODD WORD",
         "questionType": 4,
         "showfirstAnsChar": true,
         "hasCategory": true,
