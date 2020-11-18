@@ -108,6 +108,7 @@ export class ControlComponent implements OnInit {
   isStartRound4 = false;
   oldCurrentRound: Round
   oldCurrentPlayer: Player[]
+  roundFourHintValue: string
 
   constructor(
     private store: Store<{
@@ -494,6 +495,7 @@ export class ControlComponent implements OnInit {
 
   clickRound(round) {
     //reset the category section
+    this.roundFourHintValue = undefined
     this.resetCategorySection();
     this.store.dispatch(resetCategoryRound());
 
@@ -604,6 +606,7 @@ export class ControlComponent implements OnInit {
   }
 
   clickQuestion(question, currentQuestionIndex) {
+    this.roundFourHintValue = undefined
     this.disableStart = false;
     if (this.currentRound.hasCategory)
       this.currentQuestionIndex = currentQuestionIndex;
@@ -786,26 +789,37 @@ export class ControlComponent implements OnInit {
 
   correctAnswer() {
     // play audio if press Correct Answer button
-    this.correct_answer_audio.play();
+
 
     // this.runCategoryRound = true;
     // this.store.dispatch(runCategoryRound());
 
     //showAnswer
     this.store.dispatch(ShowAnsForCategoryRound());
-    if (this.currentRound.questionType == 4 && _.find(this.control.roundFourStatus, ['imagePath', './assets/images/orange_rectangle.png']) !== undefined) {
-      _.find(this.control.roundFourStatus, ['imagePath', './assets/images/orange_rectangle.png']).imagePath = './assets/images/yellow_rectangle.png'
+    if (this.currentRound.questionType == 4 && _.find(this.control.roundFourStatus, ['imagePath', this.roundFourHintValue]) !== undefined) {
+      if (this.roundFourHintValue == this.currentQuestion.ans) {
+        _.find(this.control.roundFourStatus, ['imagePath', this.roundFourHintValue]).imagePath = './assets/images/yellow_rectangle.png'
+        //mark correct answer in separted arrays
+        _.find(this.questionArraysByCategory[this.currentCategory.id], [
+          "id",
+          this.currentQuestion.id
+        ]).actions = 1;
+        this.correct_answer_audio.play();
+      } else {
+        if (this.currentRound.questionType == 4 && _.find(this.control.roundFourStatus, ['imagePath', this.roundFourHintValue]) !== undefined) {
+          _.find(this.control.roundFourStatus, ['imagePath', this.roundFourHintValue]).imagePath = './assets/images/red_rectangle.png'
+        }
+        _.find(this.questionArraysByCategory[this.currentCategory.id], [
+          "id",
+          this.currentQuestion.id
+        ]).actions = 4;
+        this.wrongAnswer();
+      }
       console.log('correct answer => ', this.control.roundFourStatus)
     }
     this.broadcastScreens();
 
-    // //mark correct answer in separted arrays
-    _.find(this.questionArraysByCategory[this.currentCategory.id], [
-      "id",
-      this.currentQuestion.id
-    ]).actions = 1;
-
-    // //checkLastIndex or not
+    // // //checkLastIndex or not
     // let checkLastIndex = false;
     // if (
     //   this.currentQuestion.id ==
@@ -825,8 +839,8 @@ export class ControlComponent implements OnInit {
     //     this.loopQuestion = true;
     //   } else {
     //     // show next question
-    //     const nextQuest = this.nextQuestionByCategoryId();
-    //     this.clickQuestion(nextQuest, this.currentQuestionIndex + 1);
+    //     // const nextQuest = this.nextQuestionByCategoryId();
+    //     // this.clickQuestion(nextQuest, this.currentQuestionIndex + 1);
     //   }
     // }, 1000);
 
@@ -926,13 +940,25 @@ export class ControlComponent implements OnInit {
   wrongOrskipQuestion(action) {
     this.runCategoryRound = true;
     this.store.dispatch(runCategoryRound());
-
-    //mark skip answer in separted arrays
-    _.find(this.questionArraysByCategory[this.currentCategory.id], [
+    console.log('before action => ', _.find(this.questionArraysByCategory[this.currentCategory.id], [
       "id",
       this.currentQuestion.id
-    ]).actions = action;
+    ]).actions)
+    //mark skip answer in separted arrays
+    if (_.find(this.questionArraysByCategory[this.currentCategory.id], [
+      "id",
+      this.currentQuestion.id
+    ]).actions == 0) {
+      _.find(this.questionArraysByCategory[this.currentCategory.id], [
+        "id",
+        this.currentQuestion.id
+      ]).actions = action;
+    }
 
+    console.log('after action => ', _.find(this.questionArraysByCategory[this.currentCategory.id], [
+      "id",
+      this.currentQuestion.id
+    ]).actions)
     //checkLastIndex or not
     let checkLastIndex = false;
 
@@ -1126,12 +1152,6 @@ export class ControlComponent implements OnInit {
   wrongAnswer() {
     // play audio if press Wrong Answer button
     this.wrong_answer_audio.play();
-    if (this.currentRound.questionType == 4 && _.find(this.control.roundFourStatus, ['imagePath', './assets/images/orange_rectangle.png']) !== undefined) {
-      _.find(this.control.roundFourStatus, ['imagePath', './assets/images/orange_rectangle.png']).imagePath = './assets/images/red_rectangle.png'
-      console.log('wrong answer => ', this.control.roundFourStatus)
-      this.store.dispatch(ShowAnsForCategoryRound());
-      this.broadcastScreens();
-    }
   }
 
   isfontEmpty() {
@@ -1167,8 +1187,10 @@ export class ControlComponent implements OnInit {
     this.episode.players.map(player => player.pointFontSize = pointFontSize)
   }
 
-  radioOnChange(event) {
+  radioOnChange(event, hintValue) {
+    this.roundFourHintValue = hintValue
     let radioValue = event.target.value
+    console.log('hint value => ', hintValue)
     switch (radioValue) {
       case '1default':
         _.find(this.control.roundFourStatus, ['id', 1]).imagePath = './assets/images/blue_rectangle.png';
@@ -1180,18 +1202,18 @@ export class ControlComponent implements OnInit {
         _.find(this.control.roundFourStatus, ['id', 3]).imagePath = './assets/images/blue_rectangle.png';
         break;
       case '1choose':
-        _.find(this.control.roundFourStatus, ['id', 1]).imagePath = './assets/images/orange_rectangle.png';
+        _.find(this.control.roundFourStatus, ['id', 1]).imagePath = hintValue;
         break;
       case '2choose':
-        _.find(this.control.roundFourStatus, ['id', 2]).imagePath = './assets/images/orange_rectangle.png';
+        _.find(this.control.roundFourStatus, ['id', 2]).imagePath = hintValue;
         break;
       case '3choose':
-        _.find(this.control.roundFourStatus, ['id', 3]).imagePath = './assets/images/orange_rectangle.png';
+        _.find(this.control.roundFourStatus, ['id', 3]).imagePath = hintValue;
         break;
       default:
         break;
     }
-    this.broadcastScreens();
+    // this.broadcastScreens();
   }
 
   setDefaultRadioState() {

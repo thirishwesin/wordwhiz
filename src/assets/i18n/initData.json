@@ -659,7 +659,7 @@
               "hints": [
                 {
                   "id": 1,
-                  "value": "ARSM",
+                  "value": "MARS",
                   "position": 0,
                   "isCharacter": false,
                   "hintFontSize": 45,
@@ -686,7 +686,7 @@
               "isAnsCharacter": true,
               "ansFontSize": 45,
               "otAnsFontSize": 45,
-              "actions": 3,
+              "actions": 1,
               "clueFontSize": 46,
               "otClueFontSize": 46
             },
@@ -724,7 +724,7 @@
               "isAnsCharacter": true,
               "ansFontSize": 45,
               "otAnsFontSize": 45,
-              "actions": 3,
+              "actions": 4,
               "clueFontSize": 46,
               "otClueFontSize": 46
             },
@@ -762,7 +762,7 @@
               "isAnsCharacter": true,
               "ansFontSize": 45,
               "otAnsFontSize": 45,
-              "actions": 3,
+              "actions": 4,
               "clueFontSize": 45,
               "otClueFontSize": 45
             },
@@ -800,7 +800,7 @@
               "isAnsCharacter": true,
               "ansFontSize": 45,
               "otAnsFontSize": 45,
-              "actions": 3,
+              "actions": 0,
               "clueFontSize": null,
               "otClueFontSize": null
             },
@@ -838,7 +838,7 @@
               "isAnsCharacter": true,
               "ansFontSize": 45,
               "otAnsFontSize": 45,
-              "actions": 3,
+              "actions": 0,
               "clueFontSize": null,
               "otClueFontSize": null
             },
@@ -876,7 +876,7 @@
               "isAnsCharacter": true,
               "ansFontSize": 45,
               "otAnsFontSize": 45,
-              "actions": 3,
+              "actions": 0,
               "clueFontSize": null,
               "otClueFontSize": null
             },
@@ -914,7 +914,7 @@
               "isAnsCharacter": true,
               "ansFontSize": 45,
               "otAnsFontSize": 45,
-              "actions": 3,
+              "actions": 0,
               "clueFontSize": 47,
               "otClueFontSize": 47
             },
@@ -1059,6 +1059,193 @@
               "otAnsFontSize": 45
             }
           ],
+          "roundNameFontSize": "90",
+          "clueLabelFontSize": "60"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "players": [
+        {
+          "id": 1,
+          "name": "Player1",
+          "point": 0,
+          "pointFontSize": 300
+        },
+        {
+          "id": 2,
+          "name": "Player2",
+          "point": 0,
+          "pointFontSize": 300
+        },
+        {
+          "id": 3,
+          "name": "Player3",
+          "point": 0,
+          "pointFontSize": 300
+        }
+      ],
+      "rounds": [
+        {
+          "id": 1,
+          "name": "OPPOSITE WORD",
+          "questionType": 1,
+          "showfirstAnsChar": true,
+          "hasCategory": false,
+          "categories": [],
+          "timeOut": 10,
+          "point": 10,
+          "questionArray": [
+            {
+              "id": 1,
+              "clue": "questonone",
+              "categoryId": 0,
+              "hints": [],
+              "ans": "asnwerone",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            },
+            {
+              "id": 2,
+              "clue": "questiontwo",
+              "categoryId": 0,
+              "hints": [],
+              "ans": "answertwo",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            },
+            {
+              "id": 3,
+              "clue": "questionthree",
+              "categoryId": 0,
+              "hints": [],
+              "ans": "answerthree",
+              "isAnsCharacter": true,
+              "clueFontSize": "45",
+              "otClueFontSize": "45",
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            },
+            {
+              "id": 4,
+              "clue": "questionfour",
+              "categoryId": 0,
+              "hints": [],
+              "ans": "answerfour",
+              "isAnsCharacter": true,
+              "clueFontSize": "45",
+              "otClueFontSize": "45",
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            },
+            {
+              "id": 5,
+              "clue": "questionfive",
+              "categoryId": 0,
+              "hints": [],
+              "ans": "answerfive",
+              "isAnsCharacter": true,
+              "clueFontSize": "45",
+              "otClueFontSize": "45",
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            },
+            {
+              "id": 6,
+              "clue": "questiosix",
+              "categoryId": 0,
+              "hints": [],
+              "ans": "test",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            },
+            {
+              "id": 7,
+              "clue": "questoinseven",
+              "categoryId": 0,
+              "hints": [],
+              "ans": "questionseven",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            },
+            {
+              "id": 8,
+              "clue": "questioneight",
+              "categoryId": 0,
+              "hints": [],
+              "ans": "questioneight",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": "59",
+              "otAnsFontSize": 50
+            }
+          ],
+          "roundNameFontSize": "90",
+          "clueLabelFontSize": "60"
+        },
+        {
+          "id": 2,
+          "name": "CROSS WORD",
+          "questionType": 2,
+          "showfirstAnsChar": false,
+          "hasCategory": false,
+          "categories": [],
+          "timeOut": 15,
+          "point": 15,
+          "questionArray": [],
+          "roundNameFontSize": "90",
+          "clueLabelFontSize": "60"
+        },
+        {
+          "id": 3,
+          "name": "HIDDEN WORDS",
+          "questionType": 3,
+          "showfirstAnsChar": false,
+          "hasCategory": false,
+          "categories": [],
+          "timeOut": 20,
+          "point": 20,
+          "questionArray": [],
+          "roundNameFontSize": "90",
+          "clueLabelFontSize": "60"
+        },
+        {
+          "id": 4,
+          "name": "ODD WORD",
+          "questionType": 4,
+          "showfirstAnsChar": true,
+          "hasCategory": true,
+          "categories": [],
+          "timeOut": 60,
+          "point": 60,
+          "questionArray": [],
+          "roundNameFontSize": "90",
+          "clueLabelFontSize": "60"
+        },
+        {
+          "id": 5,
+          "name": "MYSTERY WORD",
+          "questionType": 5,
+          "showfirstAnsChar": false,
+          "hasCategory": false,
+          "categories": [],
+          "timeOut": 30,
+          "point": 30,
+          "questionArray": [],
           "roundNameFontSize": "90",
           "clueLabelFontSize": "60"
         }

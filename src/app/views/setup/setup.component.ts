@@ -283,7 +283,7 @@ export class SetupComponent implements OnInit {
 
   saveQuestion() {
     this.invalidQuestion = false;
-    console.log('question => ', this.question)
+
     //new question
     if (this.question.id == 0) {
       //check the question arrays except self
@@ -303,13 +303,13 @@ export class SetupComponent implements OnInit {
       if (!this.invalidQuestion) {
         //add question
         if (this.currentRound.questionType == 4) {
-          console.log('quesiton => ', this.question)
           this.question.hints[0].hintFontSize = 30; this.question.hints[0].otHintFontSize = 30;
           this.question.hints[1].hintFontSize = 30; this.question.hints[1].otHintFontSize = 30;
           this.question.hints[2].hintFontSize = 30; this.question.hints[2].otHintFontSize = 30;
         } else if (this.currentRound.questionType == 3) {
           this.question.hints[0].hintFontSize = 50; this.question.hints[0].otHintFontSize = 50
         }
+
         let generateId =
           this.currentRound.questionArray.length == 0
             ? 1
@@ -321,12 +321,13 @@ export class SetupComponent implements OnInit {
             ? this.currentCategory.id
             : 0,
           isAnsCharacter: this.questionType.isAnsChar,
-          clueFontSize: 50,
-          otClueFontSize: 50,
-          ansFontSize: 50,
-          otAnsFontSize: 50,
+          clueFontSize: this.question.clueFontSize == null ? 50 : this.question.clueFontSize,
+          otClueFontSize: this.question.otClueFontSize == null ? 50 : this.question.otClueFontSize,
+          ansFontSize: this.question.ansFontSize == null ? 50 : this.question.ansFontSize,
+          otAnsFontSize: this.question.otAnsFontSize == null ? 50 : this.question.otAnsFontSize,
         });
-
+        // this.questionTextToUpperCase(this.question);
+        console.log('question => ', this.question)
         this.noDatabyCategory = false;
       }
     } else {
@@ -670,5 +671,17 @@ export class SetupComponent implements OnInit {
 
   changePlayerPointSize(pointFontSize) {
     this.episode.players.map(player => player.pointFontSize = pointFontSize)
+  }
+
+  questionTextToUpperCase(question) {
+    this.question.clue = question.clue.toUpperCase();
+    this.question.ans = question.ans.toUpperCase();
+    if (this.question.hints.length == 1) this.question.hints[0].value = question.hints[0].value.toUpperCase();
+    else if (question.hints.length == 3) {
+      this.question.hints[0].value = question.hints[0].value.toUpperCase();
+      this.question.hints[1].value = question.hints[1].value.toUpperCase();
+      this.question.hints[2].value = question.hints[2].value.toUpperCase();
+    }
+    console.log('called questionTextToUpperCase.............')
   }
 }

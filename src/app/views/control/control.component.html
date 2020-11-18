@@ -122,20 +122,17 @@
                             <button class="btn button ans" (click)="startTimer(true)" [disabled]="control.finishCategoryRound">{{control.startCount ? 'Stop Timer' : 'Start Timer'}}</button>
                         </div>
                         <div class="showans_btn">
-                            <button class="btn button ans" (click)="correctAnswer()" [disabled]="!control.startCount || correctAnswerDisable">Correct
+                            <button class="btn button ans" (click)="correctAnswer()" [disabled]="!control.startCount || correctAnswerDisable">Show
                                 Answer</button>
-                        </div>
-                        <div class="showans_btn">
-                            <button class="btn button ans" (click)="wrongAnswer()" [disabled]="!control.startCount">Wrong Answer</button>
                         </div>
                         <div class="showans_btn">
                             <button class="btn button ans" (click)="wrongOrskipQuestion(3)" [disabled]="!control.startCount">Next
                                 Question</button>
                         </div>
-                        <div class="showans_btn">
+                        <!-- <div class="showans_btn">
                             <button class="btn button ans" (click)="wrongOrskipQuestion(3)" [disabled]="!control.startCount">Skip
                                 Question</button>
-                        </div>
+                        </div> -->
                     </div>
 
                     <div class="col-sm-8 row">
@@ -147,8 +144,10 @@
                         <label class="col-sm-3 common_label">HINT {{ hintIndex + 1 }}</label>
                         <input readonly [ngClass]="control.showQuestion || currentRound.hasCategory && control.startCount ? 'col-sm-9 common_input':'col-sm-9 common_input disabled'" type="text" value={{hint.value}} />
                         <ng-container *ngIf="currentRound.questionType == 4">
-                            <input type="radio" class="radio_input" checked="checked" [name]="hintIndex" [value]=" 1 + hintIndex + 'default'" (change)="radioOnChange($event)" /><label class="option_text"> Default</label>
-                            <input type="radio" class="radio_input" [name]="hintIndex" [value]=" 1 + hintIndex + 'choose'" (change)="radioOnChange($event)" /><label class="option_text"> Player Choosed</label>
+                            <input type="radio" class="radio_input" checked="checked" [name]="hintIndex" [value]=" 1 + hintIndex + 'default'" (change)="radioOnChange($event, hint.value)" /><label class="option_text">
+                                Default</label>
+                            <input type="radio" class="radio_input" [name]="hintIndex" [value]=" 1 + hintIndex + 'choose'" (change)="radioOnChange($event, hint.value)" /><label class="option_text"> Player
+                                Choosed</label>
                         </ng-container>
 
                     </div>
@@ -156,8 +155,6 @@
                         <label class="col-sm-3 common_label">ANSWER</label>
                         <input readonly [ngClass]="!control.showAns ? 'col-sm-9 common_input disabled':'col-sm-9 common_input'" type="text" value={{currentQuestion?.ans}} />
                     </div>
-
-
                 </div>
                 <div class="col right_col">
                     <div class="row">
