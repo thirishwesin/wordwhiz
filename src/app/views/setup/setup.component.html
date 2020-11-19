@@ -66,7 +66,7 @@
                     </div>
 
                     <!-- choose category(theme) -->
-                    <div class="form-group" *ngIf="currentRound.hasCategory">
+                    <div class="form-group" *ngIf="currentRound.questionType == 4">
                         <div ngbDropdown class="d-inline-block">
                             <button class="btn common_input" id="dropdownBasic1" ngbDropdownToggle>
                                 <p class="section_text">
@@ -141,7 +141,7 @@
             <div class="row">
                 <div class="col-sm-2"></div>
                 <div class="col-sm-8 second_body">
-                    <div class="form-group  question_txt">
+                    <div class="form-group  question_txt" *ngIf="currentRound.questionType != 2">
                         <label for="" class="common_label"> QUESTION </label>
                         <span class="error_msg ml-5" *ngIf="invalidQuestion">*Already exist in question list !</span>
                         <br />
@@ -195,7 +195,7 @@
                     <!-- //! hint   -->
                     <div class="container-fluid" *ngIf="question.hints.length != 0">
                         <div *ngFor="let hint of question.hints; let hintIndex = index">
-                            <ng-container *ngIf="currentRound.questionType != 4">
+                            <ng-container *ngIf="currentRound.questionType == 1 || currentRound.questionType == 3">
 
                                 <!-- //! hint show back of answer -->
                                 <div class="row" *ngIf="hint.position == 2">
@@ -246,7 +246,8 @@
                                         <div class="form-group">
                                             <label for="" style="width:100px;" class="common_label">HINT
                                                 {{ question.hints.length <= 1 ? "" : hint.id }}</label>
-                                            <span class="error_msg" *ngIf="invalidQuestion && currentRound.hasCategory">*Already exist in
+                                            <span class="error_msg" *ngIf="invalidQuestion && currentRound.questionType == 4">*Already exist
+                                                in
                                                 question list !</span>
                                             <br />
                                             <input type="text" class="common_input w_100" (keyup)="changeHint($event, hint.id)" value="{{ hint.value }}" />
@@ -316,9 +317,138 @@
                                     </div>
                                 </div>
                             </ng-container>
-
                         </div>
-                        <div class="col-sm-12 btn_wrapper">
+                        <ng-container *ngIf="currentRound.questionType == 2">
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <div class="container" style="padding: 20px;">
+                                        <div class="row" style="flex-wrap: initial;">
+                                            <div class="col-sm" (click)="clickGrid(item)" class="alpha_text" style="border: 1px solid #4DB821; height: 32px;" *ngFor="let item of [11,12,13,14,15,16,17,18,19,110]; let i = index" [id]="item">
+
+                                            </div>
+                                        </div>
+                                        <div class="row" style="flex-wrap: initial;">
+                                            <div class="col-sm" (click)="clickGrid(item)" class="alpha_text" style="border: 1px solid #4DB821; height: 32px;" *ngFor="let item of [21,22,23,24,25,26,27,28,29,210]; let i = index" [id]="item">
+
+                                            </div>
+                                        </div>
+                                        <div class="row" style="flex-wrap: initial;">
+                                            <div class="col-sm" (click)="clickGrid(item)" class="alpha_text" style="border: 1px solid #4DB821; height: 32px;" *ngFor="let item of [31,32,33,34,35,36,37,38,39,310]; let i = index" [id]="item">
+
+                                            </div>
+                                        </div>
+                                        <div class="row" style="flex-wrap: initial;">
+                                            <div class="col-sm" (click)="clickGrid(item)" class="alpha_text" style="border: 1px solid #4DB821; height: 32px;" *ngFor="let item of [41,42,43,44,45,46,47,48,49,410]; let i = index" [id]="item">
+
+                                            </div>
+                                        </div>
+                                        <div class="row" style="flex-wrap: initial;">
+                                            <div class="col-sm" (click)="clickGrid(item)" class="alpha_text" style="border: 1px solid #4DB821; height: 32px;" *ngFor="let item of [51,52,53,54,55,56,57,58,59,510]; let i = index" [id]="item">
+
+                                            </div>
+                                        </div>
+                                        <div class="row" style="flex-wrap: initial;">
+                                            <div class="col-sm" (click)="clickGrid(item)" class="alpha_text" style="border: 1px solid #4DB821; height: 32px;" *ngFor="let item of [61,62,63,64,65,66,67,68,69,610]; let i = index" [id]="item">
+
+                                            </div>
+                                        </div>
+                                        <div class="row" style="flex-wrap: initial;">
+                                            <div class="col-sm" (click)="clickGrid(item)" class="alpha_text" style="border: 1px solid #4DB821; height: 32px;" *ngFor="let item of [71,72,73,74,75,76,77,78,79,710]; let i = index" [id]="item">
+
+                                            </div>
+                                        </div>
+                                        <div class="row" style="flex-wrap: initial;">
+                                            <div class="col-sm" (click)="clickGrid(item)" class="alpha_text" style="border: 1px solid #4DB821; height: 32px;" *ngFor="let item of [81,82,83,84,85,86,87,88,89,810]; let i = index" [id]="item">
+
+                                            </div>
+                                        </div>
+                                        <div class="row" style="flex-wrap: initial;">
+                                            <div class="col-sm" (click)="clickGrid(item)" class="alpha_text" style="border: 1px solid #4DB821; height: 32px;" *ngFor="let item of [91,92,93,94,95,96,97,98,99,910]; let i = index" [id]="item">
+
+                                            </div>
+                                        </div>
+                                        <div class="row" style="flex-wrap: initial;">
+                                            <div class="col-sm" (click)="clickGrid(item)" class="alpha_text" style="border: 1px solid #4DB821; height: 32px;" *ngFor="let item of [101,102,103,104,105,106,107,108,109,1010]; let i = index" [id]="item">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group" style="margin-top: 20px;">
+
+                                        <div ngbDropdown class="d-inline-block" style="margin-bottom: 13%;">
+                                            <label for="" class="common_label ">
+                                                CATEGORY
+                                            </label><br>
+                                            <button class="btn common_input" id="dropdownBasic1" ngbDropdownToggle>
+                                                <p class="section_text">
+                                                    {{ currentCategory ? currentCategory.name : "Add New Category" }}
+                                                </p>
+                                                <img [src]="Images.dropDown" class="drop_down_icon" />
+                                            </button>
+                                            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                                <button ngbDropdownItem *ngFor="let category of currentRound.categories">
+                                                    <span class="roundDropDown"
+                                                        (click)="changeCategory(category)">{{ category.name }}</span>
+                                                    <span>
+                                                        <fa-icon class="remove_icon" [icon]="faTimesCircle"
+                                                            (click)="openModal(content_setup, 4, category)">
+                                                        </fa-icon>
+                                                    </span>
+                                                </button>
+                                                <button ngbDropdownItem (click)="openModal(content_setup, 5, categoryName)">
+                                                    Add New Category
+                                                    <span>
+                                                        <fa-icon class="add_icon" [icon]="faPlusCircle"></fa-icon>
+                                                    </span>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div ngbDropdown class="d-inline-block" style="margin-bottom: 13%;">
+                                            <label for="" class="common_label ">
+                                                WORD
+                                            </label><br>
+                                            <button class="btn common_input" id="dropdownBasic1" ngbDropdownToggle>
+                                                <p class="section_text">
+                                                    {{ currentWord ? currentWord.hints[0].value : "Select One Word" }}
+                                                </p>
+                                                <img [src]="Images.dropDown" class="drop_down_icon" />
+                                            </button>
+                                            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                                <button ngbDropdownItem *ngFor="let question of filterQuestion(currentRound.questionArray)">
+                                                    <span class="roundDropDown"
+                                                        (click)="clickHint(question)">{{ question.hints[0].value }}</span>
+                                                    <span>
+                                                        <fa-icon class="remove_icon" [icon]="faTimesCircle"
+                                                            (click)="openModal(content_setup, 6, question.id)">
+                                                        </fa-icon>
+                                                    </span>
+                                                </button>
+                                                <button ngbDropdownItem (click)="openModal(content_setup, 7, hintValueForR4)">
+                                                    Add New Word
+                                                    <span>
+                                                        <fa-icon class="add_icon" [icon]="faPlusCircle"></fa-icon>
+                                                    </span>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div style="margin-left:4px;margin-bottom: 13%;">
+                                            <input type="radio" name="gridstatus" value="default" (change)="changeGridStatus($event)" /><label class="option_text">
+                                                Add Word</label>
+                                            <input type="radio" name="gridstatus" value="hint" (change)="changeGridStatus($event)" /><label class="option_text">
+                                                Add Hint</label>
+                                        </div>
+                                        <button class="btn-primary btn_box button" style="width: 100%; margin-left: 5px !important;" (click)="clearWord(currentWord.hints[0].value )">
+                                            Clear Word
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-container>
+                        <div class="col-sm-12 btn_wrapper" *ngIf="currentRound.questionType != 2">
                             <div class="btn-group btn-group-toggle btn_question">
                                 <button class="btn-primary btn_box button" (click)="saveQuestion()" [disabled]="disabled()">
                                     OK
@@ -344,22 +474,26 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th scope="col" class="common_label" *ngIf="!currentRound.hasCategory">QUESTION</th>
-                                    <th scope="col" class="common_label">ANSWER</th>
+                                    <th scope="col" class="common_label">
+                                        QUESTION</th>
+                                    <th scope="col" class="common_label" *ngIf="currentRound.questionType != 2">ANSWER
+                                    </th>
                                     <th scope="col" class="common_label" *ngFor="let hint of question.hints">
                                         HINT {{ question.hints.length
                                         <=1 ? "" : hint.id }} </th>
-                                            <th scope="col" class="common_label act_width">ACTION</th>
+                                            <th scope="col" class="common_label act_width" *ngIf="currentRound.questionType != 2">ACTION</th>
                                 </tr>
                             </thead>
                             <tbody *ngIf="currentRound.questionArray.length > 0">
                                 <tr *ngFor="let question of filterQuestion(currentRound.questionArray)">
-                                    <td class=" common_data " *ngIf="!currentRound.hasCategory">{{ question.clue }}</td>
-                                    <td class=" common_data ">{{ question.ans }}</td>
+                                    <td class=" common_data ">
+                                        {{ question.clue }}</td>
+                                    <td class=" common_data" *ngIf="currentRound.questionType != 2">{{ question.ans }}
+                                    </td>
                                     <td class=" common_data " *ngFor=" let hint of question.hints ">
                                         {{ hint.value }}
                                     </td>
-                                    <td>
+                                    <td *ngIf="currentRound.questionType != 2">
                                         <div class=" btn-group btn-group-toggle " ngbRadioGroup name=" radioBasic " [(ngModel)]=" model ">
                                             <button class=" btn-primary btn_table button " (click)=" editQuestionList(question) ">
                                                 EDIT
@@ -370,7 +504,7 @@
                                         </div>
                                     </td>
                                 </tr>
-                                <tr *ngIf="currentRound.hasCategory && noDatabyCategory">
+                                <tr *ngIf="( currentRound.questionType == 4 || currentRound.questionType == 2 ) && noDatabyCategory">
                                     <td align=" center " colspan=" 5 ">
                                         <h6 style=" color: red ">*There is no question in table by category</h6>
                                     </td>
@@ -437,6 +571,32 @@
 
             </div>
         </div>
+        <div class=" modal-body " *ngIf=" checkModalType===6 ">
+            <label>Are you sure to remove WORD?</label>
+        </div>
+        <div class=" modal-body " *ngIf=" checkModalType===7 ">
+            <div class="col-sm-12">
+                <label class="common_label" [ngStyle]="{'visibility': invalidWordName ? '': 'hidden', 'color': 'red'}">
+                    *Already exist
+                    in word list ! </label>
+            </div>
+            <div class="col-sm-12 ">
+                <label class="common_label mr4 ">WORD NAME : </label>
+                <input type="text" class="common_input" [(ngModel)]="hintValueForR4" (ngModelChange)="checkDuplicateWord($event)">
+            </div>
+            <div class="col-sm-12 ">
+                <label class="common_label mr4 ">HINT NAME : </label>
+                <input type="text" class="common_input" [(ngModel)]="clueValueForR4">
+            </div>
+            <div class="col-sm-12 ">
+                <label class="common_label mr4 ">HINT FONT SIZE : </label>
+                <input type="text" class="common_input" [(ngModel)]="clueFontSizeForR4" OnlyNumber="true">
+            </div>
+            <div class="col-sm-12 ">
+                <label class="common_label mr4 ">HINT FONT SIZE : </label>
+                <input type="text" class="common_input" [(ngModel)]="otClueFontSizeForR4" OnlyNumber="true">
+            </div>
+        </div>
         <div class=" modal-footer " *ngIf=" checkModalType !=3 ">
             <button type=" button " class=" button btn-add " (click)=" modal.dismiss( 'Cancel click' ) ">
                 Cancel
@@ -444,13 +604,13 @@
             <button type=" button " *ngIf=" checkModalType==2 " class=" button btn-add saveBack " (click)=" modal.close( 'SaveBack' ) ">
                 Save & Back
             </button>
-            <button type=" button " class=" button btn-add " [disabled]="(isEmptyCategoryName && checkModalType == 5) || invalidCategoryName" (click)=" modal.close( 'Back click' ) ">
+            <button type=" button " class=" button btn-add " [disabled]="(isEmptyCategoryName && checkModalType == 5) || invalidCategoryName || (isEmptyWordName && currentRound.questionType == 2) || invalidWordName" (click)=" modal.close( 'Back click' ) ">
                 {{
-              checkModalType == 1 || checkModalType == 4
+              checkModalType == 1 || checkModalType == 4 || checkModalType == 6
                 ? "Remove "
                 : checkModalType == 2
                 ? "Back "
-                : checkModalType == 5 ? 'Save' : 'Change'
+                : checkModalType == 5 || checkModalType == 7 ? 'Save' : 'Change'
             }}
             </button>
         </div>

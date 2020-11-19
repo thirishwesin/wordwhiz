@@ -173,216 +173,97 @@
           "questionType": 2,
           "showfirstAnsChar": false,
           "hasCategory": false,
-          "categories": [],
+          "categories": [
+            {
+              "id": 0,
+              "name": "Fruit"
+            }
+          ],
           "timeOut": 10,
           "point": 10,
           "questionArray": [
             {
               "id": 1,
-              "clue": "SCHEDULE",
+              "clue": "THIS COLOR IS RED AND CIRCLE",
               "categoryId": 0,
               "hints": [
                 {
                   "id": 1,
-                  "value": "TIME",
-                  "position": 1,
+                  "value": "APPLE",
+                  "position": [
+                    52,
+                    62,
+                    72,
+                    82,
+                    92
+                  ],
                   "isCharacter": false,
-                  "hintFontSize": 45,
-                  "otHintFontSize": 45
+                  "hintFontSize": "45",
+                  "otHintFontSize": "45"
                 }
               ],
-              "ans": "TABLE",
+              "ans": "52,",
               "isAnsCharacter": true,
-              "clueFontSize": 45,
-              "ansFontSize": 45,
-              "otClueFontSize": 45,
-              "otAnsFontSize": 45
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
             },
             {
               "id": 2,
-              "clue": "FROZEN FIGURE",
+              "clue": "THIS COLOR IS ORANGE AND CIRCLE",
               "categoryId": 0,
               "hints": [
                 {
                   "id": 1,
-                  "value": "MAN",
-                  "position": 2,
+                  "value": "ORANGE",
+                  "position": [
+                    36,
+                    46,
+                    56,
+                    66,
+                    76,
+                    86
+                  ],
                   "isCharacter": false,
-                  "hintFontSize": 45,
-                  "otHintFontSize": 45
+                  "hintFontSize": "45",
+                  "otHintFontSize": "45"
                 }
               ],
-              "ans": "SNOW",
+              "ans": "36,",
               "isAnsCharacter": true,
-              "clueFontSize": 45,
-              "ansFontSize": 45,
-              "otClueFontSize": 45,
-              "otAnsFontSize": 45
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
             },
             {
               "id": 3,
-              "clue": "TO SLEEP IN",
+              "clue": "THIS COLOR IS RED.",
               "categoryId": 0,
               "hints": [
                 {
                   "id": 1,
-                  "value": "ROOM",
-                  "position": 2,
+                  "value": "BANANA",
+                  "position": [
+                    51,
+                    52,
+                    53,
+                    54,
+                    55,
+                    56
+                  ],
                   "isCharacter": false,
-                  "hintFontSize": 45,
-                  "otHintFontSize": 45
+                  "hintFontSize": "45",
+                  "otHintFontSize": 50
                 }
               ],
-              "ans": "BED",
+              "ans": "51,",
               "isAnsCharacter": true,
-              "clueFontSize": 45,
-              "ansFontSize": 45,
-              "otClueFontSize": null,
-              "otAnsFontSize": 45
-            },
-            {
-              "id": 4,
-              "clue": "FOR STORAGE",
-              "categoryId": 0,
-              "hints": [
-                {
-                  "id": 1,
-                  "value": "CUP",
-                  "position": 1,
-                  "isCharacter": false,
-                  "hintFontSize": 45
-                }
-              ],
-              "ans": "BOARD",
-              "isAnsCharacter": true,
-              "clueFontSize": 45,
-              "ansFontSize": 45
-            },
-            {
-              "id": 5,
-              "clue": "GROWN CATERPILLAR",
-              "categoryId": 0,
-              "hints": [
-                {
-                  "id": 1,
-                  "value": "FLY",
-                  "position": 2,
-                  "isCharacter": false,
-                  "hintFontSize": 45,
-                  "otHintFontSize": 45
-                }
-              ],
-              "ans": "BUTTER",
-              "isAnsCharacter": true,
-              "clueFontSize": 45,
-              "ansFontSize": 45,
-              "otClueFontSize": null,
-              "otAnsFontSize": 45
-            },
-            {
-              "id": 6,
-              "clue": "TYPE OF VEHICLE",
-              "categoryId": 0,
-              "hints": [
-                {
-                  "id": 1,
-                  "value": "MOTOR",
-                  "position": 1,
-                  "isCharacter": false,
-                  "hintFontSize": 45,
-                  "otHintFontSize": 45
-                }
-              ],
-              "ans": "CYCLE",
-              "isAnsCharacter": true,
-              "clueFontSize": 45,
-              "ansFontSize": 45,
-              "otClueFontSize": 45,
-              "otAnsFontSize": 45
-            },
-            {
-              "id": 7,
-              "clue": "TYPE OF BAG",
-              "categoryId": 0,
-              "hints": [
-                {
-                  "id": 1,
-                  "value": "BACK",
-                  "position": 1,
-                  "isCharacter": false,
-                  "hintFontSize": 45,
-                  "otHintFontSize": 45
-                }
-              ],
-              "ans": "PACK",
-              "isAnsCharacter": true,
-              "clueFontSize": 45,
-              "ansFontSize": 45,
-              "otClueFontSize": 45,
-              "otAnsFontSize": 45
-            },
-            {
-              "id": 8,
-              "clue": "JUICY FRUIT",
-              "categoryId": 0,
-              "hints": [
-                {
-                  "id": 1,
-                  "value": "WATER",
-                  "position": 1,
-                  "isCharacter": false,
-                  "hintFontSize": 45,
-                  "otHintFontSize": 45
-                }
-              ],
-              "ans": "MELON",
-              "isAnsCharacter": true,
-              "clueFontSize": 45,
-              "ansFontSize": 45,
-              "otClueFontSize": 45,
-              "otAnsFontSize": 45
-            },
-            {
-              "id": 9,
-              "clue": "ELASTIC LOOP",
-              "categoryId": 0,
-              "hints": [
-                {
-                  "id": 1,
-                  "value": "BAND",
-                  "position": 2,
-                  "isCharacter": false,
-                  "hintFontSize": 45,
-                  "otHintFontSize": 45
-                }
-              ],
-              "ans": "RUBBER",
-              "isAnsCharacter": true,
-              "clueFontSize": 45,
-              "ansFontSize": 45,
-              "otClueFontSize": 45,
-              "otAnsFontSize": 45
-            },
-            {
-              "id": 10,
-              "clue": "A VOCAL PERSON",
-              "categoryId": 0,
-              "hints": [
-                {
-                  "id": 1,
-                  "value": "SPOKEN",
-                  "position": 2,
-                  "isCharacter": false,
-                  "hintFontSize": 45,
-                  "otHintFontSize": 45
-                }
-              ],
-              "ans": "OUT",
-              "isAnsCharacter": true,
-              "clueFontSize": 45,
-              "ansFontSize": 45,
-              "otClueFontSize": 45,
-              "otAnsFontSize": 45
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
             }
           ],
           "roundNameFontSize": "90",
@@ -686,7 +567,7 @@
               "isAnsCharacter": true,
               "ansFontSize": 45,
               "otAnsFontSize": 45,
-              "actions": 1,
+              "actions": 3,
               "clueFontSize": 46,
               "otClueFontSize": 46
             },
@@ -762,7 +643,7 @@
               "isAnsCharacter": true,
               "ansFontSize": 45,
               "otAnsFontSize": 45,
-              "actions": 4,
+              "actions": 0,
               "clueFontSize": 45,
               "otClueFontSize": 45
             },

@@ -67,11 +67,21 @@ export class SetupComponent implements OnInit {
   categoryName: string;
   invalidCategoryName: boolean;
   isEmptyCategoryName: boolean;
+  isEmptyWordName: boolean
 
   noDatabyCategory = false;
   timeoutList: any;
   players: Player[]
   playerFontSize: number
+  hintValueForR4: string
+  clueValueForR4: string
+  clueFontSizeForR4: string
+  otClueFontSizeForR4: string
+  currentWord: any;
+  isDefaultOrHint: string
+  gridValue: string
+  pevCategoryId: number
+  invalidWordName: boolean = false;
 
   constructor(
     private store: Store<{
@@ -133,8 +143,10 @@ export class SetupComponent implements OnInit {
         return {
           id: i + 1,
           value: "",
-          position: this.currentRound.questionType == 2 ? 1 : 0,                // hint position 1 and 2 is only for round 2, rest all can 0
-          isCharacter: this.questionType ? this.questionType.isHintChar : false // round 3 question cannot sperate like a char
+          position: this.currentRound.questionType == 2 ? [] : 0,                // hint position 1 and 2 is only for round 2, rest all can 0
+          isCharacter: this.questionType ? this.questionType.isHintChar : false, // round 3 question cannot sperate like a char
+          hintFontSize: null,
+          otHintFontSize: null
         };
       }
     ); // [1,2,3,4] create array by hintsCount
@@ -164,13 +176,15 @@ export class SetupComponent implements OnInit {
 
     //update current hint count
     this.question.hints = this.initHintArrByQuestionType();
-
+    console.log(' before current category => ', this.currentCategory)
+    // if (this.currentRound.questionType == 2 || this.currentRound.questionType == 4) this.currentCategory = undefined
     //initialize current Question Category
     if (!this.currentCategory) {
       this.currentCategory =
         this.currentRound.categories.length > 0
           ? this.currentRound.categories[0]
           : undefined;
+      console.log(' after current category => ', this.currentCategory)
     }
 
     //no Data in table for round 4
@@ -180,7 +194,11 @@ export class SetupComponent implements OnInit {
   clickRound(round) {
     this.store.dispatch(updateCurrentRoundId({ currentRoundId: round.id }));
     this.updateSetupState();
-
+    if (this.currentRound.questionType == 2) {
+      if (this.currentCategory) this.pevCategoryId = this.currentCategory.id
+      this.currentWord = undefined
+      this.setGridValue();
+    }
     //clear question block
     this.clearQuestionBlock();
   }
@@ -222,13 +240,21 @@ export class SetupComponent implements OnInit {
   }
 
   changeCategory(category) {
+    this.pevCategoryId = this.currentCategory !== undefined ? this.currentCategory.id : undefined;
     this.currentCategory = category;
-
+    console.log('category => ', category)
+    if (this.currentRound.questionType == 2) {
+      console.log('prev id => ', this.pevCategoryId)
+      if (this.pevCategoryId !== this.currentCategory.id) {
+        this.clearGridValues(this.pevCategoryId);
+        this.setGridValue();
+      }
+    }
     this.checkQuestionsByCategory();
   }
 
   filterQuestion(itemList: Question[]) {
-    if (this.currentRound.hasCategory) {
+    if (this.currentRound.questionType == 2 || this.currentRound.questionType == 4) {
       return _.filter(
         itemList,
         item => item.categoryId == this.currentCategory.id
@@ -400,8 +426,6 @@ export class SetupComponent implements OnInit {
   saveAll(content_setup) {
     this.oldEpisode = _.cloneDeep(this.episode);
     saveFile(this.wordWhiz, () => { });
-
-    // this.openModal(content_setup, 3, "");
   }
 
   editQuestionList(question: any) {
@@ -409,6 +433,7 @@ export class SetupComponent implements OnInit {
   }
 
   deleteQuestionList(question_id: number) {
+    if (this.currentRound.questionType == 2) this.clearWord(_.find(this.currentRound.questionArray, ['id', question_id]).hints[0].value)
     this.currentRound.questionArray.splice(
       _.findIndex(
         this.currentRound.questionArray,
@@ -477,6 +502,13 @@ export class SetupComponent implements OnInit {
       if (_.isEmpty(this.categoryName)) this.isEmptyCategoryName = true;
       else this.isEmptyCategoryName = false;
       this.checkModalType = 5;
+    } else if (isChange === 6) {
+      // delete hint
+      this.checkModalType = 6;
+    } else if (isChange === 7) {
+      // add hint
+      this.checkModalType = 7;
+      if (_.isEmpty(this.hintValueForR4)) this.isEmptyWordName = true;
     }
 
     // curentRound's name is null
@@ -523,6 +555,11 @@ export class SetupComponent implements OnInit {
             } else if (isChange === 5) {
               this.addCategory(this.categoryName);
               this.categoryName = "";
+            } else if (isChange === 6) {
+              this.deleteQuestionList(type)
+            } else if (isChange === 7) {
+              this.addHintValue(this.hintValueForR4, this.clueValueForR4, this.clueFontSizeForR4, this.otClueFontSizeForR4)
+              this.hintValueForR4 = null; this.clueValueForR4 = null; this.clueFontSizeForR4 = null; this.otClueFontSizeForR4 = null
             }
           },
           reason => {
@@ -531,8 +568,11 @@ export class SetupComponent implements OnInit {
               this.router.navigate(["/home"], { queryParams: { id: "setup" } });
             } else if (isChange === 5) {
               this.categoryName = "";
+            } else if (isChange == 7) {
+              this.hintValueForR4 = null; this.clueValueForR4 = null; this.clueFontSizeForR4 = null; this.otClueFontSizeForR4 = null
             }
             this.invalidCategoryName = false;
+            this.invalidWordName = false;
             return reason;
           }
         );
@@ -587,7 +627,7 @@ export class SetupComponent implements OnInit {
     });
 
     let lastIndex = _.last(this.currentRound.categories);
-    this.changeCategory(lastIndex);
+    // this.changeCategory(lastIndex);
 
     this.store.dispatch(updateEpisodeStore({ episode: this.episode }));
     this.clearQuestionBlock();
@@ -598,15 +638,17 @@ export class SetupComponent implements OnInit {
   }
 
   removeCategory(category) {
+    console.log('remove category => ', category)
     this.currentRound.questionArray = this.currentRound.questionArray.filter(
       a => a.categoryId != category.id
     );
-
+    console.log('currentRound qustion array => ', this.currentRound.questionArray)
     // for change category variables
     let currentIndex = _.findIndex(this.currentRound.categories, [
       "id",
       category.id
     ]);
+    console.log('current index =>  ', currentIndex)
     let nextIndex = this.currentRound.categories[currentIndex + 1];
     let prevIndex = this.currentRound.categories[currentIndex - 1];
 
@@ -615,14 +657,19 @@ export class SetupComponent implements OnInit {
       1
     );
 
-    let currentCategory = this.currentRound.categories.filter(
-      a => a.id == this.currentCategory.id
-    );
+    // let currentCategory = this.currentRound.categories.filter(
+    //   a => a.id == this.currentCategory.id
+    // );
+
+    // console.log('currentCategory => ', currentCategory)
+    console.log('nextIndex => ', nextIndex)
+    console.log('prevIndex => ', prevIndex)
 
     // change category when remove item
-    if (currentCategory) {
-      this.changeCategory(currentCategory[0]);
-    } else if (!nextIndex) {
+    // if (currentCategory) {
+    //   this.changeCategory(currentCategory[0]);
+    // } else 
+    if (!nextIndex) {
       this.changeCategory(prevIndex);
     } else {
       this.changeCategory(nextIndex);
@@ -683,5 +730,172 @@ export class SetupComponent implements OnInit {
       this.question.hints[2].value = question.hints[2].value.toUpperCase();
     }
     console.log('called questionTextToUpperCase.............')
+  }
+
+  clickGrid(id: string) {
+    console.log('grid value => ', id)
+    console.log('currentWord => ', this.currentWord)
+    if (this.currentWord) {
+      let questionArr = this.currentRound.questionArray.filter(question =>
+        question.categoryId == this.currentCategory.id && question.hints[0].value == this.currentWord.hints[0].value)
+      let questionArrIndex = this.currentRound.questionArray.indexOf(questionArr[0])
+      console.log('question array index => ', questionArrIndex)
+      let div = (<HTMLDivElement>document.getElementById(id));
+      if (this.isDefaultOrHint == 'default') {
+        if (this.gridValue) {
+          div.innerText = this.gridValue.charAt(0);
+          this.gridValue = this.gridValue.substring(1);
+          this.currentRound.questionArray[questionArrIndex].hints[0].position.push(id);
+          if (this.gridValue.length == 0) {
+            this.currentWord = undefined
+          }
+
+        }
+      } else if (this.isDefaultOrHint == 'hint') {
+        if (div.style.backgroundColor == '') {
+          div.style.backgroundColor = 'red'
+          this.currentRound.questionArray[questionArrIndex].ans += id + ',';
+        } else {
+          div.style.backgroundColor = ''
+          console.log('id => ', id)
+          let old = id + ','
+          this.currentRound.questionArray[questionArrIndex].ans = this.currentRound.questionArray[questionArrIndex].ans.replace(old, '');
+        }
+      }
+      console.log('this.currentRound.questionArray => ', this.currentRound.questionArray[questionArrIndex])
+    }
+  }
+
+  addHintValue(hintValue: string, clue: string, hintFontSize: string, otHintFontSize: string) {
+    console.log('current category => ', this.currentCategory)
+    console.log(`hint value => ${hintValue}, clue => ${clue}, clueFontSize => ${hintFontSize}, otClueFontSize => ${otHintFontSize}`)
+    if (this.currentCategory) {
+      let generateId =
+        this.currentRound.questionArray.length == 0
+          ? 1
+          : this.currentRound.questionArray.slice(-1).pop().id + 1;
+      this.currentRound.questionArray.push({
+        ...this.question,
+        id: generateId,
+        categoryId: this.currentRound.questionType == 2 || this.currentRound.questionType == 4
+          ? this.currentCategory.id
+          : 0,
+        clue: clue,
+        isAnsCharacter: this.questionType.isAnsChar,
+        clueFontSize: this.question.clueFontSize == null ? 50 : this.question.clueFontSize,
+        otClueFontSize: this.question.otClueFontSize == null ? 50 : this.question.otClueFontSize,
+        ansFontSize: this.question.ansFontSize == null ? 50 : this.question.ansFontSize,
+        otAnsFontSize: this.question.otAnsFontSize == null ? 50 : this.question.otAnsFontSize,
+        hints: [{
+          ...this.question.hints[0], value: hintValue.toUpperCase(), position: [],
+          hintFontSize: hintFontSize == null ? 50 : hintFontSize, otHintFontSize: otHintFontSize == null ? 50 : otHintFontSize
+        }]
+      });
+      console.log('current category => ', this.currentRound)
+      this.noDatabyCategory = false;
+    }
+  }
+
+  checkDuplicateWord(word: string) {
+    console.log(' filter question => ', this.filterQuestion(this.currentRound.questionArray))
+    if (this.filterQuestion(this.currentRound.questionArray)) {
+      for (let i = 0; i < this.filterQuestion(this.currentRound.questionArray).length; i++) {
+        if (
+          this.filterQuestion(this.currentRound.questionArray)[i].hints[0].value.trim().toUpperCase() ==
+          word.trim().toUpperCase()
+        ) {
+          this.invalidWordName = true;
+          break;
+        } else {
+          this.invalidWordName = false;
+        }
+      }
+    }
+
+    if (word == "" || word.trim() == "")
+      this.isEmptyWordName = true;
+    else this.isEmptyWordName = false;
+  }
+
+  clickHint(question) {
+    this.currentWord = question
+    this.gridValue = question.hints[0].value
+    console.log('gridValue => ', this.gridValue)
+  }
+
+  changeGridStatus(event) {
+    this.isDefaultOrHint = event.target.value
+    console.log('grid status => ', this.isDefaultOrHint)
+  }
+
+  setGridValue() {
+    console.log('current category -=> ', this.currentCategory)
+    this.currentRound.questionArray.filter(qustion => qustion.categoryId == this.currentCategory.id).forEach(question => {
+      question.hints.forEach((hint) => {
+        hint.position.forEach((id, index) => {
+          setTimeout(() => {
+            (<HTMLDivElement>document.getElementById(id)).innerText = hint.value.charAt(index);
+          }, 0);
+        });
+      })
+      if (question.ans) {
+        console.log('question answer => ', question.ans.split(','))
+        question.ans.split(',').forEach(id => {
+          if (id != '') {
+            setTimeout(() => {
+              (<HTMLDivElement>document.getElementById(id)).style.backgroundColor = 'red'
+            }, 0);
+          }
+        })
+      }
+    })
+  }
+
+  clearWord(hintValue: string) {
+    console.log('current category => ', this.currentCategory)
+    if (hintValue) {
+      let questionArr = this.currentRound.questionArray.filter(question =>
+        question.categoryId == this.currentCategory.id && question.hints[0].value == hintValue)
+      let questionArrIndex = this.currentRound.questionArray.indexOf(questionArr[0])
+
+      this.currentRound.questionArray[questionArrIndex].hints[0].position.forEach(id => {
+        (<HTMLDivElement>document.getElementById(id)).innerText = '';
+      });
+      if (this.currentRound.questionArray[questionArrIndex].ans) {
+        this.currentRound.questionArray[questionArrIndex].ans.split(',').forEach(id => {
+          if (id != '') {
+            (<HTMLDivElement>document.getElementById(id)).style.backgroundColor = '';
+          }
+
+        });
+
+      }
+      this.currentRound.questionArray[questionArrIndex].hints[0].position = []
+      this.currentRound.questionArray[questionArrIndex].ans = ''
+      this.setGridValue();
+      this.currentWord = undefined
+    }
+  }
+
+  clearGridValues(id: number) {
+    this.currentRound.questionArray.filter(qustion => qustion.categoryId == id).forEach(question => {
+      question.hints.forEach((hint) => {
+        hint.position.forEach((id, index) => {
+          setTimeout(() => {
+            (<HTMLDivElement>document.getElementById(id)).innerText = '';
+          }, 0);
+        });
+      })
+      if (question.ans) {
+        question.ans.split(',').forEach(id => {
+          if (id != '') {
+            setTimeout(() => {
+              (<HTMLDivElement>document.getElementById(id)).style.backgroundColor = ''
+            }, 0);
+          }
+        })
+
+      }
+    })
   }
 }
