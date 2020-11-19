@@ -232,6 +232,8 @@ export class MainComponent implements OnInit {
       this.control.currentQuestionId
     ]);
 
+    if (this.currentRound.questionType == 2 || this.currentRound.questionType == 4) this.cube_image.src = ''
+
     console.log('current question => ', this.currentQuestion)
     console.log('current round => ', this.currentRound)
     //update timer count value
@@ -272,6 +274,16 @@ export class MainComponent implements OnInit {
         if (this.player) this.player.stop();
 
         this.blockAnimated = false;
+      }
+
+      if (this.control.showQuestion && this.currentRound.questionType == 2) {
+        console.log('this is question type two .....................')
+        this.setGridValue();
+        if (this.control.showAns) {
+          this.showGridEachAnswer();
+        } else {
+          this.hideGridEachAnswer();
+        }
       }
     }
 
@@ -377,5 +389,42 @@ export class MainComponent implements OnInit {
 
     const data = readFileSync(filePath, "utf8");
     this.timeoutList = JSON.parse(data);
+  }
+
+  setGridValue() {
+
+    this.currentQuestion.hints[0].position.forEach((id, index) => {
+      // console.log('id: ', id, ', ans: ', question.ans)
+      if (this.currentQuestion.ans.includes(id)) {
+        setTimeout(() => {
+          (<HTMLDivElement>document.getElementById(id)).innerText = this.currentQuestion.hints[0].value.charAt(index);
+          (<HTMLDivElement>document.getElementById(id)).style.background = 'url(./assets/images/grid-normal-bg.png) no-repeat'
+        }, 0);
+      } else {
+        setTimeout(() => {
+          (<HTMLDivElement>document.getElementById(id)).style.background = 'url(./assets/images/grid-correct-bg.png) no-repeat';
+        }, 0);
+      }
+    })
+
+  }
+
+  showGridEachAnswer() {
+
+    this.currentQuestion.hints[0].position.forEach((id, index) => {
+      setTimeout(() => {
+        (<HTMLDivElement>document.getElementById(id)).innerText = this.currentQuestion.hints[0].value.charAt(index);
+        // (<HTMLDivElement>document.getElementById(id)).style.background = 'url(./assets/images/grid-correct-bg.png) no-repeat';
+      }, 0);
+    })
+  }
+
+  hideGridEachAnswer() {
+    this.currentQuestion.hints[0].position.forEach((id, index) => {
+      if (!this.currentQuestion.ans.includes(id))
+        setTimeout(() => {
+          (<HTMLDivElement>document.getElementById(id)).innerText = ''
+        }, 0);
+    })
   }
 }

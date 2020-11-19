@@ -55,7 +55,7 @@
                     </div>
 
                     <!-- QUESTION CATEGORY FOR ODD WORD -->
-                    <div class="row col-sm-12 pad_right0" *ngIf="currentRound.hasCategory">
+                    <div class="row col-sm-12 pad_right0" *ngIf="currentRound.questionType == 4">
 
                         <div ngbDropdown class="d-inline-block col-sm-12">
                             <button class="btn common_input" id="dropdownBasic1" ngbDropdownToggle>
@@ -71,10 +71,26 @@
 
                     </div>
 
+                    <div class="row col-sm-12 pad_right0" *ngIf="currentRound.questionType == 2">
+
+                        <div ngbDropdown class="d-inline-block col-sm-12">
+                            <button class="btn common_input" id="dropdownBasic1" ngbDropdownToggle>
+                                <p class="section_text">
+                                    {{currentRound.categories.length == 0 ? "*No Themes." : currentCategoryForR4.name}}
+                                </p>
+                                <img [src]=Images.dropDown class="drop_down_icon">
+                            </button>
+                            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                <button ngbDropdownItem *ngFor="let category of currentRound.categories" (click)="changeCategoryForR4(category)">{{category.name}}</button>
+                            </div>
+                        </div>
+
+                    </div>
+
 
                     <div class="row col-sm-12 pad_right0">
 
-                        <div ngbDropdown [ngClass]="currentRound.hasCategory ? 'd-inline-block col-sm-12' : 'd-inline-block col-sm-8'">
+                        <div ngbDropdown [ngClass]="currentRound.hasCategory ? 'd-inline-block col-sm-12' : 'd-inline-block col-sm-8'" *ngIf="currentRound.questionType != 2">
                             <button class="btn common_input" id="dropdownBasic1" ngbDropdownToggle [disabled]="currentRound.hasCategory && control.startCount || currentRound.hasCategory && !control.finishCategoryRound && isStartRound4">
                                 <p class="section_text">
                                     {{currentRound.questionArray.length == 0 || currentRound.hasCategory && noQuestionByCategory ? "*No Question." : currentRound.hasCategory ? "QUESTION "+ currentQuestionIndex : "QUESTION "+ control.currentQuestionId}}
@@ -86,6 +102,18 @@
                                     {{currentRound.hasCategory ? i+1 : question.id}} <img *ngIf="question.actions==3"
                                         [src]=Images.skip_icon class="skip_icon"><img *ngIf="question.actions == 1"
                                         [src]=Images.correct_icon class="correct_icon"></button>
+                            </div>
+                        </div>
+
+                        <div ngbDropdown class="d-inline-block col-sm-8" *ngIf="currentRound.questionType == 2">
+                            <button class="btn common_input" id="dropdownBasic1" ngbDropdownToggle>
+                                <p class="section_text">
+                                    QUESTION {{control.currentQuestionId}}
+                                </p>
+                                <img [src]=Images.dropDown class="drop_down_icon">
+                            </button>
+                            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                <button ngbDropdownItem *ngFor="let question of questionArrForR4(); let i=index" (click)="clickQuestion(question,i+1)">QUESTION {{i+1}}</button>
                             </div>
                         </div>
 
@@ -151,7 +179,7 @@
                         </ng-container>
 
                     </div>
-                    <div class="col-sm-8 row">
+                    <div class="col-sm-8 row" *ngIf="currentRound.questionType != 2">
                         <label class="col-sm-3 common_label">ANSWER</label>
                         <input readonly [ngClass]="!control.showAns ? 'col-sm-9 common_input disabled':'col-sm-9 common_input'" type="text" value={{currentQuestion?.ans}} />
                     </div>

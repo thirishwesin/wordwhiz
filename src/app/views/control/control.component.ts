@@ -109,6 +109,7 @@ export class ControlComponent implements OnInit {
   oldCurrentRound: Round
   oldCurrentPlayer: Player[]
   roundFourHintValue: string
+  currentCategoryForR4: any;
 
   constructor(
     private store: Store<{
@@ -252,6 +253,14 @@ export class ControlComponent implements OnInit {
       this.control.currentQuestionId
     ]);
 
+    if (this.currentRound.questionType == 2) {
+      console.log(' before current category for round four => ', this.currentCategoryForR4)
+      if (!this.currentCategoryForR4) {
+        this.currentCategoryForR4 = this.currentRound.categories.length > 0 ? this.currentRound.categories[0] : undefined;
+      }
+      console.log(' after current category for round four => ', this.currentCategoryForR4)
+    }
+
     // push control extraWord
     if (this.currentQuestion && this.currentQuestion.isAnsCharacter)
       this.ansCharArr = this.currentQuestion.ans.split("");
@@ -275,7 +284,7 @@ export class ControlComponent implements OnInit {
     }
 
     //initialize current Question Category
-    if (!this.currentCategory) {
+    if (!this.currentCategory && this.currentRound.questionType == 4) {
       this.currentCategory =
         this.currentRound.categories.length > 0
           ? this.currentRound.categories[0]
@@ -313,6 +322,10 @@ export class ControlComponent implements OnInit {
       return this.questionArraysByCategory[this.currentCategory.id];
     } else return this.currentRound.questionArray;
   };
+
+  questionArrForR4() {
+    return this.currentRound.questionArray.filter(quesution => quesution.categoryId == this.currentCategoryForR4.id)
+  }
 
   newWindow(playerId) {
     let route = "player";
@@ -495,6 +508,7 @@ export class ControlComponent implements OnInit {
 
   clickRound(round) {
     //reset the category section
+    if (round.questionType == 2) this.currentCategoryForR4 = undefined
     this.roundFourHintValue = undefined
     this.resetCategorySection();
     this.store.dispatch(resetCategoryRound());
@@ -585,24 +599,49 @@ export class ControlComponent implements OnInit {
 
   prevQuestion() {
     let prevQuestion = this.currentQuestion;
-    if (this.currentQuestion.id != 1) {
+    if (this.currentQuestion.id != 1 && this.currentRound.questionType != 2) {
       prevQuestion = _.find(this.currentRound.questionArray, [
         "id",
         this.currentQuestion.id - 1
       ]);
       this.clickQuestion(prevQuestion, 1);
+    } else if (this.currentQuestion.id != 1 && this.currentRound.questionType == 2) {
+      prevQuestion = _.find(this.questionArrForR4(), [
+        "id",
+        this.currentQuestion.id - 1
+      ]);
+      if (prevQuestion) this.clickQuestion(prevQuestion, 1);
     }
   }
 
   nextQuestion() {
     let nextQuestion = this.currentQuestion;
-    if (this.currentQuestion.id != this.currentRound.questionArray.length) {
+
+    if (this.currentQuestion.id != this.currentRound.questionArray.length && this.currentRound.questionType != 2) {
       nextQuestion = _.find(this.currentRound.questionArray, [
         "id",
         this.currentQuestion.id + 1
       ]);
       this.clickQuestion(nextQuestion, 1);
+    } else if (this.currentQuestion.id != this.questionArrForR4().length && this.currentRound.questionType == 2) {
+      nextQuestion = _.find(this.questionArrForR4(), [
+        "id",
+        this.currentQuestion.id + 1
+      ]);
+      if (nextQuestion) this.clickQuestion(nextQuestion, 1);
     }
+  }
+
+  changeCategoryForR4(category) {
+    this.resetCategorySection();
+    this.store.dispatch(resetCategoryRound());
+    this.currentCategoryForR4 = category;
+    let firstQuestionByCategoryId = _.find(this.currentRound.questionArray, [
+      "categoryId",
+      category.id
+    ]);
+    this.questionArrForR4();
+    this.clickQuestion(firstQuestionByCategoryId, 1)
   }
 
   clickQuestion(question, currentQuestionIndex) {
