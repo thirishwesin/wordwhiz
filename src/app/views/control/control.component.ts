@@ -1090,6 +1090,8 @@ export class ControlComponent implements OnInit {
 
   // font setting
   setting(content_control_setting) {
+    console.log('current round => ', this.currentRound)
+    console.log('current question => ', this.currentQuestion)
     this.oldCurrentRound = _.cloneDeep(this.currentRound)
     this.oldCurrentPlayer = _.cloneDeep(this.episode.players)
     // animation control when change font
