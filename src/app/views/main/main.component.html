@@ -32,7 +32,7 @@
                 <div *ngIf="currentRound.questionType == 2 && control.showQuestion">
                     <input [value]="currentQuestion?.clue" style="width: 60%; background: #4a06e8; color: white;" />
                 </div>
-                <div *ngIf="currentRound.questionType == 2" style="margin-top: 7%;">
+                <div *ngIf="currentRound.questionType == 2 && this.prevCategoryId == this.currentQuestion.categoryId" style="margin-top: 7%;">
 
                     <div class="row" style="flex-wrap: initial;">
                         <div class="col-sm" class="alpha_text grid_bg" *ngFor="let item of [11,12,13,14,15,16,17,18,19,110]; let i = index" [id]="item">

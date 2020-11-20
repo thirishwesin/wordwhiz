@@ -46,6 +46,7 @@ export class MainComponent implements OnInit {
   round4hintAnimated = true;
   timeoutList: any;
   cube_image: any
+  prevCategoryId: number
 
   constructor(
     private store: Store<{
@@ -277,7 +278,11 @@ export class MainComponent implements OnInit {
       }
 
       if (this.control.showQuestion && this.currentRound.questionType == 2) {
-        console.log('this is question type two .....................')
+        if (this.prevCategoryId == undefined) this.prevCategoryId = this.currentQuestion.categoryId
+        else if (this.prevCategoryId !== this.currentQuestion.categoryId) {
+          this.prevCategoryId = this.currentQuestion.categoryId
+        }
+        console.log('current question index => ', this.currentQuestion.categoryId)
         this.setGridValue();
         if (this.control.showAns) {
           this.showGridEachAnswer();
