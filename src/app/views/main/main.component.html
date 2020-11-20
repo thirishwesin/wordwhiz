@@ -130,21 +130,21 @@
                         <div *ngFor="let hint of currentQuestion?.hints; let hintIndex = index">
                             <!-- //! for question type four -->
                             <div class="text-center" *ngIf="currentRound.questionType == 4">
-                                <div class="one_word_blue " style="float: left;" [ngStyle]="{'background-image': 'url(' + control.roundFourStatus[0].imagePath + ')'}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose || round4hintAnimated && control.startCount ? 'animated heartBeat':''"
+                                <div class="round_four_img " style="float: left;" [ngStyle]="{'background-image': 'url(' + control.roundFourStatus[0].imagePath + ')'}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose || round4hintAnimated && control.startCount ? 'animated heartBeat':''"
                                     *ngIf="!hint?.isCharacter && hintIndex == 0">
-                                    <p class="long_word_blue" [ngStyle]="{'font-size': hint?.hintFontSize + 'px'}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint ? 'animated zoomIn':''">
+                                    <p class="round_four_text" [ngStyle]="{'font-size': hint?.hintFontSize + 'px'}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint ? 'animated zoomIn':''">
                                         {{ hint.value }}
                                     </p>
                                 </div>
-                                <div class="one_word_blue " [ngStyle]="{'background-image': 'url(' + control.roundFourStatus[1].imagePath + ')'}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose || round4hintAnimated && control.startCount ? 'animated heartBeat':''"
+                                <div class="round_four_img " [ngStyle]="{'background-image': 'url(' + control.roundFourStatus[1].imagePath + ')'}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose || round4hintAnimated && control.startCount ? 'animated heartBeat':''"
                                     *ngIf="!hint?.isCharacter && hintIndex == 1">
-                                    <p class="long_word_blue" [ngStyle]="{'font-size': hint?.hintFontSize + 'px'}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint ? 'animated zoomIn':''">
+                                    <p class="round_four_text" [ngStyle]="{'font-size': hint?.hintFontSize + 'px'}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint ? 'animated zoomIn':''">
                                         {{ hint.value }}
                                     </p>
                                 </div>
-                                <div class="one_word_blue " style="    display: block;margin-left: 23%;" [ngStyle]="{'background-image': 'url(' + control.roundFourStatus[2].imagePath + ')'}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose || round4hintAnimated && control.startCount ? 'animated heartBeat':''"
+                                <div class="round_four_img " style="    display: block;margin-left: 23%;" [ngStyle]="{'background-image': 'url(' + control.roundFourStatus[2].imagePath + ')'}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose || round4hintAnimated && control.startCount ? 'animated heartBeat':''"
                                     *ngIf="!hint?.isCharacter && hintIndex == 2">
-                                    <p class="long_word_blue" [ngStyle]="{'font-size': hint?.hintFontSize + 'px'}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint ? 'animated zoomIn':''">
+                                    <p class="round_four_text" [ngStyle]="{'font-size': hint?.hintFontSize + 'px'}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint ? 'animated zoomIn':''">
                                         {{ hint.value }}
                                     </p>
                                 </div>

@@ -183,11 +183,28 @@ button {
     display: inline-block;
     min-height: 60px;
     min-width: 105px;
+    width: auto;
     margin-left: -30px;
-    width: 340px;
 }
 
 .long_word_blue {
+    width: calc(14em + 3vw);
+    background: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    display: inline-block;
+    min-height: 60px;
+}
+.round_four_img{
+    -webkit-background-size: cover;
+    background-size: cover;
+    display: inline-block;
+    min-height: 60px;
+    min-width: 105px;
+    margin-left: -30px;
+    width: 340px;
+}
+.round_four_text{
     width: calc(14em + 3vw);
     // background: no-repeat;
     // -webkit-background-size: cover;
@@ -199,8 +216,7 @@ button {
     display: inline-block;
     min-height: 60px;
     margin-top: 30px;
-    width: 370px;
-    padding-left: 26px;
+    width: 337px;
     color: #fff;
 }
 
