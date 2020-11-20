@@ -3,7 +3,7 @@
     <div class="row header" id="header">
 
         <div class="col-lg-3 left_wrapper">
-            <div class="apng-ani  timer_center width{{control.fontSettings.oneThird_timeOut}}"></div>
+            <div class="apng-ani  timer_center width{{control.fontSettings.oneThird_timeOut}}" [ngClass]="{'top0': currentRound.questionType == 2}"></div>
             <!-- <img [src]="Images.loading" class="timer_center width{{control.fontSettings.oneThird_timeOut}}" /> -->
             <!-- <div class="timeout_center font{{control.fontSettings.oneThird_timeOut}}" [ngClass]="counter > 3 ? 'timer' : 'timer_style'"> {{ counter }} </div> -->
 
@@ -74,14 +74,14 @@
                                     </div>
                                 </div>
                                 <ng-container *ngIf="hintIndex == 2">
-                                   <div style="margin-top: -5px;">
-                                    <div class="one_word_green retangle{{control.fontSettings.oneThird_answer}}" [ngClass]="{'hide_char less8char': char == ' ' , 'animated heartBeat': control.startCount && round4hintAnimated || control.showQuestion && !currentRound.showfirstAnsChar && !control.showAns && !control.clickTimer && !control.fontSettingOpenClose}"
-                                        *ngFor="let char of ansCharArr; let i=index;">
+                                    <div style="margin-top: -5px;">
+                                        <div class="one_word_green retangle{{control.fontSettings.oneThird_answer}}" [ngClass]="{'hide_char less8char': char == ' ' , 'animated heartBeat': control.startCount && round4hintAnimated || control.showQuestion && !currentRound.showfirstAnsChar && !control.showAns && !control.clickTimer && !control.fontSettingOpenClose}"
+                                            *ngFor="let char of ansCharArr; let i=index;">
 
-                                        <input class="round1_text" [ngStyle]="{'font-size': currentQuestion?.otAnsFontSize + 'px'}" [ngClass]="{'animated zoomIn' : control.showAns, 'transparent' : !control.showAns }" [value]="char" />
+                                            <input class="round1_text" [ngStyle]="{'font-size': currentQuestion?.otAnsFontSize + 'px'}" [ngClass]="{'animated zoomIn' : control.showAns, 'transparent' : !control.showAns }" [value]="char" />
+                                        </div>
                                     </div>
-                                   </div>
-                                    
+
                                 </ng-container>
 
                             </div>
@@ -216,7 +216,7 @@
         </div>
         <div class="col-sm-6" style="margin-top: 190px;">
             <div *ngIf="this.prevCategoryId == this.currentQuestion.categoryId">
-                <div >
+                <div>
 
                     <div class="row" style="flex-wrap: initial;">
                         <!-- <div class="col-sm" class="alpha_text grid_bg" *ngFor="let item of [11,12,13,14,15,16,17,18,19,110]; let i = index" [id]="item">

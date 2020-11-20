@@ -113,7 +113,7 @@
                                 <img [src]=Images.dropDown class="drop_down_icon">
                             </button>
                             <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                                <button ngbDropdownItem *ngFor="let question of questionArrForR4(); let i=index" (click)="clickQuestion(question,i+1)">QUESTION {{i+1}}</button>
+                                <button ngbDropdownItem *ngFor="let question of questionArrForR4(); let i=index" (click)="clickQuestion(question,i+1)">QUESTION {{question.id}}</button>
                             </div>
                         </div>
 

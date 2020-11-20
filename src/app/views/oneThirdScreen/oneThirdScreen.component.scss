@@ -313,7 +313,7 @@
 
 .timeout_center {
     position: absolute;
-    top: 54%;
+    top: 54% !important;
     left: 38%;
     transform: translate(-50%, -50%);
 }
@@ -709,7 +709,7 @@
 }
 
 .grid_bg {
-    background: url(../../../assets/images/grid-bg.png) no-repeat;
+    background: url(../../../assets/images/BLUE/Blank.png) no-repeat;
 }
 
 .alpha_text {
@@ -724,7 +724,6 @@
     padding: 0px !important;
     border: none !important;
 }
-
 
 .round1_text {
     width: 50px;
@@ -741,9 +740,8 @@
     color: #fff;
 }
 
-
 .roundthree_text {
-  width: 50px;
+    width: 50px;
     text-align: center;
     margin: 0;
     height: 75px;
@@ -758,45 +756,52 @@
 }
 
 //Round four
-.round_four_img{
-  -webkit-background-size: cover;
-  background-size: cover;
-  display: inline-block;
-  min-width: 105px;
-  margin-left: -30px;
-  width: 340px;
+.round_four_img {
+    -webkit-background-size: cover;
+    background-size: cover;
+    display: inline-block;
+    min-width: 105px;
+    margin-left: -30px;
+    width: 340px;
 }
-.round_four_text{
-  width: calc(14em + 3vw);
-  background: no-repeat;
-  background-size: cover;
-  display: inline-block;
-  margin-top: 30px;
-  width: 337px;
-  color: #fff;
-  background: none;
-  border: none;
-  height: 70px;
-  font-size: 40px;
-  text-align: center;
-  padding-bottom: 10px;
+
+.round_four_text {
+    width: calc(14em + 3vw);
+    background: no-repeat;
+    background-size: cover;
+    display: inline-block;
+    margin-top: 30px;
+    width: 337px;
+    color: #fff;
+    background: none;
+    border: none;
+    height: 70px;
+    font-size: 40px;
+    text-align: center;
+    padding-bottom: 10px;
 }
+
 //Round two
-.roundtwo_box{
-  // background: url(../../../assets/images/round_two_box.png) no-repeat;
-  width: 130%;
-  height: 65px;
-  margin-left: -63px;
-  margin-top: 34px;
+.roundtwo_box {
+    // background: url(../../../assets/images/round_two_box.png) no-repeat;
+    width: 130%;
+    height: 65px;
+    margin-left: -63px;
+    margin-top: 34px;
 }
-.roundtwohit{
-  color: white;
-  position: absolute;
-  left: -6%;
-  background: none;
-  border: none;
-  width: 121%;
-  text-align: center;
-  padding-left: 16px;
-  margin-top: -71px;
+
+.roundtwohit {
+    color: white;
+    position: absolute;
+    left: -6%;
+    background: none;
+    border: none;
+    width: 121%;
+    text-align: center;
+    padding-left: 16px;
+    margin-top: -71px;
+}
+
+.top0 {
+    top: 0;
 }
