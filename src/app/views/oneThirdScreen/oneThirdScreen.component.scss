@@ -42,7 +42,7 @@
     background-size: cover;
     display: inline-block;
     min-height: 60px;
-    min-width: 106px;
+    min-width: 86px;
     width: auto;
     margin-left: -23px;
 }
@@ -53,7 +53,7 @@
     background-size: cover;
     display: inline-block;
     min-height: 60px;
-    min-width: 106px;
+    min-width: 86px;
     width: auto;
     margin-left: -23px;
 }
@@ -360,7 +360,7 @@
     min-height: 60px;
     position: relative;
     padding: 0;
-    min-width: 106px;
+    min-width: 86px;
 }
 
 .green_bg {
@@ -371,7 +371,7 @@
     min-height: 60px;
     position: relative;
     padding: 0;
-    min-width: 106px;
+    min-width: 86px;
 }
 
 // Adjust blue rectangle hint row alignment
@@ -724,19 +724,12 @@
     flex-grow: '';
 }
 
-.roundtwo_box {
-    // background: url(../../../assets/images/round_two_box.png) no-repeat;
-    width: 96%;
-    height: 65px;
-    margin-left: -90px;
-    margin-top: -30px;
-}
 
 .round1_text {
-    width: 70px;
+    width: 50px;
     text-align: center;
     margin: 0;
-    height: 107px;
+    height: 75px;
     background: none;
     border: none;
     font-size: 45px;
@@ -747,17 +740,62 @@
     color: #fff;
 }
 
+
 .roundthree_text {
-    width: 70px;
+  width: 50px;
     text-align: center;
     margin: 0;
-    height: 107px;
+    height: 75px;
     background: none;
     border: none;
     font-size: 45px;
     outline: none;
     margin-left: 1px;
-    padding-top: 0px;
+    padding-top: 14px;
     padding-bottom: 8px;
     color: #fff;
+}
+
+//Round four
+.round_four_img{
+  -webkit-background-size: cover;
+  background-size: cover;
+  display: inline-block;
+  min-width: 105px;
+  margin-left: -30px;
+  width: 340px;
+}
+.round_four_text{
+  width: calc(14em + 3vw);
+  background: no-repeat;
+  background-size: cover;
+  display: inline-block;
+  margin-top: 30px;
+  width: 337px;
+  color: #fff;
+  background: none;
+  border: none;
+  height: 70px;
+  font-size: 40px;
+  text-align: center;
+  padding-bottom: 10px;
+}
+//Round two
+.roundtwo_box{
+  // background: url(../../../assets/images/round_two_box.png) no-repeat;
+  width: 130%;
+  height: 65px;
+  margin-left: -63px;
+  margin-top: 34px;
+}
+.roundtwohit{
+  color: white;
+  position: absolute;
+  left: -6%;
+  background: none;
+  border: none;
+  width: 121%;
+  text-align: center;
+  padding-left: 16px;
+  margin-top: -71px;
 }

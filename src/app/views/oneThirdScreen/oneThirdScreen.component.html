@@ -1,5 +1,5 @@
 <div class="loader" [hidden]="!renderingAPNG"></div>
-<div class="one_third_section non_select" [hidden]="renderingAPNG">
+<div class="one_third_section non_select" [hidden]="false">
     <div class="row header" id="header">
 
         <div class="col-lg-3 left_wrapper">
@@ -60,25 +60,28 @@
                         <div *ngFor="let hint of currentQuestion.hints; let hintIndex = index">
                             <div class="text-center" *ngIf="currentRound.questionType == 4">
                                 <div>
-                                    <div class="long_word_blue" [ngStyle]="{'background-image': 'url(' + control.roundFourStatus[0].imagePath + ')'}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose || round4hintAnimated && control.startCount ? 'animated heartBeat':''"
+                                    <div class="round_four_img" style="float: left;margin-top: -15px;" [ngStyle]="{'background-image': 'url(' + control.roundFourStatus[0].imagePath + ')'}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose || round4hintAnimated && control.startCount ? 'animated heartBeat':''"
                                         *ngIf="!hint?.isCharacter && hintIndex == 0">
-                                        <input class="word" [ngStyle]="{'font-size': hint?.otHintFontSize + 'px'}" [ngClass]="control.showQuestion && !blockAnimated  && !control.clickPoint && !control.fontSettingOpenClose ? 'animated zoomIn':''" [value]="hint.value" />
+                                        <input class="round_four_text" [ngStyle]="{'font-size': hint?.otHintFontSize + 'px'}" [ngClass]="control.showQuestion && !blockAnimated  && !control.clickPoint && !control.fontSettingOpenClose ? 'animated zoomIn':''" [value]="hint.value" />
                                     </div>
-                                    <div class="long_word_blue" [ngStyle]="{'background-image': 'url(' + control.roundFourStatus[1].imagePath + ')'}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose || round4hintAnimated && control.startCount ? 'animated heartBeat':''"
+                                    <div style="margin-top: -15px;" class="round_four_img" [ngStyle]="{'background-image': 'url(' + control.roundFourStatus[1].imagePath + ')'}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose || round4hintAnimated && control.startCount ? 'animated heartBeat':''"
                                         *ngIf="!hint?.isCharacter && hintIndex == 1">
-                                        <input class="word" [ngStyle]="{'font-size': hint?.otHintFontSize + 'px'}" [ngClass]="control.showQuestion && !blockAnimated  && !control.clickPoint && !control.fontSettingOpenClose ? 'animated zoomIn':''" [value]="hint.value" />
+                                        <input class="round_four_text" [ngStyle]="{'font-size': hint?.otHintFontSize + 'px'}" [ngClass]="control.showQuestion && !blockAnimated  && !control.clickPoint && !control.fontSettingOpenClose ? 'animated zoomIn':''" [value]="hint.value" />
                                     </div>
-                                    <div class="long_word_blue" [ngStyle]="{'background-image': 'url(' + control.roundFourStatus[2].imagePath + ')'}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose || round4hintAnimated && control.startCount ? 'animated heartBeat':''"
+                                    <div style="margin-top: -20px;" class="round_four_img" [ngStyle]="{'background-image': 'url(' + control.roundFourStatus[2].imagePath + ')'}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose || round4hintAnimated && control.startCount ? 'animated heartBeat':''"
                                         *ngIf="!hint?.isCharacter && hintIndex == 2">
-                                        <input class="word" [ngStyle]="{'font-size': hint?.otHintFontSize + 'px'}" [ngClass]="control.showQuestion && !blockAnimated  && !control.clickPoint && !control.fontSettingOpenClose ? 'animated zoomIn':''" [value]="hint.value " />
+                                        <input class="round_four_text" [ngStyle]="{'font-size': hint?.otHintFontSize + 'px'}" [ngClass]="control.showQuestion && !blockAnimated  && !control.clickPoint && !control.fontSettingOpenClose ? 'animated zoomIn':''" [value]="hint.value " />
                                     </div>
                                 </div>
                                 <ng-container *ngIf="hintIndex == 2">
+                                   <div style="margin-top: -5px;">
                                     <div class="one_word_green retangle{{control.fontSettings.oneThird_answer}}" [ngClass]="{'hide_char less8char': char == ' ' , 'animated heartBeat': control.startCount && round4hintAnimated || control.showQuestion && !currentRound.showfirstAnsChar && !control.showAns && !control.clickTimer && !control.fontSettingOpenClose}"
                                         *ngFor="let char of ansCharArr; let i=index;">
 
                                         <input class="round1_text" [ngStyle]="{'font-size': currentQuestion?.otAnsFontSize + 'px'}" [ngClass]="{'animated zoomIn' : control.showAns, 'transparent' : !control.showAns }" [value]="char" />
                                     </div>
+                                   </div>
+                                    
                                 </ng-container>
 
                             </div>
@@ -211,7 +214,7 @@
         <div class="col-sm-3">
             <!-- <div class="apng-ani timer_center width{{control.fontSettings.oneThird_timeOut}}"></div> -->
         </div>
-        <div class="col-sm-6" style="margin-top: 7%;">
+        <div class="col-sm-6" style="margin-top: 14%;">
             <div *ngIf="this.prevCategoryId == this.currentQuestion.categoryId">
                 <div style="margin-top: 7%;">
 
