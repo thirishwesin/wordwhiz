@@ -47,6 +47,7 @@ export class MainComponent implements OnInit {
   timeoutList: any;
   cube_image: any
   prevCategoryId: number
+  cubeImage = new Image();
 
   constructor(
     private store: Store<{
@@ -82,7 +83,6 @@ export class MainComponent implements OnInit {
     this.cube_image = document.images.namedItem("cube_img");
 
     const mainBgImage = new Image();
-    const cubeImage = new Image();
 
     mainBgImage.onload = () => {
       image.style.background = "url(" + mainBgImage.src + ")";
@@ -91,19 +91,19 @@ export class MainComponent implements OnInit {
       this.renderingAPNG = false;
       this.nz.run(() => { });
     };
-    cubeImage.onload = () => {
-      this.cube_image.src = cubeImage.src;
+    this.cubeImage.onload = () => {
+      this.cube_image.src = this.cubeImage.src;
     };
 
     if (AppConfig.production) {
       mainBgImage.src =
         process.env.PORTABLE_EXECUTABLE_DIR +
         "/data/images/main_background.png";
-      cubeImage.src =
+      this.cubeImage.src =
         process.env.PORTABLE_EXECUTABLE_DIR + "/data/images/cube.png";
     } else {
       mainBgImage.src = "../../../assets/images/temp/main_background.png";
-      cubeImage.src = "../../../assets/images/temp/cube.png";
+      this.cubeImage.src = "../../../assets/images/temp/cube.png";
     }
 
     this.store.subscribe(item => {
@@ -233,7 +233,8 @@ export class MainComponent implements OnInit {
       this.control.currentQuestionId
     ]);
 
-    if (this.currentRound.questionType == 2 || this.currentRound.questionType == 4) this.cube_image.src = ''
+    if (this.currentRound.questionType == 2) this.cube_image.src = ''
+    else this.cube_image.src = this.cubeImage.src;
 
     console.log('current question => ', this.currentQuestion)
     console.log('current round => ', this.currentRound)
