@@ -86,10 +86,12 @@ button {
     text-shadow: 3px 4px 3px #333333;
     font-weight: bold;
 }
-.timer_img{
+
+.timer_img {
     background: url(../../../../release/data/images/timer/CountDown10.png) no-repeat;
     background: url(../../../assets/images/greenlong_bg.png) no-repeat;
 }
+
 .right-wrapper {
     position: fixed;
     height: 1000px;
@@ -195,7 +197,8 @@ button {
     display: inline-block;
     min-height: 60px;
 }
-.round_four_img{
+
+.round_four_img {
     -webkit-background-size: cover;
     background-size: cover;
     display: inline-block;
@@ -203,7 +206,8 @@ button {
     margin-left: -30px;
     width: 340px;
 }
-.round_four_text{
+
+.round_four_text {
     width: calc(14em + 3vw);
     // background: no-repeat;
     // -webkit-background-size: cover;
@@ -871,22 +875,26 @@ button {
 }
 
 .grid_bg {
-    background: url(../../../assets/images/grid-bg.png) no-repeat;
+    background: url(../../../assets/images/BLUE/Blank.png) no-repeat;
 }
-.alpha_img{
+
+.alpha_img {
     background: url('../../../assets/images/GREEN/B.png') no-repeat;
 }
+
 .mtm20 {
     margin-top: -20%;
 }
-.roundtwo_box{
+
+.roundtwo_box {
     // background: url(../../../assets/images/round_two_box.png) no-repeat;
     width: 96%;
     height: 65px;
     margin-left: -90px;
     margin-top: -30px;
 }
-.roundtwohit{
+
+.roundtwohit {
     color: white;
     position: absolute;
     top: -4%;
@@ -897,7 +905,8 @@ button {
     text-align: center;
     font-size: 33px;
 }
-.roundtwo_alpha_body{
+
+.roundtwo_alpha_body {
     margin-left: 15%;
     margin-top: 4%;
 }
