@@ -214,9 +214,9 @@
         <div class="col-sm-3">
             <!-- <div class="apng-ani timer_center width{{control.fontSettings.oneThird_timeOut}}"></div> -->
         </div>
-        <div class="col-sm-6" style="margin-top: 14%;">
+        <div class="col-sm-6" style="margin-top: 190px;">
             <div *ngIf="this.prevCategoryId == this.currentQuestion.categoryId">
-                <div style="margin-top: 7%;">
+                <div >
 
                     <div class="row" style="flex-wrap: initial;">
                         <!-- <div class="col-sm" class="alpha_text grid_bg" *ngFor="let item of [11,12,13,14,15,16,17,18,19,110]; let i = index" [id]="item">
@@ -370,7 +370,7 @@
                     </div>
                 </div>
             </div>
-            <div *ngIf="control.showQuestion">
+            <div style="margin-top: 47px;" *ngIf="control.showQuestion">
                 <img src="../../../assets/images/round_two_box.png" class="roundtwo_box" alt="">
                 <input [value]="currentQuestion?.clue" class="roundtwohit" [ngStyle]="{'font-size': currentQuestion.otClueFontSize + 'px'}" />
             </div>
