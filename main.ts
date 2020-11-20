@@ -43,7 +43,7 @@ try {
       height: size.height,
       //fullscreen: true,
       show: false,
-      frame: true,
+      frame: false,
       autoHideMenuBar: true,
       webPreferences: {
         nodeIntegration: true,
@@ -73,10 +73,10 @@ try {
       );
 
       // disable reload
-      globalShortcut.register("f5", function() {
+      globalShortcut.register("f5", function () {
         console.log("f5 is pressed");
       });
-      globalShortcut.register("CommandOrControl+R", function() {
+      globalShortcut.register("CommandOrControl+R", function () {
         console.log("CommandOrControl+R is pressed");
       });
     }
