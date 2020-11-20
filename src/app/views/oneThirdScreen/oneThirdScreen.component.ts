@@ -45,6 +45,9 @@ export class OneThirdScreenComponent implements OnInit {
   timeoutList: any;
   cubeImage = new Image();
   cube_image: any
+  prevCategoryId: number
+  image: any
+  oneThirdBgImage = new Image();
 
   constructor(
     private router: Router,
@@ -73,13 +76,11 @@ export class OneThirdScreenComponent implements OnInit {
 
     //read for mainBG and cube
     this.cube_image = document.images.namedItem("cube_img");
-    const image = document.getElementById("header");
+    this.image = document.getElementById("header");
 
-    const oneThirdBgImage = new Image();
-
-    oneThirdBgImage.onload = () => {
-      image.style.background = "url(" + oneThirdBgImage.src + ")";
-      image.style.backgroundSize = "cover";
+    this.oneThirdBgImage.onload = () => {
+      this.image.style.background = "url(" + this.oneThirdBgImage.src + ")";
+      this.image.style.backgroundSize = "cover";
 
       // this.renderingAPNG = false;
       this.nz.run(() => { });
@@ -89,13 +90,13 @@ export class OneThirdScreenComponent implements OnInit {
     };
 
     if (AppConfig.production) {
-      oneThirdBgImage.src =
+      this.oneThirdBgImage.src =
         process.env.PORTABLE_EXECUTABLE_DIR +
         "/data/images/one_third_header.PNG";
       this.cubeImage.src =
         process.env.PORTABLE_EXECUTABLE_DIR + "/data/images/cube.png";
     } else {
-      oneThirdBgImage.src = "../../../assets/images/temp/one_third_header.PNG";
+      this.oneThirdBgImage.src = "../../../assets/images/temp/one_third_header.PNG";
       this.cubeImage.src = "../../../assets/images/temp/cube.png";
     }
 
@@ -181,7 +182,8 @@ export class OneThirdScreenComponent implements OnInit {
       canvas.width = currentTimeData.width;
       canvas.height = currentTimeData.height;
       canvas.style.width = "100%";
-      canvas.style.height = "auto";
+      // canvas.style.height = "auto";
+      // canvas.style.marginTop = "300%";
       /*  canvas.style.marginTop = "11px"; */
       const canvasDiv = document.querySelector(".apng-ani");
       if (initial) canvasDiv.appendChild(canvas);
@@ -233,8 +235,16 @@ export class OneThirdScreenComponent implements OnInit {
     console.log('currentRound => ', this.currentRound)
     console.log('currentQuestion => ', this.currentQuestion)
 
-    if (this.currentRound.questionType == 2 || this.currentRound.questionType == 4) this.cube_image.src = ''
-    else this.cube_image.src = this.cubeImage.src;
+    if (this.currentRound.questionType == 2) {
+      console.log('image => ', this.image)
+      this.cube_image.src = ''
+      this.image.style.background = "";
+    }
+    else {
+      this.cube_image.src = this.cubeImage.src;
+      this.image.style.background = "url(" + this.oneThirdBgImage.src + ")";
+      this.image.style.backgroundSize = "cover";
+    }
 
     //update timer count
     if (this.currentRound.hasCategory) {
@@ -322,6 +332,21 @@ export class OneThirdScreenComponent implements OnInit {
         }
       }
 
+      if (this.control.showQuestion && this.currentRound.questionType == 2) {
+        console.log('prevCategory id => ', this.prevCategoryId, " , this.currentQuestion.categoryId => ", this.currentQuestion.categoryId)
+        if (this.prevCategoryId == undefined) this.prevCategoryId = this.currentQuestion.categoryId
+        else if (this.prevCategoryId !== this.currentQuestion.categoryId) {
+          this.prevCategoryId = this.currentQuestion.categoryId
+        }
+        console.log('current question index => ', this.currentQuestion.categoryId)
+        this.setGridValue();
+        if (this.control.showAns) {
+          this.showGridEachAnswer();
+        } else {
+          this.hideGridEachAnswer();
+        }
+      }
+
       //else do nothing
     }
 
@@ -380,5 +405,41 @@ export class OneThirdScreenComponent implements OnInit {
 
     const data = readFileSync(filePath, "utf8");
     this.timeoutList = JSON.parse(data);
+  }
+
+  setGridValue() {
+
+    this.currentQuestion.hints[0].position.forEach((id, index) => {
+      // console.log('id: ', id, ', ans: ', question.ans)
+      if (this.currentQuestion.ans.includes(id)) {
+        setTimeout(() => {
+          (<HTMLDivElement>document.getElementById(id)).innerText = this.currentQuestion.hints[0].value.charAt(index);
+          (<HTMLDivElement>document.getElementById(id)).style.background = 'url(./assets/images/grid-normal-bg.png) no-repeat'
+        }, 0);
+      } else {
+        setTimeout(() => {
+          (<HTMLDivElement>document.getElementById(id)).style.background = 'url(./assets/images/grid-correct-bg.png) no-repeat';
+        }, 0);
+      }
+    })
+  }
+
+  showGridEachAnswer() {
+
+    this.currentQuestion.hints[0].position.forEach((id, index) => {
+      setTimeout(() => {
+        (<HTMLDivElement>document.getElementById(id)).innerText = this.currentQuestion.hints[0].value.charAt(index);
+        // (<HTMLDivElement>document.getElementById(id)).style.background = 'url(./assets/images/grid-correct-bg.png) no-repeat';
+      }, 0);
+    })
+  }
+
+  hideGridEachAnswer() {
+    this.currentQuestion.hints[0].position.forEach((id, index) => {
+      if (!this.currentQuestion.ans.includes(id))
+        setTimeout(() => {
+          (<HTMLDivElement>document.getElementById(id)).innerText = ''
+        }, 0);
+    })
   }
 }

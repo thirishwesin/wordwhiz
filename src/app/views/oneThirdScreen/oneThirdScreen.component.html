@@ -1,4 +1,4 @@
-<!-- <div class="loader" [hidden]="!renderingAPNG"></div> -->
+<div class="loader" [hidden]="!renderingAPNG"></div>
 <div class="one_third_section non_select" [hidden]="renderingAPNG">
     <div class="row header" id="header">
 
@@ -200,4 +200,173 @@
 
     </div>
 
+</div>
+
+<div class="container-fluid onethird_body" *ngIf="currentRound.questionType == 2">
+    <div class="row">
+        <div class="col-sm-3">
+            <!-- <div class="apng-ani timer_center width{{control.fontSettings.oneThird_timeOut}}"></div> -->
+        </div>
+        <div class="col-sm-6" style="margin-top: 7%;">
+            <div *ngIf="this.prevCategoryId == this.currentQuestion.categoryId">
+                <div style="margin-top: 7%;">
+
+                    <div class="row" style="flex-wrap: initial;">
+                        <!-- <div class="col-sm" class="alpha_text grid_bg" *ngFor="let item of [11,12,13,14,15,16,17,18,19,110]; let i = index" [id]="item">
+
+                        </div> -->
+                        <div class="alpha_text grid_bg" [id]="11"></div>
+                        <div class="alpha_text grid_bg" [id]="12"></div>
+                        <div class="alpha_text grid_bg" [id]="13"></div>
+                        <div class="alpha_text grid_bg" [id]="14"></div>
+                        <div class="alpha_text grid_bg" [id]="15"></div>
+                        <div class="alpha_text grid_bg" [id]="16"></div>
+                        <div class="alpha_text grid_bg" [id]="17"></div>
+                        <div class="alpha_text grid_bg" [id]="18"></div>
+                        <div class="alpha_text grid_bg" [id]="19"></div>
+                        <div class="alpha_text grid_bg" [id]="110"></div>
+                    </div>
+                    <div class="row" style="flex-wrap: initial;">
+                        <!-- <div class="col-sm" class="alpha_text grid_bg " *ngFor="let item of [21,22,23,24,25,26,27,28,29,210]; let i = index" [id]="item">
+
+                        </div> -->
+                        <div class="alpha_text grid_bg" [id]="21"></div>
+                        <div class="alpha_text grid_bg" [id]="22"></div>
+                        <div class="alpha_text grid_bg" [id]="23"></div>
+                        <div class="alpha_text grid_bg" [id]="24"></div>
+                        <div class="alpha_text grid_bg" [id]="25"></div>
+                        <div class="alpha_text grid_bg" [id]="26"></div>
+                        <div class="alpha_text grid_bg" [id]="27"></div>
+                        <div class="alpha_text grid_bg" [id]="28"></div>
+                        <div class="alpha_text grid_bg" [id]="29"></div>
+                        <div class="alpha_text grid_bg" [id]="210"></div>
+                    </div>
+                    <div class="row" style="flex-wrap: initial;">
+                        <!-- <div class="col-sm" class="alpha_text grid_bg " *ngFor="let item of [31,32,33,34,35,36,37,38,39,310]; let i = index" [id]="item">
+
+                        </div> -->
+                        <div class="alpha_text grid_bg" [id]="31"></div>
+                        <div class="alpha_text grid_bg" [id]="32"></div>
+                        <div class="alpha_text grid_bg" [id]="33"></div>
+                        <div class="alpha_text grid_bg" [id]="34"></div>
+                        <div class="alpha_text grid_bg" [id]="35"></div>
+                        <div class="alpha_text grid_bg" [id]="36"></div>
+                        <div class="alpha_text grid_bg" [id]="37"></div>
+                        <div class="alpha_text grid_bg" [id]="38"></div>
+                        <div class="alpha_text grid_bg" [id]="39"></div>
+                        <div class="alpha_text grid_bg" [id]="310"></div>
+                    </div>
+                    <div class="row" style="flex-wrap: initial;">
+                        <!-- <div class="col-sm" class="alpha_text grid_bg " *ngFor="let item of [41,42,43,44,45,46,47,48,49,410]; let i = index" [id]="item">
+
+                        </div> -->
+                        <div class="alpha_text grid_bg" [id]="41"></div>
+                        <div class="alpha_text grid_bg" [id]="42"></div>
+                        <div class="alpha_text grid_bg" [id]="43"></div>
+                        <div class="alpha_text grid_bg" [id]="44"></div>
+                        <div class="alpha_text grid_bg" [id]="45"></div>
+                        <div class="alpha_text grid_bg" [id]="46"></div>
+                        <div class="alpha_text grid_bg" [id]="47"></div>
+                        <div class="alpha_text grid_bg" [id]="48"></div>
+                        <div class="alpha_text grid_bg" [id]="49"></div>
+                        <div class="alpha_text grid_bg" [id]="410"></div>
+                    </div>
+                    <div class="row" style="flex-wrap: initial;">
+                        <!-- <div class="col-sm" class="alpha_text grid_bg " *ngFor="let item of [51,52,53,54,55,56,57,58,59,510]; let i = index" [id]="item">
+
+                        </div> -->
+                        <div class="alpha_text grid_bg" [id]="51"></div>
+                        <div class="alpha_text grid_bg" [id]="52"></div>
+                        <div class="alpha_text grid_bg" [id]="53"></div>
+                        <div class="alpha_text grid_bg" [id]="54"></div>
+                        <div class="alpha_text grid_bg" [id]="55"></div>
+                        <div class="alpha_text grid_bg" [id]="56"></div>
+                        <div class="alpha_text grid_bg" [id]="57"></div>
+                        <div class="alpha_text grid_bg" [id]="58"></div>
+                        <div class="alpha_text grid_bg" [id]="59"></div>
+                        <div class="alpha_text grid_bg" [id]="510"></div>
+                    </div>
+                    <div class="row" style="flex-wrap: initial;">
+                        <!-- <div class="col-sm" class="alpha_text grid_bg " *ngFor="let item of [61,62,63,64,65,66,67,68,69,610]; let i = index" [id]="item">
+
+                        </div> -->
+                        <div class="alpha_text grid_bg" [id]="61"></div>
+                        <div class="alpha_text grid_bg" [id]="62"></div>
+                        <div class="alpha_text grid_bg" [id]="63"></div>
+                        <div class="alpha_text grid_bg" [id]="64"></div>
+                        <div class="alpha_text grid_bg" [id]="65"></div>
+                        <div class="alpha_text grid_bg" [id]="66"></div>
+                        <div class="alpha_text grid_bg" [id]="67"></div>
+                        <div class="alpha_text grid_bg" [id]="68"></div>
+                        <div class="alpha_text grid_bg" [id]="69"></div>
+                        <div class="alpha_text grid_bg" [id]="610"></div>
+                    </div>
+                    <div class="row" style="flex-wrap: initial;">
+                        <!-- <div class="col-sm" class="alpha_text grid_bg " *ngFor="let item of [71,72,73,74,75,76,77,78,79,710]; let i = index" [id]="item">
+
+                        </div> -->
+                        <div class="alpha_text grid_bg" [id]="71"></div>
+                        <div class="alpha_text grid_bg" [id]="72"></div>
+                        <div class="alpha_text grid_bg" [id]="73"></div>
+                        <div class="alpha_text grid_bg" [id]="74"></div>
+                        <div class="alpha_text grid_bg" [id]="75"></div>
+                        <div class="alpha_text grid_bg" [id]="76"></div>
+                        <div class="alpha_text grid_bg" [id]="77"></div>
+                        <div class="alpha_text grid_bg" [id]="78"></div>
+                        <div class="alpha_text grid_bg" [id]="79"></div>
+                        <div class="alpha_text grid_bg" [id]="710"></div>
+                    </div>
+                    <div class="row" style="flex-wrap: initial;">
+                        <!-- <div class="col-sm" class="alpha_text grid_bg " *ngFor="let item of [81,82,83,84,85,86,87,88,89,810]; let i = index" [id]="item">
+
+                        </div> -->
+                        <div class="alpha_text grid_bg" [id]="81"></div>
+                        <div class="alpha_text grid_bg" [id]="82"></div>
+                        <div class="alpha_text grid_bg" [id]="83"></div>
+                        <div class="alpha_text grid_bg" [id]="84"></div>
+                        <div class="alpha_text grid_bg" [id]="85"></div>
+                        <div class="alpha_text grid_bg" [id]="86"></div>
+                        <div class="alpha_text grid_bg" [id]="87"></div>
+                        <div class="alpha_text grid_bg" [id]="88"></div>
+                        <div class="alpha_text grid_bg" [id]="89"></div>
+                        <div class="alpha_text grid_bg" [id]="810"></div>
+                    </div>
+                    <div class="row" style="flex-wrap: initial;">
+                        <!-- <div class="col-sm" class="alpha_text grid_bg " *ngFor="let item of [91,92,93,94,95,96,97,98,99,910]; let i = index" [id]="item">
+
+                        </div> -->
+                        <div class="alpha_text grid_bg" [id]="91"></div>
+                        <div class="alpha_text grid_bg" [id]="92"></div>
+                        <div class="alpha_text grid_bg" [id]="93"></div>
+                        <div class="alpha_text grid_bg" [id]="94"></div>
+                        <div class="alpha_text grid_bg" [id]="95"></div>
+                        <div class="alpha_text grid_bg" [id]="96"></div>
+                        <div class="alpha_text grid_bg" [id]="97"></div>
+                        <div class="alpha_text grid_bg" [id]="98"></div>
+                        <div class="alpha_text grid_bg" [id]="99"></div>
+                        <div class="alpha_text grid_bg" [id]="910"></div>
+                    </div>
+                    <div class="row" style="flex-wrap: initial;">
+                        <!-- <div class="col-sm" class="alpha_text grid_bg " *ngFor="let item of [101,102,103,104,105,106,107,108,109,1010]; let i = index" [id]="item">
+
+                        </div> -->
+                        <div class="alpha_text grid_bg" [id]="101"></div>
+                        <div class="alpha_text grid_bg" [id]="102"></div>
+                        <div class="alpha_text grid_bg" [id]="103"></div>
+                        <div class="alpha_text grid_bg" [id]="104"></div>
+                        <div class="alpha_text grid_bg" [id]="105"></div>
+                        <div class="alpha_text grid_bg" [id]="106"></div>
+                        <div class="alpha_text grid_bg" [id]="107"></div>
+                        <div class="alpha_text grid_bg" [id]="108"></div>
+                        <div class="alpha_text grid_bg" [id]="109"></div>
+                        <div class="alpha_text grid_bg" [id]="1010"></div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="control.showQuestion">
+                <img src="../../../assets/images/round_two_box.png" class="roundtwo_box" alt="">
+                <input [value]="currentQuestion?.clue" class="roundtwohit" />
+            </div>
+        </div>
+    </div>
 </div>
