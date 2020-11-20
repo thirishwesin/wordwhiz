@@ -37,7 +37,11 @@
                  
                 </div>
                 <div *ngIf="currentRound.questionType == 2 && this.prevCategoryId == this.currentQuestion.categoryId" class="roundtwo_alpha_body">
+                    <div class="row" style="flex-wrap: initial;">
+                        <div class="col-sm" class="alpha_text grid_bg alpha_img">
 
+                        </div>
+                    </div>
                     <div class="row" style="flex-wrap: initial;">
                         <div class="col-sm" class="alpha_text grid_bg" *ngFor="let item of [11,12,13,14,15,16,17,18,19,110]; let i = index" [id]="item">
 

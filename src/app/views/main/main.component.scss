@@ -853,6 +853,9 @@ button {
     font-weight: bold;
     border: 1px solid #6d8bc3 !important;
     color: #fff;
+    background-size: cover !important;
+    padding: 0px !important;
+    border: none !important;
 }
 
 .mtm60 {
@@ -866,7 +869,9 @@ button {
 .grid_bg {
     background: url(../../../assets/images/grid-bg.png) no-repeat;
 }
-
+.alpha_img{
+    background: url('../../../assets/images/GREEN/B.png') no-repeat;
+}
 .mtm20 {
     margin-top: -20%;
 }
