@@ -120,15 +120,15 @@ button {
 
 .cube_img {
     position: absolute;
-    top: 25%;
+    top: 29%;
     left: 45%;
     transform: translate(-50%, -50%);
-    width: 100%;
+    width: 1000px;
 }
 
 .clude_hint {
     position: absolute;
-    top: 25%;
+    top: 28%;
     left: 45%;
     transform: translate(-50%, -50%);
     /*   font-size: calc(0.3em + 1vw); */
@@ -136,9 +136,9 @@ button {
     text-shadow: 1px 2px 2px #333333;
     color: #ffffff;
     font-weight: bold;
-    width: 350px;
-    text-align: center;
+    width: 650px;
     line-height: 1.1;
+    text-align: center;
 }
 
 .alpha_wrapper {
@@ -168,25 +168,25 @@ button {
 
 // text-color style
 .one_word_green {
-    background: url(../../../assets/images/green_bg.png) no-repeat;
+    background: url(../../../assets/images/GREEN/blank.png) no-repeat;
     -webkit-background-size: cover;
     background-size: cover;
     display: inline-block;
     min-height: 60px;
     min-width: 105px;
     width: auto;
-    margin-left: -30px;
+    // margin-left: -30px;
 }
 
 .one_word_blue {
-    background: url(../../../assets/images/blue_bg.png) no-repeat;
+    background: url(../../../assets/images/BLUE/Blank.png) no-repeat;
     -webkit-background-size: cover;
     background-size: cover;
     display: inline-block;
     min-height: 60px;
     min-width: 105px;
     width: auto;
-    margin-left: -30px;
+    //margin-left: -30px;
 }
 
 .long_word_blue {
@@ -481,7 +481,7 @@ button {
 
 .green_bg {
     width: auto;
-    background: url(../../../assets/images/green_bg.png) no-repeat;
+    background: url(../../../assets/images/GREEN/blank.png) no-repeat;
     background-size: cover;
     display: inline-block;
     min-height: 60px;
@@ -492,7 +492,7 @@ button {
 
 .blue_bg {
     width: auto;
-    background: url(../../../assets/images/blue_bg.png) no-repeat;
+    background: url(../../../assets/images/BLUE/Blank.png) no-repeat;
     background-size: cover;
     display: inline-block;
     min-height: 60px;
@@ -780,7 +780,7 @@ button {
 
 // Round one
 .round1_text {
-    width: 70px;
+    width: 80px;
     text-align: center;
     margin: 0;
     height: 107px;
@@ -789,7 +789,7 @@ button {
     font-size: 45px;
     outline: none;
     margin-left: 1px;
-    padding-top: 0px;
+    padding-top:11px;
     padding-bottom: 8px;
     color: #fff;
 }
