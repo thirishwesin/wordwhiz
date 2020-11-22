@@ -24,7 +24,7 @@
                     </span>
                 </div>
 
-                <div class="apng-ani mx-auto d-block" [ngClass]="{'timer-top': currentRound && (currentRound.questionType == 1 || currentRound.questionType == 3 || currentRound.questionType == 5)}">
+                <div class="apng-ani mx-auto d-block" [ngClass]="{'timer-top': currentRound && (currentRound.questionType == 1 || currentRound.questionType == 3 || currentRound.questionType == 5 || currentRound.questionType == 2), 'timer-top-r4': currentRound.questionType == 4}">
                 </div>
                 <!-- <img [src]="Images.loading" class=" mx-auto d-block 
                     width{{control.fontSettings.main_timeOut}}" /> -->
