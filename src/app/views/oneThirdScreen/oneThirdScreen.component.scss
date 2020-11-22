@@ -22,14 +22,14 @@
     // width: 255px;
     font-weight: bold;
     position: absolute;
-    top: 55%;
+    top: 25%;
     left: 45%;
     transform: translate(-50%, -50%);
     word-wrap: break-word;
     white-space: pre-wrap;
     word-break: break-word;
     text-align: center;
-    width: 200px;
+    width: 380px;
     font-size: 15px;
     text-shadow: 1px 2px 2px #333333;
     line-height: 1.1;
@@ -37,25 +37,23 @@
 
 // text-color style
 .one_word_green {
-    background: url(../../../assets/images/green_bg.png) no-repeat;
+    background: url(../../../assets/images/GREEN/blank.png) no-repeat;
     -webkit-background-size: cover;
     background-size: cover;
     display: inline-block;
-    min-height: 60px;
-    min-width: 86px;
-    width: auto;
-    margin-left: -23px;
+    min-width: 105px;
+    height: 100px;
+    
 }
 
 .one_word_blue {
-    background: url(../../../assets/images/blue_bg.png) no-repeat;
+    background: url(../../../assets/images/BLUE/Blank.png) no-repeat;
     -webkit-background-size: cover;
     background-size: cover;
     display: inline-block;
-    min-height: 60px;
-    min-width: 86px;
-    width: auto;
-    margin-left: -23px;
+    min-width: 105px;
+    height: 100px;
+
 }
 
 //Round 5
@@ -320,17 +318,17 @@
 
 .cube_img_center {
     position: absolute;
-    top: 54%;
+    top: 25%;
     left: 45%;
     transform: translate(-50%, -50%);
-    width: 180%;
+    width: 540px;
     /*   min-width: 600px; */
 }
 
 .hint_ans_center {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 65%;
+    left: 46%;
     transform: translate(-50%, -50%);
     width: 100%;
 }
@@ -354,18 +352,19 @@
 
 .blue_bg {
     width: auto;
-    background: url(../../../assets/images/blue_bg.png) no-repeat;
+    background: url(../../../assets/images/BLUE/Blank.png) no-repeat;
     background-size: cover;
     display: inline-block;
     min-height: 60px;
     position: relative;
     padding: 0;
-    min-width: 86px;
+    min-width: 105px;
+    height: 100px;
 }
 
 .green_bg {
     width: auto;
-    background: url(../../../assets/images/green_bg.png) no-repeat;
+    background: url(../../../assets/images/GREEN/blank.png) no-repeat;
     background-size: cover;
     display: inline-block;
     min-height: 60px;
@@ -587,7 +586,7 @@
         }
         .retangle#{$length} {
             min-height: 60px;
-            margin-left: -23px;
+            // margin-left: -23px;
             /*  padding-bottom: 5px; */
         }
         .one_wordRoundTwoLenght#{$length} {
@@ -713,8 +712,8 @@
 }
 
 .alpha_text {
-    height: 47px !important;
-    width: 47px !important;
+    height: 60px !important;
+    width: 60px !important;
     text-align: center;
     padding: 1.5%;
     font-weight: bold;
@@ -726,33 +725,33 @@
 }
 
 .round1_text {
-    width: 50px;
+    width: 83px;
     text-align: center;
     margin: 0;
-    height: 75px;
+    height: 95px;
     background: none;
     border: none;
     font-size: 45px;
     outline: none;
     margin-left: 1px;
-    padding-top: 0px;
     padding-bottom: 8px;
     color: #fff;
+    padding-top: 19px;
 }
 
 .roundthree_text {
-    width: 50px;
+    width: 83px;
     text-align: center;
     margin: 0;
-    height: 75px;
+    height: 95px;
     background: none;
     border: none;
     font-size: 45px;
     outline: none;
     margin-left: 1px;
-    padding-top: 14px;
     padding-bottom: 8px;
     color: #fff;
+    padding-top: 19px;
 }
 
 //Round four
@@ -807,3 +806,9 @@
 }
 
 .one_third_newbg{height: 100vh;}
+// .one_third_body{
+//     background-image: url('../../../assets/images/temp/one_third_header_bk.PNG');
+// }
+.mrt20{
+    margin-top: -20px;
+}
