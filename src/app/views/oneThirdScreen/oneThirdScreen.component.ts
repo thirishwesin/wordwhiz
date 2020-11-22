@@ -48,6 +48,8 @@ export class OneThirdScreenComponent implements OnInit {
   prevCategoryId: number
   image: any
   oneThirdBgImage = new Image();
+  roundTowBgImage = new Image();
+  roundTwoBgImageEle: any;
 
   constructor(
     private router: Router,
@@ -77,6 +79,7 @@ export class OneThirdScreenComponent implements OnInit {
     //read for mainBG and cube
     this.cube_image = document.images.namedItem("cube_img");
     this.image = document.getElementById("header");
+    this.roundTwoBgImageEle = document.getElementById("round_two_bg")
 
     this.oneThirdBgImage.onload = () => {
       this.image.style.background = "url(" + this.oneThirdBgImage.src + ")";
@@ -89,15 +92,19 @@ export class OneThirdScreenComponent implements OnInit {
       this.cube_image.src = this.cubeImage.src;
     };
 
+    this.roundTowBgImage.onload = () => {
+      this.roundTwoBgImageEle.style.background = ""
+    }
+
     if (AppConfig.production) {
-      this.oneThirdBgImage.src =
-        process.env.PORTABLE_EXECUTABLE_DIR +
-        "/data/images/one_third_header.PNG";
-      this.cubeImage.src =
-        process.env.PORTABLE_EXECUTABLE_DIR + "/data/images/cube.png";
+      this.oneThirdBgImage.src = process.env.PORTABLE_EXECUTABLE_DIR + "/data/images/one_third_header_bk.PNG";
+      this.cubeImage.src = process.env.PORTABLE_EXECUTABLE_DIR + "/data/images/cube.png";
+      this.roundTowBgImage.src = process.env.PORTABLE_EXECUTABLE_DIR + "/data/images/one-third-round-2.png";
+
     } else {
-      this.oneThirdBgImage.src = "../../../assets/images/temp/one_third_header.PNG";
+      this.oneThirdBgImage.src = "../../../assets/images/temp/one_third_header_bk.PNG";
       this.cubeImage.src = "../../../assets/images/temp/cube.png";
+      this.roundTowBgImage.src = "../../../assets/images/temp/one-third-round-2.png";
     }
 
     this.store.subscribe(item => {
@@ -235,16 +242,23 @@ export class OneThirdScreenComponent implements OnInit {
     console.log('currentQuestion => ', this.currentQuestion)
 
     if (this.currentRound.questionType == 2) {
-      console.log('image => ', this.image)
-      this.cube_image.src = ''
-      this.image.style.background = "";
+      this.cube_image.src = ''              // remove cube image
+      this.image.style.background = "";     // remove background image
+      this.roundTwoBgImageEle.style.background = "url(" + this.roundTowBgImage.src + ")"    // add new background image
+
     } else if (this.currentRound.questionType == 4) {
-      this.cube_image.src = ''
+      this.cube_image.src = ''              // remove cube image
+      // add new background image
+      this.image.style.background = "url(" + this.oneThirdBgImage.src + ")";
+      this.image.style.backgroundSize = "cover";
+      // remove round two background image
+      this.roundTwoBgImageEle.style.background = ""
     }
     else {
       this.cube_image.src = this.cubeImage.src;
       this.image.style.background = "url(" + this.oneThirdBgImage.src + ")";
       this.image.style.backgroundSize = "cover";
+      this.roundTwoBgImageEle.style.background = ""
     }
 
     //update timer count
