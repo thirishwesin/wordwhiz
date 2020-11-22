@@ -1,5 +1,5 @@
 
-<div class="one_third_body" id="header">
+<div class="one_third_body"  id="header">
     <div class="loader" [hidden]="!renderingAPNG"></div>
 
     <div [ngClass]="{'one_third_newbg': currentRound && currentRound['questionType'] != 2}" >
@@ -95,7 +95,7 @@
                                         </p>
                                     </div>
                                     <div class="mleft40" *ngIf="hint.isCharacter">
-                                        <div class="one_word_blue" [ngClass]="{'animated heartBeat': control.showQuestion && !blockAnimated  && !control.clickPoint && !control.fontSettingOpenClose, 'hide_char' : char == ' '}" *ngFor="let char of hint.hintCharArr">
+                                        <div style="margin-top: 50px;" class="one_word_blue" [ngClass]="{'animated heartBeat': control.showQuestion && !blockAnimated  && !control.clickPoint && !control.fontSettingOpenClose, 'hide_char' : char == ' '}" *ngFor="let char of hint.hintCharArr">
                                             <!-- <p class="one_word font{{control.fontSettings.oneThird_hint}}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint ? 'animated zoomIn':''">
                                                 {{ char }}
                                             </p> -->
@@ -215,7 +215,7 @@
 
 
 
-<div class="container-fluid onethird_body" id="round_two_bg">
+<div class="container-fluid onethird_body" id="round_two_bg" [ngClass]="{'height100': currentRound && currentRound['questionType'] == 2}">
     <div class="row" *ngIf="currentRound && currentRound.questionType == 2">
         <div class="col-sm-3">
             <!-- <div class="apng-ani timer_center width{{control.fontSettings.oneThird_timeOut}}"></div> -->
