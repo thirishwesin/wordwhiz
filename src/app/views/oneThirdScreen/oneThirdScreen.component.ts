@@ -238,6 +238,8 @@ export class OneThirdScreenComponent implements OnInit {
       console.log('image => ', this.image)
       this.cube_image.src = ''
       this.image.style.background = "";
+    } else if (this.currentRound.questionType == 4) {
+      this.cube_image.src = ''
     }
     else {
       this.cube_image.src = this.cubeImage.src;

@@ -3,7 +3,7 @@
     <div class="row header" id="header">
 
         <div class="col-lg-3 left_wrapper">
-            <div class="apng-ani  timer_center width{{control.fontSettings.oneThird_timeOut}}" [ngClass]="{'top0': currentRound.questionType == 2}"></div>
+            <div class="apng-ani  timer_center width{{control.fontSettings.oneThird_timeOut}}" [ngClass]="{'top0': currentRound && currentRound.questionType == 2}"></div>
             <!-- <img [src]="Images.loading" class="timer_center width{{control.fontSettings.oneThird_timeOut}}" /> -->
             <!-- <div class="timeout_center font{{control.fontSettings.oneThird_timeOut}}" [ngClass]="counter > 3 ? 'timer' : 'timer_style'"> {{ counter }} </div> -->
 
@@ -12,8 +12,8 @@
         <div class="col-lg-9 row right_wrapper">
             <div class="col-sm-4">
                 <img class="cube_img_center" name="cube_img" alt="" />
-                <div class="clude_hint" [ngStyle]="{'font-size': currentQuestion.otClueFontSize + 'px'}" *ngIf="(control.showQuestion || control.runCategoryRound) && currentRound.questionType != 2 && currentRound">
-                    {{ currentRound.hasCategory? categoryName : currentQuestion?.clue }}</div>
+                <div class="clude_hint" [ngStyle]="{'font-size': currentQuestion.otClueFontSize + 'px'}" *ngIf="currentRound && (control.showQuestion || control.runCategoryRound) && currentRound.questionType != 2 && currentRound.questionType != 4 ">
+                    {{currentQuestion?.clue }}</div>
             </div>
 
             <div class="col-lg-8" style="text-align: center; top: 3%;">
