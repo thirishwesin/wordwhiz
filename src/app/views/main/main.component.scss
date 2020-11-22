@@ -109,6 +109,10 @@ button {
     transform: translate(-50%, -50%);
     font-size: 60px;
 }
+.clude_txt_four{
+    top: 9% !important;
+    left: 49% !important;
+}
 
 .center {
     position: absolute;
@@ -120,12 +124,15 @@ button {
 
 .cube_img {
     position: absolute;
-    top: 29%;
+    top: 29% ;
     left: 45%;
     transform: translate(-50%, -50%);
     width: 1000px;
 }
-
+.cube_img_four{
+    left: 50% !important;
+    width: 500px !important;
+}
 .clude_hint {
     position: absolute;
     top: 28%;
@@ -139,6 +146,11 @@ button {
     width: 650px;
     line-height: 1.1;
     text-align: center;
+}
+.clude_hint_four{
+    width: 380px;
+    top: 28%;
+    left: 50%;
 }
 
 .alpha_wrapper {
