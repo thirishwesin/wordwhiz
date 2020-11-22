@@ -104,7 +104,7 @@
                     </div>
                 </div>
 
-                <div class="alpha_wrapper" *ngIf="control.showQuestion || control.runCategoryRound">
+                <div class="alpha_wrapper" [ngClass]="{'alpha_wrapper_r4': currentRound.questionType == 4}" *ngIf="control.showQuestion || control.runCategoryRound">
 
                     <!-- //! for round 1 and round 5 -->
                     <div *ngIf="currentQuestion?.hints.length == 0">
