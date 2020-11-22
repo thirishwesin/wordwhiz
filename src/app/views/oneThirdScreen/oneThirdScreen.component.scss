@@ -704,9 +704,11 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    //height: 100vh;
+}
+.height100{
     height: 100vh;
 }
-
 .grid_bg {
     background: url(../../../assets/images/BLUE/Blank.png) no-repeat;
 }
