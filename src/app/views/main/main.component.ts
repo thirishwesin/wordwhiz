@@ -45,7 +45,9 @@ export class MainComponent implements OnInit {
   log = [];
   round4hintAnimated = true;
   timeoutList: any;
-  cube_image: any
+  cubeImageEle: any
+  rFourCubeImageEle: any
+  rFourCubeImage = new Image();
   prevCategoryId: number
   cubeImage = new Image();
 
@@ -80,7 +82,8 @@ export class MainComponent implements OnInit {
 
     //read for mainBG and cube
     const image = document.getElementById("main_background");
-    this.cube_image = document.images.namedItem("cube_img");
+    this.cubeImageEle = document.images.namedItem("cube_img");
+    this.rFourCubeImageEle = document.images.namedItem("r4_cube_img");
 
     const mainBgImage = new Image();
 
@@ -92,18 +95,21 @@ export class MainComponent implements OnInit {
       this.nz.run(() => { });
     };
     this.cubeImage.onload = () => {
-      this.cube_image.src = this.cubeImage.src;
+      this.cubeImageEle.src = this.cubeImage.src;
+    };
+
+    this.rFourCubeImage.onload = () => {
+      this.rFourCubeImageEle.src = '';
     };
 
     if (AppConfig.production) {
-      mainBgImage.src =
-        process.env.PORTABLE_EXECUTABLE_DIR +
-        "/data/images/main_background.png";
-      this.cubeImage.src =
-        process.env.PORTABLE_EXECUTABLE_DIR + "/data/images/cube.png";
+      mainBgImage.src = process.env.PORTABLE_EXECUTABLE_DIR + "/data/images/main_background.png";
+      this.cubeImage.src = process.env.PORTABLE_EXECUTABLE_DIR + "/data/images/cube.png";
+      this.rFourCubeImage.src = process.env.PORTABLE_EXECUTABLE_DIR + "/data/images/cube.png";
     } else {
       mainBgImage.src = "../../../assets/images/temp/main_background.png";
       this.cubeImage.src = "../../../assets/images/temp/cube.png";
+      this.rFourCubeImage.src = "../../../assets/images/temp/cube.png";
     }
 
     this.store.subscribe(item => {
@@ -233,8 +239,17 @@ export class MainComponent implements OnInit {
       this.control.currentQuestionId
     ]);
 
-    if (this.currentRound.questionType == 2) this.cube_image.src = ''
-    else this.cube_image.src = this.cubeImage.src;
+    if (this.currentRound.questionType == 2) {
+      this.cubeImageEle.src = ''
+      this.rFourCubeImageEle.src = ''
+    } else if (this.currentRound.questionType == 4) {
+      this.cubeImageEle.src = ''
+      this.rFourCubeImageEle.src = this.rFourCubeImage.src
+    }
+    else {
+      this.cubeImageEle.src = this.cubeImage.src;
+      this.rFourCubeImageEle.src = ''
+    }
 
     console.log('current question => ', this.currentQuestion)
     console.log('current round => ', this.currentRound)
@@ -431,6 +446,7 @@ export class MainComponent implements OnInit {
   hideGridEachAnswer() {
     this.currentQuestion.hints[0].position.forEach((id, index) => {
       if (this.currentQuestion.ans.includes(id)) {
+        console.log('id => ', id);
         (<HTMLDivElement>document.getElementById(id)).style.background =
           `url(./assets/images/BLUE/${this.currentQuestion.hints[0].value.charAt(index).toUpperCase()}.png) no-repeat`
       } else {
