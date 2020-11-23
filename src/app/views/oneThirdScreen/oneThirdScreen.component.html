@@ -83,7 +83,7 @@
                                                 {{ hint.value }}
                                             </p>
                                         </div>
-                                        <div style="margin-top: -40px;margin-left: -40px;" class="text-left" *ngIf="hint.isCharacter">
+                                        <div style="margin-top: -40px;margin-left: -50px;" class="text-left" *ngIf="hint.isCharacter">
                                             <div style="margin-top: 50px;" class="one_word_blue one_word_blue_three" [ngClass]="{'animated heartBeat': control.showQuestion && !blockAnimated  && !control.clickPoint && !control.fontSettingOpenClose, 'hide_char' : char == ' '}" *ngFor="let char of hint.hintCharArr">
                                                 <!-- <p class="one_word font{{control.fontSettings.oneThird_hint}}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint ? 'animated zoomIn':''">
                                                 {{ char }}
