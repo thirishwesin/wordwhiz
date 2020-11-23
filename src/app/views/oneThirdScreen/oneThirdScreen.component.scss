@@ -824,3 +824,38 @@
     width: 100%;
     margin-left: -90px;
 }
+
+.one_word_blue_three,.one_word_green_three{
+    background-size: contain;
+    display: inline-block;
+    min-width: 80px;
+    height: 100px;
+    .roundthree_textblue{
+        width: 80px;
+    text-align: center;
+    margin: 0;
+    height: 70px;
+    background: none;
+    border: none;
+    font-size: 45px;
+    outline: none;
+    margin-left: 1px;
+    padding-bottom: 8px;
+    color: #fff;
+    padding-top: 19px;
+    }
+}
+.roundthree_textgreen{
+    width: 80px;
+    text-align: center;
+    margin: 0;
+    height: 70px;
+    background: none;
+    border: none;
+    font-size: 45px;
+    outline: none;
+    margin-left: 1px;
+    padding-bottom: 8px;
+    color: #fff;
+    padding-top: 19px;
+}
