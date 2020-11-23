@@ -64,7 +64,7 @@
                                             *ngIf="!hint?.isCharacter && hintIndex == 0">
                                             <input class="round_four_text" [ngStyle]="{'font-size': hint?.otHintFontSize + 'px'}" [ngClass]="control.showQuestion && !blockAnimated  && !control.clickPoint && !control.fontSettingOpenClose ? 'animated zoomIn':''" [value]="hint.value" />
                                         </div>
-                                        <div style="margin-left: 10px;" class="round_four_img" [ngStyle]="{'background-image': 'url(' + control.roundFourStatus[1].imagePath + ')'}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose || round4hintAnimated && control.startCount ? 'animated heartBeat':''"
+                                        <div style="margin-left: 10px; margin-right: 37px;" class="round_four_img" [ngStyle]="{'background-image': 'url(' + control.roundFourStatus[1].imagePath + ')'}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose || round4hintAnimated && control.startCount ? 'animated heartBeat':''"
                                             *ngIf="!hint?.isCharacter && hintIndex == 1">
                                             <input class="round_four_text" [ngStyle]="{'font-size': hint?.otHintFontSize + 'px'}" [ngClass]="control.showQuestion && !blockAnimated  && !control.clickPoint && !control.fontSettingOpenClose ? 'animated zoomIn':''" [value]="hint.value" />
                                         </div>
@@ -83,7 +83,7 @@
                                                 {{ hint.value }}
                                             </p>
                                         </div>
-                                        <div class="" *ngIf="hint.isCharacter">
+                                        <div style="margin-top: -40px;margin-left: -50px;" class="" *ngIf="hint.isCharacter">
                                             <div style="margin-top: 50px;" class="one_word_blue one_word_blue_three" [ngClass]="{'animated heartBeat': control.showQuestion && !blockAnimated  && !control.clickPoint && !control.fontSettingOpenClose, 'hide_char' : char == ' '}" *ngFor="let char of hint.hintCharArr">
                                                 <!-- <p class="one_word font{{control.fontSettings.oneThird_hint}}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint ? 'animated zoomIn':''">
                                                 {{ char }}
@@ -97,7 +97,7 @@
                                                 {{ currentQuestion.ans }}
                                             </p>
                                         </div>
-                                        <div *ngIf="currentQuestion.isAnsCharacter && currentRound.questionType != 4">
+                                        <div style="margin-left: -60px;" *ngIf="currentQuestion.isAnsCharacter && currentRound.questionType != 4">
                                             <div class="one_word_green one_word_green_three retangle{{control.fontSettings.oneThird_answer}}" [ngClass]="{'hide_char less8char': char == ' ' , 'animated heartBeat': control.startCount && round4hintAnimated || control.showQuestion && !currentRound.showfirstAnsChar && !control.showAns && !control.clickTimer && !control.fontSettingOpenClose, 'blue_bg' : i == 0 && currentRound.showfirstAnsChar}"
                                                 *ngFor="let char of ansCharArr; let i=index;">
 
