@@ -74,16 +74,7 @@
                                         </div>
 
                                     </div>
-                                    <!-- <ng-container *ngIf="hintIndex == 2 && control.showAns"> -->
-                                    <div style=" margin-top: 30px;" *ngIf="hintIndex == 2">
-                                        <div class="one_word_green retangle{{control.fontSettings.oneThird_answer}}" [ngClass]="{'hide_char less8char': char == ' ' , 'animated heartBeat': control.startCount && round4hintAnimated || control.showQuestion && !currentRound.showfirstAnsChar && !control.showAns && !control.clickTimer && !control.fontSettingOpenClose}"
-                                            *ngFor="let char of ansCharArr; let i=index;" [ngStyle]="{'visibility': hintIndex == 2 && control.showAns ? 'unset': 'hidden'}">
 
-                                            <input class="round1_text" [ngStyle]="{'font-size': currentQuestion?.otAnsFontSize + 'px'}" [ngClass]="{'animated zoomIn' : control.showAns, 'transparent' : !control.showAns }" [value]="char" />
-                                        </div>
-                                    </div>
-
-                                    <!-- </ng-container> -->
                                     <!-- //! for position 0 top -->
                                     <div *ngIf="hint.position == 0 && currentRound.questionType != 4" class="hint_ans_center">
                                         <div class="long_word_blue wordRoundFourLength{{hint.value.length}} mb-1" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose || round4hintAnimated && control.startCount ? 'animated heartBeat':''"
@@ -201,7 +192,13 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div style=" margin-top: 30px;" *ngIf="currentRound.questionType == 4 ">
+                                    <div class="one_word_green retangle{{control.fontSettings   .oneThird_answer}}" [ngClass]="{'hide_char less8char': char == ' ' , 'animated heartBeat': control.startCount && round4hintAnimated || control.showQuestion && !currentRound.showfirstAnsChar && !control.showAns && !control.clickTimer && !control.fontSettingOpenClose}"
+                                        *ngFor="let char of ansCharArr; let i=index;" [ngStyle]="{'visibility': control.showAns ? 'unset': 'hidden'}">
 
+                                        <input class="round1_text" [ngStyle]="{'font-size': currentQuestion?.otAnsFontSize + 'px'}" [ngClass]="{'animated zoomIn' : control.showAns, 'transparent' : !control.showAns }" [value]="char" />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
