@@ -521,7 +521,10 @@ button {
 .mleft18 {
     margin-left: 18%;
 }
-
+.roundthree_body{
+    margin-left: 18%;
+    width: 100%;
+}
 //* Text in green capsule
 @for $f from 1 through 150 {
     @if $f>=11 {
@@ -938,4 +941,24 @@ button {
 
 .alpha_wrapper_r4 {
     top: 38% !important;
+}
+//Round Three
+.one_word_blue_three,.one_word_green_three{
+    background-size: contain;
+    display: inline-block;
+    min-width: 77px;
+    .roundthree_text{
+        width: 70px;
+    text-align: center;
+    margin: 0;
+    height: 81px;
+    background: none;
+    border: none;
+    font-size: 45px;
+    outline: none;
+    margin-left: 1px;
+    padding-top: 0px;
+    padding-bottom: 8px;
+    color: #fff;
+    }
 }
