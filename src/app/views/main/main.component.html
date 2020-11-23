@@ -42,7 +42,7 @@
                 <div *ngIf="currentRound && currentRound.questionType == 2 && control.showQuestion">
                     <div>
                         <img src="./assets/images/round_two_box.png" class="roundtwo_box" alt="">
-                        <input [value]="currentQuestion?.clue" class="roundtwohit" />
+                        <input [value]="currentQuestion?.clue" [ngStyle]="{'font-size':  currentQuestion.clueFontSize + 'px'}" class="roundtwohit" />
                     </div>
 
                 </div>

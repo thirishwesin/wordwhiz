@@ -298,7 +298,7 @@
                                 <input class="form-control common_input " OnlyNumber="true" [(ngModel)]="currentQuestion.clueFontSize">
                             </div>
                         </div>
-                        <div class=" form-group col-6 col-md-4" *ngIf="currentQuestion?.hints[0]?.id">
+                        <div class=" form-group col-6 col-md-4" *ngIf="currentQuestion?.hints[0]?.id && currentRound.questionType != 2">
                             <label for="" class="common_label" style="margin-top: 8%;">Hint
                                 {{ currentQuestion?.hints[0].id }}</label>
                             <h6 class="fontsize_limit">Recommended - {{recommendFontSize.main_hint}}</h6>
@@ -348,7 +348,7 @@
                                 <input class="form-control common_input " OnlyNumber="true" [(ngModel)]="currentQuestion.otClueFontSize">
                             </div>
                         </div>
-                        <div class=" form-group col-6 col-md-4" *ngIf="currentQuestion?.hints[0]?.id">
+                        <div class=" form-group col-6 col-md-4" *ngIf="currentQuestion?.hints[0]?.id && currentRound.questionType != 2">
                             <label for="" class="common_label" style="margin-top: 8%;">Hint
                                 {{ currentQuestion?.hints[0].id }}</label>
                             <h6 class="fontsize_limit">Recommended - {{recommendFontSize.main_hint}}</h6>
