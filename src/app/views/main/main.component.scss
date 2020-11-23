@@ -105,7 +105,7 @@ button {
     text-align: center;
     position: absolute;
     top: 5%;
-    left: 45%;
+    left: 43%;
     transform: translate(-50%, -50%);
     font-size: 60px;
 }
@@ -126,7 +126,7 @@ button {
 .cube_img {
     position: absolute;
     top: 29%;
-    left: 45%;
+    left: 43%;
     transform: translate(-50%, -50%);
     width: 1000px;
 }
@@ -139,14 +139,14 @@ button {
 .clude_hint {
     position: absolute;
     top: 28%;
-    left: 45%;
+    left: 43%;
     transform: translate(-50%, -50%);
     /*   font-size: calc(0.3em + 1vw); */
     font-size: 20px;
     text-shadow: 1px 2px 2px #333333;
     color: #ffffff;
     font-weight: bold;
-    width: 650px;
+    width: 720px;
     line-height: 1.1;
     text-align: center;
 }
@@ -518,8 +518,8 @@ button {
 }
 
 // Adjust blue rectangle hint row alignment
-.mleft40 {
-    margin-left: 40px;
+.mleft18 {
+    margin-left: 18%;
 }
 
 //* Text in green capsule
@@ -937,4 +937,7 @@ button {
 
 .alpha_wrapper_r4 {
     top: 50% !important;
+}
+.mtm1{
+    margin-top: -1%;
 }
