@@ -192,7 +192,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div style=" margin-top: 30px;" *ngIf="currentRound.questionType == 4 ">
+                                <!-- Round 4 Answer -->
+                                <div class="answer_four" *ngIf="currentRound.questionType == 4 ">
                                     <div class="one_word_green retangle{{control.fontSettings   .oneThird_answer}}" [ngClass]="{'hide_char less8char': char == ' ' , 'animated heartBeat': control.startCount && round4hintAnimated || control.showQuestion && !currentRound.showfirstAnsChar && !control.showAns && !control.clickTimer && !control.fontSettingOpenClose}"
                                         *ngFor="let char of ansCharArr; let i=index;" [ngStyle]="{'visibility': control.showAns ? 'unset': 'hidden'}">
 
