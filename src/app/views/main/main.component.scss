@@ -105,7 +105,7 @@ button {
     text-align: center;
     position: absolute;
     top: 5%;
-    left: 43%;
+    left: 37%;
     transform: translate(-50%, -50%);
     font-size: 60px;
 }
@@ -126,7 +126,7 @@ button {
 .cube_img {
     position: absolute;
     top: 29%;
-    left: 43%;
+    left: 39%;
     transform: translate(-50%, -50%);
     width: 1000px;
 }
@@ -139,7 +139,7 @@ button {
 .clude_hint {
     position: absolute;
     top: 28%;
-    left: 43%;
+    left: 39%;
     transform: translate(-50%, -50%);
     /*   font-size: calc(0.3em + 1vw); */
     font-size: 20px;
@@ -916,14 +916,14 @@ button {
 .roundtwohit {
     color: white;
     position: absolute;
-    /*    top: -4%; */
-    left: -6%;
+    left: 3%;
     background: none;
     border: none;
-    width: 90%;
+    width: 70%;
     text-align: center;
     font-size: 33px;
-    margin-top: -33px;
+    margin-top: -48px;
+    text-align: center;
 }
 
 .roundtwo_alpha_body {
@@ -940,7 +940,7 @@ button {
 }
 
 .alpha_wrapper_r4 {
-    top: 38% !important;
+    top: 48% !important;
 }
 //Round Three
 .one_word_blue_three,.one_word_green_three{

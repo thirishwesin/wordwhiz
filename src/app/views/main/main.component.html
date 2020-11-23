@@ -174,7 +174,7 @@
 
                         </div>
                         <!-- //! for position 0 top -->
-                        <div style="margin-left: -18%;" class="text-center " *ngIf="hint.position == 0 && currentRound.questionType != 4">
+                        <div style="margin-left: -23%;" class="text-center " *ngIf="hint.position == 0 && currentRound.questionType != 4">
                             <div class="long_word_blue longBlueRoundFour{{hint.value.length}} long_retangle{{control.fontSettings.main_hint}}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose || round4hintAnimated && control.startCount ? 'animated heartBeat':''"
                                 *ngIf="!hint?.isCharacter">
                                 <p class="word font{{control.fontSettings.main_hint}}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint ? 'animated zoomIn':''">
@@ -221,7 +221,7 @@
                         </div>
 
                         <!-- //! for position 1 left-->
-                        <div style="margin-left: -18%;" class="text-center" *ngIf="hint.position == 1 && currentRound.questionType != 4">
+                        <div style="margin-left: -23%;" class="text-center" *ngIf="hint.position == 1 && currentRound.questionType != 4">
                             <div class="long_word_blue long_retangle{{control.fontSettings.main_hint}} longBlueRoundTwoLenght{{hint.value.length}} " [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose ? 'animated heartBeat':''"
                                 *ngIf="!hint?.isCharacter">
                                 <p class="word font{{control.fontSettings.main_hint}}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose ? 'animated zoomIn':''">
