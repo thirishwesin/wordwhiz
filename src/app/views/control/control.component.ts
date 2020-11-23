@@ -837,7 +837,7 @@ export class ControlComponent implements OnInit {
     this.store.dispatch(ShowAnsForCategoryRound());
     if (this.currentRound.questionType == 4 && _.find(this.control.roundFourStatus, ['imagePath', './assets/images/yellow_rectangle.png']) !== undefined) {
       if (this.roundFourHintValue == this.currentQuestion.ans) {
-        _.find(this.control.roundFourStatus, ['imagePath', './assets/images/yellow_rectangle.png']).imagePath = './assets/images/blue_rectangle.png'
+        _.find(this.control.roundFourStatus, ['imagePath', './assets/images/yellow_rectangle.png']).imagePath = './assets/images/green_rectangle.png'
         //mark correct answer in separted arrays
         _.find(this.questionArraysByCategory[this.currentCategory.id], [
           "id",
