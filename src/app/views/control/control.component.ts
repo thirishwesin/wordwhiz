@@ -843,7 +843,7 @@ export class ControlComponent implements OnInit {
           "id",
           this.currentQuestion.id
         ]).actions = 1;
-        this.correct_answer_audio.play();
+
       } else {
         if (this.currentRound.questionType == 4 && _.find(this.control.roundFourStatus, ['imagePath', './assets/images/yellow_rectangle.png']) !== undefined) {
           _.find(this.control.roundFourStatus, ['imagePath', './assets/images/yellow_rectangle.png']).imagePath = './assets/images/red_rectangle.png'
@@ -852,8 +852,8 @@ export class ControlComponent implements OnInit {
           "id",
           this.currentQuestion.id
         ]).actions = 4;
-        this.wrongAnswer();
       }
+      this.correct_answer_audio.play();
       console.log('correct answer => ', this.control.roundFourStatus)
     }
     this.broadcastScreens();
