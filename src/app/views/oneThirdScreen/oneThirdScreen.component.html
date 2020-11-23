@@ -73,7 +73,7 @@
                                                 <input class="round_four_text" [ngStyle]="{'font-size': hint?.otHintFontSize + 'px'}" [ngClass]="control.showQuestion && !blockAnimated  && !control.clickPoint && !control.fontSettingOpenClose ? 'animated zoomIn':''" [value]="hint.value " />
                                             </div>
                                         </div>
-                                        <ng-container *ngIf="hintIndex == 2">
+                                        <ng-container *ngIf="hintIndex == 2 && control.showAns">
                                             <div style="margin-left: -50px;">
                                                 <div class="one_word_green retangle{{control.fontSettings.oneThird_answer}}" [ngClass]="{'hide_char less8char': char == ' ' , 'animated heartBeat': control.startCount && round4hintAnimated || control.showQuestion && !currentRound.showfirstAnsChar && !control.showAns && !control.clickTimer && !control.fontSettingOpenClose}"
                                                     *ngFor="let char of ansCharArr; let i=index;">

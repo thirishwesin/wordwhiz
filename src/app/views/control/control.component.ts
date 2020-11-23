@@ -835,9 +835,9 @@ export class ControlComponent implements OnInit {
 
     //showAnswer
     this.store.dispatch(ShowAnsForCategoryRound());
-    if (this.currentRound.questionType == 4 && _.find(this.control.roundFourStatus, ['imagePath', this.roundFourHintValue]) !== undefined) {
+    if (this.currentRound.questionType == 4 && _.find(this.control.roundFourStatus, ['imagePath', './assets/images/yellow_rectangle.png']) !== undefined) {
       if (this.roundFourHintValue == this.currentQuestion.ans) {
-        _.find(this.control.roundFourStatus, ['imagePath', this.roundFourHintValue]).imagePath = './assets/images/yellow_rectangle.png'
+        _.find(this.control.roundFourStatus, ['imagePath', './assets/images/yellow_rectangle.png']).imagePath = './assets/images/blue_rectangle.png'
         //mark correct answer in separted arrays
         _.find(this.questionArraysByCategory[this.currentCategory.id], [
           "id",
@@ -845,8 +845,8 @@ export class ControlComponent implements OnInit {
         ]).actions = 1;
         this.correct_answer_audio.play();
       } else {
-        if (this.currentRound.questionType == 4 && _.find(this.control.roundFourStatus, ['imagePath', this.roundFourHintValue]) !== undefined) {
-          _.find(this.control.roundFourStatus, ['imagePath', this.roundFourHintValue]).imagePath = './assets/images/red_rectangle.png'
+        if (this.currentRound.questionType == 4 && _.find(this.control.roundFourStatus, ['imagePath', './assets/images/yellow_rectangle.png']) !== undefined) {
+          _.find(this.control.roundFourStatus, ['imagePath', './assets/images/yellow_rectangle.png']).imagePath = './assets/images/red_rectangle.png'
         }
         _.find(this.questionArraysByCategory[this.currentCategory.id], [
           "id",
@@ -1243,18 +1243,18 @@ export class ControlComponent implements OnInit {
         _.find(this.control.roundFourStatus, ['id', 3]).imagePath = './assets/images/blue_rectangle.png';
         break;
       case '1choose':
-        _.find(this.control.roundFourStatus, ['id', 1]).imagePath = hintValue;
+        _.find(this.control.roundFourStatus, ['id', 1]).imagePath = './assets/images/yellow_rectangle.png';
         break;
       case '2choose':
-        _.find(this.control.roundFourStatus, ['id', 2]).imagePath = hintValue;
+        _.find(this.control.roundFourStatus, ['id', 2]).imagePath = './assets/images/yellow_rectangle.png';
         break;
       case '3choose':
-        _.find(this.control.roundFourStatus, ['id', 3]).imagePath = hintValue;
+        _.find(this.control.roundFourStatus, ['id', 3]).imagePath = './assets/images/yellow_rectangle.png';
         break;
       default:
         break;
     }
-    // this.broadcastScreens();
+    this.broadcastScreens();
   }
 
   setDefaultRadioState() {
