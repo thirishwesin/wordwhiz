@@ -141,7 +141,7 @@
                         </div>
                     </div>
 
-                    <div  *ngFor="let hint of currentQuestion?.hints; let hintIndex = index">
+                    <div *ngFor="let hint of currentQuestion?.hints; let hintIndex = index">
                         <!-- //! for question type four -->
                         <div class="text-center mtm1" *ngIf="currentRound.questionType == 4">
                             <div class="round_four_img " style="float: left;" [ngStyle]="{'background-image': 'url(' + control.roundFourStatus[0].imagePath + ')'}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose || round4hintAnimated && control.startCount ? 'animated heartBeat':''"
@@ -156,21 +156,21 @@
                                 *ngIf="!hint?.isCharacter && hintIndex == 2">
                                 <input class="round_four_text" [ngStyle]="{'font-size': hint?.hintFontSize + 'px'}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint ? 'animated zoomIn':''" [value]="hint.value" />
                             </div>
-                            <ng-container *ngIf="hintIndex == 2 && control.showAns">
-                                <div style="margin-left: -28%; margin-top: 5%;">
-                                    <div class="one_word_green retangle{{control.fontSettings.main_answer}}" [ngClass]="{'hide_char less8char': char == ' ' , 'animated heartBeat': control.startCount && round4hintAnimated && currentRound.showfirstAnsChar || control.showQuestion && !currentRound.showfirstAnsChar && !control.showAns && !control.startCount && !control.fontSettingOpenClose}"
-                                        *ngFor="let char of ansCharArr; let i=index;">
-                                        <!-- //! for round 4 -->
-                                        <span *ngIf="currentRound.showfirstAnsChar">
-                                            <input class="round1_text"
-                                                [ngStyle]="{'font-size': currentQuestion?.ansFontSize + 'px'}"
-                                                [ngClass]="{'animated zoomIn' : control.showAns, 'transparent' : !control.showAns}"
-                                                [value]="char" />
-                                        </span>
-                                    </div>
+                            <!-- <ng-container *ngIf="hintIndex == 2 && control.showAns"> [ngStyle]="{'visibility': hintIndex == 2 && control.showAns ? 'unset': 'hidden'}"-->
+                            <div style="margin-left: -28%; margin-top: 5%;" *ngIf="hintIndex == 2">
+                                <div class="one_word_green retangle{{control.fontSettings.main_answer}}" [ngClass]="{'hide_char less8char': char == ' ' , 'animated heartBeat': control.startCount && round4hintAnimated && currentRound.showfirstAnsChar || control.showQuestion && !currentRound.showfirstAnsChar && !control.showAns && !control.startCount && !control.fontSettingOpenClose}"
+                                    *ngFor="let char of ansCharArr; let i=index;" [ngStyle]="{'visibility': hintIndex == 2 && control.showAns ? 'unset': 'hidden'}">
+                                    <!-- //! for round 4 -->
+                                    <span *ngIf="currentRound.showfirstAnsChar">
+                                        <input class="round1_text"
+                                            [ngStyle]="{'font-size': currentQuestion?.ansFontSize + 'px'}"
+                                            [ngClass]="{'animated zoomIn' : control.showAns, 'transparent' : !control.showAns}"
+                                            [value]="char" />
+                                    </span>
                                 </div>
+                            </div>
 
-                            </ng-container>
+                            <!-- </ng-container> -->
 
                         </div>
                         <!-- //! for position 0 top -->
@@ -286,7 +286,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
 
                 </div>
