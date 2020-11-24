@@ -1254,6 +1254,8 @@ export class ControlComponent implements OnInit {
       default:
         break;
     }
+    this.runCategoryRound = true;
+    this.store.dispatch(runCategoryRound());
     this.broadcastScreens();
   }
 
