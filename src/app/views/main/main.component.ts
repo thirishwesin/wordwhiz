@@ -413,7 +413,7 @@ export class MainComponent implements OnInit {
   }
 
   setGridValue() {
-
+    console.log('called setGridValue function()')
     this.currentQuestion.hints[0].position.forEach((id, index) => {
       // console.log('id: ', id, ', ans: ', question.ans)
       if (this.currentQuestion.ans.includes(id)) {
@@ -422,17 +422,21 @@ export class MainComponent implements OnInit {
           (<HTMLDivElement>document.getElementById(id)).style.background =
             `url(./assets/images/BLUE/${this.currentQuestion.hints[0].value.charAt(index).toUpperCase()}.png) no-repeat`
         }, 0);
-      } else {
-        setTimeout(() => {
-          (<HTMLDivElement>document.getElementById(id)).style.background = 'url(./assets/images/GREEN/blank.png) no-repeat';
-        }, 0);
+      } else if ((<HTMLDivElement>document.getElementById(id)) !== null) {
+        if ((<HTMLDivElement>document.getElementById(id)).style.background == '') {
+          setTimeout(() => {
+            console.log('value => ', (<HTMLDivElement>document.getElementById(id)).style.background);
+            (<HTMLDivElement>document.getElementById(id)).style.background = 'url(./assets/images/GREEN/blank.png) no-repeat';
+          }, 0);
+        }
+
       }
     })
 
   }
 
   showGridEachAnswer() {
-
+    console.log('called showGridEachAnswer function()')
     this.currentQuestion.hints[0].position.forEach((id, index) => {
       setTimeout(() => {
         (<HTMLDivElement>document.getElementById(id)).style.background =
@@ -444,15 +448,19 @@ export class MainComponent implements OnInit {
   }
 
   hideGridEachAnswer() {
+    console.log('called hideGridEachAnswer function()')
     this.currentQuestion.hints[0].position.forEach((id, index) => {
-      if (this.currentQuestion.ans.includes(id)) {
+      if (this.currentQuestion.ans.includes(id) && (<HTMLDivElement>document.getElementById(id)) !== null) {
         console.log('id => ', id);
         (<HTMLDivElement>document.getElementById(id)).style.background =
           `url(./assets/images/BLUE/${this.currentQuestion.hints[0].value.charAt(index).toUpperCase()}.png) no-repeat`
       } else {
         setTimeout(() => {
-          (<HTMLDivElement>document.getElementById(id)).style.background = 'url(./assets/images/GREEN/blank.png) no-repeat'
+          if ((<HTMLDivElement>document.getElementById(id)).style.background == '') {
+            (<HTMLDivElement>document.getElementById(id)).style.background = 'url(./assets/images/GREEN/blank.png) no-repeat'
+          }
         }, 0);
+
       }
     })
   }
