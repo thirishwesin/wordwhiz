@@ -39,7 +39,7 @@
                     <span class="clude_hint" [ngStyle]="{'font-size': currentQuestion.clueFontSize + 'px'}" *ngIf="currentRound && (control.showQuestion  || control.runCategoryRound) && (currentRound.questionType == 1 || currentRound.questionType == 3 || currentRound.questionType == 5)">{{ currentQuestion?.clue }}
                     </span>
                 </div>
-                <div *ngIf="currentRound && currentRound.questionType == 2 && control.showQuestion">
+                <div [ngStyle]="{'visibility': currentRound && currentRound.questionType == 2 && control.showQuestion ?  'unset': 'hidden'}">
                     <div>
                         <img src="./assets/images/round_two_box.png" class="roundtwo_box" alt="">
                         <input [value]="currentQuestion?.clue" [ngStyle]="{'font-size':  currentQuestion.clueFontSize + 'px'}" class="roundtwohit" />
@@ -183,7 +183,8 @@
                             </div>
                             <br />
                             <div class="text-left roundthree_body" *ngIf="hint?.isCharacter">
-                                <div class="one_word_blue one_word_blue_three text-center retangle{{control.fontSettings.main_hint}}" [ngClass]="{'animated heartBeat': control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose, 'hide_char' : char == ' '}" *ngFor="let char of hint.hintCharArr">
+                                <div class="one_word_blue one_word_blue_three text-center retangle{{control.fontSettings.main_hint}}" [ngClass]="{'animated heartBeat': control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose, 'hide_char' : char == ' '}"
+                                    *ngFor="let char of hint.hintCharArr">
                                     <!-- <p class="one_word font{{control.fontSettings.main_hint}}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose ? 'animated zoomIn':''">
                                             {{ char }}
                                         </p> -->
