@@ -830,8 +830,8 @@ export class ControlComponent implements OnInit {
     // play audio if press Correct Answer button
 
 
-    // this.runCategoryRound = true;
-    // this.store.dispatch(runCategoryRound());
+    this.runCategoryRound = true;
+    this.store.dispatch(runCategoryRound());
 
     //showAnswer
     this.store.dispatch(ShowAnsForCategoryRound());
