@@ -158,14 +158,15 @@
                             </div>
                             <!-- <ng-container *ngIf="hintIndex == 2 && control.showAns"> [ngStyle]="{'visibility': hintIndex == 2 && control.showAns ? 'unset': 'hidden'}"-->
                             <div style="margin-left: -8%; margin-top: 5%;" *ngIf="hintIndex == 2">
-                                <div class="one_word_green retangle{{control.fontSettings.main_answer}}" [ngClass]="{'hide_char less8char': char == ' ' , 'animated heartBeat': control.startCount && round4hintAnimated && currentRound.showfirstAnsChar || control.showQuestion && !currentRound.showfirstAnsChar && !control.showAns && !control.startCount && !control.fontSettingOpenClose}"
-                                    *ngFor="let char of ansCharArr; let i=index;" [ngStyle]="{'visibility': hintIndex == 2 && control.showAns ? 'unset': 'hidden'}">
+                                <div class="one_word_green retangle{{control.fontSettings.main_answer}}" [ngClass]="{'hide_char less8char': char == ' '}" *ngFor="let char of ansCharArr; let i=index;" [ngStyle]="{'visibility': hintIndex == 2 && control.showAns ? 'unset': 'hidden'}">
                                     <!-- //! for round 4 -->
                                     <span *ngIf="currentRound.showfirstAnsChar">
                                         <input class="round1_text"
                                             [ngStyle]="{'font-size': currentQuestion?.ansFontSize + 'px'}"
-                                            [ngClass]="{'animated zoomIn' : control.showAns, 'transparent' : !control.showAns}"
                                             [value]="char" />
+                                        <!--  [ngClass]="{'animated zoomIn' : control.showAns, 'transparent' : !control.showAns}"
+                                            , 'animated heartBeat': control.startCount && round4hintAnimated && currentRound.showfirstAnsChar || control.showQuestion && !currentRound.showfirstAnsChar && !control.showAns && !control.startCount && !control.fontSettingOpenClose
+                                            -->
                                     </span>
                                 </div>
                             </div>
