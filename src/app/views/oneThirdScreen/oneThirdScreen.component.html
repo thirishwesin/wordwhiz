@@ -83,7 +83,7 @@
                                                 {{ hint.value }}
                                             </p>
                                         </div>
-                                        <div style="margin-top: -40px;margin-left: -50px;" class="text-left" *ngIf="hint.isCharacter">
+                                        <div style="margin-top: -40px;margin-left: -50px;" class="text-center" *ngIf="hint.isCharacter">
                                             <div style="margin-top: 50px;" class="one_word_blue one_word_blue_three" [ngClass]="{'animated heartBeat': control.showQuestion && !blockAnimated  && !control.clickPoint && !control.fontSettingOpenClose, 'hide_char' : char == ' '}" *ngFor="let char of hint.hintCharArr">
                                                 <!-- <p class="one_word font{{control.fontSettings.oneThird_hint}}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint ? 'animated zoomIn':''">
                                                 {{ char }}
@@ -97,7 +97,7 @@
                                                 {{ currentQuestion.ans }}
                                             </p>
                                         </div>
-                                        <div style="margin-left: -50px;" class="text-left" *ngIf="currentQuestion.isAnsCharacter && currentRound.questionType != 4">
+                                        <div style="margin-left: -50px;" class="text-center" *ngIf="currentQuestion.isAnsCharacter && currentRound.questionType != 4">
                                             <div class="one_word_green one_word_green_three retangle{{control.fontSettings.oneThird_answer}}" [ngClass]="{'hide_char less8char': char == ' ' , 'animated heartBeat': control.startCount && round4hintAnimated || control.showQuestion && !currentRound.showfirstAnsChar && !control.showAns && !control.clickTimer && !control.fontSettingOpenClose, 'blue_bg' : i == 0 && currentRound.showfirstAnsChar}"
                                                 *ngFor="let char of ansCharArr; let i=index;">
 
