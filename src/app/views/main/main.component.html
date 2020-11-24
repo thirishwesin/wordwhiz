@@ -114,7 +114,7 @@
                             </p>
                         </div>
                         <div class="text-center " *ngIf="currentQuestion?.isAnsCharacter">
-                            <div style="text-align: left;" *ngIf="currentRound.questionType != 5">
+                            <div style="text-align: center;margin-left: -34%;" *ngIf="currentRound.questionType != 5">
 
                                 <div class="one_word_green retangle{{control.fontSettings.main_answer}}" [ngClass]="char == ' ' ? 'hide_char': i==0 ? 'blue_bg animated heartBeat': 'animated heartBeat' " *ngFor="let char of ansCharArr; let i=index;">
                                     <!-- <p class="one_word font{{control.fontSettings.main_answer}}" [ngClass]="control.showAns || currentRound.showfirstAnsChar && i==0 ? 'animated zoomIn' : 'transparent'">
