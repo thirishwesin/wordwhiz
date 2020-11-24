@@ -157,19 +157,16 @@
                                 <input class="round_four_text" [ngStyle]="{'font-size': hint?.hintFontSize + 'px'}" [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint ? 'animated zoomIn':''" [value]="hint.value" />
                             </div>
                             <!-- <ng-container *ngIf="hintIndex == 2 && control.showAns"> [ngStyle]="{'visibility': hintIndex == 2 && control.showAns ? 'unset': 'hidden'}"-->
-                            <div style="margin-left: -8%; margin-top: 5%;" *ngIf="hintIndex == 2">
+                            <!-- <div style="margin-left: -8%; margin-top: 5%;" *ngIf="hintIndex == 2">
                                 <div class="one_word_green retangle{{control.fontSettings.main_answer}}" [ngClass]="{'hide_char less8char': char == ' '}" *ngFor="let char of ansCharArr; let i=index;" [ngStyle]="{'visibility': hintIndex == 2 && control.showAns ? 'unset': 'hidden'}">
-                                    <!-- //! for round 4 -->
+                                    
                                     <span *ngIf="currentRound.showfirstAnsChar">
                                         <input class="round1_text"
                                             [ngStyle]="{'font-size': currentQuestion?.ansFontSize + 'px'}"
                                             [value]="char" />
-                                        <!--  [ngClass]="{'animated zoomIn' : control.showAns, 'transparent' : !control.showAns}"
-                                            , 'animated heartBeat': control.startCount && round4hintAnimated && currentRound.showfirstAnsChar || control.showQuestion && !currentRound.showfirstAnsChar && !control.showAns && !control.startCount && !control.fontSettingOpenClose
-                                            -->
                                     </span>
                                 </div>
-                            </div>
+                            </div> -->
 
                             <!-- </ng-container> -->
 
@@ -289,7 +286,12 @@
                             </div>
                         </div>
                     </div>
+                    <div class="answer_four" *ngIf="currentRound.questionType == 4 ">
+                        <div class="one_word_green retangle{{control.fontSettings   .oneThird_answer}}" [ngClass]="{'hide_char less8char': char == ' '}" *ngFor="let char of ansCharArr; let i=index;" [ngStyle]="{'visibility': control.showAns ? 'unset': 'hidden'}">
 
+                            <input class="round1_text" [ngStyle]="{'font-size': currentQuestion?.otAnsFontSize + 'px'}" [value]="char" />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
