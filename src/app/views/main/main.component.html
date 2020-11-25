@@ -289,7 +289,7 @@
                     <div class="answer_four" *ngIf="currentRound.questionType == 4 ">
                         <div class="one_word_green retangle{{control.fontSettings   .oneThird_answer}}" [ngClass]="{'hide_char less8char': char == ' '}" *ngFor="let char of ansCharArr; let i=index;" [ngStyle]="{'visibility': control.showAns ? 'unset': 'hidden'}">
 
-                            <input class="round1_text" [ngStyle]="{'font-size': currentQuestion?.otAnsFontSize + 'px'}" [value]="char" />
+                            <input class="round1_text" [ngStyle]="{'font-size': currentQuestion?.ansFontSize + 'px'}" [value]="char" />
                         </div>
                     </div>
                 </div>
