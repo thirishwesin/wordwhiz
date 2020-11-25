@@ -38,35 +38,24 @@
                             </div>
                         </div>
                     </div>
+<!-- Point -->
+<div class="form-group">
+    <label for="" class="common_label">
+        POINT
+    </label>
+    <input type="text" class="common_input w_321" value="{{ currentRound.point }}" OnlyNumber="true" (keyup)="changePoint($event)" />
 
-                    <div class="form-group">
-                        <div ngbDropdown class="d-inline-block">
-                            <button class="btn common_input" id="dropdownBasic1" ngbDropdownToggle>
-                                <p class="section_text">
-                                    {{
-                        currentRound.name != ""
-                          ? currentRound.name
-                          : "Choose Question Type"
-                      }}
-                                </p>
-                                <img [src]="Images.dropDown" class="drop_down_icon" />
-                                <!-- <fa-icon [icon]="faPlayCircle" class="down_icon"></fa-icon> -->
-                            </button>
-                            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                                <button ngbDropdownItem *ngFor="let questionType of wordWhiz.questionTypes" (click)="openModal(content_setup, 0, questionType)">
-                                    {{ questionType.name }}
-                                </button>
-                            </div>
-                            <div class="form-group">
-                                <label class="common_label">ROUND AND ROUND NAME FONT
-                                    SIZE</label>
-                                <input type="text" class="common_input w_321" [(ngModel)]="currentRound.roundNameFontSize" OnlyNumber="true" />
-                            </div>
+</div>
+                
+                        <div class="form-group">
+                            <label class="common_label">ROUND AND ROUND NAME FONT
+                                SIZE</label>
+                            <input type="text" class="common_input w_321" [(ngModel)]="currentRound.roundNameFontSize" OnlyNumber="true" />
                         </div>
-                    </div>
-
+                    
                     <!-- choose category(theme) -->
                     <div class="form-group" *ngIf="currentRound.questionType == 4">
+                        <label for=""  class="common_label"></label>
                         <div ngbDropdown class="d-inline-block">
                             <button class="btn common_input" id="dropdownBasic1" ngbDropdownToggle>
                                 <p class="section_text">
@@ -98,14 +87,30 @@
                 </div>
                 <div class="col-sm-5">
                     <div class="form-group">
-                        <label for="" style="width:100px;" class="common_label">
-                            POINT
-                        </label>
-                        <input type="text" class="common_input w_321" value="{{ currentRound.point }}" OnlyNumber="true" (keyup)="changePoint($event)" />
-
+                        <div ngbDropdown class="d-inline-block">
+                            <button class="btn common_input" id="dropdownBasic1" ngbDropdownToggle>
+                                <p class="section_text">
+                                    {{
+                        currentRound.name != ""
+                          ? currentRound.name
+                          : "Choose Question Type"
+                      }}
+                                </p>
+                                <img [src]="Images.dropDown" class="drop_down_icon" />
+                                <!-- <fa-icon [icon]="faPlayCircle" class="down_icon"></fa-icon> -->
+                            </button>
+                            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                <button ngbDropdownItem *ngFor="let questionType of wordWhiz.questionTypes" (click)="openModal(content_setup, 0, questionType)">
+                                    {{ questionType.name }}
+                                </button>
+                            </div>
+    
+                        </div>
                     </div>
+                    
+                 
                     <div class="form-group ">
-                        <label for="" style="width:100px;" class="common_label">TIMEOUT</label>
+                        <label for=""  class="common_label">TIMEOUT</label>
                         <!-- <input type="text" class="common_input w_321" value="{{ currentRound.timeOut }}" (keypress)="numberOnly($event)" (keyup)="changeTimeout($event)" /> -->
                         <div ngbDropdown class="d-inline-block">
                             <button class="btn common_input" id="dropdownBasic1" ngbDropdownToggle>
@@ -122,11 +127,11 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="" style="width:100px;" class="common_label">CLUE FONT SIZE</label>
+                        <label for=""  class="common_label">CLUE FONT SIZE</label>
                         <input type="text" class="common_input w_321" [(ngModel)]="currentRound.clueLabelFontSize" OnlyNumber="true" />
                     </div>
                     <div class="form-group">
-                        <label for="" style="width:100px;" class="common_label">PLAYER POINT FONT SIZE</label>
+                        <label for="" class="common_label">PLAYER POINT FONT SIZE</label>
                         <input type="text" class="common_input w_321" [(ngModel)]="episode.players[0].pointFontSize" (ngModelChange)="changePlayerPointSize($event)" OnlyNumber="true" />
                     </div>
                 </div>
@@ -144,15 +149,15 @@
                     <div class="form-group  question_txt" *ngIf="currentRound.questionType != 2">
                         <label for="" class="common_label"> QUESTION </label>
                         <span class="error_msg ml-5" *ngIf="invalidQuestion">*Already exist in question list !</span>
-                        <br />
+                        
                         <textarea type="text" class="common_input common_textarea" [(ngModel)]="question.clue" (ngModelChange)="questionClueChanged($event)"></textarea>
                         <div class="row">
-                            <div>
-                                <label for="" class="common_label">MAIN QUESTION FONT SIZE </label><br>
+                            <div class="col-sm-6">
+                                <label for="" class="common_label">MAIN QUESTION FONT SIZE </label>
                                 <input type="text" class="common_input w_30" [(ngModel)]="question.clueFontSize" OnlyNumber="true" (ngModelChange)="questionClueFontSizeChanged($event)">
                             </div>
-                            <div style="margin-left: 30%;">
-                                <label for="" class="common_label">ONE THIRD QUESTION FONT SIZE </label><br>
+                            <div class="col-sm-6">
+                                <label for="" class="common_label">ONE THIRD QUESTION FONT SIZE </label>
                                 <input type="text" class="common_input w_30" [(ngModel)]="question.otClueFontSize" OnlyNumber="true" (ngModelChange)="questionClueFontSizeChanged($event)">
                             </div>
                         </div>
@@ -163,15 +168,15 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="form-group ">
-                                    <label for="" style="width:100px;" class="common_label">ANSWER</label><br />
+                                    <label for="" style="width:100px;" class="common_label">ANSWER</label>
                                     <input type="text" class="common_input w_100" [(ngModel)]="question.ans" (ngModelChange)="questionAnsChanged($event)" />
                                     <div class="row">
-                                        <div>
-                                            <label class="common_label">MAIN ANSWER FONT SIZE</label><br />
+                                        <div class="col-sm-6">
+                                            <label class="common_label">MAIN ANSWER FONT SIZE</label>
                                             <input type="text" class="common_input w_30" [(ngModel)]="question.ansFontSize" OnlyNumber="true" (ngModelChange)="questionAnsFontSizeChanged($event)" />
                                         </div>
-                                        <div style="margin-left: 30%;">
-                                            <label class="common_label">ONE THIRD ANSWER FONT SIZE</label><br />
+                                        <div class="col-sm-6">
+                                            <label class="common_label">ONE THIRD ANSWER FONT SIZE</label>
                                             <input type="text" class="common_input w_30" [(ngModel)]="question.otAnsFontSize" OnlyNumber="true" (ngModelChange)="questionAnsFontSizeChanged($event)" />
                                         </div>
                                     </div>
@@ -202,22 +207,22 @@
                                     <div class="col-sm-5">
                                         <div class="form-group ">
                                             <label for="" style="width:100px;" class="common_label">ANSWER</label>
-                                            <br />
+                                            
                                             <input [readonly]="hint.id == 1 ? false : true" type="text" [ngClass]="
                             hint.id == 1
                               ? 'common_input w_100'
                               : 'common_input w_100 disabled'
                           " [(ngModel)]="question.ans" />
-                                            <div class="row">
+                                            
                                                 <div>
-                                                    <label class="common_label">MAIN ANSWER FONT SIZE</label><br>
+                                                    <label class="common_label">MAIN ANSWER FONT SIZE</label>
                                                     <input type="text" class="common_input w_30" [(ngModel)]="question.ansFontSize" OnlyNumber="true" />
                                                 </div>
                                                 <div>
-                                                    <label class="common_label">ONE THIRD ANSWER FONT SIZE</label><br>
+                                                    <label class="common_label">ONE THIRD ANSWER FONT SIZE</label>
                                                     <input type="text" class="common_input w_30" [(ngModel)]="question.otAnsFontSize" OnlyNumber="true" />
                                                 </div>
-                                            </div>
+                                            
                                         </div>
                                     </div>
                                     <div class="col-sm-2 exchange_wrapper">
@@ -227,14 +232,14 @@
                                         <div class="form-group">
                                             <label for="" style="width:100px;" class="common_label">HINT
                                                 {{ question.hints.length <= 1 ? "": hint.id }}</label>
-                                            <br />
+                                            
                                             <input type="text" class="common_input w_100" (keyup)="changeHint($event, hint.id)" value="{{ hint.value }}" />
                                             <div>
-                                                <label class="common_label">MAIN HINT FONT SIZE</label><br>
+                                                <label class="common_label">MAIN HINT FONT SIZE</label>
                                                 <input type="text" class="common_input w_30" [(ngModel)]="hint.hintFontSize" OnlyNumber="true" />
                                             </div>
                                             <div>
-                                                <label class="common_label">ONE THIRD HINT FONT SIZE</label><br>
+                                                <label class="common_label">ONE THIRD HINT FONT SIZE</label>
                                                 <input type="text" class="common_input w_30" [(ngModel)]="hint.otHintFontSize" OnlyNumber="true" />
                                             </div>
                                         </div>
@@ -249,14 +254,14 @@
                                             <span class="error_msg" *ngIf="invalidQuestion && currentRound.questionType == 4">*Already exist
                                                 in
                                                 question list !</span>
-                                            <br />
+                                           
                                             <input type="text" class="common_input w_100" (keyup)="changeHint($event, hint.id)" value="{{ hint.value }}" />
                                             <div>
-                                                <label class="common_label">MAIN HINT FONT SIZE</label><br>
+                                                <label class="common_label">MAIN HINT FONT SIZE</label>
                                                 <input type="text" class="common_input w_30" [(ngModel)]="hint.hintFontSize" OnlyNumber="true" />
                                             </div>
                                             <div>
-                                                <label class="common_label">ONE THIRD HINT FONT SIZE</label><br>
+                                                <label class="common_label">ONE THIRD HINT FONT SIZE</label>
                                                 <input type="text" class="common_input w_30" [(ngModel)]="hint.otHintFontSize" OnlyNumber="true" />
                                             </div>
                                         </div>
@@ -266,18 +271,18 @@
                                     </div>
                                     <div class="col-sm-5">
                                         <div class="form-group ">
-                                            <label for="" style="width:100px;" class="common_label">ANSWER</label><br />
+                                            <label for="" style="width:100px;" class="common_label">ANSWER</label>
                                             <input [readonly]="hint.id == 1 ? false : true" type="text" [ngClass]="
                             hint.id == 1
                               ? 'common_input w_100'
                               : 'common_input w_100 disabled'
                           " [(ngModel)]="question.ans" />
                                             <div>
-                                                <label class="common_label">MAIN ANSWER FONT SIZE</label><br>
+                                                <label class="common_label">MAIN ANSWER FONT SIZE</label>
                                                 <input type="text" class="common_input w_30" [(ngModel)]="question.ansFontSize" OnlyNumber="true" />
                                             </div>
                                             <div>
-                                                <label class="common_label">ONE THIRD ANSWER FONT SIZE</label><br>
+                                                <label class="common_label">ONE THIRD ANSWER FONT SIZE</label>
                                                 <input type="text" class="common_input w_30" [(ngModel)]="question.otAnsFontSize" OnlyNumber="true" />
                                             </div>
                                         </div>
@@ -286,34 +291,40 @@
                                 </div>
                             </ng-container>
                             <ng-container *ngIf="currentRound.questionType == 4">
-                                <div class="col-sm-12">
+                                <div class="col-sm-12" style="padding: 0;">
                                     <div class="form-group">
                                         <label for="" style="width:100px;" class="common_label">HINT
                                             {{ question.hints.length <= 1 ? "": hint.id }}</label>
-                                        <br />
+                                        
                                         <input type="text" class="common_input w_100" (keyup)="changeHint($event, hint.id)" value="{{ hint.value }}" />
-                                        <div>
-                                            <label class="common_label">MAIN HINT FONT SIZE</label><br>
-                                            <input type="text" class="common_input w_30" [(ngModel)]="hint.hintFontSize" OnlyNumber="true" />
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="common_label">MAIN HINT FONT SIZE</label>
+                                                <input type="text" class="common_input w_30" [(ngModel)]="hint.hintFontSize" OnlyNumber="true" />
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label class="common_label">ONE THIRD HINT FONT SIZE</label>
+                                                <input type="text" class="common_input w_30" [(ngModel)]="hint.otHintFontSize" OnlyNumber="true" />
+                                            </div>
                                         </div>
-                                        <div>
-                                            <label class="common_label">ONE THIRD HINT FONT SIZE</label><br>
-                                            <input type="text" class="common_input w_30" [(ngModel)]="hint.otHintFontSize" OnlyNumber="true" />
-                                        </div>
+                                        
                                     </div>
                                 </div>
-                                <div class="col-sm-12" *ngIf="hintIndex == 2">
+                                <div class="col-sm-12" style="padding: 0;" *ngIf="hintIndex == 2">
                                     <div class="form-group ">
-                                        <label for="" style="width:100px;" class="common_label">ANSWER</label><br />
+                                        <label for="" style="width:100px;" class="common_label">ANSWER</label>
                                         <input type="text" class="common_input w_100" [(ngModel)]="question.ans" />
-                                        <div>
-                                            <label class="common_label">MAIN ANSWER FONT SIZE</label><br>
-                                            <input type="text" class="common_input w_30" [(ngModel)]="question.ansFontSize" OnlyNumber="true" />
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="common_label">MAIN ANSWER FONT SIZE</label>
+                                                <input type="text" class="common_input w_30" [(ngModel)]="question.ansFontSize" OnlyNumber="true" />
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label class="common_label">ONE THIRD ANSWER FONT SIZE</label>
+                                                <input type="text" class="common_input w_30" [(ngModel)]="question.otAnsFontSize" OnlyNumber="true" />
+                                            </div>
                                         </div>
-                                        <div>
-                                            <label class="common_label">ONE THIRD ANSWER FONT SIZE</label><br>
-                                            <input type="text" class="common_input w_30" [(ngModel)]="question.otAnsFontSize" OnlyNumber="true" />
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </ng-container>
@@ -377,11 +388,11 @@
                                 <div class="col-sm-4">
                                     <div class="form-group" style="margin-top: 20px;">
 
-                                        <div ngbDropdown class="d-inline-block" style="margin-bottom: 13%;">
+                                        <div ngbDropdown class="d-inline-block" style="margin-bottom: 13%;width: 100%;">
                                             <label for="" class="common_label ">
                                                 CATEGORY
-                                            </label><br>
-                                            <button class="btn common_input" id="dropdownBasic1" ngbDropdownToggle>
+                                            </label>
+                                            <button style="width: 100%;" class="btn common_input" id="dropdownBasic1" ngbDropdownToggle>
                                                 <p class="section_text">
                                                     {{ currentCategory ? currentCategory.name : "Add New Category" }}
                                                 </p>
@@ -406,11 +417,11 @@
                                             </div>
                                         </div>
 
-                                        <div ngbDropdown class="d-inline-block" style="margin-bottom: 13%;">
+                                        <div ngbDropdown class="d-inline-block" style="margin-bottom: 13%;width: 100%;">
                                             <label for="" class="common_label ">
                                                 WORD
-                                            </label><br>
-                                            <button class="btn common_input" id="dropdownBasic1" ngbDropdownToggle>
+                                            </label>
+                                            <button style="width: 100%;" class="btn common_input" id="dropdownBasic1" ngbDropdownToggle>
                                                 <p class="section_text">
                                                     {{ currentWord ? currentWord.hints[0].value : "Select One Word" }}
                                                 </p>
@@ -474,16 +485,25 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th scope="col" class="common_label">
+                                    <th  class="table_title">
                                         QUESTION</th>
-                                    <th scope="col" class="common_label" *ngIf="currentRound.questionType != 2">ANSWER
+                                    <th  class="table_title" *ngIf="currentRound.questionType != 2">ANSWER
                                     </th>
-                                    <th scope="col" class="common_label" *ngFor="let hint of question.hints">
+                                    <th class="table_title"  *ngFor="let hint of question.hints">
                                         HINT {{ question.hints.length
                                         <=1 ? "" : hint.id }} </th>
-                                            <th scope="col" class="common_label act_width" *ngIf="currentRound.questionType != 2">ACTION</th>
+                                            <th class="table_title act_width text-center"   *ngIf="currentRound.questionType != 2">ACTION</th>
                                 </tr>
                             </thead>
+                            <!-- <thead>
+                                <tr>
+                                    <td>QUESTION</td>
+                                    <td  *ngIf="currentRound.questionType != 2">ANSWER </td>
+                                    <td *ngFor="let hint of question.hints">HINT {{ question.hints.length
+                                        <=1 ? "" : hint.id }}</td>
+                                    <td *ngIf="currentRound.questionType != 2">ACTION</td>
+                                </tr>
+                            </thead> -->
                             <tbody *ngIf="currentRound.questionArray.length > 0">
                                 <tr *ngFor="let question of filterQuestion(currentRound.questionArray)">
                                     <td class=" common_data ">

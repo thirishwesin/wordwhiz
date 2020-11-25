@@ -3,7 +3,7 @@
 }
 
 .select_body {
-    text-align: center;
+    padding-left: 50px;
 }
 
 .title {
@@ -234,7 +234,7 @@
 }
 
 .act_width {
-    width: 230px;
+    width: 230px !important;
     text-align: center;
 }
 
@@ -492,3 +492,14 @@ padding: 5px;
 // .mt10{
 //     margin-top: 10px;
 // }
+.table_title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #41faff;
+    letter-spacing: 0.7px;
+    margin-bottom: 0px;
+    text-align: left;
+    padding-bottom: 5px;
+    width: auto;
+    // text-shadow: 0 0 0.5em #41faff, 0 0 0.5em #41faff;
+}
