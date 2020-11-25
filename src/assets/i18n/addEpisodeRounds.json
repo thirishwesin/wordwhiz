@@ -31,7 +31,7 @@
         "showfirstAnsChar": false,
         "hasCategory": false,
         "categories": [],
-        "timeOut": 15,
+        "timeOut": 10,
         "point": 20,
         "questionArray": [],
         "roundNameFontSize": "90",
