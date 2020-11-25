@@ -830,6 +830,8 @@ export class ControlComponent implements OnInit {
     // play audio if press Correct Answer button
 
 
+    console.log('this.currentQustion answer => ', this.currentQuestion.ans, this.roundFourHintValue)
+
     this.runCategoryRound = true;
     this.store.dispatch(runCategoryRound());
 
@@ -853,10 +855,15 @@ export class ControlComponent implements OnInit {
           this.currentQuestion.id
         ]).actions = 4;
       }
-      console.log('correct answer => ', this.control.roundFourStatus)
     }
     this.correct_answer_audio.play();
     this.broadcastScreens();
+
+    if (this.currentRound.questionType == 4 && this.questionDropDownByCategory()[this.questionDropDownByCategory().length - 1] == this.currentQuestion) {
+      setTimeout(() => {
+        this.resetTimer();
+      }, 2000);
+    }
 
     // // //checkLastIndex or not
     // let checkLastIndex = false;
@@ -1231,7 +1238,6 @@ export class ControlComponent implements OnInit {
   radioOnChange(event, hintValue) {
     this.roundFourHintValue = hintValue
     let radioValue = event.target.value
-    console.log('hint value => ', hintValue)
     switch (radioValue) {
       case '1default':
         _.find(this.control.roundFourStatus, ['id', 1]).imagePath = './assets/images/blue_rectangle.png';
