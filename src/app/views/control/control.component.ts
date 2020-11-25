@@ -853,9 +853,9 @@ export class ControlComponent implements OnInit {
           this.currentQuestion.id
         ]).actions = 4;
       }
-      this.correct_answer_audio.play();
       console.log('correct answer => ', this.control.roundFourStatus)
     }
+    this.correct_answer_audio.play();
     this.broadcastScreens();
 
     // // //checkLastIndex or not
