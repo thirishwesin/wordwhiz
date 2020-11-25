@@ -1266,4 +1266,9 @@ export class ControlComponent implements OnInit {
       (<HTMLInputElement>document.querySelector('input[value="3default"]')).checked = true;
     }, 0);
   }
+
+  changePlayerBgImage() {
+    this.control.isChangePlayerBgImage = !this.control.isChangePlayerBgImage;
+    this.broadcastScreens();
+  }
 }

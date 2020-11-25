@@ -217,6 +217,11 @@
                                 <button class="btn add_point" [disabled]="control.startCount" (click)="increasePoint(player.id)">+</button>
                             </div>
                         </div>
+                        <div class="col-sm-3" style="margin-left: 44%;top: 20px;">
+                            <div class=" showans_btn">
+                                <button class="btn button" style="width: 300px;" (click)="changePlayerBgImage()">{{control?.isChangePlayerBgImage ? 'Hide Player Background Image' : 'Show Player Background Image'}}</button>
+                            </div>
+                        </div>
                     </div>
                     <!-- <button class="btn button que"  *ngIf="currentRound.id==5 && currentRound.questionArray.length != 0" (click)="resetKeyExtra()">Reset</button> -->
                 </div>

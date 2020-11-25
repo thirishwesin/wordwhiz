@@ -49,7 +49,8 @@ export const initialState: Control = {
   animationExtraWord: "",
   fontSettingOpenClose: false,
   roundTwoStatus: undefined,
-  roundFourStatus: []
+  roundFourStatus: [],
+  isChangePlayerBgImage: false
 };
 
 const _controlReducer = createReducer(
