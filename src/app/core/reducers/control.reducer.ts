@@ -50,7 +50,7 @@ export const initialState: Control = {
   fontSettingOpenClose: false,
   roundTwoStatus: undefined,
   roundFourStatus: [],
-  isChangePlayerBgImage: false
+  isChangePlayerBgImage: true
 };
 
 const _controlReducer = createReducer(
