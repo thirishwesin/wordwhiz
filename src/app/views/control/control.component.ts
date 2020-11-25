@@ -857,13 +857,21 @@ export class ControlComponent implements OnInit {
       }
     }
     this.correct_answer_audio.play();
-    this.broadcastScreens();
+    this.correctAnswerCount = _.filter(
+      this.questionArraysByCategory[this.currentCategory.id],
+      question => question.actions == 1
+    ).length;
 
     if (this.currentRound.questionType == 4 && this.questionDropDownByCategory()[this.questionDropDownByCategory().length - 1] == this.currentQuestion) {
       setTimeout(() => {
-        this.resetTimer();
+        // clearInterval(this.interval);
+        this.startTimer(false);
+        this.finishCategoryRound = true;
+        this.store.dispatch(endCategoryRound());
+        this.runCategoryRound = false;
       }, 2000);
     }
+    this.broadcastScreens();
 
     // // //checkLastIndex or not
     // let checkLastIndex = false;
