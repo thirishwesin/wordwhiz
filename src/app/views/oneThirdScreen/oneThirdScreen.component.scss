@@ -365,12 +365,13 @@
 .green_bg {
     width: auto;
     background: url(../../../assets/images/GREEN/blank.png) no-repeat;
-    background-size: cover;
+    background-size: contain;
     display: inline-block;
     min-height: 60px;
     position: relative;
     padding: 0;
-    min-width: 86px;
+    min-width: 105px;
+    height: 100px;
 }
 
 // Adjust blue rectangle hint row alignment
@@ -813,12 +814,12 @@
 //     background-image: url('../../../assets/images/temp/one_third_header_bk.PNG');
 // }
 .mrt20{
-    margin-top: -40px;
+    margin-top: -60px;
     margin-left: 120px;
 }
 //Round four Answer
 .answer_four{
-    margin-top: 30px;
+    margin-top: 17px;
     float: left;
     text-align: center;
     width: 100%;
@@ -858,4 +859,18 @@
     padding-bottom: 8px;
     color: #fff;
     padding-top: 19px;
+}
+.roundfive_text{
+    width: 83px;
+    text-align: center;
+    margin: 0;
+    height: 95px;
+    background: none;
+    border: none;
+    font-size: 45px;
+    outline: none;
+    margin-left: -6px;
+    padding-bottom: 8px;
+    color: #fff;
+    padding-top: 8px;
 }
