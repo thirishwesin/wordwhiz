@@ -8,6 +8,7 @@ export const Images = {
   footer_top: require("../../assets/images/footer_top.png"),
   dropDown: require("../../assets/images/drop_down_icon.png"),
   player_center_bg: require("../../assets/images/player_center_bg.png"),
+  player_center_bg_2: require("../../assets/images/player_center_bg_2.jpg"),
   minus: require("../../assets/images/minus.png"),
   exchange_icon: require("../../assets/images/exchange_icon.png"),
   setting_icon: require("../../assets/images/setting.png"),
