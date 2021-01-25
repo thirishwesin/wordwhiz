@@ -23,7 +23,8 @@ import {
   updateClickPoint,
   resetTimeOut,
   updateClickTimer,
-  animatedExtraWord
+  animatedExtraWord,
+  updatePlayerScreenBackground
 } from "../../core/actions/control.actions";
 import {
   initEpisodeStore,
@@ -655,7 +656,8 @@ export class ControlComponent implements OnInit {
     let updateData = {
       currentQuestionId: question.id,
       startCount: this.runCategoryRound, //timer should still run when running round4
-      finishCategoryRound: this.finishCategoryRound
+      finishCategoryRound: this.finishCategoryRound,
+      isChangePlayerBgImage: this.control.isChangePlayerBgImage
     };
 
     if (!this.finishCategoryRound) {
@@ -1283,6 +1285,7 @@ export class ControlComponent implements OnInit {
 
   changePlayerBgImage() {
     this.control.isChangePlayerBgImage = !this.control.isChangePlayerBgImage;
+    this.store.dispatch(updatePlayerScreenBackground({ isChangePlayerBgImage: this.control.isChangePlayerBgImage }));
     this.broadcastScreens();
   }
 }

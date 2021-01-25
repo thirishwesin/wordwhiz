@@ -62,6 +62,12 @@ export const updateClickTimer = createAction(
   props<{ clickTimer }>()
 );
 
+export const updatePlayerScreenBackground = createAction(
+  "UPDATE PLAYER SCREEN BACKGROUND",
+  props<{ isChangePlayerBgImage: boolean }>()
+);
+
+
 export const resetCategoryRound = createAction("RESET_CATEGORY_ROUND");
 
 export const runCategoryRound = createAction("RUN_CATEGORY_ROUND");

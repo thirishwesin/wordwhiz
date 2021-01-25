@@ -17,7 +17,8 @@ import {
   updateClickPoint,
   resetTimeOut,
   updateClickTimer,
-  animatedExtraWord
+  animatedExtraWord,
+  updatePlayerScreenBackground
 } from "../actions/control.actions";
 import { Control } from "../models/control";
 
@@ -63,6 +64,12 @@ const _controlReducer = createReducer(
     state.fontSettings = fontSettings.fontSettings;
     return state;
   }),
+  on(updatePlayerScreenBackground, (state, { isChangePlayerBgImage }) => {
+    //update currentEpisode & reset others (round & questions)
+    console.log("isChangePlayerBgImage ", isChangePlayerBgImage);
+
+    return { ...state, isChangePlayerBgImage: isChangePlayerBgImage };
+  }),
   on(updateStoreFromControl, (state, { control }) => (state = control.control)),
   on(updateCurrentEpisodeId, (state, { currentEpisodeId }) => {
     //update currentEpisode & reset others (round & questions)
@@ -74,6 +81,7 @@ const _controlReducer = createReducer(
       ...initialState,
       extraWord: [],
       currentRoundId,
+      isChangePlayerBgImage: state.isChangePlayerBgImage,
       currentEpisodeId: state.currentEpisodeId
     };
   }),
@@ -84,7 +92,7 @@ const _controlReducer = createReducer(
       ...control,
       extraWord: [],
       currentEpisodeId: state.currentEpisodeId,
-      currentRoundId: state.currentRoundId
+      currentRoundId: state.currentRoundId,
     };
   }),
   on(updateShowQuestion, state => {
