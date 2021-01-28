@@ -1,19 +1,19 @@
-import { Component, OnInit } from "@angular/core";
-import { Store } from "@ngrx/store";
-import { Router, ActivatedRoute } from "@angular/router";
-import { AppConfig } from "../../environments/environment";
-import { initStore } from "../core/actions/wordWhiz.actions";
+import {Component, OnInit} from "@angular/core";
+import {Store} from "@ngrx/store";
+import {Router, ActivatedRoute} from "@angular/router";
+import {AppConfig} from "../../environments/environment";
+import {initStore} from "../core/actions/wordWhiz.actions";
 import {
   updateCurrentEpisodeId,
   updateFontSettingControl
 } from "../core/actions/control.actions";
-import { updateEpisodeStore } from "../core/actions/episode.actions";
-import { WordWhiz } from "../core/models/wordWhiz.js";
+import {updateEpisodeStore} from "../core/actions/episode.actions";
+import {WordWhiz} from "../core/models/wordWhiz.js";
 import initData from "../../assets/i18n/initData.json";
 import addEpisodePlayers from "../../assets/i18n/addEpisodePlayers.json";
 import addEpisodeRounds from "../../assets/i18n/addEpisodeRounds.json";
-import { faPlusCircle, faMinusCircle } from "@fortawesome/free-solid-svg-icons";
-import { Images } from "../common/images";
+import {faPlusCircle, faMinusCircle} from "@fortawesome/free-solid-svg-icons";
+import {Images} from "../common/images";
 import {
   writeFileSync,
   existsSync,
@@ -22,10 +22,9 @@ import {
   readFileSync,
   writeFile
 } from "fs";
-import { NgbModal, ModalDismissReasons } from "@ng-bootstrap/ng-bootstrap";
+import {NgbModal, ModalDismissReasons} from "@ng-bootstrap/ng-bootstrap";
 import * as _ from "lodash";
-import { Base64 } from "../common/base64";
-import { saveFile } from "../common/functions";
+import {saveFile} from "../common/functions";
 
 @Component({
   selector: "app-home",
@@ -73,25 +72,25 @@ export class HomeComponent implements OnInit {
       console.log("initData >> ", this.jsonObj);
       if (this.wordWhiz.questionTypes.length == 0) {
         // initialize Data only when no store
-        this.store.dispatch(initStore({ wordWhiz: this.jsonObj }));
+        this.store.dispatch(initStore({wordWhiz: this.jsonObj}));
       }
     } else {
       //----DEVELOPMENT----//
       // this.readFileDev();
 
       console.log("development initData >> ", initData);
-      this.store.dispatch(initStore({ wordWhiz: initData }));
+      this.store.dispatch(initStore({wordWhiz: initData}));
     }
 
     //init FontSettings from json data
     this.store.dispatch(
-      updateFontSettingControl({ fontSettings: this.wordWhiz.fontSettings })
+      updateFontSettingControl({fontSettings: this.wordWhiz.fontSettings})
     );
   }
 
   ngOnInit() {
     this.route.queryParamMap.subscribe(params => {
-      this.paramObj = { ...params.keys, ...params };
+      this.paramObj = {...params.keys, ...params};
       this.prevRoute = this.paramObj.params.id;
     });
 
@@ -106,10 +105,10 @@ export class HomeComponent implements OnInit {
     } else {
       //update currentEpisode and navigate
       this.store.dispatch(
-        updateCurrentEpisodeId({ currentEpisodeId: episode.id })
+        updateCurrentEpisodeId({currentEpisodeId: episode.id})
       );
 
-      this.store.dispatch(updateEpisodeStore({ episode }));
+      this.store.dispatch(updateEpisodeStore({episode}));
 
       if (this.userView) this.router.navigate(["/control"]);
       else this.router.navigate(["/setup"]);
@@ -123,15 +122,15 @@ export class HomeComponent implements OnInit {
     // if (isAdd) this.addModal = true;
     this.addModal = isAdd;
     this.modalService
-      .open(content, { ariaLabelledBy: "modal-basic-title", centered: true })
+      .open(content, {ariaLabelledBy: "modal-basic-title", centered: true})
       .result.then(
-        result => {
-          if (isAdd == 1) this.addEpisodeSetup();
-          else if (isAdd == 0) this.removeEpisode(episode);
-          else if (isAdd == 2) this.closeApp();
-        },
-        reason => reason
-      );
+      result => {
+        if (isAdd == 1) this.addEpisodeSetup();
+        else if (isAdd == 0) this.removeEpisode(episode);
+        else if (isAdd == 2) this.closeApp();
+      },
+      reason => reason
+    );
   }
 
   addEpisodeSetup() {
@@ -144,7 +143,8 @@ export class HomeComponent implements OnInit {
       players: _.cloneDeep(addEpisodePlayers),
       rounds: _.cloneDeep(addEpisodeRounds)
     });
-    saveFile(this.wordWhiz, () => {});
+    saveFile(this.wordWhiz, () => {
+    });
   }
 
   removeEpisode(episode) {
@@ -156,7 +156,8 @@ export class HomeComponent implements OnInit {
       if (episode.id != prevId + 1) episode.id = episode.id - 1;
       prevId = episode.id;
     });
-    saveFile(this.wordWhiz, () => {});
+    saveFile(this.wordWhiz, () => {
+    });
   }
 
   exportFile(path) {
@@ -190,21 +191,19 @@ export class HomeComponent implements OnInit {
   }
 
   writeFileforProduction() {
-    const encodedString = Base64.encode(JSON.stringify(initData));
 
     const filePath = process.env.PORTABLE_EXECUTABLE_DIR + "/data";
     if (!existsSync(filePath)) {
       mkdirSync(filePath);
     }
-    writeFileSync(filePath + "/releaseInitData.json", encodedString);
+    writeFileSync(filePath + "/releaseInitData.json", JSON.stringify(initData));
   }
 
   readFileProduction() {
-    const filePath =
-      process.env.PORTABLE_EXECUTABLE_DIR + "/data/releaseInitData.json";
-
+    const filePath = process.env.PORTABLE_EXECUTABLE_DIR + "/release/data/releaseInitData.json";
+    console.log(filePath);
     const encodedData = readFileSync(filePath, "utf8");
-    this.jsonObj = JSON.parse(Base64.decode(encodedData));
+    this.jsonObj = JSON.parse(encodedData);
   }
 
   readFileDev() {
