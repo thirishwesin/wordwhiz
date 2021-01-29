@@ -10,6 +10,8 @@ export interface Round {
   categories: QuestionCategory[];
   timeOut: number;
   point: number;
+  secondTimeOut?: number,
+  secondPoint?: number,
   questionArray: Question[];
   roundNameFontSize: number;
   clueLabelFontSize: number;

@@ -5,7 +5,6 @@ import {
   faPlusCircle,
   faSave
 } from "@fortawesome/free-solid-svg-icons";
-import { remote } from "electron";
 import { Store } from "@ngrx/store";
 import { WordWhiz } from "../../core/models/wordWhiz";
 import { Episode } from "../../core/models/episode";
@@ -25,6 +24,7 @@ import { updateEpisodeStore } from "../../core/actions/episode.actions";
 import { readFileSync } from "fs";
 import { AppConfig } from "../../../environments/environment";
 import { Hint } from '../../core/models/hint';
+import { Timer } from './../../core/models/timer.model';
 
 @Component({
   selector: "app-setup",
@@ -71,7 +71,7 @@ export class SetupComponent implements OnInit {
   isEmptyWordName: boolean
 
   noDatabyCategory = false;
-  timeoutList: any;
+  timeoutList: Timer;
   players: Player[]
   playerFontSize: number
   hintValueForR4: string
@@ -112,19 +112,10 @@ export class SetupComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("wordWhiz state in setUp", this.wordWhiz);
-    console.log("episode state in setUp", this.episode);
-    console.log("control state in setUp", this.control);
-
     this.updateSetupState();
 
     //to reset the episode for unsaved
     this.oldEpisode = _.cloneDeep(this.episode);
-
-    // remote.getCurrentWindow().on("close", e => {
-    //   //saveFile before quit
-    //   saveFile(this.wordWhiz, () => {});
-    // });
     window.onbeforeunload = e => {
       saveFile(this.wordWhiz, () => { });
     };
@@ -154,7 +145,6 @@ export class SetupComponent implements OnInit {
       this.store.dispatch(updateCurrentRoundId({ currentRoundId: this.control.currentRoundId - 1 }));
       this.updateSetupState();
     }
-    console.log('current round => ', this.currentRound)
     //current QuestionType
     this.questionType = _.find(this.wordWhiz.questionTypes, [ "id", this.currentRound.questionType]);
 
@@ -207,7 +197,8 @@ export class SetupComponent implements OnInit {
     console.log("current round name >>  ", this.currentRound.name);
   }
 
-  changeQuestionType(questionType) {
+  changeQuestionType(questionType: QuestionTypes) {
+    console.log('change question Type ####', questionType)
     //prompt alert to user
     this.currentRound.name = questionType.name;
     this.currentRound.point = 0;
@@ -223,9 +214,7 @@ export class SetupComponent implements OnInit {
   changeCategory(category) {
     this.pevCategoryId = this.currentCategory !== undefined ? this.currentCategory.id : undefined;
     this.currentCategory = category;
-    console.log('category => ', category)
     if (this.currentRound.questionType == 2) {
-      console.log('prev id => ', this.pevCategoryId)
       if (this.pevCategoryId !== this.currentCategory.id) {
         this.clearGridValues(this.pevCategoryId);
         this.setGridValue();
@@ -261,9 +250,9 @@ export class SetupComponent implements OnInit {
     }
     return true;
   }
-  changePoint(event: any) {
-    this.currentRound.point = parseInt(event.target.value);
-    if (isNaN(this.currentRound.point)) this.currentRound.point = null;
+  changePoint(input: HTMLInputElement, key: string) {
+    this.currentRound[key] = +input.value;
+    if (isNaN(this.currentRound.point)) this.currentRound.point = 0;
   }
 
   // changeTimeout(event: any) {
@@ -458,6 +447,7 @@ export class SetupComponent implements OnInit {
   }
 
   openModal(content_setup, isChange, type) {
+    console.log(type)
     if (isChange === 0) {
       //change question Type
       this.questionName = type.name;
@@ -680,16 +670,14 @@ export class SetupComponent implements OnInit {
   }
 
   readFileDev() {
-    const filePath =
-      process.cwd() + "/release/data/images/timer/timerInfo.json";
+    const filePath = process.cwd() + "/release/data/images/timer/timerInfo.json";
 
     const data = readFileSync(filePath, "utf8");
     this.timeoutList = JSON.parse(data);
   }
 
   readFileProduction() {
-    const filePath =
-      process.env.PORTABLE_EXECUTABLE_DIR + "/data/images/timer/timerInfo.json";
+    const filePath = process.env.PORTABLE_EXECUTABLE_DIR + "/data/images/timer/timerInfo.json";
 
     const data = readFileSync(filePath, "utf8");
     this.timeoutList = JSON.parse(data);
