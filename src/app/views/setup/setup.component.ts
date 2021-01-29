@@ -24,6 +24,7 @@ import { QuestionCategory } from "../../core/models/questionCategory";
 import { updateEpisodeStore } from "../../core/actions/episode.actions";
 import { readFileSync } from "fs";
 import { AppConfig } from "../../../environments/environment";
+import { Hint } from '../../core/models/hint';
 
 @Component({
   selector: "app-setup",
@@ -49,7 +50,7 @@ export class SetupComponent implements OnInit {
 
   oldEpisode: Episode;
 
-  initQuestionState = {
+  initQuestionState: Question = {
     id: 0,
     clue: "",
     categoryId: 0,
@@ -60,9 +61,9 @@ export class SetupComponent implements OnInit {
     otClueFontSize: null,
     ansFontSize: null,
     otAnsFontSize: null
-  } as Question;
+  };
 
-  question = _.cloneDeep(this.initQuestionState);
+  question: Question = _.cloneDeep(this.initQuestionState);
 
   categoryName: string;
   invalidCategoryName: boolean;
@@ -82,6 +83,7 @@ export class SetupComponent implements OnInit {
   gridValue: string
   pevCategoryId: number
   invalidWordName: boolean = false;
+  roundOneHint: string = '';
 
   constructor(
     private store: Store<{
@@ -129,16 +131,7 @@ export class SetupComponent implements OnInit {
   }
 
   initHintArrByQuestionType() {
-    return Array.from(
-      {
-        length: _.result(
-          _.find(this.wordWhiz.questionTypes, [
-            "id",
-            this.currentRound.questionType
-          ]),
-          "hintsCount"
-        )
-      },
+    return Array.from({length: _.result(_.find(this.wordWhiz.questionTypes, ["id",this.currentRound.questionType]),"hintsCount")},
       (x, i) => {
         return {
           id: i + 1,
@@ -154,25 +147,16 @@ export class SetupComponent implements OnInit {
 
   updateSetupState() {
     //update current round
-    this.currentRound = _.find(this.episode.rounds, [
-      "id",
-      this.control.currentRoundId
-    ]);
+    this.currentRound = _.find(this.episode.rounds, ["id", this.control.currentRoundId]);
+
     //select the last round and remove condition
     if (this.currentRound == undefined) {
-      this.store.dispatch(
-        updateCurrentRoundId({
-          currentRoundId: this.control.currentRoundId - 1
-        })
-      );
+      this.store.dispatch(updateCurrentRoundId({ currentRoundId: this.control.currentRoundId - 1 }));
       this.updateSetupState();
     }
     console.log('current round => ', this.currentRound)
     //current QuestionType
-    this.questionType = _.find(this.wordWhiz.questionTypes, [
-      "id",
-      this.currentRound.questionType
-    ]);
+    this.questionType = _.find(this.wordWhiz.questionTypes, [ "id", this.currentRound.questionType]);
 
     //update current hint count
     this.question.hints = this.initHintArrByQuestionType();
@@ -180,10 +164,7 @@ export class SetupComponent implements OnInit {
     // if (this.currentRound.questionType == 2 || this.currentRound.questionType == 4) this.currentCategory = undefined
     //initialize current Question Category
     if (!this.currentCategory) {
-      this.currentCategory =
-        this.currentRound.categories.length > 0
-          ? this.currentRound.categories[0]
-          : undefined;
+      this.currentCategory = this.currentRound.categories.length > 0 ? this.currentRound.categories[0] : undefined;
       console.log(' after current category => ', this.currentCategory)
     }
 
@@ -255,10 +236,7 @@ export class SetupComponent implements OnInit {
 
   filterQuestion(itemList: Question[]) {
     if (this.currentRound.questionType == 2 || this.currentRound.questionType == 4) {
-      return _.filter(
-        itemList,
-        item => item.categoryId == this.currentCategory.id
-      );
+      return _.filter(itemList, item => item.categoryId == this.currentCategory.id);
     }
     return itemList;
   }
@@ -601,6 +579,7 @@ export class SetupComponent implements OnInit {
   questionClueFontSizeChanged(event) {
 
   }
+
   questionAnsChanged(event) {
     this.invalidQuestion = false;
   }
@@ -668,7 +647,7 @@ export class SetupComponent implements OnInit {
     // change category when remove item
     // if (currentCategory) {
     //   this.changeCategory(currentCategory[0]);
-    // } else 
+    // } else
     if (!nextIndex) {
       this.changeCategory(prevIndex);
     } else {
@@ -788,7 +767,7 @@ export class SetupComponent implements OnInit {
         otAnsFontSize: this.question.otAnsFontSize == null ? 50 : this.question.otAnsFontSize,
         hints: [{
           ...this.question.hints[0], value: hintValue.toUpperCase(), position: [],
-          hintFontSize: hintFontSize == null ? 50 : hintFontSize, otHintFontSize: otHintFontSize == null ? 50 : otHintFontSize
+          hintFontSize: hintFontSize == null ? 50 : +hintFontSize, otHintFontSize: otHintFontSize == null ? 50 : +otHintFontSize
         }]
       });
       console.log('current category => ', this.currentRound)

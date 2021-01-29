@@ -8,7 +8,7 @@ import {
   updateFontSettingControl
 } from "../core/actions/control.actions";
 import {updateEpisodeStore} from "../core/actions/episode.actions";
-import {WordWhiz} from "../core/models/wordWhiz.js";
+import {WordWhiz} from "../core/models/wordWhiz";
 import initData from "../../assets/i18n/initData.json";
 import addEpisodePlayers from "../../assets/i18n/addEpisodePlayers.json";
 import addEpisodeRounds from "../../assets/i18n/addEpisodeRounds.json";
@@ -18,11 +18,10 @@ import {
   writeFileSync,
   existsSync,
   mkdirSync,
-  rename,
   readFileSync,
   writeFile
 } from "fs";
-import {NgbModal, ModalDismissReasons} from "@ng-bootstrap/ng-bootstrap";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import * as _ from "lodash";
 import {saveFile} from "../common/functions";
 
@@ -104,9 +103,7 @@ export class HomeComponent implements OnInit {
       //show toast or prompt
     } else {
       //update currentEpisode and navigate
-      this.store.dispatch(
-        updateCurrentEpisodeId({currentEpisodeId: episode.id})
-      );
+      this.store.dispatch(updateCurrentEpisodeId({currentEpisodeId: episode.id}));
 
       this.store.dispatch(updateEpisodeStore({episode}));
 

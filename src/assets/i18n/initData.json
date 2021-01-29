@@ -162,6 +162,27 @@
               "ansFontSize": 20,
               "otClueFontSize": 45,
               "otAnsFontSize": 45
+            },
+            {
+              "id": 12,
+              "clue": "还",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "当",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": "30",
+                  "otHintFontSize": "30"
+                }
+              ],
+              "ans": "当",
+              "isAnsCharacter": true,
+              "clueFontSize": "30",
+              "otClueFontSize": "30",
+              "ansFontSize": "30",
+              "otAnsFontSize": "30"
             }
           ],
           "roundNameFontSize": "90",
@@ -1040,7 +1061,7 @@
     {
       "id": 1,
       "name": "OPPOSITE WORD",
-      "hintsCount": 0,
+      "hintsCount": 1,
       "isHintChar": false,
       "isAnsChar": true,
       "showfirstAnsChar": true,
