@@ -10,9 +10,10 @@ import { MainModule } from "../views/main/main.module";
 import { OneThirdScreenModule } from "./oneThirdScreen/oneThirdScreen.module";
 import { SetupModule } from "../views/setup/setup.module";
 import { PlayerModule } from "../views/player/player.module";
+import { RoundFiveComponent } from './rounds/round-five/round-five.component';
 
 @NgModule({
-  declarations: [HomeComponent],
+  declarations: [HomeComponent, RoundFiveComponent],
   imports: [
     CommonModule,
     SharedModule,

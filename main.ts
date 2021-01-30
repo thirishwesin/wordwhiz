@@ -48,6 +48,7 @@ try {
       webPreferences: {
         nodeIntegration: true,
         devTools: serve,
+        webSecurity: false
       },
     });
 

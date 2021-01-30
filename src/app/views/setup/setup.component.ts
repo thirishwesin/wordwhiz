@@ -25,7 +25,10 @@ import { readFileSync } from "fs";
 import { AppConfig } from "../../../environments/environment";
 import { Hint } from '../../core/models/hint';
 import { Timer } from './../../core/models/timer.model';
+import * as fs from 'fs'
+import { DomSanitizer } from '@angular/platform-browser';
 
+const electron = require('electron')
 @Component({
   selector: "app-setup",
   templateUrl: "./setup.component.html",
@@ -84,6 +87,12 @@ export class SetupComponent implements OnInit {
   pevCategoryId: number
   invalidWordName: boolean = false;
   roundOneHint: string = '';
+
+  uploadFilePath : string = "";
+  uploadFileName : string = "";
+  uploadFileType : string = "";
+  showVideoModal : boolean = false;
+  vidoeUrl: string
 
   constructor(
     private store: Store<{
@@ -169,6 +178,15 @@ export class SetupComponent implements OnInit {
       if (this.currentCategory) this.pevCategoryId = this.currentCategory.id
       this.currentWord = undefined
       this.setGridValue();
+    }else if (this.currentRound.questionType == 5){
+      // if not exists create folder with current episoid id,
+      let currentEpisodeDir = `${this.getVideoDir()}/episode${this.episode.id}`;
+      this.createFolder(`${currentEpisodeDir}`)
+      // cut video file from current episode id folder to tempSave folder
+      fs.readdirSync(`${currentEpisodeDir}`).forEach(fileName => {
+        this.saveVideo(`${currentEpisodeDir}/${fileName}`,`tempSave`,fileName);
+        fs.unlinkSync(`${currentEpisodeDir}/${fileName}`)
+      })
     }
     //clear question block
     this.clearQuestionBlock();
@@ -282,11 +300,10 @@ export class SetupComponent implements OnInit {
       //check the question arrays except self
       this.currentRound.questionArray.map(question => {
         if (!this.currentRound.hasCategory) {
-          if (
-            question.ans.trim().toUpperCase() == this.question.ans.trim().toUpperCase() &&
-            question.clue.trim().toUpperCase() == this.question.clue.trim().toUpperCase()
-          ) {
-            this.invalidQuestion = true;
+          if ( question.clue.trim().toUpperCase() == this.question.clue.trim().toUpperCase()) {
+            if(question.ans.trim().toUpperCase() == this.question.ans.trim().toUpperCase()){
+              this.invalidQuestion = true;
+            }else if (this.currentRound.questionType == 5) this.invalidQuestion = true;
           }
         } else {
           if (question.ans.trim().toUpperCase() == this.question.ans.trim().toUpperCase()) this.invalidQuestion = true;
@@ -301,6 +318,8 @@ export class SetupComponent implements OnInit {
           this.question.hints[2].hintFontSize = 30; this.question.hints[2].otHintFontSize = 30;
         } else if (this.currentRound.questionType == 3) {
           this.question.hints[0].hintFontSize = 50; this.question.hints[0].otHintFontSize = 50
+        }else if (this.currentRound.questionType == 5){
+          this.saveVideo(this.uploadFilePath,'tempSave',`${this.question.clue}.mp4`)
         }
 
         let generateId =
@@ -331,10 +350,10 @@ export class SetupComponent implements OnInit {
         .map(question => {
           //check the question arrays except self
           if (!this.currentRound.hasCategory) {
-            if (
-              question.ans.trim().toUpperCase() == this.question.ans.trim().toUpperCase() && question.clue.trim().toUpperCase() == this.question.clue.trim().toUpperCase()
-            ) {
-              this.invalidQuestion = true;
+            if ( question.clue.trim().toUpperCase() == this.question.clue.trim().toUpperCase()) {
+              if(question.ans.trim().toUpperCase() == this.question.ans.trim().toUpperCase()){
+                this.invalidQuestion = true;
+              }else if (this.currentRound.questionType == 5) this.invalidQuestion = true;
             }
           } else {
             if (question.ans.trim().toUpperCase() == this.question.ans.trim().toUpperCase()) {
@@ -401,6 +420,11 @@ export class SetupComponent implements OnInit {
 
   deleteQuestionList(question_id: number) {
     if (this.currentRound.questionType == 2) this.clearWord(_.find(this.currentRound.questionArray, ['id', question_id]).hints[0].value)
+    if(this.currentRound.questionType == 5) {
+      let question = this.currentRound.questionArray.find(question => question.id === question_id)
+      this.saveVideo(`${this.getVideoDir()}/tempSave/${question.clue}.mp4`, `tempDelete`,`${question.clue}.mp4`);
+      this.deleteVideo(`${this.getVideoDir()}/tempSave/${question.clue}.mp4`);
+    }
     this.currentRound.questionArray.splice(
       _.findIndex(
         this.currentRound.questionArray,
@@ -502,6 +526,16 @@ export class SetupComponent implements OnInit {
             } else if (isChange === 2) {
               if (result == "SaveBack") {
                 this.saveAll(content_setup);
+                // cut video from tempSave folder to current episode id folder
+                ['tempSave','tempDelete'].forEach(folder => {this.createFolder(`${this.getVideoDir()}/${folder}`)})
+                fs.readdirSync(`${this.getVideoDir()}/tempSave`).forEach(fileName => {
+                  this.saveVideo(`${this.getVideoDir()}/tempSave/${fileName}`,`episode${this.episode.id}`,fileName);
+                  fs.unlinkSync(`${this.getVideoDir()}/tempSave/${fileName}`)
+                })
+                // remove all videos form temDelete folder
+                fs.readdirSync(`${this.getVideoDir()}/tempDelete`).forEach(fileName => {
+                  fs.unlinkSync(`${this.getVideoDir()}/tempDelete/${fileName}`)
+                })
                 this.router.navigate(["/home"], {
                   queryParams: { id: "setup" }
                 });
@@ -510,10 +544,20 @@ export class SetupComponent implements OnInit {
                 _.map(this.wordWhiz.episodes, episode => {
                   if (episode.id == this.oldEpisode.id) {
                     episode.rounds = this.oldEpisode.rounds;
-                    console.log('old episode => ', this.oldEpisode.players)
                     episode.players = this.oldEpisode.players;
                   }
                 });
+                let qeustionClueArr = this.episode.rounds.find(round => round.questionType == 5)
+                  .questionArray.map(question => question.clue);
+                ['tempSave','tempDelete'].forEach(folder => {
+                  this.createFolder(`${this.getVideoDir()}/${folder}`)
+                  fs.readdirSync(`${this.getVideoDir()}/${folder}`).forEach(fileName => {
+                    if(qeustionClueArr.includes(fileName.split('.')[0])){
+                      this.saveVideo(`${this.getVideoDir()}/${folder}/${fileName}`,`episode${this.episode.id}`,fileName);
+                    }
+                    fs.unlinkSync(`${this.getVideoDir()}/${folder}/${fileName}`)
+                  })
+                })
                 this.router.navigate(["/home"], {
                   queryParams: { id: "setup" }
                 });
@@ -865,4 +909,73 @@ export class SetupComponent implements OnInit {
       }
     })
   }
+
+  uploadFile() {
+    const dialog = electron.remote.dialog;
+    dialog.showOpenDialog({
+      title: 'Select the File to be uploaded',
+      defaultPath: process.env.PORTABLE_EXECUTABLE_DIR,
+      buttonLabel: 'Upload',
+      // Restricting the user to only Text Files.
+      filters: [
+        { name: 'All Files', extensions: ['mp4'] }
+      ],
+      // Specifying the File Selector Property
+      properties: ['openFile']
+    }).then(file => {
+      // Stating whether dialog operation was
+      // cancelled or not.
+      console.log(file.filePaths);
+      if (!file.canceled) {
+        this.uploadFilePath = file.filePaths[0]
+        this.uploadFileName = this.uploadFilePath.substring(this.uploadFilePath.lastIndexOf('\\') + 1).split('.')[0]
+        this.uploadFileType = this.uploadFilePath.substring(this.uploadFilePath.lastIndexOf('\\') + 1).split('.')[1]
+        console.log(`file name: ${this.uploadFileName}, file type: ${this.uploadFileType}, file path: ${this.uploadFilePath}`)
+        // fs.writeFileSync( this.rootFilePath + fileName + ".mp4", fs.readFileSync(this.uploadFilePath))
+        this.question.clue = this.uploadFileName
+      }else{
+        this.uploadFilePath = "";
+        this.uploadFileName = "";
+        this.question.clue = this.uploadFileName
+      }
+    }).catch(err => {
+      console.log(err)
+    });
+  }
+  saveVideo(copyFrom: string, saveTo: string, videoNameWithExten: string){
+    const dir = `${this.getVideoDir()}/${saveTo}`;
+    this.createFolder(dir)
+    fs.writeFileSync(`${dir}/${videoNameWithExten}` , fs.readFileSync(copyFrom))
+  }
+
+  getVideoDir(): string{
+    if (AppConfig.production) return `${process.env.PORTABLE_EXECUTABLE_DIR}/data/video`
+    else return `${process.cwd()}/release/data/video`
+  }
+
+  deleteVideo(filePath: string){
+    fs.unlinkSync(filePath)
+  }
+
+  createFolder(folderPath: string){
+    if (!fs.existsSync(folderPath)){
+      fs.mkdirSync(folderPath);
+    }
+  }
+
+  previewVideo(videoModal, videoName: string){
+    this.vidoeUrl = `file://${this.getVideoDir()}/tempSave/${videoName}.mp4`;
+    this.modalService
+      .open(videoModal, {
+        ariaLabelledBy: "modal-basic-title",
+        centered: true
+      })
+      .result.then(
+        result => {
+        },
+        reason => reason
+      );
+  }
+
+
 }
