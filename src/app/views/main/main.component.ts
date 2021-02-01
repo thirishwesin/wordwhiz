@@ -50,6 +50,7 @@ export class MainComponent implements OnInit {
   rFourCubeImage = new Image();
   prevCategoryId: number
   cubeImage = new Image();
+  isPlay: boolean
 
   constructor(
     private store: Store<{
@@ -69,7 +70,7 @@ export class MainComponent implements OnInit {
       this.nz.run(() => {
         this.control = message.control;
         this.episode = message.episode;
-
+        this.isPlay = message.isPlay;
         this.updateMainBoardState();
       });
     });
@@ -245,6 +246,9 @@ export class MainComponent implements OnInit {
     } else if (this.currentRound.questionType == 4) {
       this.cubeImageEle.src = ''
       this.rFourCubeImageEle.src = this.rFourCubeImage.src
+    }else if(this.currentRound.questionType == 5){
+      this.cubeImageEle.src = ''
+      this.rFourCubeImageEle.src = ''
     }
     else {
       this.cubeImageEle.src = this.cubeImage.src;

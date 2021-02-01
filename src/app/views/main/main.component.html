@@ -26,17 +26,17 @@
 
                 <div class="apng-ani mx-auto d-block" [ngClass]="{'timer-top': currentRound && (currentRound?.questionType == 1 || currentRound?.questionType == 3 || currentRound?.questionType == 5 || currentRound?.questionType == 2), 'timer-top-r4': currentRound?.questionType == 4}">
                 </div>
-                <!-- <img [src]="Images.loading" class=" mx-auto d-block 
+                <!-- <img [src]="Images.loading" class=" mx-auto d-block
                     width{{control.fontSettings.main_timeOut}}" /> -->
                 <!-- <div class="timer_center font{{control.fontSettings.main_timeOut}}" [ngClass]="counter$ > 3 ? 'timer' : 'timer_style'">{{ counter$ }} </div> -->
             </div>
             <div class="col-8">
                 <div [hidden]="!currentRound && currentRound?.questionType != 4">
-                    <p class="clude_txt" [ngStyle]="{'font-size': currentRound.clueLabelFontSize + 'px'}" *ngIf="currentRound && (currentRound?.questionType == 1 || currentRound?.questionType == 3 || currentRound?.questionType == 5)">
+                    <p class="clude_txt" [ngStyle]="{'font-size': currentRound.clueLabelFontSize + 'px'}" *ngIf="currentRound && (currentRound?.questionType == 1 || currentRound?.questionType == 3)">
                         CLUE:
                     </p>
                     <img class="cube_img" name="cube_img" alt="" />
-                    <span class="clude_hint" [ngStyle]="{'font-size': currentQuestion?.clueFontSize + 'px'}" *ngIf="currentRound && (control.showQuestion  || control.runCategoryRound) && (currentRound?.questionType == 1 || currentRound?.questionType == 3 || currentRound?.questionType == 5)">{{ currentQuestion?.clue }}
+                    <span class="clude_hint" [ngStyle]="{'font-size': currentQuestion?.clueFontSize + 'px'}" *ngIf="currentRound && (control.showQuestion  || control.runCategoryRound) && (currentRound?.questionType == 1 || currentRound?.questionType == 3)">{{ currentQuestion?.clue }}
                     </span>
                 </div>
                 <div [ngStyle]="{'visibility': currentRound && currentRound.questionType == 2 && control.showQuestion ?  'unset': 'hidden'}">
@@ -103,7 +103,10 @@
                         </div>
                     </div>
                 </div>
-
+                <!-- Round Five -->
+                <div *ngIf="currentRound.questionType == 5">
+                  <app-round-five [videoName]="currentQuestion?.clue" [currentEpisodeId]="episode.id" [isPlay]="isPlay"></app-round-five>
+                </div>
                 <div class="alpha_wrapper" [ngClass]="{'alpha_wrapper_r4': currentRound.questionType == 4}" *ngIf="control.showQuestion || control.runCategoryRound">
 
                     <!-- //! for round 1 and round 5 -->
@@ -128,13 +131,13 @@
 
                                     <!-- <p class="one_word font{{control.fontSettings.main_answer}}" [ngClass]="
                                                 control.showAns && !control.clickPoint && !control.clickTimer && !control.fontSettingOpenClose && char.visible && !control.resetCount ||
-                                                char.visible && !control.showAns && control.animationExtraWord == char.word && !control.fontSettingOpenClose && !control.resetCount ? 'animated zoomIn': 
+                                                char.visible && !control.showAns && control.animationExtraWord == char.word && !control.fontSettingOpenClose && !control.resetCount ? 'animated zoomIn':
                                                 !char.visible  ? 'transparent': ''">
                                         {{char.word}}
                                     </p> -->
                                     <input type="text" [value]="char.word" [ngStyle]="{'font-size': currentQuestion.ansFontSize + 'px'}" class="one_word font{{control.fontSettings.main_answer}}" [ngClass]="
                                     control.showAns && !control.clickPoint && !control.clickTimer && !control.fontSettingOpenClose && char.visible && !control.resetCount ||
-                                    char.visible && !control.showAns && control.animationExtraWord == char.word && !control.fontSettingOpenClose && !control.resetCount ? 'animated zoomIn': 
+                                    char.visible && !control.showAns && control.animationExtraWord == char.word && !control.fontSettingOpenClose && !control.resetCount ? 'animated zoomIn':
                                     !char.visible  ? 'transparent': ''" class="round1_text">
                                 </div>
                             </div>
@@ -159,7 +162,7 @@
                             <!-- <ng-container *ngIf="hintIndex == 2 && control.showAns"> [ngStyle]="{'visibility': hintIndex == 2 && control.showAns ? 'unset': 'hidden'}"-->
                             <!-- <div style="margin-left: -8%; margin-top: 5%;" *ngIf="hintIndex == 2">
                                 <div class="one_word_green retangle{{control.fontSettings.main_answer}}" [ngClass]="{'hide_char less8char': char == ' '}" *ngFor="let char of ansCharArr; let i=index;" [ngStyle]="{'visibility': hintIndex == 2 && control.showAns ? 'unset': 'hidden'}">
-                                    
+
                                     <span *ngIf="currentRound.showfirstAnsChar">
                                         <input class="round1_text"
                                             [ngStyle]="{'font-size': currentQuestion?.ansFontSize + 'px'}"

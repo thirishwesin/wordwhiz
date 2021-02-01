@@ -111,6 +111,7 @@ export class ControlComponent implements OnInit {
   oldCurrentPlayer: Player[]
   roundFourHintValue: string
   currentCategoryForR4: any;
+  isPlay : boolean = false;
 
   constructor(
     private store: Store<{
@@ -371,8 +372,9 @@ export class ControlComponent implements OnInit {
       //frame: false,
       autoHideMenuBar: true,
       webPreferences: {
-        nodeIntegration: true
+        nodeIntegration: true,
         // devTools: !AppConfig.production
+        webSecurity: false
       }
     });
 
@@ -463,20 +465,19 @@ export class ControlComponent implements OnInit {
 
   broadcastScreens() {
     let currentRoundIndex = _.findIndex(this.episode.rounds, ['id', this.currentRound.id])
-    console.log('current round index => ', currentRoundIndex)
     this.episode.rounds[currentRoundIndex] = this.currentRound
     this.currentQuestion = _.find(this.currentRound.questionArray, ['id', this.currentQuestion.id])
-    console.log('this.oldCurrentRound => ', this.oldCurrentRound)
-    console.log('this.currentRound => ', this.currentRound)
     let broadCastData = {
       control: this.control,
       episode: this.episode
     };
-
+    if(this.currentRound.questionType == 5){
+      broadCastData['isPlay'] = this.isPlay
+    }
+    console.log('current question type : ', this.currentRound.questionType)
     setTimeout(() => {
       this.fontSizeWarning = false;
     }, 1500);
-    console.log("broadCastData >>> ", broadCastData);
 
     this.newWindows.map(window => {
       try {
@@ -1286,6 +1287,11 @@ export class ControlComponent implements OnInit {
   changePlayerBgImage() {
     this.control.isChangePlayerBgImage = !this.control.isChangePlayerBgImage;
     this.store.dispatch(updatePlayerScreenBackground({ isChangePlayerBgImage: this.control.isChangePlayerBgImage }));
+    this.broadcastScreens();
+  }
+
+  toggleVideo(){
+    this.isPlay = !this.isPlay
     this.broadcastScreens();
   }
 }

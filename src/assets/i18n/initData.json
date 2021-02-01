@@ -1040,15 +1040,27 @@
           "questionArray": [
             {
               "id": 1,
-              "clue": "GREAT MENTAL ABILITY",
+              "clue": "movieOne",
               "categoryId": 0,
               "hints": [],
-              "ans": "INTELLIGENT",
+              "ans": "One",
               "isAnsCharacter": true,
-              "clueFontSize": 45,
-              "ansFontSize": 45,
-              "otClueFontSize": 45,
-              "otAnsFontSize": 45
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            },
+            {
+              "id": 2,
+              "clue": "movieTwo",
+              "categoryId": 0,
+              "hints": [],
+              "ans": "Two",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
             }
           ],
           "roundNameFontSize": "90",

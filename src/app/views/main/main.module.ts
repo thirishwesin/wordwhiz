@@ -3,9 +3,10 @@ import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { MainComponent } from "./main.component";
 import { HomeRoutingModule } from "../home-routing.module";
+import { RoundFiveComponent } from "../rounds/round-five/round-five.component";
 
 @NgModule({
-  declarations: [MainComponent],
+  declarations: [MainComponent, RoundFiveComponent],
   imports: [CommonModule, FormsModule, HomeRoutingModule],
   exports: [MainComponent],
 })

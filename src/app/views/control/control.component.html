@@ -142,6 +142,9 @@
                         <div class="showans_btn">
                             <button class="btn button ans" (click)="resetExtraKey()" *ngIf="currentRound.id==5" [disabled]="!control.showQuestion">Reset</button>
                         </div>
+                        <div class="showans_btn">
+                          <button class="btn button ans" (click)="toggleVideo()" *ngIf="currentRound.id==5" [disabled]="!control.showQuestion">Play</button>
+                      </div>
                     </div>
 
                     <!-- hasCategory -->
