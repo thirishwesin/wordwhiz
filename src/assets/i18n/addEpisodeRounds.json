@@ -77,5 +77,27 @@
       "questionArray": [],
       "roundNameFontSize": "90",
       "clueLabelFontSize": "60"
+    },
+    {
+      "id": 7,
+      "name": "SPOT THE MISTAKE",
+      "questionType": 7,
+      "showfirstAnsChar": false,
+      "hasCategory": true,
+      "categories": [
+        {
+          "id": 0,
+          "name": "Player One"
+        },
+        {
+          "id": 1,
+          "name": "Player Two"
+        }
+      ],
+      "timeOut": 15,
+      "point": 20,
+      "questionArray": [],
+      "roundNameFontSize": "90",
+      "clueLabelFontSize": "60"
   }
 ]

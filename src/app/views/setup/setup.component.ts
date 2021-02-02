@@ -93,6 +93,7 @@ export class SetupComponent implements OnInit {
   uploadFileType : string = "";
   showVideoModal : boolean = false;
   vidoeUrl: string
+  playerCategory: string = 'Player One';
 
   constructor(
     private store: Store<{
@@ -386,10 +387,12 @@ export class SetupComponent implements OnInit {
             question.hints = this.question.hints;
             question.hints[0].hintFontSize = +this.question.hints[0].hintFontSize
             question.hints[0].otHintFontSize = +this.question.hints[0].otHintFontSize
-            question.hints[1].hintFontSize = +this.question.hints[1].hintFontSize
+            if(this.currentRound.questionType !== 7){
+              question.hints[1].hintFontSize = +this.question.hints[1].hintFontSize
             question.hints[1].otHintFontSize = +this.question.hints[1].otHintFontSize
             question.hints[2].hintFontSize = +this.question.hints[2].hintFontSize
             question.hints[2].otHintFontSize = +this.question.hints[2].otHintFontSize
+            }
           }
         });
       }
@@ -977,5 +980,7 @@ export class SetupComponent implements OnInit {
       );
   }
 
-
+  choosePlayerCategory(playerName: string){
+    this.playerCategory = playerName
+  }
 }
