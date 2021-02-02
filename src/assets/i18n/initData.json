@@ -1109,6 +1109,8 @@
           "categories": [],
           "timeOut": 15,
           "point": 15,
+          "secondTimeOut": 5,
+          "secondPoint": 5,
           "questionArray": [],
           "roundNameFontSize": "90",
           "clueLabelFontSize": "60"
@@ -1248,7 +1250,7 @@
     {
       "id": 2,
       "name": "CROSS WORD",
-      "hintsCount": 1,
+      "hintsCount": 0,
       "isHintChar": false,
       "isAnsChar": true,
       "showfirstAnsChar": false,

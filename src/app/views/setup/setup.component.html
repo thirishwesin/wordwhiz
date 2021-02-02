@@ -4,10 +4,6 @@
   </button>
   <span class="title">EPISODE {{ episode.id }} <i class="fas fa-caret-down"></i></span>
 
-  <!-- <button ngbButtonLabel class="btn save_btn" (click)="saveAll(content_setup)">
-        <fa-icon class="save_icon" [icon]="faSave"></fa-icon>
-      </button> -->
-
   <section>
     <div class="container-fluid mg_50">
       <div class="row">
@@ -15,11 +11,11 @@
         <div class="col-sm-4 select_body">
           <div class="form-group">
             <div ngbDropdown class="d-inline-block">
-              <button class="btn common_input" id="dropdownBasic1" ngbDropdownToggle>
+              <button class="btn common_input" id="round_choose_drop_down" ngbDropdownToggle>
                 <p class="section_text">ROUND {{ control.currentRoundId }}</p>
-                <img [src]="Images.dropDown" class="drop_down_icon" />
+                <img [src]="Images.dropDown" class="drop_down_icon" alt="drop down image" />
               </button>
-              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <div ngbDropdownMenu aria-labelledby="round_choose_drop_down">
                 <button ngbDropdownItem *ngFor="let round of episode.rounds">
                   <span class="roundDropDown" (click)="clickRound(round)">ROUND {{ round.id }}</span>
                   <span>
@@ -38,19 +34,19 @@
           </div>
           <!-- Point -->
           <div class="form-group">
-            <label for="" class="common_label">{{currentRound.questionType === 6 ? 'FRIST ' : undefined }}POINT</label>
-            <input #defaultPoint type="text" class="common_input w_321" [value]="currentRound.point" OnlyNumber="true" (keyup)="changePoint(defaultPoint, 'point')" />
+            <label for="_point" class="common_label">{{currentRound.questionType === 6 || currentRound.questionType === 2 ? 'FIRST ' : undefined }}POINT</label>
+            <input id="_point" #defaultPoint type="text" class="common_input w_321" [value]="currentRound.point" OnlyNumber="true" (keyup)="changePoint(defaultPoint, 'point')" />
           </div>
 
           <!-- Second Point -->
-          <div class="form-group" *ngIf="currentRound.questionType === 6">
+          <div class="form-group" *ngIf="currentRound.questionType === 6 || currentRound.questionType === 2">
             <label for="second_point" class="common_label">SECOND POINT</label>
             <input #secondPoint type="text" id="second_point" class="common_input w_321" [value]="currentRound.secondPoint" OnlyNumber="true" (keyup)="changePoint(secondPoint, 'secondPoint')" />
           </div>
 
           <div class="form-group">
-            <label class="common_label">ROUND AND ROUND NAME FONT SIZE</label>
-            <input type="text" class="common_input w_321" [(ngModel)]="currentRound.roundNameFontSize" OnlyNumber="true" />
+            <label for="round_name_font_size" class="common_label">ROUND AND ROUND NAME FONT SIZE</label>
+            <input id="round_name_font_size" type="text" class="common_input w_321" [(ngModel)]="currentRound.roundNameFontSize" OnlyNumber="true" />
           </div>
 
           <div class="form-group" *ngIf="currentRound.questionType == 5">
@@ -58,16 +54,16 @@
           </div>
           <!-- choose category(theme) -->
           <div class="form-group" *ngIf="currentRound.questionType == 4 || currentRound.questionType == 7">
-            <label for="" class="common_label"></label>
+            <label for="category" class="common_label"></label>
             <div ngbDropdown class="d-inline-block">
-              <button class="btn common_input" id="dropdownBasic1" ngbDropdownToggle>
+              <button class="btn common_input" id="category_choose_drop_down" ngbDropdownToggle>
                 <p class="section_text">
                   {{ currentCategory ? currentCategory.name : "Add New Theme" }}
                 </p>
                 <img [src]="Images.dropDown" class="drop_down_icon" />
               </button>
-              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                <button ngbDropdownItem *ngFor="let category of currentRound.categories">
+              <div ngbDropdownMenu aria-labelledby="category_choose_drop_down">
+                <button id="category" ngbDropdownItem *ngFor="let category of currentRound.categories">
                   <span class="roundDropDown" (click)="changeCategory(category)">{{ category.name }}</span>
                   <span *ngIf="currentRound.questionType == 4">
                     <fa-icon class="remove_icon" [icon]="faTimesCircle" (click)="openModal(content_setup, 4, category)">
@@ -89,65 +85,57 @@
         <div class="col-sm-5">
           <div class="form-group">
             <div ngbDropdown class="d-inline-block">
-              <button class="btn common_input" id="dropdownBasic1" ngbDropdownToggle>
+              <button class="btn common_input" id="question_choose_drop_down" ngbDropdownToggle>
                 <p class="section_text" [innerText]="currentRound.name ? currentRound.name : 'Choose Question Type'"></p>
-                <img [src]="Images.dropDown" class="drop_down_icon" />
-                <!-- <fa-icon [icon]="faPlayCircle" class="down_icon"></fa-icon> -->
+                <img [src]="Images.dropDown" class="drop_down_icon" alt="drop down image" />
               </button>
-              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                <button ngbDropdownItem *ngFor="let questionType of wordWhiz.questionTypes"
-                  (click)="openModal(content_setup, 0, questionType)">
+              <div ngbDropdownMenu aria-labelledby="question_choose_drop_down">
+                <button ngbDropdownItem *ngFor="let questionType of wordWhiz.questionTypes" (click)="openModal(content_setup, 0, questionType)">
                   {{ questionType.name }}
                 </button>
               </div>
-
             </div>
           </div>
 
-
           <div class="form-group">
-            <label for="time_out" class="common_label"> {{currentRound.questionType === 6 ? 'FIRST ' : undefined }}TIMEOUT</label>
-            <!-- <input type="text" class="common_input w_321" value="{{ currentRound.timeOut }}" (keypress)="numberOnly($event)" (keyup)="changeTimeout($event)" /> -->
+            <label for="time_out" class="common_label"> {{currentRound.questionType === 6 || currentRound.questionType === 2 ? 'FIRST ' : undefined }}TIMEOUT</label>
             <div ngbDropdown class="d-inline-block">
-              <button class="btn common_input" id="dropdownBasic1" ngbDropdownToggle>
+              <button class="btn common_input" id="time_out_choose_drop_down" ngbDropdownToggle>
                 <p class="section_text" [innerText]="currentRound.timeOut"></p>
                 <img [src]="Images.dropDown" alt="drop_down image" class="drop_down_icon" />
               </button>
-              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                <button ngbDropdownItem *ngFor="let timeout of timeoutList" (click)="addTimeout(timeout.value)" [textContent]="timeout.value"></button>
+              <div ngbDropdownMenu aria-labelledby="time_out_choose_drop_down">
+                <button id="time_out" ngbDropdownItem *ngFor="let timeout of timeoutList" (click)="addTimeout(timeout.value)" [textContent]="timeout.value"></button>
               </div>
             </div>
           </div>
 
           <!-- Second Time out -->
-          <div class="form-group" *ngIf="currentRound.questionType === 6">
+          <div class="form-group" *ngIf="currentRound.questionType === 6 || currentRound.questionType === 2">
             <label for="second_time_out" class="common_label">SECOND TIMEOUT</label>
-            <!-- <input type="text" class="common_input w_321" value="{{ currentRound.timeOut }}" (keypress)="numberOnly($event)" (keyup)="changeTimeout($event)" /> -->
             <div ngbDropdown class="d-inline-block">
-              <button class="btn common_input" id="dropdownBasic1" ngbDropdownToggle>
+              <button class="btn common_input" id="sec_time_out_choose_drop_down" ngbDropdownToggle>
                 <p class="section_text" [innerText]="currentRound.secondTimeOut"></p>
-                <img [src]="Images.dropDown" class="drop_down_icon" />
+                <img [src]="Images.dropDown" class="drop_down_icon" alt="drop down image" />
               </button>
-              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                <button ngbDropdownItem *ngFor="let timeout of timeoutList" (click)="addTimeout(timeout.value)" [textContent]="timeout.value"></button>
+              <div ngbDropdownMenu aria-labelledby="sec_time_out_choose_drop_down">
+                <button id="second_time_out" ngbDropdownItem *ngFor="let timeout of timeoutList" (click)="addTimeout(timeout.value)" [textContent]="timeout.value"></button>
               </div>
             </div>
           </div>
 
           <div class="form-group">
-            <label for="" class="common_label">CLUE FONT SIZE</label>
-            <input type="text" class="common_input w_321" [(ngModel)]="currentRound.clueLabelFontSize"
-              OnlyNumber="true" />
+            <label for="clue_font_size" class="common_label">CLUE FONT SIZE</label>
+            <input id="clue_font_size" type="text" class="common_input w_321" [(ngModel)]="currentRound.clueLabelFontSize" OnlyNumber="true" />
           </div>
           <div class="form-group">
-            <label for="" class="common_label">PLAYER POINT FONT SIZE</label>
-            <input type="text" class="common_input w_321" [(ngModel)]="episode.players[0].pointFontSize"
+            <label for="player_font_size" class="common_label">PLAYER POINT FONT SIZE</label>
+            <input id="player_font_size" type="text" class="common_input w_321" [(ngModel)]="episode.players[0].pointFontSize"
               (ngModelChange)="changePlayerPointSize($event)" OnlyNumber="true" />
           </div>
         </div>
       </div>
     </div>
-
     <div class="col-sm-1"></div>
   </section>
 
@@ -215,13 +203,12 @@
           <div class="container-fluid" *ngIf="question.hints.length != 0">
             <div *ngFor="let hint of question.hints; let hintIndex = index">
               <ng-container *ngIf="currentRound.questionType == 3">
-
                 <!-- //! hint show back of answer -->
                 <div class="row" *ngIf="hint.position == 2">
                   <div class="col-sm-5">
                     <div class="form-group ">
-                      <label for="" style="width:100px;" class="common_label">ANSWER</label>
-                      <input [readonly]="hint.id == 1 ? false : true" type="text" class="common_input w_100" [ngClass]="hint.id == 1 ? undefined: 'common_input w_100 disabled'" [(ngModel)]="question.ans" />
+                      <label for="answer" style="width:100px;" class="common_label">ANSWER</label>
+                      <input id="answer" [readonly]="hint.id !== 1" type="text" class="common_input w_100" [ngClass]="hint.id == 1 ? undefined: 'common_input w_100 disabled'" [(ngModel)]="question.ans" />
 
                       <div>
                         <label class="common_label">MAIN ANSWER FONT SIZE</label>
@@ -241,11 +228,8 @@
                   </div>
                   <div class="col-sm-5">
                     <div class="form-group">
-                      <label for="" style="width:100px;" class="common_label">HINT
-                        {{ question.hints.length <= 1 ? "" : hint.id }}</label>
-
-                          <input type="text" class="common_input w_100" (keyup)="changeHint($event, hint.id)"
-                            value="{{ hint.value }}" />
+                      <label [for]="'hint' + hintIndex" style="width:100px;" class="common_label">HINT{{ question.hints.length <= 1 ? "" : hint.id }}</label>
+                          <input [id]="'hint' + hintIndex" type="text" class="common_input w_100" (keyup)="changeHint($event, hint.id)" [value]="hint.value" />
                           <div>
                             <label class="common_label">MAIN HINT FONT SIZE</label>
                             <input type="text" class="common_input w_30" [(ngModel)]="hint.hintFontSize"
@@ -310,10 +294,10 @@
                   <div class="col-sm-4 "></div>
                 </div>
               </ng-container>
-              <ng-container *ngIf="currentRound.questionType == 1 || currentRound.questionType === 6">
+              <ng-container *ngIf="currentRound.questionType == 1">
                 <div class="form-group" *ngIf="currentRound.questionType !== 6">
-                  <label for="hint" style="width: 100px;" class="common_label">HINT</label>
-                  <input type="text" id="hint" class="common_input w_100" [(ngModel)]="hint.value" />
+                  <label [for]="'hint' + hintIndex" style="width: 100px;" class="common_label">HINT</label>
+                  <input type="text" [id]="'hint' + hintIndex" class="common_input w_100" [(ngModel)]="hint.value" />
                 </div>
                 <div class="form-group" *ngIf="currentRound.questionType !== 6">
                   <div class="row">
