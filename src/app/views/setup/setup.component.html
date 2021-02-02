@@ -399,54 +399,54 @@
                   <div class="container" style="padding: 20px;">
                     <div class="row" style="flex-wrap: initial;">
                       <div (click)="clickGrid(item)" class="alpha_text col-sm"
-                        *ngFor="let item of [11,12,13,14,15,16,17,18,19,110]; let i = index" [id]="item">
+                        *ngFor="let item of [11,12,13,14,15,16,17,18]; let i = index" [id]="item">
                       </div>
                     </div>
                     <div class="row" style="flex-wrap: initial;">
                       <div (click)="clickGrid(item)" class="alpha_text col-sm"
-                        *ngFor="let item of [21,22,23,24,25,26,27,28,29,210]; let i = index" [id]="item">
+                        *ngFor="let item of [21,22,23,24,25,26,27,28]; let i = index" [id]="item">
                       </div>
                     </div>
                     <div class="row" style="flex-wrap: initial;">
                       <div (click)="clickGrid(item)" class="alpha_text col-sm"
-                        *ngFor="let item of [31,32,33,34,35,36,37,38,39,310]; let i = index" [id]="item">
+                        *ngFor="let item of [31,32,33,34,35,36,37,38]; let i = index" [id]="item">
                       </div>
                     </div>
                     <div class="row" style="flex-wrap: initial;">
                       <div (click)="clickGrid(item)" class="alpha_text col-sm"
-                           *ngFor="let item of [41,42,43,44,45,46,47,48,49,410]; let i = index" [id]="item">
+                           *ngFor="let item of [41,42,43,44,45,46,47,48]; let i = index" [id]="item">
                       </div>
                     </div>
                     <div class="row" style="flex-wrap: initial;">
                       <div (click)="clickGrid(item)" class="alpha_text col-sm"
-                           *ngFor="let item of [51,52,53,54,55,56,57,58,59,510]; let i = index" [id]="item">
+                           *ngFor="let item of [51,52,53,54,55,56,57,58]; let i = index" [id]="item">
                       </div>
                     </div>
                     <div class="row" style="flex-wrap: initial;">
                       <div (click)="clickGrid(item)" class="alpha_text col-sm"
-                        *ngFor="let item of [61,62,63,64,65,66,67,68,69,610]; let i = index" [id]="item">
+                        *ngFor="let item of [61,62,63,64,65,66,67,68]; let i = index" [id]="item">
                       </div>
                     </div>
                     <div class="row" style="flex-wrap: initial;">
                       <div (click)="clickGrid(item)" class="alpha_text col-sm"
-                        *ngFor="let item of [71,72,73,74,75,76,77,78,79,710]; let i = index" [id]="item">
+                        *ngFor="let item of [71,72,73,74,75,76,77,78]; let i = index" [id]="item">
                       </div>
                     </div>
                     <div class="row" style="flex-wrap: initial;">
                       <div (click)="clickGrid(item)" class="alpha_text col-sm"
-                        *ngFor="let item of [81,82,83,84,85,86,87,88,89,810]; let i = index" [id]="item">
+                        *ngFor="let item of [81,82,83,84,85,86,87,88]; let i = index" [id]="item">
                       </div>
                     </div>
-                    <div class="row" style="flex-wrap: initial;">
-                      <div (click)="clickGrid(item)" class="alpha_text col-sm"
-                        *ngFor="let item of [91,92,93,94,95,96,97,98,99,910]; let i = index" [id]="item">
-                      </div>
-                    </div>
-                    <div class="row" style="flex-wrap: initial;">
-                      <div (click)="clickGrid(item)" class="alpha_text col-sm"
-                        *ngFor="let item of [101,102,103,104,105,106,107,108,109,1010]; let i = index" [id]="item">
-                      </div>
-                    </div>
+<!--                    <div class="row" style="flex-wrap: initial;">-->
+<!--                      <div (click)="clickGrid(item)" class="alpha_text col-sm"-->
+<!--                        *ngFor="let item of [91,92,93,94,95,96,97,98,99,910]; let i = index" [id]="item">-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                    <div class="row" style="flex-wrap: initial;">-->
+<!--                      <div (click)="clickGrid(item)" class="alpha_text col-sm"-->
+<!--                        *ngFor="let item of [101,102,103,104,105,106,107,108,109,1010]; let i = index" [id]="item">-->
+<!--                      </div>-->
+<!--                    </div>-->
                   </div>
                 </div>
                 <div class="col-sm-4">
@@ -496,9 +496,9 @@
                     </div>
 
                     <div style="margin-left:4px;margin-bottom: 13%;">
-                      <input type="radio" name="gridstatus" value="default" (change)="changeGridStatus($event)" />
+                      <input #word type="radio" name="gridstatus" value="default" (change)="changeGridStatus(word.value)" />
                       <label class="option_text">Add Word</label>
-                      <input type="radio" name="gridstatus" value="hint" (change)="changeGridStatus($event)" />
+                      <input #hint type="radio" name="gridstatus" value="hint" (change)="changeGridStatus(hint.value)" />
                       <label class="option_text">Add Hint</label>
                     </div>
                     <button class="btn-primary btn_box button" style="width: 100%; margin-left: 5px !important;"

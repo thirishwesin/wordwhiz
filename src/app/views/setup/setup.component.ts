@@ -1,4 +1,4 @@
-import { Player } from './../../core/models/player';
+import { Player } from '../../core/models/player';
 import { Component, OnInit } from "@angular/core";
 import {
   faTimesCircle,
@@ -23,10 +23,8 @@ import { QuestionCategory } from "../../core/models/questionCategory";
 import { updateEpisodeStore } from "../../core/actions/episode.actions";
 import { readFileSync } from "fs";
 import { AppConfig } from "../../../environments/environment";
-import { Hint } from '../../core/models/hint';
-import { Timer } from './../../core/models/timer.model';
+import { Timer } from '../../core/models/timer.model';
 import * as fs from 'fs'
-import { DomSanitizer } from '@angular/platform-browser';
 
 const electron = require('electron')
 @Component({
@@ -750,33 +748,31 @@ export class SetupComponent implements OnInit {
     console.log('grid value => ', id)
     console.log('currentWord => ', this.currentWord)
     if (this.currentWord) {
-      let questionArr = this.currentRound.questionArray.filter(question =>
-        question.categoryId == this.currentCategory.id && question.hints[0].value == this.currentWord.hints[0].value)
-      let questionArrIndex = this.currentRound.questionArray.indexOf(questionArr[0])
-      console.log('question array index => ', questionArrIndex)
-      let div = (<HTMLDivElement>document.getElementById(id));
+      const quest = this.currentRound.questionArray.find(({categoryId, hints}) => categoryId == this.currentCategory.id && hints[0].value == this.currentWord.hints[0].value);
+      const questIndex = this.currentRound.questionArray.indexOf(quest);
+      console.log('question array index => ', questIndex)
+      let div = document.getElementById(id) as HTMLDivElement;
       if (this.isDefaultOrHint == 'default') {
         if (this.gridValue) {
           div.innerText = this.gridValue.charAt(0);
           this.gridValue = this.gridValue.substring(1);
-          this.currentRound.questionArray[questionArrIndex].hints[0].position.push(id);
-          if (this.gridValue.length == 0) {
+          this.currentRound.questionArray[questIndex].hints[0].position.push(id);
+          if (!this.gridValue.length) {
             this.currentWord = undefined
           }
-
         }
       } else if (this.isDefaultOrHint == 'hint') {
         if (div.style.backgroundColor == '') {
           div.style.backgroundColor = 'red'
-          this.currentRound.questionArray[questionArrIndex].ans += id + ',';
+          this.currentRound.questionArray[questIndex].ans += id + ',';
         } else {
-          div.style.backgroundColor = ''
+          div.style.backgroundColor = '';
           console.log('id => ', id)
           let old = id + ','
-          this.currentRound.questionArray[questionArrIndex].ans = this.currentRound.questionArray[questionArrIndex].ans.replace(old, '');
+          this.currentRound.questionArray[questIndex].ans = this.currentRound.questionArray[questIndex].ans.replace(old, '');
         }
       }
-      console.log('this.currentRound.questionArray => ', this.currentRound.questionArray[questionArrIndex])
+      console.log('this.currentRound.questionArray => ', this.currentRound.questionArray[questIndex])
     }
   }
 
@@ -826,9 +822,7 @@ export class SetupComponent implements OnInit {
       }
     }
 
-    if (word == "" || word.trim() == "")
-      this.isEmptyWordName = true;
-    else this.isEmptyWordName = false;
+    this.isEmptyWordName = word == "" || word.trim() == "";
   }
 
   clickHint(question) {
@@ -837,8 +831,8 @@ export class SetupComponent implements OnInit {
     console.log('gridValue => ', this.gridValue)
   }
 
-  changeGridStatus(event) {
-    this.isDefaultOrHint = event.target.value
+  changeGridStatus(val: string) {
+    this.isDefaultOrHint = val;
     console.log('grid status => ', this.isDefaultOrHint)
   }
 
