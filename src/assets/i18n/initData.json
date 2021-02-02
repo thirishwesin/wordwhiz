@@ -194,16 +194,16 @@
                   "value": "艹",
                   "position": 0,
                   "isCharacter": false,
-                  "hintFontSize": null,
-                  "otHintFontSize": null
+                  "hintFontSize": "30",
+                  "otHintFontSize": "30"
                 }
               ],
               "ans": "苦闷",
               "isAnsCharacter": true,
               "clueFontSize": 50,
               "otClueFontSize": 50,
-              "ansFontSize": 50,
-              "otAnsFontSize": 50
+              "ansFontSize": 30,
+              "otAnsFontSize": 30
             }
           ],
           "roundNameFontSize": "90",
