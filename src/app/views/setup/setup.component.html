@@ -167,8 +167,8 @@
             <div class="row">
               <div class="col-sm-12">
                 <div class="form-group ">
-                  <label for="" style="width:100px;" class="common_label">ANSWER</label>
-                  <input type="text" class="common_input w_100" [(ngModel)]="question.ans"
+                  <label for="answer_0" style="width:100px;" class="common_label">ANSWER</label>
+                  <input id="answer_0" type="text" class="common_input w_100" [(ngModel)]="question.ans"
                     (ngModelChange)="questionAnsChanged($event)" />
                   <div class="row">
                     <div class="col-sm-6">
@@ -209,22 +209,18 @@
                     <div class="form-group ">
                       <label for="answer" style="width:100px;" class="common_label">ANSWER</label>
                       <input id="answer" [readonly]="hint.id !== 1" type="text" class="common_input w_100" [ngClass]="hint.id == 1 ? undefined: 'common_input w_100 disabled'" [(ngModel)]="question.ans" />
-
                       <div>
                         <label class="common_label">MAIN ANSWER FONT SIZE</label>
-                        <input type="text" class="common_input w_30" [(ngModel)]="question.ansFontSize"
-                          OnlyNumber="true" />
+                        <input type="text" class="common_input w_30" [(ngModel)]="question.ansFontSize" OnlyNumber="true" />
                       </div>
                       <div>
                         <label class="common_label">ONE THIRD ANSWER FONT SIZE</label>
-                        <input type="text" class="common_input w_30" [(ngModel)]="question.otAnsFontSize"
-                          OnlyNumber="true" />
+                        <input type="text" class="common_input w_30" [(ngModel)]="question.otAnsFontSize" OnlyNumber="true" />
                       </div>
-
                     </div>
                   </div>
                   <div class="col-sm-2 exchange_wrapper">
-                    <img [src]="Images.exchange_icon" class="exchange_icon" (click)="exchangeHint(1, hint.id)" />
+                    <img [src]="Images.exchange_icon" class="exchange_icon" alt="exchange_icon" (click)="exchangeHint(1, hint.id)" />
                   </div>
                   <div class="col-sm-5">
                     <div class="form-group">
@@ -331,43 +327,34 @@
               <ng-container *ngIf="currentRound.questionType == 4">
                 <div class="col-sm-12" style="padding: 0;">
                   <div class="form-group">
-                    <label for="" style="width:100px;" class="common_label">HINT
-                      {{ question.hints.length <= 1 ? "" : hint.id }}</label>
-
-                        <input type="text" class="common_input w_100" (keyup)="changeHint($event, hint.id)"
-                          value="{{ hint.value }}" />
+                    <label [for]="'hint' + hintIndex" style="width:100px;" class="common_label">HINT{{ question.hints.length <= 1 ? "" : hint.id }}</label>
+                        <input [id]="'hint' + hintIndex" type="text" class="common_input w_100" (keyup)="changeHint($event, hint.id)" [value]="hint.value" />
                         <div class="row">
                           <div class="col-sm-6">
-                            <label class="common_label">MAIN HINT FONT SIZE</label>
-                            <input type="text" class="common_input w_30" [(ngModel)]="hint.hintFontSize"
-                              OnlyNumber="true" />
+                            <label for="main_hint_font_size_" class="common_label">MAIN HINT FONT SIZE</label>
+                            <input id="main_hint_font_size_" type="text" class="common_input w_30" [(ngModel)]="hint.hintFontSize" OnlyNumber="true" />
                           </div>
                           <div class="col-sm-6">
-                            <label class="common_label">ONE THIRD HINT FONT SIZE</label>
-                            <input type="text" class="common_input w_30" [(ngModel)]="hint.otHintFontSize"
-                              OnlyNumber="true" />
+                            <label for="one_third_font_size_" class="common_label">ONE THIRD HINT FONT SIZE</label>
+                            <input id="one_third_font_size_" type="text" class="common_input w_30" [(ngModel)]="hint.otHintFontSize" OnlyNumber="true" />
                           </div>
                         </div>
-
                   </div>
                 </div>
                 <div class="col-sm-12" style="padding: 0;" *ngIf="hintIndex == 2">
                   <div class="form-group ">
-                    <label for="" style="width:100px;" class="common_label">ANSWER</label>
-                    <input type="text" class="common_input w_100" [(ngModel)]="question.ans" />
+                    <label for="hint_ans_2" style="width:100px;" class="common_label">ANSWER</label>
+                    <input id="hint_ans_2" type="text" class="common_input w_100" [(ngModel)]="question.ans" />
                     <div class="row">
                       <div class="col-sm-6">
-                        <label class="common_label">MAIN ANSWER FONT SIZE</label>
-                        <input type="text" class="common_input w_30" [(ngModel)]="question.ansFontSize"
-                          OnlyNumber="true" />
+                        <label for="hint_main_2" class="common_label">MAIN ANSWER FONT SIZE</label>
+                        <input id="hint_main_2" type="text" class="common_input w_30" [(ngModel)]="question.ansFontSize" OnlyNumber="true" />
                       </div>
                       <div class="col-sm-6">
-                        <label class="common_label">ONE THIRD ANSWER FONT SIZE</label>
-                        <input type="text" class="common_input w_30" [(ngModel)]="question.otAnsFontSize"
-                          OnlyNumber="true" />
+                        <label for="hint_one_third_2" class="common_label">ONE THIRD ANSWER FONT SIZE</label>
+                        <input id="hint_one_third_2" type="text" class="common_input w_30" [(ngModel)]="question.otAnsFontSize" OnlyNumber="true" />
                       </div>
                     </div>
-
                   </div>
                 </div>
               </ng-container>
@@ -389,118 +376,92 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="ans" style="width:100px;" class="common_label">ANSWER</label>
-                  <input type="text" id="ans" class="common_input w_100" [(ngModel)]="question.ans" (ngModelChange)="questionAnsChanged($event)" />
+                  <label for="ans_" style="width:100px;" class="common_label">ANSWER</label>
+                  <input type="text" id="ans_" class="common_input w_100" [(ngModel)]="question.ans" (ngModelChange)="questionAnsChanged($event)" />
                 </div>
                 <div class="form-group">
                   <div class="row">
                     <div class="col-sm-6">
-                      <label for="main_ans_font_size" class="common_label">MAIN ANSWER FONT SIZE</label>
-                      <input type="text" id="main_ans_font_size" class="common_input w_30" [(ngModel)]="question.ansFontSize" OnlyNumber="true" (ngModelChange)="questionAnsFontSizeChanged($event)" />
+                      <label for="main_ans_font_size_" class="common_label">MAIN ANSWER FONT SIZE</label>
+                      <input type="text" id="main_ans_font_size_" class="common_input w_30" [(ngModel)]="question.ansFontSize" OnlyNumber="true" (ngModelChange)="questionAnsFontSizeChanged($event)" />
                     </div>
                     <div class="col-sm-6">
-                      <label for="one_third_ans_font_size" class="common_label">ONE THIRD ANSWER FONT SIZE</label>
-                      <input type="text" id="one_third_ans_font_size" class="common_input w_30" [(ngModel)]="question.otAnsFontSize" OnlyNumber="true" (ngModelChange)="questionAnsFontSizeChanged($event)" />
+                      <label for="one_third_ans_font_size_" class="common_label">ONE THIRD ANSWER FONT SIZE</label>
+                      <input type="text" id="one_third_ans_font_size_" class="common_input w_30" [(ngModel)]="question.otAnsFontSize" OnlyNumber="true" (ngModelChange)="questionAnsFontSizeChanged($event)" />
                     </div>
                   </div>
                 </div>
               </ng-container>
             </div>
-            <ng-container *ngIf="currentRound.questionType == 2">
+            <ng-container *ngIf="currentRound.questionType === 2">
               <div class="row">
                 <div class="col-sm-8">
                   <div class="container" style="padding: 20px;">
                     <div class="row" style="flex-wrap: initial;">
-                      <div class="col-sm" (click)="clickGrid(item)" class="alpha_text"
-                        style="border: 1px solid #4DB821; height: 32px;"
+                      <div (click)="clickGrid(item)" class="alpha_text col-sm"
                         *ngFor="let item of [11,12,13,14,15,16,17,18,19,110]; let i = index" [id]="item">
-
                       </div>
                     </div>
                     <div class="row" style="flex-wrap: initial;">
-                      <div class="col-sm" (click)="clickGrid(item)" class="alpha_text"
-                        style="border: 1px solid #4DB821; height: 32px;"
+                      <div (click)="clickGrid(item)" class="alpha_text col-sm"
                         *ngFor="let item of [21,22,23,24,25,26,27,28,29,210]; let i = index" [id]="item">
-
                       </div>
                     </div>
                     <div class="row" style="flex-wrap: initial;">
-                      <div class="col-sm" (click)="clickGrid(item)" class="alpha_text"
-                        style="border: 1px solid #4DB821; height: 32px;"
+                      <div (click)="clickGrid(item)" class="alpha_text col-sm"
                         *ngFor="let item of [31,32,33,34,35,36,37,38,39,310]; let i = index" [id]="item">
-
                       </div>
                     </div>
                     <div class="row" style="flex-wrap: initial;">
-                      <div class="col-sm" (click)="clickGrid(item)" class="alpha_text"
-                        style="border: 1px solid #4DB821; height: 32px;" *ngFor="let item of [41,42,43,44,45,46,47,48,49,410]; let i = index" [id]="item">
-
+                      <div (click)="clickGrid(item)" class="alpha_text col-sm"
+                           *ngFor="let item of [41,42,43,44,45,46,47,48,49,410]; let i = index" [id]="item">
                       </div>
                     </div>
                     <div class="row" style="flex-wrap: initial;">
-                      <div class="col-sm" (click)="clickGrid(item)" class="alpha_text"
-                        style="border: 1px solid #4DB821; height: 32px;"
-                        *ngFor="let item of [51,52,53,54,55,56,57,58,59,510]; let i = index" [id]="item">
-
+                      <div (click)="clickGrid(item)" class="alpha_text col-sm"
+                           *ngFor="let item of [51,52,53,54,55,56,57,58,59,510]; let i = index" [id]="item">
                       </div>
                     </div>
                     <div class="row" style="flex-wrap: initial;">
-                      <div class="col-sm" (click)="clickGrid(item)" class="alpha_text"
-                        style="border: 1px solid #4DB821; height: 32px;"
+                      <div (click)="clickGrid(item)" class="alpha_text col-sm"
                         *ngFor="let item of [61,62,63,64,65,66,67,68,69,610]; let i = index" [id]="item">
-
                       </div>
                     </div>
                     <div class="row" style="flex-wrap: initial;">
-                      <div class="col-sm" (click)="clickGrid(item)" class="alpha_text"
-                        style="border: 1px solid #4DB821; height: 32px;"
+                      <div (click)="clickGrid(item)" class="alpha_text col-sm"
                         *ngFor="let item of [71,72,73,74,75,76,77,78,79,710]; let i = index" [id]="item">
-
                       </div>
                     </div>
                     <div class="row" style="flex-wrap: initial;">
-                      <div class="col-sm" (click)="clickGrid(item)" class="alpha_text"
-                        style="border: 1px solid #4DB821; height: 32px;"
+                      <div (click)="clickGrid(item)" class="alpha_text col-sm"
                         *ngFor="let item of [81,82,83,84,85,86,87,88,89,810]; let i = index" [id]="item">
-
                       </div>
                     </div>
                     <div class="row" style="flex-wrap: initial;">
-                      <div class="col-sm" (click)="clickGrid(item)" class="alpha_text"
-                        style="border: 1px solid #4DB821; height: 32px;"
+                      <div (click)="clickGrid(item)" class="alpha_text col-sm"
                         *ngFor="let item of [91,92,93,94,95,96,97,98,99,910]; let i = index" [id]="item">
-
                       </div>
                     </div>
                     <div class="row" style="flex-wrap: initial;">
-                      <div class="col-sm" (click)="clickGrid(item)" class="alpha_text"
-                        style="border: 1px solid #4DB821; height: 32px;"
+                      <div (click)="clickGrid(item)" class="alpha_text col-sm"
                         *ngFor="let item of [101,102,103,104,105,106,107,108,109,1010]; let i = index" [id]="item">
-
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="col-sm-4">
                   <div class="form-group" style="margin-top: 20px;">
-
                     <div ngbDropdown class="d-inline-block" style="margin-bottom: 13%;width: 100%;">
-                      <label for="" class="common_label ">
-                        CATEGORY
-                      </label>
-                      <button style="width: 100%;" class="btn common_input" id="dropdownBasic1" ngbDropdownToggle>
-                        <p class="section_text">
-                          {{ currentCategory ? currentCategory.name : "Add New Category" }}
-                        </p>
-                        <img [src]="Images.dropDown" class="drop_down_icon" />
+                      <label for="category_" class="common_label ">CATEGORY</label>
+                      <button style="width: 100%;" class="btn common_input" id="category_drop_down" ngbDropdownToggle>
+                        <p class="section_text">{{ currentCategory ? currentCategory.name : "Add New Category" }}</p>
+                        <img [src]="Images.dropDown" class="drop_down_icon" alt="drop down image" />
                       </button>
-                      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                        <button ngbDropdownItem *ngFor="let category of currentRound.categories">
+                      <div ngbDropdownMenu aria-labelledby="category_drop_down">
+                        <button id="category_" ngbDropdownItem *ngFor="let category of currentRound.categories">
                           <span class="roundDropDown" (click)="changeCategory(category)">{{ category.name }}</span>
                           <span>
-                            <fa-icon class="remove_icon" [icon]="faTimesCircle"
-                              (click)="openModal(content_setup, 4, category)">
-                            </fa-icon>
+                            <fa-icon class="remove_icon" [icon]="faTimesCircle" (click)="openModal(content_setup, 4, category)"></fa-icon>
                           </span>
                         </button>
                         <button ngbDropdownItem (click)="openModal(content_setup, 5, categoryName)">
@@ -513,15 +474,13 @@
                     </div>
 
                     <div ngbDropdown class="d-inline-block" style="margin-bottom: 13%;width: 100%;">
-                      <label for="" class="common_label ">WORD</label>
-                      <button style="width: 100%;" class="btn common_input" id="dropdownBasic1" ngbDropdownToggle>
-                        <p class="section_text">
-                          {{ currentWord ? currentWord.hints[0].value : "Select One Word" }}
-                        </p>
-                        <img [src]="Images.dropDown" class="drop_down_icon" />
+                      <label for="word" class="common_label ">WORD</label>
+                      <button style="width: 100%;" class="btn common_input" id="word_choose_drop_down" ngbDropdownToggle>
+                        <p class="section_text">{{ currentWord ? currentWord.hints[0].value : "Select One Word" }}</p>
+                        <img [src]="Images.dropDown" class="drop_down_icon" alt="drop down image" />
                       </button>
-                      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                        <button ngbDropdownItem *ngFor="let question of filterQuestion(currentRound.questionArray)">
+                      <div ngbDropdownMenu aria-labelledby="word_choose_drop_down">
+                        <button id="word" ngbDropdownItem *ngFor="let question of filterQuestion(currentRound.questionArray)">
                           <span class="roundDropDown" (click)="clickHint(question)">{{ question.hints[0].value }}</span>
                           <span>
                             <fa-icon class="remove_icon" [icon]="faTimesCircle" (click)="openModal(content_setup, 6, question.id)"></fa-icon>

@@ -1250,7 +1250,7 @@
     {
       "id": 2,
       "name": "CROSS WORD",
-      "hintsCount": 0,
+      "hintsCount": 1,
       "isHintChar": false,
       "isAnsChar": true,
       "showfirstAnsChar": false,
