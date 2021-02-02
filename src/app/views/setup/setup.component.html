@@ -52,11 +52,12 @@
             <label class="common_label">ROUND AND ROUND NAME FONT SIZE</label>
             <input type="text" class="common_input w_321" [(ngModel)]="currentRound.roundNameFontSize" OnlyNumber="true" />
           </div>
+
           <div class="form-group" *ngIf="currentRound.questionType == 5">
             <input type="button" class="btn btn-primary" (click)="uploadFile()" value="UPLOAD VIDEO" />
           </div>
           <!-- choose category(theme) -->
-          <div class="form-group" *ngIf="currentRound.questionType == 4">
+          <div class="form-group" *ngIf="currentRound.questionType == 4 || currentRound.questionType == 7">
             <label for="" class="common_label"></label>
             <div ngbDropdown class="d-inline-block">
               <button class="btn common_input" id="dropdownBasic1" ngbDropdownToggle>
@@ -68,12 +69,12 @@
               <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
                 <button ngbDropdownItem *ngFor="let category of currentRound.categories">
                   <span class="roundDropDown" (click)="changeCategory(category)">{{ category.name }}</span>
-                  <span>
+                  <span *ngIf="currentRound.questionType == 4">
                     <fa-icon class="remove_icon" [icon]="faTimesCircle" (click)="openModal(content_setup, 4, category)">
                     </fa-icon>
                   </span>
                 </button>
-                <button ngbDropdownItem (click)="openModal(content_setup, 5, categoryName)">
+                <button ngbDropdownItem (click)="openModal(content_setup, 5, categoryName)" *ngIf="currentRound.questionType == 4">
                   Add New Theme
                   <span>
                     <fa-icon class="add_icon" [icon]="faPlusCircle"></fa-icon>
@@ -310,19 +311,19 @@
                 </div>
               </ng-container>
               <ng-container *ngIf="currentRound.questionType == 1 || currentRound.questionType === 6">
-                <div class="form-group">
+                <div class="form-group" *ngIf="currentRound.questionType !== 6">
                   <label for="hint" style="width: 100px;" class="common_label">HINT</label>
                   <input type="text" id="hint" class="common_input w_100" [(ngModel)]="hint.value" />
                 </div>
-                <div class="form-group">
+                <div class="form-group" *ngIf="currentRound.questionType !== 6">
                   <div class="row">
                     <div class="col-sm-6">
                       <label for="main_hint_font_size" class="common_label">MAIN HINT FONT SIZE</label>
-                      <input type="text" class="common_input w_30" [(ngModel)]="hint.hintFontSize" OnlyNumber="true" />
+                      <input type="text" id="main_hint_font_size" class="common_input w_30" [(ngModel)]="hint.hintFontSize" OnlyNumber="true" />
                     </div>
                     <div class="col-sm-6">
                       <label for="one_third_font_size" class="common_label">ONE THIRD HINT FONT SIZE</label>
-                      <input type="text" class="common_input w_30" [(ngModel)]="hint.otHintFontSize" OnlyNumber="true" />
+                      <input type="text" id="one_third_font_size" class="common_input w_30" [(ngModel)]="hint.otHintFontSize" OnlyNumber="true" />
                     </div>
                   </div>
                 </div>
@@ -383,6 +384,40 @@
                       </div>
                     </div>
 
+                  </div>
+                </div>
+              </ng-container>
+              <ng-container *ngIf="currentRound.questionType == 7">
+                <div class="form-group">
+                  <label for="hint" style="width: 100px;" class="common_label">HINT</label>
+                  <input type="text" id="hint" class="common_input w_100" [(ngModel)]="hint.value" />
+                </div>
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <label for="main_hint_font_size" class="common_label">MAIN HINT FONT SIZE</label>
+                      <input type="text" class="common_input w_30" [(ngModel)]="hint.hintFontSize" OnlyNumber="true" />
+                    </div>
+                    <div class="col-sm-6">
+                      <label for="one_third_font_size" class="common_label">ONE THIRD HINT FONT SIZE</label>
+                      <input type="text" class="common_input w_30" [(ngModel)]="hint.otHintFontSize" OnlyNumber="true" />
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="ans" style="width:100px;" class="common_label">ANSWER</label>
+                  <input type="text" id="ans" class="common_input w_100" [(ngModel)]="question.ans" (ngModelChange)="questionAnsChanged($event)" />
+                </div>
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <label for="main_ans_font_size" class="common_label">MAIN ANSWER FONT SIZE</label>
+                      <input type="text" id="main_ans_font_size" class="common_input w_30" [(ngModel)]="question.ansFontSize" OnlyNumber="true" (ngModelChange)="questionAnsFontSizeChanged($event)" />
+                    </div>
+                    <div class="col-sm-6">
+                      <label for="one_third_ans_font_size" class="common_label">ONE THIRD ANSWER FONT SIZE</label>
+                      <input type="text" id="one_third_ans_font_size" class="common_input w_30" [(ngModel)]="question.otAnsFontSize" OnlyNumber="true" (ngModelChange)="questionAnsFontSizeChanged($event)" />
+                    </div>
                   </div>
                 </div>
               </ng-container>
@@ -494,9 +529,7 @@
                     </div>
 
                     <div ngbDropdown class="d-inline-block" style="margin-bottom: 13%;width: 100%;">
-                      <label for="" class="common_label ">
-                        WORD
-                      </label>
+                      <label for="" class="common_label ">WORD</label>
                       <button style="width: 100%;" class="btn common_input" id="dropdownBasic1" ngbDropdownToggle>
                         <p class="section_text">
                           {{ currentWord ? currentWord.hints[0].value : "Select One Word" }}
@@ -507,9 +540,7 @@
                         <button ngbDropdownItem *ngFor="let question of filterQuestion(currentRound.questionArray)">
                           <span class="roundDropDown" (click)="clickHint(question)">{{ question.hints[0].value }}</span>
                           <span>
-                            <fa-icon class="remove_icon" [icon]="faTimesCircle"
-                              (click)="openModal(content_setup, 6, question.id)">
-                            </fa-icon>
+                            <fa-icon class="remove_icon" [icon]="faTimesCircle" (click)="openModal(content_setup, 6, question.id)"></fa-icon>
                           </span>
                         </button>
                         <button ngbDropdownItem (click)="openModal(content_setup, 7, hintValueForR4)">
@@ -522,12 +553,10 @@
                     </div>
 
                     <div style="margin-left:4px;margin-bottom: 13%;">
-                      <input type="radio" name="gridstatus" value="default" (change)="changeGridStatus($event)" /><label
-                        class="option_text">
-                        Add Word</label>
-                      <input type="radio" name="gridstatus" value="hint" (change)="changeGridStatus($event)" /><label
-                        class="option_text">
-                        Add Hint</label>
+                      <input type="radio" name="gridstatus" value="default" (change)="changeGridStatus($event)" />
+                      <label class="option_text">Add Word</label>
+                      <input type="radio" name="gridstatus" value="hint" (change)="changeGridStatus($event)" />
+                      <label class="option_text">Add Hint</label>
                     </div>
                     <button class="btn-primary btn_box button" style="width: 100%; margin-left: 5px !important;"
                       (click)="clearWord(currentWord.hints[0].value )">
