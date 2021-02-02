@@ -200,7 +200,7 @@
               ],
               "ans": "苦闷",
               "isAnsCharacter": true,
-              "clueFontSize": 50,
+              "clueFontSize": 0,
               "otClueFontSize": 50,
               "ansFontSize": 50,
               "otAnsFontSize": 50
@@ -1102,16 +1102,40 @@
         },
         {
           "id": 2,
-          "name": "CROSS WORD",
-          "questionType": 2,
-          "showfirstAnsChar": false,
+          "name": "MISSING WORD",
+          "questionType": 6,
+          "showfirstAnsChar": true,
           "hasCategory": false,
           "categories": [],
-          "timeOut": 15,
-          "point": 15,
-          "questionArray": [],
+          "timeOut": 10,
+          "point": 10,
+          "questionArray": [
+            {
+              "id": 1,
+              "clue": "gsdg",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "gsd",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": "45",
+                  "otHintFontSize": "35"
+                }
+              ],
+              "ans": "gsdg",
+              "isAnsCharacter": true,
+              "clueFontSize": "30",
+              "otClueFontSize": "30",
+              "ansFontSize": "35",
+              "otAnsFontSize": "30"
+            }
+          ],
           "roundNameFontSize": "90",
-          "clueLabelFontSize": "60"
+          "clueLabelFontSize": "60",
+          "secondTimeOut": 5,
+          "secondPoint": 5
         },
         {
           "id": 3,
@@ -1164,71 +1188,6 @@
           "secondTimeOut": 5,
           "secondPoint": 5,
           "questionArray": [],
-          "roundNameFontSize": "90",
-          "clueLabelFontSize": "60"
-        },
-        {
-          "id": 7,
-          "name": "SPOT THE MISTAKE",
-          "questionType": 7,
-          "showfirstAnsChar": false,
-          "hasCategory": true,
-          "categories": [
-            {
-              "id": 0,
-              "name": "Player One"
-            },
-            {
-              "id": 1,
-              "name": "Player Two"
-            }
-          ],
-          "timeOut": 15,
-          "point": 20,
-          "questionArray": [
-            {
-              "id": 1,
-              "clue": "palyer two question",
-              "categoryId": 1,
-              "hints": [
-                {
-                  "id": 1,
-                  "value": "t",
-                  "position": 0,
-                  "isCharacter": false,
-                  "hintFontSize": null,
-                  "otHintFontSize": null
-                }
-              ],
-              "ans": "two",
-              "isAnsCharacter": true,
-              "clueFontSize": 50,
-              "otClueFontSize": 50,
-              "ansFontSize": 50,
-              "otAnsFontSize": 50
-            },
-            {
-              "id": 2,
-              "clue": "player one question",
-              "categoryId": 0,
-              "hints": [
-                {
-                  "id": 1,
-                  "value": "o",
-                  "position": 0,
-                  "isCharacter": false,
-                  "hintFontSize": null,
-                  "otHintFontSize": null
-                }
-              ],
-              "ans": "one",
-              "isAnsCharacter": true,
-              "clueFontSize": 50,
-              "otClueFontSize": 50,
-              "ansFontSize": 50,
-              "otAnsFontSize": 50
-            }
-          ],
           "roundNameFontSize": "90",
           "clueLabelFontSize": "60"
         }
@@ -1284,20 +1243,11 @@
     {
       "id": 6,
       "name": "MISSING WORD",
-      "hintsCount": 0,
+      "hintsCount": 1,
       "isHintChar": false,
       "isAnsChar": true,
       "showfirstAnsChar": true,
       "hasCategory": false
-    },
-    {
-      "id": 7,
-      "name": "SPOT THE MISTAKE",
-      "hintsCount": 1,
-      "isHintChar": false,
-      "isAnsChar": true,
-      "showfirstAnsChar": false,
-      "hasCategory": true
     }
   ],
   "fontSettings": {
