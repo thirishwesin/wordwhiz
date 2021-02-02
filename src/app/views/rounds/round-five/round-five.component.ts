@@ -1,6 +1,5 @@
 import { AfterViewInit, Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { AppConfig } from "../../../../environments/environment";
-import {} from '../../../../assets/video/'
 
 @Component({
   selector: 'app-round-five',
