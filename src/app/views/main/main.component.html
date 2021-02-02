@@ -104,7 +104,7 @@
                     </div>
                 </div>
                 <!-- Round Five -->
-                <div *ngIf="currentRound.questionType == 5 && control.showQuestion">
+                <div class="video_body" *ngIf="currentRound.questionType == 5 && control.showQuestion">
                   <app-round-five [videoName]="currentQuestion?.clue" [currentEpisodeId]="episode.id" [isPlay]="isPlay"></app-round-five>
                 </div>
                 <div class="alpha_wrapper" [ngClass]="{'alpha_wrapper_r4': currentRound.questionType == 4}" *ngIf="control.showQuestion || control.runCategoryRound">
@@ -125,7 +125,7 @@
                                     <input type="text" [value]="char" class="round1_text" [ngStyle]="{'font-size': currentQuestion.ansFontSize + 'px'}" [ngClass]="control.showAns || currentRound.showfirstAnsChar && i==0 ? 'animated zoomIn' : 'transparent'">
                                 </div>
                             </div>
-                            <div style="margin-left: -7%;" *ngIf="currentRound.questionType == 5">
+                            <div style="margin-left: -7%; margin-top:23%" *ngIf="currentRound.questionType == 5">
                                 <div class="one_word_blue retangle{{control.fontSettings.main_answer}} " [ngClass]="{'animated heartBeat': control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose, 'green_bg' : char.visible && control.showAns , 'hide_char' : char.word == ' '}"
                                     *ngFor="let char of control.extraWord">
 
