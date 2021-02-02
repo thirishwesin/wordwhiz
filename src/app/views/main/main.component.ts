@@ -1,3 +1,4 @@
+import { Hint } from './../../core/models/hint';
 import { Component, OnInit, NgZone } from "@angular/core";
 import * as $ from "jquery";
 import { Store, select } from "@ngrx/store";
@@ -37,6 +38,7 @@ export class MainComponent implements OnInit {
 
   ansCharArr = [];
   blockAnimated: boolean = false;
+  hints : string = "";
   renderingAPNG = false;
   isRenderedTimer = false;
 
@@ -50,7 +52,7 @@ export class MainComponent implements OnInit {
   rFourCubeImage = new Image();
   prevCategoryId: number
   cubeImage = new Image();
-  isPlay: boolean
+  isPlay: boolean;
 
   constructor(
     private store: Store<{
@@ -364,6 +366,16 @@ export class MainComponent implements OnInit {
     if (this.currentQuestion.isAnsCharacter) {
       this.ansCharArr = this.currentQuestion.ans.split("");
     }
+
+    //Implemented by ZBH
+    if(this.currentRound.questionType == 1 && this.currentQuestion.hints.length){
+        this.hints = "";
+        this.currentQuestion.hints.forEach(hint => {
+          this.hints += (hint.value);
+        });
+      console.log("Controls => ", this.control);
+    }
+    //Implemented by ZBH
 
     //separate character hints
     _.map(this.currentQuestion.hints, hint => {
