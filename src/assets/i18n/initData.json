@@ -1106,12 +1106,45 @@
           "questionType": 2,
           "showfirstAnsChar": false,
           "hasCategory": false,
-          "categories": [],
+          "categories": [
+            {
+              "id": 0,
+              "name": "Fruit"
+            }
+          ],
           "timeOut": 15,
           "point": 15,
           "secondTimeOut": 5,
           "secondPoint": 5,
-          "questionArray": [],
+          "questionArray": [
+            {
+              "id": 1,
+              "clue": "A",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "APPLE",
+                  "position": [
+                    11,
+                    21,
+                    31,
+                    41,
+                    51
+                  ],
+                  "isCharacter": false,
+                  "hintFontSize": 50,
+                  "otHintFontSize": 50
+                }
+              ],
+              "ans": "",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            }
+          ],
           "roundNameFontSize": "90",
           "clueLabelFontSize": "60"
         },
