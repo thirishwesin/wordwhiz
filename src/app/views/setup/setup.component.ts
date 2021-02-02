@@ -217,14 +217,20 @@ export class SetupComponent implements OnInit {
   changeQuestionType(questionType: QuestionTypes) {
     console.log('change question Type ####', questionType)
     //prompt alert to user
+
     this.currentRound.name = questionType.name;
-    this.currentRound.point = 0;
     this.currentRound.questionArray = [];
     this.currentRound.questionType = questionType.id;
     this.currentRound.categories = [];
     this.currentRound.showfirstAnsChar = questionType.showfirstAnsChar;
     this.currentRound.hasCategory = questionType.hasCategory;
+    this.currentRound.point = 0;
     this.currentRound.timeOut = 0;
+
+    if(questionType.id === 2 || questionType.id === 6) {
+      this.currentRound.secondPoint = 0;
+      this.currentRound.secondTimeOut = 0;
+    }
     this.updateSetupState();
   }
 
@@ -492,8 +498,7 @@ export class SetupComponent implements OnInit {
       this.checkModalType = isChange;
     } else if (isChange === 5) {
       // add category
-      if (_.isEmpty(this.categoryName)) this.isEmptyCategoryName = true;
-      else this.isEmptyCategoryName = false;
+      this.isEmptyCategoryName = _.isEmpty(this.categoryName);
       this.checkModalType = 5;
     } else if (isChange === 6) {
       // delete hint
@@ -505,7 +510,7 @@ export class SetupComponent implements OnInit {
     }
 
     // curentRound's name is null
-    if (this.currentRound.name == "" && isChange === 0) {
+    if (this.currentRound.name && isChange === 0) {
       this.changeQuestionType(type);
       //clear question block
       this.clearQuestionBlock();
