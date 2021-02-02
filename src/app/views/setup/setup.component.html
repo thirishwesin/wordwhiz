@@ -310,11 +310,11 @@
                 </div>
               </ng-container>
               <ng-container *ngIf="currentRound.questionType == 1 || currentRound.questionType === 6">
-                <div class="form-group" *ngIf="currentRound.id != 2">
+                <div class="form-group" *ngIf="currentRound.questionType !== 6">
                   <label for="hint" style="width: 100px;" class="common_label">HINT</label>
                   <input type="text" id="hint" class="common_input w_100" [(ngModel)]="hint.value" />
                 </div>
-                <div class="form-group" *ngIf="currentRound.id != 2">
+                <div class="form-group" *ngIf="currentRound.questionType !== 6">
                   <div class="row">
                     <div class="col-sm-6">
                       <label for="main_hint_font_size" class="common_label">MAIN HINT FONT SIZE</label>
