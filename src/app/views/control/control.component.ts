@@ -286,7 +286,7 @@ export class ControlComponent implements OnInit {
     }
 
     //initialize current Question Category
-    if (!this.currentCategory && this.currentRound.questionType == 4) {
+    if (!this.currentCategory && (this.currentRound.questionType == 4 || this.currentRound.questionType == 7) ) {
       this.currentCategory =
         this.currentRound.categories.length > 0
           ? this.currentRound.categories[0]

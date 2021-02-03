@@ -715,8 +715,8 @@ export class SetupComponent implements OnInit {
     else this.isEmptyCategoryName = false;
   }
 
-  addTimeout(timeout) {
-    this.currentRound.timeOut = timeout;
+  addTimeout(timeOut: number, key: string) {
+    this.currentRound[key] = timeOut;
   }
 
   readFileDev() {
@@ -951,8 +951,8 @@ export class SetupComponent implements OnInit {
   }
 
   getVideoDir(): string{
-    if (AppConfig.production) return `${process.env.PORTABLE_EXECUTABLE_DIR}/data/video`
-    else return `${process.cwd()}/release/data/video`
+    if (AppConfig.production) return `${process.env.PORTABLE_EXECUTABLE_DIR}/data/videos`
+    else return `${process.cwd()}/release/data/videos`
   }
 
   deleteVideo(filePath: string){
