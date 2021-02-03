@@ -31,8 +31,8 @@ export class RoundFiveComponent implements OnInit, OnChanges, AfterViewInit {
   }
 
   getVideoDir(): string{
-    if (AppConfig.production) return `${process.env.PORTABLE_EXECUTABLE_DIR}/data/video`
-    else return `${process.cwd()}/release/data/video`
+    if (AppConfig.production) return `${process.env.PORTABLE_EXECUTABLE_DIR}/data/videos`
+    else return `${process.cwd()}/release/data/videos`
   }
 
 
