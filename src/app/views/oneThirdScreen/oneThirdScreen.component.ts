@@ -50,6 +50,7 @@ export class OneThirdScreenComponent implements OnInit {
   oneThirdBgImage = new Image();
   roundTowBgImage = new Image();
   roundTwoBgImageEle: any;
+  hints: string = "";
 
   constructor(
     private router: Router,
@@ -373,6 +374,14 @@ export class OneThirdScreenComponent implements OnInit {
     //separate character Answer
     if (this.currentQuestion.isAnsCharacter) {
       this.ansCharArr = this.currentQuestion.ans.split("");
+    }
+
+    if(this.currentRound.questionType == 1 && this.currentQuestion.hints.length){
+      this.hints = "";
+      this.currentQuestion.hints.forEach(hint => {
+          this.hints += hint.value;
+      });
+      console.log("Hints => ", this.hints);
     }
 
     //separate character hints
