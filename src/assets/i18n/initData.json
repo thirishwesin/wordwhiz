@@ -194,16 +194,16 @@
                   "value": "艹",
                   "position": 0,
                   "isCharacter": false,
-                  "hintFontSize": null,
-                  "otHintFontSize": null
+                  "hintFontSize": "30",
+                  "otHintFontSize": "30"
                 }
               ],
               "ans": "苦闷",
               "isAnsCharacter": true,
               "clueFontSize": 50,
               "otClueFontSize": 50,
-              "ansFontSize": 50,
-              "otAnsFontSize": 50
+              "ansFontSize": 30,
+              "otAnsFontSize": 30
             }
           ],
           "roundNameFontSize": "90",
@@ -1102,31 +1102,33 @@
         },
         {
           "id": 2,
-          "name": "CROSS WORD",
-          "questionType": 2,
-          "showfirstAnsChar": false,
+          "name": "MISSING WORD",
+          "questionType": 6,
+          "showfirstAnsChar": true,
           "hasCategory": false,
           "categories": [],
-          "timeOut": 15,
-          "point": 15,
-          "secondTimeOut": 5,
-          "secondPoint": 5,
+          "timeOut": 0,
+          "point": 0,
+          "secondTimeOut": 0,
+          "secondPoint": 0,
           "questionArray": [],
           "roundNameFontSize": "90",
           "clueLabelFontSize": "60"
         },
         {
           "id": 3,
-          "name": "HIDDEN WORDS",
-          "questionType": 3,
+          "name": "CROSS WORD",
+          "questionType": 2,
           "showfirstAnsChar": false,
           "hasCategory": false,
           "categories": [],
-          "timeOut": 10,
-          "point": 20,
+          "timeOut": 0,
+          "point": 0,
           "questionArray": [],
           "roundNameFontSize": "90",
-          "clueLabelFontSize": "60"
+          "clueLabelFontSize": "60",
+          "secondPoint": 0,
+          "secondTimeOut": 0
         },
         {
           "id": 4,

@@ -472,7 +472,6 @@
   background: #4DB821;
 }
 
-.btn-primary.disabled,
 .btn-primary:disabled {
   width: 100px;
   border-top-right-radius: 17px !important;
@@ -480,7 +479,6 @@
   padding: 10px;
   margin-top: 10px;
   background: #000;
-  border: none;
   background: repeating-linear-gradient(24deg, #41faff80, #f9f9067d);
   margin-left: 10px !important;
   font-weight: bold;

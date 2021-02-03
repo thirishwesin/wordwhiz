@@ -110,7 +110,7 @@
                 <div class="alpha_wrapper" [ngClass]="{'alpha_wrapper_r4': currentRound.questionType == 4}" *ngIf="control.showQuestion || control.runCategoryRound">
 
                     <!-- //! for round 1 and round 5 -->
-                    <div *ngIf="currentQuestion?.hints.length == 0">
+                    <div *ngIf="currentQuestion?.hints.length == 0 || (currentRound.questionType == 1 && currentQuestion.hints.length == 1)">
                         <div class="long_word_green animated heartBeat long_retangle{{control.fontSettings.main_answer}} " *ngIf="!currentQuestion?.isAnsCharacter">
                             <p class="one_word font{{control.fontSettings.main_answer}}" *ngIf="control.showAns">
                                 {{ currentQuestion?.ans }}
@@ -122,7 +122,17 @@
                                 <div class="one_word_green retangle{{control.fontSettings.main_answer}}" [ngClass]="char == ' ' ? 'hide_char': i==0 ? 'blue_bg animated heartBeat': 'animated heartBeat' " *ngFor="let char of ansCharArr; let i=index;">
                                     <!-- <p class="one_word font{{control.fontSettings.main_answer}}" [ngClass]="control.showAns || currentRound.showfirstAnsChar && i==0 ? 'animated zoomIn' : 'transparent'">
                                         {{char}}</p> -->
-                                    <input type="text" [value]="char" class="round1_text" [ngStyle]="{'font-size': currentQuestion.ansFontSize + 'px'}" [ngClass]="control.showAns || currentRound.showfirstAnsChar && i==0 ? 'animated zoomIn' : 'transparent'">
+                                    <input *ngIf="!(currentRound.questionType==1 && currentQuestion.hints.length)" type="text" [value]="char" class="round1_text" 
+                                    [ngStyle]="{'font-size': currentQuestion.ansFontSize + 'px'}" 
+                                    [ngClass]="control.showAns || currentRound.showfirstAnsChar && i==0 ?
+                                     'animated zoomIn' : 'transparent'"
+                                     >
+
+                                    <input *ngIf="currentRound.questionType==1 && currentQuestion.hints.length" type="text" [value]="control.showAns? char : hints" class="round1_text" [ngStyle]="{'font-size': currentQuestion.ansFontSize + 'px'}"
+                                    [ngClass]="control.showAns ||
+                                    currentRound.showfirstAnsChar &&
+                                    i==0 ? 'animated zoomIn' : 'transparent'"
+                                    >
                                 </div>
                             </div>
                             <div style="margin-left: -7%; margin-top:23%" *ngIf="currentRound.questionType == 5">
@@ -144,6 +154,7 @@
                         </div>
                     </div>
 
+                    <div *ngIf="!(currentQuestion.hints.length == 1 && currentRound.questionType == 1)">
                     <div *ngFor="let hint of currentQuestion?.hints; let hintIndex = index">
                         <!-- //! for question type four -->
                         <div class="text-center" *ngIf="currentRound.questionType == 4">
@@ -289,6 +300,7 @@
                             </div>
                         </div>
                     </div>
+                </div>
                     <div class="answer_four" *ngIf="currentRound.questionType == 4 ">
                         <div class="one_word_green retangle{{control.fontSettings   .oneThird_answer}}" [ngClass]="{'hide_char less8char': char == ' '}" *ngFor="let char of ansCharArr; let i=index;" [ngStyle]="{'visibility': control.showAns ? 'unset': 'hidden'}">
 
