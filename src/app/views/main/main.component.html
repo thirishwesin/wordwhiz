@@ -32,11 +32,11 @@
             </div>
             <div class="col-8">
                 <div [hidden]="!currentRound && currentRound?.questionType != 4">
-                    <p class="clude_txt" [ngStyle]="{'font-size': currentRound.clueLabelFontSize + 'px'}" *ngIf="currentRound && (currentRound?.questionType == 1 || currentRound?.questionType == 3)">
+                    <p class="clude_txt" [ngStyle]="{'font-size': currentRound.clueLabelFontSize + 'px'}" *ngIf="currentRound && (currentRound?.questionType == 1 || currentRound?.questionType == 3 || currentRound?.questionType == 6)">
                         CLUE:
                     </p>
                     <img class="cube_img" name="cube_img" alt="" />
-                    <span class="clude_hint" [ngStyle]="{'font-size': currentQuestion?.clueFontSize + 'px'}" *ngIf="currentRound && (control.showQuestion  || control.runCategoryRound) && (currentRound?.questionType == 1 || currentRound?.questionType == 3)">{{ currentQuestion?.clue }}
+                    <span class="clude_hint" [ngStyle]="{'font-size': currentQuestion?.clueFontSize + 'px'}" *ngIf="currentRound && (control.showQuestion  || control.runCategoryRound) && (currentRound?.questionType == 1 || currentRound?.questionType == 3 || currentRound?.questionType == 6)">{{ currentQuestion?.clue }}
                     </span>
                 </div>
                 <div [ngStyle]="{'visibility': currentRound && currentRound.questionType == 2 && control.showQuestion ?  'unset': 'hidden'}">
