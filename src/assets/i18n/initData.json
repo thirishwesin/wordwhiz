@@ -1096,7 +1096,29 @@
           "categories": [],
           "timeOut": 10,
           "point": 10,
-          "questionArray": [],
+          "questionArray": [
+            {
+              "id": 1,
+              "clue": "HAPPY",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "EMOTION OCCURS WHEN FEELING BAD",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": null,
+                  "otHintFontSize": null
+                }
+              ],
+              "ans": "SAD",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            }
+          ],
           "roundNameFontSize": "90",
           "clueLabelFontSize": "60"
         },
@@ -1121,10 +1143,43 @@
           "questionType": 2,
           "showfirstAnsChar": false,
           "hasCategory": false,
-          "categories": [],
+          "categories": [
+            {
+              "id": 0,
+              "name": "FRUIT"
+            }
+          ],
           "timeOut": 10,
           "point": 10,
-          "questionArray": [],
+          "questionArray": [
+            {
+              "id": 1,
+              "clue": "EDIBLE",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "APPLE",
+                  "position": [
+                    11,
+                    22,
+                    33,
+                    44,
+                    55
+                  ],
+                  "isCharacter": false,
+                  "hintFontSize": 50,
+                  "otHintFontSize": 50
+                }
+              ],
+              "ans": "",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            }
+          ],
           "roundNameFontSize": "90",
           "clueLabelFontSize": "60",
           "secondPoint": 5,
