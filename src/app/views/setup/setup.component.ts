@@ -715,8 +715,8 @@ export class SetupComponent implements OnInit {
     else this.isEmptyCategoryName = false;
   }
 
-  addTimeout(timeout) {
-    this.currentRound.timeOut = timeout;
+  addTimeout(timeOut: number, key: string) {
+    this.currentRound[key] = timeOut;
   }
 
   readFileDev() {
