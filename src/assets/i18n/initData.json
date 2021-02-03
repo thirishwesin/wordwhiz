@@ -191,7 +191,7 @@
               "hints": [
                 {
                   "id": 1,
-                  "value": "苦",
+                  "value": "艹",
                   "position": 0,
                   "isCharacter": false,
                   "hintFontSize": "30",
@@ -1051,7 +1051,7 @@
         },
         {
           "id": 5,
-          "name": "PICTIONARY",
+          "name": "MYSTERY WORD",
           "questionType": 5,
           "showfirstAnsChar": false,
           "hasCategory": false,
@@ -1117,6 +1117,27 @@
               "otClueFontSize": 50,
               "ansFontSize": 50,
               "otAnsFontSize": 50
+            },
+            {
+              "id": 2,
+              "clue": "旅途平安",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "一",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": "30",
+                  "otHintFontSize": "30"
+                }
+              ],
+              "ans": "一风顺路",
+              "isAnsCharacter": true,
+              "clueFontSize": "30",
+              "otClueFontSize": "30",
+              "ansFontSize": "30",
+              "otAnsFontSize": "30"
             }
           ],
           "roundNameFontSize": "90",
@@ -1129,13 +1150,26 @@
           "showfirstAnsChar": true,
           "hasCategory": false,
           "categories": [],
-          "timeOut": 0,
+          "timeOut": 10,
           "point": 0,
-          "secondTimeOut": 0,
+          "secondTimeOut": 10,
           "secondPoint": 0,
-          "questionArray": [],
+          "questionArray": [
+            {
+              "id": 1,
+              "clue": "旅途平安",
+              "categoryId": 0,
+              "hints": [],
+              "ans": "一路顺风",
+              "isAnsCharacter": true,
+              "clueFontSize": "30",
+              "otClueFontSize": "30",
+              "ansFontSize": "30",
+              "otAnsFontSize": "30"
+            }
+          ],
           "roundNameFontSize": "90",
-          "clueLabelFontSize": "60"
+          "clueLabelFontSize": "30"
         },
         {
           "id": 3,
@@ -1200,27 +1234,14 @@
         },
         {
           "id": 5,
-          "name": "PICTIONARY",
+          "name": "MYSTERY WORD",
           "questionType": 5,
           "showfirstAnsChar": false,
           "hasCategory": false,
           "categories": [],
           "timeOut": 30,
           "point": 30,
-          "questionArray": [
-            {
-              "id": 1,
-              "clue": "movie",
-              "categoryId": 0,
-              "hints": [],
-              "ans": "test",
-              "isAnsCharacter": true,
-              "clueFontSize": 50,
-              "otClueFontSize": 50,
-              "ansFontSize": 50,
-              "otAnsFontSize": 50
-            }
-          ],
+          "questionArray": [],
           "roundNameFontSize": "90",
           "clueLabelFontSize": "60"
         },
@@ -1346,7 +1367,7 @@
     },
     {
       "id": 5,
-      "name": "PICTIONARY",
+      "name": "MYSTERY WORD",
       "hintsCount": 0,
       "isHintChar": false,
       "isAnsChar": true,
