@@ -48,10 +48,6 @@
             <label for="round_name_font_size" class="common_label">ROUND AND ROUND NAME FONT SIZE</label>
             <input id="round_name_font_size" type="text" class="common_input w_321" [(ngModel)]="currentRound.roundNameFontSize" OnlyNumber="true" />
           </div>
-
-          <div class="form-group" *ngIf="currentRound.questionType == 5">
-            <input type="button" class="btn btn-primary" (click)="uploadFile()" value="UPLOAD VIDEO" />
-          </div>
           <!-- choose category(theme) -->
           <div class="form-group" *ngIf="currentRound.questionType == 4 || currentRound.questionType == 7">
             <label for="category" class="common_label"></label>
@@ -144,8 +140,9 @@
       <div class="row">
         <div class="col-sm-2"></div>
         <div class="col-sm-8 second_body">
+          <ng-container *ngIf="currentRound.questionType != 5">
           <div class="form-group question_txt" *ngIf="currentRound.questionType != 2">
-            <label for="question" class="common_label"> {{currentRound.questionType != 5 ? 'QUESTION' : 'VIDEO NAME'}} </label>
+            <label for="question" class="common_label"> QUESTION </label>
             <span class="error_msg ml-5" *ngIf="invalidQuestion">*Already exist in question list !</span>
             <textarea id="question" type="text" class="common_input common_textarea" [(ngModel)]="question.clue" (ngModelChange)="questionClueChanged($event)"></textarea>
             <div class="row">
@@ -161,7 +158,12 @@
               </div>
             </div>
           </div>
-
+        </ng-container>
+        <div class="form-group" *ngIf="currentRound.questionType == 5">
+          <span class="error_msg ml-5" *ngIf="invalidQuestion">*Already exist in question list !</span>
+          <input type="button" class="btn btn-primary" (click)="uploadFile()" value="UPLOAD VIDEO" />
+          <input type="text" class="common_input w_30"  [(ngModel)]="question.clue" />
+        </div>
           <!-- no hint -->
           <div class="container-fluid" *ngIf="question.hints.length == 0">
             <div class="row">
@@ -540,7 +542,7 @@
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th class="table_title">{{currentRound.questionType != 5 ? 'QUESTION' : 'VIDEO NAME'}}</th>
+                  <th class="table_title">{{currentRound.questionType != 5 ? 'QUESTION' : 'VIDEO DESCRIPTION'}}</th>
                   <th class="table_title" *ngIf="currentRound.questionType != 2">ANSWER {{question.hints.length}}</th>
                   <th class="table_title" *ngFor="let hint of question.hints">HINT {{ question.hints.length <=1 ? "" : hint.id }} </th>
                   <th class="table_title act_width text-center" *ngIf="currentRound.questionType != 2">ACTION</th>
@@ -549,7 +551,7 @@
               <tbody *ngIf="currentRound.questionArray.length > 0">
                 <tr *ngFor="let question of filterQuestion(currentRound.questionArray)">
                   <ng-container *ngIf="currentRound.questionType == 5; else sampleTd">
-                    <td class="common_data"><button (click)="previewVideo(videoModal,question.clue)">{{ question.clue }}</button></td>
+                    <td class="common_data"><a (click)="previewVideo(videoModal,question.clue)"><u>{{ question.clue }} (perview)</u></a></td>
                   </ng-container>
                   <ng-template #sampleTd>
                     <td class="common_data">{{ question.clue }}</td>

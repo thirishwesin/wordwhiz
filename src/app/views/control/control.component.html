@@ -139,9 +139,9 @@
                         <div class="showans_btn">
                             <button class="btn button ans" (click)="wrongAnswer()" [disabled]="!control.showQuestion">Wrong Answer</button>
                         </div>
-                        <div class="showans_btn">
+                        <!-- <div class="showans_btn">
                             <button class="btn button ans" (click)="resetExtraKey()" *ngIf="currentRound.id==5" [disabled]="!control.showQuestion">Reset</button>
-                        </div>
+                        </div> -->
                         <div class="showans_btn">
                           <button class="btn button ans" (click)="toggleVideo()" *ngIf="currentRound.id==5" [disabled]="!control.showQuestion">{{isPlay ? 'Pause' : 'Play'}}</button>
                       </div>

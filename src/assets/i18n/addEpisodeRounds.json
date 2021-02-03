@@ -52,7 +52,7 @@
     },
     {
         "id": 5,
-        "name": "MYSTERY WORD",
+        "name": "PICTIONARY",
         "questionType": 5,
         "showfirstAnsChar": false,
         "hasCategory": false,

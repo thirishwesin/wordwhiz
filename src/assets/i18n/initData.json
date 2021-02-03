@@ -1051,7 +1051,7 @@
         },
         {
           "id": 5,
-          "name": "MYSTERY WORD",
+          "name": "PICTIONARY",
           "questionType": 5,
           "showfirstAnsChar": false,
           "hasCategory": false,
@@ -1200,14 +1200,27 @@
         },
         {
           "id": 5,
-          "name": "MYSTERY WORD",
+          "name": "PICTIONARY",
           "questionType": 5,
           "showfirstAnsChar": false,
           "hasCategory": false,
           "categories": [],
           "timeOut": 30,
           "point": 30,
-          "questionArray": [],
+          "questionArray": [
+            {
+              "id": 1,
+              "clue": "movie",
+              "categoryId": 0,
+              "hints": [],
+              "ans": "test",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            }
+          ],
           "roundNameFontSize": "90",
           "clueLabelFontSize": "60"
         },
@@ -1333,7 +1346,7 @@
     },
     {
       "id": 5,
-      "name": "MYSTERY WORD",
+      "name": "PICTIONARY",
       "hintsCount": 0,
       "isHintChar": false,
       "isAnsChar": true,
