@@ -83,7 +83,7 @@
       "name": "SPOT THE MISTAKE",
       "questionType": 7,
       "showfirstAnsChar": false,
-      "hasCategory": true,
+      "hasCategory": false,
       "categories": [
         {
           "id": 0,

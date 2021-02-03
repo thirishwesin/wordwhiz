@@ -55,7 +55,7 @@
                     </div>
 
                     <!-- QUESTION CATEGORY FOR ODD WORD -->
-                    <div class="row col-sm-12 pad_right0" *ngIf="currentRound.questionType == 4 || currentRound.questionType == 7">
+                    <div class="row col-sm-12 pad_right0" *ngIf="currentRound.questionType == 4">
 
                         <div ngbDropdown class="d-inline-block col-sm-12">
                             <button class="btn common_input" id="dropdownBasic1" ngbDropdownToggle>
@@ -68,8 +68,21 @@
                                 <button ngbDropdownItem *ngFor="let category of currentRound.categories" (click)="changeCategory(category)">{{category.name}}</button>
                             </div>
                         </div>
-
                     </div>
+
+                    <div class="row col-sm-12 pad_right0" *ngIf="currentRound.questionType == 7">
+                      <div ngbDropdown class="d-inline-block col-sm-12">
+                          <button class="btn common_input" id="dropdownBasic1" ngbDropdownToggle>
+                              <p class="section_text">
+                                  {{r4CategoryName}}
+                              </p>
+                              <img [src]=Images.dropDown class="drop_down_icon">
+                          </button>
+                          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                              <button ngbDropdownItem *ngFor="let category of currentRound.categories" (click)="changeR4Category(category)">{{category.name}}</button>
+                          </div>
+                      </div>
+                  </div>
 
                     <div class="row col-sm-12 pad_right0" *ngIf="currentRound.questionType == 2">
 
@@ -89,7 +102,7 @@
 
 
                     <div class="row col-sm-12 pad_right0">
-
+                        <ng-container *ngIf="currentRound.questionType != 7">
                         <div ngbDropdown [ngClass]="currentRound.hasCategory ? 'd-inline-block col-sm-12' : 'd-inline-block col-sm-8'" *ngIf="currentRound.questionType != 2">
                             <button class="btn common_input" id="dropdownBasic1" ngbDropdownToggle [disabled]="currentRound.hasCategory && control.startCount || currentRound.hasCategory && !control.finishCategoryRound && isStartRound4">
                                 <p class="section_text">
@@ -104,7 +117,7 @@
                                         [src]=Images.correct_icon class="correct_icon"></button>
                             </div>
                         </div>
-
+                      </ng-container>
                         <div ngbDropdown class="d-inline-block col-sm-8" *ngIf="currentRound.questionType == 2">
                             <button class="btn common_input" id="dropdownBasic1" ngbDropdownToggle>
                                 <p class="section_text">
@@ -116,7 +129,17 @@
                                 <button ngbDropdownItem *ngFor="let question of questionArrForR4(); let i=index" (click)="clickQuestion(question,i+1)">QUESTION {{question.id}}</button>
                             </div>
                         </div>
-
+                        <div ngbDropdown class="d-inline-block col-sm-8" *ngIf="currentRound.questionType == 7">
+                          <button class="btn common_input" id="dropdownBasic1" ngbDropdownToggle>
+                              <p class="section_text">
+                                  QUESTION {{control.currentQuestionId}}
+                              </p>
+                              <img [src]=Images.dropDown class="drop_down_icon">
+                          </button>
+                          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                              <button ngbDropdownItem *ngFor="let question of questionArrForR4(); let i=index" (click)="clickQuestion(question,i+1)">QUESTION {{question.id}}</button>
+                          </div>
+                      </div>
                         <div class="col-sm-2" *ngIf="!currentRound.hasCategory">
                             <button class="btn adjustMin" (click)="prevQuestion()">
                                 < </button>

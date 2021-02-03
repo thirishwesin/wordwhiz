@@ -191,7 +191,7 @@
               "hints": [
                 {
                   "id": 1,
-                  "value": "艹",
+                  "value": "苦",
                   "position": 0,
                   "isCharacter": false,
                   "hintFontSize": "30",
@@ -1051,7 +1051,7 @@
         },
         {
           "id": 5,
-          "name": "MYSTERY WORD",
+          "name": "PICTIONARY",
           "questionType": 5,
           "showfirstAnsChar": false,
           "hasCategory": false,
@@ -1099,45 +1099,24 @@
           "questionArray": [
             {
               "id": 1,
-              "clue": "HAPPY",
+              "clue": "question",
               "categoryId": 0,
               "hints": [
                 {
                   "id": 1,
-                  "value": "EMOTION OCCURS WHEN FEELING BAD",
+                  "value": "hint",
                   "position": 0,
                   "isCharacter": false,
                   "hintFontSize": null,
                   "otHintFontSize": null
                 }
               ],
-              "ans": "SAD",
+              "ans": "answer",
               "isAnsCharacter": true,
               "clueFontSize": 50,
               "otClueFontSize": 50,
               "ansFontSize": 50,
               "otAnsFontSize": 50
-            },
-            {
-              "id": 2,
-              "clue": "旅途平安",
-              "categoryId": 0,
-              "hints": [
-                {
-                  "id": 1,
-                  "value": "一",
-                  "position": 0,
-                  "isCharacter": false,
-                  "hintFontSize": "30",
-                  "otHintFontSize": "30"
-                }
-              ],
-              "ans": "一风顺路",
-              "isAnsCharacter": true,
-              "clueFontSize": "30",
-              "otClueFontSize": "30",
-              "ansFontSize": "30",
-              "otAnsFontSize": "30"
             }
           ],
           "roundNameFontSize": "90",
@@ -1145,34 +1124,6 @@
         },
         {
           "id": 2,
-          "name": "MISSING WORD",
-          "questionType": 6,
-          "showfirstAnsChar": true,
-          "hasCategory": false,
-          "categories": [],
-          "timeOut": 10,
-          "point": 0,
-          "secondTimeOut": 10,
-          "secondPoint": 0,
-          "questionArray": [
-            {
-              "id": 1,
-              "clue": "旅途平安",
-              "categoryId": 0,
-              "hints": [],
-              "ans": "一路顺风",
-              "isAnsCharacter": true,
-              "clueFontSize": "30",
-              "otClueFontSize": "30",
-              "ansFontSize": "30",
-              "otAnsFontSize": "30"
-            }
-          ],
-          "roundNameFontSize": "90",
-          "clueLabelFontSize": "30"
-        },
-        {
-          "id": 3,
           "name": "CROSS WORD",
           "questionType": 2,
           "showfirstAnsChar": false,
@@ -1180,27 +1131,21 @@
           "categories": [
             {
               "id": 0,
-              "name": "FRUIT"
+              "name": "Test"
             }
           ],
-          "timeOut": 10,
-          "point": 10,
+          "timeOut": 15,
+          "point": 15,
           "questionArray": [
             {
               "id": 1,
-              "clue": "EDIBLE",
+              "clue": "circle and red",
               "categoryId": 0,
               "hints": [
                 {
                   "id": 1,
                   "value": "APPLE",
-                  "position": [
-                    11,
-                    22,
-                    33,
-                    44,
-                    55
-                  ],
+                  "position": [],
                   "isCharacter": false,
                   "hintFontSize": 50,
                   "otHintFontSize": 50
@@ -1215,9 +1160,42 @@
             }
           ],
           "roundNameFontSize": "90",
-          "clueLabelFontSize": "60",
-          "secondPoint": 5,
-          "secondTimeOut": 5
+          "clueLabelFontSize": "60"
+        },
+        {
+          "id": 3,
+          "name": "HIDDEN WORDS",
+          "questionType": 3,
+          "showfirstAnsChar": false,
+          "hasCategory": false,
+          "categories": [],
+          "timeOut": 10,
+          "point": 20,
+          "questionArray": [
+            {
+              "id": 1,
+              "clue": "test",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "test",
+                  "position": 0,
+                  "isCharacter": true,
+                  "hintFontSize": 50,
+                  "otHintFontSize": 50
+                }
+              ],
+              "ans": "test",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            }
+          ],
+          "roundNameFontSize": "90",
+          "clueLabelFontSize": "60"
         },
         {
           "id": 4,
@@ -1225,23 +1203,80 @@
           "questionType": 4,
           "showfirstAnsChar": true,
           "hasCategory": true,
-          "categories": [],
+          "categories": [
+            {
+              "id": 0,
+              "name": "test"
+            }
+          ],
           "timeOut": 60,
           "point": 60,
-          "questionArray": [],
+          "questionArray": [
+            {
+              "id": 1,
+              "clue": "test",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "test",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": 30,
+                  "otHintFontSize": 30
+                },
+                {
+                  "id": 2,
+                  "value": "test",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": 30,
+                  "otHintFontSize": 30
+                },
+                {
+                  "id": 3,
+                  "value": "test",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": 30,
+                  "otHintFontSize": 30
+                }
+              ],
+              "ans": "test",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50,
+              "actions": 0
+            }
+          ],
           "roundNameFontSize": "90",
           "clueLabelFontSize": "60"
         },
         {
           "id": 5,
-          "name": "MYSTERY WORD",
+          "name": "PICTIONARY",
           "questionType": 5,
           "showfirstAnsChar": false,
           "hasCategory": false,
           "categories": [],
           "timeOut": 30,
           "point": 30,
-          "questionArray": [],
+          "questionArray": [
+            {
+              "id": 1,
+              "clue": "movie",
+              "categoryId": 0,
+              "hints": [],
+              "ans": "test",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            }
+          ],
           "roundNameFontSize": "90",
           "clueLabelFontSize": "60"
         },
@@ -1265,7 +1300,7 @@
           "name": "SPOT THE MISTAKE",
           "questionType": 7,
           "showfirstAnsChar": false,
-          "hasCategory": true,
+          "hasCategory": false,
           "categories": [
             {
               "id": 0,
@@ -1276,17 +1311,38 @@
               "name": "Player Two"
             }
           ],
-          "timeOut": 15,
+          "timeOut": 10,
           "point": 20,
           "questionArray": [
             {
               "id": 1,
-              "clue": "palyer two question",
+              "clue": "question test",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "one",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": 0,
+                  "otHintFontSize": 0
+                }
+              ],
+              "ans": "one",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            },
+            {
+              "id": 2,
+              "clue": "question two",
               "categoryId": 1,
               "hints": [
                 {
                   "id": 1,
-                  "value": "t",
+                  "value": "two",
                   "position": 0,
                   "isCharacter": false,
                   "hintFontSize": null,
@@ -1301,20 +1357,20 @@
               "otAnsFontSize": 50
             },
             {
-              "id": 2,
-              "clue": "player one question",
-              "categoryId": 0,
+              "id": 3,
+              "clue": "test",
+              "categoryId": 1,
               "hints": [
                 {
                   "id": 1,
-                  "value": "o",
+                  "value": "t",
                   "position": 0,
                   "isCharacter": false,
                   "hintFontSize": null,
                   "otHintFontSize": null
                 }
               ],
-              "ans": "one",
+              "ans": "t",
               "isAnsCharacter": true,
               "clueFontSize": 50,
               "otClueFontSize": 50,
@@ -1367,7 +1423,7 @@
     },
     {
       "id": 5,
-      "name": "MYSTERY WORD",
+      "name": "PICTIONARY",
       "hintsCount": 0,
       "isHintChar": false,
       "isAnsChar": true,
@@ -1390,7 +1446,7 @@
       "isHintChar": false,
       "isAnsChar": true,
       "showfirstAnsChar": false,
-      "hasCategory": true
+      "hasCategory": false
     }
   ],
   "fontSettings": {

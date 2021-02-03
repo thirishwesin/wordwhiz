@@ -326,9 +326,8 @@ export class SetupComponent implements OnInit {
         this.currentRound.questionArray.push({
           ...this.question,
           id: generateId,
-          categoryId: this.currentRound.hasCategory
-            ? this.currentCategory.id
-            : 0,
+          categoryId: this.currentRound.hasCategory ? this.currentCategory.id: this.currentRound.questionType == 7 ?
+          this.currentRound.categories.find(category => category.name === this.playerCategory).id: 0,
           isAnsCharacter: this.questionType.isAnsChar,
           clueFontSize: this.question.clueFontSize == null ? 50 : this.question.clueFontSize,
           otClueFontSize: this.question.otClueFontSize == null ? 50 : this.question.otClueFontSize,
@@ -336,7 +335,6 @@ export class SetupComponent implements OnInit {
           otAnsFontSize: this.question.otAnsFontSize == null ? 50 : this.question.otAnsFontSize,
         });
         // this.questionTextToUpperCase(this.question);
-        console.log('question => ', this.question)
         this.noDatabyCategory = false;
       }
     } else {
@@ -369,7 +367,7 @@ export class SetupComponent implements OnInit {
             question.ansFontSize = +this.question.ansFontSize
             question.otAnsFontSize = +this.question.otAnsFontSize
             question.hints = this.question.hints;
-            if (this.currentRound.id == 2 || this.currentRound.id == 3 || this.currentRound.id == 4) {
+            if (this.currentRound.id == 2 || this.currentRound.id == 3 || this.currentRound.id == 4 || this.currentRound.questionType == 7) {
               question.hints[0].hintFontSize = +this.question.hints[0].hintFontSize
               question.hints[0].otHintFontSize = +this.question.hints[0].otHintFontSize
             }
@@ -383,12 +381,10 @@ export class SetupComponent implements OnInit {
             question.hints = this.question.hints;
             question.hints[0].hintFontSize = +this.question.hints[0].hintFontSize
             question.hints[0].otHintFontSize = +this.question.hints[0].otHintFontSize
-            if(this.currentRound.questionType !== 7){
               question.hints[1].hintFontSize = +this.question.hints[1].hintFontSize
             question.hints[1].otHintFontSize = +this.question.hints[1].otHintFontSize
             question.hints[2].hintFontSize = +this.question.hints[2].hintFontSize
             question.hints[2].otHintFontSize = +this.question.hints[2].otHintFontSize
-            }
           }
         });
       }
@@ -971,5 +967,9 @@ export class SetupComponent implements OnInit {
 
   choosePlayerCategory(playerName: string){
     this.playerCategory = playerName
+  }
+
+  changeR4Category(category: any){
+    this.playerCategory = category.name;
   }
 }

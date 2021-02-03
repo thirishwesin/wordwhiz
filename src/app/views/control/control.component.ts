@@ -112,6 +112,8 @@ export class ControlComponent implements OnInit {
   roundFourHintValue: string
   currentCategoryForR4: any;
   isPlay : boolean = false;
+  r4CategoryName: string = "Player One"
+  r4CategoryId: number = 0
 
   constructor(
     private store: Store<{
@@ -326,6 +328,8 @@ export class ControlComponent implements OnInit {
   };
 
   questionArrForR4() {
+    if(this.currentRound.questionType == 7)
+      return this.currentRound.questionArray.filter(quesution => quesution.categoryId == this.r4CategoryId)
     return this.currentRound.questionArray.filter(quesution => quesution.categoryId == this.currentCategoryForR4.id)
   }
 
@@ -1293,5 +1297,15 @@ export class ControlComponent implements OnInit {
   toggleVideo(){
     this.isPlay = !this.isPlay
     this.broadcastScreens();
+  }
+
+  changeR4Category(category){
+    this.r4CategoryName = category.name
+    this.r4CategoryId = category.id
+    let firstQuestionByCategoryId = _.find(this.currentRound.questionArray, [
+      "categoryId",
+      category.id
+    ]);
+    this.clickQuestion(firstQuestionByCategoryId, 1)
   }
 }
