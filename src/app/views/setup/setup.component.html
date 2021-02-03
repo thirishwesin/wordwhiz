@@ -453,24 +453,29 @@
                   <div class="form-group" style="margin-top: 20px;">
                     <div ngbDropdown class="d-inline-block" style="margin-bottom: 13%;width: 100%;">
                       <label for="category_" class="common_label ">CATEGORY</label>
-                      <button style="width: 100%;" class="btn common_input" id="category_drop_down" ngbDropdownToggle>
-                        <p class="section_text">{{ currentCategory ? currentCategory.name : "Add New Category" }}</p>
-                        <img [src]="Images.dropDown" class="drop_down_icon" alt="drop down image" />
-                      </button>
-                      <div ngbDropdownMenu aria-labelledby="category_drop_down">
-                        <button id="category_" ngbDropdownItem *ngFor="let category of currentRound.categories">
-                          <span class="roundDropDown" (click)="changeCategory(category)">{{ category.name }}</span>
-                          <span>
+                      <ng-container *ngIf="currentCategory; else newCategoryTemplate">
+                        <button style="width: 100%; cursor: default; text-align: left" class="btn common_input">{{currentCategory.name}}</button>
+                      </ng-container>
+                      <ng-template #newCategoryTemplate>
+                        <button style="width: 100%;" class="btn common_input" id="category_drop_down" ngbDropdownToggle>
+                          <p class="section_text">{{ currentCategory ? currentCategory.name : "Add New Category" }}</p>
+                          <img [src]="Images.dropDown" class="drop_down_icon" alt="drop down image" />
+                        </button>
+                        <div ngbDropdownMenu aria-labelledby="category_drop_down">
+                          <button id="category_" ngbDropdownItem *ngFor="let category of currentRound.categories">
+                            <span class="roundDropDown" (click)="changeCategory(category)">{{ category.name }}</span>
+                            <span>
                             <fa-icon class="remove_icon" [icon]="faTimesCircle" (click)="openModal(content_setup, 4, category)"></fa-icon>
                           </span>
-                        </button>
-                        <button ngbDropdownItem (click)="openModal(content_setup, 5, categoryName)">
-                          Add New Category
-                          <span>
+                          </button>
+                          <button ngbDropdownItem (click)="openModal(content_setup, 5, categoryName)">
+                            Add New Category
+                            <span>
                             <fa-icon class="add_icon" [icon]="faPlusCircle"></fa-icon>
                           </span>
-                        </button>
-                      </div>
+                          </button>
+                        </div>
+                      </ng-template>
                     </div>
 
                     <div ngbDropdown class="d-inline-block" style="margin-bottom: 13%;width: 100%;">

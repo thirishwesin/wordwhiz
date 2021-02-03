@@ -93,15 +93,7 @@ export class SetupComponent implements OnInit {
   vidoeUrl: string
   playerCategory: string = 'Player One';
 
-  constructor(
-    private store: Store<{
-      wordWhiz: WordWhiz;
-      episode: Episode;
-      control: Control;
-    }>,
-    public router: Router,
-    public modalService: NgbModal
-  ) {
+  constructor(private store: Store<{ wordWhiz: WordWhiz; episode: Episode; control: Control}>, public router: Router, public modalService: NgbModal) {
     store.subscribe(item => {
       this.wordWhiz = item.wordWhiz;
       this.episode = item.episode;
@@ -710,9 +702,7 @@ export class SetupComponent implements OnInit {
       }
     }
 
-    if (categoryName == "" || categoryName.trim() == "")
-      this.isEmptyCategoryName = true;
-    else this.isEmptyCategoryName = false;
+    this.isEmptyCategoryName = categoryName == "" || categoryName.trim() == "";
   }
 
   addTimeout(timeOut: number, key: string) {
