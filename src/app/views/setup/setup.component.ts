@@ -159,7 +159,7 @@ export class SetupComponent implements OnInit {
     //update current hint count
     this.question.hints = this.initHintArrByQuestionType();
     console.log(' before current category => ', this.currentCategory)
-    // if (this.currentRound.questionType == 2 || this.currentRound.questionType == 4) this.currentCategory = undefined
+    if (this.currentRound.questionType == 2 || this.currentRound.questionType == 4) this.currentCategory = undefined
     //initialize current Question Category
     if (!this.currentCategory) {
       this.currentCategory = this.currentRound.categories.length > 0 ? this.currentRound.categories[0] : undefined;
@@ -238,7 +238,7 @@ export class SetupComponent implements OnInit {
     this.pevCategoryId = this.currentCategory !== undefined ? this.currentCategory.id : undefined;
     this.currentCategory = category;
     if (this.currentRound.questionType == 2) {
-      if (this.pevCategoryId !== this.currentCategory.id) {
+      if (this.currentCategory && this.pevCategoryId !== this.currentCategory.id) {
         this.clearGridValues(this.pevCategoryId);
         this.setGridValue();
       }
