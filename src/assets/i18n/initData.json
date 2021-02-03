@@ -1122,13 +1122,13 @@
           "showfirstAnsChar": false,
           "hasCategory": false,
           "categories": [],
-          "timeOut": 0,
-          "point": 0,
+          "timeOut": 10,
+          "point": 10,
           "questionArray": [],
           "roundNameFontSize": "90",
           "clueLabelFontSize": "60",
-          "secondPoint": 0,
-          "secondTimeOut": 0
+          "secondPoint": 5,
+          "secondTimeOut": 5
         },
         {
           "id": 4,
