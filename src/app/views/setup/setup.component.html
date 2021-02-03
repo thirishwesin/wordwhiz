@@ -159,14 +159,23 @@
             </div>
           </div>
         </ng-container>
-        <div class="form-group" *ngIf="currentRound.questionType == 5">
-          <span class="error_msg ml-5" *ngIf="invalidQuestion">*Already exist in question list !</span>
-          <input type="button" class="btn btn-primary" (click)="uploadFile()" value="UPLOAD VIDEO" />
-          <input type="text" class="common_input w_30"  [(ngModel)]="question.clue" />
-        </div>
+        
           <!-- no hint -->
           <div class="container-fluid" *ngIf="question.hints.length == 0">
+            <div class="row" *ngIf="currentRound.questionType == 5">
+              <div class="col-sm-10">
+                <div class="form-group" >
+                  <span class="error_msg ml-5" *ngIf="invalidQuestion">*Already exist in question list !</span>
+                  
+                  <input type="text" class="common_input w_30" style="margin-top: 14px;"  [(ngModel)]="question.clue" />
+                </div>
+              </div>
+              <div class="col-sm-2">
+                <input type="button" class="btn btn_box" (click)="uploadFile()" value="UPLOAD VIDEO" style="width: 92%;" />
+              </div>
+            </div>
             <div class="row">
+             
               <div class="col-sm-12">
                 <div class="form-group ">
                   <label for="answer_0" style="width:100px;" class="common_label">ANSWER</label>
