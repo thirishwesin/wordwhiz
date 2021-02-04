@@ -1321,14 +1321,14 @@
               "hints": [
                 {
                   "id": 1,
-                  "value": "one",
+                  "value": "i",
                   "position": 0,
                   "isCharacter": false,
                   "hintFontSize": 0,
                   "otHintFontSize": 0
                 }
               ],
-              "ans": "one",
+              "ans": "o",
               "isAnsCharacter": true,
               "clueFontSize": 50,
               "otClueFontSize": 50,
@@ -1342,14 +1342,14 @@
               "hints": [
                 {
                   "id": 1,
-                  "value": "two",
+                  "value": "q",
                   "position": 0,
                   "isCharacter": false,
-                  "hintFontSize": null,
-                  "otHintFontSize": null
+                  "hintFontSize": 0,
+                  "otHintFontSize": 0
                 }
               ],
-              "ans": "two",
+              "ans": "q",
               "isAnsCharacter": true,
               "clueFontSize": 50,
               "otClueFontSize": 50,
