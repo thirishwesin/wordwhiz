@@ -568,7 +568,7 @@
               <thead>
                 <tr>
                   <th class="table_title">{{currentRound.questionType != 5 ? 'QUESTION' : 'VIDEO DESCRIPTION'}}</th>
-                  <th class="table_title" *ngIf="currentRound.questionType != 2">ANSWER {{question.hints.length}}</th>
+                  <th class="table_title" *ngIf="currentRound.questionType != 2">ANSWER</th>
                   <th class="table_title" *ngFor="let hint of question.hints">HINT {{ question.hints.length <=1 ? "" : hint.id }} </th>
                   <th class="table_title act_width text-center" *ngIf="currentRound.questionType != 2">ACTION</th>
                 </tr>
@@ -590,7 +590,7 @@
                   </ng-template>
                   <td *ngIf="currentRound.questionType != 2" [colSpan]="question.hints.length == 0 ? 2: undefined">
                     <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic">
-                      <button class="btn-primary btn_table button" (click)=" editQuestionList(question)">EDIT</button>
+                      <button class="btn-primary btn_table button" (click)=" editQuestionList(question)" *ngIf="currentRound.questionType != 5">EDIT</button>
                       <button class="btn-primary btn_table button" (click)=" deleteQuestionList(question.id)">DELETE</button>
                     </div>
                   </td>
