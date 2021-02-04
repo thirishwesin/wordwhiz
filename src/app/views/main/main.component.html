@@ -307,12 +307,19 @@
                             <input class="round1_text" [ngStyle]="{'font-size': currentQuestion?.ansFontSize + 'px'}" [value]="char" />
                         </div>
                     </div>
+
                     <div *ngIf="currentRound.questionType == 7 ">
                       <div class="long_word_blue">
-                        <p class="word">{{currentQuestion.clue}}</p>
-                        <div class="one_word_green retangle" [ngStyle]="{'visibility': control.showAns ? 'unset': 'hidden'}">
-                          <input class="round1_text" [ngStyle]="{'font-size': currentQuestion?.ansFontSize + 'px'}" [value]="currentQuestion.ans" />
-                      </div>
+                        <!-- <p class="word">{{currentQuestion.clue}}</p> -->
+                       
+                      <div>
+                        <img src="./assets/images/round_two_box.png" class="roundseven_box" alt="">
+                        <input placeholder="HELLO" class="roundseven_text" />
+                        </div>
+
+                        <div class="one_word_green retangle roundseven_answer" [ngStyle]="{'visibility': control.showAns ? 'unset': 'hidden'}">
+                            <input class="round1_text" [ngStyle]="{'font-size': currentQuestion?.ansFontSize + 'px'}" [value]="currentQuestion.ans" />
+                        </div>
                       </div>
                     </div>
                 </div>
