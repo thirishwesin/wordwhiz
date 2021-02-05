@@ -9,7 +9,8 @@
         "point": 10,
         "questionArray": [],
         "roundNameFontSize": "90",
-        "clueLabelFontSize": "60"
+        "clueLabelFontSize": "60",
+        "roundName": "ROUND 1"
     },
     {
         "id": 2,
@@ -18,37 +19,14 @@
         "showfirstAnsChar": false,
         "hasCategory": false,
         "categories": [],
-        "timeOut": 15,
-        "point": 15,
-        "questionArray": [],
-        "roundNameFontSize": "90",
-        "clueLabelFontSize": "60"
-    },
-    {
-        "id": 3,
-        "name": "HIDDEN WORDS",
-        "questionType": 3,
-        "showfirstAnsChar": false,
-        "hasCategory": false,
-        "categories": [],
         "timeOut": 10,
-        "point": 20,
+        "point": 15,
+        "secondTimeOut": 5,
+        "secondPoint": 10,
         "questionArray": [],
         "roundNameFontSize": "90",
-        "clueLabelFontSize": "60"
-    },
-    {
-        "id": 4,
-        "name": "ODD WORD",
-        "questionType": 4,
-        "showfirstAnsChar": true,
-        "hasCategory": true,
-        "categories": [],
-        "timeOut": 60,
-        "point": 60,
-        "questionArray": [],
-        "roundNameFontSize": "90",
-        "clueLabelFontSize": "60"
+        "clueLabelFontSize": "60",
+        "roundName": "ROUND 3"
     },
     {
         "id": 5,
@@ -61,7 +39,8 @@
         "point": 30,
         "questionArray": [],
         "roundNameFontSize": "90",
-        "clueLabelFontSize": "60"
+        "clueLabelFontSize": "60",
+        "roundName": "ROUND 5"
     },
     {
       "id": 6,
@@ -76,7 +55,8 @@
       "secondPoint": 5,
       "questionArray": [],
       "roundNameFontSize": "90",
-      "clueLabelFontSize": "60"
+      "clueLabelFontSize": "60",
+      "roundName": "ROUND 2"
     },
     {
       "id": 7,
@@ -98,6 +78,7 @@
       "point": 20,
       "questionArray": [],
       "roundNameFontSize": "90",
-      "clueLabelFontSize": "60"
+      "clueLabelFontSize": "60",
+      "roundName": "ROUND 4"
   }
 ]

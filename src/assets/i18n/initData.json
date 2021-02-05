@@ -1110,59 +1110,40 @@
           "questionArray": [
             {
               "id": 1,
-              "clue": "question",
+              "clue": "开心",
               "categoryId": 0,
               "hints": [
                 {
                   "id": 1,
-                  "value": "hint",
+                  "value": "艹",
                   "position": 0,
                   "isCharacter": false,
                   "hintFontSize": null,
                   "otHintFontSize": null
                 }
               ],
-              "ans": "answer",
+              "ans": "苦闷",
               "isAnsCharacter": true,
               "clueFontSize": 50,
               "otClueFontSize": 50,
               "ansFontSize": 50,
               "otAnsFontSize": 50
-            }
-          ],
-          "roundNameFontSize": "90",
-          "clueLabelFontSize": "60"
-        },
-        {
-          "id": 2,
-          "name": "CROSS WORD",
-          "questionType": 2,
-          "showfirstAnsChar": false,
-          "hasCategory": false,
-          "categories": [
+            },
             {
-              "id": 0,
-              "name": "Test"
-            }
-          ],
-          "timeOut": 15,
-          "point": 15,
-          "questionArray": [
-            {
-              "id": 1,
-              "clue": "circle and red",
+              "id": 2,
+              "clue": "开心开心",
               "categoryId": 0,
               "hints": [
                 {
                   "id": 1,
-                  "value": "APPLE",
-                  "position": [],
+                  "value": "艹",
+                  "position": 0,
                   "isCharacter": false,
-                  "hintFontSize": 50,
-                  "otHintFontSize": 50
+                  "hintFontSize": null,
+                  "otHintFontSize": null
                 }
               ],
-              "ans": "",
+              "ans": "苦闷苦闷",
               "isAnsCharacter": true,
               "clueFontSize": 50,
               "otClueFontSize": 50,
@@ -1171,125 +1152,8 @@
             }
           ],
           "roundNameFontSize": "90",
-          "clueLabelFontSize": "60"
-        },
-        {
-          "id": 3,
-          "name": "HIDDEN WORDS",
-          "questionType": 3,
-          "showfirstAnsChar": false,
-          "hasCategory": false,
-          "categories": [],
-          "timeOut": 10,
-          "point": 20,
-          "questionArray": [
-            {
-              "id": 1,
-              "clue": "test",
-              "categoryId": 0,
-              "hints": [
-                {
-                  "id": 1,
-                  "value": "test",
-                  "position": 0,
-                  "isCharacter": true,
-                  "hintFontSize": 50,
-                  "otHintFontSize": 50
-                }
-              ],
-              "ans": "test",
-              "isAnsCharacter": true,
-              "clueFontSize": 50,
-              "otClueFontSize": 50,
-              "ansFontSize": 50,
-              "otAnsFontSize": 50
-            }
-          ],
-          "roundNameFontSize": "90",
-          "clueLabelFontSize": "60"
-        },
-        {
-          "id": 4,
-          "name": "ODD WORD",
-          "questionType": 4,
-          "showfirstAnsChar": true,
-          "hasCategory": true,
-          "categories": [
-            {
-              "id": 0,
-              "name": "test"
-            }
-          ],
-          "timeOut": 60,
-          "point": 60,
-          "questionArray": [
-            {
-              "id": 1,
-              "clue": "test",
-              "categoryId": 0,
-              "hints": [
-                {
-                  "id": 1,
-                  "value": "test",
-                  "position": 0,
-                  "isCharacter": false,
-                  "hintFontSize": 30,
-                  "otHintFontSize": 30
-                },
-                {
-                  "id": 2,
-                  "value": "test",
-                  "position": 0,
-                  "isCharacter": false,
-                  "hintFontSize": 30,
-                  "otHintFontSize": 30
-                },
-                {
-                  "id": 3,
-                  "value": "test",
-                  "position": 0,
-                  "isCharacter": false,
-                  "hintFontSize": 30,
-                  "otHintFontSize": 30
-                }
-              ],
-              "ans": "test",
-              "isAnsCharacter": true,
-              "clueFontSize": 50,
-              "otClueFontSize": 50,
-              "ansFontSize": 50,
-              "otAnsFontSize": 50,
-              "actions": 0
-            }
-          ],
-          "roundNameFontSize": "90",
-          "clueLabelFontSize": "60"
-        },
-        {
-          "id": 5,
-          "name": "PICTIONARY",
-          "questionType": 5,
-          "showfirstAnsChar": false,
-          "hasCategory": false,
-          "categories": [],
-          "timeOut": 30,
-          "point": 30,
-          "questionArray": [
-            {
-              "id": 1,
-              "clue": "movie",
-              "categoryId": 0,
-              "hints": [],
-              "ans": "test",
-              "isAnsCharacter": true,
-              "clueFontSize": 50,
-              "otClueFontSize": 50,
-              "ansFontSize": 50,
-              "otAnsFontSize": 50
-            }
-          ],
-          "roundNameFontSize": "90",
-          "clueLabelFontSize": "60"
+          "clueLabelFontSize": "60",
+          "roundName": "ROUND 1"
         },
         {
           "id": 6,
@@ -1302,9 +1166,135 @@
           "point": 10,
           "secondTimeOut": 5,
           "secondPoint": 5,
-          "questionArray": [],
+          "questionArray": [
+            {
+              "id": 1,
+              "clue": "sunset",
+              "categoryId": 0,
+              "hints": [],
+              "ans": "sunrise",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            },
+            {
+              "id": 2,
+              "clue": "open",
+              "categoryId": 0,
+              "hints": [],
+              "ans": "close",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            }
+          ],
           "roundNameFontSize": "90",
-          "clueLabelFontSize": "60"
+          "clueLabelFontSize": "60",
+          "roundName": "ROUND 2"
+        },
+        {
+          "id": 2,
+          "name": "CROSS WORD",
+          "questionType": 2,
+          "showfirstAnsChar": false,
+          "hasCategory": false,
+          "categories": [],
+          "timeOut": 10,
+          "point": 15,
+          "secondTimeOut": 5,
+          "secondPoint": 10,
+          "questionArray": [
+            {
+              "id": 1,
+              "clue": "CIRCLE AND RED",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "APPLE",
+                  "position": [
+                    32,
+                    33,
+                    34,
+                    35,
+                    36
+                  ],
+                  "isCharacter": false,
+                  "hintFontSize": 50,
+                  "otHintFontSize": 50
+                }
+              ],
+              "ans": "32,",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            },
+            {
+              "id": 2,
+              "clue": "CIRCLE AND YELLOW",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "ORANGE",
+                  "position": [
+                    12,
+                    22,
+                    32,
+                    42,
+                    52,
+                    62
+                  ],
+                  "isCharacter": false,
+                  "hintFontSize": 50,
+                  "otHintFontSize": 50
+                }
+              ],
+              "ans": "12,",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            },
+            {
+              "id": 3,
+              "clue": "THIN AND TALL AND ALSO YELLOW",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "BANANA",
+                  "position": [
+                    21,
+                    32,
+                    43,
+                    54,
+                    65,
+                    76
+                  ],
+                  "isCharacter": false,
+                  "hintFontSize": 50,
+                  "otHintFontSize": 50
+                }
+              ],
+              "ans": "21,",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            }
+          ],
+          "roundNameFontSize": "90",
+          "clueLabelFontSize": "60",
+          "roundName": "ROUND 3"
         },
         {
           "id": 7,
@@ -1322,45 +1312,45 @@
               "name": "Player Two"
             }
           ],
-          "timeOut": 10,
+          "timeOut": 15,
           "point": 20,
           "questionArray": [
             {
               "id": 1,
-              "clue": "question test",
+              "clue": "too",
               "categoryId": 0,
               "hints": [
                 {
                   "id": 1,
-                  "value": "one",
-                  "position": 0,
-                  "isCharacter": false,
-                  "hintFontSize": 0,
-                  "otHintFontSize": 0
-                }
-              ],
-              "ans": "one",
-              "isAnsCharacter": true,
-              "clueFontSize": 50,
-              "otClueFontSize": 50,
-              "ansFontSize": 50,
-              "otAnsFontSize": 50
-            },
-            {
-              "id": 2,
-              "clue": "question two",
-              "categoryId": 1,
-              "hints": [
-                {
-                  "id": 1,
-                  "value": "two",
+                  "value": "o",
                   "position": 0,
                   "isCharacter": false,
                   "hintFontSize": null,
                   "otHintFontSize": null
                 }
               ],
-              "ans": "two",
+              "ans": "w",
+              "isAnsCharacter": true,
+              "clueFontSize": "",
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            },
+            {
+              "id": 2,
+              "clue": "onp",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "p",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": null,
+                  "otHintFontSize": null
+                }
+              ],
+              "ans": "e",
               "isAnsCharacter": true,
               "clueFontSize": 50,
               "otClueFontSize": 50,
@@ -1369,19 +1359,61 @@
             },
             {
               "id": 3,
-              "clue": "test",
-              "categoryId": 1,
+              "clue": "elephamt",
+              "categoryId": 0,
               "hints": [
                 {
                   "id": 1,
-                  "value": "t",
+                  "value": "m",
                   "position": 0,
                   "isCharacter": false,
                   "hintFontSize": null,
                   "otHintFontSize": null
                 }
               ],
-              "ans": "t",
+              "ans": "n",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            },
+            {
+              "id": 4,
+              "clue": "applf",
+              "categoryId": 1,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "f",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": null,
+                  "otHintFontSize": null
+                }
+              ],
+              "ans": "e",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            },
+            {
+              "id": 5,
+              "clue": "arange",
+              "categoryId": 1,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "a",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": null,
+                  "otHintFontSize": null
+                }
+              ],
+              "ans": "o",
               "isAnsCharacter": true,
               "clueFontSize": 50,
               "otClueFontSize": 50,
@@ -1390,7 +1422,155 @@
             }
           ],
           "roundNameFontSize": "90",
-          "clueLabelFontSize": "60"
+          "clueLabelFontSize": "60",
+          "roundName": "ROUND 4"
+        },
+        {
+          "id": 5,
+          "name": "PICTIONARY",
+          "questionType": 5,
+          "showfirstAnsChar": false,
+          "hasCategory": false,
+          "categories": [],
+          "timeOut": 30,
+          "point": 30,
+          "questionArray": [
+            {
+              "id": 1,
+              "clue": "movie_one",
+              "categoryId": 0,
+              "hints": [],
+              "ans": "test",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            },
+            {
+              "id": 2,
+              "clue": "movie_two",
+              "categoryId": 0,
+              "hints": [],
+              "ans": "two",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            }
+          ],
+          "roundNameFontSize": "90",
+          "clueLabelFontSize": "60",
+          "roundName": "ROUND 5"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "players": [
+        {
+          "id": 1,
+          "name": "Player1",
+          "point": 0,
+          "pointFontSize": 300
+        },
+        {
+          "id": 2,
+          "name": "Player2",
+          "point": 0,
+          "pointFontSize": 300
+        },
+        {
+          "id": 3,
+          "name": "Player3",
+          "point": 0,
+          "pointFontSize": 300
+        }
+      ],
+      "rounds": [
+        {
+          "id": 1,
+          "name": "OPPOSITE WORD",
+          "questionType": 1,
+          "showfirstAnsChar": true,
+          "hasCategory": false,
+          "categories": [],
+          "timeOut": 10,
+          "point": 10,
+          "questionArray": [],
+          "roundNameFontSize": "90",
+          "clueLabelFontSize": "60",
+          "roundName": "ROUND 1"
+        },
+        {
+          "id": 6,
+          "name": "MISSING WORD",
+          "questionType": 6,
+          "showfirstAnsChar": true,
+          "hasCategory": false,
+          "categories": [],
+          "timeOut": 10,
+          "point": 10,
+          "secondTimeOut": 5,
+          "secondPoint": 5,
+          "questionArray": [],
+          "roundNameFontSize": "90",
+          "clueLabelFontSize": "60",
+          "roundName": "ROUND 2"
+        },
+        {
+          "id": 2,
+          "name": "CROSS WORD",
+          "questionType": 2,
+          "showfirstAnsChar": false,
+          "hasCategory": false,
+          "categories": [],
+          "timeOut": 10,
+          "point": 15,
+          "secondTimeOut": 5,
+          "secondPoint": 10,
+          "questionArray": [],
+          "roundNameFontSize": "90",
+          "clueLabelFontSize": "60",
+          "roundName": "ROUND 3"
+        },
+        {
+          "id": 7,
+          "name": "SPOT THE MISTAKE",
+          "questionType": 7,
+          "showfirstAnsChar": false,
+          "hasCategory": false,
+          "categories": [
+            {
+              "id": 0,
+              "name": "Player One"
+            },
+            {
+              "id": 1,
+              "name": "Player Two"
+            }
+          ],
+          "timeOut": 15,
+          "point": 20,
+          "questionArray": [],
+          "roundNameFontSize": "90",
+          "clueLabelFontSize": "60",
+          "roundName": "ROUND 4"
+        },
+        {
+          "id": 5,
+          "name": "PICTIONARY",
+          "questionType": 5,
+          "showfirstAnsChar": false,
+          "hasCategory": false,
+          "categories": [],
+          "timeOut": 30,
+          "point": 30,
+          "questionArray": [],
+          "roundNameFontSize": "90",
+          "clueLabelFontSize": "60",
+          "roundName": "ROUND 5"
         }
       ]
     },
@@ -1643,24 +1823,6 @@
       "isAnsChar": true,
       "showfirstAnsChar": false,
       "hasCategory": false
-    },
-    {
-      "id": 3,
-      "name": "HIDDEN WORDS",
-      "hintsCount": 1,
-      "isHintChar": true,
-      "isAnsChar": true,
-      "showfirstAnsChar": false,
-      "hasCategory": false
-    },
-    {
-      "id": 4,
-      "name": "ODD WORD",
-      "hintsCount": 3,
-      "isHintChar": false,
-      "isAnsChar": true,
-      "showfirstAnsChar": false,
-      "hasCategory": true
     },
     {
       "id": 5,

@@ -989,3 +989,42 @@ button {
 .videoName{
     width: 74% !important;
 }
+
+//round seven
+.roundseven_box{
+    height: 120px;
+    position: absolute;
+    width: 830px;
+    z-index: -1;
+    margin-left: -40px;
+}
+.roundseven_text{
+    color: white;
+    left: 3%;
+    background: none;
+    border: none;
+    font-size: 38px;
+    top:16%;
+    padding-top: 11px;
+    height: 70px;
+    float: left;
+    width: 40px;
+    margin-top: -20px;
+    margin-top: 25px;
+    width: 60px;
+    text-align: center;
+    width: 60px;
+
+}
+.green_answer_text{
+    background:url(../../../assets/images/GREEN/blank.png) no-repeat;
+    background-size: cover;
+    margin-top: 9px;
+    text-align: center;
+    width: 60px;
+    height: 104px;
+}
+.roundseven_answer{
+    margin-top: 150px;
+    margin-left: 8%;
+}

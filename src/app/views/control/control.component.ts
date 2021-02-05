@@ -606,11 +606,18 @@ export class ControlComponent implements OnInit {
   prevQuestion() {
     let prevQuestion = this.currentQuestion;
     if (this.currentQuestion.id != 1 && this.currentRound.questionType != 2) {
-      prevQuestion = _.find(this.currentRound.questionArray, [
-        "id",
-        this.currentQuestion.id - 1
-      ]);
-      this.clickQuestion(prevQuestion, 1);
+      if(this.currentRound.questionType == 7){
+        prevQuestion = _.find(this.questionArrForR4(), [
+          "id",
+          this.currentQuestion.id - 1
+        ]);
+      }else{
+        prevQuestion = _.find(this.currentRound.questionArray, [
+          "id",
+          this.currentQuestion.id - 1
+        ]);
+      }
+      if (prevQuestion) this.clickQuestion(prevQuestion, 1);
     } else if (this.currentQuestion.id != 1 && this.currentRound.questionType == 2) {
       prevQuestion = _.find(this.questionArrForR4(), [
         "id",
@@ -624,11 +631,18 @@ export class ControlComponent implements OnInit {
     let nextQuestion = this.currentQuestion;
 
     if (this.currentQuestion.id != this.currentRound.questionArray.length && this.currentRound.questionType != 2) {
-      nextQuestion = _.find(this.currentRound.questionArray, [
-        "id",
-        this.currentQuestion.id + 1
-      ]);
-      this.clickQuestion(nextQuestion, 1);
+      if(this.currentRound.questionType == 7){
+        nextQuestion = _.find(this.questionArrForR4(), [
+          "id",
+          this.currentQuestion.id + 1
+        ]);
+      }else {
+        nextQuestion = _.find(this.currentRound.questionArray, [
+          "id",
+          this.currentQuestion.id + 1
+        ]);
+      }
+      if (nextQuestion)this.clickQuestion(nextQuestion, 1);
     } else if (this.currentQuestion.id != this.questionArrForR4().length && this.currentRound.questionType == 2) {
       nextQuestion = _.find(this.questionArrForR4(), [
         "id",
@@ -1302,6 +1316,7 @@ export class ControlComponent implements OnInit {
   changeR4Category(category){
     this.r4CategoryName = category.name
     this.r4CategoryId = category.id
+    this.questionArrForR4()
     let firstQuestionByCategoryId = _.find(this.currentRound.questionArray, [
       "categoryId",
       category.id
