@@ -32,12 +32,12 @@
                         <div class="col-sm-4">
                             <div ngbDropdown class="d-inline-block">
                                 <button class="btn common_input" id="dropdownBasic1" ngbDropdownToggle>
-                                    <p class="section_text">ROUND {{control.currentRoundId}}</p>
+                                    <p class="section_text">{{currentRoundName}}</p>
                                     <img [src]=Images.dropDown class="drop_down_icon">
                                 </button>
                                 <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                                    <button ngbDropdownItem *ngFor="let round of episode.rounds" (click)="clickRound(round)">ROUND
-                                        {{round.id}}
+                                    <button ngbDropdownItem *ngFor="let round of episode.rounds" (click)="clickRound(round)">
+                                        {{round.roundName}}
                                     </button>
                                 </div>
                             </div>
@@ -84,7 +84,7 @@
                       </div>
                   </div>
 
-                    <div class="row col-sm-12 pad_right0" *ngIf="currentRound.questionType == 2">
+                    <!-- <div class="row col-sm-12 pad_right0" *ngIf="currentRound.questionType == 2">
 
                         <div ngbDropdown class="d-inline-block col-sm-12">
                             <button class="btn common_input" id="dropdownBasic1" ngbDropdownToggle>
@@ -98,12 +98,12 @@
                             </div>
                         </div>
 
-                    </div>
+                    </div> -->
 
 
                     <div class="row col-sm-12 pad_right0">
                         <ng-container *ngIf="currentRound.questionType != 7">
-                        <div ngbDropdown [ngClass]="currentRound.hasCategory ? 'd-inline-block col-sm-12' : 'd-inline-block col-sm-8'" *ngIf="currentRound.questionType != 2">
+                        <div ngbDropdown [ngClass]="currentRound.hasCategory ? 'd-inline-block col-sm-12' : 'd-inline-block col-sm-8'">
                             <button class="btn common_input" id="dropdownBasic1" ngbDropdownToggle [disabled]="currentRound.hasCategory && control.startCount || currentRound.hasCategory && !control.finishCategoryRound && isStartRound4">
                                 <p class="section_text">
                                     {{currentRound.questionArray.length == 0 || currentRound.hasCategory && noQuestionByCategory ? "*No Question." : currentRound.hasCategory ? "QUESTION "+ currentQuestionIndex : "QUESTION "+ control.currentQuestionId}}
@@ -118,7 +118,7 @@
                             </div>
                         </div>
                       </ng-container>
-                        <div ngbDropdown class="d-inline-block col-sm-8" *ngIf="currentRound.questionType == 2">
+                        <!-- <div ngbDropdown class="d-inline-block col-sm-8" *ngIf="currentRound.questionType == 2">
                             <button class="btn common_input" id="dropdownBasic1" ngbDropdownToggle>
                                 <p class="section_text">
                                     QUESTION {{control.currentQuestionId}}
@@ -128,7 +128,7 @@
                             <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
                                 <button ngbDropdownItem *ngFor="let question of questionArrForR4(); let i=index" (click)="clickQuestion(question,i+1)">QUESTION {{question.id}}</button>
                             </div>
-                        </div>
+                        </div> -->
                         <div ngbDropdown class="d-inline-block col-sm-8" *ngIf="currentRound.questionType == 7">
                           <button class="btn common_input" id="dropdownBasic1" ngbDropdownToggle>
                               <p class="section_text">
@@ -217,8 +217,11 @@
                             <span [ngClass]="timeOut > 3 ? 'timer' :'timer_style'"> {{timeOut}} </span>
                             <!-- [ngClass]="timeOut > 3 ? 'timer' : 'timer_warnning'" -->
                             <div class=" showans_btn TimerReset">
-                                <button class="btn button timer_btn" [disabled]="control.startCount" (click)="resetTimer()">Reset Timer</button>
+                                <button class="btn button timer_btn" [disabled]="control.startCount" (click)="resetTimer(currentRound.timeOut)">Reset Timer {{currentRound.timeOut}}</button>
                             </div>
+                            <div class=" showans_btn TimerReset" *ngIf="currentRound.secondTimeOut">
+                              <button class="btn button timer_btn" [disabled]="control.startCount" (click)="resetTimer(currentRound.secondTimeOut)">Reset Timer {{currentRound?.secondTimeOut}}</button>
+                          </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="mark_model" *ngIf="currentRound.hasCategory && finishCategoryRound">

@@ -114,6 +114,7 @@ export class ControlComponent implements OnInit {
   isPlay : boolean = false;
   r4CategoryName: string = "Player One"
   r4CategoryId: number = 0
+  currentRoundName: string = 'ROUND 1'
 
   constructor(
     private store: Store<{
@@ -166,6 +167,8 @@ export class ControlComponent implements OnInit {
         );
       }
     });
+    // sort by roundName
+    this.episode.rounds.sort((a,b) => (a.roundName > b.roundName) ? 1 : ((b.roundName > a.roundName) ? -1 : 0))
     this.recommendFontSize = fontSizeForWindow.normalSize;
   }
 
@@ -329,8 +332,8 @@ export class ControlComponent implements OnInit {
 
   questionArrForR4() {
     if(this.currentRound.questionType == 7)
-      return this.currentRound.questionArray.filter(quesution => quesution.categoryId == this.r4CategoryId)
-    return this.currentRound.questionArray.filter(quesution => quesution.categoryId == this.currentCategoryForR4.id)
+      return this.currentRound.questionArray.filter(question => question.categoryId == this.r4CategoryId)
+    return this.currentRound.questionArray.filter(question => question.categoryId == this.currentCategoryForR4.id)
   }
 
   newWindow(playerId) {
@@ -492,27 +495,26 @@ export class ControlComponent implements OnInit {
 
   prevRound() {
     let prevRound = this.currentRound;
+    console.log('pervRound => ' , prevRound)
     if (this.currentRound.id != 1) {
-      prevRound = _.find(this.episode.rounds, [
-        "id",
-        this.control.currentRoundId - 1
-      ]);
-      this.clickRound(prevRound);
+      let index = _.findIndex(this.episode.rounds, ['id', this.currentRound.id])
+      prevRound = this.episode.rounds[index - 1]
+      if(prevRound) this.clickRound(prevRound);
     }
   }
 
   nextRound() {
     let nextRound = this.currentRound;
+    console.log('nextRound => ' , nextRound)
     if (this.currentRound.id != this.episode.rounds.length) {
-      nextRound = _.find(this.episode.rounds, [
-        "id",
-        this.control.currentRoundId + 1
-      ]);
-      this.clickRound(nextRound);
+      let index = _.findIndex(this.episode.rounds, ['id', this.currentRound.id])
+      nextRound = this.episode.rounds[index + 1]
+      if(nextRound) this.clickRound(nextRound);
     }
   }
 
   clickRound(round) {
+    this.currentRoundName= round.roundName
     //reset the category section
     if (round.questionType == 2) this.currentCategoryForR4 = undefined
     this.roundFourHintValue = undefined
@@ -564,8 +566,8 @@ export class ControlComponent implements OnInit {
     }
   }
 
-  resetTimer() {
-    this.timeOut = this.currentRound.timeOut;
+  resetTimer(timeOut: number) {
+    this.timeOut = timeOut;//this.currentRound.timeOut;
     this.disableStart = false;
 
     this.resetAudio();
@@ -605,7 +607,7 @@ export class ControlComponent implements OnInit {
 
   prevQuestion() {
     let prevQuestion = this.currentQuestion;
-    if (this.currentQuestion.id != 1 && this.currentRound.questionType != 2) {
+    if (this.currentQuestion.id != 1) {
       if(this.currentRound.questionType == 7){
         prevQuestion = _.find(this.questionArrForR4(), [
           "id",
@@ -618,19 +620,20 @@ export class ControlComponent implements OnInit {
         ]);
       }
       if (prevQuestion) this.clickQuestion(prevQuestion, 1);
-    } else if (this.currentQuestion.id != 1 && this.currentRound.questionType == 2) {
-      prevQuestion = _.find(this.questionArrForR4(), [
-        "id",
-        this.currentQuestion.id - 1
-      ]);
-      if (prevQuestion) this.clickQuestion(prevQuestion, 1);
     }
+    // else if (this.currentQuestion.id != 1 && this.currentRound.questionType == 2) {
+    //   prevQuestion = _.find(this.questionArrForR4(), [
+    //     "id",
+    //     this.currentQuestion.id - 1
+    //   ]);
+    //   if (prevQuestion) this.clickQuestion(prevQuestion, 1);
+    // }
   }
 
   nextQuestion() {
     let nextQuestion = this.currentQuestion;
 
-    if (this.currentQuestion.id != this.currentRound.questionArray.length && this.currentRound.questionType != 2) {
+    if (this.currentQuestion.id != this.currentRound.questionArray.length) {
       if(this.currentRound.questionType == 7){
         nextQuestion = _.find(this.questionArrForR4(), [
           "id",
@@ -643,13 +646,14 @@ export class ControlComponent implements OnInit {
         ]);
       }
       if (nextQuestion)this.clickQuestion(nextQuestion, 1);
-    } else if (this.currentQuestion.id != this.questionArrForR4().length && this.currentRound.questionType == 2) {
-      nextQuestion = _.find(this.questionArrForR4(), [
-        "id",
-        this.currentQuestion.id + 1
-      ]);
-      if (nextQuestion) this.clickQuestion(nextQuestion, 1);
     }
+    // else if (this.currentQuestion.id != this.questionArrForR4().length && this.currentRound.questionType == 2) {
+    //   nextQuestion = _.find(this.questionArrForR4(), [
+    //     "id",
+    //     this.currentQuestion.id + 1
+    //   ]);
+    //   if (nextQuestion) this.clickQuestion(nextQuestion, 1);
+    // }
   }
 
   changeCategoryForR4(category) {
