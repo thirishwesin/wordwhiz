@@ -241,7 +241,17 @@
                     62,
                     72,
                     82,
-                    92
+                    92,
+                    53,
+                    54,
+                    55,
+                    54,
+                    55,
+                    53,
+                    54,
+                    55,
+                    56,
+                    46
                   ],
                   "isCharacter": false,
                   "hintFontSize": "45",
@@ -399,7 +409,8 @@
             }
           ],
           "roundNameFontSize": "90",
-          "clueLabelFontSize": "60"
+          "clueLabelFontSize": "60",
+          "secondTimeOut": 15
         },
         {
           "id": 3,
@@ -1378,6 +1389,236 @@
               "otAnsFontSize": 50
             }
           ],
+          "roundNameFontSize": "90",
+          "clueLabelFontSize": "60"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "players": [
+        {
+          "id": 1,
+          "name": "Player1",
+          "point": 0,
+          "pointFontSize": 300
+        },
+        {
+          "id": 2,
+          "name": "Player2",
+          "point": 0,
+          "pointFontSize": 300
+        },
+        {
+          "id": 3,
+          "name": "Player3",
+          "point": 0,
+          "pointFontSize": 300
+        }
+      ],
+      "rounds": [
+        {
+          "id": 1,
+          "name": "OPPOSITE WORD",
+          "questionType": 1,
+          "showfirstAnsChar": true,
+          "hasCategory": false,
+          "categories": [],
+          "timeOut": 15,
+          "point": 10,
+          "questionArray": [
+            {
+              "id": 1,
+              "clue": "年轻",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "十",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": "30",
+                  "otHintFontSize": "30"
+                }
+              ],
+              "ans": "老",
+              "isAnsCharacter": true,
+              "clueFontSize": "30",
+              "otClueFontSize": "30",
+              "ansFontSize": "30",
+              "otAnsFontSize": "30"
+            },
+            {
+              "id": 2,
+              "clue": "贵",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "中",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": "30",
+                  "otHintFontSize": "30"
+                }
+              ],
+              "ans": "便宜",
+              "isAnsCharacter": true,
+              "clueFontSize": "30",
+              "otClueFontSize": "30",
+              "ansFontSize": "30",
+              "otAnsFontSize": "30"
+            },
+            {
+              "id": 3,
+              "clue": "脏",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "丨",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": "30",
+                  "otHintFontSize": "30"
+                }
+              ],
+              "ans": "干净",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": "30",
+              "otAnsFontSize": "30"
+            }
+          ],
+          "roundNameFontSize": "90",
+          "clueLabelFontSize": "60"
+        },
+        {
+          "id": 2,
+          "name": "MISSING WORD",
+          "questionType": 6,
+          "showfirstAnsChar": true,
+          "hasCategory": false,
+          "categories": [],
+          "timeOut": 0,
+          "point": 0,
+          "questionArray": [
+            {
+              "id": 1,
+              "clue": "绝对不是",
+              "categoryId": 0,
+              "hints": [],
+              "ans": "绝对不是",
+              "isAnsCharacter": true,
+              "clueFontSize": "30",
+              "otClueFontSize": "30",
+              "ansFontSize": "30",
+              "otAnsFontSize": "30"
+            },
+            {
+              "id": 2,
+              "clue": "尽快",
+              "categoryId": 0,
+              "hints": [],
+              "ans": "尽快",
+              "isAnsCharacter": true,
+              "clueFontSize": "30",
+              "otClueFontSize": "30",
+              "ansFontSize": "30",
+              "otAnsFontSize": "30"
+            },
+            {
+              "id": 3,
+              "clue": "恭喜恭喜",
+              "categoryId": 0,
+              "hints": [],
+              "ans": "恭喜恭喜",
+              "isAnsCharacter": true,
+              "clueFontSize": "30",
+              "otClueFontSize": "30",
+              "ansFontSize": "30",
+              "otAnsFontSize": "30"
+            }
+          ],
+          "roundNameFontSize": "90",
+          "clueLabelFontSize": "60",
+          "secondPoint": 0,
+          "secondTimeOut": 0
+        },
+        {
+          "id": 3,
+          "name": "HIDDEN WORDS",
+          "questionType": 3,
+          "showfirstAnsChar": false,
+          "hasCategory": false,
+          "categories": [],
+          "timeOut": 10,
+          "point": 20,
+          "questionArray": [],
+          "roundNameFontSize": "90",
+          "clueLabelFontSize": "60"
+        },
+        {
+          "id": 4,
+          "name": "ODD WORD",
+          "questionType": 4,
+          "showfirstAnsChar": true,
+          "hasCategory": true,
+          "categories": [],
+          "timeOut": 60,
+          "point": 60,
+          "questionArray": [],
+          "roundNameFontSize": "90",
+          "clueLabelFontSize": "60"
+        },
+        {
+          "id": 5,
+          "name": "PICTIONARY",
+          "questionType": 5,
+          "showfirstAnsChar": false,
+          "hasCategory": false,
+          "categories": [],
+          "timeOut": 30,
+          "point": 30,
+          "questionArray": [],
+          "roundNameFontSize": "90",
+          "clueLabelFontSize": "60"
+        },
+        {
+          "id": 6,
+          "name": "MISSING WORD",
+          "questionType": 6,
+          "showfirstAnsChar": true,
+          "hasCategory": false,
+          "categories": [],
+          "timeOut": 10,
+          "point": 10,
+          "secondTimeOut": 5,
+          "secondPoint": 5,
+          "questionArray": [],
+          "roundNameFontSize": "90",
+          "clueLabelFontSize": "60"
+        },
+        {
+          "id": 7,
+          "name": "SPOT THE MISTAKE",
+          "questionType": 7,
+          "showfirstAnsChar": false,
+          "hasCategory": false,
+          "categories": [
+            {
+              "id": 0,
+              "name": "Player One"
+            },
+            {
+              "id": 1,
+              "name": "Player Two"
+            }
+          ],
+          "timeOut": 15,
+          "point": 20,
+          "questionArray": [],
           "roundNameFontSize": "90",
           "clueLabelFontSize": "60"
         }
