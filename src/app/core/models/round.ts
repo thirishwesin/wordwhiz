@@ -15,4 +15,5 @@ export interface Round {
   questionArray: Question[];
   roundNameFontSize: number;
   clueLabelFontSize: number;
+  roundName: string;
 }

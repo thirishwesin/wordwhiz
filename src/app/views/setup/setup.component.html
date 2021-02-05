@@ -12,12 +12,12 @@
           <div class="form-group">
             <div ngbDropdown class="d-inline-block">
               <button class="btn common_input" id="round_choose_drop_down" ngbDropdownToggle>
-                <p class="section_text">ROUND {{ control.currentRoundId }}</p>
+                <p class="section_text">{{ currentRoundName }}</p>
                 <img [src]="Images.dropDown" class="drop_down_icon" alt="drop down image" />
               </button>
               <div ngbDropdownMenu aria-labelledby="round_choose_drop_down">
                 <button ngbDropdownItem *ngFor="let round of episode.rounds">
-                  <span class="roundDropDown" (click)="clickRound(round)">ROUND {{ round.id }}</span>
+                  <span class="roundDropDown" (click)="clickRound(round)">{{ round.roundName }}</span>
                   <span>
                     <fa-icon class="remove_icon" [icon]="faTimesCircle" (click)="openModal(content_setup, 1, round)">
                     </fa-icon>
@@ -464,21 +464,11 @@
                         *ngFor="let item of [81,82,83,84,85,86,87,88]; let i = index" [id]="item">
                       </div>
                     </div>
-<!--                    <div class="row" style="flex-wrap: initial;">-->
-<!--                      <div (click)="clickGrid(item)" class="alpha_text col-sm"-->
-<!--                        *ngFor="let item of [91,92,93,94,95,96,97,98,99,910]; let i = index" [id]="item">-->
-<!--                      </div>-->
-<!--                    </div>-->
-<!--                    <div class="row" style="flex-wrap: initial;">-->
-<!--                      <div (click)="clickGrid(item)" class="alpha_text col-sm"-->
-<!--                        *ngFor="let item of [101,102,103,104,105,106,107,108,109,1010]; let i = index" [id]="item">-->
-<!--                      </div>-->
-<!--                    </div>-->
                   </div>
                 </div>
                 <div class="col-sm-4">
                   <div class="form-group" style="margin-top: 20px;">
-                    <div ngbDropdown class="d-inline-block" style="margin-bottom: 13%;width: 100%;">
+                    <!-- <div ngbDropdown class="d-inline-block" style="margin-bottom: 13%;width: 100%;">
                       <label for="category_" class="common_label ">CATEGORY</label>
                       <ng-container *ngIf="currentCategory; else newCategoryTemplate">
                         <button style="width: 100%; cursor: default; text-align: left" class="btn common_input">{{currentCategory.name}}</button>
@@ -503,7 +493,7 @@
                           </button>
                         </div>
                       </ng-template>
-                    </div>
+                    </div> -->
 
                     <div ngbDropdown class="d-inline-block" style="margin-bottom: 13%;width: 100%;">
                       <label for="word" class="common_label ">WORD</label>
@@ -595,7 +585,7 @@
                     </div>
                   </td>
                 </tr>
-                <tr *ngIf="(currentRound.questionType == 4 || currentRound.questionType == 2) && noDatabyCategory">
+                <tr *ngIf="(currentRound.questionType == 4) && noDatabyCategory">
                   <td align="center" colspan="5">
                     <h6 style=" color: red ">*There is no question in table by category</h6>
                   </td>

@@ -92,6 +92,7 @@ export class SetupComponent implements OnInit {
   showVideoModal : boolean = false;
   vidoeUrl: string
   playerCategory: string = 'Player One';
+  currentRoundName: string = 'ROUND 1'
 
   constructor(private store: Store<{ wordWhiz: WordWhiz; episode: Episode; control: Control}>, public router: Router, public modalService: NgbModal) {
     store.subscribe(item => {
@@ -100,6 +101,8 @@ export class SetupComponent implements OnInit {
       this.control = item.control;
     });
 
+    // sort by roundName
+    this.episode.rounds.sort((a,b) => (a.roundName > b.roundName) ? 1 : ((b.roundName > a.roundName) ? -1 : 0))
     //get episodetimeout
     if (AppConfig.production) {
       this.readFileProduction();
@@ -151,7 +154,7 @@ export class SetupComponent implements OnInit {
     //update current hint count
     this.question.hints = this.initHintArrByQuestionType();
     console.log(' before current category => ', this.currentCategory)
-    if (this.currentRound.questionType == 2 || this.currentRound.questionType == 4) this.currentCategory = undefined
+    if (this.currentRound.questionType == 4) this.currentCategory = undefined
     //initialize current Question Category
     if (!this.currentCategory) {
       this.currentCategory = this.currentRound.categories.length > 0 ? this.currentRound.categories[0] : undefined;
@@ -163,10 +166,10 @@ export class SetupComponent implements OnInit {
   }
 
   clickRound(round) {
+    this.currentRoundName = round.roundName;
     this.store.dispatch(updateCurrentRoundId({ currentRoundId: round.id }));
     this.updateSetupState();
     if (this.currentRound.questionType == 2) {
-      if (this.currentCategory) this.pevCategoryId = this.currentCategory.id
       this.currentWord = undefined
       this.setGridValue();
     }else if (this.currentRound.questionType == 5){
@@ -196,6 +199,7 @@ export class SetupComponent implements OnInit {
       timeOut: 0,
       roundNameFontSize: null,
       clueLabelFontSize: null,
+      roundName: ""
     });
     let lastIndex = _.last(this.episode.rounds);
     this.store.dispatch(updateCurrentRoundId({ currentRoundId: lastIndex.id }));
@@ -229,17 +233,11 @@ export class SetupComponent implements OnInit {
   changeCategory(category) {
     this.pevCategoryId = this.currentCategory !== undefined ? this.currentCategory.id : undefined;
     this.currentCategory = category;
-    if (this.currentRound.questionType == 2) {
-      if (this.currentCategory && this.pevCategoryId !== this.currentCategory.id) {
-        this.clearGridValues(this.pevCategoryId);
-        this.setGridValue();
-      }
-    }
     this.checkQuestionsByCategory();
   }
 
   filterQuestion(itemList: Question[]) {
-    if (this.currentRound.questionType == 2 || this.currentRound.questionType == 4) {
+    if (this.currentRound.questionType == 4) {
       return _.filter(itemList, item => item.categoryId == this.currentCategory.id);
     }
     return itemList;
@@ -669,8 +667,6 @@ export class SetupComponent implements OnInit {
     // );
 
     // console.log('currentCategory => ', currentCategory)
-    console.log('nextIndex => ', nextIndex)
-    console.log('prevIndex => ', prevIndex)
 
     // change category when remove item
     // if (currentCategory) {
@@ -739,7 +735,7 @@ export class SetupComponent implements OnInit {
     console.log('grid value => ', id)
     console.log('currentWord => ', this.currentWord)
     if (this.currentWord) {
-      const quest = this.currentRound.questionArray.find(({categoryId, hints}) => categoryId == this.currentCategory.id && hints[0].value == this.currentWord.hints[0].value);
+      const quest = this.currentRound.questionArray.find(({categoryId, hints}) => hints[0].value == this.currentWord.hints[0].value);
       const questIndex = this.currentRound.questionArray.indexOf(quest);
       console.log('question array index => ', questIndex)
       let div = document.getElementById(id) as HTMLDivElement;
@@ -768,9 +764,7 @@ export class SetupComponent implements OnInit {
   }
 
   addHintValue(hintValue: string, clue: string, hintFontSize: string, otHintFontSize: string) {
-    console.log('current category => ', this.currentCategory)
     console.log(`hint value => ${hintValue}, clue => ${clue}, clueFontSize => ${hintFontSize}, otClueFontSize => ${otHintFontSize}`)
-    if (this.currentCategory) {
       let generateId =
         this.currentRound.questionArray.length == 0
           ? 1
@@ -778,9 +772,7 @@ export class SetupComponent implements OnInit {
       this.currentRound.questionArray.push({
         ...this.question,
         id: generateId,
-        categoryId: this.currentRound.questionType == 2 || this.currentRound.questionType == 4
-          ? this.currentCategory.id
-          : 0,
+        categoryId: 0,
         clue: clue,
         isAnsCharacter: this.questionType.isAnsChar,
         clueFontSize: this.question.clueFontSize == null ? 50 : this.question.clueFontSize,
@@ -792,9 +784,8 @@ export class SetupComponent implements OnInit {
           hintFontSize: hintFontSize == null ? 50 : +hintFontSize, otHintFontSize: otHintFontSize == null ? 50 : +otHintFontSize
         }]
       });
-      console.log('current category => ', this.currentRound)
       this.noDatabyCategory = false;
-    }
+
   }
 
   checkDuplicateWord(word: string) {
@@ -828,8 +819,7 @@ export class SetupComponent implements OnInit {
   }
 
   setGridValue() {
-    console.log('current category -=> ', this.currentCategory)
-    this.currentRound.questionArray.filter(qustion => qustion.categoryId == this.currentCategory.id).forEach(question => {
+    this.currentRound.questionArray.forEach(question => {
       question.hints.forEach((hint) => {
         hint.position.forEach((id, index) => {
           setTimeout(() => {
@@ -851,10 +841,8 @@ export class SetupComponent implements OnInit {
   }
 
   clearWord(hintValue: string) {
-    console.log('current category => ', this.currentCategory)
     if (hintValue) {
-      let questionArr = this.currentRound.questionArray.filter(question =>
-        question.categoryId == this.currentCategory.id && question.hints[0].value == hintValue)
+      let questionArr = this.currentRound.questionArray.filter(question => question.hints[0].value == hintValue)
       let questionArrIndex = this.currentRound.questionArray.indexOf(questionArr[0])
 
       this.currentRound.questionArray[questionArrIndex].hints[0].position.forEach(id => {
