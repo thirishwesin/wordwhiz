@@ -874,3 +874,41 @@
     color: #fff;
     padding-top: 8px;
 }
+
+// Round Five
+
+//round seven
+.roundseven_box{
+    height: 120px;
+    position: absolute;
+    width: 86%;
+    z-index: -1;
+    margin-left: -56%;
+}
+.roundseven_text{
+    color: white;
+    left: 3%;
+    background: none;
+    border: none;
+    font-size: 38px;
+    top: 29%;
+    padding-top: 11px;
+    height: 70px;
+    float: left;
+    margin-top: 18px;
+    text-align: center;
+    width: 60px;
+
+}
+.green_answer_text{
+    background:url(../../../assets/images/GREEN/blank.png) no-repeat;
+    background-size: cover;
+    margin-top: 10px;
+    text-align: center;
+    width: 60px;
+    height: 104px;
+}
+.roundseven_answer{
+    margin-top: 150px;
+    margin-left: -42%;
+}
