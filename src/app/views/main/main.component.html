@@ -104,7 +104,7 @@
                     </div> -->
                 </div>
                 <!-- Round Five -->
-                <div class="video_body" *ngIf="currentRound.questionType == 5 && control.showQuestion">
+                <div class="video_body" *ngIf="currentRound?.questionType == 5 && control.showQuestion">
                   <app-round-five [videoName]="currentQuestion?.clue" [currentEpisodeId]="episode.id" [isPlay]="isPlay"></app-round-five>
                 </div>
                 <div class="alpha_wrapper" [ngClass]="{'alpha_wrapper_r4': currentRound.questionType == 4}" *ngIf="control.showQuestion || control.runCategoryRound">

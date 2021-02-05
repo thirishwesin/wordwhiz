@@ -197,7 +197,7 @@ export class HomeComponent implements OnInit {
   }
 
   readFileProduction() {
-    const filePath = process.env.PORTABLE_EXECUTABLE_DIR + "/release/data/releaseInitData.json";
+    const filePath = process.env.PORTABLE_EXECUTABLE_DIR + "/data/releaseInitData.json";
     console.log(filePath);
     const encodedData = readFileSync(filePath, "utf8");
     this.jsonObj = JSON.parse(encodedData);
