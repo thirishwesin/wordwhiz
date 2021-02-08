@@ -993,27 +993,24 @@ button {
 //round seven
 .roundseven_box{
     height: 120px;
-    position: absolute;
     width: 830px;
     z-index: -1;
-    margin-left: -40px;
+    margin-left: -65px;
+    display: block;
 }
 .roundseven_text{
     color: white;
-    left: 3%;
     background: none;
     border: none;
     font-size: 38px;
-    top:16%;
     padding-top: 11px;
     height: 70px;
-    float: left;
-    width: 40px;
-    margin-top: -20px;
     margin-top: 25px;
-    width: 60px;
     text-align: center;
     width: 60px;
+    top: -120px;
+    position: relative;
+    left: -270px;
 
 }
 .green_answer_text{
@@ -1025,6 +1022,6 @@ button {
     height: 104px;
 }
 .roundseven_answer{
-    margin-top: 150px;
-    margin-left: 8%;
+    margin-left: -35%;
+    margin-top: -110px;
 }
