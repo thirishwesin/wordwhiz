@@ -11,6 +11,7 @@ import * as _ from "lodash";
 import { readFile, readFileSync } from "fs";
 import parseAPNG from "apng-js";
 import { AppConfig } from "../../../environments/environment";
+import { TimerEnum } from "../../core/models/timerEnum";
 
 @Component({
   selector: "app-oneThird",
@@ -71,6 +72,8 @@ export class OneThirdScreenComponent implements OnInit {
       });
     });
   }
+
+  get timerEnum(): typeof TimerEnum {return TimerEnum}
 
   ngOnInit() {
     this.renderingAPNG = true;
@@ -326,7 +329,7 @@ export class OneThirdScreenComponent implements OnInit {
     // check count down
     if (this.control.runCategoryRound) {
       //click stop after start in round 4
-      if (!this.control.startCount) {
+      if (this.control.startCount == TimerEnum.STOP) {
         clearInterval(this.interval);
         this.isStopped = true;
 
@@ -344,14 +347,14 @@ export class OneThirdScreenComponent implements OnInit {
     } else {
       //normal round and round 4 first start
       if (
-        this.control.startCount &&
+        this.control.startCount == TimerEnum.START&&
         !this.control.clickExtraKey &&
         !this.control.resetCount
       ) {
         this.countDown();
         this.player.play();
       }
-      if (!this.control.startCount) {
+      if (this.control.startCount == TimerEnum.STOP) {
         clearInterval(this.interval);
         if (this.player) {
           this.player.pause();
@@ -396,7 +399,7 @@ export class OneThirdScreenComponent implements OnInit {
 
     //animation
     if (
-      this.control.startCount ||
+      this.control.startCount == TimerEnum.START ||
       this.control.showAns ||
       this.control.clickExtraKey
     ) {
@@ -405,7 +408,7 @@ export class OneThirdScreenComponent implements OnInit {
     }
     // animation
     if (
-      !this.control.startCount &&
+      this.control.startCount == TimerEnum.STOP &&
       !this.control.showAns &&
       !this.control.showQuestion
     )

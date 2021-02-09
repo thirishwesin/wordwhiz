@@ -6,7 +6,7 @@ import { AppConfig } from "../../../../environments/environment";
   templateUrl: './round-five.component.html',
   styleUrls: ['./round-five.component.scss']
 })
-export class RoundFiveComponent implements OnInit, OnChanges, AfterViewInit {
+export class RoundFiveComponent implements OnInit, OnChanges {
 
   @Input() videoName: string
   @Input() currentEpisodeId: number
@@ -24,10 +24,6 @@ export class RoundFiveComponent implements OnInit, OnChanges, AfterViewInit {
   }
   ngOnInit() {
 
-  }
-
-  ngAfterViewInit(): void {
-   console.log('video element => ' , this.videoElement.nativeElement)
   }
 
   getVideoDir(): string{

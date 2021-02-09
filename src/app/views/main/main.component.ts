@@ -16,6 +16,7 @@ import { readFile, readFileSync } from "fs";
 import parseAPNG from "apng-js";
 import { AppConfig } from "../../../environments/environment";
 import { convertUpdateArguments } from "@angular/compiler/src/compiler_util/expression_converter";
+import { TimerEnum } from '../../core/models/timerEnum';
 
 @Component({
   selector: "app-main",
@@ -52,7 +53,6 @@ export class MainComponent implements OnInit {
   rFourCubeImage = new Image();
   prevCategoryId: number
   cubeImage = new Image();
-  isPlay: boolean;
 
   constructor(
     private store: Store<{
@@ -72,13 +72,15 @@ export class MainComponent implements OnInit {
       this.nz.run(() => {
         this.control = message.control;
         this.episode = message.episode;
-        this.isPlay = message.isPlay;
         this.updateMainBoardState();
       });
     });
   }
 
+  get timerEnum(): typeof TimerEnum {return TimerEnum}
+
   ngOnInit() {
+
     this.renderingAPNG = true;
 
     this.readAllTimerFiles();
@@ -166,7 +168,7 @@ export class MainComponent implements OnInit {
             console.log("data", this.timeoutList);
 
             //initial show the image by current round
-            this.renderTimerImage(true);
+            // this.renderTimerImage(true);
             this.isRenderedTimer = true;
           }
         });
@@ -232,7 +234,7 @@ export class MainComponent implements OnInit {
     //update timer image when changing round except initial state
     if (this.isRenderedTimer) {
       if (this.prevCurrentRound != this.control.currentRoundId) {
-        this.renderTimerImage(false);
+        // this.renderTimerImage(false);
       }
     }
 
@@ -331,7 +333,7 @@ export class MainComponent implements OnInit {
     // check count down
     if (this.control.runCategoryRound) {
       //click stop after start in round 4
-      if (!this.control.startCount) {
+      if (this.control.startCount == TimerEnum.STOP) {
         clearInterval(this.interval);
         this.isStopped = true;
 
@@ -342,21 +344,21 @@ export class MainComponent implements OnInit {
         if (this.isStopped) {
           //restart count down again after stop in round 4
           this.countDown();
-          this.player.play();
+          // this.player.play();
           this.isStopped = false;
         }
       }
     } else {
       //normal round and round 4 first start
       if (
-        this.control.startCount &&
+        this.control.startCount == TimerEnum.START &&
         !this.control.clickExtraKey &&
         !this.control.resetCount
       ) {
         this.countDown();
-        this.player.play();
+        // this.player.play();
       }
-      if (!this.control.startCount) {
+      if (this.control.startCount == TimerEnum.STOP) {
         clearInterval(this.interval);
         if (this.player) {
           this.player.pause();
@@ -387,7 +389,7 @@ export class MainComponent implements OnInit {
 
     //animation
     if (
-      this.control.startCount ||
+      this.control.startCount == TimerEnum.START ||
       this.control.showAns ||
       this.control.clickExtraKey
     ) {
@@ -395,7 +397,7 @@ export class MainComponent implements OnInit {
     }
     // animation
     if (
-      !this.control.startCount &&
+      this.control.startCount == TimerEnum.STOP &&
       !this.control.showAns &&
       !this.control.showQuestion
     )
@@ -405,7 +407,7 @@ export class MainComponent implements OnInit {
   countDown() {
     this.interval = setInterval(() => {
       //stop the animated timer when last frame
-      if (this.player.ended) this.player.pause();
+      // if (this.player.ended) this.player.pause();
 
       if (this.counter$ <= 0) {
         clearInterval(this.interval);

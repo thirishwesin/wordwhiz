@@ -1423,32 +1423,7 @@
           "categories": [],
           "timeOut": 30,
           "point": 30,
-          "questionArray": [
-            {
-              "id": 1,
-              "clue": "movie_one",
-              "categoryId": 0,
-              "hints": [],
-              "ans": "test",
-              "isAnsCharacter": true,
-              "clueFontSize": 50,
-              "otClueFontSize": 50,
-              "ansFontSize": 50,
-              "otAnsFontSize": 50
-            },
-            {
-              "id": 2,
-              "clue": "movie_two",
-              "categoryId": 0,
-              "hints": [],
-              "ans": "two",
-              "isAnsCharacter": true,
-              "clueFontSize": 50,
-              "otClueFontSize": 50,
-              "ansFontSize": 50,
-              "otAnsFontSize": 50
-            }
-          ],
+          "questionArray": [],
           "roundNameFontSize": "90",
           "clueLabelFontSize": "60",
           "roundName": "ROUND 5"

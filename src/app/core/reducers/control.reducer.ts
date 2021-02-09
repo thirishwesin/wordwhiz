@@ -21,12 +21,13 @@ import {
   updatePlayerScreenBackground
 } from "../actions/control.actions";
 import { Control } from "../models/control";
+import { TimerEnum } from "../models/timerEnum";
 
 export const initialState: Control = {
   currentEpisodeId: 0,
   currentRoundId: 1,
   currentQuestionId: 1,
-  startCount: false,
+  startCount: TimerEnum.STOP,
   resetCount: false,
   showQuestion: false,
   showAns: false,
@@ -51,13 +52,14 @@ export const initialState: Control = {
   fontSettingOpenClose: false,
   roundTwoStatus: undefined,
   roundFourStatus: [],
-  isChangePlayerBgImage: true
+  isChangePlayerBgImage: true,
+  isPlay: false
 };
 
 const _controlReducer = createReducer(
   initialState,
   on(initControlStore, (state, { control }) => {
-    state = { ...control, startCount: false };
+    state = { ...control, startCount: TimerEnum.STOP };
     return state;
   }),
   on(updateFontSettingControl, (state, fontSettings) => {
@@ -99,7 +101,7 @@ const _controlReducer = createReducer(
     return {
       ...state,
       showQuestion: !state.showQuestion,
-      startCount: false,
+      startCount: TimerEnum.STOP,
       showAns: false,
       resetCount: false,
       // for animation
@@ -108,10 +110,10 @@ const _controlReducer = createReducer(
     };
   }),
   on(updateShowAns, state => {
-    return { ...state, showAns: !state.showAns, startCount: false };
+    return { ...state, showAns: !state.showAns, startCount: TimerEnum.STOP };
   }),
   on(ShowAnsForCategoryRound, state => {
-    return { ...state, showAns: true, startCount: true };
+    return { ...state, showAns: true, startCount: TimerEnum.STOP };
   }),
   on(updateExraWord, (state, { extraWord }) => {
     return {
@@ -139,7 +141,7 @@ const _controlReducer = createReducer(
     return { ...state, resetCount: true };
   }),
   on(updateStartCount, state => {
-    state.startCount = !state.startCount;
+    state.startCount = state.startCount == TimerEnum.STOP ? TimerEnum.START: TimerEnum.STOP;
     state.clickExtraKey = false;
     state.clickPoint = false;
     state.resetCount = false;
@@ -162,7 +164,7 @@ const _controlReducer = createReducer(
       runCategoryRound: false,
       finishCategoryRound: true,
       showQuestion: true,
-      startCount: false
+      startCount: TimerEnum.STOP
     };
   })
 );

@@ -104,7 +104,7 @@
                     <div class="row col-sm-12 pad_right0">
                         <ng-container *ngIf="currentRound.questionType != 7">
                         <div ngbDropdown [ngClass]="currentRound.hasCategory ? 'd-inline-block col-sm-12' : 'd-inline-block col-sm-8'">
-                            <button class="btn common_input" id="dropdownBasic1" ngbDropdownToggle [disabled]="currentRound.hasCategory && control.startCount || currentRound.hasCategory && !control.finishCategoryRound && isStartRound4">
+                            <button class="btn common_input" id="dropdownBasic1" ngbDropdownToggle [disabled]="currentRound.hasCategory && control.startCount == timerEnum.START || currentRound.hasCategory && !control.finishCategoryRound && isStartRound4">
                                 <p class="section_text">
                                     {{currentRound.questionArray.length == 0 || currentRound.hasCategory && noQuestionByCategory ? "*No Question." : currentRound.hasCategory ? "QUESTION "+ currentQuestionIndex : "QUESTION "+ control.currentQuestionId}}
                                 </p>
@@ -154,7 +154,7 @@
                             <button class="btn button que" (click)="toggleQuestion()">{{control.showQuestion ? 'Hide Question' : 'Show Question'}}</button>
                         </div>
                         <div class=" showans_btn">
-                            <button class="btn button ans" (click)="startTimer(true)" [disabled]="!control.showQuestion || disableStart">{{control.startCount ? 'Stop Timer' : 'Start Timer'}}</button>
+                            <button class="btn button ans" (click)="startTimer(true)" [disabled]="!control.showQuestion || disableStart">{{control.startCount == timerEnum.START ? 'Stop Timer' : 'Start Timer'}}</button>
                         </div>
                         <div class="showans_btn">
                             <button class="btn button ans" (click)="toggleAnswer()" [disabled]="!control.showQuestion">{{control.showAns ? 'Hide Answer' : 'Show Answer'}}</button>
@@ -173,14 +173,14 @@
                     <!-- hasCategory -->
                     <div class="col-sm-4 button_group" *ngIf="currentRound.hasCategory">
                         <div class=" showans_btn">
-                            <button class="btn button ans" (click)="startTimer(true)" [disabled]="control.finishCategoryRound">{{control.startCount ? 'Stop Timer' : 'Start Timer'}}</button>
+                            <button class="btn button ans" (click)="startTimer(true)" [disabled]="control.finishCategoryRound">{{control.startCount == timerEnum.START ? 'Stop Timer' : 'Start Timer'}}</button>
                         </div>
                         <div class="showans_btn">
-                            <button class="btn button ans" (click)="correctAnswer()" [disabled]="!control.startCount || correctAnswerDisable">Show
+                            <button class="btn button ans" (click)="correctAnswer()" [disabled]="control.startCount == timerEnum.STOP || correctAnswerDisable">Show
                                 Answer</button>
                         </div>
                         <div class="showans_btn">
-                            <button class="btn button ans" (click)="wrongOrskipQuestion(3)" [disabled]="!control.startCount">Next
+                            <button class="btn button ans" (click)="wrongOrskipQuestion(3)" [disabled]="control.startCount == timerEnum.STOP">Next
                                 Question</button>
                         </div>
                         <!-- <div class="showans_btn">
@@ -191,12 +191,12 @@
 
                     <div class="col-sm-8 row">
                         <label class="col-sm-3 common_label">CLUE</label>
-                        <input readonly [ngClass]="control.showQuestion || currentRound.hasCategory && control.startCount ? 'col-sm-9 common_input':'col-sm-9 common_input disabled'" type="text" value={{currentQuestion?.clue}} />
+                        <input readonly [ngClass]="control.showQuestion || currentRound.hasCategory && control.startCount == timerEnum.START ? 'col-sm-9 common_input':'col-sm-9 common_input disabled'" type="text" value={{currentQuestion?.clue}} />
 
                     </div>
                     <div class="col-sm-8 row" *ngFor="let hint of currentQuestion?.hints; let hintIndex = index">
                         <label class="col-sm-3 common_label">HINT {{ hintIndex + 1 }}</label>
-                        <input readonly [ngClass]="control.showQuestion || currentRound.hasCategory && control.startCount ? 'col-sm-9 common_input':'col-sm-9 common_input disabled'" type="text" value={{hint.value}} />
+                        <input readonly [ngClass]="control.showQuestion || currentRound.hasCategory && control.startCount == timerEnum.START ? 'col-sm-9 common_input':'col-sm-9 common_input disabled'" type="text" value={{hint.value}} />
                         <ng-container *ngIf="currentRound.questionType == 4">
                             <input type="radio" class="radio_input" checked="checked" [name]="hintIndex" [value]=" 1 + hintIndex + 'default'" (change)="radioOnChange($event, hint.value)" /><label class="option_text">
                                 Default</label>
@@ -217,10 +217,10 @@
                             <span [ngClass]="timeOut > 3 ? 'timer' :'timer_style'"> {{timeOut}} </span>
                             <!-- [ngClass]="timeOut > 3 ? 'timer' : 'timer_warnning'" -->
                             <div class=" showans_btn TimerReset">
-                                <button class="btn button timer_btn" [disabled]="control.startCount" (click)="resetTimer(currentRound.timeOut)">Reset Timer {{currentRound.timeOut}}</button>
+                                <button class="btn button timer_btn" [disabled]="control.startCount == timerEnum.START" (click)="resetTimer(currentRound.timeOut)">Reset Timer {{currentRound.timeOut}}</button>
                             </div>
                             <div class=" showans_btn TimerReset" *ngIf="currentRound.secondTimeOut">
-                              <button class="btn button timer_btn" [disabled]="control.startCount" (click)="resetTimer(currentRound.secondTimeOut)">Reset Timer {{currentRound?.secondTimeOut}}</button>
+                              <button class="btn button timer_btn" [disabled]="control.startCount == timerEnum.START" (click)="resetTimer(currentRound.secondTimeOut)">Reset Timer {{currentRound?.secondTimeOut}}</button>
                           </div>
                         </div>
                         <div class="col-sm-6">
@@ -242,8 +242,8 @@
                                 <p class="point">{{player.point}} </p>
                             </div>
                             <div class="add_point_wrapper">
-                                <button class="btn reduce_point" [disabled]="control.startCount" (click)="decreasePoint(player.id)">-</button>
-                                <button class="btn add_point" [disabled]="control.startCount" (click)="increasePoint(player.id)">+</button>
+                                <button class="btn reduce_point" [disabled]="control.startCount == timerEnum.START" (click)="decreasePoint(player.id)">-</button>
+                                <button class="btn add_point" [disabled]="control.startCount == timerEnum.START" (click)="increasePoint(player.id)">+</button>
                             </div>
                         </div>
                         <div class="col-sm-3" style="margin-left: 44%;top: 20px;">

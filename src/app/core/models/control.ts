@@ -1,12 +1,13 @@
 import { RoundFourStatus } from './roundTwoStatus';
 import { ExtraWord } from "./extraWord";
 import { FontSettings } from "./fontSettings";
+import { TimerEnum } from './timerEnum';
 
 export interface Control {
   currentEpisodeId: number;
   currentRoundId: number;
   currentQuestionId: number;
-  startCount: boolean;
+  startCount: TimerEnum;
   resetCount: boolean;
   showQuestion: boolean;
   showAns: boolean;
@@ -22,4 +23,5 @@ export interface Control {
   roundFourStatus: RoundFourStatus[];
   roundTwoStatus: string;
   isChangePlayerBgImage: boolean;
+  isPlay: boolean;
 }

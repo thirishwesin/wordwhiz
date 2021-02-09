@@ -47,6 +47,7 @@ import { Router } from "@angular/router";
 import { saveFile } from "../../common/functions";
 import { QuestionCategory } from "../../core/models/questionCategory";
 import fontSizeForWindow from "../../../assets/fonts/fontSizeForWindow.json";
+import { TimerEnum } from '../../core/models/timerEnum';
 
 @Component({
   selector: "app-control",
@@ -171,6 +172,8 @@ export class ControlComponent implements OnInit {
     this.episode.rounds.sort((a,b) => (a.roundName > b.roundName) ? 1 : ((b.roundName > a.roundName) ? -1 : 0))
     this.recommendFontSize = fontSizeForWindow.normalSize;
   }
+
+  get timerEnum(): typeof TimerEnum {return TimerEnum}
 
   ngOnInit() {
     this.recommendFontSize = fontSizeForWindow.normalSize;
@@ -478,10 +481,12 @@ export class ControlComponent implements OnInit {
       control: this.control,
       episode: this.episode
     };
-    if(this.currentRound.questionType == 5){
-      broadCastData['isPlay'] = this.isPlay
-    }
-    console.log('current question type : ', this.currentRound.questionType)
+    console.log('this.control  : ', this.control)
+    // if(this.currentRound.questionType == 5){
+    //   broadCastData.control.isPlay = this.isPlay
+    //   broadCastData.control.startCount = this.control.startCount == TimerEnum.START ? TimerEnum.NEUTRAL: TimerEnum.STOP
+    // }
+
     setTimeout(() => {
       this.fontSizeWarning = false;
     }, 1500);
@@ -678,7 +683,7 @@ export class ControlComponent implements OnInit {
 
     let updateData = {
       currentQuestionId: question.id,
-      startCount: this.runCategoryRound, //timer should still run when running round4
+      startCount: this.runCategoryRound ? TimerEnum.START : TimerEnum.STOP, //timer should still run when running round4
       finishCategoryRound: this.finishCategoryRound,
       isChangePlayerBgImage: this.control.isChangePlayerBgImage
     };
@@ -740,7 +745,7 @@ export class ControlComponent implements OnInit {
     // play audio if press Show Answer button
     if (!this.control.showAns) this.correct_answer_audio.play();
 
-    this.control.startCount = false;
+    this.control.startCount = TimerEnum.STOP;
     this.control.showAns = !this.control.showAns;
     this.control.clickPoint = false;
     this.control.resetCount = false;
@@ -788,7 +793,7 @@ export class ControlComponent implements OnInit {
     this.store.dispatch(animatedExtraWord({ animationExtraWord: "" }));
     this.broadcastScreens();
 
-    if (this.control.startCount && isStart) {
+    if (this.control.startCount == TimerEnum.START && isStart) {
       //only play the beep sound timer is above 5
       if (this.currentRound.timeOut == 10) {
         if (this.timeOut > 5) this.audio.play();
@@ -1138,7 +1143,7 @@ export class ControlComponent implements OnInit {
     this.control.fontSettingOpenClose = true;
 
     // if open setting, stop timer
-    if (this.control.startCount) this.startTimer(true);
+    if (this.control.startCount == TimerEnum.START) this.startTimer(true);
 
     // keep first fontSettings
     this.resetFontValue = _.cloneDeep(this.control.fontSettings);
@@ -1314,6 +1319,8 @@ export class ControlComponent implements OnInit {
 
   toggleVideo(){
     this.isPlay = !this.isPlay
+    this.control.startCount = TimerEnum.NEUTRAL
+    this.control.isPlay = this.isPlay
     this.broadcastScreens();
   }
 
