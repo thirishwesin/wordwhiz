@@ -195,7 +195,9 @@
               <div class="col-sm-12">
                 <div class="form-group ">
                   <label for="answer_0" style="width:100px;" class="common_label">ANSWER</label>
-                  <input id="answer_0" type="text" class="common_input w_100" [(ngModel)]="question.ans"
+                  <input id="answer_0" *ngIf="currentRound.questionType == 6" type="text" maxlength="4" class="common_input w_100" [(ngModel)]="question.ans"
+                  (ngModelChange)="questionAnsChanged($event)" />
+                    <input id="answer_0" type="text" *ngIf="currentRound.questionType != 6" class="common_input w_100" [(ngModel)]="question.ans"
                     (ngModelChange)="questionAnsChanged($event)" />
                   <div class="row">
                     <div class="col-sm-6">
