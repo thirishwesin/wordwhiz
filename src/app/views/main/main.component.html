@@ -27,8 +27,8 @@
                 <div class="apng-ani mx-auto d-block" [ngClass]="{'timer-top': currentRound && (currentRound?.questionType == 1 || currentRound?.questionType == 3 || currentRound?.questionType == 5 || currentRound?.questionType == 2), 'timer-top-r4': currentRound?.questionType == 4}">
                 </div>
                 <!-- <img [src]="Images.loading" class=" mx-auto d-block
-                    width{{control.fontSettings.main_timeOut}}" /> -->
-                <div class="timer_center font{{control.fontSettings.main_timeOut}}" [ngClass]="counter$ > 3 ? 'timer' : 'timer_style'">{{ counter$ }} </div>
+                    width{{control.fontSettings.main_timeOut}}" />
+                <div class="timer_center font{{control.fontSettings.main_timeOut}}" [ngClass]="counter$ > 3 ? 'timer' : 'timer_style'">{{ counter$ }} </div> -->
             </div>
             <div class="col-8">
                 <div [hidden]="!currentRound && currentRound?.questionType != 4">

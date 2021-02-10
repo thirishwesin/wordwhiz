@@ -92,7 +92,8 @@ export class SetupComponent implements OnInit {
   showVideoModal : boolean = false;
   vidoeUrl: string
   playerCategory: string = 'Player One';
-  currentRoundName: string = 'ROUND 1'
+  currentRoundName: string = 'ROUND 1';
+  playerCategoryId: number = 0
 
   constructor(private store: Store<{ wordWhiz: WordWhiz; episode: Episode; control: Control}>, public router: Router, public modalService: NgbModal) {
     store.subscribe(item => {
@@ -237,8 +238,8 @@ export class SetupComponent implements OnInit {
   }
 
   filterQuestion(itemList: Question[]) {
-    if (this.currentRound.questionType == 4) {
-      return _.filter(itemList, item => item.categoryId == this.currentCategory.id);
+    if (this.currentRound.questionType == 7) {
+      return _.filter(itemList, item => item.categoryId == this.playerCategoryId);
     }
     return itemList;
   }
@@ -789,7 +790,6 @@ export class SetupComponent implements OnInit {
   }
 
   checkDuplicateWord(word: string) {
-    console.log(' filter question => ', this.filterQuestion(this.currentRound.questionArray))
     if (this.filterQuestion(this.currentRound.questionArray)) {
       for (let i = 0; i < this.filterQuestion(this.currentRound.questionArray).length; i++) {
         if (
@@ -959,5 +959,6 @@ export class SetupComponent implements OnInit {
 
   changeR4Category(category: any){
     this.playerCategory = category.name;
+    this.playerCategoryId = category.id;
   }
 }

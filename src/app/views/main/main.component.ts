@@ -168,7 +168,7 @@ export class MainComponent implements OnInit {
             console.log("data", this.timeoutList);
 
             //initial show the image by current round
-            // this.renderTimerImage(true);
+            this.renderTimerImage(true);
             this.isRenderedTimer = true;
           }
         });
@@ -234,7 +234,7 @@ export class MainComponent implements OnInit {
     //update timer image when changing round except initial state
     if (this.isRenderedTimer) {
       if (this.prevCurrentRound != this.control.currentRoundId) {
-        // this.renderTimerImage(false);
+        this.renderTimerImage(false);
       }
     }
 
@@ -344,7 +344,7 @@ export class MainComponent implements OnInit {
         if (this.isStopped) {
           //restart count down again after stop in round 4
           this.countDown();
-          // this.player.play();
+          this.player.play();
           this.isStopped = false;
         }
       }
@@ -356,7 +356,7 @@ export class MainComponent implements OnInit {
         !this.control.resetCount
       ) {
         this.countDown();
-        // this.player.play();
+        this.player.play();
       }
       if (this.control.startCount == TimerEnum.STOP) {
         clearInterval(this.interval);
@@ -407,7 +407,7 @@ export class MainComponent implements OnInit {
   countDown() {
     this.interval = setInterval(() => {
       //stop the animated timer when last frame
-      // if (this.player.ended) this.player.pause();
+      if (this.player.ended) this.player.pause();
 
       if (this.counter$ <= 0) {
         clearInterval(this.interval);
