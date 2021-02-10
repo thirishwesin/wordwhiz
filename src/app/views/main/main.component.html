@@ -4,7 +4,7 @@
     <section class="top-wrapper" *ngIf="currentRound">
         <div class="col-sm-12 head-wrapper font{{control.fontSettings.main_roundName}}">
             <p [ngStyle]="{'font-size': currentRound.roundNameFontSize + 'px'}">
-                ROUND <span class="round_number">{{ currentRound?.id }}</span>
+                <span class="round_number">{{ currentRound?.roundName }}</span>
             </p>
             <span> : </span>
             <p [ngStyle]="{'font-size': currentRound.roundNameFontSize + 'px'}">{{ currentRound?.name }}</p>
