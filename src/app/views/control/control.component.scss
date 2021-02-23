@@ -147,6 +147,7 @@
     cursor: pointer;
     border-top-right-radius: 15px;
     border-bottom-left-radius: 15px;
+    width: 151px;
 }
 
 .ans {
@@ -212,7 +213,7 @@
 
 .point_text {
     position: absolute;
-    top: 61%;
+    // top: 61%;
     font-size: 22px;
     color: #FFFFFF;
     width: 135px;
@@ -220,6 +221,8 @@
     line-height: 25px;
     text-align: center;
     font-weight: bold;
+    bottom: 410px;
+    position: fixed;
 }
 
 .player_wrapper {
