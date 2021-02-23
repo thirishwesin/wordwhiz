@@ -48,6 +48,7 @@ import { saveFile } from "../../common/functions";
 import { QuestionCategory } from "../../core/models/questionCategory";
 import fontSizeForWindow from "../../../assets/fonts/fontSizeForWindow.json";
 import { TimerEnum } from '../../core/models/timerEnum';
+import { timeout } from 'rxjs/operators';
 
 @Component({
   selector: "app-control",
@@ -116,6 +117,7 @@ export class ControlComponent implements OnInit {
   r4CategoryName: string = "Player One"
   r4CategoryId: number = 0
   currentRoundName: string = 'ROUND 1'
+  currentPoint : number
 
   constructor(
     private store: Store<{
@@ -256,6 +258,8 @@ export class ControlComponent implements OnInit {
       "id",
       this.control.currentRoundId
     ]);
+    // update current point
+    this.currentPoint = this.currentRound.point
     console.log('current round => ', this.currentRound)
     //update current question
     this.currentQuestion = _.find(this.currentRound.questionArray, [
@@ -318,13 +322,6 @@ export class ControlComponent implements OnInit {
         });
       });
     }
-
-    console.log(
-      "separate arrays by category in round 4",
-      this.questionArraysByCategory
-    );
-
-    console.log("currentQuestion", this.currentQuestion);
   }
 
   questionDropDownByCategory = () => {
@@ -573,6 +570,7 @@ export class ControlComponent implements OnInit {
 
   resetTimer(timeOut: number) {
     this.timeOut = timeOut;//this.currentRound.timeOut;
+    this.changeCurrentPoint(timeOut);
     this.disableStart = false;
 
     this.resetAudio();
@@ -1069,7 +1067,7 @@ export class ControlComponent implements OnInit {
 
   increasePoint(playerId) {
     this.episode.players.map(player => {
-      if (player.id == playerId) player.point += this.currentRound.point;
+      if (player.id == playerId) player.point += this.currentPoint
     });
 
     this.store.dispatch(updateEpisodeStore({ episode: this.episode }));
@@ -1086,7 +1084,7 @@ export class ControlComponent implements OnInit {
   decreasePoint(playerId) {
     this.episode.players.map(player => {
       if (player.id == playerId) {
-        player.point -= this.currentRound.point;
+        player.point -= this.currentPoint;
         if (player.point < 0) player.point = 0;
       }
     });
@@ -1333,5 +1331,24 @@ export class ControlComponent implements OnInit {
       category.id
     ]);
     this.clickQuestion(firstQuestionByCategoryId, 1)
+  }
+
+  changeCurrentPoint(timeOut: number){
+    // update point for round Two
+    if(this.currentRound.questionType == 6){
+      if(timeOut == 10){
+        this.currentPoint = this.currentRound.point
+      }else if(timeOut == 5){
+        this.currentPoint = this.currentRound.secondPoint
+      }
+    }
+    // update point for round Three
+    if(this.currentRound.questionType == 2){
+      if(timeOut == 10){
+        this.currentPoint = this.currentRound.point
+      }else if(timeOut == 5){
+        this.currentPoint = this.currentRound.secondPoint
+      }
+    }
   }
 }
