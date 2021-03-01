@@ -449,13 +449,16 @@ export class OneThirdScreenComponent implements OnInit {
     this.currentQuestion.hints[0].position.forEach((id, index) => {
       if (this.currentQuestion.ans.includes(id)) {
         setTimeout(() => {
+          (<HTMLDivElement>document.getElementById(id)).innerHTML =
+            this.currentQuestion.hints[0].value.charAt(index).toUpperCase();
           (<HTMLDivElement>document.getElementById(id)).style.background =
-            `url(./assets/images/BLUE/${this.currentQuestion.hints[0].value.charAt(index).toUpperCase()}.png) no-repeat`
+            `url(./assets/images/BLUE/blank.png) no-repeat`
         }, 0);
       } else if ((<HTMLDivElement>document.getElementById(id)) !== null) {
         if ((<HTMLDivElement>document.getElementById(id)).style.background == '') {
           setTimeout(() => {
-            (<HTMLDivElement>document.getElementById(id)).style.background = 'url(./assets/images/GREEN/blank.png) no-repeat';
+            (<HTMLDivElement>document.getElementById(id)).style.background =
+              'url(./assets/images/GREEN/blank.png) no-repeat';
           }, 0);
         }
       }
@@ -463,13 +466,13 @@ export class OneThirdScreenComponent implements OnInit {
   }
 
   showGridEachAnswer() {
-
     this.currentQuestion.hints[0].position.forEach((id, index) => {
       setTimeout(() => {
-        // (<HTMLDivElement>document.getElementById(id)).innerText = this.currentQuestion.hints[0].value.charAt(index);
+        (<HTMLDivElement>document.getElementById(id)).innerHTML =
+          this.currentQuestion.hints[0].value.charAt(index).toUpperCase();
         (<HTMLDivElement>document.getElementById(id)).style.background =
-          `url(./assets/images/GREEN/${this.currentQuestion.hints[0].value.charAt(index).toUpperCase()}.png) no-repeat`
-        // 'url(./assets/images/grid-correct-bg.png) no-repeat';
+          `url(./assets/images/GREEN/blank.png) no-repeat`
+
       }, 0);
     })
   }
@@ -477,8 +480,10 @@ export class OneThirdScreenComponent implements OnInit {
   hideGridEachAnswer() {
     this.currentQuestion.hints[0].position.forEach((id, index) => {
       if (this.currentQuestion.ans.includes(id) && (<HTMLDivElement>document.getElementById(id)) !== null) {
+        (<HTMLDivElement>document.getElementById(id)).innerHTML =
+          this.currentQuestion.hints[0].value.charAt(index).toUpperCase();
         (<HTMLDivElement>document.getElementById(id)).style.background =
-          `url(./assets/images/BLUE/${this.currentQuestion.hints[0].value.charAt(index).toUpperCase()}.png) no-repeat`
+          `url(./assets/images/BLUE/blank.png) no-repeat`
       } else {
         setTimeout(() => {
           if ((<HTMLDivElement>document.getElementById(id)).style.background == '') {
