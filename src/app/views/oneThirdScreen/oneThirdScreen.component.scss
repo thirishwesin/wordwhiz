@@ -43,11 +43,11 @@
     display: inline-block;
     min-width: 105px;
     height: 100px;
-    
+
 }
 
 .one_word_blue {
-    background: url(../../../assets/images/BLUE/Blank.png) no-repeat;
+    background: url(../../../assets/images/BLUE/blank.png) no-repeat;
     -webkit-background-size: cover;
     background-size: cover;
     display: inline-block;
@@ -352,7 +352,7 @@
 
 .blue_bg {
     width: auto;
-    background: url(../../../assets/images/BLUE/Blank.png) no-repeat;
+    background: url(../../../assets/images/BLUE/blank.png) no-repeat;
     background-size: cover;
     display: inline-block;
     min-height: 60px;
@@ -453,7 +453,7 @@
 }
 
 //* End of text in green capsule
-//word responsive one third 
+//word responsive one third
 @for $p from 1 through 45 {
     @if $p>=41 {
         .word_font#{$p} {
@@ -467,7 +467,7 @@
     @media (min-width: 2280px) and (max-width: 3999px) {
         @if $retangle_font <=70 {
             .retangle#{$retangle_font} {
-                min-width: 144px !important; //! 2880px screen 
+                min-width: 144px !important; //! 2880px screen
                 margin-left: -43px;
             }
             .font#{retangle_font} {
@@ -480,7 +480,7 @@
     @media only screen and (min-width: 4000px) {
         @if $retangle_font==100 {
             .retangle#{$retangle_font} {
-                min-width: 190px !important; //! 2880px screen 
+                min-width: 190px !important; //! 2880px screen
             }
             .font#{retangle_font} {
                 padding-top: 7px !important;
@@ -488,7 +488,7 @@
         }
         @else if $retangle_font==150 {
             .retangle#{$retangle_font} {
-                min-width: 250px !important; //! 4000px screen 
+                min-width: 250px !important; //! 4000px screen
             }
         }
     }
@@ -711,7 +711,7 @@
     height: 100vh;
 }
 .grid_bg {
-    background: url(../../../assets/images/BLUE/Blank.png) no-repeat;
+    background: url(../../../assets/images/BLUE/blank.png) no-repeat;
 }
 
 .alpha_text {
