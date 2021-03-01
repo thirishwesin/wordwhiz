@@ -14,7 +14,7 @@ export const Images = {
   setting_icon: require("../../assets/images/setting.png"),
   skip_icon: require("../../assets/images/skip_icon.png"),
   correct_icon: require("../../assets/images/correct_icon.png"),
-  blue_bg: require("../../assets/images/BLUE/Blank.png"),
+  blue_bg: require("../../assets/images/BLUE/blank.png"),
   green_bg: require("../../assets/images/GREEN/blank.png"),
   bluelong_bg: require("../../assets/images/bluelong_bg.png"),
   greenlong_bg: require("../../assets/images/greenlong_bg.png"),
