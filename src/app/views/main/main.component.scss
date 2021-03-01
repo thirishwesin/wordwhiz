@@ -197,7 +197,7 @@ button {
 }
 
 .one_word_blue {
-    background: url(../../../assets/images/BLUE/Blank.png) no-repeat;
+    background: url(../../../assets/images/BLUE/blank.png) no-repeat;
     -webkit-background-size: cover;
     background-size: cover;
     display: inline-block;
@@ -512,7 +512,7 @@ button {
 
 .blue_bg {
     width: auto;
-    background: url(../../../assets/images/BLUE/Blank.png) no-repeat;
+    background: url(../../../assets/images/BLUE/blank.png) no-repeat;
     background-size: cover;
     display: inline-block;
     min-height: 60px;
@@ -642,7 +642,7 @@ button {
         .retangle#{$retangle_font} {
             min-width: 185px !important; //! 2880px screen
             margin-left: -45px !important;
-            /* 
+            /*
             Close comment by KHA
             .one_word {
                 margin-top: 8px !important;
@@ -654,7 +654,7 @@ button {
             min-width: 300px !important;
             margin-left: -80px !important;
         }
-        /*     
+        /*
     Close comment by KHA
     .one_word {
             padding-top: 5px !important;
@@ -676,7 +676,7 @@ button {
     }
 }
 
-//Start Long word Blue 
+//Start Long word Blue
 @for $length from 1 through 20 {
     @if $length==9 {
         .longBlueRoundFour#{$length} {
@@ -899,9 +899,9 @@ button {
     margin-left: 18px;
 }
 
-.grid_bg {
-    background: url(../../../assets/images/BLUE/Blank.png) no-repeat;
-}
+// .grid_bg {
+//     background: url(../../../assets/images/BLUE/blank.png) no-repeat;
+// }
 
 .alpha_img {
     background: url('../../../assets/images/GREEN/B.png') no-repeat;

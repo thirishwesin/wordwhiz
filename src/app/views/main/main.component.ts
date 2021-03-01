@@ -436,21 +436,27 @@ export class MainComponent implements OnInit {
   setGridValue() {
     console.log('called setGridValue function()')
     this.currentQuestion.hints[0].position.forEach((id, index) => {
-      console.log('id: ', id)
       if (this.currentQuestion.ans.includes(id)) {
         setTimeout(() => {
-          (<HTMLDivElement>document.getElementById(id)).innerHTML =
+          (<HTMLInputElement>document.getElementById(id+'_val')).value =
             this.currentQuestion.hints[0].value.charAt(index).toUpperCase();
-          (<HTMLDivElement>document.getElementById(id)).style.background = 'url(./assets/images/BLUE/blank.png) no-repeat';
+          (<HTMLDivElement>document.getElementById(id+'_bg')).style.background = 'url(./assets/images/BLUE/blank.png) no-repeat';
         }, 0);
-      } else if ((<HTMLDivElement>document.getElementById(id)) !== null) {
-        if ((<HTMLDivElement>document.getElementById(id)).style.background == '') {
-          setTimeout(() => {
-            (<HTMLDivElement>document.getElementById(id)).style.background =
-              'url(./assets/images/GREEN/blank.png) no-repeat';
-          }, 0);
-        }
+      } else{
+        setTimeout(() => {
+          (<HTMLDivElement>document.getElementById(id+'_bg')).style.background =
+            'url(./assets/images/GREEN/blank.png) no-repeat';
+        }, 0);
       }
+      // else if ((<HTMLDivElement>document.getElementById(id+'_bg')) !== null) {
+      //   console.log('id: ', id, 'bg: ', (<HTMLDivElement>document.getElementById(id+'_bg')).style.background)
+      //   if ((<HTMLDivElement>document.getElementById(id+'_bg')).style.background == '') {
+      //     setTimeout(() => {
+      //       (<HTMLDivElement>document.getElementById(id+'_bg')).style.background =
+      //         'url(./assets/images/GREEN/blank.png) no-repeat';
+      //     }, 0);
+      //   }
+      // }
     })
   }
 
@@ -458,29 +464,28 @@ export class MainComponent implements OnInit {
     console.log('called showGridEachAnswer function()')
     this.currentQuestion.hints[0].position.forEach((id, index) => {
       setTimeout(() => {
-        (<HTMLDivElement>document.getElementById(id)).innerHTML =
+        (<HTMLInputElement>document.getElementById(id+'_val')).value =
           this.currentQuestion.hints[0].value.charAt(index).toUpperCase();
-        (<HTMLDivElement>document.getElementById(id)).style.background =
+        (<HTMLDivElement>document.getElementById(id+'_bg')).style.background =
           `url(./assets/images/GREEN/blank.png) no-repeat`;
       }, 0);
     })
   }
 
   hideGridEachAnswer() {
-    console.log('called hideGridEachAnswer function()')
     this.currentQuestion.hints[0].position.forEach((id, index) => {
       if (this.currentQuestion.ans.includes(id) && (<HTMLDivElement>document.getElementById(id)) !== null) {
-        (<HTMLDivElement>document.getElementById(id)).innerHTML =
+        (<HTMLInputElement>document.getElementById(id+'_val')).value =
           this.currentQuestion.hints[0].value.charAt(index).toUpperCase();
-        (<HTMLDivElement>document.getElementById(id)).style.background =
-          `url(./assets/images/BLUE/blank.png) no-repeat`;
+        (<HTMLDivElement>document.getElementById(id+'_bg')).style.background =
+          `url(./assets/images/BLUE/blank.png) no-repeat`
       } else {
         setTimeout(() => {
-          if ((<HTMLDivElement>document.getElementById(id)).style.background == '') {
-            (<HTMLDivElement>document.getElementById(id)).style.background = 'url(./assets/images/GREEN/blank.png) no-repeat'
+          if ((<HTMLDivElement>document.getElementById(id+'_bg')).style.background.includes('GREEN')) {
+            (<HTMLDivElement>document.getElementById(id+'_bg')).style.background = 'url(./assets/images/GREEN/blank.png) no-repeat';
+            (<HTMLInputElement>document.getElementById(id+'_val')).value = "";
           }
         }, 0);
-
       }
     })
   }

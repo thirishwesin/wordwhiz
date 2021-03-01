@@ -215,6 +215,30 @@
               "otClueFontSize": 50,
               "ansFontSize": 50,
               "otAnsFontSize": 50
+            },
+            {
+              "id": 4,
+              "clue": "test",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "測試",
+                  "position": [
+                    27,
+                    37
+                  ],
+                  "isCharacter": false,
+                  "hintFontSize": 50,
+                  "otHintFontSize": 50
+                }
+              ],
+              "ans": "27,",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
             }
           ],
           "roundNameFontSize": "90",
