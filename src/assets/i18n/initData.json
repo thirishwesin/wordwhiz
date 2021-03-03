@@ -35,6 +35,1061 @@
           "questionArray": [
             {
               "id": 1,
+              "clue": "方便",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "麻",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": "50",
+                  "otHintFontSize": "50"
+                }
+              ],
+              "ans": "麻烦",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            },
+            {
+              "id": 2,
+              "clue": "幸运",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "倒",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": "50",
+                  "otHintFontSize": "50"
+                }
+              ],
+              "ans": "倒霉",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            },
+            {
+              "id": 3,
+              "clue": "白天",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "黑",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": "50",
+                  "otHintFontSize": "50"
+                }
+              ],
+              "ans": "黑夜",
+              "isAnsCharacter": true,
+              "clueFontSize": "50",
+              "otClueFontSize": "50",
+              "ansFontSize": "50",
+              "otAnsFontSize": "50"
+            },
+            {
+              "id": 4,
+              "clue": "年老",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "幼",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": "50",
+                  "otHintFontSize": "50"
+                }
+              ],
+              "ans": "幼小",
+              "isAnsCharacter": true,
+              "clueFontSize": "50",
+              "otClueFontSize": "50",
+              "ansFontSize": "50",
+              "otAnsFontSize": "50"
+            },
+            {
+              "id": 5,
+              "clue": "主人",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "宾",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": "50",
+                  "otHintFontSize": "50"
+                }
+              ],
+              "ans": "宾客",
+              "isAnsCharacter": true,
+              "clueFontSize": "50",
+              "otClueFontSize": "50",
+              "ansFontSize": "50",
+              "otAnsFontSize": "50"
+            },
+            {
+              "id": 6,
+              "clue": "缓慢",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "快",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": "50",
+                  "otHintFontSize": "50"
+                }
+              ],
+              "ans": "快速",
+              "isAnsCharacter": true,
+              "clueFontSize": "50",
+              "otClueFontSize": "50",
+              "ansFontSize": "50",
+              "otAnsFontSize": "50"
+            },
+            {
+              "id": 7,
+              "clue": "工作",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "休",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": "50",
+                  "otHintFontSize": "50"
+                }
+              ],
+              "ans": "休息",
+              "isAnsCharacter": true,
+              "clueFontSize": "50",
+              "otClueFontSize": "50",
+              "ansFontSize": "50",
+              "otAnsFontSize": "50"
+            },
+            {
+              "id": 8,
+              "clue": "瘦弱",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "强",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": "50",
+                  "otHintFontSize": "50"
+                }
+              ],
+              "ans": "强壮",
+              "isAnsCharacter": true,
+              "clueFontSize": "50",
+              "otClueFontSize": "50",
+              "ansFontSize": "50",
+              "otAnsFontSize": "50"
+            }
+          ],
+          "roundNameFontSize": "90",
+          "clueLabelFontSize": "60",
+          "roundName": "ROUND 1"
+        },
+        {
+          "id": 6,
+          "name": "MISSING WORD",
+          "questionType": 6,
+          "showfirstAnsChar": true,
+          "hasCategory": false,
+          "categories": [],
+          "timeOut": 10,
+          "point": 10,
+          "secondTimeOut": 5,
+          "secondPoint": 5,
+          "questionArray": [
+            {
+              "id": 1,
+              "clue": "难_情",
+              "categoryId": 0,
+              "hints": [],
+              "ans": "为",
+              "isAnsCharacter": true,
+              "clueFontSize": "50",
+              "otClueFontSize": "50",
+              "ansFontSize": "50",
+              "otAnsFontSize": "50"
+            },
+            {
+              "id": 2,
+              "clue": "舍_得",
+              "categoryId": 0,
+              "hints": [],
+              "ans": "不",
+              "isAnsCharacter": true,
+              "clueFontSize": "50",
+              "otClueFontSize": "50",
+              "ansFontSize": "50",
+              "otAnsFontSize": "50"
+            },
+            {
+              "id": 3,
+              "clue": "购物_场",
+              "categoryId": 0,
+              "hints": [],
+              "ans": "商",
+              "isAnsCharacter": true,
+              "clueFontSize": "50",
+              "otClueFontSize": "50",
+              "ansFontSize": "50",
+              "otAnsFontSize": "50"
+            },
+            {
+              "id": 4,
+              "clue": "公共_期",
+              "categoryId": 0,
+              "hints": [],
+              "ans": "假",
+              "isAnsCharacter": true,
+              "clueFontSize": "50",
+              "otClueFontSize": "50",
+              "ansFontSize": "50",
+              "otAnsFontSize": "50"
+            },
+            {
+              "id": 5,
+              "clue": "心想事_",
+              "categoryId": 0,
+              "hints": [],
+              "ans": "成",
+              "isAnsCharacter": true,
+              "clueFontSize": "50",
+              "otClueFontSize": "50",
+              "ansFontSize": "50",
+              "otAnsFontSize": "50"
+            },
+            {
+              "id": 6,
+              "clue": "工作_伴",
+              "categoryId": 0,
+              "hints": [],
+              "ans": "伙",
+              "isAnsCharacter": true,
+              "clueFontSize": "50",
+              "otClueFontSize": "50",
+              "ansFontSize": "50",
+              "otAnsFontSize": "50"
+            },
+            {
+              "id": 7,
+              "clue": "无中生_",
+              "categoryId": 0,
+              "hints": [],
+              "ans": "有",
+              "isAnsCharacter": true,
+              "clueFontSize": "50",
+              "otClueFontSize": "50",
+              "ansFontSize": "50",
+              "otAnsFontSize": "50"
+            },
+            {
+              "id": 8,
+              "clue": "真心_意",
+              "categoryId": 0,
+              "hints": [],
+              "ans": "诚",
+              "isAnsCharacter": true,
+              "clueFontSize": "50",
+              "otClueFontSize": "50",
+              "ansFontSize": "50",
+              "otAnsFontSize": "50"
+            }
+          ],
+          "roundNameFontSize": "90",
+          "clueLabelFontSize": "60",
+          "roundName": "ROUND 2"
+        },
+        {
+          "id": 2,
+          "name": "CROSS WORD",
+          "questionType": 2,
+          "showfirstAnsChar": false,
+          "hasCategory": false,
+          "categories": [],
+          "timeOut": 10,
+          "point": 15,
+          "secondTimeOut": 5,
+          "secondPoint": 10,
+          "questionArray": [
+            {
+              "id": 1,
+              "clue": "法定假日，学生都不用上学",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "公共假期",
+                  "position": [
+                    23,
+                    24,
+                    25,
+                    26
+                  ],
+                  "isCharacter": false,
+                  "hintFontSize": 50,
+                  "otHintFontSize": 50
+                }
+              ],
+              "ans": "23,25,",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            },
+            {
+              "id": 2,
+              "clue": "分不出什么是假， 什么是不不正确",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "真假难分",
+                  "position": [
+                    15,
+                    25,
+                    35,
+                    45
+                  ],
+                  "isCharacter": false,
+                  "hintFontSize": 50,
+                  "otHintFontSize": 50
+                }
+              ],
+              "ans": "45,25,",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            },
+            {
+              "id": 3,
+              "clue": "农历5月初5， 吃粽子的节日",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "端午节",
+                  "position": [
+                    52,
+                    62,
+                    72
+                  ],
+                  "isCharacter": false,
+                  "hintFontSize": 50,
+                  "otHintFontSize": 50
+                }
+              ],
+              "ans": "52,72,",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            },
+            {
+              "id": 4,
+              "clue": "不歪不斜",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "端正",
+                  "position": [
+                    52,
+                    53
+                  ],
+                  "isCharacter": false,
+                  "hintFontSize": 50,
+                  "otHintFontSize": 50
+                }
+              ],
+              "ans": "52,",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            },
+            {
+              "id": 5,
+              "clue": "在午餐和晚餐之间的休闲享受",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "下午茶",
+                  "position": [
+                    61,
+                    62,
+                    63
+                  ],
+                  "isCharacter": false,
+                  "hintFontSize": 50,
+                  "otHintFontSize": 50
+                }
+              ],
+              "ans": "62,",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            },
+            {
+              "id": 6,
+              "clue": "不浪费",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "节俭",
+                  "position": [
+                    72,
+                    73
+                  ],
+                  "isCharacter": false,
+                  "hintFontSize": 50,
+                  "otHintFontSize": 50
+                }
+              ],
+              "ans": "72,",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            },
+            {
+              "id": 7,
+              "clue": "100分",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "满分",
+                  "position": [
+                    44,
+                    45
+                  ],
+                  "isCharacter": false,
+                  "hintFontSize": 50,
+                  "otHintFontSize": 50
+                }
+              ],
+              "ans": "45,",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            },
+            {
+              "id": 8,
+              "clue": "发自内心说出的东西",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "真心话",
+                  "position": [
+                    15,
+                    16,
+                    17
+                  ],
+                  "isCharacter": false,
+                  "hintFontSize": 50,
+                  "otHintFontSize": 50
+                }
+              ],
+              "ans": "15,16,",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            }
+          ],
+          "roundNameFontSize": "90",
+          "clueLabelFontSize": "60",
+          "roundName": "ROUND 3"
+        },
+        {
+          "id": 7,
+          "name": "SPOT THE MISTAKE",
+          "questionType": 7,
+          "showfirstAnsChar": false,
+          "hasCategory": false,
+          "categories": [
+            {
+              "id": 0,
+              "name": "Player One"
+            },
+            {
+              "id": 1,
+              "name": "Player Two"
+            }
+          ],
+          "timeOut": 15,
+          "point": 20,
+          "questionArray": [
+            {
+              "id": 1,
+              "clue": "applf",
+              "categoryId": 1,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "f",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": null,
+                  "otHintFontSize": null
+                }
+              ],
+              "ans": "e",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            },
+            {
+              "id": 2,
+              "clue": "arange",
+              "categoryId": 1,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "a",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": null,
+                  "otHintFontSize": null
+                }
+              ],
+              "ans": "o",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            },
+            {
+              "id": 3,
+              "clue": "他总是装出一副很可玲的样子， 博取他人的注意和同情。",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "玲",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": "50",
+                  "otHintFontSize": "50"
+                }
+              ],
+              "ans": "怜",
+              "isAnsCharacter": true,
+              "clueFontSize": "50",
+              "otClueFontSize": "50",
+              "ansFontSize": "50",
+              "otAnsFontSize": "50"
+            },
+            {
+              "id": 4,
+              "clue": "比利不尊守校规， 而且多次迟到早退，班主任找了他的爸妈了解情况。",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "尊",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": "50",
+                  "otHintFontSize": "50"
+                }
+              ],
+              "ans": "遵 ",
+              "isAnsCharacter": true,
+              "clueFontSize": "50",
+              "otClueFontSize": "50",
+              "ansFontSize": "50",
+              "otAnsFontSize": "50"
+            },
+            {
+              "id": 5,
+              "clue": "祖父总爱在吃完晚餐后到附近的公园潵步。 ",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "潵",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": "50",
+                  "otHintFontSize": "50"
+                }
+              ],
+              "ans": "散",
+              "isAnsCharacter": true,
+              "clueFontSize": "50",
+              "otClueFontSize": "50",
+              "ansFontSize": "50",
+              "otAnsFontSize": "50"
+            },
+            {
+              "id": 6,
+              "clue": "老师称赞晓德写作能力强， 他就开始觉得有些自瞒，轻飘飘起来。 ",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "瞒",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": "50",
+                  "otHintFontSize": "50"
+                }
+              ],
+              "ans": "满",
+              "isAnsCharacter": true,
+              "clueFontSize": "50",
+              "otClueFontSize": "50",
+              "ansFontSize": "50",
+              "otAnsFontSize": "50"
+            },
+            {
+              "id": 7,
+              "clue": "每逢桂节， 在外深造的表姐特别想念家人。",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "桂",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": 50,
+                  "otHintFontSize": 50
+                }
+              ],
+              "ans": "佳",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            },
+            {
+              "id": 8,
+              "clue": "自从搬家过后， 我就很少跟就旧邻居（朕）络了。",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "朕",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": "50",
+                  "otHintFontSize": "50"
+                }
+              ],
+              "ans": "联",
+              "isAnsCharacter": true,
+              "clueFontSize": "50",
+              "otClueFontSize": "50",
+              "ansFontSize": "50",
+              "otAnsFontSize": "50"
+            },
+            {
+              "id": 9,
+              "clue": "志明这次闯了大祸， 害得他的父母伤透了脑肋。 ",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "肋",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": null,
+                  "otHintFontSize": null
+                }
+              ],
+              "ans": "筋",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            },
+            {
+              "id": 10,
+              "clue": "护士很（钿）心地照顾病房里的每一个病人。",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "钿",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": "50",
+                  "otHintFontSize": "50"
+                }
+              ],
+              "ans": "细",
+              "isAnsCharacter": true,
+              "clueFontSize": "50",
+              "otClueFontSize": "50",
+              "ansFontSize": "50",
+              "otAnsFontSize": "50"
+            }
+          ],
+          "roundNameFontSize": "90",
+          "clueLabelFontSize": "60",
+          "roundName": "ROUND 4"
+        },
+        {
+          "id": 5,
+          "name": "PICTIONARY",
+          "questionType": 5,
+          "showfirstAnsChar": false,
+          "hasCategory": false,
+          "categories": [],
+          "timeOut": 30,
+          "point": 30,
+          "questionArray": [
+            {
+              "id": 1,
+              "clue": "movie_one",
+              "categoryId": 0,
+              "hints": [],
+              "ans": "test",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            },
+            {
+              "id": 2,
+              "clue": "movie_two",
+              "categoryId": 0,
+              "hints": [],
+              "ans": "two",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            }
+          ],
+          "roundNameFontSize": "90",
+          "clueLabelFontSize": "60",
+          "roundName": "ROUND 5"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "players": [
+        {
+          "id": 1,
+          "name": "Player1",
+          "point": 0,
+          "pointFontSize": 300
+        },
+        {
+          "id": 2,
+          "name": "Player2",
+          "point": 0,
+          "pointFontSize": 300
+        },
+        {
+          "id": 3,
+          "name": "Player3",
+          "point": 0,
+          "pointFontSize": 300
+        }
+      ],
+      "rounds": [
+        {
+          "id": 1,
+          "name": "OPPOSITE WORD",
+          "questionType": 1,
+          "showfirstAnsChar": true,
+          "hasCategory": false,
+          "categories": [],
+          "timeOut": 10,
+          "point": 10,
+          "questionArray": [
+            {
+              "id": 1,
+              "clue": "MAN",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "M",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": "50",
+                  "otHintFontSize": "50"
+                }
+              ],
+              "ans": "MANGO",
+              "isAnsCharacter": true,
+              "clueFontSize": "70",
+              "otClueFontSize": "70",
+              "ansFontSize": "60",
+              "otAnsFontSize": "60"
+            },
+            {
+              "id": 2,
+              "clue": "What is best programming lang?",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "J",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": "90",
+                  "otHintFontSize": "90"
+                }
+              ],
+              "ans": "Java",
+              "isAnsCharacter": true,
+              "clueFontSize": "90",
+              "otClueFontSize": "90",
+              "ansFontSize": "90",
+              "otAnsFontSize": "90"
+            }
+          ],
+          "roundNameFontSize": "90",
+          "clueLabelFontSize": "60",
+          "roundName": "ROUND 1"
+        },
+        {
+          "id": 6,
+          "name": "MISSING WORD",
+          "questionType": 6,
+          "showfirstAnsChar": true,
+          "hasCategory": false,
+          "categories": [],
+          "timeOut": 10,
+          "point": 10,
+          "secondTimeOut": 5,
+          "secondPoint": 5,
+          "questionArray": [
+            {
+              "id": 1,
+              "clue": "JACKMA",
+              "categoryId": 0,
+              "hints": [],
+              "ans": "China",
+              "isAnsCharacter": true,
+              "clueFontSize": "90",
+              "otClueFontSize": "90",
+              "ansFontSize": "90",
+              "otAnsFontSize": "90"
+            },
+            {
+              "id": 2,
+              "clue": "Mark Zuk",
+              "categoryId": 0,
+              "hints": [],
+              "ans": "Facebook",
+              "isAnsCharacter": true,
+              "clueFontSize": "90",
+              "otClueFontSize": "90",
+              "ansFontSize": "90",
+              "otAnsFontSize": "90"
+            }
+          ],
+          "roundNameFontSize": "90",
+          "clueLabelFontSize": "60",
+          "roundName": "ROUND 2"
+        },
+        {
+          "id": 2,
+          "name": "CROSS WORD",
+          "questionType": 2,
+          "showfirstAnsChar": false,
+          "hasCategory": false,
+          "categories": [],
+          "timeOut": 10,
+          "point": 15,
+          "secondTimeOut": 5,
+          "secondPoint": 10,
+          "questionArray": [
+            {
+              "id": 1,
+              "clue": "CHOOO",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "HOOO",
+                  "position": [],
+                  "isCharacter": false,
+                  "hintFontSize": 50,
+                  "otHintFontSize": 50
+                }
+              ],
+              "ans": "",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            }
+          ],
+          "roundNameFontSize": "90",
+          "clueLabelFontSize": "60",
+          "roundName": "ROUND 3"
+        },
+        {
+          "id": 7,
+          "name": "SPOT THE MISTAKE",
+          "questionType": 7,
+          "showfirstAnsChar": false,
+          "hasCategory": false,
+          "categories": [
+            {
+              "id": 0,
+              "name": "Player One"
+            },
+            {
+              "id": 1,
+              "name": "Player Two"
+            }
+          ],
+          "timeOut": 15,
+          "point": 20,
+          "questionArray": [
+            {
+              "id": 1,
+              "clue": "Hello",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "e",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": 90,
+                  "otHintFontSize": 90
+                }
+              ],
+              "ans": "Q",
+              "isAnsCharacter": true,
+              "clueFontSize": 90,
+              "otClueFontSize": 90,
+              "ansFontSize": 90,
+              "otAnsFontSize": 90
+            }
+          ],
+          "roundNameFontSize": "90",
+          "clueLabelFontSize": "60",
+          "roundName": "ROUND 4"
+        },
+        {
+          "id": 5,
+          "name": "PICTIONARY",
+          "questionType": 5,
+          "showfirstAnsChar": false,
+          "hasCategory": false,
+          "categories": [],
+          "timeOut": 30,
+          "point": 30,
+          "questionArray": [
+            {
+              "id": 1,
+              "clue": "2021-01-27_17h38_22",
+              "categoryId": 0,
+              "hints": [],
+              "ans": "NICE",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": "90",
+              "otAnsFontSize": "90"
+            },
+            {
+              "id": 2,
+              "clue": "SSM addresses in workspace",
+              "categoryId": 0,
+              "hints": [],
+              "ans": "GOOD",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": "90",
+              "otAnsFontSize": "90"
+            }
+          ],
+          "roundNameFontSize": "90",
+          "clueLabelFontSize": "60",
+          "roundName": "ROUND 5"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "players": [
+        {
+          "id": 1,
+          "name": "Player1",
+          "point": 0,
+          "pointFontSize": 300
+        },
+        {
+          "id": 2,
+          "name": "Player2",
+          "point": 0,
+          "pointFontSize": 300
+        },
+        {
+          "id": 3,
+          "name": "Player3",
+          "point": 0,
+          "pointFontSize": 300
+        }
+      ],
+      "rounds": [
+        {
+          "id": 1,
+          "name": "OPPOSITE WORD",
+          "questionType": 1,
+          "showfirstAnsChar": true,
+          "hasCategory": false,
+          "categories": [],
+          "timeOut": 10,
+          "point": 10,
+          "questionArray": [
+            {
+              "id": 1,
               "clue": "开心",
               "categoryId": 0,
               "hints": [
@@ -153,7 +1208,7 @@
                   "otHintFontSize": 50
                 }
               ],
-              "ans": "32,",
+              "ans": "32,33,",
               "isAnsCharacter": true,
               "clueFontSize": 50,
               "otClueFontSize": 50,
