@@ -34,13 +34,12 @@
                 <div *ngIf="currentQuestion.isAnsCharacter">
                   <div *ngIf="currentRound.questionType != 5" class="hint_ans_center">
                     <div class="one_word_green retangle{{control.fontSettings.oneThird_answer}}"
-                      [ngClass]="char == ' ' ? 'hide_char': i==0 ? 'blue_bg animated heartBeat' : 'animated heartBeat'"
+                      [ngClass]="char == ' ' ? 'hide_char': i==0 && currentRound.questionType == 1 ? 'blue_bg animated heartBeat' : 'animated heartBeat'"
                       *ngFor="let char of ansCharArr; let i=index;">
                       <!-- <p class="one_word font{{control.fontSettings.oneThird_answer}} word_font{{control.fontSettings.oneThird_answer}}" [ngClass]="control.showAns || currentRound.showfirstAnsChar && i==0 ? 'animated zoomIn' : 'transparent'">
                                             {{char}}</p> -->
                       <input *ngIf="!(currentRound.questionType == 1 && currentQuestion.hints.length)"
-                        class="round1_text" [ngClass]="control.showAns ||
-                                             currentRound.showfirstAnsChar && i==0 ? 'animated zoomIn' : 'transparent'"
+                        class="round1_text" [ngClass]="control.showAns ? 'animated zoomIn' : 'transparent'"
                         [ngStyle]="{'font-size': currentQuestion.otAnsFontSize + 'px'}" [value]="char" />
 
                       <input *ngIf="(currentRound.questionType == 1 && currentQuestion.hints.length)"
