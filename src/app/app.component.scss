@@ -1,8 +1,11 @@
 @font-face {
   font-family: 'DIN-Bold';
   src: url(../assets/fonts/DIN-Bold.otf) format("opentype");
+  src: url(../assets/fonts/msyh.ttc) format("opentype");
+    src: url(../assets/fonts/msyhl.ttc) format("opentype");
+    src: url(../assets/fonts/msyhbd.ttc) format("opentype")
 }
 
 * {
-  font-family: "DIN-Bold";
+  font-family: "msyh","msyhl","msyhbd";
 }
