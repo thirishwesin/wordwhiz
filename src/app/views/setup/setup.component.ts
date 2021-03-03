@@ -416,8 +416,10 @@ export class SetupComponent implements OnInit {
     if (this.currentRound.questionType == 2) this.clearWord(_.find(this.currentRound.questionArray, ['id', question_id]).hints[0].value)
     if(this.currentRound.questionType == 5) {
       let question = this.currentRound.questionArray.find(question => question.id === question_id)
-      this.saveVideo(`${this.getVideoDir()}/tempSave/${question.clue}.mp4`, `tempDelete`,`${question.clue}.mp4`);
-      this.deleteVideo(`${this.getVideoDir()}/tempSave/${question.clue}.mp4`);
+      if (fs.existsSync(`${this.getVideoDir()}/tempSave/${question.clue}.mp4`)){
+        this.saveVideo(`${this.getVideoDir()}/tempSave/${question.clue}.mp4`, `tempDelete`,`${question.clue}.mp4`);
+        this.deleteVideo(`${this.getVideoDir()}/tempSave/${question.clue}.mp4`);
+      }
     }
     this.currentRound.questionArray.splice(
       _.findIndex(
