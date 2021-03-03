@@ -93,8 +93,8 @@ export class HomeComponent implements OnInit {
       this.prevRoute = this.paramObj.params.id;
     });
 
-    if (this.prevRoute == "control") this.userView = true;
-    else if (this.prevRoute == "setup") this.userView = false;
+    // if (this.prevRoute == "control") this.userView = true;
+    // else if (this.prevRoute == "setup") this.userView = false;
   }
 
   clickEpisode(episode) {
