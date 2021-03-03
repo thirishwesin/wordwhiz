@@ -372,7 +372,7 @@ export class OneThirdScreenComponent implements OnInit {
         if (this.control.showAns) {
           this.showGridEachAnswer();
         } else {
-          this.hideGridEachAnswer();
+         // this.hideGridEachAnswer();
         }
       }
 
@@ -456,8 +456,14 @@ export class OneThirdScreenComponent implements OnInit {
         }, 0);
       } else{
         setTimeout(() => {
+          let inputValue = (<HTMLInputElement>document.getElementById(id+'_val')).value;
           (<HTMLDivElement>document.getElementById(id+'_bg')).style.background =
             'url(./assets/images/GREEN/green_blank.png) no-repeat';
+          if(inputValue != ''){
+            setTimeout(() => {
+              (<HTMLInputElement>document.getElementById(id+'_val')).value = inputValue
+            }, 0);
+          }
         }, 0);
       }
       // else if ((<HTMLDivElement>document.getElementById(id)) !== null) {
