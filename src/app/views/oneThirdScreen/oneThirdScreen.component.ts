@@ -452,19 +452,19 @@ export class OneThirdScreenComponent implements OnInit {
           (<HTMLInputElement>document.getElementById(id+'_val')).value =
             this.currentQuestion.hints[0].value.charAt(index).toUpperCase();
           (<HTMLDivElement>document.getElementById(id+'_bg')).style.background =
-            `url(./assets/images/BLUE/blank.png) no-repeat`
+            `url(./assets/images/BLUE/blue_blank.png) no-repeat`
         }, 0);
       } else{
         setTimeout(() => {
           (<HTMLDivElement>document.getElementById(id+'_bg')).style.background =
-            'url(./assets/images/GREEN/blank.png) no-repeat';
+            'url(./assets/images/GREEN/green_blank.png) no-repeat';
         }, 0);
       }
       // else if ((<HTMLDivElement>document.getElementById(id)) !== null) {
       //   if ((<HTMLDivElement>document.getElementById(id)).style.background == '') {
       //     setTimeout(() => {
       //       (<HTMLDivElement>document.getElementById(id)).style.background =
-      //         'url(./assets/images/GREEN/blank.png) no-repeat';
+      //         'url(./assets/images/GREEN/green_blank.png) no-repeat';
       //     }, 0);
       //   }
       // }
@@ -477,7 +477,7 @@ export class OneThirdScreenComponent implements OnInit {
         (<HTMLInputElement>document.getElementById(id+'_val')).value =
           this.currentQuestion.hints[0].value.charAt(index).toUpperCase();
         (<HTMLDivElement>document.getElementById(id+'_bg')).style.background =
-          `url(./assets/images/GREEN/blank.png) no-repeat`
+          `url(./assets/images/GREEN/green_blank.png) no-repeat`
 
       }, 0);
     })
@@ -489,11 +489,11 @@ export class OneThirdScreenComponent implements OnInit {
         (<HTMLInputElement>document.getElementById(id+'_val')).value =
           this.currentQuestion.hints[0].value.charAt(index).toUpperCase();
         (<HTMLDivElement>document.getElementById(id+'_bg')).style.background =
-          `url(./assets/images/BLUE/blank.png) no-repeat`
+          `url(./assets/images/BLUE/blue_blank.png) no-repeat`
       } else {
         setTimeout(() => {
           if ((<HTMLDivElement>document.getElementById(id+'_bg')).style.background.includes('GREEN')) {
-            (<HTMLDivElement>document.getElementById(id+'_bg')).style.background = 'url(./assets/images/GREEN/blank.png) no-repeat';
+            (<HTMLDivElement>document.getElementById(id+'_bg')).style.background = 'url(./assets/images/GREEN/green_blank.png) no-repeat';
             (<HTMLInputElement>document.getElementById(id+'_val')).value = "";
           }
         }, 0);

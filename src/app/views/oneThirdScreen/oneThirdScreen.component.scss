@@ -37,7 +37,7 @@
 
 // text-color style
 .one_word_green {
-    background: url(../../../assets/images/GREEN/blank.png) no-repeat;
+    background: url(../../../assets/images/GREEN/green_blank.png) no-repeat;
     -webkit-background-size: cover;
     background-size: cover;
     display: inline-block;
@@ -47,7 +47,7 @@
 }
 
 .one_word_blue {
-    background: url(../../../assets/images/BLUE/blank.png) no-repeat;
+    background: url(../../../assets/images/BLUE/blue_blank.png) no-repeat;
     -webkit-background-size: cover;
     background-size: cover;
     display: inline-block;
@@ -352,7 +352,7 @@
 
 .blue_bg {
     width: auto;
-    background: url(../../../assets/images/BLUE/blank.png) no-repeat;
+    background: url(../../../assets/images/BLUE/blue_blank.png) no-repeat;
     background-size: cover;
     display: inline-block;
     min-height: 60px;
@@ -364,7 +364,7 @@
 
 .green_bg {
     width: auto;
-    background: url(../../../assets/images/GREEN/blank.png) no-repeat;
+    background: url(../../../assets/images/GREEN/green_blank.png) no-repeat;
     background-size: contain;
     display: inline-block;
     min-height: 60px;
@@ -711,7 +711,7 @@
     height: 100vh;
 }
 .grid_bg {
-    background: url(../../../assets/images/BLUE/blank.png) no-repeat;
+    background: url(../../../assets/images/BLUE/blue_blank.png) no-repeat;
 }
 
 .alpha_text {
@@ -901,7 +901,7 @@
 
 }
 .green_answer_text{
-    background:url(../../../assets/images/GREEN/blank.png) no-repeat;
+    background:url(../../../assets/images/GREEN/green_blank.png) no-repeat;
     background-size: cover;
     margin-top: 10px;
     text-align: center;
