@@ -99,8 +99,15 @@
                   </div>
                 </div>
                 <!-- Round Five -->
-                <div class="video_body" *ngIf="currentRound?.questionType == 5 && control.showQuestion">
-                  <app-round-five [videoName]="currentQuestion?.clue" [currentEpisodeId]="episode.id" [isPlay]="control.isPlay"></app-round-five>
+                <div class="video_body" *ngIf="currentRound?.questionType == 5">
+                    <ng-container *ngIf="!control.showQuestion">
+                        <img  src="./assets/images/Round_05_DoodleBG.png" style="width: 79%;height: 93%;margin-top: 17px;">
+                    </ng-container>
+                    <ng-container *ngIf="control.showQuestion">
+                        <app-round-five [videoName]="currentQuestion?.clue" [currentEpisodeId]="episode.id" [isPlay]="control.isPlay"></app-round-five>
+                    </ng-container>
+                   
+                  
                 </div>
                 <div class="alpha_wrapper" [ngClass]="{'alpha_wrapper_r4': currentRound.questionType == 4}" *ngIf="control.showQuestion || control.runCategoryRound">
 
