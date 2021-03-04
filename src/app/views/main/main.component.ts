@@ -168,7 +168,7 @@ export class MainComponent implements OnInit {
             console.log("data", this.timeoutList);
 
             //initial show the image by current round
-            this.renderTimerImage(true);
+            this.renderTimerImage(true, this.currentRound.timeOut);
             this.isRenderedTimer = true;
           }
         });
@@ -176,15 +176,15 @@ export class MainComponent implements OnInit {
     });
   }
 
-  renderTimerImage(initial) {
+  renderTimerImage(initial, timeout: number) {
     console.log("RENDERING COUNTDOWN IMAGE");
     //check read image is finish
+    console.log('timeout: ', timeout, ', current timeout: ', this.currentRound.timeOut)
     if (!this.renderingAPNG) {
       let currentTimeData = _.result(
-        _.find(this.timeoutList, ["value", this.currentRound.timeOut]),
+        _.find(this.timeoutList, ["value", timeout]),
         "data"
       );
-
       if (!initial) this.renderingAPNG = true;
 
       currentTimeData.createImages().then(() => {
@@ -225,6 +225,7 @@ export class MainComponent implements OnInit {
   }
 
   updateMainBoardState() {
+    console.log('called updateMainBoardState() function')
     //update current round
     this.currentRound = _.find(this.episode.rounds, [
       "id",
@@ -232,9 +233,12 @@ export class MainComponent implements OnInit {
     ]);
 
     //update timer image when changing round except initial state
+    console.log('isRenderedTimer ', this.isRenderedTimer)
     if (this.isRenderedTimer) {
       if (this.prevCurrentRound != this.control.currentRoundId) {
-        this.renderTimerImage(false);
+        this.renderTimerImage(false, this.currentRound.timeOut);
+      }else if(this.control.resetCount){
+        this.renderTimerImage(false, this.control['resetTo']);
       }
     }
 
@@ -261,9 +265,6 @@ export class MainComponent implements OnInit {
       this.cubeImageEle.src = this.cubeImage.src;
       this.rFourCubeImageEle.src = ''
     }
-
-    console.log('current question => ', this.currentQuestion)
-    console.log('current round => ', this.currentRound)
     //update timer count value
     if (this.currentRound.hasCategory) {
       //update only in selecting theme for round 4

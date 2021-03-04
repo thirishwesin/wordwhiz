@@ -478,11 +478,8 @@ export class ControlComponent implements OnInit {
       control: this.control,
       episode: this.episode
     };
+    broadCastData.control['resetTo'] = this.timeOut
     console.log('this.control  : ', this.control)
-    // if(this.currentRound.questionType == 5){
-    //   broadCastData.control.isPlay = this.isPlay
-    //   broadCastData.control.startCount = this.control.startCount == TimerEnum.START ? TimerEnum.NEUTRAL: TimerEnum.STOP
-    // }
 
     setTimeout(() => {
       this.fontSizeWarning = false;
@@ -777,6 +774,7 @@ export class ControlComponent implements OnInit {
 
   startTimer(isStart) {
     //showQuestion automatically in round 4
+    let timer = this.timeOut;
     if (this.currentRound.hasCategory) {
       this.control.showQuestion = true;
       this.isStartRound4 = true;
@@ -793,9 +791,11 @@ export class ControlComponent implements OnInit {
 
     if (this.control.startCount == TimerEnum.START && isStart) {
       //only play the beep sound timer is above 5
-      if (this.currentRound.timeOut == 10) {
+      if(timer == 5){
+        this.count5sec.play();
+      }else if (timer == 10) {
         if (this.timeOut > 5) this.audio.play();
-      } else {
+      }else if (timer == 30 ||timer == 15){
         if (this.timeOut > 10) this.audio.play();
       }
 
@@ -828,21 +828,21 @@ export class ControlComponent implements OnInit {
           }
         } else {
           this.timeOut = this.timeOut - 1;
-          if (this.currentRound.timeOut == 10) {
+          if(timer == 5){
+            this.count5sec.play();
+          }else if (timer == 10) {
             if (this.timeOut < 6) {
               this.audio.pause();
               this.audio.currentTime = 0;
               this.count5sec.play();
             }
-          } else {
+          }else if (timer == 30 || timer == 15) {
             if (this.timeOut < 13) {
               this.audio.pause();
               this.audio.currentTime = 0;
               this.count10sec.play();
             }
           }
-
-          // console.log("timeout", this.timeOut);
         }
       }, 1000);
     } else {

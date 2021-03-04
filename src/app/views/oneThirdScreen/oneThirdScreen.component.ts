@@ -166,7 +166,7 @@ export class OneThirdScreenComponent implements OnInit {
             console.log("data", this.timeoutList);
 
             //initial show the image by current round
-            this.renderTimerImage(true);
+            this.renderTimerImage(true, this.currentRound.timeOut);
             this.isRenderedTimer = true;
           }
         });
@@ -174,12 +174,12 @@ export class OneThirdScreenComponent implements OnInit {
     });
   }
 
-  renderTimerImage(initial) {
+  renderTimerImage(initial, timeout: number) {
     console.log("RENDERING COUNTDOWN IMAGE");
     //check read image is finish
 
     let currentTimeData = _.result(
-      _.find(this.timeoutList, ["value", this.currentRound.timeOut]),
+      _.find(this.timeoutList, ["value", timeout]),
       "data"
     );
 
@@ -232,7 +232,9 @@ export class OneThirdScreenComponent implements OnInit {
     //update timer image when changing round except initial state
     if (this.isRenderedTimer) {
       if (this.prevCurrentRound != this.control.currentRoundId) {
-        this.renderTimerImage(false);
+        this.renderTimerImage(false, this.currentRound.timeOut);
+      }else if(this.control.resetCount){
+        this.renderTimerImage(false, this.control['resetTo']);
       }
     }
 
