@@ -987,13 +987,13 @@ button {
     margin-top: -7%;
 }
 .videoName{
-    width: 74% !important;
+    width: 79% !important;
 }
 
 //round seven
 .roundseven_box{
-    height: 120px;
-    width: 830px;
+    height: 310px;
+    width: 1250px;
     z-index: -1;
     margin-left: -65px;
     display: block;
@@ -1002,15 +1002,15 @@ button {
     color: white;
     background: none;
     border: none;
-    font-size: 38px;
-    padding-top: 11px;
-    height: 70px;
-    margin-top: 25px;
+    font-size: 60px;
+    // padding-top: 11px;
+    // height: 57px;
+    // margin-top: 25px;
     text-align: center;
-    width: 60px;
-    top: -120px;
+    width: 59px;
+    top: -235px;
     position: relative;
-    left: -270px;
+    // left: -60px;
 
 }
 .green_answer_text{
@@ -1020,10 +1020,12 @@ button {
     text-align: center;
     width: 60px;
     height: 104px;
+    margin-top: -10px;
 }
 .roundseven_answer{
-    margin-left: -35%;
-    margin-top: -110px;
+    margin-left: -9%;
+    position: absolute;
+    margin-top: -14%;
 }
 
 //round 3 text
