@@ -1,6 +1,6 @@
 [{
         "id": 1,
-        "name": "OPPOSITE WORD",
+        "name": "反义词",
         "questionType": 1,
         "showfirstAnsChar": true,
         "hasCategory": false,
@@ -10,11 +10,11 @@
         "questionArray": [],
         "roundNameFontSize": "90",
         "clueLabelFontSize": "60",
-        "roundName": "ROUND 1"
+        "roundName": "第一回合"
     },
     {
         "id": 2,
-        "name": "CROSS WORD",
+        "name": "填字游戏",
         "questionType": 2,
         "showfirstAnsChar": false,
         "hasCategory": false,
@@ -26,11 +26,11 @@
         "questionArray": [],
         "roundNameFontSize": "90",
         "clueLabelFontSize": "60",
-        "roundName": "ROUND 3"
+        "roundName": "第三回合"
     },
     {
         "id": 5,
-        "name": "PICTIONARY",
+        "name": "看图猜一猜",
         "questionType": 5,
         "showfirstAnsChar": false,
         "hasCategory": false,
@@ -40,11 +40,11 @@
         "questionArray": [],
         "roundNameFontSize": "90",
         "clueLabelFontSize": "60",
-        "roundName": "ROUND 5"
+        "roundName": "第五回合"
     },
     {
       "id": 6,
-      "name": "MISSING WORD",
+      "name": "漏字",
       "questionType": 6,
       "showfirstAnsChar": true,
       "hasCategory": false,
@@ -56,11 +56,11 @@
       "questionArray": [],
       "roundNameFontSize": "90",
       "clueLabelFontSize": "60",
-      "roundName": "ROUND 2"
+      "roundName": "第二回合"
     },
     {
       "id": 7,
-      "name": "SPOT THE MISTAKE",
+      "name": "第四回合",
       "questionType": 7,
       "showfirstAnsChar": false,
       "hasCategory": false,
@@ -79,6 +79,6 @@
       "questionArray": [],
       "roundNameFontSize": "90",
       "clueLabelFontSize": "60",
-      "roundName": "ROUND 4"
+      "roundName": "错别字"
   }
 ]
