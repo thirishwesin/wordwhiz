@@ -116,7 +116,7 @@ export class ControlComponent implements OnInit {
   isPlay : boolean = false;
   r4CategoryName: string = "Player One"
   r4CategoryId: number = 0
-  currentRoundName: string = 'ROUND 1'
+  currentRoundName: string = '第一回合'
   currentPoint : number
 
   constructor(
@@ -171,7 +171,7 @@ export class ControlComponent implements OnInit {
       }
     });
     // sort by roundName
-    this.episode.rounds.sort((a,b) => (a.roundName > b.roundName) ? 1 : ((b.roundName > a.roundName) ? -1 : 0))
+    //this.episode.rounds.sort((a,b) => (a.roundName > b.roundName) ? 1 : ((b.roundName > a.roundName) ? -1 : 0))
     this.recommendFontSize = fontSizeForWindow.normalSize;
   }
 

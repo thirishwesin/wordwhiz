@@ -13,6 +13,22 @@
         "roundName": "第一回合"
     },
     {
+      "id": 6,
+      "name": "漏字",
+      "questionType": 6,
+      "showfirstAnsChar": true,
+      "hasCategory": false,
+      "categories": [],
+      "timeOut": 10,
+      "point": 10,
+      "secondTimeOut": 5,
+      "secondPoint": 5,
+      "questionArray": [],
+      "roundNameFontSize": "90",
+      "clueLabelFontSize": "60",
+      "roundName": "第二回合"
+    },
+    {
         "id": 2,
         "name": "填字游戏",
         "questionType": 2,
@@ -42,22 +58,7 @@
         "clueLabelFontSize": "60",
         "roundName": "第五回合"
     },
-    {
-      "id": 6,
-      "name": "漏字",
-      "questionType": 6,
-      "showfirstAnsChar": true,
-      "hasCategory": false,
-      "categories": [],
-      "timeOut": 10,
-      "point": 10,
-      "secondTimeOut": 5,
-      "secondPoint": 5,
-      "questionArray": [],
-      "roundNameFontSize": "90",
-      "clueLabelFontSize": "60",
-      "roundName": "第二回合"
-    },
+    
     {
       "id": 7,
       "name": "第四回合",

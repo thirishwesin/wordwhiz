@@ -92,7 +92,7 @@ export class SetupComponent implements OnInit {
   showVideoModal : boolean = false;
   vidoeUrl: string
   playerCategory: string = 'Player One';
-  currentRoundName: string = 'ROUND 1';
+  currentRoundName: string = '第一回合';
   playerCategoryId: number = 0
 
   constructor(private store: Store<{ wordWhiz: WordWhiz; episode: Episode; control: Control}>, public router: Router, public modalService: NgbModal) {
@@ -103,7 +103,7 @@ export class SetupComponent implements OnInit {
     });
 
     // sort by roundName
-    this.episode.rounds.sort((a,b) => (a.roundName > b.roundName) ? 1 : ((b.roundName > a.roundName) ? -1 : 0))
+    //this.episode.rounds.sort((a,b) => (a.roundName > b.roundName) ? 1 : ((b.roundName > a.roundName) ? -1 : 0))
     //get episodetimeout
     if (AppConfig.production) {
       this.readFileProduction();
