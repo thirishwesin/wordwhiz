@@ -265,8 +265,8 @@
                   </div>
                 </div>
                 <div *ngIf="currentRound.questionType == 7 ">
-                  <div style="margin-top: 50px;">
-                    <div style="padding-left: 50px;margin-top:49px">
+                  <div class="margin-top:80px">
+                    <div style="width: 80%;">
                       <img src="./assets/images/round_two_box.png" class="roundseven_box" alt="">
                       <ng-container *ngFor="let char of currentQuestion.clue.split('')">
                         <input class="roundseven_text" [value]="char"
@@ -274,12 +274,13 @@
                       </ng-container>
                     </div>
                   </div>
-                  <div class="one_word_green retangle roundseven_answer"
+                  
+                </div>
+                <div class="one_word_green retangle roundseven_answer"
                     [ngStyle]="{'visibility': control.showAns ? 'unset': 'hidden'}">
                     <input class="round1_text" [ngStyle]="{'font-size': currentQuestion?.ansFontSize + 'px'}"
                       [value]="currentQuestion.ans" />
                   </div>
-                </div>
               </div>
             </div>
           </div>

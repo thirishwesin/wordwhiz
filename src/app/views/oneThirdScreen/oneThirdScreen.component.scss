@@ -879,38 +879,36 @@
 
 //round seven
 .roundseven_box{
-    height: 120px;
+    height: 240px;
     position: absolute;
     width: 86%;
     z-index: -1;
-    margin-left: -56%;
+    margin-left: -46%;
 }
 .roundseven_text{
     color: white;
-    left: 3%;
     background: none;
     border: none;
     font-size: 38px;
-    top: 29%;
     padding-top: 11px;
     height: 70px;
     float: left;
-    margin-top: 18px;
-    text-align: center;
     width: 60px;
+    top: 50px;
+    position: relative;
 
 }
 .green_answer_text{
     background:url(../../../assets/images/GREEN/green_blank.png) no-repeat;
     background-size: cover;
-    margin-top: 10px;
+    // margin-top: 10px;
     text-align: center;
     width: 60px;
-    height: 104px;
+    // height: 104px;
 }
 .roundseven_answer{
-    margin-top: 150px;
-    margin-left: -42%;
+    margin-top: 221px;
+    margin-left: -102%;
 }
 
 //round_three_word
