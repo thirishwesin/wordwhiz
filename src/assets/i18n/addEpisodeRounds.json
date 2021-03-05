@@ -61,7 +61,7 @@
     
     {
       "id": 7,
-      "name": "第四回合",
+      "name": "错别字",
       "questionType": 7,
       "showfirstAnsChar": false,
       "hasCategory": false,
@@ -80,6 +80,6 @@
       "questionArray": [],
       "roundNameFontSize": "90",
       "clueLabelFontSize": "60",
-      "roundName": "错别字"
+      "roundName": "第四回合"
   }
 ]
