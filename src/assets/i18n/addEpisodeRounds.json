@@ -45,21 +45,6 @@
         "roundName": "第三回合"
     },
     {
-        "id": 5,
-        "name": "看图猜一猜",
-        "questionType": 5,
-        "showfirstAnsChar": false,
-        "hasCategory": false,
-        "categories": [],
-        "timeOut": 30,
-        "point": 30,
-        "questionArray": [],
-        "roundNameFontSize": "90",
-        "clueLabelFontSize": "60",
-        "roundName": "第五回合"
-    },
-    
-    {
       "id": 7,
       "name": "错别字",
       "questionType": 7,
@@ -81,5 +66,20 @@
       "roundNameFontSize": "90",
       "clueLabelFontSize": "60",
       "roundName": "第四回合"
-  }
+    },
+    {
+        "id": 5,
+        "name": "看图猜一猜",
+        "questionType": 5,
+        "showfirstAnsChar": false,
+        "hasCategory": false,
+        "categories": [],
+        "timeOut": 30,
+        "point": 30,
+        "questionArray": [],
+        "roundNameFontSize": "90",
+        "clueLabelFontSize": "60",
+        "roundName": "第五回合"
+    }
+   
 ]
