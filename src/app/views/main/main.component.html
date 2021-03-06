@@ -46,7 +46,7 @@
                     </div>
 
                 </div>
-                <div *ngIf="currentRound && currentRound.questionType == 2 && this.prevCategoryId == this.currentQuestion.categoryId" class="roundtwo_alpha_body">
+                <div *ngIf="currentRound && currentRound.questionType == 2" class="roundtwo_alpha_body">
                     <!-- <div class="row" style="flex-wrap: initial;">
                         <div class="col-sm" class="alpha_text grid_bg alpha_img">
 
@@ -55,46 +55,55 @@
                     <div class="row" style="flex-wrap: initial;">
                         <div class="col-sm" class="alpha_text" style="background: url('./assets/images/BLUE/blue_blank.png') no-repeat;" *ngFor="let item of [11,12,13,14,15,16,17,18,19,110]; let i = index" [id]="item+'_bg'" >
                             <input type="text" class="round_three_word" [id]="item+'_val'">
+                            <span [id]="item+'_num'"></span>
                         </div>
                     </div>
                     <div class="row" style="flex-wrap: initial;">
                         <div class="col-sm" class="alpha_text" style="background: url('./assets/images/BLUE/blue_blank.png') no-repeat;" *ngFor="let item of [21,22,23,24,25,26,27,28,29,210]; let i = index" [id]="item+'_bg'">
                             <input type="text" class="round_three_word" [id]="item+'_val'">
+                            <span [id]="item+'_num'"></span>
                         </div>
                     </div>
                     <div class="row" style="flex-wrap: initial;">
                         <div class="col-sm" class="alpha_text " style="background: url('./assets/images/BLUE/blue_blank.png') no-repeat;" *ngFor="let item of [31,32,33,34,35,36,37,38,39,310]; let i = index" [id]="item+'_bg'">
                             <input type="text" class="round_three_word" [id]="item+'_val'">
+                            <span [id]="item+'_num'"></span>
                         </div>
                     </div>
                     <div class="row" style="flex-wrap: initial;">
                         <div class="col-sm" class="alpha_text " style="background: url('./assets/images/BLUE/blue_blank.png') no-repeat;" *ngFor="let item of [41,42,43,44,45,46,47,48,49,410]; let i = index" [id]="item+'_bg'">
                             <input type="text" class="round_three_word" [id]="item+'_val'">
+                            <span [id]="item+'_num'"></span>
                         </div>
                     </div>
                     <div class="row" style="flex-wrap: initial;">
                         <div class="col-sm" class="alpha_text " style="background: url('./assets/images/BLUE/blue_blank.png') no-repeat;" *ngFor="let item of [51,52,53,54,55,56,57,58,59,510]; let i = index" [id]="item+'_bg'">
                             <input type="text" class="round_three_word" [id]="item+'_val'">
+                            <span [id]="item+'_num'"></span>
                         </div>
                     </div>
                     <div class="row" style="flex-wrap: initial;">
                         <div class="col-sm" class="alpha_text " style="background: url('./assets/images/BLUE/blue_blank.png') no-repeat;" *ngFor="let item of [61,62,63,64,65,66,67,68,69,610]; let i = index" [id]="item+'_bg'">
                             <input type="text" class="round_three_word" [id]="item+'_val'">
+                            <span [id]="item+'_num'"></span>
                         </div>
                     </div>
                     <div class="row" style="flex-wrap: initial;">
                         <div class="col-sm" class="alpha_text " style="background: url('./assets/images/BLUE/blue_blank.png') no-repeat;" *ngFor="let item of [71,72,73,74,75,76,77,78,79,710]; let i = index" [id]="item+'_bg'">
                             <input type="text" class="round_three_word" [id]="item+'_val'">
+                            <span [id]="item+'_num'"></span>
                         </div>
                     </div>
                     <div class="row" style="flex-wrap: initial;">
                         <div class="col-sm" class="alpha_text " style="background: url('./assets/images/BLUE/blue_blank.png') no-repeat;" *ngFor="let item of [81,82,83,84,85,86,87,88,89,810]; let i = index" [id]="item+'_bg'">
                             <input type="text" class="round_three_word" [id]="item+'_val'">
+                            <span [id]="item+'_num'"></span>
                         </div>
                     </div>
                     <div class="row" style="flex-wrap: initial;">
                       <div class="col-sm" class="alpha_text " style="background: url('./assets/images/BLUE/blue_blank.png') no-repeat;" *ngFor="let item of [91,92,93,94,95,96,97,98,99,910]; let i = index" [id]="item+'_bg'">
                           <input type="text" class="round_three_word" [id]="item+'_val'">
+                          <span [id]="item+'_num'"></span>
                       </div>
                   </div>
                 </div>
@@ -106,8 +115,8 @@
                     <ng-container *ngIf="control.showQuestion">
                         <app-round-five [videoName]="currentQuestion?.clue" [currentEpisodeId]="episode.id" [isPlay]="control.isPlay"></app-round-five>
                     </ng-container>
-                   
-                  
+
+
                 </div>
                 <div class="alpha_wrapper" [ngClass]="{'alpha_wrapper_r4': currentRound.questionType == 4}" *ngIf="control.showQuestion || control.runCategoryRound">
 

@@ -922,3 +922,29 @@
     height: 49px;
     margin-top: 4px;
 }
+
+.vertical-cross-num{
+  position: relative;
+    top: -55px;
+    right: -25PX;
+    background: blue;
+    font-size: 16px;
+    padding: 0px;
+    border-radius: 50%;
+    height: 23px;
+    width: 23px;
+    display: inline-table;
+}
+
+.horizontal-cross-num{
+  position: relative;
+    top: -55px;
+    right: -25PX;
+    background: red;
+    font-size: 16px;
+    padding: 0px;
+    border-radius: 50%;
+    height: 23px;
+    width: 23px;
+    display: inline-table;
+}

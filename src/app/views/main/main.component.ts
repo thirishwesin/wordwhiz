@@ -53,6 +53,7 @@ export class MainComponent implements OnInit {
   rFourCubeImage = new Image();
   prevCategoryId: number
   cubeImage = new Image();
+  prevRoundId: number
 
   constructor(
     private store: Store<{
@@ -96,7 +97,7 @@ export class MainComponent implements OnInit {
       image.style.background = "url(" + mainBgImage.src + ")";
       image.style.backgroundSize = "cover";
 
-      this.renderingAPNG = false;
+      // this.renderingAPNG = false;
       this.nz.run(() => { });
     };
     this.cubeImage.onload = () => {
@@ -179,8 +180,7 @@ export class MainComponent implements OnInit {
   renderTimerImage(initial, timeout: number) {
     console.log("RENDERING COUNTDOWN IMAGE");
     //check read image is finish
-    console.log('timeout: ', timeout, ', current timeout: ', this.currentRound.timeOut)
-    if (!this.renderingAPNG) {
+    // if (!this.renderingAPNG) {
       let currentTimeData = _.result(
         _.find(this.timeoutList, ["value", timeout]),
         "data"
@@ -205,9 +205,10 @@ export class MainComponent implements OnInit {
           if (!initial) {
             this.player = null;
             this.log = [];
-            this.renderingAPNG = false;
-            this.nz.run(() => { });
           }
+          this.renderingAPNG = false;
+          this.nz.run(() => { });
+
           this.player = p;
           // player.playbackRate = playbackRate;
           this.player.playbackRate = 2.5;
@@ -221,11 +222,12 @@ export class MainComponent implements OnInit {
           };
         });
       });
-    }
+    // }
   }
 
   updateMainBoardState() {
-    console.log('called updateMainBoardState() function')
+    if(this.prevRoundId == undefined) this.prevRoundId = this.control.currentRoundId;
+
     //update current round
     this.currentRound = _.find(this.episode.rounds, [
       "id",
@@ -305,16 +307,17 @@ export class MainComponent implements OnInit {
         this.blockAnimated = false;
       }
 
-      if (this.control.showQuestion && this.currentRound.questionType == 2) {
+      if (this.currentRound.questionType == 2) {
         if (this.prevCategoryId == undefined) this.prevCategoryId = this.currentQuestion.categoryId
         else if (this.prevCategoryId !== this.currentQuestion.categoryId) {
           this.prevCategoryId = this.currentQuestion.categoryId
         }
-        console.log('current question index => ', this.currentQuestion.categoryId)
-        this.setGridValue();
+        if (this.prevRoundId != this.control.currentRoundId && this.control.currentRoundId == 2){
+          this.setGridValue();
+        }
         if (this.control.showAns) {
           this.showGridEachAnswer();
-        } else {
+        } else if(!this.control.showAns && this.control.showQuestion){
           // this.hideGridEachAnswer();
         }
       }
@@ -403,6 +406,8 @@ export class MainComponent implements OnInit {
       !this.control.showQuestion
     )
       this.blockAnimated = false;
+
+    if(this.prevRoundId != this.control.currentRoundId) this.prevRoundId = this.control.currentRoundId;
   }
 
   countDown() {
@@ -436,34 +441,34 @@ export class MainComponent implements OnInit {
 
   setGridValue() {
     console.log('called setGridValue function()')
-    this.currentQuestion.hints[0].position.forEach((id, index) => {
-      if (this.currentQuestion.ans.includes(id)) {
-        setTimeout(() => {
-          (<HTMLInputElement>document.getElementById(id+'_val')).value =
-            this.currentQuestion.hints[0].value.charAt(index).toUpperCase();
-          (<HTMLDivElement>document.getElementById(id+'_bg')).style.background = 'url(./assets/images/BLUE/blue_blank.png) no-repeat';
-        }, 0);
-      } else{
-        setTimeout(() => {
-          let inputValue = (<HTMLInputElement>document.getElementById(id+'_val')).value;
-          (<HTMLDivElement>document.getElementById(id+'_bg')).style.background =
-            'url(./assets/images/GREEN/green_blank.png) no-repeat';
-          if(inputValue != ''){
+    this.currentRound.questionArray.forEach(question => {
+      question.hints[0].position.forEach((id, index) => {
+        if (question.ans.includes(id)) {
+          setTimeout(() => {
+            (<HTMLInputElement>document.getElementById(id+'_val')).value =
+            question.hints[0].value.charAt(index).toUpperCase();
+            let greenBgDiv = (<HTMLDivElement>document.getElementById(id+'_bg'));
+            if(greenBgDiv.style.background.includes('GREEN')){
+              greenBgDiv.style.background = `url(./assets/images/BLUE/blue_blank.png) no-repeat`;
+            }
+          }, 0);
+        }else{
+          setTimeout(() => {
+            let inputValue = (<HTMLInputElement>document.getElementById(id+'_val')).value;
+            if(inputValue == ''){
+              (<HTMLDivElement>document.getElementById(id+'_bg')).style.background =
+              'url(./assets/images/GREEN/green_blank.png) no-repeat';
+            }
+          }, 0);
+        }
+        if(index == 0){
             setTimeout(() => {
-              (<HTMLInputElement>document.getElementById(id+'_val')).value = inputValue
+              let span = (<HTMLSpanElement>document.getElementById(id+'_num'));
+              span.innerHTML = ''+ question.id;
+              span.className = question.hints[0].positionCalss;
             }, 0);
-          }
-        }, 0);
-      }
-      // else if ((<HTMLDivElement>document.getElementById(id+'_bg')) !== null) {
-      //   console.log('id: ', id, 'bg: ', (<HTMLDivElement>document.getElementById(id+'_bg')).style.background)
-      //   if ((<HTMLDivElement>document.getElementById(id+'_bg')).style.background == '') {
-      //     setTimeout(() => {
-      //       (<HTMLDivElement>document.getElementById(id+'_bg')).style.background =
-      //         'url(./assets/images/GREEN/green_blank.png) no-repeat';
-      //     }, 0);
-      //   }
-      // }
+        }
+      })
     })
   }
 
@@ -482,16 +487,20 @@ export class MainComponent implements OnInit {
   hideGridEachAnswer() {
     console.log('called hideGridEachAnswer function()')
     this.currentQuestion.hints[0].position.forEach((id, index) => {
-      if (this.currentQuestion.ans.includes(id) && (<HTMLDivElement>document.getElementById(id)) !== null) {
+      if (this.currentQuestion.ans.includes(id)) {
         (<HTMLInputElement>document.getElementById(id+'_val')).value =
           this.currentQuestion.hints[0].value.charAt(index).toUpperCase();
         (<HTMLDivElement>document.getElementById(id+'_bg')).style.background =
           `url(./assets/images/BLUE/blue_blank.png) no-repeat`
       } else {
         setTimeout(() => {
-          if ((<HTMLDivElement>document.getElementById(id+'_bg')).style.background.includes('GREEN')) {
-            (<HTMLDivElement>document.getElementById(id+'_bg')).style.background = 'url(./assets/images/GREEN/green_blank.png) no-repeat';
-            (<HTMLInputElement>document.getElementById(id+'_val')).value = "";
+          if((<HTMLInputElement>document.getElementById(id+'_val')).value != ""
+          && (<HTMLDivElement>document.getElementById(id+'_bg')).style.background.includes('GREEN')){
+            setTimeout(() => {
+              (<HTMLInputElement>document.getElementById(id+'_val')).value = "";
+              (<HTMLDivElement>document.getElementById(id+'_bg')).style.background =
+                'url(./assets/images/GREEN/green_blank.png) no-repeat';
+            }, 0);
           }
         }, 0);
       }
