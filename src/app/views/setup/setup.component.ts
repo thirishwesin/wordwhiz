@@ -508,7 +508,9 @@ export class SetupComponent implements OnInit {
       this.modalService
         .open(content_setup, {
           ariaLabelledBy: "modal-basic-title",
-          centered: true
+          centered: true,
+          backdrop: 'static',
+          keyboard: false
         })
         .result.then(
           result => {
