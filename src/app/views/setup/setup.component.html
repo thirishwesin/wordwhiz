@@ -568,6 +568,7 @@
                   <th class="table_title" *ngIf="currentRound.questionType != 2">ANSWER</th>
                   <th class="table_title" *ngFor="let hint of question.hints">HINT {{ question.hints.length <=1 ? "" : hint.id }} </th>
                   <th class="table_title act_width text-center" *ngIf="currentRound.questionType != 2">ACTION</th>
+                  <th class="table_title" *ngIf="currentRound.questionType == 2">POSITION</th>
                 </tr>
               </thead>
               <tbody *ngIf="currentRound.questionArray.length > 0">
@@ -591,6 +592,14 @@
                       <button class="btn-primary btn_table button" (click)=" deleteQuestionList(question.id)">DELETE</button>
                     </div>
                   </td>
+                  <ng-container *ngIf="currentRound.questionType == 2">
+                    <td class="common_data">
+                      <select (change)="choosePositionClass(positionCalss.value, question.id)" #positionCalss>
+                        <option value="horizontal-cross-num" [selected]="'horizontal-cross-num' == question.hints[0]?.positionCalss">Horizontal</option>
+                        <option value="vertical-cross-num" [selected]="'vertical-cross-num' == question.hints[0]?.positionCalss">Vertical</option>
+                      </select>
+                    </td>
+                  </ng-container>
                 </tr>
                 <tr *ngIf="(currentRound.questionType == 4) && noDatabyCategory">
                   <td align="center" colspan="5">

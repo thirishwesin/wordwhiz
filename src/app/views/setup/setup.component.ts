@@ -134,7 +134,8 @@ export class SetupComponent implements OnInit {
           position: this.currentRound.questionType == 2 ? [] : 0,                // hint position 1 and 2 is only for round 2, rest all can 0
           isCharacter: this.questionType ? this.questionType.isHintChar : false, // round 3 question cannot sperate like a char
           hintFontSize: null,
-          otHintFontSize: null
+          otHintFontSize: null,
+          positionCalss:  this.currentRound.questionType == 2 ? 'horizontal-cross-num' : '',
         };
       }
     ); // [1,2,3,4] create array by hintsCount
@@ -962,5 +963,14 @@ export class SetupComponent implements OnInit {
   changeR4Category(category: any){
     this.playerCategory = category.name;
     this.playerCategoryId = category.id;
+  }
+
+  choosePositionClass(positionCalss: string, questionId: number){
+    console.log('postion class: ', positionCalss, ', question id: ', questionId)
+    this.currentRound.questionArray.map(question => {
+      if(question.id == questionId){
+        question.hints[0].positionCalss = positionCalss
+      }
+    })
   }
 }
