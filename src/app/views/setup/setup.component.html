@@ -564,6 +564,7 @@
             <table class="table table-striped">
               <thead>
                 <tr>
+                  <th class="table_title" *ngIf="currentRound.questionType == 2">Question Number</th>
                   <th class="table_title">{{currentRound.questionType != 5 ? 'QUESTION' : 'VIDEO DESCRIPTION'}}</th>
                   <th class="table_title" *ngIf="currentRound.questionType != 2">ANSWER</th>
                   <th class="table_title" *ngFor="let hint of question.hints">HINT {{ question.hints.length <=1 ? "" : hint.id }} </th>
@@ -573,6 +574,9 @@
               </thead>
               <tbody *ngIf="currentRound.questionArray.length > 0">
                 <tr *ngFor="let question of filterQuestion(currentRound.questionArray)">
+                  <ng-container *ngIf="currentRound.questionType == 2">
+                    <td class="common_data">{{ question.id }}</td>
+                  </ng-container>
                   <ng-container *ngIf="currentRound.questionType == 5; else sampleTd">
                     <td class="common_data"><a (click)="previewVideo(videoModal,question.clue)"><u>{{ question.clue }} (perview)</u></a></td>
                   </ng-container>
