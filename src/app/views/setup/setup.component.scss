@@ -5,6 +5,12 @@
 .select_body {
   padding-left: 50px;
 }
+.custom_select{
+  background: #eeeeee75;
+  padding: 0px 10px;
+  border: 2px solid #4DB821;
+  color: #fff;
+}
 
 .title {
   color: #ffffff;
@@ -527,4 +533,8 @@
   padding-bottom: 5px;
   width: auto;
   // text-shadow: 0 0 0.5em #41faff, 0 0 0.5em #41faff;
+}
+
+.mb15{
+  margin-bottom: 15px;
 }
