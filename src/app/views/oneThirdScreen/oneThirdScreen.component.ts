@@ -473,12 +473,19 @@ export class OneThirdScreenComponent implements OnInit {
           }, 0);
         }
         if(index == 0){
-            setTimeout(() => {
-              let span = (<HTMLSpanElement>document.getElementById(id+'_num'));
-              span.innerHTML = ''+ question.id;
-              span.className = question.hints[0].positionCalss;
-            }, 0);
-        }
+          setTimeout(() => {
+            let spanLeft = (<HTMLSpanElement>document.getElementById(id+'_num_left'));
+            let spanTop = (<HTMLSpanElement>document.getElementById(id+'_num_top'));
+            if(question.hints[0].positionCalss.includes('vertical')){
+              spanLeft.innerHTML = ''+ question.id;
+              spanLeft.className = question.hints[0].positionCalss;
+            }else if(question.hints[0].positionCalss.includes('horizontal')){
+              spanTop.innerHTML = ''+ question.id;
+              spanTop.className = question.hints[0].positionCalss;
+            }
+
+          }, 0);
+      }
       })
     })
   }
