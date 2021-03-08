@@ -1046,26 +1046,28 @@ button {
 }
 .vertical-cross-num{
     position: relative;
-      top: -108px;
-      right: -10px;
+      top: -110px;
+      right: -12px;
       background: blue;
       font-size: 16px;
       padding: 0px;
       border-radius: 50%;
       height: 23px;
-      width: 23px;
+      width: 24px;
       display: inline-table;
+      border: 1px solid #0966cc;
   }
   
   .horizontal-cross-num{
     position: relative;
       top: -22px;
-      right: 70PX;
+      right: 71PX;
       background: red;
       font-size: 16px;
       padding: 0px;
       border-radius: 50%;
       height: 23px;
-      width: 23px;
+      width: 24px;
       display: inline-table;
+      border: 1px solid #bd4040;
   }
