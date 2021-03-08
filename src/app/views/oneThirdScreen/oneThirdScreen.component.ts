@@ -131,7 +131,7 @@ export class OneThirdScreenComponent implements OnInit {
     } else {
       this.readFileDev();
     }
-
+    let count = 0;
     _.map(this.timeoutList, (time, i) => {
       let filePath = "";
 
@@ -162,14 +162,14 @@ export class OneThirdScreenComponent implements OnInit {
 
         parsedData.createImages().then(() => {
           console.log("CREATED ALL ");
-          if (i == this.timeoutList.length - 1) {
+          if (count == this.timeoutList.length - 1) {
             this.renderingAPNG = false;
             console.log("data", this.timeoutList);
 
             //initial show the image by current round
             this.renderTimerImage(true, this.currentRound.timeOut);
             this.isRenderedTimer = true;
-          }
+          }else count += 1;
         });
       });
     });

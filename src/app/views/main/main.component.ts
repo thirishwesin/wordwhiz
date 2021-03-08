@@ -125,7 +125,7 @@ export class MainComponent implements OnInit {
   }
 
   readAllTimerFiles() {
-    console.log("READING COUNTDOWN IMAGE");
+    console.log("called readAllTimerFiles function");
 
     //get episodetimeout
     if (AppConfig.production) {
@@ -133,12 +133,11 @@ export class MainComponent implements OnInit {
     } else {
       this.readFileDev();
     }
-
-    _.map(this.timeoutList, (time, i) => {
+    let count = 0;
+    this.timeoutList.map((time, i) => {
       let filePath = "";
 
       let timeOutFileName = time.fileName;
-      console.log('timeOutFileName => ', timeOutFileName)
       if (AppConfig.production)
         filePath =
           process.env.PORTABLE_EXECUTABLE_DIR +
@@ -154,41 +153,44 @@ export class MainComponent implements OnInit {
       }
 
       //read for animated timer
-      readFile(filePath, (err, data) => {
+
+      readFile(filePath,  (err, data) => {
         if (err) throw err;
         let parsedData = parseAPNG(data);
         time.data = parsedData;
+        console.log('index: ', i, 'timeOutFileName: ', timeOutFileName,', data: ', time.data)
+
         if (time.data instanceof Error) {
           return;
         }
-
         parsedData.createImages().then(() => {
-          console.log("CREATED ALL ");
-          if (i == this.timeoutList.length - 1) {
-            this.renderingAPNG = false;
-            console.log("data", this.timeoutList);
 
+          if (count == this.timeoutList.length -1) {
+            this.renderingAPNG = false;
             //initial show the image by current round
+            console.log('this.currentRound.timeOut => ', this.currentRound.timeOut)
             this.renderTimerImage(true, this.currentRound.timeOut);
             this.isRenderedTimer = true;
-          }
+          }else count += 1;
         });
       });
     });
   }
 
   renderTimerImage(initial, timeout: number) {
-    console.log("RENDERING COUNTDOWN IMAGE");
+    console.log("called renderTimerImage function");
     //check read image is finish
     // if (!this.renderingAPNG) {
-      let currentTimeData = _.result(
+      let currentTimeData =
+       _.result(
         _.find(this.timeoutList, ["value", timeout]),
         "data"
       );
       if (!initial) this.renderingAPNG = true;
+      console.log('currentTimeData => ', currentTimeData)
 
       currentTimeData.createImages().then(() => {
-        console.log("CREATED");
+        console.log("CREATED",initial );
         let canvas;
         if (initial) canvas = document.createElement("canvas");
         else canvas = document.querySelector("canvas");
@@ -239,7 +241,7 @@ export class MainComponent implements OnInit {
     if (this.isRenderedTimer) {
       if (this.prevCurrentRound != this.control.currentRoundId) {
         this.renderTimerImage(false, this.currentRound.timeOut);
-      }else if(this.control.resetCount){
+      }else if((this.currentRound.questionType == 6 || this.currentRound.questionType == 2) && this.control.resetCount){
         this.renderTimerImage(false, this.control['resetTo']);
       }
     }
