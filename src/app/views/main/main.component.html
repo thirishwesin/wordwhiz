@@ -146,6 +146,7 @@
                                   >
                                 </div>
                               </ng-container>
+                              <ng-container *ngIf="control.showAns">
                                 <div class="one_word_green retangle{{control.fontSettings.main_answer}}" [ngClass]="char == ' ' ? 'hide_char': currentRound.questionType == 1 ? 'animated heartBeat': 'animated heartBeat' " *ngFor="let char of currentQuestion.ans.split(''); let i=index;">
                                   <input type="text" [value]="char" class="round1_text"
                                     [ngStyle]="{'font-size': currentQuestion.ansFontSize + 'px'}"
@@ -153,6 +154,7 @@
                                      'animated zoomIn ' : 'transparent'"
                                      >
                                 </div>
+                              </ng-container>
                               </ng-container>
                             </div>
                             <div style="margin-left: -30%; margin-top:27%" *ngIf="currentRound.questionType == 5">
