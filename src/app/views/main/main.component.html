@@ -139,11 +139,13 @@
                                 </div>
                               </ng-container>
                               <ng-container *ngIf="currentRound.questionType == 1">
+                                <ng-container *ngIf="!control.showAns">
                                 <div class="one_word_green retangle{{control.fontSettings.main_answer}}" [ngClass]="char == ' ' ? 'hide_char': currentRound.questionType == 1 ? 'blue_bg animated heartBeat': 'animated heartBeat' " *ngFor="let char of currentQuestion.hints[0].value.split(''); let i=index;">
                                   <input type="text" [value]="char" class="round1_text" [ngStyle]="{'font-size': currentQuestion.ansFontSize + 'px'}"
                                   [ngClass]="control.showAns || currentRound.showfirstAnsChar ? 'animated zoomIn' : 'transparent'"
                                   >
                                 </div>
+                              </ng-container>
                                 <div class="one_word_green retangle{{control.fontSettings.main_answer}}" [ngClass]="char == ' ' ? 'hide_char': currentRound.questionType == 1 ? 'animated heartBeat': 'animated heartBeat' " *ngFor="let char of currentQuestion.ans.split(''); let i=index;">
                                   <input type="text" [value]="char" class="round1_text"
                                     [ngStyle]="{'font-size': currentQuestion.ansFontSize + 'px'}"
