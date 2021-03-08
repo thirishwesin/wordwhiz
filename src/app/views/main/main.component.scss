@@ -1040,29 +1040,32 @@ button {
     height: 49px;
     margin-top: 4px;
 }
-
+.blank-circle{
+    width: 23px;
+    display: inline-table;
+}
 .vertical-cross-num{
     position: relative;
-    top: -22px;
-    right: 0PX;
-    background: blue;
-    font-size: 16px;
-    padding: 0px;
-    border-radius: 50%;
-    height: 23px;
-    width: 23px;
-    display: inline-table;
-}
-
-.horizontal-cross-num{
+      top: -108px;
+      right: -10px;
+      background: blue;
+      font-size: 16px;
+      padding: 0px;
+      border-radius: 50%;
+      height: 23px;
+      width: 23px;
+      display: inline-table;
+  }
+  
+  .horizontal-cross-num{
     position: relative;
-    top: -46px;
-    right: 0PX;
-    background: red;
-    font-size: 16px;
-    padding: 0px;
-    border-radius: 50%;
-    height: 23px;
-    width: 23px;
-    display: inline-table;
-}
+      top: -22px;
+      right: 70PX;
+      background: red;
+      font-size: 16px;
+      padding: 0px;
+      border-radius: 50%;
+      height: 23px;
+      width: 23px;
+      display: inline-table;
+  }
