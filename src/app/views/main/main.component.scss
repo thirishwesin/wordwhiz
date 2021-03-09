@@ -991,11 +991,23 @@ button {
 }
 
 //round seven
+.roundseven_body{
+    position: relative;
+    text-align: center;
+    left: -4%;
+    top: -100px
+}
+.roundseven_question{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 98%;
+}
 .roundseven_box{
     height: 310px;
     width: 1290px;
     z-index: -1;
-    margin-left: -65px;
     display: block;
 }
 .roundseven_text{
@@ -1003,14 +1015,9 @@ button {
     background: none;
     border: none;
     font-size: 60px;
-    // padding-top: 11px;
-    // height: 57px;
-    // margin-top: 25px;
     text-align: center;
     width: 71px;
-    top: -235px;
     position: relative;
-    // left: -60px;
 
 }
 .green_answer_text{
@@ -1023,8 +1030,7 @@ button {
     margin-top: -24px;
 }
 .roundseven_answer{
-    margin-left: -9%;
-    position: fixed;
+    margin-left: 41%;
     margin-top: -11%;
 }
 
