@@ -1,16 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 
 @font-face {
-    font-family: 'DIN-Bold','msyh';
-    src: url(assets/fonts/DIN-Bold.otf) format("opentype");
-    src: url(assets/fonts/msyh.ttc) format("opentype");
-    src: url(assets/fonts/msyhl.ttc) format("opentype");
-    src: url(assets/fonts/msyhbd.ttc) format("opentype");
+    font-family:'simsun';
+    // src: url(assets/fonts/DIN-Bold.otf) format("opentype");
+    // src: url(assets/fonts/msyh.ttc) format("opentype");
+    // src: url(assets/fonts/msyhl.ttc) format("opentype");
+    // src: url(assets/fonts/msyhbd.ttc) format("opentype");
+    src: url(assets/fonts/simsun.ttf) format("opentype");
 
 }
 
 * {
-    font-family: "msyh","msyhl","msyhbd";
+    font-family: "simsun";
 }
 
 html {
