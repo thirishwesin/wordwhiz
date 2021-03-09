@@ -883,7 +883,8 @@
     position: absolute;
     width: 86%;
     z-index: -1;
-    margin-left: -46%;
+    margin-left: -6%;
+    margin-top: -12px;
 }
 .roundseven_text{
     color: white;
@@ -892,9 +893,8 @@
     font-size: 45px;
     padding-top: 11px;
     height: 70px;
-    float: left;
     width: 60px;
-    top: 50px;
+    top: 31px;
     position: relative;
 
 }
@@ -903,12 +903,13 @@
     background-size: cover;
     text-align: center;
     width: 97px;
-    height: 88px;
-    margin-top: -6px
+    height: 90px;
+    margin-top: -4px;
+    padding-top: 3px;
 }
 .roundseven_answer{
-    margin-top: 221px;
-    margin-left: -102%;
+    margin-top: 63px;
+    margin-left: -21%;
 }
 
 //round_three_word
