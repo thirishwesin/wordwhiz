@@ -277,26 +277,32 @@
                   </div>
                 </div>
                 <ng-container *ngIf="currentRound.questionType == 7 ">
-                <div>
-                  <div class="margin-top:80px">
-                    <div style="width: 80%;">
+               
+                  
+                    <div class="roundseven_body">
                       <img src="./assets/images/round_two_box.png" class="roundseven_box" alt="">
+                      <div class="roundseven_question">
                       <ng-container *ngFor="let char of currentQuestion.clue.split('')">
                         
-                        <input class="roundseven_text" [value]="char"
-                        [ngStyle]="{'font-size': currentQuestion?.otClueFontSize + 'px'}"
-                          [ngClass]="{'green_answer_text' : char == currentQuestion.hints[0].value && control.showAns}" />
+                          <input class="roundseven_text" [value]="char"
+                          [ngStyle]="{'font-size': currentQuestion?.otClueFontSize + 'px'}"
+                            [ngClass]="{'green_answer_text' : char == currentQuestion.hints[0].value && control.showAns}" />
+                       
+                       
                       </ng-container>
                     </div>
-                  </div>
-                </div>
+                    </div>
+                  </ng-container>
+
+              </div>
+              <!-- Round seven answer -->
+              <ng-container *ngIf="currentRound.questionType == 7 ">
                 <div class="one_word_green retangle roundseven_answer"
                     [ngStyle]="{'visibility': control.showAns ? 'unset': 'hidden'}">
                     <input class="round1_text" style="padding-left:5px" [ngStyle]="{'font-size': currentQuestion?.otAnsFontSize + 'px'}"
                       [value]="currentQuestion.ans" />
                   </div>
                 </ng-container>
-              </div>
             </div>
           </div>
         </div>

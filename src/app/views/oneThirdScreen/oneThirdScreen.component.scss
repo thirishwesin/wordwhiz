@@ -813,10 +813,10 @@
 // .one_third_body{
 //     background-image: url('../../../assets/images/temp/one_third_header_bk.PNG');
 // }
-.mrt20{
-    margin-top: -60px;
-    margin-left: 120px;
-}
+// .mrt20{
+//     margin-top: -60px;
+//     margin-left: 120px;
+// }
 //Round four Answer
 .answer_four{
     margin-top: 17px;
@@ -878,13 +878,27 @@
 // Round Five
 
 //round seven
+.roundseven_body{
+    position: relative;
+    text-align: center;
+    left: -4%;
+    top: -100px
+}
+.roundseven_question{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+}
+
 .roundseven_box{
     height: 240px;
-    position: absolute;
-    width: 86%;
-    z-index: -1;
-    margin-left: -6%;
-    margin-top: -12px;
+    // position: absolute;
+    width: 88%;
+    // z-index: -1;
+    // margin-left: -6%;
+    // margin-top: -12px;
 }
 .roundseven_text{
     color: white;
@@ -894,8 +908,8 @@
     padding-top: 11px;
     height: 70px;
     width: 60px;
-    top: 31px;
-    position: relative;
+    // top: 31px;
+    // position: relative;
 
 }
 .green_answer_text{
@@ -908,8 +922,10 @@
     padding-top: 3px;
 }
 .roundseven_answer{
-    margin-top: 63px;
-    margin-left: -21%;
+    margin-left: -23%;
+    z-index: 9999;
+    position: relative;
+    margin-top: 17%;
 }
 
 //round_three_word
