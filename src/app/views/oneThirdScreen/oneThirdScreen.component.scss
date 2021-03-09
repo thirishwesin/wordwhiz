@@ -929,24 +929,25 @@
 }
 .vertical-cross-num{
     position: relative;
-      top: -110px;
+      top: -80px;
       right: -12px;
-      background: red;
+    
       font-size: 16px;
       padding: 0px;
       border-radius: 50%;
       height: 23px;
       width: 24px;
       display: inline-table;
-      border: 1px solid #bd4040;
+      background: blue;
+      border: 1px solid #0966cc;
   }
   
   .horizontal-cross-num{
     position: relative;
-      top: -22px;
+      top: -48px;
       right: 71PX;
-      
-      background: blue;
+      background: red;
+      border: 1px solid #bd4040;
       font-size: 16px;
       padding: 0px;
       border-radius: 50%;
@@ -954,5 +955,5 @@
       width: 24px;
       display: inline-table;
       
-      border: 1px solid #0966cc;
+      
   }

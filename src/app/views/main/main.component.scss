@@ -1046,23 +1046,25 @@ button {
 }
 .vertical-cross-num{
     position: relative;
-      top: -110px;
-      right: -12px;
-      background: red;
+    top: -82px;
+    right: -13px;
+      
       font-size: 16px;
       padding: 0px;
       border-radius: 50%;
       height: 23px;
       width: 24px;
       display: inline-table;
-      border: 1px solid #bd4040;
+      background: blue;
+      border: 1px solid #0966cc;
   }
   
   .horizontal-cross-num{
     position: relative;
-      top: -22px;
-      right: 71PX;
-      background: blue;
+    top: -48px;
+    right: 71PX;
+      background: red;
+      border: 1px solid #bd4040;
       font-size: 16px;
       padding: 0px;
       border-radius: 50%;
@@ -1070,5 +1072,5 @@ button {
       width: 24px;
       display: inline-table;
       
-      border: 1px solid #0966cc;
+      
   }
