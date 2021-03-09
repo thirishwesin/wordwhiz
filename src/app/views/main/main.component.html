@@ -343,7 +343,7 @@
                       <div style="text-align:center;margin-top: 50px;margin-top: -110px;">
                         <!-- <p class="word">{{currentQuestion.clue}}</p> -->
 
-                      <div style="padding-left: 50px;width: 94%;">
+                      <div style="padding-left: 50px;width: 96%;">
                         <img src="./assets/images/round_two_box.png" class="roundseven_box" alt="">
                         <ng-container *ngFor="let char of currentQuestion.clue.split('')">
                           <input class="roundseven_text"  [value]="char" [ngClass]="{'green_answer_text' : char == currentQuestion.hints[0].value && control.showAns}"/>
