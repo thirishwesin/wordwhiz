@@ -995,3 +995,28 @@
       
       
   }
+
+  .letter_left{
+    transform: scale(0.6,1);
+     padding-left: 0px;
+    text-align: left;
+    position: relative;
+    left: -10px;
+}
+.letter_right{
+    transform: scale(0.6,1);
+    padding-left: 0px;
+    text-align: right;
+    position: relative;
+    right: -12px;
+}
+.letter_top{
+    transform: scaleY(0.5);
+    top: -14px;
+    position: relative;
+}
+.letter_bottom{
+    transform: scaleY(0.4);
+    top: 17px;
+    position: relative;
+}
