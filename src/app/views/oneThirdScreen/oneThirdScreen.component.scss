@@ -995,28 +995,28 @@
       
       
   }
-
-  .letter_left{
-    transform: scale(0.6,1);
-     padding-left: 0px;
-    text-align: left;
-    position: relative;
-    left: -10px;
+.letterleft{
+    transform: scale(0.6,1);
+    padding-left: 0px;
+    text-align: left;
+    position: relative;
+    left: -10px;
 }
-.letter_right{
-    transform: scale(0.6,1);
-    padding-left: 0px;
-    text-align: right;
-    position: relative;
-    right: -12px;
+.letterright{
+    transform: scale(0.6,1);
+    padding-left: 0px;
+    text-align: right;
+    position: relative;
+    right: -12px;
 }
-.letter_top{
+.lettertop{
     transform: scaleY(0.5);
-    top: -14px;
+    top:-14px;
     position: relative;
 }
-.letter_bottom{
-    transform: scaleY(0.4);
-    top: 17px;
-    position: relative;
+
+.letterbottom{
+    transform: scaleY(0.5);
+    top:17px;
+    position: relative;
 }
