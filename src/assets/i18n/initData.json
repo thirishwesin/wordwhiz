@@ -44,7 +44,11 @@
                   "position": 0,
                   "isCharacter": false,
                   "hintFontSize": "60",
-                  "otHintFontSize": "50"
+                  "otHintFontSize": "50",
+                  "positionCalss": [
+                    "center",
+                    "center"
+                  ]
                 }
               ],
               "ans": "麻烦",
@@ -61,11 +65,15 @@
               "hints": [
                 {
                   "id": 1,
-                  "value": "亻雨",
+                  "value": "亻",
                   "position": 0,
                   "isCharacter": false,
                   "hintFontSize": "50",
-                  "otHintFontSize": "50"
+                  "otHintFontSize": "50",
+                  "positionCalss": [
+                    "left",
+                    "right"
+                  ]
                 }
               ],
               "ans": "倒霉",
@@ -82,11 +90,15 @@
               "hints": [
                 {
                   "id": 1,
-                  "value": "灬亠",
+                  "value": "灬亠雨",
                   "position": 0,
                   "isCharacter": false,
                   "hintFontSize": "50",
-                  "otHintFontSize": "50"
+                  "otHintFontSize": "50",
+                  "positionCalss": [
+                    "right",
+                    "top"
+                  ]
                 }
               ],
               "ans": "黑夜",
@@ -107,7 +119,11 @@
                   "position": 0,
                   "isCharacter": false,
                   "hintFontSize": "50",
-                  "otHintFontSize": "50"
+                  "otHintFontSize": "50",
+                  "positionCalss": [
+                    "top",
+                    "bottom"
+                  ]
                 }
               ],
               "ans": "幼小",
@@ -128,7 +144,11 @@
                   "position": 0,
                   "isCharacter": false,
                   "hintFontSize": "50",
-                  "otHintFontSize": "50"
+                  "otHintFontSize": "50",
+                  "positionCalss": [
+                    "bottom",
+                    "center"
+                  ]
                 }
               ],
               "ans": "宾客",
@@ -149,7 +169,11 @@
                   "position": 0,
                   "isCharacter": false,
                   "hintFontSize": "50",
-                  "otHintFontSize": "50"
+                  "otHintFontSize": "50",
+                  "positionCalss": [
+                    "center",
+                    "left"
+                  ]
                 }
               ],
               "ans": "快速",
@@ -170,7 +194,11 @@
                   "position": 0,
                   "isCharacter": false,
                   "hintFontSize": "50",
-                  "otHintFontSize": "50"
+                  "otHintFontSize": "50",
+                  "positionCalss": [
+                    "left",
+                    "right"
+                  ]
                 }
               ],
               "ans": "休息",
@@ -191,7 +219,11 @@
                   "position": 0,
                   "isCharacter": false,
                   "hintFontSize": "50",
-                  "otHintFontSize": "50"
+                  "otHintFontSize": "50",
+                  "positionCalss": [
+                    "right",
+                    "top"
+                  ]
                 }
               ],
               "ans": "强壮",
@@ -418,83 +450,6 @@
                 }
               ],
               "ans": "66,",
-              "isAnsCharacter": true,
-              "clueFontSize": 50,
-              "otClueFontSize": 50,
-              "ansFontSize": 50,
-              "otAnsFontSize": 50
-            },
-            {
-              "id": 9,
-              "clue": "E",
-              "categoryId": 0,
-              "hints": [
-                {
-                  "id": 1,
-                  "value": "EYE",
-                  "position": [
-                    23,
-                    24,
-                    25
-                  ],
-                  "isCharacter": false,
-                  "hintFontSize": 60,
-                  "otHintFontSize": 60,
-                  "positionCalss": "horizontal-cross-num"
-                }
-              ],
-              "ans": "",
-              "isAnsCharacter": true,
-              "clueFontSize": 50,
-              "otClueFontSize": 50,
-              "ansFontSize": 50,
-              "otAnsFontSize": 50
-            },
-            {
-              "id": 10,
-              "clue": "E",
-              "categoryId": 0,
-              "hints": [
-                {
-                  "id": 1,
-                  "value": "EAR",
-                  "position": [
-                    23,
-                    33,
-                    43
-                  ],
-                  "isCharacter": false,
-                  "hintFontSize": 60,
-                  "otHintFontSize": 60,
-                  "positionCalss": "vertical-cross-num"
-                }
-              ],
-              "ans": "",
-              "isAnsCharacter": true,
-              "clueFontSize": 50,
-              "otClueFontSize": 50,
-              "ansFontSize": 50,
-              "otAnsFontSize": 50
-            },
-            {
-              "id": 11,
-              "clue": "A",
-              "categoryId": 0,
-              "hints": [
-                {
-                  "id": 1,
-                  "value": "AT",
-                  "position": [
-                    32,
-                    42
-                  ],
-                  "isCharacter": false,
-                  "hintFontSize": 60,
-                  "otHintFontSize": 60,
-                  "positionCalss": "vertical-cross-num"
-                }
-              ],
-              "ans": "",
               "isAnsCharacter": true,
               "clueFontSize": 50,
               "otClueFontSize": 50,
@@ -801,15 +756,15 @@
                   "value": "桂",
                   "position": 0,
                   "isCharacter": false,
-                  "hintFontSize": 50,
+                  "hintFontSize": "5",
                   "otHintFontSize": 50
                 }
               ],
               "ans": "佳",
               "isAnsCharacter": true,
-              "clueFontSize": 50,
+              "clueFontSize": "5",
               "otClueFontSize": 50,
-              "ansFontSize": 50,
+              "ansFontSize": "5",
               "otAnsFontSize": 50
             },
             {
@@ -876,7 +831,7 @@
               "otAnsFontSize": "50"
             }
           ],
-          "roundNameFontSize": "90",
+          "roundNameFontSize": "20",
           "clueLabelFontSize": "60",
           "roundName": "第四回合"
         }
