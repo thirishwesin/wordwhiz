@@ -325,6 +325,46 @@
                   <input type="text" [id]="'hint' + hintIndex" class="common_input w_100" [(ngModel)]="hint.value" />
                 </div>
                 <div class="form-group" *ngIf="currentRound.questionType !== 6">
+                  <div>
+                    <div>
+                      <label class="common_label">HINT ONE POSITION</label>
+                    </div>
+                    <input type="radio" name="hintOnePosition" (change)="changeROneHintPosition('center', 0)"
+                      [checked]="question.hints[0]?.positionCalss && question.hints[0]?.positionCalss[0] == 'center'"/>
+                    <label class="r1_radio_label">Center</label>
+                    <input type="radio" name="hintOnePosition" (change)="changeROneHintPosition('left', 0)"
+                    [checked]="question.hints[0]?.positionCalss && question.hints[0]?.positionCalss[0] == 'left'"/>
+                    <label class="r1_radio_label">Left</label>
+                    <input type="radio" name="hintOnePosition" (change)="changeROneHintPosition('right', 0)"
+                    [checked]="question.hints[0]?.positionCalss && question.hints[0]?.positionCalss[0] == 'right'"/>
+                    <label class="r1_radio_label">Right</label>
+                    <input type="radio" name="hintOnePosition" (change)="changeROneHintPosition('top', 0)"
+                    [checked]="question.hints[0]?.positionCalss && question.hints[0]?.positionCalss[0] == 'top'"/>
+                    <label class="r1_radio_label">Top</label>
+                    <input type="radio" name="hintOnePosition" (change)="changeROneHintPosition('bottom', 0)"
+                    [checked]="question.hints[0]?.positionCalss && question.hints[0]?.positionCalss[0] == 'bottom'"/>
+                    <label class="r1_radio_label">Bottom</label>
+                  </div>
+                  <div>
+                    <div>
+                      <label class="common_label">HINT TWO POSITION</label>
+                    </div>
+                    <input type="radio" name="hintTwoPosition" (change)="changeROneHintPosition('center', 1)"
+                      [checked]="question.hints[0]?.positionCalss && question.hints[0]?.positionCalss[1] == 'center'"/>
+                    <label class="r1_radio_label">Center</label>
+                    <input type="radio" name="hintTwoPosition" (change)="changeROneHintPosition('left', 1)"
+                    [checked]="question.hints[0]?.positionCalss && question.hints[0]?.positionCalss[1] == 'left'"/>
+                    <label class="r1_radio_label">Left</label>
+                    <input type="radio" name="hintTwoPosition" (change)="changeROneHintPosition('right', 1)"
+                    [checked]="question.hints[0]?.positionCalss && question.hints[0]?.positionCalss[1] == 'right'"/>
+                    <label class="r1_radio_label">Right</label>
+                    <input type="radio" name="hintTwoPosition" (change)="changeROneHintPosition('top', 1)"
+                    [checked]="question.hints[0]?.positionCalss && question.hints[0]?.positionCalss[1] == 'top'"/>
+                    <label class="r1_radio_label">Top</label>
+                    <input type="radio" name="hintTwoPosition" (change)="changeROneHintPosition('bottom', 1)"
+                    [checked]="question.hints[0]?.positionCalss && question.hints[0]?.positionCalss[1] == 'bottom'"/>
+                    <label class="r1_radio_label">Bottom</label>
+                  </div>
                   <div class="row">
                     <div class="col-sm-6">
                       <label for="main_hint_font_size" class="common_label">MAIN HINT FONT SIZE</label>
@@ -568,6 +608,7 @@
                   <th class="table_title">{{currentRound.questionType != 5 ? 'QUESTION' : 'VIDEO DESCRIPTION'}}</th>
                   <th class="table_title" *ngIf="currentRound.questionType != 2">ANSWER</th>
                   <th class="table_title" *ngFor="let hint of question.hints">HINT {{ question.hints.length <=1 ? "" : hint.id }} </th>
+                  <th class="table_title" *ngIf="currentRound.questionType == 1">POSITION</th>
                   <th class="table_title act_width text-center" *ngIf="currentRound.questionType != 2">ACTION</th>
                   <th class="table_title" *ngIf="currentRound.questionType == 2">POSITION</th>
                 </tr>
@@ -590,6 +631,9 @@
                   <ng-template #hintTemplate>
                     <td class="common_data" *ngFor="let hint of question.hints">{{ hint.value }}</td>
                   </ng-template>
+                  <ng-container *ngIf="currentRound.questionType == 1">
+                    <td class="common_data">{{ question.hints[0]?.positionCalss }}</td>
+                  </ng-container>
                   <td *ngIf="currentRound.questionType != 2" [colSpan]="question.hints.length == 0 ? 2: undefined">
                     <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic">
                       <button class="btn-primary btn_table button" (click)=" editQuestionList(question)" *ngIf="currentRound.questionType != 5">EDIT</button>

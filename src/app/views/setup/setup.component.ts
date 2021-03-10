@@ -135,7 +135,8 @@ export class SetupComponent implements OnInit {
           isCharacter: this.questionType ? this.questionType.isHintChar : false, // round 3 question cannot sperate like a char
           hintFontSize: null,
           otHintFontSize: null,
-          positionCalss:  this.currentRound.questionType == 2 ? 'horizontal-cross-num' : '',
+          positionCalss:  this.currentRound.questionType == 2 ? 'horizontal-cross-num' :
+            this.currentRound.questionType == 1 ? ['center','center']: '',
         };
       }
     ); // [1,2,3,4] create array by hintsCount
@@ -974,5 +975,15 @@ export class SetupComponent implements OnInit {
         question.hints[0].positionCalss = positionCalss
       }
     })
+  }
+
+  changeROneHintPosition(position: string, index: number){
+    console.log('position: ', position, 'current question: ', this.question)
+    if(this.question.hints[0].positionCalss)
+      this.question.hints[0].positionCalss[index] = position
+    else{
+      this.question.hints[0].positionCalss = ['','']
+      this.question.hints[0].positionCalss[index] = position
+    }
   }
 }
