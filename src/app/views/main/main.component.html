@@ -93,8 +93,16 @@
               style="background: url('./assets/images/BLUE/blue_blank.png') no-repeat;"
               *ngFor="let item of [41,42,43,44,45,46,47,48,49,410]; let i = index" [id]="item+'_bg'">
               <input type="text" class="round_three_word" [id]="item+'_val'">
-              <span class="blank-circle" [id]="item+'_num_left'"></span>
-              <span class="blank-circle" [id]="item+'_num_top'"></span>
+              <span class="blank-circle" [id]="item+'_num_left'">
+                <span class="horizontal_text">
+                  2
+                </span>
+              </span>
+              <span class="blank-circle" [id]="item+'_num_top'">
+                <span class="vertical_text">
+                  1
+                </span>
+              </span>
             </div>
           </div>
           <div class="row" style="flex-wrap: initial;">

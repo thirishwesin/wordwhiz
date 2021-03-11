@@ -1099,6 +1099,24 @@ button {
       display: inline-table;
       background: #f9f906;
       color:#000;
+    //   position: relative;
+    // top: -78px;
+    // right: 10px;
+    // padding: 0px;
+    // display: inline-table;
+    // color: #000;
+    // width: 0;
+    // height: 0;
+    // border-right: 20px solid transparent;
+    // border-left: 20px solid transparent;
+    // border-top: 35px solid #f9f906;
+      .vertical_text{
+        position: absolute;
+        top: -34px;
+        left: -4px;
+        font-weight: bolder;
+        text-shadow: 1px 2px 2px #333333;
+    }
   }
   
   .horizontal-cross-num{
@@ -1112,6 +1130,23 @@ button {
       height: 23px;
       width: 24px;
       display: inline-table;
+
+    // position: relative;
+    // top: -42px;
+    // right: 41PX;
+    // display: inline-table;
+    // width: 0;
+    // height: 0;
+    // border-top: 20px solid transparent;
+    // border-bottom: 20px solid transparent;
+    // border-left: 35px solid red;
+    .horizontal_text{
+        position: absolute;
+    top: -14px;
+    left: -27px;
+    font-weight: bolder;
+    text-shadow: 1px 2px 2px #333333;
+    }
       
       
   }
