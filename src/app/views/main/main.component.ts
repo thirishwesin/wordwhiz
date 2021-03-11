@@ -449,6 +449,8 @@ export class MainComponent implements OnInit {
           setTimeout(() => {
             (<HTMLInputElement>document.getElementById(id+'_val')).value =
             question.hints[0].value.charAt(index).toUpperCase();
+            (<HTMLInputElement>document.getElementById(id+'_bg')).style.background =
+              `url(./assets/images/BLUE/blue_blank.png) no-repeat`;
             let greenBgDiv = (<HTMLDivElement>document.getElementById(id+'_bg'));
             if(greenBgDiv.style.background.includes('GREEN')){
               greenBgDiv.style.background = `url(./assets/images/BLUE/blue_blank.png) no-repeat`;
@@ -467,11 +469,13 @@ export class MainComponent implements OnInit {
             setTimeout(() => {
               let spanLeft = (<HTMLSpanElement>document.getElementById(id+'_num_left'));
               let spanTop = (<HTMLSpanElement>document.getElementById(id+'_num_top'));
+              let spanLeftVal = (<HTMLSpanElement>document.getElementById(id+'_num_val_left'));
+              let spanTopVal = (<HTMLSpanElement>document.getElementById(id+'_num_val_top'));
               if(question.hints[0].positionCalss.includes('vertical')){
-                spanLeft.innerHTML = ''+ question.id;
+                spanTopVal.innerHTML = ''+ question.id;
                 spanLeft.className = question.hints[0].positionCalss;
               }else if(question.hints[0].positionCalss.includes('horizontal')){
-                spanTop.innerHTML = ''+ question.id;
+                spanLeftVal.innerHTML = ''+ question.id;
                 spanTop.className = question.hints[0].positionCalss;
               }
 
