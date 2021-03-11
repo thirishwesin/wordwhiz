@@ -170,29 +170,29 @@
             <div class="text-center " *ngIf="currentQuestion?.isAnsCharacter">
               <div style="text-align: center;margin-left: -34%;" *ngIf="currentRound.questionType != 5">
                 <ng-container *ngIf="currentRound.questionType == 6">
-                  <div class="one_word_green retangle{{control.fontSettings.main_answer}}"
+                  <div class="one_word_green one_word_green_Ronetwo retangle{{control.fontSettings.main_answer}}"
                     [ngClass]="char == ' ' ? 'hide_char': i==0 && currentRound.questionType == 1 ? 'blue_bg animated heartBeat': 'animated heartBeat' "
                     *ngFor="let char of ansCharArr; let i=index;">
-                    <input type="text" [value]="char" class="round1_text"
+                    <input type="text" [value]="char" class="round1_text oneword_text_Ronetwo"
                       [ngStyle]="{'font-size': currentQuestion.ansFontSize + 'px'}" [ngClass]="control.showAns ?
                                     'animated zoomIn ' : 'transparent'">
                   </div>
                 </ng-container>
                 <ng-container *ngIf="currentRound.questionType == 1">
                   <ng-container *ngIf="!control.showAns">
-                    <div class="one_word_green retangle{{control.fontSettings.main_answer}}"
+                    <div class="one_word_green one_word_green_Ronetwo retangle{{control.fontSettings.main_answer}}"
                       [ngClass]="char == ' ' ? 'hide_char': currentRound.questionType == 1 ? 'blue_bg animated heartBeat': 'animated heartBeat' "
                       *ngFor="let char of currentQuestion.hints[0].value.split(''); let i=index;">
-                      <input type="text" [value]="char" class="round1_text" [class]="'letter'+currentQuestion.hints[0].positionCalss[i]"
+                      <input type="text" [value]="char" class="round1_text oneword_text_Ronetwo" [class]="'letter'+currentQuestion.hints[0].positionCalss[i]"
                         [ngStyle]="{'font-size': currentQuestion.ansFontSize + 'px'}"
                         [ngClass]="control.showAns || currentRound.showfirstAnsChar ? 'animated zoomIn' : 'transparent'">
                     </div>
                   </ng-container>
                   <ng-container *ngIf="control.showAns">
-                    <div class="one_word_green retangle{{control.fontSettings.main_answer}}"
+                    <div class="one_word_green one_word_green_Ronetwo retangle{{control.fontSettings.main_answer}}"
                       [ngClass]="char == ' ' ? 'hide_char': currentRound.questionType == 1 ? 'animated heartBeat': 'animated heartBeat' "
                       *ngFor="let char of currentQuestion.ans.split(''); let i=index;">
-                      <input type="text" [value]="char" class="round1_text"
+                      <input type="text" [value]="char" class="round1_text oneword_text_Ronetwo"
                         [ngStyle]="{'font-size': currentQuestion.ansFontSize + 'px'}" [ngClass]="control.showAns ?
                                      'animated zoomIn ' : 'transparent'">
                     </div>

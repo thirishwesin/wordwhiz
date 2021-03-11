@@ -196,6 +196,11 @@ button {
     // margin-left: -30px;
 }
 
+.one_word_green_Ronetwo{
+    min-height: 210px;
+    min-width: 205px;
+}
+
 .one_word_blue {
     background: url(../../../assets/images/BLUE/blue_blank.png) no-repeat;
     -webkit-background-size: cover;
@@ -206,7 +211,10 @@ button {
     width: auto;
     //margin-left: -30px;
 }
-
+.one_word_green_Rone{
+    min-height: 140px;
+    min-width: 145px;
+}
 .long_word_blue {
     width: calc(14em + 3vw);
     background: no-repeat;
@@ -814,6 +822,22 @@ button {
     font-size: 45px;
     outline: none;
     margin-left: 1px;
+    padding-top: 3px;
+    color: #fff;
+    font-weight: bolder;
+    text-shadow: 1px 2px 2px #333333;
+}
+
+.oneword_text_Ronetwo{
+    width: 180px;
+    text-align: center;
+    margin: 0;
+    height: 207px;
+    background: none;
+    border: none;
+    font-size: 45px;
+    outline: none;
+    margin-left: 15px;
     padding-top: 3px;
     color: #fff;
     font-weight: bolder;
