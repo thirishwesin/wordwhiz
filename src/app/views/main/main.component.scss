@@ -1110,14 +1110,14 @@ button {
     // border-right: 20px solid transparent;
     // border-left: 20px solid transparent;
     // border-top: 35px solid #f9f906;
-      .vertical_text{
-        position: absolute;
-        top: -34px;
-        left: -4px;
-        font-weight: bolder;
-        text-shadow: 1px 2px 2px #333333;
-    }
   }
+  .vertical_text{
+    position: absolute;
+    top: -34px;
+    left: -4px;
+    font-weight: bolder;
+    text-shadow: 1px 2px 2px #333333;
+}
   
   .horizontal-cross-num{
     position: relative;
@@ -1139,17 +1139,16 @@ button {
     // height: 0;
     // border-top: 20px solid transparent;
     // border-bottom: 20px solid transparent;
-    // border-left: 35px solid red;
-    .horizontal_text{
-        position: absolute;
-    top: -14px;
-    left: -27px;
-    font-weight: bolder;
-    text-shadow: 1px 2px 2px #333333;
-    }
-      
-      
+    // border-left: 35px solid red;      
   }
+  .horizontal_text{
+    position: absolute;
+top: -14px;
+left: -27px;
+font-weight: bolder;
+text-shadow: 1px 2px 2px #333333;
+}
+  
 .letterleft{
     transform: scale(0.6,1);
     padding-left: 0px;
