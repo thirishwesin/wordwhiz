@@ -918,6 +918,9 @@ button {
     background-size: cover !important;
     padding: 0px !important;
     border: none !important;
+    margin-top: -1px;
+    margin-left: -1px;
+    background: #f5cbf9;
 }
 
 .mtm60 {
@@ -1083,8 +1086,9 @@ button {
     text-shadow: 1px 2px 2px #333333;
 }
 .blank-circle{
-    width: 23px;
+    width: 33px;
     display: inline-table;
+    height: 23px;
 }
 .vertical-cross-num{
     // position: relative;
@@ -1100,8 +1104,9 @@ button {
     //   background: #f9f906;
     //   color:#000;
     position: relative;
-    top: -78px;
+    top: -121px;
     right: 10px;
+
     padding: 0px;
     display: inline-table;
     color: #000;
@@ -1113,8 +1118,8 @@ button {
   }
   .vertical_text{
     position: absolute;
-    top: -14px;
-    left: -28px;
+    top: -34px;
+    left: -5px;
     font-weight: bolder;
     text-shadow: 1px 2px 2px #333333;
 }
@@ -1132,8 +1137,8 @@ button {
     //   display: inline-table;
 
     position: relative;
-    top: -82px;
-    right: 34PX;
+    top: -41px;
+    right: 43PX;
     display: inline-table;
     width: 0;
     height: 0;
@@ -1143,8 +1148,8 @@ button {
   }
   .horizontal_text{
     position: absolute;
-    top: -35px;
-    left: -6px;
+    top: -15px;
+    left: -29px;
     font-weight: bolder;
     text-shadow: 1px 2px 2px #333333;
 }
