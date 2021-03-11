@@ -1099,7 +1099,7 @@ button {
     //   display: inline-table;
     //   background: #f9f906;
     //   color:#000;
-      position: relative;
+    position: relative;
     top: -78px;
     right: 10px;
     padding: 0px;
@@ -1113,8 +1113,8 @@ button {
   }
   .vertical_text{
     position: absolute;
-    top: -34px;
-    left: -4px;
+    top: -36px;
+    left: -5px;
     font-weight: bolder;
     text-shadow: 1px 2px 2px #333333;
 }
@@ -1132,21 +1132,21 @@ button {
     //   display: inline-table;
 
     position: relative;
-    top: -42px;
-    right: 41PX;
+    top: -82px;
+    right: 34PX;
     display: inline-table;
     width: 0;
     height: 0;
     border-top: 20px solid transparent;
     border-bottom: 20px solid transparent;
-    border-left: 35px solid red;      
+    border-left: 35px solid red;     
   }
   .horizontal_text{
     position: absolute;
-top: -14px;
-left: -27px;
-font-weight: bolder;
-text-shadow: 1px 2px 2px #333333;
+    top: -15px;
+    left: -29px;
+    font-weight: bolder;
+    text-shadow: 1px 2px 2px #333333;
 }
   
 .letterleft{
