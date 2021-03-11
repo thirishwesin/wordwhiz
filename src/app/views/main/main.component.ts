@@ -467,16 +467,16 @@ export class MainComponent implements OnInit {
         }
         if(index == 0){
             setTimeout(() => {
-              let spanLeft = (<HTMLSpanElement>document.getElementById(id+'_num_left'));
-              let spanTop = (<HTMLSpanElement>document.getElementById(id+'_num_top'));
-              let spanLeftVal = (<HTMLSpanElement>document.getElementById(id+'_num_val_left'));
-              let spanTopVal = (<HTMLSpanElement>document.getElementById(id+'_num_val_top'));
+              let spanHorisontal = (<HTMLSpanElement>document.getElementById(id+'_horizontal'));
+              let spanVertical = (<HTMLSpanElement>document.getElementById(id+'_vertical'));
+              let spanHorisontalVal = (<HTMLSpanElement>document.getElementById(id+'_horizontal_val'));
+              let spanVerticalVal = (<HTMLSpanElement>document.getElementById(id+'_vertical_val'));
               if(question.hints[0].positionCalss.includes('vertical')){
-                spanTopVal.innerHTML = ''+ question.id;
-                spanLeft.className = question.hints[0].positionCalss;
+                spanVerticalVal.innerHTML = ''+ question.id;
+                spanVertical.className = question.hints[0].positionCalss;
               }else if(question.hints[0].positionCalss.includes('horizontal')){
-                spanLeftVal.innerHTML = ''+ question.id;
-                spanTop.className = question.hints[0].positionCalss;
+                spanHorisontalVal.innerHTML = ''+ question.id;
+                spanHorisontal.className = question.hints[0].positionCalss;
               }
 
             }, 0);
