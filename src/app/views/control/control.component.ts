@@ -1350,5 +1350,13 @@ export class ControlComponent implements OnInit {
         this.currentPoint = this.currentRound.secondPoint
       }
     }
+    // update point for round one
+    if(this.currentRound.questionType == 1){
+      if(timeOut == 10){
+        this.currentPoint = this.currentRound.point
+      }else if(timeOut == 5){
+        this.currentPoint = this.currentRound.secondPoint
+      }
+    }
   }
 }
