@@ -7,6 +7,8 @@
         "categories": [],
         "timeOut": 10,
         "point": 10,
+        "secondTimeOut": 5,
+        "secondPoint": 5,
         "questionArray": [],
         "roundNameFontSize": "90",
         "clueLabelFontSize": "60",
@@ -81,5 +83,5 @@
         "clueLabelFontSize": "60",
         "roundName": "第五回合"
     }
-   
+
 ]
