@@ -908,8 +908,8 @@ button {
 }
 
 .alpha_text {
-    height: 60px !important;
-    width: 60px !important;
+    height: 80px !important;
+    width: 80px !important;
     text-align: center;
     padding: 1.5%;
     font-weight: bold;
@@ -918,9 +918,9 @@ button {
     background-size: cover !important;
     padding: 0px !important;
     border: none !important;
-    margin-top: 0px;
-    margin-left: -1px;
-    background: #f5cbf9;
+    margin-top: -12px;
+    margin-left: -8px;
+    background: url('../../../assets/images/gray.png') no-repeat;
 }
 
 .mtm60 {
@@ -960,7 +960,7 @@ button {
     width: 70%;
     font-size: 33px;
     text-align: center;
-    top: -8%;
+    top: -7%;
     padding-top: 11px;
     height: 70px;
 }
@@ -1076,11 +1076,11 @@ button {
 .round_three_word{
     background: none;
     text-align: center;
-    width: 60px;
+    width: 70px;
     border: none;
     color: #fff;
     font-size: 37px;
-    height: 49px;
+    height: 69px;
     margin-top: 4px;
     font-weight: bolder;
     text-shadow: 1px 2px 2px #333333;
@@ -1104,7 +1104,7 @@ button {
     //   background: #f9f906;
     //   color:#000;
     position: relative;
-    top: -121px;
+    top: -84px;
     right: 10px;
 
     padding: 0px;
@@ -1137,8 +1137,8 @@ button {
     //   display: inline-table;
 
     position: relative;
-    top: -47px;
-    right: 43PX;
+    top: -60px;
+    right: 26PX;
     display: inline-table;
     width: 0;
     height: 0;

@@ -323,7 +323,7 @@
     </div>
     <div class="col-sm-6" style="margin-top: 190px;">
       <div *ngIf="this.prevCategoryId == this.currentQuestion.categoryId">
-        <div style="margin-top: 30px;">
+        <div style="margin-top: 30px;margin-left: -55px;">
 
           <div class="row" style="flex-wrap: initial;">
             <div class="alpha_text" *ngFor="let item of [11,12,13,14,15,16,17,18,19,110]; let i = index"
@@ -420,7 +420,7 @@
           </div>
         </div>
       </div>
-      <div style="margin-top: 115px;" *ngIf="control.showQuestion">
+      <div style="margin-top: 47px;" *ngIf="control.showQuestion">
         <img src="./assets/images/round_two_box.png" class="roundtwo_box" alt="">
         <input [value]="currentQuestion?.clue" class="roundtwohit"
           [ngStyle]="{'font-size': currentQuestion.otClueFontSize + 'px'}" />

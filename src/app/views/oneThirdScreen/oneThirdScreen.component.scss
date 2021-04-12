@@ -715,8 +715,8 @@
 }
 
 .alpha_text {
-    height: 60px !important;
-    width: 60px !important;
+    height: 80px !important;
+    width: 80px !important;
     text-align: center;
     padding: 1.5%;
     font-weight: bold;
@@ -726,8 +726,9 @@
     padding: 0px !important;
     border: none !important;
 
-    margin-left: -1px;
-    background: #f5cbf9;
+    margin-left: -8px;
+    margin-top: -12px;
+    background: url(../../../assets/images/gray.png);
 }
 
 .round1_text {
@@ -956,11 +957,11 @@
 .round_three_word{
     background: none;
     text-align: center;
-    width: 60px;
+    width: 71px;
     border: none;
     color: #fff;
     font-size: 37px;
-    height: 49px;
+    height: 69px;
     margin-top: 4px;
 }
 
@@ -984,7 +985,7 @@
     //   color:#000;
 
     position: relative;
-    top: -119px;
+    top: -89px;
     right: 10px;
 
     padding: 0px;
@@ -1019,8 +1020,8 @@
     //   display: inline-table;
 
     position: relative;
-    top: -47px;
-    right: 41PX;
+    top: -68px;
+    right: 30PX;
     display: inline-table;
     width: 0;
     height: 0;
