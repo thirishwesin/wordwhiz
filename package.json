@@ -91,10 +91,12 @@
         "@fortawesome/free-solid-svg-icons": "^5.11.2",
         "@ng-bootstrap/ng-bootstrap": "^5.1.1",
         "@ngrx/store": "^8.3.0",
+        "@stomp/stompjs": "^6.1.2",
         "animate.css": "^3.7.2",
         "apng-js": "1.1.0",
         "bootstrap": "^4.3.1",
         "jquery": "^3.4.1",
-        "lodash": "^4.17.15"
+        "lodash": "^4.17.15",
+        "sockjs-client": "^1.5.2"
     }
 }

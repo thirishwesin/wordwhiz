@@ -1,34 +1,36 @@
-import {Component, OnInit} from "@angular/core";
-import {Store} from "@ngrx/store";
-import {Router, ActivatedRoute} from "@angular/router";
-import {AppConfig} from "../../environments/environment";
-import {initStore} from "../core/actions/wordWhiz.actions";
+import { Component, OnInit } from "@angular/core";
+import { Store } from "@ngrx/store";
+import { Router, ActivatedRoute } from "@angular/router";
+import { AppConfig } from "../../environments/environment";
+import { initStore } from "../core/actions/wordWhiz.actions";
 import {
   updateCurrentEpisodeId,
-  updateFontSettingControl
+  updateFontSettingControl,
 } from "../core/actions/control.actions";
-import {updateEpisodeStore} from "../core/actions/episode.actions";
-import {WordWhiz} from "../core/models/wordWhiz";
+import { updateEpisodeStore } from "../core/actions/episode.actions";
+import { WordWhiz } from "../core/models/wordWhiz";
 import initData from "../../assets/i18n/initData.json";
 import addEpisodePlayers from "../../assets/i18n/addEpisodePlayers.json";
 import addEpisodeRounds from "../../assets/i18n/addEpisodeRounds.json";
-import {faPlusCircle, faMinusCircle} from "@fortawesome/free-solid-svg-icons";
-import {Images} from "../common/images";
+import { faPlusCircle, faMinusCircle } from "@fortawesome/free-solid-svg-icons";
+import { Images } from "../common/images";
 import {
   writeFileSync,
   existsSync,
   mkdirSync,
   readFileSync,
-  writeFile
+  writeFile,
 } from "fs";
-import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import * as _ from "lodash";
-import {saveFile} from "../common/functions";
+import { saveFile } from "../common/functions";
+import { Stomp } from "@stomp/stompjs";
+import * as SockJS from "sockjs-client";
 
 @Component({
   selector: "app-home",
   templateUrl: "./home.component.html",
-  styleUrls: ["./home.component.scss"]
+  styleUrls: ["./home.component.scss"],
 })
 export class HomeComponent implements OnInit {
   paramObj: any;
@@ -48,13 +50,16 @@ export class HomeComponent implements OnInit {
   addModal: number;
   episodeId: number;
 
+  websocket: any;
+  disabled: boolean;
+
   constructor(
     private modalService: NgbModal,
     private store: Store<{ wordWhiz: WordWhiz }>,
     public router: Router,
     private route: ActivatedRoute
   ) {
-    this.store.subscribe(item => {
+    this.store.subscribe((item) => {
       this.wordWhiz = item.wordWhiz;
     });
 
@@ -71,25 +76,25 @@ export class HomeComponent implements OnInit {
       console.log("initData >> ", this.jsonObj);
       if (this.wordWhiz.questionTypes.length == 0) {
         // initialize Data only when no store
-        this.store.dispatch(initStore({wordWhiz: this.jsonObj}));
+        this.store.dispatch(initStore({ wordWhiz: this.jsonObj }));
       }
     } else {
       //----DEVELOPMENT----//
       // this.readFileDev();
 
       console.log("development initData >> ", initData);
-      this.store.dispatch(initStore({wordWhiz: initData}));
+      this.store.dispatch(initStore({ wordWhiz: initData }));
     }
 
     //init FontSettings from json data
     this.store.dispatch(
-      updateFontSettingControl({fontSettings: this.wordWhiz.fontSettings})
+      updateFontSettingControl({ fontSettings: this.wordWhiz.fontSettings })
     );
   }
 
   ngOnInit() {
-    this.route.queryParamMap.subscribe(params => {
-      this.paramObj = {...params.keys, ...params};
+    this.route.queryParamMap.subscribe((params) => {
+      this.paramObj = { ...params.keys, ...params };
       this.prevRoute = this.paramObj.params.id;
     });
 
@@ -103,9 +108,11 @@ export class HomeComponent implements OnInit {
       //show toast or prompt
     } else {
       //update currentEpisode and navigate
-      this.store.dispatch(updateCurrentEpisodeId({currentEpisodeId: episode.id}));
+      this.store.dispatch(
+        updateCurrentEpisodeId({ currentEpisodeId: episode.id })
+      );
 
-      this.store.dispatch(updateEpisodeStore({episode}));
+      this.store.dispatch(updateEpisodeStore({ episode }));
 
       if (this.userView) this.router.navigate(["/control"]);
       else this.router.navigate(["/setup"]);
@@ -119,15 +126,15 @@ export class HomeComponent implements OnInit {
     // if (isAdd) this.addModal = true;
     this.addModal = isAdd;
     this.modalService
-      .open(content, {ariaLabelledBy: "modal-basic-title", centered: true})
+      .open(content, { ariaLabelledBy: "modal-basic-title", centered: true })
       .result.then(
-      result => {
-        if (isAdd == 1) this.addEpisodeSetup();
-        else if (isAdd == 0) this.removeEpisode(episode);
-        else if (isAdd == 2) this.closeApp();
-      },
-      reason => reason
-    );
+        (result) => {
+          if (isAdd == 1) this.addEpisodeSetup();
+          else if (isAdd == 0) this.removeEpisode(episode);
+          else if (isAdd == 2) this.closeApp();
+        },
+        (reason) => reason
+      );
   }
 
   addEpisodeSetup() {
@@ -138,10 +145,9 @@ export class HomeComponent implements OnInit {
           ? 1
           : this.wordWhiz.episodes.slice(-1).pop().id + 1,
       players: _.cloneDeep(addEpisodePlayers),
-      rounds: _.cloneDeep(addEpisodeRounds)
+      rounds: _.cloneDeep(addEpisodeRounds),
     });
-    saveFile(this.wordWhiz, () => {
-    });
+    saveFile(this.wordWhiz, () => {});
   }
 
   removeEpisode(episode) {
@@ -149,12 +155,11 @@ export class HomeComponent implements OnInit {
     this.wordWhiz.episodes.splice(removeIndex, 1);
 
     let prevId = 0;
-    this.wordWhiz.episodes.map(episode => {
+    this.wordWhiz.episodes.map((episode) => {
       if (episode.id != prevId + 1) episode.id = episode.id - 1;
       prevId = episode.id;
     });
-    saveFile(this.wordWhiz, () => {
-    });
+    saveFile(this.wordWhiz, () => {});
   }
 
   exportFile(path) {
@@ -162,7 +167,7 @@ export class HomeComponent implements OnInit {
     writeFile(
       path + "/wordWhiz_" + new Date().getTime() + ".json",
       JSON.stringify(this.wordWhiz),
-      err => {
+      (err) => {
         if (err) {
           console.log("err");
         }
@@ -188,7 +193,6 @@ export class HomeComponent implements OnInit {
   }
 
   writeFileforProduction() {
-
     const filePath = process.env.PORTABLE_EXECUTABLE_DIR + "/data";
     if (!existsSync(filePath)) {
       mkdirSync(filePath);
@@ -197,7 +201,8 @@ export class HomeComponent implements OnInit {
   }
 
   readFileProduction() {
-    const filePath = process.env.PORTABLE_EXECUTABLE_DIR + "/data/releaseInitData.json";
+    const filePath =
+      process.env.PORTABLE_EXECUTABLE_DIR + "/data/releaseInitData.json";
     console.log(filePath);
     const encodedData = readFileSync(filePath, "utf8");
     this.jsonObj = JSON.parse(encodedData);
@@ -212,5 +217,41 @@ export class HomeComponent implements OnInit {
 
   closeApp() {
     require("electron").remote.app.quit();
+  }
+
+  initWebSocketConnect() {
+    let socket = new WebSocket("ws://localhost:8080/ws/websocket");
+    this.websocket = Stomp.over(socket);
+    let that = this;
+    this.websocket.connect(
+      {
+        user: 'gameLogic',
+      },
+      function (frame) {
+        that.websocket.subscribe("/external-device/submit/answer", function (answer) {
+          console.log('answer: ', answer.body)
+        });
+        that.disabled = true;
+      },
+      function(error) {
+        console.log("STOMP error ", error);
+      }
+    );
+  }
+
+  sendQuestion() {
+    let question = JSON.stringify({
+      'question': 'Question one',
+      'toPlayer': 'player1'
+    })
+    this.websocket.send("/control-screen/show/question/to/specific-player", {}, question);
+  }
+
+  disconnect() {
+    if (this.websocket != null) {
+      this.websocket.ws.close();
+    }
+    this.disabled = false;
+    console.log("Disconnected");
   }
 }
