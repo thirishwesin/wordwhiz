@@ -15,7 +15,7 @@ src/**/*.js
 /node_modules
 
 # IDEs and editors
-/.idea
+.idea
 .project
 .classpath
 .c9/
@@ -50,3 +50,4 @@ package-lock.json
 Thumbs.db
 /yarn.lock
 /*-lock.json
+
