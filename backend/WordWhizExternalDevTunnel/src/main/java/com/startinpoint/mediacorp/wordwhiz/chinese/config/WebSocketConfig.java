@@ -28,8 +28,7 @@ import java.util.List;
 public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
 
 	private static final String[] DESTINATION_PREFIXES = {"/show/question/to/specific-player",
-			"/show/question/to/all-player",
-			"/submit/answer", "/all"};
+			"/show/question/to/all-player","/submit/answer", "/send/online-user", "/send/offline-user", "/all"};
   private static final String[] APP_DESTINATION_PREFIXES = {"/control-screen","/app-screen"};
 
 	@Override
@@ -50,12 +49,11 @@ public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
 			public Message<?> preSend(Message<?> message, MessageChannel channel) {
 				StompHeaderAccessor accessor = MessageHeaderAccessor.getAccessor(message, StompHeaderAccessor.class);
 				if (StompCommand.CONNECT.equals(accessor.getCommand())) {
-					String user = accessor.getFirstNativeHeader("user");
-					System.out.println("user: " + user);
-					if (!StringUtils.isEmpty(user)) {
+					String username = accessor.getFirstNativeHeader("username");
+					if (!StringUtils.isEmpty(username)) {
 						List<GrantedAuthority> authorities = new ArrayList<>();
 						authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
-						Authentication auth = new UsernamePasswordAuthenticationToken(user, user, authorities);
+						Authentication auth = new UsernamePasswordAuthenticationToken(username, username, authorities);
 						SecurityContextHolder.getContext().setAuthentication(auth);
 						accessor.setUser(auth);
 					}
