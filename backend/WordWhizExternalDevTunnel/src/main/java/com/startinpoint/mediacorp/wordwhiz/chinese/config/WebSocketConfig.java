@@ -8,6 +8,7 @@ import org.springframework.messaging.simp.config.ChannelRegistration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
 import org.springframework.messaging.simp.stomp.StompCommand;
 import org.springframework.messaging.simp.stomp.StompHeaderAccessor;
+import org.springframework.messaging.support.ChannelInterceptor;
 import org.springframework.messaging.support.ChannelInterceptorAdapter;
 import org.springframework.messaging.support.MessageHeaderAccessor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -20,12 +21,9 @@ import org.springframework.web.socket.config.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by VIRONOE on 05/04/2017.
- */
 @Configuration
 @EnableWebSocketMessageBroker
-public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
+public class WebSocketConfig implements WebSocketMessageBrokerConfigurer  {
 
 	private static final String[] DESTINATION_PREFIXES = {"/show/question/to/specific-player",
 			"/show/question/to/all-player","/submit/answer", "/send/online-user", "/send/offline-user", "/all"};
@@ -39,12 +37,12 @@ public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
 	}
 
 	public void registerStompEndpoints(StompEndpointRegistry stompEndpointRegistry) {
-		stompEndpointRegistry.addEndpoint("/ws").setAllowedOrigins("http://localhost:4200").withSockJS();
+		stompEndpointRegistry.addEndpoint("/ws").setAllowedOriginPatterns("*").withSockJS();
 	}
 
 	@Override
 	public void configureClientInboundChannel(ChannelRegistration registration) {
-		registration.setInterceptors(new ChannelInterceptorAdapter() {
+		registration.interceptors(new ChannelInterceptor() {
 			@Override
 			public Message<?> preSend(Message<?> message, MessageChannel channel) {
 				StompHeaderAccessor accessor = MessageHeaderAccessor.getAccessor(message, StompHeaderAccessor.class);
