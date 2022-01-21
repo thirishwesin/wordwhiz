@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>WebSocket</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+  <script th:src="@{/webjars/sockjs-client/sockjs.min.js}"></script>
+  <script th:src="@{/webjars/stomp-websocket/stomp.min.js}"></script>
+  <script th:src="@{../../js/websocket.js}"></script>
+  <script th:src="@{../../js/app.js}"></script>
+  <script th:src="@{../../js/round4.js}"></script>
+  <script th:src="@{../../lib/signature_pad.umd.js}"></script>
+</head>
+<body>
+<div class="col-md-12">
+  <div id="quizSection" th:insert="fragments/question :: question"></div>
+  <div id="choosePlayerScreen" th:insert="fragments/choosePlayer :: choosePlayer"></div>
+  <div id="round2Screen" th:insert="fragments/round2 :: round2"></div>
+  <div id="round4Screen" th:insert="fragments/round4 :: round4"></div>
+</div>
+</body>
+</html>
