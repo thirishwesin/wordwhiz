@@ -24,8 +24,8 @@ import {
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import * as _ from "lodash";
 import { saveFile } from "../common/functions";
-import { Stomp } from "@stomp/stompjs";
-import * as SockJS from "sockjs-client";
+import { wordWhizIsConnected } from "../core/actions/externalDevice.actions";
+import { ExternalDevice } from "../core/models/externalDevice";
 
 @Component({
   selector: "app-home",
@@ -50,14 +50,11 @@ export class HomeComponent implements OnInit {
   addModal: number;
   episodeId: number;
 
-  websocket: any;
-  disabled: boolean;
-
   constructor(
     private modalService: NgbModal,
-    private store: Store<{ wordWhiz: WordWhiz }>,
+    private store: Store<{ wordWhiz: WordWhiz, externalDevice: ExternalDevice }>,
     public router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
   ) {
     this.store.subscribe((item) => {
       this.wordWhiz = item.wordWhiz;
@@ -216,42 +213,7 @@ export class HomeComponent implements OnInit {
   }
 
   closeApp() {
+    this.store.dispatch(wordWhizIsConnected({isConnected: false}))
     require("electron").remote.app.quit();
-  }
-
-  initWebSocketConnect() {
-    let socket = new WebSocket("ws://localhost:8080/ws/websocket");
-    this.websocket = Stomp.over(socket);
-    let that = this;
-    this.websocket.connect(
-      {
-        user: 'gameLogic',
-      },
-      function (frame) {
-        that.websocket.subscribe("/external-device/submit/answer", function (answer) {
-          console.log('answer: ', answer.body)
-        });
-        that.disabled = true;
-      },
-      function(error) {
-        console.log("STOMP error ", error);
-      }
-    );
-  }
-
-  sendQuestion() {
-    let question = JSON.stringify({
-      'question': 'Question one',
-      'toPlayer': 'player1'
-    })
-    this.websocket.send("/control-screen/show/question/to/specific-player", {}, question);
-  }
-
-  disconnect() {
-    if (this.websocket != null) {
-      this.websocket.ws.close();
-    }
-    this.disabled = false;
-    console.log("Disconnected");
   }
 }
