@@ -1,8 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <div th:fragment="round2">
-  <div class="col-sm-12">
-    <p>I am Round Two</p>
-  </div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<h1 id="round2-answer"></h1>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-12">
+				<button class="btn btn-primary" id="btn1" value="A">A</button>
+				<button class="btn btn-primary" id="btn2" value="B">B</button>
+				<button class="btn btn-primary" id="btn3" value="C">C</button>
+				<button class="btn btn-primary" id="btn4" value="D">D</button>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-sm-12">
+				<button id="btn-clear" class="btn btn-success">Clear</button>
+				<button id="btn-submit" class="btn btn-success">Submit
+					Answer</button>
+			</div>
+		</div>
+	</div>
 </div>
 </html>
