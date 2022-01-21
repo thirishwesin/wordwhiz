@@ -1,5 +1,4 @@
 var stompClient = null;
-var playerId = null;
 
 function connect() {
   var socket = new SockJS('/ws');

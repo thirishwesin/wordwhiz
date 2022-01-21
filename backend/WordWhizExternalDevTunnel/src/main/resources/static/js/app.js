@@ -24,15 +24,14 @@ function setConnected(connected) {
 }
 
 function sendSpecificPlayer() {
-  console.log(stompClient)
-  stompClient.send("/control-screen/show/question/to/specific-player", {}, JSON.stringify({
+  getStompClient().send("/control-screen/show/question/to/specific-player", {}, JSON.stringify({
     'question': $("#question").val(),
     'toPlayer': document.querySelector('input[name="players"]:checked').value
   }));
 }
 
 function sendAllPlayer() {
-  stompClient.send("/control-screen/show/question/to/all-player", {}, JSON.stringify({
+  getStompClient().send("/control-screen/show/question/to/all-player", {}, JSON.stringify({
     'question': $("#question").val(),
     'toPlayer': document.querySelector('input[name="players"]:checked').value
   }));
@@ -47,15 +46,11 @@ function showAnswer(answer, sendFrom) {
 }
 
 function submitAnswer() {
-  stompClient.send("/app-screen/submit/answer", {}, JSON.stringify({
+  getStompClient().send("/app-screen/submit/answer", {}, JSON.stringify({
     'answer': $("#answer").val(),
     'sendFrom': '',
     'sendTo': 'control-screen'
   }));
-}
-
-function getStompClient(){
-  return stompClient;
 }
 
 $(document).ready(function () {
