@@ -842,3 +842,13 @@ row {
     color: #fff;
     margin-right: 30px;
 }
+
+.circle {
+  width: 15px;
+  height: 15px;
+  background-color: gainsboro;
+  border-radius: 50%;
+  position: absolute;
+  top: 23px;
+  left: 23px;
+}

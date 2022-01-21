@@ -49,6 +49,8 @@ import { QuestionCategory } from "../../core/models/questionCategory";
 import fontSizeForWindow from "../../../assets/fonts/fontSizeForWindow.json";
 import { TimerEnum } from '../../core/models/timerEnum';
 import { timeout } from 'rxjs/operators';
+import { WebsocketService } from '../../core/services/websocket.service';
+import { ExternalDevice } from '../../core/models/externalDevice';
 
 @Component({
   selector: "app-control",
@@ -60,6 +62,7 @@ export class ControlComponent implements OnInit {
   wordWhiz: WordWhiz;
   episode: Episode;
   control: Control;
+  externalDevice: ExternalDevice
   currentRound: Round;
   currentQuestion: Question;
   Images = Images;
@@ -118,22 +121,26 @@ export class ControlComponent implements OnInit {
   r4CategoryId: number = 0
   currentRoundName: string = '第一回合'
   currentPoint : number
+  websocketUrl : string = "ws://localhost:8080/ws/websocket";
 
   constructor(
     private store: Store<{
       wordWhiz: WordWhiz;
       episode: Episode;
       control: Control;
+      externalDevice: ExternalDevice
     }>,
     public modalService: NgbModal,
     private router: Router,
-    readonly nz: NgZone
+    readonly nz: NgZone,
+    private websocketService: WebsocketService
   ) {
     store.subscribe(item => {
       this.wordWhiz = item.wordWhiz;
       this.episode = item.episode;
       this.control = item.control;
-
+      this.externalDevice = item.externalDevice;
+      console.log("externalDevice: ", this.externalDevice)
       // for dev
       if (this.wordWhiz.fontSettings == null) {
         this.control.fontSettings = {
@@ -169,6 +176,7 @@ export class ControlComponent implements OnInit {
           })
         );
       }
+      this.updatePlayerActiveStatus();
     });
     // sort by roundName
     //this.episode.rounds.sort((a,b) => (a.roundName > b.roundName) ? 1 : ((b.roundName > a.roundName) ? -1 : 0))
@@ -1137,6 +1145,7 @@ export class ControlComponent implements OnInit {
     console.log('current question => ', this.currentQuestion)
     this.oldCurrentRound = _.cloneDeep(this.currentRound)
     this.oldCurrentPlayer = _.cloneDeep(this.episode.players)
+    let websocketUrlClone = _.cloneDeep(this.websocketUrl)
     // animation control when change font
     this.control.fontSettingOpenClose = true;
 
@@ -1186,6 +1195,7 @@ export class ControlComponent implements OnInit {
             // this.saveFont();
             this.currentRound = this.oldCurrentRound
             this.episode.players = this.oldCurrentPlayer
+            this.websocketUrl = websocketUrlClone;
             this.broadcastScreens()
           } else if (reason == "Cross click") {
             this.control.fontSettings = this.resetFontValue;
@@ -1358,5 +1368,35 @@ export class ControlComponent implements OnInit {
         this.currentPoint = this.currentRound.secondPoint
       }
     }
+  }
+
+  toggleWebSocketConnection(): void {
+    this.externalDevice.wordWhizIsConnected ? this.websocketService.disconnect() :
+      this.websocketService.initWebSocketConnection(this.websocketUrl);
+  }
+
+  updatePlayerActiveStatus(): void {
+    this.episode.players.forEach((player: Player) => {
+      let name = player.name
+      let doc = document.getElementById(name)
+      if(doc){
+        if(this.externalDevice.onlineUsers.has(name)){
+          document.getElementById(name).style.backgroundColor = '#62bd19'
+        }else {
+          document.getElementById(name).style.backgroundColor = 'gainsboro'
+        }
+      }
+    })
+    // let offlineUser = this.externalDevice.offlineUser;
+    // let onlineUser = this.externalDevice.onlineUser;
+    // console.log(`onlineUser: ${onlineUser} , offlineUser; ${offlineUser}`)
+    // if(onlineUser){
+    //   let onlineUseDoc = document.getElementById(onlineUser);
+    //   if(onlineUseDoc) onlineUseDoc.style.backgroundColor = '#62bd19'
+    // }
+    // if(offlineUser){
+    //   let offlineUserDoc = document.getElementById(offlineUser);
+    //   if(offlineUserDoc) offlineUserDoc.style.backgroundColor = 'gainsboro'
+    // }
   }
 }
