@@ -1,33 +1,20 @@
+const playerId = sessionStorage.getItem("user");
+
 function toggleShowHide(connected) {
   $("#connect").prop("disabled", connected);
   $("#disconnect").prop("disabled", !connected);
-  var playerId = sessionStorage.getItem("user");
 
   if (connected && playerId == 'control-screen') { //TODO: To delete later
     $("#quizSection").show();
     $("#choosePlayerScreen").hide();
   } else if (connected) {
-  	$("#welcomeScreen").show();
-    $("#conversation").show();
-    $("#choosePlayerScreen").hide();
+    ScreenUtil.showWelcomeScreen();
   } else {
-    $("#choosePlayerScreen").show();
-    $("#quizSection").hide();
-    $("#conversation").hide();
-    $("#round2Screen").hide();
-    $("#round4Screen").hide();
-    $("#welcomeScreen").hide();
+    ScreenUtil.showChoosePlayerScreen();
   }
-  $("#questions").html("");
 }
-
-function showAnswer(answer, sendFrom) {
-  $("#answers").append("<li>" + answer + "  (" + sendFrom + ")</li>");
-}
-
 
 $(document).ready(function () {
-  console.log("Starting")
   toggleShowHide(false);
   $("form").on('submit', function (e) {
     e.preventDefault();
@@ -35,21 +22,18 @@ $(document).ready(function () {
   $("#connect").click(function () {
     connect();
   });
+
   $("#disconnect").click(function () {
     disconnect();
   });
   $("#send").click(function () {
     if (document.querySelector('input[name="players"]:checked').value == 'all') {
       sendAllPlayer();
-      toggleShowHide(true, document.querySelector('input[name="rounds"]:checked').value)
+      toggleShowHide(true)
     } else {
       sendSpecificPlayer();
-      toggleShowHide(true, document.querySelector('input[name="rounds"]:checked').value)
+      toggleShowHide(true)
     }
   });
-  $("#submit-answer-btn").click(function () {
-    submitAnswer();
-  });
-
 });
 

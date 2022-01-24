@@ -1,40 +1,24 @@
-$(document).ready(function() {
+$(document).ready(() => {
 
-  $("#btn1").click(function (){
-  	setButtonDisabled("btn1");
-	appendText($("#btn1").val());
+ var answerWord = null;
+ 
+  $('#round2_btn1, #round2_btn2, #round2_btn3, #round2_btn4').click(function() {
+  	answerWord = $(this).val();
   });
   
-  $("#btn2").click(function (){
-  	setButtonDisabled("btn2");
-	appendText($("#btn2").val());
-  });
-  
-  $("#btn3").click(function (){
-  	setButtonDisabled("btn3");
-	appendText($("#btn3").val());
-  });
-  
-  $("#btn4").click(function (){
-  	setButtonDisabled("btn4");
-	appendText($("#btn4").val());
-  });
-  
-  $("#btn-clear").click(() => {
-    $("span").remove(".round2-word");
-  	$("button").removeAttr("disabled");
-  });
-  
-  $("#btn-submit").click(() => {
-  	 submitAnswer($("#round2-answer").html());
-  });
+  $('#round2_word1, #round2_word2, #round2_word3, #round2_word4').click(function() {
+      $(this).find("span").html(answerWord);
+      submitAnswer(answerWord);
+  })
   
 });
 
-function appendText(word) {
-	$("#round2-answer").append(`<span class='round2-word'>${word}</span>`);
-}
-
-function setButtonDisabled(id){
-	$("#"+id).attr("disabled", true);
+class RoundTwoService {
+	static showQuestion(questionObj) {
+		for(let i = 1; i < questionObj.question.length; i++){
+      	let word = questionObj.question.charAt(i-1);
+      	$("#round2_btn"+i).attr('value', word);
+      	$("#round2_btn"+i).html(word);
+   	}
+  }
 }

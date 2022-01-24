@@ -12,11 +12,11 @@ function connect() {
       // come from control-screen
       stompClient.subscribe('/external-device/show/question/to/specific-player',
         function (question) {
-          showQuestion(JSON.parse(question.body));
+          ScreenUtil.showRound(JSON.parse(question.body));
         });
       stompClient.subscribe('/show/question/to/all-player',
         function (question) {
-          showQuestion(JSON.parse(question.body));
+          ScreenUtil.showRound(JSON.parse(question.body));
         });
       // come from app screen
       stompClient.subscribe('/external-device/submit/answer', function (answer) {
@@ -26,6 +26,14 @@ function connect() {
       });
     });
   sessionStorage.setItem("user", document.querySelector('input[name="player"]:checked').value);
+}
+
+function submitAnswer(answer) {
+  stompClient.send("/app-screen/submit/answer", {}, JSON.stringify({
+    'answer': answer,
+    'sendFrom': '',
+    'sendTo': 'control-screen'
+  }));
 }
 
 function disconnect() {
