@@ -1,12 +1,13 @@
-function toggleShowHide(connected, round) {
+function toggleShowHide(connected) {
   $("#connect").prop("disabled", connected);
   $("#disconnect").prop("disabled", !connected);
   var playerId = sessionStorage.getItem("user");
 
-  if (connected && playerId == 'control-screen') {
+  if (connected && playerId == 'control-screen') { //TODO: To delete later
     $("#quizSection").show();
     $("#choosePlayerScreen").hide();
   } else if (connected) {
+  	$("#welcomeScreen").show();
     $("#conversation").show();
     $("#choosePlayerScreen").hide();
   } else {
@@ -15,6 +16,7 @@ function toggleShowHide(connected, round) {
     $("#conversation").hide();
     $("#round2Screen").hide();
     $("#round4Screen").hide();
+    $("#welcomeScreen").hide();
   }
   $("#questions").html("");
 }

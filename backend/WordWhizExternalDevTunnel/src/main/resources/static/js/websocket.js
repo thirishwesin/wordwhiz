@@ -12,7 +12,6 @@ function connect() {
       // come from control-screen
       stompClient.subscribe('/external-device/show/question/to/specific-player',
         function (question) {
-          $("#round4Screen").show();
           showQuestion(JSON.parse(question.body));
         });
       stompClient.subscribe('/show/question/to/all-player',

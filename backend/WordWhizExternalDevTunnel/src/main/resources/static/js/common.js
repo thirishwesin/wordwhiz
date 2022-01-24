@@ -7,6 +7,7 @@ function submitAnswer(answer) {
 }
 
 function showQuestion(questionObj) {
+  $("#welcomeScreen").hide();
   if (questionObj.round == 'round2') {
     $("#round2Screen").show();
     $("#round4Screen").hide();
