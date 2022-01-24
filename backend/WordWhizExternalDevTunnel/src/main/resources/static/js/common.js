@@ -6,15 +6,13 @@ function submitAnswer(answer) {
   }));
 }
 
-function showQuestion(questionObj) {
+function showRound(questionObj) {
   $("#welcomeScreen").hide();
-  if (questionObj.round == 'round2') {
-    $("#round2Screen").show();
-    $("#round4Screen").hide();
+  for (let i = 1; i <= 5; i++) {
+    $("#round" + i + "Screen").hide();
+
+    if (questionObj && questionObj.round === i) {
+      $("#round" + i + "Screen").show();
+    }
   }
-  if (questionObj.round == 'round4') {
-    $("#round4Screen").show();
-    $("#round2Screen").hide();
-  }
-  $("#questions").append("<li>" + questionObj.question + "</li>");
 }

@@ -13,3 +13,17 @@ function sendAllPlayer() {
     'toPlayer': document.querySelector('input[name="players"]:checked').value
   }));
 }
+
+$("#send").click(function () {
+  if (document.querySelector('input[name="players"]:checked').value == 'all') {
+    sendAllPlayer();
+    toggleShowHide(true, document.querySelector('input[name="rounds"]:checked').value)
+  } else {
+    sendSpecificPlayer();
+    toggleShowHide(true, document.querySelector('input[name="rounds"]:checked').value)
+  }
+});
+
+function showAnswer(answer, sendFrom) {
+  $("#answers").append("<li>" + answer + "  (" + sendFrom + ")</li>");
+}

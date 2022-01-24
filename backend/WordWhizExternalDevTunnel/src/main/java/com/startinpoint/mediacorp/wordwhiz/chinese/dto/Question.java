@@ -3,7 +3,7 @@ package com.startinpoint.mediacorp.wordwhiz.chinese.dto;
 public class Question {
 
   private String toPlayer;
-  private String round;
+  private int round;
   private String question;
 
   public Question() {
@@ -25,11 +25,11 @@ public class Question {
     this.question = question;
   }
 
-  public String getRound() {
+  public int getRound() {
     return round;
   }
 
-  public void setRound(String round) {
+  public void setRound(int round) {
     this.round = round;
   }
 

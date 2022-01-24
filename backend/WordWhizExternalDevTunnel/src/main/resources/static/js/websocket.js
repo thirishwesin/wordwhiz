@@ -12,11 +12,11 @@ function connect() {
       // come from control-screen
       stompClient.subscribe('/external-device/show/question/to/specific-player',
         function (question) {
-          showQuestion(JSON.parse(question.body));
+          showRound(JSON.parse(question.body));
         });
       stompClient.subscribe('/show/question/to/all-player',
         function (question) {
-          showQuestion(JSON.parse(question.body));
+          showRound(JSON.parse(question.body));
         });
       // come from app screen
       stompClient.subscribe('/external-device/submit/answer', function (answer) {
