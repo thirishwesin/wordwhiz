@@ -13,3 +13,7 @@ function sendAllPlayer() {
     'toPlayer': document.querySelector('input[name="players"]:checked').value
   }));
 }
+
+function showAnswer(answer, sendFrom) {
+  $("#answers").append("<li>" + answer + "  (" + sendFrom + ")</li>");
+}
