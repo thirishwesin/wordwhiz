@@ -1,25 +1,20 @@
+const playerId = sessionStorage.getItem("user");
+
 function toggleShowHide(connected) {
   $("#connect").prop("disabled", connected);
   $("#disconnect").prop("disabled", !connected);
-  var playerId = sessionStorage.getItem("user");
 
   if (connected && playerId == 'control-screen') { //TODO: To delete later
     $("#quizSection").show();
     $("#choosePlayerScreen").hide();
   } else if (connected) {
-    $("#welcomeScreen").show();
-    $("#welcomePlayerName").text(playerId)
-    $("#choosePlayerScreen").hide();
+    ScreenUtil.showWelcomeScreen();
   } else {
-    $("#choosePlayerScreen").show();
-    $("#quizSection").hide();
-    showRound();
-    $("#welcomeScreen").hide();
+    ScreenUtil.showChoosePlayerScreen();
   }
 }
 
 $(document).ready(function () {
-  console.log("Starting")
   toggleShowHide(false);
   $("form").on('submit', function (e) {
     e.preventDefault();
@@ -34,10 +29,10 @@ $(document).ready(function () {
   $("#send").click(function () {
     if (document.querySelector('input[name="players"]:checked').value == 'all') {
       sendAllPlayer();
-      toggleShowHide(true, document.querySelector('input[name="rounds"]:checked').value)
+      toggleShowHide(true)
     } else {
       sendSpecificPlayer();
-      toggleShowHide(true, document.querySelector('input[name="rounds"]:checked').value)
+      toggleShowHide(true)
     }
   });
 });
