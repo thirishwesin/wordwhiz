@@ -354,6 +354,9 @@ export class ControlComponent implements OnInit {
     } else if (playerId == 13) {
       route = "oneThird";
       params = "";
+    }else if (playerId == 14) {
+      route = "spinner-wheel";
+      params = "";
     }
 
     let broadCastData = {
@@ -1398,5 +1401,9 @@ export class ControlComponent implements OnInit {
     //   let offlineUserDoc = document.getElementById(offlineUser);
     //   if(offlineUserDoc) offlineUserDoc.style.backgroundColor = 'gainsboro'
     // }
+  }
+
+  openSpinnerWheelScreen(): void {
+    this.newWindow(14);
   }
 }
