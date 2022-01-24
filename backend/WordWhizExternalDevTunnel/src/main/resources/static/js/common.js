@@ -10,9 +10,8 @@ function showRound(questionObj) {
   $("#welcomeScreen").hide();
   for (let i = 1; i <= 5; i++) {
     $("#round" + i + "Screen").hide();
-
-    if (questionObj && questionObj.round === i) {
-      $("#round" + i + "Screen").show();
-    }
+  }
+  if (questionObj) {
+    $("#round" + questionObj.round + "Screen").show();
   }
 }

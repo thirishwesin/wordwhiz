@@ -31,6 +31,14 @@ $(document).ready(function () {
   $("#disconnect").click(function () {
     disconnect();
   });
-
+  $("#send").click(function () {
+    if (document.querySelector('input[name="players"]:checked').value == 'all') {
+      sendAllPlayer();
+      toggleShowHide(true, document.querySelector('input[name="rounds"]:checked').value)
+    } else {
+      sendSpecificPlayer();
+      toggleShowHide(true, document.querySelector('input[name="rounds"]:checked').value)
+    }
+  });
 });
 

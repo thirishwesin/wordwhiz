@@ -7,6 +7,7 @@ import { ControlComponent } from "./control/control.component";
 import { SetupComponent } from "./setup/setup.component";
 import { PlayerComponent } from "./player/player.component";
 import { OneThirdScreenComponent } from "./oneThirdScreen/oneThirdScreen.component";
+import { SpinnerWheelComponent } from "./spinner-wheel/spinner-wheel.component";
 
 const routes: Routes = [
   { path: "home", component: HomeComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: "control", component: ControlComponent },
   { path: "setup", component: SetupComponent },
   { path: "player", component: PlayerComponent },
+  { path: "spinner-wheel", component: SpinnerWheelComponent },
 ];
 
 @NgModule({
