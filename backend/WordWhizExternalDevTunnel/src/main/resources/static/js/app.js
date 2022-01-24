@@ -1,16 +1,13 @@
-var playerId = null;
-
-function setConnected(connected) {
+function toggleShowHide(connected) {
   $("#connect").prop("disabled", connected);
   $("#disconnect").prop("disabled", !connected);
-  playerId = sessionStorage.getItem("user");
-  if (connected && playerId == 'control-screen') {
+  var playerId = sessionStorage.getItem("user");
+
+  if (connected && playerId == 'control-screen') { //TODO: To delete later
     $("#quizSection").show();
     $("#choosePlayerScreen").hide();
   } else if (connected) {
-    if (playerId != '') {
-      $("#round4Screen").show();
-    }
+  	$("#welcomeScreen").show();
     $("#conversation").show();
     $("#choosePlayerScreen").hide();
   } else {
@@ -19,43 +16,19 @@ function setConnected(connected) {
     $("#conversation").hide();
     $("#round2Screen").hide();
     $("#round4Screen").hide();
+    $("#welcomeScreen").hide();
   }
   $("#questions").html("");
-}
-
-function sendSpecificPlayer() {
-  getStompClient().send("/control-screen/show/question/to/specific-player", {}, JSON.stringify({
-    'question': $("#question").val(),
-    'toPlayer': document.querySelector('input[name="players"]:checked').value
-  }));
-}
-
-function sendAllPlayer() {
-  getStompClient().send("/control-screen/show/question/to/all-player", {}, JSON.stringify({
-    'question': $("#question").val(),
-    'toPlayer': document.querySelector('input[name="players"]:checked').value
-  }));
-}
-
-function showQuestion(question) {
-  $("#questions").append("<li>" + question + "</li>");
 }
 
 function showAnswer(answer, sendFrom) {
   $("#answers").append("<li>" + answer + "  (" + sendFrom + ")</li>");
 }
 
-function submitAnswer() {
-  getStompClient().send("/app-screen/submit/answer", {}, JSON.stringify({
-    'answer': $("#answer").val(),
-    'sendFrom': '',
-    'sendTo': 'control-screen'
-  }));
-}
 
 $(document).ready(function () {
   console.log("Starting")
-  setConnected(false);
+  toggleShowHide(false);
   $("form").on('submit', function (e) {
     e.preventDefault();
   });
@@ -68,8 +41,10 @@ $(document).ready(function () {
   $("#send").click(function () {
     if (document.querySelector('input[name="players"]:checked').value == 'all') {
       sendAllPlayer();
+      toggleShowHide(true, document.querySelector('input[name="rounds"]:checked').value)
     } else {
       sendSpecificPlayer();
+      toggleShowHide(true, document.querySelector('input[name="rounds"]:checked').value)
     }
   });
   $("#submit-answer-btn").click(function () {

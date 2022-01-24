@@ -8,15 +8,19 @@
   <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
   <script th:src="@{/webjars/sockjs-client/sockjs.min.js}"></script>
   <script th:src="@{/webjars/stomp-websocket/stomp.min.js}"></script>
+  <script th:src="@{../../js/common.js}"></script>
+  <script th:src="@{../../js/controlScreen.js}"></script>
   <script th:src="@{../../js/websocket.js}"></script>
   <script th:src="@{../../js/app.js}"></script>
   <script th:src="@{../../js/round4.js}"></script>
+  <script th:src="@{../../js/round2.js}"></script>
   <script th:src="@{../../lib/signature_pad.umd.js}"></script>
 </head>
 <body>
 <div class="col-md-12">
   <div id="quizSection" th:insert="fragments/question :: question"></div>
   <div id="choosePlayerScreen" th:insert="fragments/choosePlayer :: choosePlayer"></div>
+  <div id="welcomeScreen" th:insert="fragments/welcome :: welcome"></div>
   <div id="round2Screen" th:insert="fragments/round2 :: round2"></div>
   <div id="round4Screen" th:insert="fragments/round4 :: round4"></div>
 </div>

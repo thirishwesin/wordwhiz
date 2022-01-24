@@ -1,5 +1,4 @@
 $(document).ready(function () {
-  console.log("I am round 4")
   var canvas = document.getElementById("signature");
 
   var signaturePad = new SignaturePad(canvas, {
@@ -12,25 +11,8 @@ $(document).ready(function () {
     signaturePad.clear();
   })
 
-  $('#undo-signature').on('click', function () {
-    var data = signaturePad.toData();
-
-    if (data) {
-      data.pop();
-      signaturePad.fromData(data);
-    }
-  })
-
-  function submitAnswer() {
-    getStompClient().send("/app-screen/submit/answer", {}, JSON.stringify({
-      'answer': signaturePad.toDataURL(),
-      'sendFrom': '',
-      'sendTo': 'control-screen'
-    }));
-  }
-
-  $("#submit-answer-btn-4").click(function () {
-    submitAnswer();
+  $("#submit-answer-btn-4").on('click', function () {
+    submitAnswer(signaturePad.toDataURL());
   });
 
 })
