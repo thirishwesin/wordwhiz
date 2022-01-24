@@ -515,8 +515,9 @@ export class ControlComponent implements OnInit {
 
   nextRound() {
     let nextRound = this.currentRound;
-    console.log('nextRound => ' , nextRound)
-    if (this.currentRound.id != this.episode.rounds.length) {
+    let lastRound : Round =  _.last(this.episode.rounds)
+    console.log("lastRound: ", _.last(this.episode.rounds))
+    if (this.currentRound.id != lastRound.id) {
       let index = _.findIndex(this.episode.rounds, ['id', this.currentRound.id])
       nextRound = this.episode.rounds[index + 1]
       if(nextRound) this.clickRound(nextRound);
