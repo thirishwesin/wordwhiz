@@ -849,6 +849,30 @@ row {
   background-color: gainsboro;
   border-radius: 50%;
   position: absolute;
-  top: 23px;
+  top: 15px;
   left: 23px;
+}
+
+// .active-player .circle::before { 
+//     content: "";
+//     background-color: #4DB821;
+//     font-weight: bold;
+//     height: 10px;
+//     width: 10px;
+//     position: absolute;
+//     top: 2.5px;
+//     left: 2.75px;
+//     border-radius: 10px;
+//   }
+
+
+.openall-group .active-player{
+    background-image: linear-gradient(to top, #04b3ff 0%, #242424 100%);
+    background-image: linear-gradient(to top, #008bb4 0%, #4aff00 100%);
+}
+
+.disconnect{
+    background: rgba(255, 0, 0, 0.5) !important;
+    background: rgba(220, 0, 0, 0.8) !important;
+    background: #d90000!important;
 }
