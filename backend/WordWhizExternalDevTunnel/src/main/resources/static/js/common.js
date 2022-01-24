@@ -46,6 +46,7 @@ class ScreenUtil {
   static showRound(questionObj) {
     switch (questionObj.round) {
       case 2:
+        RoundTwoService.showQuestion(questionObj);
         this.showRound2Screen();
         break
       case 4:
@@ -53,13 +54,5 @@ class ScreenUtil {
         break;
     }
   }
-}
-
-function submitAnswer(answer) {
-  getStompClient().send("/app-screen/submit/answer", {}, JSON.stringify({
-    'answer': answer,
-    'sendFrom': '',
-    'sendTo': 'control-screen'
-  }));
 }
 

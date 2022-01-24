@@ -28,6 +28,14 @@ function connect() {
   sessionStorage.setItem("user", document.querySelector('input[name="player"]:checked').value);
 }
 
+function submitAnswer(answer) {
+  stompClient.send("/app-screen/submit/answer", {}, JSON.stringify({
+    'answer': answer,
+    'sendFrom': '',
+    'sendTo': 'control-screen'
+  }));
+}
+
 function disconnect() {
   if (stompClient != null) {
     stompClient.disconnect();
