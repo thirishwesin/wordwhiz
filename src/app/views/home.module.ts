@@ -11,6 +11,7 @@ import { OneThirdScreenModule } from "./oneThirdScreen/oneThirdScreen.module";
 import { SetupModule } from "../views/setup/setup.module";
 import { PlayerModule } from "../views/player/player.module";
 import { SpinnerWheelComponent } from './spinner-wheel/spinner-wheel.component';
+import { RoundsModule } from './rounds/rounds.module';
 
 @NgModule({
   declarations: [HomeComponent, SpinnerWheelComponent],
@@ -23,6 +24,7 @@ import { SpinnerWheelComponent } from './spinner-wheel/spinner-wheel.component';
     OneThirdScreenModule,
     SetupModule,
     PlayerModule,
+    RoundsModule,
   ],
 })
 export class HomeModule {}

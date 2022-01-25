@@ -261,14 +261,14 @@
                   "position": 0,
                   "isCharacter": false,
                   "hintFontSize": "10",
-                  "otHintFontSize": null,
+                  "otHintFontSize": "10",
                   "positionCalss": ""
                 }
               ],
               "ans": "lion",
               "isAnsCharacter": true,
               "clueFontSize": 50,
-              "otClueFontSize": 50,
+              "otClueFontSize": "50",
               "ansFontSize": 50,
               "otAnsFontSize": 50
             },

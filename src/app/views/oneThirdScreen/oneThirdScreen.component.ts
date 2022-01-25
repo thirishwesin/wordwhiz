@@ -12,6 +12,7 @@ import { readFile, readFileSync } from "fs";
 import parseAPNG from "apng-js";
 import { AppConfig } from "../../../environments/environment";
 import { TimerEnum } from "../../core/models/timerEnum";
+import { ScreenType } from "../../core/models/screenType";
 
 @Component({
   selector: "app-oneThird",
@@ -53,6 +54,7 @@ export class OneThirdScreenComponent implements OnInit {
   roundTwoBgImageEle: any;
   hints: string = "";
   prevRoundId: number
+  oneThirdScreen: ScreenType = ScreenType.ONETHIRD
 
   constructor(
     private router: Router,
