@@ -1,0 +1,162 @@
+.word {
+  font-weight: bold;
+  color: #fff;
+  /* margin: 3%; */
+  margin: 10px;
+  text-shadow: 1px 4px 4px #555, 0 0 7.5em #000, 0 0 0.5em #000;
+}
+
+@media only screen and (max-width: 1650px) {
+  .long_word_blue {
+      margin-left: -35px;
+  }
+}
+
+@media (min-width: 2280px) and (max-width: 3999px) {
+  .long_word_blue {
+      margin-left: -40px;
+      @for $f from 1 through 150 {
+          .font#{$f} {
+              //padding: 20px !important;
+          }
+      }
+  }
+}
+
+@media only screen and (min-width: 4000px) {
+  .long_word_blue {
+      margin-left: -50px;
+  }
+}
+
+// adjust font
+@for $f from 1 through 1 {
+  .font#{$f} {
+      font-size: $f * 1px;
+  }
+  .width#{$f} {
+      min-width: 100px;
+      width: $f * 0.8%;
+  }
+}
+
+//Start Long word Blue
+@for $length from 1 through 20 {
+  @if $length==9 {
+      .longBlueRoundFour#{$length} {
+          width: calc(20em + 3vw) !important;
+          padding-left: 15px;
+          padding-top: 10px;
+      }
+  }
+  @else if $length<=5 {
+      .longBlueRoundFour#{$length} {
+          width: calc(17em + 3vw) !important;
+          padding-left: 0px;
+          padding-top: 6px;
+      }
+  }
+  @else if $length==6 {
+      .longBlueRoundFour#{$length} {
+          width: calc(20em + 3vw) !important;
+          padding-left: 15px;
+          padding-top: 8px;
+      }
+  }
+  @else if $length==7 {
+      .longBlueRoundFour#{$length} {
+          width: calc(23em + 3vw) !important;
+          padding-left: 15px;
+          padding-top: 10px;
+      }
+  }
+  @else if $length==8 {
+      .longBlueRoundFour#{$length} {
+          width: calc(20em + 3vw) !important;
+          padding-left: 15px;
+          padding-top: 10px;
+      }
+  }
+  @else if $length==10 {
+      .longBlueRoundFour#{$length} {
+          width: calc(23em + 3vw) !important;
+          padding-left: 15px;
+          padding-top: 10px;
+      }
+  }
+  @else if $length==11 {
+      .longBlueRoundFour#{$length} {
+          width: calc(25em + 3vw) !important;
+          padding-left: 15px;
+          padding-top: 10px;
+      }
+  }
+  @else if $length==12 {
+      .longBlueRoundFour#{$length} {
+          width: calc(28em + 3vw) !important;
+          padding-left: 15px;
+          padding-top: 10px;
+      }
+  }
+  @else if $length>=13 {
+      .longBlueRoundFour#{$length} {
+          width: calc(34em + 3vw) !important;
+          padding-left: 30px;
+          padding-top: 15px;
+      }
+  }
+}
+
+@media (min-width: 2280px) and (max-width: 3999px) {
+  @for $length from 1 through 20 {
+      @if $length<=8 {
+          .longBlueRoundFour#{$length} {
+              width: calc(35em + 3vw) !important;
+              padding-left: 15px;
+              padding-top: 10px;
+          }
+      }
+      @else if $length==9 {
+          .longBlueRoundFour#{$length} {
+              width: calc(40em + 3vw) !important;
+              padding-left: 15px;
+              padding-top: 10px;
+          }
+      }
+      @else if $length==10 {
+          .longBlueRoundFour#{$length} {
+              width: calc(50em + 3vw) !important;
+              padding-left: 37px;
+              padding-top: 10px;
+          }
+      }
+      @else if $length==11 {
+          .longBlueRoundFour#{$length} {
+              width: calc(60em + 3vw) !important;
+              padding-left: 37px;
+              padding-top: 23px;
+          }
+      }
+      @else if $length>=12 {
+          .longBlueRoundFour#{$length} {
+              width: calc(65em + 3vw) !important;
+              padding-left: 40px;
+              padding-top: 23px;
+          }
+      }
+  }
+}
+
+//*End  Start short_retangle alphabet
+@for $retangle_font from 1 through 150 {
+  @if $retangle_font==100 {
+      .long_retangle#{$retangle_font} {
+          width: 500px !important;
+      }
+  }
+  @else if $retangle_font==150 {
+      .long_retangle#{$retangle_font} {
+          width: 800px !important;
+      }
+  }
+}
