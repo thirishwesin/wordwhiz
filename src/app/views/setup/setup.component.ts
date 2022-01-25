@@ -242,8 +242,6 @@ export class SetupComponent implements OnInit {
   filterQuestion(itemList: Question[]) {
     if (this.currentRound.questionType == 7) {
       return _.filter(itemList, item => item.categoryId == this.playerCategoryId);
-    }else if (this.currentRound.questionType == 4){
-      return _.filter(itemList, item => item.categoryId == this.currentCategory.id)
     }
     return itemList;
   }
@@ -314,8 +312,8 @@ export class SetupComponent implements OnInit {
         //add question
         if (this.currentRound.questionType == 4) {
           this.question.hints[0].hintFontSize = 30; this.question.hints[0].otHintFontSize = 30;
-          // this.question.hints[1].hintFontSize = 30; this.question.hints[1].otHintFontSize = 30;
-          // this.question.hints[2].hintFontSize = 30; this.question.hints[2].otHintFontSize = 30;
+          this.question.hints[1].hintFontSize = 30; this.question.hints[1].otHintFontSize = 30;
+          this.question.hints[2].hintFontSize = 30; this.question.hints[2].otHintFontSize = 30;
         } else if (this.currentRound.questionType == 3) {
           this.question.hints[0].hintFontSize = 50; this.question.hints[0].otHintFontSize = 50
         }else if (this.currentRound.questionType == 5){
@@ -456,19 +454,17 @@ export class SetupComponent implements OnInit {
       });
     }
 
-    let validClue = true;
-    if(this.question.clue.trim() == ""){
-      validClue = false;
-      if(this.currentRound.questionType == 4) validClue = true
-    }
-
-    if (this.question.ans.trim() == "" || this.currentRound.name.trim() == "" || !validHint || !validClue) {
+    if (this.question.ans.trim() == "" || this.currentRound.name.trim() == "" || !validHint || this.question.clue.trim() == "") {
       return true;
     }
 
     // check for category array
-    if (this.currentRound.hasCategory && this.currentRound.categories.length < 1)
+    if (
+      this.currentRound.hasCategory &&
+      this.currentRound.categories.length < 1
+    )
       return true;
+
     return false;
   }
 
