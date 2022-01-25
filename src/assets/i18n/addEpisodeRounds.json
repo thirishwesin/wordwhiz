@@ -15,19 +15,19 @@
         "roundName": "第一回合"
     },
     {
-      "id": 4,
+      "id": 8,
       "name": "SCRAMBLED WORD",
-      "questionType": 4,
-      "showfirstAnsChar": true,
-      "hasCategory": true,
+      "questionType": 8,
+      "showfirstAnsChar": false,
+      "hasCategory": false,
       "categories": [],
-      "timeOut": 60,
-      "point": 60,
+      "timeOut": 10,
+      "point": 10,
       "questionArray": [],
       "roundNameFontSize": "90",
       "clueLabelFontSize": "60",
       "roundName": "第二回合"
-  },
+    },
     {
         "id": 2,
         "name": "填字游戏",

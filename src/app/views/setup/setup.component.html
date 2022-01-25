@@ -461,6 +461,45 @@
                   </div>
                 </div>
               </ng-container>
+              <ng-container *ngIf="currentRound.questionType == 8">
+                <div class="form-group">
+                  <label [for]="'hint' + hintIndex" style="width: 100px;" class="common_label">HINT</label>
+                  <input type="text" [id]="'hint' + hintIndex" maxlength="4" class="common_input w_100" [(ngModel)]="hint.value" />
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <label for="main_hint_font_size" class="common_label">MAIN HINT FONT SIZE</label>
+                    <input type="text" id="main_hint_font_size" class="common_input w_30"
+                      [(ngModel)]="hint.hintFontSize" OnlyNumber="true" />
+                  </div>
+                  <div class="col-sm-6">
+                    <label for="one_third_font_size" class="common_label">ONE THIRD HINT FONT SIZE</label>
+                    <input type="text" id="one_third_font_size" class="common_input w_30"
+                      [(ngModel)]="hint.otHintFontSize" OnlyNumber="true" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="ans" style="width:100px;" class="common_label">ANSWER</label>
+                  <input type="text" id="ans" maxlength="4" class="common_input w_100" [(ngModel)]="question.ans"
+                    (ngModelChange)="questionAnsChanged($event)" />
+                </div>
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <label for="main_ans_font_size" class="common_label">MAIN ANSWER FONT SIZE</label>
+                      <input type="text" id="main_ans_font_size" class="common_input w_30"
+                        [(ngModel)]="question.ansFontSize" OnlyNumber="true"
+                        (ngModelChange)="questionAnsFontSizeChanged($event)" />
+                    </div>
+                    <div class="col-sm-6">
+                      <label for="one_third_ans_font_size" class="common_label">ONE THIRD ANSWER FONT SIZE</label>
+                      <input type="text" id="one_third_ans_font_size" class="common_input w_30"
+                        [(ngModel)]="question.otAnsFontSize" OnlyNumber="true"
+                        (ngModelChange)="questionAnsFontSizeChanged($event)" />
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
             </div>
             <ng-container *ngIf="currentRound.questionType === 2">
               <div class="row">

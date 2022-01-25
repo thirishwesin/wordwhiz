@@ -301,7 +301,6 @@
                 </button>
             </div>
             <div class=" modal-body" style="height: auto;">
-
                 <label [ngStyle]="{'visibility': fontSizeWarning ? '': 'hidden', 'color': 'red'}"> *Font size cannot
                     exceed
                     maximum font size number! </label>
@@ -312,7 +311,6 @@
                             <h1>Main Setting</h1>
                         </div>
                     </div>
-
                     <div class="row dialog-input-field">
                         <div class=" form-group col-6 col-md-4">
                             <label for="" class="common_label" style="margin-top: 8%;">Title</label>
@@ -368,8 +366,6 @@
                         </div>
                     </div>
                 </div>
-
-
                 <!-- One Third Setting -->
                 <div class="setting_body mt6 mb6">
                     <div class="row ">
@@ -418,8 +414,6 @@
                         </div>
                     </div>
                 </div>
-
-
                 <!-- Plyer Setting -->
                 <div class="setting_body ">
                     <div class="row ">
@@ -437,8 +431,7 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Plyer Setting -->
+                <!-- Connection & Interaction Setting -->
                 <div class="setting_body ">
                   <div class="row ">
                       <div class="col-sm-12 font-title">
@@ -454,10 +447,7 @@
                       </div>
                   </div>
               </div>
-
             </div>
-
-
             <div class=" modal-footer ">
                 <button type=" button " class="btn btn-add" (click)=" modal.dismiss( 'Cancel click' ) ">Cancel</button>
                 <button type=" button " class="btn btn-add" (click)="applyFontSize()">Apply</button>

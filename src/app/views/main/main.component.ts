@@ -17,6 +17,7 @@ import parseAPNG from "apng-js";
 import { AppConfig } from "../../../environments/environment";
 import { convertUpdateArguments } from "@angular/compiler/src/compiler_util/expression_converter";
 import { TimerEnum } from '../../core/models/timerEnum';
+import { ScreenType } from '../../core/models/screenType';
 
 @Component({
   selector: "app-main",
@@ -54,6 +55,7 @@ export class MainComponent implements OnInit {
   prevCategoryId: number
   cubeImage = new Image();
   prevRoundId: number
+  mainScreen: ScreenType = ScreenType.MAIN
 
   constructor(
     private store: Store<{

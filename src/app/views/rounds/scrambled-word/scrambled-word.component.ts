@@ -3,6 +3,7 @@ import { Control } from '../../../core/models/control';
 import { Question } from '../../../core/models/question';
 import { Round } from '../../../core/models/round';
 import { ScreenType } from '../../../core/models/screenType';
+import { TimerEnum } from '../../../core/models/timerEnum';
 
 @Component({
   selector: 'app-scrambled-word',
@@ -18,7 +19,7 @@ export class ScrambledWordComponent implements OnInit {
 
   blockAnimated: boolean = false
   round4hintAnimated : boolean = false
-
+  ansCharacterArr: string[]
 
   constructor() { }
 
@@ -29,27 +30,23 @@ export class ScrambledWordComponent implements OnInit {
     console.log("screenType: ", this.screenType)
 
     //animation
-    if (
-      this.control.startCount ||
-      this.control.showAns ||
-      this.control.clickExtraKey
-    ) {
+    if (this.control.startCount ||this.control.showAns || this.control.clickExtraKey) {
       this.blockAnimated = true;
     }
     // animation
-    if (
-      !this.control.startCount &&
-      !this.control.showAns &&
-      !this.control.showQuestion
-    )
+    if (!this.control.startCount && !this.control.showAns && !this.control.showQuestion)
       this.blockAnimated = false;
 
+     this.ansCharacterArr = this.currentQuestion.ans.split('');  // split answer by each character
   }
 
    // get screen type from ScreenType Enum Class
-   get screenTypeEnum(): typeof ScreenType {
+  get screenTypeEnum(): typeof ScreenType {
     return ScreenType;
   }
 
+  get timerEnum(): typeof TimerEnum {
+    return TimerEnum;
+  }
 
 }

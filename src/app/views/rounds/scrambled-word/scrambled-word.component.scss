@@ -6,6 +6,74 @@
   text-shadow: 1px 4px 4px #555, 0 0 7.5em #000, 0 0 0.5em #000;
 }
 
+.one_word_green_three {
+  background-size: contain;
+  display: inline-block;
+  min-width: 77px;
+  .roundthree_text {
+      width: 70px;
+      text-align: center;
+      margin: 0;
+      height: 81px;
+      background: none;
+      border: none;
+      font-size: 45px;
+      outline: none;
+      margin-left: 1px;
+      padding-top: 0px;
+      padding-bottom: 8px;
+      color: #fff;
+  }
+}
+
+.one_word_green {
+  background: url(../../../../assets/images/GREEN/green_blank.png) no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  display: inline-block;
+  min-height: 60px;
+  min-width: 105px;
+  width: auto;
+  // margin-left: -30px;
+}
+
+.hide_char {
+  visibility: hidden;
+}
+
+.blue_bg {
+  width: auto;
+  background: url(../../../../assets/images/BLUE/blue_blank.png) no-repeat;
+  background-size: cover;
+  display: inline-block;
+  min-height: 60px;
+  position: relative;
+  padding: 0;
+  min-width: 105px;
+}
+
+.roundthree_text {
+  width: 70px;
+  text-align: center;
+  margin: 0;
+  height: 107px;
+  background: none;
+  border: none;
+  font-size: 45px;
+  outline: none;
+  margin-left: 1px;
+  padding-top: 0px;
+  padding-bottom: 8px;
+  color: #fff;
+  font-weight: bolder;
+  text-shadow: 1px 2px 2px #333333;
+}
+
+.transparent {
+  color: transparent !important;
+  text-shadow: none !important;
+}
+
 @media only screen and (max-width: 1650px) {
   .long_word_blue {
       margin-left: -35px;
@@ -144,6 +212,33 @@
               padding-top: 23px;
           }
       }
+  }
+}
+
+//* End of text in green capsule
+//* Start short_retangle alphabet
+@for $retangle_font from 1 through 150 {
+  @if $retangle_font==100 {
+      .retangle#{$retangle_font} {
+          min-width: 185px !important; //! 2880px screen
+          margin-left: -45px !important;
+          /*
+          Close comment by KHA
+          .one_word {
+              margin-top: 8px !important;
+          } */
+      }
+  }
+  @else if $retangle_font==150 {
+      .retangle#{$retangle_font} {
+          min-width: 300px !important;
+          margin-left: -80px !important;
+      }
+      /*
+  Close comment by KHA
+  .one_word {
+          padding-top: 5px !important;
+      } */
   }
 }
 
