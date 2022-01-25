@@ -10,6 +10,14 @@ class ScreenUtil {
     $("#" + screenName).show();
   }
 
+  static showQuizSection() {
+    let tempScreenIdList = screenIdList.filter(s => s != 'quizSection');
+    for (const screen of tempScreenIdList) {
+      $("#" + screen).hide();
+    }
+    $("#quizSection").show();
+  }
+
   static showChoosePlayerScreen() {
     let tempScreenIdList = screenIdList.filter(s => s != 'choosePlayerScreen');
     for (const screen of tempScreenIdList) {
@@ -23,7 +31,7 @@ class ScreenUtil {
     for (const screen of tempScreenIdList) {
       $("#" + screen).hide();
     }
-    $("#welcomePlayerName").text(playerId);
+    $("#welcomePlayerName").text(sessionStorage.getItem("user"));
     $("#welcomeScreen").show();
   }
 

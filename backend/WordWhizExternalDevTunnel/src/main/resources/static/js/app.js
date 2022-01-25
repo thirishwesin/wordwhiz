@@ -1,12 +1,11 @@
-const playerId = sessionStorage.getItem("user");
 
 function toggleShowHide(connected) {
   $("#connect").prop("disabled", connected);
   $("#disconnect").prop("disabled", !connected);
+  var playerId = sessionStorage.getItem("user");
 
   if (connected && playerId == 'control-screen') { //TODO: To delete later
-    $("#quizSection").show();
-    $("#choosePlayerScreen").hide();
+   ScreenUtil.showQuizSection()
   } else if (connected) {
     ScreenUtil.showWelcomeScreen();
   } else {
