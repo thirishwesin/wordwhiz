@@ -1,4 +1,5 @@
-const screenIdList = ['choosePlayerScreen', 'welcomeScreen', 'round2Screen', 'round4Screen','quizSection'];
+const screenIdList = ['choose-player-screen', 'welcome-screen', 'scramble-word-screen', 'typo-word-screen', 'quizSection'];
+
 
 class ScreenUtil {
 
@@ -19,48 +20,66 @@ class ScreenUtil {
   }
 
   static showChoosePlayerScreen() {
-    let tempScreenIdList = screenIdList.filter(s => s != 'choosePlayerScreen');
+    let tempScreenIdList = screenIdList.filter(s => s != 'choose-player-screen');
     for (const screen of tempScreenIdList) {
       $("#" + screen).hide();
     }
-    $("#choosePlayerScreen").show();
+    $("#choose-player-screen").show();
   }
 
   static showWelcomeScreen() {
-    let tempScreenIdList = screenIdList.filter(s => s != 'welcomeScreen');
+    let tempScreenIdList = screenIdList.filter(s => s != 'welcome-screen');
     for (const screen of tempScreenIdList) {
       $("#" + screen).hide();
     }
-    $("#welcomePlayerName").text(sessionStorage.getItem("user"));
-    $("#welcomeScreen").show();
+    $("#welcome-player-name").text(SessionUtil.getValueFromSessionStorage("user"));
+    $("#welcome-screen").show();
   }
 
-  static showRound2Screen() {
-    let tempScreenIdList = screenIdList.filter(s => s != 'round2Screen');
+  static showScrambleWord() {
+    let tempScreenIdList = screenIdList.filter(s => s != 'scramble-word-screen');
     for (const screen of tempScreenIdList) {
       $("#" + screen).hide();
     }
-    $("#round2Screen").show();
+    $("#scramble-word-screen").show();
   }
 
-  static showRound4Screen() {
-    let tempScreenIdList = screenIdList.filter(s => s != 'round4Screen');
+  static showTypoWord() {
+    let tempScreenIdList = screenIdList.filter(s => s != 'typo-word-screen');
     for (const screen of tempScreenIdList) {
       $("#" + screen).hide();
     }
-    $("#round4Screen").show();
+    $("#typo-word-screen").show();
   }
 
-  static showRound(questionObj) {
+  static showGameScreen(questionObj) {
     switch (questionObj.round) {
       case 2:
-        RoundTwoService.showQuestion(questionObj);
-        this.showRound2Screen();
+        ScrambleWordService.showQuestion(questionObj);
+        this.showScrambleWord();
         break
       case 4:
-        this.showRound4Screen();
+        this.showTypoWord();
         break;
     }
+  }
+}
+
+class SessionUtil {
+  static setValueToSessionStorage(key, value) {
+    sessionStorage.setItem(key, value);
+  }
+
+  static getValueFromSessionStorage(key) {
+    return sessionStorage.getItem(key);
+  }
+
+  static removeFromSessionStorage(key){
+    sessionStorage.removeItem(key);
+  }
+
+  static removeAll(){
+    sessionStorage.clear();
   }
 }
 
