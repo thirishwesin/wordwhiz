@@ -34,9 +34,10 @@ function connect() {
   SessionUtil.setValueToSessionStorage("user", userName);
 }
 
-function submitAnswer(answer) {
+function submitAnswer(answer, answerIndex = '') {
   stompClient.send("/app-screen/submit/answer", {}, JSON.stringify({
     'answer': answer,
+    'answerIndex': answerIndex,
     'sendFrom': '',
     'sendTo': 'control-screen'
   }));

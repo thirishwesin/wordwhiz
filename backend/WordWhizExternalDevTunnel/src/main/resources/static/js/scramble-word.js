@@ -8,7 +8,8 @@ $(document).ready(() => {
 
   $('#scramble-word1, #scramble-word2, #scramble-word3, #scramble-word4').click(function () {
     $(this).find("span").html(answerWord);
-    submitAnswer(answerWord);
+    var answerIndex = $(this).attr("id");
+    submitAnswer(answerWord, answerIndex);
   })
 
 });
