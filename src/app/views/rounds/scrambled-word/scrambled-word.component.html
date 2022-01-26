@@ -10,7 +10,7 @@
     </div>
     <div class="text-left roundthree_body" *ngIf="currentQuestion?.isAnsCharacter">
       <div class="one_word_green one_word_green_three text-center retangle{{control.fontSettings.main_answer}}"
-        [ngClass]="{'hide_char': char == ' ' , 'animated heartBeat': control.startCount && round4hintAnimated && currentRound.showfirstAnsChar || control.showQuestion && !currentRound.showfirstAnsChar && !control.showAns && control.startCount == timerEnum.STOP && !control.fontSettingOpenClose, 'blue_bg' : i == 0 && currentRound.showfirstAnsChar}"
+        [ngClass]="{'hide_char': char == ' ' , 'animated heartBeat': control.startCount == timerEnum.START && round4hintAnimated || control.showQuestion && !currentRound.showfirstAnsChar && !control.showAns && !control.clickTimer && !control.fontSettingOpenClose, 'blue_bg' : i == 0 && currentRound.showfirstAnsChar}"
         *ngFor="let char of ansCharacterArr; let i=index;">
         <span *ngIf="!currentRound.showfirstAnsChar">
           <input type="text" [value]="char"
