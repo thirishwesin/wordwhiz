@@ -1,5 +1,5 @@
 import { createReducer, on } from "@ngrx/store";
-import { wordWhizIsConnected, offlineUser, onlineUser } from "../actions/externalDevice.actions";
+import { wordWhizIsConnected, offlineUser, onlineUser, playerAnswer } from "../actions/externalDevice.actions";
 import { ExternalDevice } from "../models/externalDevice";
 
 
@@ -7,7 +7,8 @@ export const initialState: ExternalDevice = {
   onlineUser: undefined,
   offlineUser: undefined,
   onlineUsers: new Set<string>([]),
-  wordWhizIsConnected: false
+  wordWhizIsConnected: false,
+  playerAnswer: undefined
 }
 
 const _externalDeviceReducer = createReducer(
@@ -27,6 +28,10 @@ const _externalDeviceReducer = createReducer(
     // celar external device data
     state.onlineUsers.clear();
     return state = {...initialState, wordWhizIsConnected: isConnected}
+  }),
+  on(playerAnswer, (state, {playerAnswer}) => {
+    state = {...state, playerAnswer: playerAnswer}
+    return state;
   })
 )
 

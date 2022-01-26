@@ -1376,7 +1376,7 @@ export class ControlComponent implements OnInit {
 
   toggleWebSocketConnection(): void {
     this.externalDevice.wordWhizIsConnected ? this.websocketService.disconnect() :
-      this.websocketService.initWebSocketConnection(this.websocketUrl);
+      this.websocketService.initWebSocketConnection(this.websocketUrl, this.newWindows);
   }
 
   updatePlayerActiveStatus(): void {

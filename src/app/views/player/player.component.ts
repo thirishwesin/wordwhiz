@@ -6,6 +6,8 @@ import { updateStoreFromControl } from "../../core/actions/control.actions";
 import { Images } from "../../common/images";
 import { ActivatedRoute } from "@angular/router";
 import { Episode } from "../../core/models/episode";
+import { ExternalDevice } from "../../core/models/externalDevice";
+import { playerAnswer } from "../../core/actions/externalDevice.actions";
 
 
 @Component({
@@ -27,6 +29,7 @@ export class PlayerComponent implements OnInit {
     private store: Store<{
       control: Control;
       episode: Episode;
+      externalDevice: ExternalDevice
     }>,
     readonly nz: NgZone,
     private route: ActivatedRoute
@@ -44,6 +47,11 @@ export class PlayerComponent implements OnInit {
         this.updatePlayerState();
       });
     });
+
+    ipc.on("submit-answer", (event, message) => {
+      this.store.dispatch(playerAnswer({playerAnswer: message}))
+      console.log(message);
+    })
   }
 
   ngOnInit() {
@@ -52,7 +60,7 @@ export class PlayerComponent implements OnInit {
       this.playerId = this.paramObj.params.id;
     });
 
-    console.log('player id >>> ', this.playerId)
+    console.log('player id >>> ', this.playerId);
 
     this.store.subscribe(item => {
       this.episode = item.episode;

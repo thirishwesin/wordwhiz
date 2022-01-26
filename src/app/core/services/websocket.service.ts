@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Stomp } from "@stomp/stompjs";
+import { updateStoreFromControl } from '../actions/control.actions';
 import { wordWhizIsConnected, offlineUser, onlineUser } from '../actions/externalDevice.actions';
 import { ExternalDevice } from '../models/externalDevice';
 
@@ -13,9 +14,11 @@ export class WebsocketService {
   disabled: boolean
   onlineUsers: string[] = []
 
-  constructor(private store: Store<{externalDevice: ExternalDevice}> ) { }
+  constructor(private store: Store<{externalDevice: ExternalDevice}> ) { 
+      
+  }
 
-  initWebSocketConnection(websocketUrl: string): void {
+  initWebSocketConnection(websocketUrl: string, newWindows: any[]): void {
     // ws://localhost:8080/ws/websocket
     console.log('websocketUrl: ' + websocketUrl)
     let socket = new WebSocket(websocketUrl);
@@ -30,7 +33,7 @@ export class WebsocketService {
         if(frame.command === 'CONNECTED'){
           that.store.dispatch(wordWhizIsConnected({isConnected: true}))
         }
-        that.subscribeAppScreen()
+        that.subscribeAppScreen(newWindows)
         that.disabled = true;
       },
       function(error) {
@@ -56,11 +59,13 @@ export class WebsocketService {
     this.websocket.send("/control-screen/show/question/to/specific-player", {}, question);
   }
 
-  subscribeAppScreen(){
+  subscribeAppScreen(newWindows: any[]){
     let that = this;
     this.websocket.subscribe('/external-device/submit/answer', function (answer) {
-      let ansewrObj = JSON.parse(answer.body);
-      console.log('answer: ', ansewrObj)
+      let answerObj = JSON.parse(answer.body);
+      newWindows.forEach(w => {
+        w.webContents.send("submit-answer", answerObj);
+      })
     });
     this.websocket.subscribe('/external-device/send/online-user', function (userInfo) {
       let username = userInfo.body;
