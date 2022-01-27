@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <div th:fragment="typo-word">
-  <div class="col-md-12">
-    <button id="clear-signature">Clear</button>
+  <div class="">
 
-    <br>
+    <div id="signature-pad">
+    	<canvas id="signature"  style="border: 1px solid #ddd; background: #fff; opacity: 0.6;"></canvas>
+    </div>
+    
+	<div class="btn_align">
+   		<button class="btn clear_btn" id="clear-signature">Clear</button>
+    </div> 
 
-    <canvas id="signature" width="450" height="150" style="border: 1px solid #ddd"></canvas>
   </div>
 </div>
 </html>
