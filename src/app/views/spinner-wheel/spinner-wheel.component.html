@@ -1,1 +1,24 @@
-<p>spinner-wheel works!</p>
+<!-- <p>spinner-wheel works!</p> -->
+
+<!-- <link rel="stylesheet" href="../../common/TweenMax.min.js"> -->
+<script src="../src/app/common/TweenMax.min.js"></script>
+
+<img class="mx-auto d-block spinner_center_bg" src="../../../assets/images/spin_bg.png">
+<!-- <div class="spinner_bg"></div> -->
+<div class="container-fluid spin-body">
+    <div class="spin-background"></div>
+    <div class="canvasContainer">
+        <canvas id='canvas' width='600' height='600'>
+            Canvas not supported, use another browser.
+        </canvas>
+        <span class="spin-pointer1"></span>
+        <span class="spin-pointer"></span>
+    </div>
+</div>
+<div class="btn-container">
+    <button id="spin_btn" class="btn" (click)="startAnimation();">Spin the Wheel</button>
+</div>
+
+
+
+
