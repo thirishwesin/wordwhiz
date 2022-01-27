@@ -392,7 +392,7 @@ export class ControlComponent implements OnInit {
       webPreferences: {
         nodeIntegration: true,
         // devTools: !AppConfig.production
-        webSecurity: false
+        // webSecurity: false
       }
     });
 

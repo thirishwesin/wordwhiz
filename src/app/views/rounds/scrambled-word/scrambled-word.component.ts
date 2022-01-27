@@ -30,11 +30,11 @@ export class ScrambledWordComponent implements OnInit {
     console.log("screenType: ", this.screenType)
 
     //animation
-    if (this.control.startCount ||this.control.showAns || this.control.clickExtraKey) {
+    if (this.control.startCount == TimerEnum.START ||this.control.showAns || this.control.clickExtraKey) {
       this.blockAnimated = true;
     }
     // animation
-    if (!this.control.startCount && !this.control.showAns && !this.control.showQuestion)
+    if (this.control.startCount  == TimerEnum.STOP && !this.control.showAns && !this.control.showQuestion)
       this.blockAnimated = false;
 
      this.ansCharacterArr = this.currentQuestion.ans.split('');  // split answer by each character
