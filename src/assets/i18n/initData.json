@@ -777,6 +777,18 @@
               "otClueFontSize": 50,
               "ansFontSize": 50,
               "otAnsFontSize": 50
+            },
+            {
+              "id": 2,
+              "clue": "mov_bbb",
+              "categoryId": 0,
+              "hints": [],
+              "ans": "test",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
             }
           ],
           "roundNameFontSize": "90",
