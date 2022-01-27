@@ -3,7 +3,7 @@ import { Component, OnInit, NgZone } from "@angular/core";
 import { Store, select } from "@ngrx/store";
 import { Observable, from } from "rxjs";
 import { WordWhiz } from "../../core/models/wordWhiz";
-import { remote } from "electron";
+import { BrowserWindow, remote } from "electron";
 import * as url from "url";
 import * as path from "path";
 import { AppConfig } from "../../../environments/environment";
@@ -51,6 +51,8 @@ import { TimerEnum } from '../../core/models/timerEnum';
 import { timeout } from 'rxjs/operators';
 import { WebsocketService } from '../../core/services/websocket.service';
 import { ExternalDevice } from '../../core/models/externalDevice';
+import { offlineUser, onlineUser, wordWhizIsConnected } from '../../core/actions/externalDevice.actions';
+import { Stomp } from '@stomp/stompjs';
 
 @Component({
   selector: "app-control",
@@ -124,6 +126,11 @@ export class ControlComponent implements OnInit {
   websocketUrl : string = "ws://localhost:8080/ws/websocket";
   spinnerWheelNo: number
   isSpinningWheel: boolean = false
+
+  //Vairbles for websocket
+  websocket: any
+  disabled: boolean
+  onlineUsers: string[] = []
 
   constructor(
     private store: Store<{
@@ -257,6 +264,69 @@ export class ControlComponent implements OnInit {
       };
     }
   }
+
+  //Start -- WebSocketConnection
+  initWebSocketConnection(websocketUrl: string): void {
+    // ws://localhost:8080/ws/websocket
+    console.log('websocketUrl: ' + websocketUrl)
+    let socket = new WebSocket(websocketUrl);
+    this.websocket = Stomp.over(socket);
+    let that = this;
+    this.websocket.connect(
+      {
+        username: 'control-screen',
+      },
+      function (frame) {
+        console.log(frame)
+        if(frame.command === 'CONNECTED'){
+          that.store.dispatch(wordWhizIsConnected({isConnected: true}))
+        }
+        that.subscribeAppScreen()
+        that.disabled = true;
+      },
+      function(error) {
+        console.log("STOMP error ", error);
+      }
+    );
+  }
+
+  disconnect(): void {
+    if (this.websocket != null) {
+      this.websocket.ws.close();
+    }
+    this.disabled = false;
+    this.store.dispatch(wordWhizIsConnected({isConnected: false}))
+    console.log("Disconnected");
+  }
+
+  sendQuestion(): void {
+    let question = JSON.stringify({
+      'question': 'Question one',
+      'toPlayer': 'player1'
+    })
+    this.websocket.send("/control-screen/show/question/to/specific-player", {}, question);
+  }
+
+  subscribeAppScreen(){
+    let that = this;
+    this.websocket.subscribe('/external-device/submit/answer', function (answer) {
+      let answerObj = JSON.parse(answer.body);
+      console.log("Windows size => ", that.newWindows.length);
+      that.newWindows.forEach((mainWindow: BrowserWindow) => {
+        mainWindow.webContents.send("submit-answer", answerObj);
+      })
+    });
+    this.websocket.subscribe('/external-device/send/online-user', function (userInfo) {
+      let username = userInfo.body;
+      that.store.dispatch(onlineUser({onlineUser: username}))
+    });
+    this.websocket.subscribe('/external-device/send/offline-user', function (userInfo) {
+      let username = userInfo.body;
+      that.store.dispatch(offlineUser({offlineUser: username}))
+    });
+  }
+  //End -- WebSocketConnection
+
   updateControlState() {
     // clear control extraWord array
     this.control.extraWord = [];
@@ -398,8 +468,11 @@ export class ControlComponent implements OnInit {
       }
     });
 
-    newWindow.on("closed", e => {
-      console.log("window closed", e);
+    newWindow.on("close", e => {
+      let index = this.newWindows.indexOf(newWindow);
+      if(index != -1) {
+        this.newWindows.splice(index, 1)
+      }
     });
 
     this.newWindows.push(newWindow);
@@ -1379,8 +1452,8 @@ export class ControlComponent implements OnInit {
   }
 
   toggleWebSocketConnection(): void {
-    this.externalDevice.wordWhizIsConnected ? this.websocketService.disconnect() :
-      this.websocketService.initWebSocketConnection(this.websocketUrl, this.newWindows);
+    this.externalDevice.wordWhizIsConnected ? this.disconnect() :
+          this.initWebSocketConnection(this.websocketUrl);
   }
 
   updatePlayerActiveStatus(): void {
