@@ -122,6 +122,8 @@ export class ControlComponent implements OnInit {
   currentRoundName: string = '第一回合'
   currentPoint : number
   websocketUrl : string = "ws://localhost:8080/ws/websocket";
+  spinnerWheelNo: number
+  isSpinningWheel: boolean = false
 
   constructor(
     private store: Store<{
@@ -392,7 +394,7 @@ export class ControlComponent implements OnInit {
       webPreferences: {
         nodeIntegration: true,
         // devTools: !AppConfig.production
-        // webSecurity: false
+        webSecurity: AppConfig.production
       }
     });
 
@@ -490,6 +492,7 @@ export class ControlComponent implements OnInit {
       episode: this.episode
     };
     broadCastData.control['resetTo'] = this.timeOut
+    broadCastData.control['spinnerWheelNo'] = this.spinnerWheelNo   // Look at the picture and guess (round 5)
     console.log('this.control  : ', this.control)
 
     setTimeout(() => {
@@ -525,6 +528,7 @@ export class ControlComponent implements OnInit {
   }
 
   clickRound(round) {
+    this.spinnerWheelNo = undefined
     this.currentRoundName= round.roundName
     //reset the category section
     if (round.questionType == 2) this.currentCategoryForR4 = undefined
@@ -1391,20 +1395,22 @@ export class ControlComponent implements OnInit {
         }
       }
     })
-    // let offlineUser = this.externalDevice.offlineUser;
-    // let onlineUser = this.externalDevice.onlineUser;
-    // console.log(`onlineUser: ${onlineUser} , offlineUser; ${offlineUser}`)
-    // if(onlineUser){
-    //   let onlineUseDoc = document.getElementById(onlineUser);
-    //   if(onlineUseDoc) onlineUseDoc.style.backgroundColor = '#62bd19'
-    // }
-    // if(offlineUser){
-    //   let offlineUserDoc = document.getElementById(offlineUser);
-    //   if(offlineUserDoc) offlineUserDoc.style.backgroundColor = 'gainsboro'
-    // }
   }
 
   openSpinnerWheelScreen(): void {
     this.newWindow(14);
+  }
+
+  selectSpinnerWheelNumber(spinnerWheelNo: number): void {
+    console.log('spinnerWheelNo: ', spinnerWheelNo)
+    this.spinnerWheelNo = spinnerWheelNo;
+    this.control.extraWord.map(extraword => extraword.visible = false) // reset true value to false
+    this.control.extraWord[spinnerWheelNo].visible = true;
+    this.broadcastScreens();
+  }
+
+  toggleSpinnerWheel(){
+    this.isSpinningWheel = !this.isSpinningWheel;
+    console.log('isSpinningWheel: ', this.isSpinningWheel)
   }
 }
