@@ -1,13 +1,10 @@
 var stompClient = null;
-
 function connect() {
   var socket = new SockJS('/ws');
 
   stompClient = Stomp.over(socket);
 
-  let userName = document.querySelector('input[name="player"]:checked').value;
-
-  stompClient.connect({"username": userName}, function (frame) {
+  stompClient.connect({"username": choosePlayer}, function (frame) {
     toggleShowHide(true);
     console.log('Connected: ' + frame);
 
@@ -31,7 +28,7 @@ function connect() {
 
   });
 
-  SessionUtil.setValueToSessionStorage("user", userName);
+  SessionUtil.setValueToSessionStorage("user", choosePlayer);
 }
 
 function submitAnswer(answer, answerIndex = '') {

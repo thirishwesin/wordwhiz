@@ -24,6 +24,7 @@ class ScreenUtil {
     for (const screen of tempScreenIdList) {
       $("#" + screen).hide();
     }
+    $("#wordwhiz-container").attr('class', 'bg_theme');
     $("#choose-player-screen").show();
   }
 
@@ -41,6 +42,7 @@ class ScreenUtil {
     for (const screen of tempScreenIdList) {
       $("#" + screen).hide();
     }
+    $("#wordwhiz-container").attr('class', 'bg_theme');
     $("#scramble-word-screen").show();
   }
 
@@ -49,6 +51,7 @@ class ScreenUtil {
     for (const screen of tempScreenIdList) {
       $("#" + screen).hide();
     }
+    $("#wordwhiz-container").attr('class', 'typo_bg_theme');
     $("#typo-word-screen").show();
   }
 

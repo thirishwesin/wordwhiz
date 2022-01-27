@@ -123,7 +123,7 @@ export class ControlComponent implements OnInit {
   r4CategoryId: number = 0
   currentRoundName: string = '第一回合'
   currentPoint : number
-  websocketUrl : string = "ws://localhost:8080/ws/websocket";
+  websocketUrl : string = "ws://localhost:8081/ws/websocket";
   spinnerWheelNo: number
   isSpinningWheel: boolean = false
 
