@@ -1,7 +1,12 @@
 /* start style for scramble word */
-.round2_bg_theme{
+.bg_theme{
 	height: 100vh;
     background: url(../../image/round2_bg.png) no-repeat fixed;
+    background-size: cover;
+}
+.typo_bg_theme{
+	height: 100vh;
+    background: url(../../image/typo_word_bg.jpg) no-repeat fixed;
     background-size: cover;
 }
 .underline-word {
