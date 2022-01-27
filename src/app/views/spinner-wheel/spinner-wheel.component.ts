@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+declare var Winwheel: any;
+
 
 @Component({
   selector: 'app-spinner-wheel',
@@ -7,9 +9,48 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SpinnerWheelComponent implements OnInit {
 
-  constructor() { }
+  theWheel: any;
 
+
+  constructor() { }
   ngOnInit() {
+    this.theWheel = new Winwheel({
+      'canvasId': 'canvas',
+      'outerRadius': 240,
+      'innerRadius': 20,
+      'numSegments': 4,
+      'textAlignment': 'center',
+      'rotationAngle': -45,
+      'segments':
+        [
+          { 'fillStyle': '#3e0560', 'strokeStyle': '#fff', 'textFillStyle': '#ffffff', 'text': '1', 'textFontSize' : 70 },
+          { 'fillStyle': '#6940a0', 'strokeStyle': '#fff', 'textFillStyle': '#ffffff', 'text': '2', 'textFontSize' : 70 },
+          { 'fillStyle': '#3e0560', 'strokeStyle': '#fff', 'textFillStyle': '#ffffff', 'text': '3', 'textFontSize' : 70 },
+          { 'fillStyle': '#6940a0', 'strokeStyle': '#fff', 'textFillStyle': '#ffffff', 'text': '4', 'textFontSize' : 70 }
+        ],
+      'lineWidth': 3,
+      'pins':    // Specify pin parameters.
+      {
+        'number': 24,
+        'outerRadius': 5,
+        'margin': 10,
+        'fillStyle': '#ffffff',
+      },
+      'animation':
+      {
+        'type': 'spinToStop',
+        'duration': 5,
+        'spins': 4,
+      }
+    });
   }
 
+  // resetWheel() {
+  //   this.theWheel.stopAnimation();
+  //   this.theWheel.rotationAngle = -45;
+  // }
+
+  startAnimation() {
+    this.theWheel.startAnimation();
+  }
 }
