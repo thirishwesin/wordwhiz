@@ -7,6 +7,7 @@ $(document).ready(function () {
 
   $('#clear-signature').on('click', function () {
     signaturePad.clear();
+    submitAnswer(signaturePad.toDataURL());
   })
 
 

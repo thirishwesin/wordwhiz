@@ -22,7 +22,7 @@ export class PlayerComponent implements OnInit {
   playerPoint: number;
   control: Control
   playerName: string;
-
+  typoWordImage: string = 'zin';
   Images = Images;
 
   constructor(
@@ -44,12 +44,13 @@ export class PlayerComponent implements OnInit {
       this.nz.run(() => {
         this.episode = message.episode;
         this.control = message.control
-        this.updatePlayerState();
+        // this.updatePlayerState();
       });
     });
 
     ipc.on("submit-answer", (event, message) => {
-      this.store.dispatch(playerAnswer({playerAnswer: message}))
+      this.store.dispatch(playerAnswer({ playerAnswer: message }));
+      this.updatePlayerState(message)
       console.log(message);
     })
   }
@@ -68,12 +69,19 @@ export class PlayerComponent implements OnInit {
     });
   }
 
-  updatePlayerState() {
+  updatePlayerState(answerObject?: any) {
     this.episode.players.map(player => {
       if (player.id == this.playerId) {
         this.playerPoint = player.point;
         this.playerName = player.name;
+
+        this.nz.run(() => {
+          if (answerObject.sendFrom.includes(this.playerId)) {
+            this.typoWordImage = answerObject.answer;
+          }
+        });
       }
     });
+
   }
 }
