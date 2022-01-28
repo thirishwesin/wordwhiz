@@ -312,7 +312,7 @@ export class ControlComponent implements OnInit {
       question: this.currentQuestion.clue,
       hint: this.currentQuestion.hints[0].value,
       timeout: this.currentRound.timeOut,
-      playerId: this.externalDevPlayerId,
+      playerId: `player${this.externalDevPlayerId}`,
       currentQuestionId: this.control.currentQuestionId,
       currentRoundId: this.control.currentRoundId,
       currentEpisodeId: this.control.currentEpisodeId
@@ -621,7 +621,9 @@ export class ControlComponent implements OnInit {
 
   clickRound(round) {
     this.spinnerWheelNo = undefined
-    this.externalDevPlayerId = undefined
+    if(this.currentRound.questionType == 8 || this.currentRound.questionType == 7){
+      this.externalDevPlayerId = undefined
+    }
     this.currentRoundName= round.roundName
     //reset the category section
     if (round.questionType == 2) this.currentCategoryForR4 = undefined
@@ -778,6 +780,9 @@ export class ControlComponent implements OnInit {
   }
 
   clickQuestion(question, currentQuestionIndex) {
+    if(this.currentRound.questionType == 8 || this.currentRound.questionType == 7){
+      this.externalDevPlayerId = undefined
+    }
     this.roundFourHintValue = undefined
     this.disableStart = false;
     if (this.currentRound.hasCategory)
@@ -1472,6 +1477,14 @@ export class ControlComponent implements OnInit {
         this.currentPoint = this.currentRound.secondPoint
       }
     }
+    // update point for round one
+    if(this.currentRound.questionType == 8){
+      if(timeOut == 10){
+        this.currentPoint = this.currentRound.point
+      }else if(timeOut == 5){
+        this.currentPoint = this.currentRound.secondPoint
+      }
+    }
   }
 
   toggleWebSocketConnection(): void {
@@ -1510,7 +1523,7 @@ export class ControlComponent implements OnInit {
     console.log('isSpinningWheel: ', this.isSpinningWheel)
   }
 
-  selectPlayer(playerId: number): void {
-    this.externalDevPlayerId = `player${playerId}`
+  selectPlayer(playerId: string): void {
+    this.externalDevPlayerId = playerId
   }
 }

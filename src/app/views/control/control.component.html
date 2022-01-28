@@ -166,7 +166,7 @@
             <div ngbDropdown class="d-inline-block" *ngIf="currentRound.questionType == 8 || currentRound.questionType == 7">
               <button class="btn common_input" id="dropdownBasic1" ngbDropdownToggle>
                 <p class="section_text">
-                  {{externalDevPlayerId ? externalDevPlayerId : 'Select Player'}}
+                  {{externalDevPlayerId ? 'Player' + externalDevPlayerId : 'Select Player'}}
                 </p>
                 <img [src]=Images.dropDown class="drop_down_icon">
               </button>
@@ -176,7 +176,8 @@
               </div>
             </div>
             <div class=" showans_btn">
-              <button class="btn button que" (click)="toggleQuestion()">{{control.showQuestion ? 'Hide Question' : 'Show Question'}}</button>
+              <button class="btn button que"
+              [disabled]="!externalDevPlayerId && (currentRound.questionType == 8 || currentRound.questionType == 7)" (click)="toggleQuestion()">{{control.showQuestion ? 'Hide Question' : 'Show Question'}}</button>
             </div>
             <div class=" showans_btn">
               <button class="btn button ans" (click)="startTimer(true)"
