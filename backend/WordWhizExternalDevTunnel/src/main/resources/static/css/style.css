@@ -191,7 +191,7 @@
 }
 
 .welcome-text-container{
-	top: 470px;
+	top: 350px;
     padding: 110px 50px;
     position: fixed;
     background: linear-gradient(271deg, rgba(57,13,150,1) 0%, rgb(147 60 255) 50%, rgba(57,13,150,1) 100%);
