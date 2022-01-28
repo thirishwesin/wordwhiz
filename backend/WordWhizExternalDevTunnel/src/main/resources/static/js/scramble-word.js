@@ -9,7 +9,7 @@ $(document).ready(() => {
   });
 
   $(scrambleWordIds).click(function () {
-    $(this).find("span").html(answerWord);
+    $(this).find("p").html(answerWord);
     var answerIndex = $(this).attr("data-wz-index");
     submitAnswer(answerWord, answerIndex);
   })
