@@ -1,0 +1,58 @@
+.round2_bg_theme{
+	height: 100vh;
+    //background: url(../../image/round2_bg.png) no-repeat fixed;
+    background-size: cover;
+}
+.underline-word {
+	border-bottom: 5px solid #48B822;
+	width: 90px;
+   	margin: auto;
+    min-height: 100px;
+}
+
+.word-margin {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.round2_answer, .round2_word {
+	justify-content: center;
+	display: flex;
+}
+
+.round2_answer .col-sm-1 , .round2_word .col-sm-1 {
+	text-align: center;
+	margin-left: 20px;
+    margin-right: 20px;
+}
+.answer{
+	font-size: 80px;
+    font-weight: bold;
+    color: #fff;
+    line-height: 80px;
+}
+.round2_word img{
+	   width: 100px;
+}
+#scramble-word-screen{	
+    top: 42%;
+    position: absolute;
+	width: 100%;
+}
+.round2_btn{
+	padding: 0px;
+}
+.btn_txt{
+	position: absolute;
+    top: 5px;
+    font-size: 50px;
+    text-shadow: 3px 4px 3px #333333;
+    color: #FFFFFF;
+    margin-left: -93px;
+    width: 90px;
+    height: 87px;
+    background: none;
+    border: none;
+    outline: none;
+    text-align: center;
+}
