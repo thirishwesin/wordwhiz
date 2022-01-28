@@ -54,11 +54,11 @@ class ScreenUtil {
 
   static showGameScreen(questionObj) {
     switch (questionObj.round) {
-      case 2:
+      case 8:
         ScrambleWordService.showQuestion(questionObj);
         this.showScrambleWord();
         break
-      case 4:
+      case 7:
         this.showTypoWord();
         break;
     }

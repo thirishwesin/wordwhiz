@@ -48,11 +48,11 @@ import { saveFile } from "../../common/functions";
 import { QuestionCategory } from "../../core/models/questionCategory";
 import fontSizeForWindow from "../../../assets/fonts/fontSizeForWindow.json";
 import { TimerEnum } from '../../core/models/timerEnum';
-import { timeout } from 'rxjs/operators';
 import { WebsocketService } from '../../core/services/websocket.service';
 import { ExternalDevice } from '../../core/models/externalDevice';
 import { offlineUser, onlineUser, wordWhizIsConnected } from '../../core/actions/externalDevice.actions';
-import { Stomp } from '@stomp/stompjs';
+import { CompatClient, IFrame, IMessage, Stomp } from '@stomp/stompjs';
+import { ExternalDeviceQuestion } from '../../core/models/externalDeviceQuestion';
 
 @Component({
   selector: "app-control",
@@ -123,13 +123,12 @@ export class ControlComponent implements OnInit {
   r4CategoryId: number = 0
   currentRoundName: string = '第一回合'
   currentPoint : number
-  websocketUrl : string = "ws://localhost:8080/ws/websocket";
+  websocketUrl : string = "ws://localhost:8081/ws/websocket";
   spinnerWheelNo: number
   isSpinningWheel: boolean = false
 
   //Vairbles for websocket
-  websocket: any
-  disabled: boolean
+  stompClient: CompatClient
   onlineUsers: string[] = []
 
   constructor(
@@ -149,7 +148,6 @@ export class ControlComponent implements OnInit {
       this.episode = item.episode;
       this.control = item.control;
       this.externalDevice = item.externalDevice;
-      console.log("externalDevice: ", this.externalDevice)
       // for dev
       if (this.wordWhiz.fontSettings == null) {
         this.control.fontSettings = {
@@ -267,23 +265,29 @@ export class ControlComponent implements OnInit {
 
   //Start -- WebSocketConnection
   initWebSocketConnection(websocketUrl: string): void {
-    // ws://localhost:8080/ws/websocket
-    console.log('websocketUrl: ' + websocketUrl)
-    let socket = new WebSocket(websocketUrl);
-    this.websocket = Stomp.over(socket);
+    // create CompatClient
+    this.stompClient = Stomp.over(function(){
+      return new WebSocket(websocketUrl)
+    });
+    // listen websocket server and client is disconnected.
+    this.stompClient.onWebSocketClose = (evt) => {
+      this.store.dispatch(wordWhizIsConnected({isConnected: false}))
+    }
+
     let that = this;
-    this.websocket.connect(
-      {
-        username: 'control-screen',
-      },
-      function (frame) {
-        console.log(frame)
+    // connect to websocket server
+    this.stompClient.connect({username: 'control-screen'},
+      // connectCallback
+      function (frame: IFrame) {
+        // if client have already connected, retrieve online users from server
         if(frame.command === 'CONNECTED'){
+          that.stompClient.send("/control-screen/get/online-users");
           that.store.dispatch(wordWhizIsConnected({isConnected: true}))
         }
-        that.subscribeAppScreen()
-        that.disabled = true;
+        // subscribe external device data
+        that.subscribeExternalDevice()
       },
+      // errorCallback
       function(error) {
         console.log("STOMP error ", error);
       }
@@ -291,36 +295,49 @@ export class ControlComponent implements OnInit {
   }
 
   disconnect(): void {
-    if (this.websocket != null) {
-      this.websocket.ws.close();
+    if (this.stompClient != null) {
+      this.stompClient.disconnect();
     }
-    this.disabled = false;
-    this.store.dispatch(wordWhizIsConnected({isConnected: false}))
     console.log("Disconnected");
   }
 
-  sendQuestion(): void {
-    let question = JSON.stringify({
-      'question': 'Question one',
-      'toPlayer': 'player1'
-    })
-    this.websocket.send("/control-screen/show/question/to/specific-player", {}, question);
+  sendQuestionToExternalDevice(): void {
+    let question = JSON.stringify(this.getExternalDeviceQuestion())
+    this.stompClient.send("/control-screen/show/question/to/specific-player", {}, question);
   }
 
-  subscribeAppScreen(){
+  getExternalDeviceQuestion(): ExternalDeviceQuestion {
+    let externalDeviceQuestion : ExternalDeviceQuestion = {
+      question: this.currentQuestion.clue,
+      hint: 'hint',
+      timeout: this.currentRound.timeOut,
+      playerId: 'player1',
+      currentQuestionId: this.control.currentQuestionId,
+      currentRoundId: this.control.currentRoundId,
+      currentEpisodeId: this.control.currentEpisodeId
+    }
+    return externalDeviceQuestion;
+  }
+
+  subscribeExternalDevice(){
     let that = this;
-    this.websocket.subscribe('/external-device/submit/answer', function (answer) {
+    this.stompClient.subscribe('/external-device/submit/answer', function (answer: IMessage) {
       let answerObj = JSON.parse(answer.body);
-      console.log("Windows size => ", that.newWindows.length);
       that.newWindows.forEach((mainWindow: BrowserWindow) => {
         mainWindow.webContents.send("submit-answer", answerObj);
       })
     });
-    this.websocket.subscribe('/external-device/send/online-user', function (userInfo) {
+    this.stompClient.subscribe('/external-device/get/online-users', function (userInfo: IMessage) {
+      let usernames : string[] = JSON.parse(userInfo.body);
+      usernames.forEach(username => {
+        that.store.dispatch(onlineUser({onlineUser: username}))
+      });
+    });
+    this.stompClient.subscribe('/external-device/send/online-user', function (userInfo: IMessage) {
       let username = userInfo.body;
       that.store.dispatch(onlineUser({onlineUser: username}))
     });
-    this.websocket.subscribe('/external-device/send/offline-user', function (userInfo) {
+    this.stompClient.subscribe('/external-device/send/offline-user', function (userInfo: IMessage) {
       let username = userInfo.body;
       that.store.dispatch(offlineUser({offlineUser: username}))
     });
@@ -550,7 +567,7 @@ export class ControlComponent implements OnInit {
           console.log('word whiz => ', this.wordWhiz.episodes)
           // saveFile(this.wordWhiz, () => { });
           this.router.navigate(["/home"], { queryParams: { id: "control" } });
-
+          this.disconnect();
         },
         reason => reason
       );
@@ -857,8 +874,8 @@ export class ControlComponent implements OnInit {
         obj.visible = false;
       });
     }
-
     this.broadcastScreens();
+    if (this.control.showQuestion) {this.sendQuestionToExternalDevice();}
   }
 
   startTimer(isStart) {
@@ -1458,13 +1475,13 @@ export class ControlComponent implements OnInit {
 
   updatePlayerActiveStatus(): void {
     this.episode.players.forEach((player: Player) => {
-      let name = player.name
+      let name = `player${player.id}`;
       let doc = document.getElementById(name)
       if(doc){
         if(this.externalDevice.onlineUsers.has(name)){
-          document.getElementById(name).style.backgroundColor = '#62bd19'
+          document.getElementById(name).className = 'active-player';
         }else {
-          document.getElementById(name).style.backgroundColor = 'gainsboro'
+          document.getElementById(name).classList.remove('active-player')
         }
       }
     })

@@ -1,7 +1,7 @@
 <div class="container-fluid home_body">
   <button class="btn main_btn" (click)="openModel(content_control)">Go Back Home
   </button>
-  <button class="btn main_btn" (click)="toggleWebSocketConnection()">
+  <button class="btn main_btn" [class.disconnect]="externalDevice.wordWhizIsConnected" (click)="toggleWebSocketConnection()">
     {{externalDevice.wordWhizIsConnected ? 'Disconnect' : 'Connect'}}
   </button>
   <button _ngcontent-hxj-c3="" class="btn setting_icon" (click)="setting(content_control_setting)">
@@ -19,8 +19,9 @@
         <div (click)="newWindow(0)">Main</div>
         <div (click)="newWindow(13)">1/3 Screen</div>
         <div (click)="openSpinnerWheelScreen()">Spinning Wheel</div>
-        <div *ngFor="let player of episode.players" (click)="newWindow(player.id)">
-          {{player.name}}<span class="circle" [id]="player.name"></span>
+        <div *ngFor="let player of episode.players" (click)="newWindow(player.id)"
+          [id]="'player'+player.id">
+          {{player.name}}<span class="circle"></span>
         </div>
         <!-- <div *ngFor="let name of externalDevice.onlineUsers">{{name}}</div> -->
         <div class="resize_icon" (click)="toggleFullScreen()"><img
