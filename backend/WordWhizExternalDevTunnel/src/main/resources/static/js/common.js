@@ -1,4 +1,4 @@
-const screenIdList = ['choose-player-screen', 'welcome-screen', 'scramble-word-screen', 'typo-word-screen', 'quizSection'];
+const screenIdList = ['choose-player-screen', 'welcome-screen', 'scramble-word-screen', 'typo-word-screen'];
 
 
 class ScreenUtil {
@@ -11,13 +11,6 @@ class ScreenUtil {
     $("#" + screenName).show();
   }
 
-  static showQuizSection() {
-    let tempScreenIdList = screenIdList.filter(s => s != 'quizSection');
-    for (const screen of tempScreenIdList) {
-      $("#" + screen).hide();
-    }
-    $("#quizSection").show();
-  }
 
   static showChoosePlayerScreen() {
     let tempScreenIdList = screenIdList.filter(s => s != 'choose-player-screen');
@@ -33,7 +26,7 @@ class ScreenUtil {
     for (const screen of tempScreenIdList) {
       $("#" + screen).hide();
     }
-    $("#welcome-player-name").text(SessionUtil.getValueFromSessionStorage("user"));
+    $("#welcome-player-name").text(SessionUtil.getValueFromSessionStorage("user-name"));
     $("#welcome-screen").show();
   }
 

@@ -23,12 +23,11 @@ function connect() {
     stompClient.subscribe('/external-device/submit/answer', function (answer) {
       console.log("/external-device/submit/answer")
       var ansewrObj = JSON.parse(answer.body);
-      showAnswer(ansewrObj.answer, ansewrObj.sendFrom);
     });
 
   });
 
-  SessionUtil.setValueToSessionStorage("user", choosePlayer);
+  SessionUtil.setValueToSessionStorage("user-name", $("#" + choosePlayer).text());
 }
 
 function submitAnswer(answer, answerIndex = '') {
@@ -49,6 +48,3 @@ function disconnect() {
   console.log("Disconnected");
 }
 
-function getStompClient() {
-  return stompClient;
-}

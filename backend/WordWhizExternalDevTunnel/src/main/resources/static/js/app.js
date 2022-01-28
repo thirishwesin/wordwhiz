@@ -3,23 +3,17 @@ var choosePlayer = '';
 function toggleShowHide(connected) {
   $("#connect").prop("disabled", connected);
   $("#disconnect").prop("disabled", !connected);
-
-  if (connected && SessionUtil.getValueFromSessionStorage("user") == 'control-screen') { //TODO: To delete later
-    ScreenUtil.showQuizSection()
-  }else {
-    connected ? ScreenUtil.showWelcomeScreen() : ScreenUtil.showChoosePlayerScreen();
-  }
+  connected ? ScreenUtil.showWelcomeScreen() : ScreenUtil.showChoosePlayerScreen();
 }
 
 $(document).ready(function () {
   toggleShowHide(false);
-let choosenPlayer = '';
-  $('#player1, #player2, #player3, #control-screen').click(function () {
-    choosenPlayer = choosePlayer + "Selected";
-    $("#"+choosenPlayer).removeAttr('src');
-    choosePlayer = $(this).val();
-    $("#" + choosePlayer + "Selected").attr("src","../../image/choose_icon.png")
-    console.log(choosePlayer)
+  let chosenPlayer = '';
+  $('#player1-btn, #player2-btn, #player3-btn').click(function () {
+    chosenPlayer = choosePlayer + "-selected";
+    $("#" + chosenPlayer).removeAttr('src');
+    choosePlayer = this.id.toString().replaceAll('-btn', '')
+    $("#" + choosePlayer + "-selected").attr("src", "../../image/choose_icon.png")
   });
 
   $("form").on('submit', function (e) {
@@ -32,16 +26,6 @@ let choosenPlayer = '';
 
   $("#disconnect").click(function () {
     disconnect();
-  });
-
-  $("#send").click(function () {
-    if (document.querySelector('input[name="players"]:checked').value == 'all') {
-      sendAllPlayer();
-      toggleShowHide(true)
-    } else {
-      sendSpecificPlayer();
-      toggleShowHide(true)
-    }
   });
 
 });
