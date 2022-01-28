@@ -43,8 +43,8 @@ public class ControlScreenResource {
     private void getOnlineUsers() throws InterruptedException {
       List<String> onlineUsers = this.simpUserRegistry.getUsers().stream().map(SimpUser::getName)
         .collect(Collectors.toList());
-      Thread.sleep(1);
       System.out.println("online users: " + onlineUsers);
+      Thread.sleep(1000);
       this.messagingTemplate.convertAndSendToUser(CONTROL_SCREEN,
         "/get/online-users", onlineUsers);
     }

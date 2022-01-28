@@ -130,6 +130,7 @@ export class ControlComponent implements OnInit {
   //Vairbles for websocket
   stompClient: CompatClient
   onlineUsers: string[] = []
+  externalDevPlayerId: string
 
   constructor(
     private store: Store<{
@@ -309,9 +310,9 @@ export class ControlComponent implements OnInit {
   getExternalDeviceQuestion(): ExternalDeviceQuestion {
     let externalDeviceQuestion : ExternalDeviceQuestion = {
       question: this.currentQuestion.clue,
-      hint: 'hint',
+      hint: this.currentQuestion.hints[0].value,
       timeout: this.currentRound.timeOut,
-      playerId: 'player1',
+      playerId: this.externalDevPlayerId,
       currentQuestionId: this.control.currentQuestionId,
       currentRoundId: this.control.currentRoundId,
       currentEpisodeId: this.control.currentEpisodeId
@@ -329,6 +330,7 @@ export class ControlComponent implements OnInit {
     });
     this.stompClient.subscribe('/external-device/get/online-users', function (userInfo: IMessage) {
       let usernames : string[] = JSON.parse(userInfo.body);
+      console.log('usernames: ', usernames)
       usernames.forEach(username => {
         that.store.dispatch(onlineUser({onlineUser: username}))
       });
@@ -619,6 +621,7 @@ export class ControlComponent implements OnInit {
 
   clickRound(round) {
     this.spinnerWheelNo = undefined
+    this.externalDevPlayerId = undefined
     this.currentRoundName= round.roundName
     //reset the category section
     if (round.questionType == 2) this.currentCategoryForR4 = undefined
@@ -875,7 +878,10 @@ export class ControlComponent implements OnInit {
       });
     }
     this.broadcastScreens();
-    if (this.control.showQuestion) {this.sendQuestionToExternalDevice();}
+    if (this.control.showQuestion && (this.currentRound.questionType == 8 ||
+      this.currentRound.questionType == 7)) {
+      this.sendQuestionToExternalDevice();
+    }
   }
 
   startTimer(isStart) {
@@ -1499,8 +1505,12 @@ export class ControlComponent implements OnInit {
     this.broadcastScreens();
   }
 
-  toggleSpinnerWheel(){
+  toggleSpinnerWheel(): void {
     this.isSpinningWheel = !this.isSpinningWheel;
     console.log('isSpinningWheel: ', this.isSpinningWheel)
+  }
+
+  selectPlayer(playerId: number): void {
+    this.externalDevPlayerId = `player${playerId}`
   }
 }
