@@ -13,6 +13,7 @@ import { ScrambleHint, ScrambleWord } from "../../core/models/scramble";
 import { find as _find } from 'lodash';
 import { Round } from "../../core/models/round";
 import { Question } from "../../core/models/question";
+import { defaultTypWordImage } from "../../common/base64";
 
 
 @Component({
@@ -27,7 +28,7 @@ export class PlayerComponent implements OnInit {
   playerPoint: number;
   control: Control
   playerName: string;
-  typoWordImage: string = '';
+  typoWordImage: string = defaultTypWordImage;
   Images = Images;
   currentRoundId: number;
   sendFromPlayerId: number;
@@ -100,6 +101,8 @@ export class PlayerComponent implements OnInit {
           word3: "",
           word4: ""
         }
+
+        this.typoWordImage = defaultTypWordImage;
       });
     });
 
@@ -122,6 +125,8 @@ export class PlayerComponent implements OnInit {
       this.episode = item.episode;
       this.control = item.control;
     });
+    console.log(this.typoWordImage);
+    
   }
 
   updatePlayerState() {

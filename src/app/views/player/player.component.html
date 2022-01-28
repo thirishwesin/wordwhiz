@@ -17,7 +17,7 @@
             <app-scramble-word [scrambleWord]="scrambleWord" [scrambleHint]="scrambleHint"></app-scramble-word>
         </div>
 
-        <div *ngIf="control.currentRoundId == 7 && !typoWordImage">
+        <div *ngIf="control.currentRoundId == 7">
             <app-typo-word [typoWordImage]=typoWordImage></app-typo-word>
         </div>
     </div>
