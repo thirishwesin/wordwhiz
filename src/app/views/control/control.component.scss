@@ -866,13 +866,30 @@ row {
 //   }
 
 
-.openall-group .active-player{
-    background-image: linear-gradient(to top, #04b3ff 0%, #242424 100%);
-    background-image: linear-gradient(to top, #008bb4 0%, #4aff00 100%);
+// .openall-group .active-player{
+//     background-image: linear-gradient(to top, #04b3ff 0%, #242424 100%);
+//     background-image: linear-gradient(to top, #008bb4 0%, #4aff00 100%);
+// }
+
+.active-player{
+    color: #39ff14 !important;
+    text-shadow: 0 0 20px #28ff00;
+    font-weight: bold;
 }
 
-.disconnect{
-    background: rgba(255, 0, 0, 0.5) !important;
-    background: rgba(220, 0, 0, 0.8) !important;
-    background: #d90000!important;
+.active-player .circle{
+    background: #39ff14;
+    box-shadow: 0 0 20px #28ff00;
+}
+.dis-icon{
+    display: none;
+    position: absolute;
+    z-index: 99;
+    width: 15px;
+    height: 15px;
+    top: 18px;
+    margin-left: 15px;
+}
+.disconnect .dis-icon{
+    display: block;
 }

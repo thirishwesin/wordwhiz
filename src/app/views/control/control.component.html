@@ -2,6 +2,7 @@
   <button class="btn main_btn" (click)="openModel(content_control)">Go Back Home
   </button>
   <button class="btn main_btn" [class.disconnect]="externalDevice.wordWhizIsConnected" (click)="toggleWebSocketConnection()">
+    <img [src]=Images.times_icon class="dis-icon">
     {{externalDevice.wordWhizIsConnected ? 'Disconnect' : 'Connect'}}
   </button>
   <button _ngcontent-hxj-c3="" class="btn setting_icon" (click)="setting(content_control_setting)">
@@ -162,18 +163,6 @@
           </div>
 
           <div class="col-sm-4 button_group" *ngIf="!currentRound.hasCategory">
-            <div ngbDropdown class="d-inline-block" *ngIf="currentRound.questionType == 8 || currentRound.questionType == 7">
-              <button class="btn common_input" id="dropdownBasic1" ngbDropdownToggle>
-                <p class="section_text">
-                  {{externalDevPlayerId ? externalDevPlayerId : 'Select Player'}}
-                </p>
-                <img [src]=Images.dropDown class="drop_down_icon">
-              </button>
-              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                <button ngbDropdownItem *ngFor="let player of episode.players"
-                  (click)="selectPlayer(player.id)">{{player.name}}</button>
-              </div>
-            </div>
             <div class=" showans_btn">
               <button class="btn button que" (click)="toggleQuestion()">{{control.showQuestion ? 'Hide Question' : 'Show Question'}}</button>
             </div>
