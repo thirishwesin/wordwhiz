@@ -12,6 +12,7 @@ $(document).ready(function() {
 
 	$('#clear-signature').on('click', function() {
 		signaturePad.clear();
+		submitAnswer(signaturePad.toDataURL());
 	})
 
 
@@ -24,10 +25,10 @@ $(document).ready(function() {
 
 })
 
-function resizeCanvas() {
-	var ratio = Math.max(window.devicePixelRatio || 1, 1);
+//function resizeCanvas() {
+	//var ratio = Math.max(window.devicePixelRatio || 1, 1);
 
-	canvas.width = canvas.offsetWidth * ratio;
-	canvas.height = canvas.offsetHeight * ratio;
-	canvas.getContext("2d").scale(ratio, ratio);
-}
+	//canvas.width = canvas.offsetWidth * ratio;
+	//canvas.height = canvas.offsetHeight * ratio;
+	//canvas.getContext("2d").scale(ratio, ratio);
+//}
