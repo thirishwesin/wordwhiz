@@ -8,7 +8,7 @@ $(document).ready(() => {
 
   $('#scramble-word1, #scramble-word2, #scramble-word3, #scramble-word4').click(function () {
     $(this).find("span").html(answerWord);
-    var answerIndex = $(this).attr("id");
+    var answerIndex = $(this).attr("data-wz-index");
     submitAnswer(answerWord, answerIndex);
   })
 

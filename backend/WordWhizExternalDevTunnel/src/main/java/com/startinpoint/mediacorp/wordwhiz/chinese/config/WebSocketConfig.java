@@ -26,7 +26,7 @@ import java.util.List;
 public class WebSocketConfig implements WebSocketMessageBrokerConfigurer  {
 
 	private static final String[] DESTINATION_PREFIXES = {"/show/question/to/specific-player",
-			"/show/question/to/all-player","/submit/answer", "/send/online-user", "/send/offline-user", "/send/online-users", "/all"};
+			"/show/question/to/all-player","/submit/answer", "/send/online-user", "/send/offline-user", "/get/online-users", "/all"};
   private static final String[] APP_DESTINATION_PREFIXES = {"/control-screen","/app-screen"};
 
 	@Override
@@ -37,7 +37,9 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer  {
 	}
 
 	public void registerStompEndpoints(StompEndpointRegistry stompEndpointRegistry) {
-		stompEndpointRegistry.addEndpoint("/ws").setAllowedOriginPatterns("*").withSockJS();
+		stompEndpointRegistry.addEndpoint("/ws")
+      .setAllowedOriginPatterns("*").withSockJS()
+      .setDisconnectDelay(1*1000);
 	}
 
 	@Override
