@@ -1,6 +1,12 @@
-.round2_bg_theme{
+/* start style for scramble word */
+.bg_theme{
 	height: 100vh;
     background: url(../../image/round2_bg.png) no-repeat fixed;
+    background-size: cover;
+}
+.typo_bg_theme{
+	height: 100vh;
+    background: url(../../image/typo_word_bg.jpg) no-repeat fixed;
     background-size: cover;
 }
 .underline-word {
@@ -41,4 +47,167 @@
 }
 .round2_btn{
 	padding: 0px;
+}
+/* end style for scramble word */
+
+
+/* start style for typo word */
+.btn_align {
+	text-align: center;
+}
+
+.clear_btn {
+	background: repeating-linear-gradient(152deg, #3e0560, #8141a7ad);
+	color: #ffffff;
+	background-color: #fff;
+	box-shadow: 0px 7px 34px 2px #fb00ff;
+	font-weight: bold;
+	padding: 10px 20px;
+	font-size: 20px;
+	border-top-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+	margin: 20px 0px;
+	position: absolute;
+	bottom: 0;
+}
+
+#signature-pad canvas {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%
+}
+/* end style for scramble word */
+
+
+/* start style for choose player */
+.choose_player{
+	top: 42%;
+	position: absolute;
+}
+.choose_player .player{	
+    justify-content: center;	
+}
+.mg_60 {
+    margin: 0 60px;
+}
+
+.player_body {
+	margin: 20px 0;
+	cursor: pointer;
+}
+.player_body .player_img {
+	width: 90%;
+	border-top-right-radius: 50px;
+	margin: 0px;
+	border: 3px solid #ede0ff;
+    box-shadow: 0px 0px 50px 0px #c000ff;
+	border-bottom: none;
+	text-align: center;
+}
+
+.player_body .player_text {
+	width: 90%;
+	border-bottom-left-radius: 50px;
+	border: 3px solid #ede0ff;
+    box-shadow: 0px 0px 50px 0px #c000ff;
+	border-top: none;
+	text-align: center;
+	padding: 0;
+	margin: auto;
+}
+
+.player_body .player_text .player_btn {
+	border: none;
+	background: transparent;
+	font-size: 15px;
+	padding: 10px;
+	font-weight: bold;
+	color: #41faff;
+}
+.player_body:hover {
+        color: #48b822;
+}
+.top-right {
+    width: 23px;
+    position: absolute;
+    top: 24px;
+    right: 30px;
+    border-radius: 50%;
+}
+.action_btn {
+	margin-top: 50px;
+	text-align: center;
+}
+.action_btn .btn{
+	background: repeating-linear-gradient(152deg, #3e0560, #8141a7ad);
+	color: #ffffff;
+	background-color: #fff;
+	box-shadow: 0px 7px 34px 2px #fb00ff;
+	font-weight: bold;
+	padding: 10px 20px;
+	font-size: 20px;
+	border-top-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+    width: 150px;
+}
+.choose_icon{
+	width: 17px;
+    height: 17px;
+    margin-right: 12px;
+}
+/* end style for choose player */
+
+
+
+/* Welcome Player */
+
+@font-face {
+    font-family: 'fredoka_oneregular';
+    src: url('../fonts/fredokaone-regular-webfont.woff2') format('woff2'),
+         url('../fonts/fredokaone-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.welcome-text-container{
+	top: 470px;
+    padding: 110px 50px;
+    position: fixed;
+    background: linear-gradient(271deg, rgba(57,13,150,1) 0%, rgb(147 60 255) 50%, rgba(57,13,150,1) 100%);
+    border-radius: 23px;
+    border: 10px solid #ede0ff;
+    box-shadow: 0px 0px 50px 0px #c000ff;
+    width: 1356px;
+}
+/* .welcome-text{
+    font-size: 73px;
+    font-family: fredoka_oneregular;
+    -webkit-box-reflect: below -25px linear-gradient(transparent, #00000017);
+    outline: none;
+    color: #fff;
+    text-shadow: 0 0 10px #c000ff, 0 0 20px #c000ff, 0 0 40px #c000ff, 0 0 80px #c000ff, 0 0 160px #c000ff;
+} */
+
+.welcome-text{
+    font-size: 86px;
+    font-family: fredoka_oneregular;
+    letter-spacing: 6px;
+    outline: none;
+    /* color: #fdf999;
+    text-shadow: 0 0 10px #c000ff, 0 0 20px #c000ff, 0 0 30px #c000ff; */
+    color: #41faff;
+    text-shadow: 1px 1px 1px #41faff, 1px 1px 5px #41faff, 1px 1px 5px #41faff;
+    padding: 10px 40px;
+}
+.welcome-player-name{
+	font-family: fredoka_oneregular;
+    -webkit-box-reflect: below -25px linear-gradient(transparent, #00000017);
+    outline: none;
+    color: #fdf999;
+    font-size: 90px;
+    font-weight: bold;
+    letter-spacing: 6px;
+        margin-top: 60px;
 }
