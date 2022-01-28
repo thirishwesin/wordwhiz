@@ -94,6 +94,12 @@ export class PlayerComponent implements OnInit {
           };
         }
         this.updatePlayerState();
+        this.scrambleWord = {
+          word1: "",
+          word2: "",
+          word3: "",
+          word4: ""
+        }
       });
     });
 
