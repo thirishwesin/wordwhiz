@@ -83,7 +83,7 @@
 
 /* start style for choose player */
 .choose_player{
-	top: 42%;
+	top: 33%;
 	position: absolute;
 }
 .choose_player .player{	
@@ -126,6 +126,9 @@
 	font-weight: bold;
 	color: #41faff;
 }
+.player_body .player_text .player_btn:focus {
+	box-shadow: none;
+}
 .player_body:hover {
         color: #48b822;
 }
@@ -150,7 +153,7 @@
 	font-size: 20px;
 	border-top-right-radius: 15px;
 	border-bottom-left-radius: 15px;
-    width: 150px;
+    width: 200px;
 }
 .choose_icon{
 	width: 17px;
