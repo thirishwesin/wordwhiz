@@ -42,7 +42,7 @@
 	   width: 120px;
 	   height: 120px;
 }
-#scramble-word-screen{	
+#scramble-word-screen{
     top: 35%;
     position: absolute;
 	width: 100%;
@@ -64,7 +64,7 @@
     outline: none;
     text-align: center;
     font-weight: bold;
-	
+
 }
 /* end style for scramble word */
 
@@ -89,22 +89,22 @@
 	bottom: 0; */
 	width: 200px;
 }
-.signaturePad_body{
-	position: fixed;
-    top: 13%;
-    left: 27%;
-}
-#signature-pad canvas {
-/* 	position: absolute;
-	left: 0;
-	top: 0; */
- 	width: 900px;
-	height: 800px; 
-	border: 3px solid #ede0ff;
-    box-shadow: 0px 0px 50px 0px #c000ff;
-    border-radius: 15px;
-    opacity: 0.6
-}
+/*.signaturePad_body{*/
+/*	position: fixed;*/
+/*    top: 13%;*/
+/*    left: 27%;*/
+/*}*/
+/*#signature-pad canvas {*/
+/*!* 	position: absolute;*/
+/*	left: 0;*/
+/*	top: 0; *!*/
+/* 	width: 900px;*/
+/*	height: 800px; */
+/*	border: 3px solid #ede0ff;*/
+/*    box-shadow: 0px 0px 50px 0px #c000ff;*/
+/*    border-radius: 15px;*/
+/*    opacity: 0.6*/
+/*}*/
 /* end style for scramble word */
 
 
@@ -113,8 +113,8 @@
 	top: 33%;
 	position: absolute;
 }
-.choose_player .player{	
-    justify-content: center;	
+.choose_player .player{
+    justify-content: center;
 }
 .mg_60 {
     margin: 0 60px;

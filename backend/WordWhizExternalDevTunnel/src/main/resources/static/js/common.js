@@ -26,6 +26,7 @@ class ScreenUtil {
     for (const screen of tempScreenIdList) {
       $("#" + screen).hide();
     }
+    $("#wordwhiz-container").attr('class', 'bg_theme');
     $("#welcome-player-name").text(SessionUtil.getValueFromSessionStorage("user-name"));
     $("#welcome-screen").show();
   }
@@ -58,6 +59,7 @@ class ScreenUtil {
         this.showScrambleWord();
         break
       case 7:
+        signaturePad.clear();
         this.showTypoWord();
         break;
     }
