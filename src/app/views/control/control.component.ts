@@ -302,19 +302,40 @@ export class ControlComponent implements OnInit {
     console.log("Disconnected");
   }
 
-  sendQuestionToExternalDevice(): void {
-    let question = JSON.stringify(this.getExternalDeviceQuestion())
+  sendQuestionToExternalDevice(sendTo: string, currentRoundId: number): void {
+    if (this.stompClient && (this.currentRound.questionType == 8 || this.currentRound.questionType == 7)) {
+      let externalDevQuestion = this.getExternalDeviceQuestion(currentRoundId);
+      switch (sendTo) {
+        case 'specific-player':
+          this.sendToSpecificPlayer(externalDevQuestion)
+          break;
+        case 'all-player':
+          this.sendToAllPlayer(externalDevQuestion)
+          break;
+        default:
+          break;
+      }
+    }
+  }
+
+  sendToSpecificPlayer(externalDevQuestion: ExternalDeviceQuestion): void {
+    let question = JSON.stringify(externalDevQuestion);
     this.stompClient.send("/control-screen/show/question/to/specific-player", {}, question);
   }
 
-  getExternalDeviceQuestion(): ExternalDeviceQuestion {
+  sendToAllPlayer(externalDevQuestion: ExternalDeviceQuestion): void {
+    let question = JSON.stringify(externalDevQuestion);
+    this.stompClient.send("/control-screen/show/question/to/all-player", {}, question);
+  }
+
+  getExternalDeviceQuestion(currentRoundId: number): ExternalDeviceQuestion {
     let externalDeviceQuestion : ExternalDeviceQuestion = {
       question: this.currentQuestion.clue,
       hint: this.currentQuestion.hints[0].value,
       timeout: this.currentRound.timeOut,
       playerId: `player${this.externalDevPlayerId}`,
       currentQuestionId: this.control.currentQuestionId,
-      currentRoundId: this.control.currentRoundId,
+      currentRoundId: currentRoundId,
       currentEpisodeId: this.control.currentEpisodeId
     }
     return externalDeviceQuestion;
@@ -635,6 +656,7 @@ export class ControlComponent implements OnInit {
     this.store.dispatch(updateCurrentRoundId({ currentRoundId: round.id }));
     this.updateControlState();
     this.broadcastScreens();
+    this.sendQuestionToExternalDevice('all-player', 0);
   }
 
   changeCategory(category) {
@@ -817,6 +839,8 @@ export class ControlComponent implements OnInit {
     if (this.currentRound.questionType === 4) {
       this.control.roundFourStatus = [{ id: 1, imagePath: './assets/images/blue_rectangle.png' }, { id: 2, imagePath: './assets/images/blue_rectangle.png' }, { id: 3, imagePath: './assets/images/blue_rectangle.png' }]
     }
+
+    this.sendQuestionToExternalDevice('all-player', 0);
   }
 
   updateCurrentQuestion(updateData) {
@@ -883,9 +907,10 @@ export class ControlComponent implements OnInit {
       });
     }
     this.broadcastScreens();
-    if (this.control.showQuestion && (this.currentRound.questionType == 8 ||
-      this.currentRound.questionType == 7)) {
-      this.sendQuestionToExternalDevice();
+    if(this.control.showQuestion) {
+      this.sendQuestionToExternalDevice('specific-player', this.control.currentRoundId);
+    } else{
+      this.sendQuestionToExternalDevice('specific-player', 0);
     }
   }
 

@@ -34,8 +34,10 @@ public class ControlScreenResource {
     }
 
     @MessageMapping("/show/question/to/all-player")
-    public void showQuestionToAllPlayer(@Payload Question question){
-        System.out.println("Question For All Player: " + question);
+    public void showQuestionToAllPlayer(@Payload QuestionDTO questionDTO){
+        System.out.println("Question For All Player: " + questionDTO);
+      Question question = new Question(questionDTO.getPlayerId(), questionDTO.getCurrentRoundId(),
+        questionDTO.getQuestion());
         this.messagingTemplate.convertAndSend("/show/question/to/all-player", question);
     }
 
