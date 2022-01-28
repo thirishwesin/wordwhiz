@@ -1,3 +1,5 @@
+var scrambleWordIds = '#scramble-word1, #scramble-word2, #scramble-word3, #scramble-word4';
+
 $(document).ready(() => {
 
   var answerWord = null;
@@ -6,7 +8,7 @@ $(document).ready(() => {
     answerWord = $(this).val();
   });
 
-  $('#scramble-word1, #scramble-word2, #scramble-word3, #scramble-word4').click(function () {
+  $(scrambleWordIds).click(function () {
     $(this).find("span").html(answerWord);
     var answerIndex = $(this).attr("data-wz-index");
     submitAnswer(answerWord, answerIndex);
@@ -16,10 +18,11 @@ $(document).ready(() => {
 
 class ScrambleWordService {
   static showQuestion(questionObj) {
-    for (let i = 1; i < questionObj.question.length; i++) {
-      let word = questionObj.question.charAt(i - 1);
+  $(scrambleWordIds).find("p").html("");
+    for (let i = 1; i <= questionObj.hint.length; i++) {
+      let word = questionObj.hint.charAt(i - 1);
       $("#scramble-btn" + i).attr('value', word);
-      $("#scramble-btn" + i).html(word);
+      $("#scramble-btn" + i).find("input").attr('value', word);
     }
   }
 }

@@ -10,5 +10,6 @@ public class Question {
   private String toPlayer;
   private int round;
   private String question;
+  private String hint;
 
 }
