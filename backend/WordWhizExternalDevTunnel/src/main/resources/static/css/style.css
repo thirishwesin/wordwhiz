@@ -39,6 +39,7 @@
 }
 .round2_word img{
 	   width: 100px;
+	   height: 100px;
 }
 #scramble-word-screen{	
     top: 42%;
@@ -47,6 +48,21 @@
 }
 .round2_btn{
 	padding: 0px;
+}
+.btn_txt{
+	position: absolute;
+    top: 5px;
+    font-size: 50px;
+    text-shadow: 3px 4px 3px #333333;
+    color: #FFFFFF;
+    margin-left: -93px;
+    width: 90px;
+    height: 87px;
+    background: none;
+    border: none;
+    outline: none;
+    text-align: center;
+	
 }
 /* end style for scramble word */
 
