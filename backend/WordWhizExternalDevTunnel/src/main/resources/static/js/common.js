@@ -50,6 +50,9 @@ class ScreenUtil {
 
   static showGameScreen(questionObj) {
     switch (questionObj.round) {
+      case 0:
+        this.showWelcomeScreen()
+        break;
       case 8:
         ScrambleWordService.showQuestion(questionObj);
         this.showScrambleWord();
@@ -70,11 +73,11 @@ class SessionUtil {
     return sessionStorage.getItem(key);
   }
 
-  static removeFromSessionStorage(key){
+  static removeFromSessionStorage(key) {
     sessionStorage.removeItem(key);
   }
 
-  static removeAll(){
+  static removeAll() {
     sessionStorage.clear();
   }
 }

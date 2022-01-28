@@ -42,6 +42,7 @@ function submitAnswer(answer, answerIndex = '') {
 function disconnect() {
   if (stompClient != null) {
     stompClient.disconnect();
+    ScreenUtil.showChoosePlayerScreen();
   }
 
   toggleShowHide(false);
