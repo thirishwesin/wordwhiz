@@ -1,11 +1,23 @@
+.scrambleword_bg{
+    width: 1920px;
+    height: 1200px;
+    position: absolute;
+    text-align: center;
+    z-index: 0;
+    top: 0;
+}
+.scramble_word{
+    top: 35%;
+    position: fixed;
+}
 .round2_bg_theme{
 	height: 100vh;
     //background: url(../../image/round2_bg.png) no-repeat fixed;
     background-size: cover;
 }
 .underline-word {
-	border-bottom: 5px solid #48B822;
-	width: 90px;
+	border-bottom: 10px solid #48B822;
+	width: 110px;
    	margin: auto;
     min-height: 100px;
 }
@@ -30,9 +42,11 @@
     font-weight: bold;
     color: #fff;
     line-height: 80px;
+    margin-bottom: 0px;
 }
 .round2_word img{
-	   width: 100px;
+	   width: 120px;
+       height: 120px;
 }
 #scramble-word-screen{	
     top: 42%;
@@ -44,15 +58,17 @@
 }
 .btn_txt{
 	position: absolute;
-    top: 5px;
+    top: 2px;
     font-size: 50px;
     text-shadow: 3px 4px 3px #333333;
     color: #FFFFFF;
-    margin-left: -93px;
-    width: 90px;
-    height: 87px;
+    margin-left: -117px;
+    width: 110px;
+    height: 110px;
     background: none;
     border: none;
     outline: none;
     text-align: center;
+    font-weight: bold;
+    cursor: not-allowed;
 }
