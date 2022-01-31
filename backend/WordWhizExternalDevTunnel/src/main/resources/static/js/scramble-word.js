@@ -10,6 +10,7 @@ $(document).ready(() => {
 
   $(scrambleWordIds).click(function () {
     $(this).find("p").html(answerWord);
+    $(this).find("div").removeClass("border-bottom-green").addClass("border-botton-blue");
     var answerIndex = $(this).attr("data-wz-index");
     submitAnswer(answerWord, answerIndex);
   })
