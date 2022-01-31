@@ -44,7 +44,13 @@ export const initialState: Control = {
     oneThird_timeOut: 25,
     oneThird_hint: 35,
     oneThird_answer: 35,
-    player_point: 134
+    player_point: 134,
+    externalDeviceSetting: {
+      websocketUrl: "ws://localhost:8081/ws/websocket"
+    },
+    screenPropertytSetting: {
+      spinnerWheelDuration: 5
+    }
   },
   clickPoint: false,
   clickTimer: false,

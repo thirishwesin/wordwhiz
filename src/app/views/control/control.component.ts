@@ -30,6 +30,7 @@ import {
   initEpisodeStore,
   updateEpisodeStore
 } from "../../core/actions/episode.actions";
+import * as spin from '../spinner-wheel/spinner-wheel.component'
 import { Images } from "../../common/images";
 import { readFile, readFileSync } from "fs";
 import {
@@ -118,12 +119,11 @@ export class ControlComponent implements OnInit {
   oldCurrentPlayer: Player[]
   roundFourHintValue: string
   currentCategoryForR4: any;
-  isPlay : boolean = false;
+  isPlay: boolean = false;
   r4CategoryName: string = "Player One"
   r4CategoryId: number = 0
   currentRoundName: string = '第一回合'
-  currentPoint : number
-  websocketUrl : string = "ws://localhost:8081/ws/websocket";
+  currentPoint: number
   spinnerWheelNo: number
   isSpinningWheel: boolean = false
 
@@ -160,7 +160,13 @@ export class ControlComponent implements OnInit {
           oneThird_timeOut: 25,
           oneThird_hint: 35,
           oneThird_answer: 35,
-          player_point: 134
+          player_point: 134,
+          externalDeviceSetting: {
+            websocketUrl: "ws://localhost:8081/ws/websocket"
+          },
+          screenPropertytSetting: {
+            spinnerWheelDuration: 5
+          }
         };
 
         // for production
@@ -191,7 +197,7 @@ export class ControlComponent implements OnInit {
     this.recommendFontSize = fontSizeForWindow.normalSize;
   }
 
-  get timerEnum(): typeof TimerEnum {return TimerEnum}
+  get timerEnum(): typeof TimerEnum { return TimerEnum }
 
   ngOnInit() {
     this.recommendFontSize = fontSizeForWindow.normalSize;
@@ -267,29 +273,29 @@ export class ControlComponent implements OnInit {
   //Start -- WebSocketConnection
   initWebSocketConnection(websocketUrl: string): void {
     // create CompatClient
-    this.stompClient = Stomp.over(function(){
+    this.stompClient = Stomp.over(function () {
       return new WebSocket(websocketUrl)
     });
     // listen websocket server and client is disconnected.
     this.stompClient.onWebSocketClose = (evt) => {
-      this.store.dispatch(wordWhizIsConnected({isConnected: false}))
+      this.store.dispatch(wordWhizIsConnected({ isConnected: false }))
     }
 
     let that = this;
     // connect to websocket server
-    this.stompClient.connect({username: 'control-screen'},
+    this.stompClient.connect({ username: 'control-screen' },
       // connectCallback
       function (frame: IFrame) {
         // if client have already connected, retrieve online users from server
-        if(frame.command === 'CONNECTED'){
+        if (frame.command === 'CONNECTED') {
           that.stompClient.send("/control-screen/get/online-users");
-          that.store.dispatch(wordWhizIsConnected({isConnected: true}))
+          that.store.dispatch(wordWhizIsConnected({ isConnected: true }))
         }
         // subscribe external device data
         that.subscribeExternalDevice()
       },
       // errorCallback
-      function(error) {
+      function (error) {
         console.log("STOMP error ", error);
       }
     );
@@ -329,7 +335,7 @@ export class ControlComponent implements OnInit {
   }
 
   getExternalDeviceQuestion(currentRoundId: number): ExternalDeviceQuestion {
-    let externalDeviceQuestion : ExternalDeviceQuestion = {
+    let externalDeviceQuestion: ExternalDeviceQuestion = {
       question: this.currentQuestion.clue,
       hint: this.currentQuestion.hints[0].value,
       timeout: this.currentRound.timeOut,
@@ -341,7 +347,7 @@ export class ControlComponent implements OnInit {
     return externalDeviceQuestion;
   }
 
-  subscribeExternalDevice(){
+  subscribeExternalDevice() {
     let that = this;
     this.stompClient.subscribe('/external-device/submit/answer', function (answer: IMessage) {
       let answerObj = JSON.parse(answer.body);
@@ -350,19 +356,19 @@ export class ControlComponent implements OnInit {
       })
     });
     this.stompClient.subscribe('/external-device/get/online-users', function (userInfo: IMessage) {
-      let usernames : string[] = JSON.parse(userInfo.body);
+      let usernames: string[] = JSON.parse(userInfo.body);
       console.log('usernames: ', usernames)
       usernames.forEach(username => {
-        that.store.dispatch(onlineUser({onlineUser: username}))
+        that.store.dispatch(onlineUser({ onlineUser: username }))
       });
     });
     this.stompClient.subscribe('/external-device/send/online-user', function (userInfo: IMessage) {
       let username = userInfo.body;
-      that.store.dispatch(onlineUser({onlineUser: username}))
+      that.store.dispatch(onlineUser({ onlineUser: username }))
     });
     this.stompClient.subscribe('/external-device/send/offline-user', function (userInfo: IMessage) {
       let username = userInfo.body;
-      that.store.dispatch(offlineUser({offlineUser: username}))
+      that.store.dispatch(offlineUser({ offlineUser: username }))
     });
   }
   //End -- WebSocketConnection
@@ -418,7 +424,7 @@ export class ControlComponent implements OnInit {
     }
 
     //initialize current Question Category
-    if (!this.currentCategory && (this.currentRound.questionType == 4 || this.currentRound.questionType == 7) ) {
+    if (!this.currentCategory && (this.currentRound.questionType == 4 || this.currentRound.questionType == 7)) {
       this.currentCategory =
         this.currentRound.categories.length > 0
           ? this.currentRound.categories[0]
@@ -451,7 +457,7 @@ export class ControlComponent implements OnInit {
   };
 
   questionArrForR4() {
-    if(this.currentRound.questionType == 7)
+    if (this.currentRound.questionType == 7)
       return this.currentRound.questionArray.filter(question => question.categoryId == this.r4CategoryId)
     return this.currentRound.questionArray.filter(question => question.categoryId == this.currentCategoryForR4.id)
   }
@@ -460,15 +466,26 @@ export class ControlComponent implements OnInit {
     let route = "player";
     let params = "?id=" + playerId;
 
+    let title = '';
+
     if (playerId == 0) {
       route = "main";
       params = "";
+      title = "Main"
+    } else if (playerId == 1) {
+      title = "Player 1"
+    } else if (playerId == 2) {
+      title = "Player 2"
+    } else if (playerId == 3) {
+      title = "Player 3"
     } else if (playerId == 13) {
       route = "oneThird";
       params = "";
-    }else if (playerId == 14) {
+      title = "One Third"
+    } else if (playerId == 14) {
       route = "spinner-wheel";
       params = "";
+      title = "Spinner Wheel"
     }
 
     let broadCastData = {
@@ -500,6 +517,7 @@ export class ControlComponent implements OnInit {
       ...windowData,
       fullscreen: false,
       //frame: false,
+      title: title,
       autoHideMenuBar: true,
       webPreferences: {
         nodeIntegration: true,
@@ -510,7 +528,7 @@ export class ControlComponent implements OnInit {
 
     newWindow.on("close", e => {
       let index = this.newWindows.indexOf(newWindow);
-      if(index != -1) {
+      if (index != -1) {
         this.newWindows.splice(index, 1)
       }
     });
@@ -621,31 +639,31 @@ export class ControlComponent implements OnInit {
 
   prevRound() {
     let prevRound = this.currentRound;
-    console.log('pervRound => ' , prevRound)
+    console.log('pervRound => ', prevRound)
     if (this.currentRound.id != 1) {
       let index = _.findIndex(this.episode.rounds, ['id', this.currentRound.id])
       prevRound = this.episode.rounds[index - 1]
-      if(prevRound) this.clickRound(prevRound);
+      if (prevRound) this.clickRound(prevRound);
     }
   }
 
   nextRound() {
     let nextRound = this.currentRound;
-    let lastRound : Round =  _.last(this.episode.rounds)
+    let lastRound: Round = _.last(this.episode.rounds)
     console.log("lastRound: ", _.last(this.episode.rounds))
     if (this.currentRound.id != lastRound.id) {
       let index = _.findIndex(this.episode.rounds, ['id', this.currentRound.id])
       nextRound = this.episode.rounds[index + 1]
-      if(nextRound) this.clickRound(nextRound);
+      if (nextRound) this.clickRound(nextRound);
     }
   }
 
   clickRound(round) {
     this.spinnerWheelNo = undefined
-    if(this.currentRound.questionType == 8 || this.currentRound.questionType == 7){
+    if (this.currentRound.questionType == 8 || this.currentRound.questionType == 7) {
       this.externalDevPlayerId = undefined
     }
-    this.currentRoundName= round.roundName
+    this.currentRoundName = round.roundName
     //reset the category section
     if (round.questionType == 2) this.currentCategoryForR4 = undefined
     this.roundFourHintValue = undefined
@@ -741,12 +759,12 @@ export class ControlComponent implements OnInit {
   prevQuestion() {
     let prevQuestion = this.currentQuestion;
     if (this.currentQuestion.id != 1) {
-      if(this.currentRound.questionType == 7){
+      if (this.currentRound.questionType == 7) {
         prevQuestion = _.find(this.questionArrForR4(), [
           "id",
           this.currentQuestion.id - 1
         ]);
-      }else{
+      } else {
         prevQuestion = _.find(this.currentRound.questionArray, [
           "id",
           this.currentQuestion.id - 1
@@ -767,18 +785,18 @@ export class ControlComponent implements OnInit {
     let nextQuestion = this.currentQuestion;
 
     if (this.currentQuestion.id != this.currentRound.questionArray.length) {
-      if(this.currentRound.questionType == 7){
+      if (this.currentRound.questionType == 7) {
         nextQuestion = _.find(this.questionArrForR4(), [
           "id",
           this.currentQuestion.id + 1
         ]);
-      }else {
+      } else {
         nextQuestion = _.find(this.currentRound.questionArray, [
           "id",
           this.currentQuestion.id + 1
         ]);
       }
-      if (nextQuestion)this.clickQuestion(nextQuestion, 1);
+      if (nextQuestion) this.clickQuestion(nextQuestion, 1);
     }
     // else if (this.currentQuestion.id != this.questionArrForR4().length && this.currentRound.questionType == 2) {
     //   nextQuestion = _.find(this.questionArrForR4(), [
@@ -802,7 +820,7 @@ export class ControlComponent implements OnInit {
   }
 
   clickQuestion(question, currentQuestionIndex) {
-    if(this.currentRound.questionType == 8 || this.currentRound.questionType == 7){
+    if (this.currentRound.questionType == 8 || this.currentRound.questionType == 7) {
       this.externalDevPlayerId = undefined
     }
     this.roundFourHintValue = undefined
@@ -907,9 +925,9 @@ export class ControlComponent implements OnInit {
       });
     }
     this.broadcastScreens();
-    if(this.control.showQuestion) {
+    if (this.control.showQuestion) {
       this.sendQuestionToExternalDevice('specific-player', this.control.currentRoundId);
-    } else{
+    } else {
       this.sendQuestionToExternalDevice('specific-player', 0);
     }
   }
@@ -933,11 +951,11 @@ export class ControlComponent implements OnInit {
 
     if (this.control.startCount == TimerEnum.START && isStart) {
       //only play the beep sound timer is above 5
-      if(timer == 5){
+      if (timer == 5) {
         this.count5sec.play();
-      }else if (timer == 10) {
+      } else if (timer == 10) {
         if (this.timeOut > 5) this.audio.play();
-      }else if (timer == 30 ||timer == 15){
+      } else if (timer == 30 || timer == 15) {
         if (this.timeOut > 10) this.audio.play();
       }
 
@@ -970,15 +988,15 @@ export class ControlComponent implements OnInit {
           }
         } else {
           this.timeOut = this.timeOut - 1;
-          if(timer == 5){
+          if (timer == 5) {
             this.count5sec.play();
-          }else if (timer == 10) {
+          } else if (timer == 10) {
             if (this.timeOut < 6) {
               this.audio.pause();
               this.audio.currentTime = 0;
               this.count5sec.play();
             }
-          }else if (timer == 30 || timer == 15) {
+          } else if (timer == 30 || timer == 15) {
             if (this.timeOut < 13) {
               this.audio.pause();
               this.audio.currentTime = 0;
@@ -1279,7 +1297,6 @@ export class ControlComponent implements OnInit {
     console.log('current question => ', this.currentQuestion)
     this.oldCurrentRound = _.cloneDeep(this.currentRound)
     this.oldCurrentPlayer = _.cloneDeep(this.episode.players)
-    let websocketUrlClone = _.cloneDeep(this.websocketUrl)
     // animation control when change font
     this.control.fontSettingOpenClose = true;
 
@@ -1315,7 +1332,13 @@ export class ControlComponent implements OnInit {
               oneThird_timeOut: 25,
               oneThird_hint: 35,
               oneThird_answer: 35,
-              player_point: 134
+              player_point: 134,
+              externalDeviceSetting: {
+                websocketUrl: "ws://localhost:8081/ws/websocket"
+              },
+              screenPropertytSetting: {
+                spinnerWheelDuration: 5
+              }
             };
 
             this.control.fontSettings = defaultFontValue;
@@ -1324,12 +1347,11 @@ export class ControlComponent implements OnInit {
             this.saveFont();
             saveFile(this.wordWhiz, () => { });
           } else if (reason == "Cancel click") {
-            // this.control.fontSettings = this.resetFontValue;
-            // this.wordWhiz.fontSettings = this.resetFontValue;
-            // this.saveFont();
+            this.control.fontSettings = this.resetFontValue;
+            this.wordWhiz.fontSettings = this.resetFontValue;
+            this.saveFont();
             this.currentRound = this.oldCurrentRound
             this.episode.players = this.oldCurrentPlayer
-            this.websocketUrl = websocketUrlClone;
             this.broadcastScreens()
           } else if (reason == "Cross click") {
             this.control.fontSettings = this.resetFontValue;
@@ -1459,14 +1481,14 @@ export class ControlComponent implements OnInit {
     this.broadcastScreens();
   }
 
-  toggleVideo(){
+  toggleVideo() {
     this.isPlay = !this.isPlay
     this.control.startCount = TimerEnum.NEUTRAL
     this.control.isPlay = this.isPlay
     this.broadcastScreens();
   }
 
-  changeR4Category(category){
+  changeR4Category(category) {
     this.r4CategoryName = category.name
     this.r4CategoryId = category.id
     this.questionArrForR4()
@@ -1477,36 +1499,36 @@ export class ControlComponent implements OnInit {
     this.clickQuestion(firstQuestionByCategoryId, 1)
   }
 
-  changeCurrentPoint(timeOut: number){
+  changeCurrentPoint(timeOut: number) {
     // update point for round Two
-    if(this.currentRound.questionType == 6){
-      if(timeOut == 10){
+    if (this.currentRound.questionType == 6) {
+      if (timeOut == 10) {
         this.currentPoint = this.currentRound.point
-      }else if(timeOut == 5){
+      } else if (timeOut == 5) {
         this.currentPoint = this.currentRound.secondPoint
       }
     }
     // update point for round Three
-    if(this.currentRound.questionType == 2){
-      if(timeOut == 10){
+    if (this.currentRound.questionType == 2) {
+      if (timeOut == 10) {
         this.currentPoint = this.currentRound.point
-      }else if(timeOut == 5){
+      } else if (timeOut == 5) {
         this.currentPoint = this.currentRound.secondPoint
       }
     }
     // update point for round one
-    if(this.currentRound.questionType == 1){
-      if(timeOut == 10){
+    if (this.currentRound.questionType == 1) {
+      if (timeOut == 10) {
         this.currentPoint = this.currentRound.point
-      }else if(timeOut == 5){
+      } else if (timeOut == 5) {
         this.currentPoint = this.currentRound.secondPoint
       }
     }
     // update point for round one
-    if(this.currentRound.questionType == 8){
-      if(timeOut == 10){
+    if (this.currentRound.questionType == 8) {
+      if (timeOut == 10) {
         this.currentPoint = this.currentRound.point
-      }else if(timeOut == 5){
+      } else if (timeOut == 5) {
         this.currentPoint = this.currentRound.secondPoint
       }
     }
@@ -1514,17 +1536,17 @@ export class ControlComponent implements OnInit {
 
   toggleWebSocketConnection(): void {
     this.externalDevice.wordWhizIsConnected ? this.disconnect() :
-          this.initWebSocketConnection(this.websocketUrl);
+      this.initWebSocketConnection(this.control.fontSettings.externalDeviceSetting.websocketUrl);
   }
 
   updatePlayerActiveStatus(): void {
     this.episode.players.forEach((player: Player) => {
       let name = `player${player.id}`;
       let doc = document.getElementById(name)
-      if(doc){
-        if(this.externalDevice.onlineUsers.has(name)){
+      if (doc) {
+        if (this.externalDevice.onlineUsers.has(name)) {
           document.getElementById(name).className = 'active-player';
-        }else {
+        } else {
           document.getElementById(name).classList.remove('active-player')
         }
       }
@@ -1545,6 +1567,17 @@ export class ControlComponent implements OnInit {
 
   toggleSpinnerWheel(): void {
     this.isSpinningWheel = !this.isSpinningWheel;
+    let spinnerWheel = {
+      isSpinningWheel: this.isSpinningWheel,
+      spinnerWheelDuration: +this.control.fontSettings.screenPropertytSetting.spinnerWheelDuration
+    }
+    this.newWindows.forEach(w => {
+      w.webContents.send("spin_the_wheel", spinnerWheel);
+    });
+
+    setTimeout(() => {
+      this.isSpinningWheel = false;
+    }, 5000)
     console.log('isSpinningWheel: ', this.isSpinningWheel)
   }
 

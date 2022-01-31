@@ -1,24 +1,28 @@
 <div class="container-fluid">
   <div class="round2_answer">
-    <div id="scramble-word1" class="col-sm-1 word-margin">
+    <div id="scramble-word1" class="col-sm-1 word-margin" 
+        [ngClass]="scrambleWord.word1? 'border-bottom-green': 'border-bottom-blue'">
       <div class="underline-word">
         <span class="answer">{{scrambleWord.word1}}</span>
       </div>
     </div>
 
-    <div id="scramble-word2" class="col-sm-1 word-margin">
+    <div id="scramble-word2" class="col-sm-1 word-margin"
+        [ngClass]="scrambleWord.word2? 'border-bottom-green': 'border-bottom-blue'">
       <div class="underline-word">
         <span class="answer">{{scrambleWord.word2}}</span>
       </div>
     </div>
 
-    <div id="scramble-word3" class="col-sm-1 word-margin">
+    <div id="scramble-word3" class="col-sm-1 word-margin"
+        [ngClass]="scrambleWord.word3? 'border-bottom-green': 'border-bottom-blue'">
       <div class="underline-word">
         <span class="answer">{{scrambleWord.word3}}</span>
       </div>
     </div>
 
-    <div id="scramble-word4" class="col-sm-1 word-margin">
+    <div id="scramble-word4" class="col-sm-1 word-margin"
+        [ngClass]="scrambleWord.word4? 'border-bottom-green': 'border-bottom-blue'">
       <div class="underline-word">
         <span class="answer">{{scrambleWord.word4}}</span>
       </div>

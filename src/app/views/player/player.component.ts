@@ -73,14 +73,14 @@ export class PlayerComponent implements OnInit {
         ]);
         console.log("Episode => ", this.episode);
         console.log("Current Round => ", this.currentRound);
-        if(this.currentRound.questionType == 8) {
+        if (this.currentRound.questionType == 8) {
           this.currentQuestion = _find(this.currentRound.questionArray, [
             "id",
             this.control.currentQuestionId
           ]);
           let hint = this.currentQuestion.hints[0].value;
-          for(let i = 1; i <= hint.length; i++) {
-            let singleWord = hint.charAt(i-1);
+          for (let i = 1; i <= hint.length; i++) {
+            let singleWord = hint.charAt(i - 1);
             switch (i) {
               case 1:
                 this.scrambleHint.hint1 = singleWord; break;
@@ -95,14 +95,17 @@ export class PlayerComponent implements OnInit {
           };
         }
         this.updatePlayerState();
-        this.scrambleWord = {
-          word1: "",
-          word2: "",
-          word3: "",
-          word4: ""
-        }
+      
+        if (message.control.clickTimer != true) {
+          this.scrambleWord = {
+            word1: "",
+            word2: "",
+            word3: "",
+            word4: ""
+          }
 
-        this.typoWordImage = defaultTypWordImage;
+          this.typoWordImage = defaultTypWordImage;
+        }
       });
     });
 
@@ -126,7 +129,7 @@ export class PlayerComponent implements OnInit {
       this.control = item.control;
     });
     console.log(this.typoWordImage);
-    
+
   }
 
   updatePlayerState() {
@@ -137,16 +140,16 @@ export class PlayerComponent implements OnInit {
       }
     });
 
-    if(this.answerObj) {
+    if (this.answerObj) {
       if (this.control.currentRoundId == 7 && this.sendFromPlayerId == this.playerId) {
         this.typoWordImage = this.answerObj.answer;
       } else if (this.control.currentRoundId == 8 && this.sendFromPlayerId == this.playerId) {
-          const { answerIndex, answer } = this.answerObj;
-          switch (answerIndex) {
-            case '1': this.scrambleWord.word1 = answer; break;
-            case '2': this.scrambleWord.word2 = answer; break;
-            case '3': this.scrambleWord.word3 = answer; break;
-            case '4': this.scrambleWord.word4 = answer; break;
+        const { answerIndex, answer } = this.answerObj;
+        switch (answerIndex) {
+          case '1': this.scrambleWord.word1 = answer; break;
+          case '2': this.scrambleWord.word2 = answer; break;
+          case '3': this.scrambleWord.word3 = answer; break;
+          case '4': this.scrambleWord.word4 = answer; break;
         }
       }
     }

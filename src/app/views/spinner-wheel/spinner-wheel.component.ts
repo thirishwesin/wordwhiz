@@ -1,3 +1,4 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 declare var Winwheel: any;
 
@@ -10,11 +11,29 @@ declare var Winwheel: any;
 export class SpinnerWheelComponent implements OnInit {
 
   theWheel: any;
+  spinnerWheel : {isSpinningWheel: boolean, spinnerWheelDuration: number} = {isSpinningWheel: false, spinnerWheelDuration: 5}
 
+  constructor() {
 
-  constructor() { }
+    const ipc = require("electron").ipcRenderer;
+
+    ipc.on("spin_the_wheel", (event, message) => {
+      this.spinnerWheel = message
+      this.theWheel = this.createWheel(this.spinnerWheel.spinnerWheelDuration)
+      if (this.spinnerWheel.isSpinningWheel) {
+        this.startAnimation();
+      } else {
+        this.stopAnimation();
+      }
+    });
+  }
+
   ngOnInit() {
-    this.theWheel = new Winwheel({
+    this.theWheel = this.createWheel(this.spinnerWheel.spinnerWheelDuration)
+  }
+
+  createWheel(duration: number): any {
+    return new Winwheel({
       'canvasId': 'canvas',
       'outerRadius': 240,
       'innerRadius': 20,
@@ -23,10 +42,10 @@ export class SpinnerWheelComponent implements OnInit {
       'rotationAngle': -45,
       'segments':
         [
-          { 'fillStyle': '#3e0560', 'strokeStyle': '#fff', 'textFillStyle': '#ffffff', 'text': '1', 'textFontSize' : 70 },
-          { 'fillStyle': '#6940a0', 'strokeStyle': '#fff', 'textFillStyle': '#ffffff', 'text': '2', 'textFontSize' : 70 },
-          { 'fillStyle': '#3e0560', 'strokeStyle': '#fff', 'textFillStyle': '#ffffff', 'text': '3', 'textFontSize' : 70 },
-          { 'fillStyle': '#6940a0', 'strokeStyle': '#fff', 'textFillStyle': '#ffffff', 'text': '4', 'textFontSize' : 70 }
+          { 'fillStyle': '#3e0560', 'strokeStyle': '#fff', 'textFillStyle': '#ffffff', 'text': '1', 'textFontSize': 70 },
+          { 'fillStyle': '#6940a0', 'strokeStyle': '#fff', 'textFillStyle': '#ffffff', 'text': '2', 'textFontSize': 70 },
+          { 'fillStyle': '#3e0560', 'strokeStyle': '#fff', 'textFillStyle': '#ffffff', 'text': '3', 'textFontSize': 70 },
+          { 'fillStyle': '#6940a0', 'strokeStyle': '#fff', 'textFillStyle': '#ffffff', 'text': '4', 'textFontSize': 70 }
         ],
       'lineWidth': 3,
       'pins':    // Specify pin parameters.
@@ -39,18 +58,24 @@ export class SpinnerWheelComponent implements OnInit {
       'animation':
       {
         'type': 'spinToStop',
-        'duration': 5,
+        'duration': duration,
         'spins': 4,
       }
     });
   }
 
-  // resetWheel() {
-  //   this.theWheel.stopAnimation();
-  //   this.theWheel.rotationAngle = -45;
-  // }
-
   startAnimation() {
+    this.resetAnimation();
     this.theWheel.startAnimation();
+  }
+
+  resetAnimation() {
+    this.theWheel.stopAnimation(false);
+    this.theWheel.rotationAngle = 0;
+    this.theWheel.draw();
+  }
+
+  stopAnimation() {
+    this.theWheel.stopAnimation();
   }
 }
