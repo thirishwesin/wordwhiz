@@ -16,7 +16,6 @@
     background-size: cover;
 }
 .underline-word {
-	border-bottom: 10px solid #48B822;
 	width: 110px;
    	margin: auto;
     min-height: 100px;
@@ -71,4 +70,12 @@
     text-align: center;
     font-weight: bold;
     cursor: not-allowed;
+}
+
+.border-bottom-green {
+	border-bottom: 10px solid #48B822;
+}
+
+.border-bottom-blue {
+	border-bottom: 10px solid #014cda;
 }
