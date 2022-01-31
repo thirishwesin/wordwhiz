@@ -124,7 +124,6 @@ export class ControlComponent implements OnInit {
   r4CategoryId: number = 0
   currentRoundName: string = '第一回合'
   currentPoint: number
-  websocketUrl: string = "ws://localhost:8081/ws/websocket";
   spinnerWheelNo: number
   isSpinningWheel: boolean = false
 
@@ -161,7 +160,13 @@ export class ControlComponent implements OnInit {
           oneThird_timeOut: 25,
           oneThird_hint: 35,
           oneThird_answer: 35,
-          player_point: 134
+          player_point: 134,
+          externalDeviceSetting: {
+            websocketUrl: "ws://localhost:8081/ws/websocket"
+          },
+          screenPropertytSetting: {
+            spinnerWheelDuration: 5
+          }
         };
 
         // for production
@@ -1292,7 +1297,6 @@ export class ControlComponent implements OnInit {
     console.log('current question => ', this.currentQuestion)
     this.oldCurrentRound = _.cloneDeep(this.currentRound)
     this.oldCurrentPlayer = _.cloneDeep(this.episode.players)
-    let websocketUrlClone = _.cloneDeep(this.websocketUrl)
     // animation control when change font
     this.control.fontSettingOpenClose = true;
 
@@ -1328,7 +1332,13 @@ export class ControlComponent implements OnInit {
               oneThird_timeOut: 25,
               oneThird_hint: 35,
               oneThird_answer: 35,
-              player_point: 134
+              player_point: 134,
+              externalDeviceSetting: {
+                websocketUrl: "ws://localhost:8081/ws/websocket"
+              },
+              screenPropertytSetting: {
+                spinnerWheelDuration: 5
+              }
             };
 
             this.control.fontSettings = defaultFontValue;
@@ -1337,12 +1347,11 @@ export class ControlComponent implements OnInit {
             this.saveFont();
             saveFile(this.wordWhiz, () => { });
           } else if (reason == "Cancel click") {
-            // this.control.fontSettings = this.resetFontValue;
-            // this.wordWhiz.fontSettings = this.resetFontValue;
-            // this.saveFont();
+            this.control.fontSettings = this.resetFontValue;
+            this.wordWhiz.fontSettings = this.resetFontValue;
+            this.saveFont();
             this.currentRound = this.oldCurrentRound
             this.episode.players = this.oldCurrentPlayer
-            this.websocketUrl = websocketUrlClone;
             this.broadcastScreens()
           } else if (reason == "Cross click") {
             this.control.fontSettings = this.resetFontValue;
@@ -1527,7 +1536,7 @@ export class ControlComponent implements OnInit {
 
   toggleWebSocketConnection(): void {
     this.externalDevice.wordWhizIsConnected ? this.disconnect() :
-      this.initWebSocketConnection(this.websocketUrl);
+      this.initWebSocketConnection(this.control.fontSettings.externalDeviceSetting.websocketUrl);
   }
 
   updatePlayerActiveStatus(): void {
@@ -1558,11 +1567,14 @@ export class ControlComponent implements OnInit {
 
   toggleSpinnerWheel(): void {
     this.isSpinningWheel = !this.isSpinningWheel;
-
+    let spinnerWheel = {
+      isSpinningWheel: this.isSpinningWheel,
+      spinnerWheelDuration: +this.control.fontSettings.screenPropertytSetting.spinnerWheelDuration
+    }
     this.newWindows.forEach(w => {
-      w.webContents.send("spin_the_wheel", this.isSpinningWheel);
+      w.webContents.send("spin_the_wheel", spinnerWheel);
     });
-    
+
     setTimeout(() => {
       this.isSpinningWheel = false;
     }, 5000)

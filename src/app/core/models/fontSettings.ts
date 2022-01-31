@@ -1,3 +1,5 @@
+import { ExternalDeviceSetting, ScreenPropertytSetting } from "./settings";
+
 export interface FontSettings {
   main_roundName: number;
   main_clue: number;
@@ -8,4 +10,6 @@ export interface FontSettings {
   oneThird_hint: number;
   oneThird_answer: number;
   player_point: number;
+  externalDeviceSetting: ExternalDeviceSetting,
+  screenPropertytSetting: ScreenPropertytSetting
 }

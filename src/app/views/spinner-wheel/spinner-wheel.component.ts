@@ -11,14 +11,16 @@ declare var Winwheel: any;
 export class SpinnerWheelComponent implements OnInit {
 
   theWheel: any;
-
+  spinnerWheel : {isSpinningWheel: boolean, spinnerWheelDuration: number} = {isSpinningWheel: false, spinnerWheelDuration: 5}
 
   constructor() {
 
     const ipc = require("electron").ipcRenderer;
 
     ipc.on("spin_the_wheel", (event, message) => {
-      if (message) {
+      this.spinnerWheel = message
+      this.theWheel = this.createWheel(this.spinnerWheel.spinnerWheelDuration)
+      if (this.spinnerWheel.isSpinningWheel) {
         this.startAnimation();
       } else {
         this.stopAnimation();
@@ -27,7 +29,11 @@ export class SpinnerWheelComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.theWheel = new Winwheel({
+    this.theWheel = this.createWheel(this.spinnerWheel.spinnerWheelDuration)
+  }
+
+  createWheel(duration: number): any {
+    return new Winwheel({
       'canvasId': 'canvas',
       'outerRadius': 240,
       'innerRadius': 20,
@@ -52,7 +58,7 @@ export class SpinnerWheelComponent implements OnInit {
       'animation':
       {
         'type': 'spinToStop',
-        'duration': 5,
+        'duration': duration,
         'spins': 4,
       }
     });

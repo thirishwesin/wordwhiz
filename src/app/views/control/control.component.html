@@ -460,22 +460,40 @@
                         </div>
                     </div>
                 </div>
-                <!-- Connection & Interaction Setting -->
-                <div class="setting_body ">
+                <!-- External Device Setting -->
+                <div class="setting_body" style="margin-top: 3%;">
                     <div class="row ">
                         <div class="col-sm-12 font-title">
-                            <h1>Connection & Interaction</h1>
+                            <h1>External Device Setting</h1>
                         </div>
                     </div>
                     <div class="row dialog-input-field">
-                        <div class=" form-group col-6 col-md-4">
-                            <label for="" class="common_label" style="margin-top: 8%;">Websocket url</label>
-                            <div class="container_up">
-                                <input class="form-control common_input" [(ngModel)]="websocketUrl">
+                        <div class=" form-group col-6 col-md-8">
+                            <label for="" class="common_label">Websocket Url</label>
+                            <h6 class="fontsize_limit"></h6>
+                            <div class="container_up" style="margin-right: 36%;">
+                                <input class="form-control common_input" [(ngModel)]="control.fontSettings.externalDeviceSetting.websocketUrl">
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- Screen Properties Setting -->
+                <div class="setting_body" style="margin-top: 3%;">
+                  <div class="row ">
+                      <div class="col-sm-12 font-title">
+                          <h1>Screen Properties Setting</h1>
+                      </div>
+                  </div>
+                  <div class="row dialog-input-field">
+                      <div class=" form-group col-6 col-md-8">
+                          <label for="" class="common_label">Spinner Wheel Duration</label>
+                          <h6 class="fontsize_limit"></h6>
+                          <div class="container_up" style="margin-right: 36%;">
+                              <input class="form-control common_input" [(ngModel)]="control.fontSettings.screenPropertytSetting.spinnerWheelDuration">
+                          </div>
+                      </div>
+                  </div>
+              </div>
             </div>
             <div class=" modal-footer ">
                 <button type=" button " class="btn btn-add" (click)=" modal.dismiss( 'Cancel click' ) ">Cancel</button>
