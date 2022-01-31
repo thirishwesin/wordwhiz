@@ -78,6 +78,9 @@
 
 
 /* start style for typo word */
+#typo-word-screen{
+	margin-top: 15%;
+}
 .btn_align {
 	text-align: right;
 }
@@ -118,9 +121,13 @@
 /*}*/
 
 .signaturePad_body {
-    left: 32%;
+/*     left: 32%;
     position: absolute;
-    top: 23%;
+    top: 23%; */
+    text-align: center;
+    width: 700px;
+    margin: auto;
+    height: 500px;
 
 }
 #signature-pad{
@@ -130,7 +137,12 @@
     box-shadow: 0px 0px 50px 0px #c000ff;
     opacity: 0.6;
 }
-/* end style for scramble word */
+@media (max-width: 1200px) and (max-height: 1920px) {	
+	#typo-word-screen{
+		margin-top: 40%;
+	}
+}
+/* end style for typo word */
 
 
 /* start style for choose player */
