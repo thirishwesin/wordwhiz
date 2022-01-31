@@ -12,7 +12,7 @@ $(document).ready(() => {
 			$(this).removeClass(animationForButton);
 		});
 		$(".underline-word").each(function() {
-			if ($(this).hasClass('border-bottom-green')) {
+			if ($(this).hasClass('border-bottom-blue')) {
 				$(this).addClass(animationForAnswer).one('animationend', function() {
 					$(this).removeClass(animationForAnswer);
 				});
@@ -22,7 +22,7 @@ $(document).ready(() => {
 
 	$(scrambleWordIds).click(function() {
 		$(this).find("p").html(answerWord);
-		$(this).find("div").removeClass("border-bottom-green").addClass("border-bottom-blue");
+		$(this).find("div").removeClass("border-bottom-blue").addClass("border-bottom-green");
 		var answerIndex = $(this).attr("data-wz-index");
 		submitAnswer(answerWord, answerIndex);
 	})
@@ -32,7 +32,7 @@ $(document).ready(() => {
 class ScrambleWordService {
 	static showQuestion(questionObj) {
 		$(scrambleWordIds).find("p").html("");
-		$(".underline-word").removeClass("border-bottom-blue").addClass("border-bottom-green");
+		$(".underline-word").removeClass("border-bottom-green").addClass("border-bottom-blue");
 		for (let i = 1; i <= questionObj.hint.length; i++) {
 			let word = questionObj.hint.charAt(i - 1);
 			$("#scramble-btn" + i).attr('value', word);
