@@ -9,6 +9,11 @@ function toggleShowHide(connected) {
 $(document).ready(function () {
   toggleShowHide(false);
   let chosenPlayer = '';
+  if (choosePlayer === '') {
+    choosePlayer = "player1";
+    $("#" + choosePlayer + "-selected").attr("src", "../../image/choose_icon.png")
+  }
+
   $('#player1-btn, #player2-btn, #player3-btn').click(function () {
     chosenPlayer = choosePlayer + "-selected";
     $("#" + chosenPlayer).removeAttr('src');
