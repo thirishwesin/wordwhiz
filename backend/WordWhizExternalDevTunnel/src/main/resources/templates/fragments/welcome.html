@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <div th:fragment="welcome" class="col-md-12">
-  <section class="d-flex justify-content-center align-items-center">
-    <div class="text-center welcome-text-container">
-      <h2 class="display-4 mb-0 welcome-text">Hello, Welcome From WORDWHIZ</h2>
-      <h6 id="welcome-player-name" class="display-4 welcome-player-name"></h6>
-    </div>
-     <button id="disconnect" class="btn disconnect-btn" type="submit" disabled="disabled">Disconnect</button>
+  <section>
+	    <div class="row" style="margin-top: 18%;">
+	    	<div class="col-md-2"></div>
+		    <div class="col-md-8">
+			    <div class="dis-btn-cointainer">
+			    	<button id="disconnect" class="btn disconnect-btn" type="submit" disabled="disabled">Disconnect</button>
+		    	</div>
+			    <div class="text-center welcome-text-container">
+				      <h2 class="display-4 mb-0 welcome-text">Hello, Welcome From WORDWHIZ</h2>
+				      <h6 id="welcome-player-name" class="display-4 welcome-player-name"></h6>
+				    </div>
+		    	</div>
+	    	<div class="col-md-2"></div>
+	    </div>
   </section>
 </div>
 </html>

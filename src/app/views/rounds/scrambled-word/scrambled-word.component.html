@@ -23,7 +23,7 @@
 </ng-container>
 
 <ng-container *ngIf="screenType === screenTypeEnum.ONETHIRD">
-  <div style="float: left;margin-right: 100px;" *ngFor="let hint of currentQuestion.hints; let hintIndex = index">
+  <div *ngFor="let hint of currentQuestion.hints; let hintIndex = index">
     <div class="hint_ans_center">
       <div class="long_word_blue wordRoundFourLength{{hint.value.length}} mb-1"
         [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose || round4hintAnimated && control.startCount == timerEnum.START ? 'animated heartBeat':''"
@@ -34,7 +34,7 @@
         </p>
       </div>
     </div>
-    <div style="margin-left: -50px;" class="text-center">
+    <div class="text-center">
       <div class="one_word_green one_word_green_three retangle{{control.fontSettings.oneThird_answer}}"
         [ngClass]="{'hide_char': char == ' ' , 'animated heartBeat': control.startCount == timerEnum.START && round4hintAnimated || control.showQuestion && !currentRound.showfirstAnsChar && !control.showAns && !control.clickTimer && !control.fontSettingOpenClose, 'blue_bg' : i == 0 && currentRound.showfirstAnsChar}"
         *ngFor="let char of ansCharacterArr; let i=index;">
