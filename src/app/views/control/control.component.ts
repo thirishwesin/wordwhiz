@@ -1583,5 +1583,6 @@ export class ControlComponent implements OnInit {
 
   selectPlayer(playerId: string): void {
     this.externalDevPlayerId = playerId
+    this.control.currentPlayerId = `player${playerId}`
   }
 }

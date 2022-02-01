@@ -7,6 +7,7 @@ export interface Control {
   currentEpisodeId: number;
   currentRoundId: number;
   currentQuestionId: number;
+  currentPlayerId: string;
   startCount: TimerEnum;
   resetCount: boolean;
   showQuestion: boolean;

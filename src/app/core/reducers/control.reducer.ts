@@ -27,6 +27,7 @@ export const initialState: Control = {
   currentEpisodeId: 0,
   currentRoundId: 1,
   currentQuestionId: 1,
+  currentPlayerId: undefined,
   startCount: TimerEnum.STOP,
   resetCount: false,
   showQuestion: false,
