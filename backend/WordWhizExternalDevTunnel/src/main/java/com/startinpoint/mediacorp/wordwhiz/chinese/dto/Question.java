@@ -11,5 +11,6 @@ public class Question {
   private int round;
   private String question;
   private String hint;
+  private QuestionDTO.FontSetting fontSetting;
 
 }
