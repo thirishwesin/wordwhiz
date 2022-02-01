@@ -43,7 +43,7 @@
     font-weight: bold;
     color: #fff;
     line-height: 80px;
-    margin-bottom: 0px;
+margin-bottom: 20px;
 }
 .round2_word img{
 	   width: 120px;
@@ -59,8 +59,8 @@
 }
 .btn_txt{
     position: absolute;
-    top: 2px;
-    font-size: 80px;
+    top: -4px;
+    font-size: 62px;
     text-shadow: 3px 4px 3px #333333;
     color: #FFFFFF;
     margin-left: -117px;
@@ -73,6 +73,10 @@
     font-weight: bold;
     cursor: not-allowed;
 
+}
+.btn:hover{
+	outline: none;
+    box-shadow: none;
 }
 /* end style for scramble word */
 
