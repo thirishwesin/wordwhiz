@@ -95,6 +95,8 @@ export class PlayerComponent implements OnInit {
           };
         }
         this.updatePlayerState();
+
+        this.sendFromPlayerId = message.control.currentPlayerId != undefined ? parseInt(message.control.currentPlayerId.match(/\d/g)[0]) : 0;
       
         if (message.control.clickTimer != true) {
           this.scrambleWord = {

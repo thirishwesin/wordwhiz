@@ -1,6 +1,6 @@
 <section>
     <div class="container-fluid pad-zero position-fixed">
-        <div *ngIf="control.currentRoundId != 8 && control.currentRoundId != 7">
+        <div *ngIf="!(control.showQuestion && sendFromPlayerId == playerId && control.currentRoundId == 8) && !(control.showQuestion && sendFromPlayerId == playerId && control.currentRoundId == 7)">
             <div class="player_body" *ngIf="!control?.isChangePlayerBgImage">
                 <img [src]=Images.player_center_bg class="mx-auto d-block player_center_bg">
                 <p class="player_mark" [ngStyle]="{'font-size': episode.players[0]?.pointFontSize + 'px'}">
@@ -13,11 +13,12 @@
             </div>
         </div>
 
-        <div *ngIf="control.currentRoundId == 8">
+        <div *ngIf="control.showQuestion && sendFromPlayerId == playerId && control.currentRoundId == 8">
             <app-scramble-word [scrambleWord]="scrambleWord" [scrambleHint]="scrambleHint"></app-scramble-word>
         </div>
 
-        <div *ngIf="control.currentRoundId == 7">
+
+        <div *ngIf="control.showQuestion && sendFromPlayerId == playerId && control.currentRoundId == 7">
             <app-typo-word [typoWordImage]=typoWordImage></app-typo-word>
         </div>
     </div>
