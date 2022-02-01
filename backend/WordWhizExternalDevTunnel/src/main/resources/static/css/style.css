@@ -1,11 +1,11 @@
 /* start style for scramble word */
 .bg_theme{
-	height: 100vh;
+	/* height: 100vh; */
     background: url(../../image/round2_bg.png) no-repeat fixed;
     background-size: cover;
 }
 .typo_bg_theme{
-	height: 100vh;
+	/* height: 100vh; */
     background: url(../../image/round2_bg.png) no-repeat fixed;
     background-size: cover;
 }
