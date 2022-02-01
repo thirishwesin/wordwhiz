@@ -1,3 +1,7 @@
+html,* {
+    font-family: "simsun";
+}
+
 /* start style for scramble word */
 .bg_theme{
 	/* height: 100vh; */
@@ -59,8 +63,8 @@ margin-bottom: 20px;
 }
 .btn_txt{
     position: absolute;
-    top: -4px;
-    font-size: 62px;
+    top: 4px;
+    font-size: 70px;
     text-shadow: 3px 4px 3px #333333;
     color: #FFFFFF;
     margin-left: -117px;
@@ -72,7 +76,6 @@ margin-bottom: 20px;
     text-align: center;
     font-weight: bold;
     cursor: not-allowed;
-
 }
 .btn:hover{
 	outline: none;
@@ -253,7 +256,7 @@ margin-bottom: 20px;
 
 .welcome-text{
     font-size: 80px;
-    font-family: fredoka_oneregular;
+    /* font-family: fredoka_oneregular; */
     letter-spacing: 6px;
     outline: none;
     color: #41faff;
@@ -261,7 +264,7 @@ margin-bottom: 20px;
     padding: 10px 40px;
 }
 .welcome-player-name{
-	font-family: fredoka_oneregular;
+	/* font-family: fredoka_oneregular; */
     -webkit-box-reflect: below -25px linear-gradient(transparent, #00000017);
     outline: none;
     color: #fdf999;
