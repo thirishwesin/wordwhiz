@@ -8,4 +8,11 @@ export interface ExternalDeviceQuestion {
 	currentQuestionId: number
   currentRoundId: number
   currentEpisodeId: number
+  fontSetting: FontSetting
+}
+
+export interface FontSetting{
+  questionFontSize: number
+  hintFontSize: number
+  answerFontSize: number
 }

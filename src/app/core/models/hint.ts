@@ -3,6 +3,8 @@ export interface Hint {
   value: string;
   hintFontSize: number;
   otHintFontSize: number;
+  playerHintFontSize?: number;
+  tabletHintFontSize?: number;
   position: any; //position 0 is for top, 1 is for left and 2 is for right
   isCharacter: boolean;
   positionCalss: any;

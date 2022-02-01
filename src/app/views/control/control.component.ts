@@ -311,6 +311,7 @@ export class ControlComponent implements OnInit {
   sendQuestionToExternalDevice(sendTo: string, currentRoundId: number): void {
     if (this.stompClient && (this.currentRound.questionType == 8 || this.currentRound.questionType == 7)) {
       let externalDevQuestion = this.getExternalDeviceQuestion(currentRoundId);
+      console.log('externalDevQuestion: ', externalDevQuestion)
       switch (sendTo) {
         case 'specific-player':
           this.sendToSpecificPlayer(externalDevQuestion)
@@ -342,7 +343,12 @@ export class ControlComponent implements OnInit {
       playerId: `player${this.externalDevPlayerId}`,
       currentQuestionId: this.control.currentQuestionId,
       currentRoundId: currentRoundId,
-      currentEpisodeId: this.control.currentEpisodeId
+      currentEpisodeId: this.control.currentEpisodeId,
+      fontSetting: {
+        questionFontSize: +this.currentQuestion.tabletClueFontSize,
+        hintFontSize: +this.currentQuestion.hints[0].tabletHintFontSize,
+        answerFontSize: +this.currentQuestion.tabletAnsFontSize
+      }
     }
     return externalDeviceQuestion;
   }

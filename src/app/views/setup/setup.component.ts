@@ -311,13 +311,24 @@ export class SetupComponent implements OnInit {
       if (!this.invalidQuestion) {
         //add question
         if (this.currentRound.questionType == 4) {
-          this.question.hints[0].hintFontSize = 30; this.question.hints[0].otHintFontSize = 30;
-          this.question.hints[1].hintFontSize = 30; this.question.hints[1].otHintFontSize = 30;
-          this.question.hints[2].hintFontSize = 30; this.question.hints[2].otHintFontSize = 30;
+          this.question.hints[0].hintFontSize = +this.question.hints[0].hintFontSize || 30;
+          this.question.hints[0].otHintFontSize = +this.question.hints[0].otHintFontSize || 30;
+          this.question.hints[1].hintFontSize = +this.question.hints[1].hintFontSize || 30;
+          this.question.hints[1].otHintFontSize = +this.question.hints[1].otHintFontSize || 30;
+          this.question.hints[2].hintFontSize = +this.question.hints[2].hintFontSize || 30;
+          this.question.hints[2].otHintFontSize = +this.question.hints[2].otHintFontSize || 30;
         } else if (this.currentRound.questionType == 3) {
-          this.question.hints[0].hintFontSize = 50; this.question.hints[0].otHintFontSize = 50
+          this.question.hints[0].hintFontSize = +this.question.hints[0].hintFontSize || 50;
+          this.question.hints[0].otHintFontSize = +this.question.hints[0].otHintFontSize || 50;
         }else if (this.currentRound.questionType == 5){
           this.saveVideo(this.uploadFilePath,'tempSave',`${this.question.clue}.mp4`)
+        }else if(this.currentRound.questionType == 8){
+          this.question.hints[0].hintFontSize = +this.question.hints[0].hintFontSize || 30;
+          this.question.hints[0].otHintFontSize = +this.question.hints[0].otHintFontSize || 30;
+          this.question.playerAnsFontSize = +this.question.playerAnsFontSize || 40;
+          this.question.playerClueFontSize = +this.question.playerClueFontSize || 40;
+          this.question.tabletAnsFontSize = +this.question.tabletAnsFontSize || 40;
+          this.question.tabletClueFontSize = +this.question.tabletClueFontSize || 40;
         }
 
         let generateId =
@@ -330,10 +341,14 @@ export class SetupComponent implements OnInit {
           categoryId: this.currentRound.hasCategory ? this.currentCategory.id: this.currentRound.questionType == 7 ?
           this.currentRound.categories.find(category => category.name === this.playerCategory).id: 0,
           isAnsCharacter: this.questionType.isAnsChar,
-          clueFontSize: this.question.clueFontSize == null ? 50 : this.question.clueFontSize,
-          otClueFontSize: this.question.otClueFontSize == null ? 50 : this.question.otClueFontSize,
-          ansFontSize: this.question.ansFontSize == null ? 50 : this.question.ansFontSize,
-          otAnsFontSize: this.question.otAnsFontSize == null ? 50 : this.question.otAnsFontSize,
+          clueFontSize: +this.question.clueFontSize || 50,
+          otClueFontSize: +this.question.otClueFontSize || 50,
+          playerClueFontSize: +this.question.playerClueFontSize || 40,
+          tabletClueFontSize: +this.question.tabletClueFontSize || 40,
+          ansFontSize: +this.question.ansFontSize || 50,
+          otAnsFontSize: +this.question.otAnsFontSize || 50,
+          playerAnsFontSize: +this.question.playerAnsFontSize || 50,
+          tabletAnsFontSize: +this.question.playerAnsFontSize || 50
         });
         // this.questionTextToUpperCase(this.question);
         this.noDatabyCategory = false;
@@ -360,32 +375,34 @@ export class SetupComponent implements OnInit {
       if (!this.invalidQuestion) {
         console.log('selected round id => ', this.currentRound.id)
         this.currentRound.questionArray.map(question => {
-          if (question.id == this.question.id && !this.currentRound.hasCategory) {
+          if (question.id == this.question.id){
             question.clue = this.question.clue;
-            question.clueFontSize = +this.question.clueFontSize
-            question.otClueFontSize = +this.question.otClueFontSize
+            question.clueFontSize = +this.question.clueFontSize;
+            question.otClueFontSize = +this.question.otClueFontSize;
             question.ans = this.question.ans;
-            question.ansFontSize = +this.question.ansFontSize
-            question.otAnsFontSize = +this.question.otAnsFontSize
+            question.ansFontSize = +this.question.ansFontSize;
+            question.otAnsFontSize = +this.question.otAnsFontSize;
             question.hints = this.question.hints;
-            if (this.currentRound.id == 2 || this.currentRound.id == 3 || this.currentRound.id == 4 || this.currentRound.questionType == 7) {
-              question.hints[0].hintFontSize = +this.question.hints[0].hintFontSize
-              question.hints[0].otHintFontSize = +this.question.hints[0].otHintFontSize
+            if(!this.currentRound.hasCategory){
+              if (this.currentRound.id == 2 || this.currentRound.id == 3 || this.currentRound.id == 4 || this.currentRound.questionType == 7) {
+                question.hints[0].hintFontSize = +this.question.hints[0].hintFontSize;
+                question.hints[0].otHintFontSize = +this.question.hints[0].otHintFontSize;
+              }else if(this.currentRound.id == 8){
+                question.hints[0].hintFontSize = +this.question.hints[0].hintFontSize;
+                question.hints[0].otHintFontSize = +this.question.hints[0].otHintFontSize;
+                question.playerAnsFontSize = +this.question.playerAnsFontSize;
+                question.playerClueFontSize = +this.question.playerClueFontSize;
+                question.tabletAnsFontSize = +this.question.tabletAnsFontSize;
+                question.tabletClueFontSize = +this.question.tabletClueFontSize;
+              }
+            }else{
+              question.hints[0].hintFontSize = +this.question.hints[0].hintFontSize;
+              question.hints[0].otHintFontSize = +this.question.hints[0].otHintFontSize;
+              question.hints[1].hintFontSize = +this.question.hints[1].hintFontSize;
+              question.hints[1].otHintFontSize = +this.question.hints[1].otHintFontSize;
+              question.hints[2].hintFontSize = +this.question.hints[2].hintFontSize;
+              question.hints[2].otHintFontSize = +this.question.hints[2].otHintFontSize;
             }
-          } else if (question.id == this.question.id && this.currentRound.hasCategory) {
-            question.clue = this.question.clue;
-            question.clueFontSize = +this.question.clueFontSize
-            question.otClueFontSize = +this.question.otClueFontSize
-            question.ans = this.question.ans;
-            question.ansFontSize = +this.question.ansFontSize
-            question.otAnsFontSize = +this.question.otAnsFontSize
-            question.hints = this.question.hints;
-            question.hints[0].hintFontSize = +this.question.hints[0].hintFontSize
-            question.hints[0].otHintFontSize = +this.question.hints[0].otHintFontSize
-              question.hints[1].hintFontSize = +this.question.hints[1].hintFontSize
-            question.hints[1].otHintFontSize = +this.question.hints[1].otHintFontSize
-            question.hints[2].hintFontSize = +this.question.hints[2].hintFontSize
-            question.hints[2].otHintFontSize = +this.question.hints[2].otHintFontSize
           }
         });
       }

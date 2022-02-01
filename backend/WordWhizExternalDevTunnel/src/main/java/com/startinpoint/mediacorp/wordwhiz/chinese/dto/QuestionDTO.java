@@ -12,4 +12,12 @@ public class QuestionDTO {
   private int currentQuestionId;
   private int currentRoundId;
   private int currentEpisodeId;
+  private FontSetting fontSetting;
+
+  @Data
+  public static class FontSetting {
+    private Integer questionFontSize;
+    private Integer hintFontSize;
+    private Integer answerFontSize;
+  }
 }
