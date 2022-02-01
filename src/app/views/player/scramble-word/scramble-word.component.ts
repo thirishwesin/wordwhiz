@@ -1,7 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Answer } from '../../../core/models/answer';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { ScrambleHint, ScrambleWord } from '../../../core/models/scramble';
+import { DOCUMENT } from '@angular/common';
+import { playerAnswer } from '../../../core/actions/externalDevice.actions';
 
 @Component({
   selector: 'app-scramble-word',
@@ -9,6 +9,9 @@ import { ScrambleHint, ScrambleWord } from '../../../core/models/scramble';
   styleUrls: ['./scramble-word.component.scss']
 })
 export class ScrambleWordComponent implements OnInit {
+
+  @Input() playerAnsFontSize: number;
+  @Input() playerClueFontSize: number;
 
   @Input() scrambleWord: ScrambleWord = {
     word1: '',
@@ -24,9 +27,15 @@ export class ScrambleWordComponent implements OnInit {
     hint4: ''
   }
 
-  constructor() { }
+  constructor(@Inject(DOCUMENT) private document: Document) { }
 
   ngOnInit() {
+    this.setFontSizeWithClassName('answer', this.playerAnsFontSize, 'px');
+    this.setFontSizeWithClassName('btn_txt', this.playerClueFontSize, 'px');
+  }
+
+  setFontSizeWithClassName(className: string, fontSize:number, sizeUnit: string) {
+    this.document.querySelectorAll('.' + className).forEach(e => (e as HTMLElement).style.fontSize = fontSize + sizeUnit);
   }
 
 }

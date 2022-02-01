@@ -33,6 +33,8 @@ export class PlayerComponent implements OnInit {
   currentRoundId: number;
   sendFromPlayerId: number;
   answerObj: Answer;
+  playerAnsFontSize: number;
+  playerClueFontSize: number;
   scrambleWord: ScrambleWord = {
     word1: "",
     word2: "",
@@ -94,10 +96,11 @@ export class PlayerComponent implements OnInit {
             }
           };
         }
+
         this.updatePlayerState();
 
         this.sendFromPlayerId = message.control.currentPlayerId != undefined ? parseInt(message.control.currentPlayerId.match(/\d/g)[0]) : 0;
-      
+
         if (message.control.clickTimer != true) {
           this.scrambleWord = {
             word1: "",
@@ -135,6 +138,9 @@ export class PlayerComponent implements OnInit {
   }
 
   updatePlayerState() {
+    this.playerAnsFontSize = this.currentQuestion.playerAnsFontSize;
+    this.currentQuestion.playerClueFontSize;
+
     this.episode.players.map(player => {
       if (player.id == this.playerId) {
         this.playerPoint = player.point;

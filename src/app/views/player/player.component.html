@@ -1,6 +1,6 @@
 <section>
     <div class="container-fluid pad-zero position-fixed">
-        <div *ngIf="!(control.showQuestion && sendFromPlayerId == playerId && 
+        <div *ngIf="!(control.showQuestion && sendFromPlayerId == playerId &&
                     (control.currentRoundId == 8 || control.currentRoundId == 7))">
             <div class="player_body" *ngIf="!control?.isChangePlayerBgImage">
                 <img [src]=Images.player_center_bg class="mx-auto d-block player_center_bg">
@@ -15,7 +15,7 @@
         </div>
 
         <div *ngIf="control.showQuestion && sendFromPlayerId == playerId && control.currentRoundId == 8">
-            <app-scramble-word [scrambleWord]="scrambleWord" [scrambleHint]="scrambleHint"></app-scramble-word>
+            <app-scramble-word [scrambleWord]="scrambleWord" [scrambleHint]="scrambleHint" [playerAnsFontSize]="playerAnsFontSize" [playerClueFontSize]="playerClueFontSize"></app-scramble-word>
         </div>
 
 
