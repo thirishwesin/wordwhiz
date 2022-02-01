@@ -27,7 +27,7 @@ public class ControlScreenResource {
     public void showQuestionToSpecificPlayer(@Payload QuestionDTO questionDTO){
       System.out.println("QuestionDTO For Specific Player: " + questionDTO);
       Question question = new Question(questionDTO.getPlayerId(), questionDTO.getCurrentRoundId(),
-        questionDTO.getQuestion(), questionDTO.getHint());
+        questionDTO.getQuestion(), questionDTO.getHint(), questionDTO.getFontSetting());
       System.out.println("question: " + question);
       this.messagingTemplate.convertAndSendToUser(question.getToPlayer(),
                 "/show/question/to/specific-player", question);
@@ -37,7 +37,7 @@ public class ControlScreenResource {
     public void showQuestionToAllPlayer(@Payload QuestionDTO questionDTO){
         System.out.println("Question For All Player: " + questionDTO);
       Question question = new Question(questionDTO.getPlayerId(), questionDTO.getCurrentRoundId(),
-        questionDTO.getQuestion(), questionDTO.getHint());
+        questionDTO.getQuestion(), questionDTO.getHint(), questionDTO.getFontSetting());
         this.messagingTemplate.convertAndSend("/show/question/to/all-player", question);
     }
 
