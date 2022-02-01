@@ -662,6 +662,7 @@ export class ControlComponent implements OnInit {
     this.spinnerWheelNo = undefined
     if (this.currentRound.questionType == 8 || this.currentRound.questionType == 7) {
       this.externalDevPlayerId = undefined
+      this.control.currentPlayerId = undefined
     }
     this.currentRoundName = round.roundName
     //reset the category section
@@ -822,6 +823,7 @@ export class ControlComponent implements OnInit {
   clickQuestion(question, currentQuestionIndex) {
     if (this.currentRound.questionType == 8 || this.currentRound.questionType == 7) {
       this.externalDevPlayerId = undefined
+      this.control.currentPlayerId = undefined
     }
     this.roundFourHintValue = undefined
     this.disableStart = false;
