@@ -6,11 +6,11 @@
     height: 80px;
     border: none;
     outline: none;
-    padding-top: 9px;
+    padding-top: 10px;
     color: #fff;
     font-weight: bolder;
     text-shadow: 1px 2px 2px #333333;
-    padding-left: 8px;
+    padding-left: 22px;
     position: fixed;
 }
 
@@ -338,7 +338,15 @@
     margin-left: -14px;
     margin-bottom: 7px !important;
 }
-
+.long_word_blue1{
+    text-align: center;
+    background: url(../../../../assets/images/round_two_box.png) no-repeat;
+    background-size: cover;
+    height: 90px;
+    width: 500px;
+    margin-left: 450px;
+    margin-bottom: 7px !important;
+}
 .round2_hint_bg{
     background: url(../../../../assets/images/round_two_box.png) no-repeat;
     background-size: cover;

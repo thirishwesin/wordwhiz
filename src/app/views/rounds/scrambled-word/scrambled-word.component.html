@@ -25,7 +25,7 @@
 <ng-container *ngIf="screenType === screenTypeEnum.ONETHIRD">
   <div *ngFor="let hint of currentQuestion.hints; let hintIndex = index">
     <div class="hint_ans_center">
-      <div class="long_word_blue wordRoundFourLength{{hint.value.length}} mb-1"
+      <div class="long_word_blue wordRoundFourLength{{hint.value.length}} mb-1 long_word_blue1"
         [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose || round4hintAnimated && control.startCount == timerEnum.START ? 'animated heartBeat':''"
         *ngIf="!hint?.isCharacter">
         <p class="word font{{control.fontSettings.oneThird_hint}} mb-0" [ngStyle]="{'font-size': currentQuestion.hints[0].otHintFontSize + 'px'}"
