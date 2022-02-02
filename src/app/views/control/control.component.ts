@@ -581,6 +581,7 @@ export class ControlComponent implements OnInit {
   openAll() {
     this.newWindow(0); //open main
     this.newWindow(13); //open oneThinrd screen
+    this.openSpinnerWheelScreen();
     this.episode.players.map(player => {
       this.newWindow(player.id); //open player
     });
