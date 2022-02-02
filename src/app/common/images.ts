@@ -21,5 +21,5 @@ export const Images = {
   max_icon: require("../../assets/images/max_icon.png"),
   min_icon: require("../../assets/images/min_icon.png"),
   times_icon: require("../../assets/images/times-solid.svg"),
-  sping_bg: require("../../assets/images/spin_bg.png")
+  spinner_bg: require("./../../assets/images/spin_bg.png")
 };
