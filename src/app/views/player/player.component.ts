@@ -63,18 +63,29 @@ export class PlayerComponent implements OnInit {
 
     ipc.on("word_whizControl", (event, message) => {
       console.log("incoming broadcast event from control", message);
-      //update store
-      this.store.dispatch(updateStoreFromControl({ control: message }));
       //to render the view
       this.nz.run(() => {
+        if (message.control.currentRoundId != this.control.currentRoundId || message.control.currentQuestionId != this.control.currentQuestionId) {
+          this.scrambleWord = {
+            word1: "",
+            word2: "",
+            word3: "",
+            word4: ""
+          }
+          this.typoWordImage = defaultTypWordImage;
+        }
+        //update store
+        this.store.dispatch(updateStoreFromControl({ control: message }));
         this.episode = message.episode;
         this.control = message.control
         this.currentRound = _find(this.episode.rounds, [
           "id",
           this.control.currentRoundId
         ]);
+
         console.log("Episode => ", this.episode);
         console.log("Current Round => ", this.currentRound);
+
         if (this.currentRound.questionType == 8) {
           this.currentQuestion = _find(this.currentRound.questionArray, [
             "id",
@@ -98,19 +109,9 @@ export class PlayerComponent implements OnInit {
         }
 
         this.updatePlayerState();
+        // this.updateAnswerState();
 
         this.sendFromPlayerId = message.control.currentPlayerId != undefined ? parseInt(message.control.currentPlayerId.match(/\d/g)[0]) : 0;
-
-        if (message.control.clickTimer != true) {
-          this.scrambleWord = {
-            word1: "",
-            word2: "",
-            word3: "",
-            word4: ""
-          }
-
-          this.typoWordImage = defaultTypWordImage;
-        }
       });
     });
 
@@ -119,7 +120,7 @@ export class PlayerComponent implements OnInit {
       this.nz.run(() => {
         this.answerObj = { ...message };
         this.sendFromPlayerId = parseInt(this.answerObj.sendFrom.match(/\d/g)[0]);
-        this.updatePlayerState();
+        this.updateAnswerState();
       })
     })
   }
@@ -129,15 +130,15 @@ export class PlayerComponent implements OnInit {
       this.paramObj = { ...params.keys, ...params };
       this.playerId = this.paramObj.params.id;
     });
+
     this.store.subscribe(item => {
       this.episode = item.episode;
       this.control = item.control;
     });
-    console.log(this.typoWordImage);
-
   }
 
   updatePlayerState() {
+
     this.playerAnsFontSize = this.currentQuestion.playerAnsFontSize;
     this.currentQuestion.playerClueFontSize;
 
@@ -147,7 +148,9 @@ export class PlayerComponent implements OnInit {
         this.playerName = player.name;
       }
     });
+  }
 
+  updateAnswerState() {
     if (this.answerObj) {
       if (this.control.currentRoundId == 7 && this.sendFromPlayerId == this.playerId) {
         this.typoWordImage = this.answerObj.answer;

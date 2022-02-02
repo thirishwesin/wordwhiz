@@ -1,7 +1,7 @@
 <!-- for main screen -->
 <ng-container *ngIf="screenType === screenTypeEnum.MAIN">
   <div *ngFor="let hint of currentQuestion?.hints; let hintIndex = index">
-    <div class="long_word_blue_SCR longBlueRoundFour{{hint.value.length}} long_retangle{{control.fontSettings.main_hint}}"
+    <div class="long_word_blue_SCR longBlueRoundFour{{hint.value.length}} long_retangle{{control.fontSettings.main_hint}} long_word_blue_SCR round2_hint_bg"
       [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose || round4hintAnimated && control.startCount == timerEnum.START ? 'animated heartBeat':''"
       *ngIf="!hint?.isCharacter">
       <input type="text" [value]="hint.value"
@@ -13,7 +13,7 @@
         [ngClass]="{'hide_char': char == ' ' , 'animated heartBeat': control.startCount == timerEnum.START && round4hintAnimated || control.showQuestion && !currentRound.showfirstAnsChar && !control.showAns && !control.clickTimer && !control.fontSettingOpenClose, 'blue_bg' : i == 0 && currentRound.showfirstAnsChar}"
         *ngFor="let char of ansCharacterArr; let i=index;">
         <span *ngIf="!currentRound.showfirstAnsChar">
-          <input type="text" [value]="char"
+          <input type="text" [value]="char"   
             [ngClass]="{'animated zoomIn': control.showAns && !control.clickPoint && !control.clickTimer && !control.fontSettingOpenClose && !control.resetCount , 'transparent': !control.showAns && !control.clickPoint  || !control.showAns &&control.clickPoint}"
             [ngStyle]="{'font-size': currentQuestion.ansFontSize + 'px'}" class="roundthree_text">
         </span>
@@ -25,7 +25,7 @@
 <ng-container *ngIf="screenType === screenTypeEnum.ONETHIRD">
   <div *ngFor="let hint of currentQuestion.hints; let hintIndex = index">
     <div class="hint_ans_center">
-      <div class="long_word_blue wordRoundFourLength{{hint.value.length}} mb-1"
+      <div class="long_word_blue wordRoundFourLength{{hint.value.length}} mb-1 long_word_blue1"
         [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose || round4hintAnimated && control.startCount == timerEnum.START ? 'animated heartBeat':''"
         *ngIf="!hint?.isCharacter">
         <p class="word font{{control.fontSettings.oneThird_hint}} mb-0" [ngStyle]="{'font-size': currentQuestion.hints[0].otHintFontSize + 'px'}"
