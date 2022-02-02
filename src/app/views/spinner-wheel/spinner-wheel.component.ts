@@ -1,5 +1,6 @@
 import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { Images } from "../../common/images";
 declare var Winwheel: any;
 
 
@@ -9,7 +10,7 @@ declare var Winwheel: any;
   styleUrls: ['./spinner-wheel.component.scss']
 })
 export class SpinnerWheelComponent implements OnInit {
-
+  Images = Images;
   theWheel: any;
   spinnerWheel : {isSpinningWheel: boolean, spinnerWheelDuration: number} = {isSpinningWheel: false, spinnerWheelDuration: 5}
 

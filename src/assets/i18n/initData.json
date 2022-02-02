@@ -259,7 +259,7 @@
               "hints": [
                 {
                   "id": 1,
-                  "value": "onil",
+                  "value": "獅子獅子",
                   "position": 0,
                   "isCharacter": false,
                   "hintFontSize": 50,
@@ -269,16 +269,16 @@
                   "tabletHintFontSize": 42
                 }
               ],
-              "ans": "lion",
+              "ans": "獅子獅子",
               "isAnsCharacter": true,
               "clueFontSize": 50,
               "otClueFontSize": 50,
               "ansFontSize": 51,
               "otAnsFontSize": 50,
               "playerAnsFontSize": 41,
-              "tabletAnsFontSize": "48",
+              "tabletAnsFontSize": 48,
               "playerClueFontSize": 41,
-              "tabletClueFontSize": "46"
+              "tabletClueFontSize": 46
             },
             {
               "id": 2,
@@ -287,7 +287,7 @@
               "hints": [
                 {
                   "id": 1,
-                  "value": "atgo",
+                  "value": "山羊山羊",
                   "position": 0,
                   "isCharacter": false,
                   "hintFontSize": 50,
@@ -297,7 +297,7 @@
                   "tabletHintFontSize": 42
                 }
               ],
-              "ans": "goat",
+              "ans": "山羊山羊",
               "isAnsCharacter": true,
               "clueFontSize": 50,
               "otClueFontSize": 50,
@@ -307,6 +307,34 @@
               "tabletAnsFontSize": 42,
               "playerClueFontSize": 41,
               "tabletClueFontSize": 42
+            },
+            {
+              "id": 3,
+              "clue": "Luffy's hat",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "草帽草帽",
+                  "position": 0,
+                  "isCharacter": false,
+                  "hintFontSize": 40,
+                  "otHintFontSize": 40,
+                  "positionCalss": "",
+                  "playerHintFontSize": "40",
+                  "tabletHintFontSize": "40"
+                }
+              ],
+              "ans": "草帽草帽",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50,
+              "playerClueFontSize": 50,
+              "tabletClueFontSize": 50,
+              "playerAnsFontSize": 50,
+              "tabletAnsFontSize": 50
             }
           ],
           "roundNameFontSize": "90",
@@ -557,48 +585,6 @@
           "questionArray": [
             {
               "id": 1,
-              "clue": "applf",
-              "categoryId": 1,
-              "hints": [
-                {
-                  "id": 1,
-                  "value": "f",
-                  "position": 0,
-                  "isCharacter": false,
-                  "hintFontSize": null,
-                  "otHintFontSize": null
-                }
-              ],
-              "ans": "e",
-              "isAnsCharacter": true,
-              "clueFontSize": 50,
-              "otClueFontSize": 50,
-              "ansFontSize": 50,
-              "otAnsFontSize": 50
-            },
-            {
-              "id": 2,
-              "clue": "arange",
-              "categoryId": 1,
-              "hints": [
-                {
-                  "id": 1,
-                  "value": "a",
-                  "position": 0,
-                  "isCharacter": false,
-                  "hintFontSize": null,
-                  "otHintFontSize": null
-                }
-              ],
-              "ans": "o",
-              "isAnsCharacter": true,
-              "clueFontSize": 50,
-              "otClueFontSize": 50,
-              "ansFontSize": 50,
-              "otAnsFontSize": 50
-            },
-            {
-              "id": 3,
               "clue": "他总是装出一副很可玲的样子， 博取他人的注意和同情。",
               "categoryId": 0,
               "hints": [
@@ -619,7 +605,7 @@
               "otAnsFontSize": "50"
             },
             {
-              "id": 4,
+              "id": 2,
               "clue": "比利不尊守校规， 而且多次迟到早退，班主任找了他的爸妈了解情况。",
               "categoryId": 0,
               "hints": [
@@ -640,7 +626,7 @@
               "otAnsFontSize": "50"
             },
             {
-              "id": 5,
+              "id": 3,
               "clue": "祖父总爱在吃完晚餐后到附近的公园潵步。 ",
               "categoryId": 0,
               "hints": [
@@ -661,7 +647,7 @@
               "otAnsFontSize": "50"
             },
             {
-              "id": 6,
+              "id": 4,
               "clue": "老师称赞晓德写作能力强， 他就开始觉得有些自瞒，轻飘飘起来。 ",
               "categoryId": 0,
               "hints": [
@@ -682,7 +668,7 @@
               "otAnsFontSize": "50"
             },
             {
-              "id": 7,
+              "id": 5,
               "clue": "每逢桂节， 在外深造的表姐特别想念家人。",
               "categoryId": 0,
               "hints": [
@@ -703,7 +689,7 @@
               "otAnsFontSize": 50
             },
             {
-              "id": 8,
+              "id": 6,
               "clue": "自从搬家过后， 我就很少跟就旧邻居（朕）络了。",
               "categoryId": 0,
               "hints": [
@@ -724,7 +710,7 @@
               "otAnsFontSize": "50"
             },
             {
-              "id": 9,
+              "id": 7,
               "clue": "志明这次闯了大祸， 害得他的父母伤透了脑肋。 ",
               "categoryId": 0,
               "hints": [
@@ -745,7 +731,7 @@
               "otAnsFontSize": 50
             },
             {
-              "id": 10,
+              "id": 8,
               "clue": "护士很（钿）心地照顾病房里的每一个病人。",
               "categoryId": 0,
               "hints": [
@@ -983,7 +969,7 @@
       "websocketUrl": "ws://localhost:8081/ws/websocket"
     },
     "screenPropertytSetting": {
-      "spinnerWheelDuration": "15"
+      "spinnerWheelDuration": "10"
     }
   }
 }

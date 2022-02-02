@@ -1,6 +1,7 @@
 import { app, BrowserWindow, screen, globalShortcut } from "electron";
 import * as path from "path";
 import * as url from "url";
+import { AppConfig } from "./src/environments/environment";
 
 let win, serve, splash;
 const args = process.argv.slice(1);
@@ -48,7 +49,7 @@ try {
       webPreferences: {
         nodeIntegration: true,
         devTools: serve,
-        webSecurity: false
+        webSecurity: AppConfig.production
       },
     });
 
