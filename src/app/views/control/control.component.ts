@@ -165,7 +165,7 @@ export class ControlComponent implements OnInit {
             websocketUrl: "ws://localhost:8081/ws/websocket"
           },
           screenPropertytSetting: {
-            spinnerWheelDuration: 5
+            spinnerWheelDuration: 10
           }
         };
 
@@ -1346,7 +1346,7 @@ export class ControlComponent implements OnInit {
                 websocketUrl: "ws://localhost:8081/ws/websocket"
               },
               screenPropertytSetting: {
-                spinnerWheelDuration: 5
+                spinnerWheelDuration: 10
               }
             };
 

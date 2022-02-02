@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Control } from '../../../core/models/control';
 import { Question } from '../../../core/models/question';
 import { Round } from '../../../core/models/round';
@@ -10,7 +10,7 @@ import { TimerEnum } from '../../../core/models/timerEnum';
   templateUrl: './scrambled-word.component.html',
   styleUrls: ['./scrambled-word.component.scss']
 })
-export class ScrambledWordComponent implements OnInit {
+export class ScrambledWordComponent implements OnInit, OnChanges {
 
   @Input() control: Control
   @Input() currentQuestion: Question
@@ -18,17 +18,20 @@ export class ScrambledWordComponent implements OnInit {
   @Input() screenType: ScreenType
 
   blockAnimated: boolean = false
-  round4hintAnimated : boolean = false
+  round4hintAnimated: boolean = false
   ansCharacterArr: string[]
 
   constructor() { }
+  ngOnChanges(changes: SimpleChanges): void {
+    this.control = changes['control'].currentValue;
+    this.updateAnimationValue();
+  }
 
   ngOnInit() {
-    console.log("control: ", this.control)
-    console.log("currentQuestion: ", this.currentQuestion)
-    console.log("contcurrentRoundrol: ", this.currentRound)
-    console.log("screenType: ", this.screenType)
+     this.ansCharacterArr = this.currentQuestion.ans.split('');  // split answer by each character
+  }
 
+  updateAnimationValue(): void {
     //animation
     if (this.control.startCount == TimerEnum.START ||this.control.showAns || this.control.clickExtraKey) {
       this.blockAnimated = true;
@@ -36,8 +39,6 @@ export class ScrambledWordComponent implements OnInit {
     // animation
     if (this.control.startCount  == TimerEnum.STOP && !this.control.showAns && !this.control.showQuestion)
       this.blockAnimated = false;
-
-     this.ansCharacterArr = this.currentQuestion.ans.split('');  // split answer by each character
   }
 
    // get screen type from ScreenType Enum Class

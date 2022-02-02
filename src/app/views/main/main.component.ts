@@ -243,7 +243,8 @@ export class MainComponent implements OnInit {
     if (this.isRenderedTimer) {
       if (this.prevCurrentRound != this.control.currentRoundId) {
         this.renderTimerImage(false, this.currentRound.timeOut);
-      }else if((this.currentRound.questionType == 6 || this.currentRound.questionType == 2 || this.currentRound.questionType == 1) && this.control.resetCount){
+      }else if((this.currentRound.questionType == 6 || this.currentRound.questionType == 2 || this.currentRound.questionType == 1 || this.currentRound.questionType == 8)
+      && this.control.resetCount){
         this.renderTimerImage(false, this.control['resetTo']);
       }
     }

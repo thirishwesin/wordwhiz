@@ -2,7 +2,7 @@
 <ng-container *ngIf="screenType === screenTypeEnum.MAIN">
   <div *ngFor="let hint of currentQuestion?.hints; let hintIndex = index">
     <div class="long_word_blue_SCR longBlueRoundFour{{hint.value.length}} long_retangle{{control.fontSettings.main_hint}}"
-      [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose || round4hintAnimated && control.startCount ? 'animated heartBeat':''"
+      [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose || round4hintAnimated && control.startCount == timerEnum.START ? 'animated heartBeat':''"
       *ngIf="!hint?.isCharacter">
       <input type="text" [value]="hint.value"
         [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint ? 'animated zoomIn':''"

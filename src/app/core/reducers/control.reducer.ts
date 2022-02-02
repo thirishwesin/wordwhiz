@@ -50,7 +50,7 @@ export const initialState: Control = {
       websocketUrl: "ws://localhost:8081/ws/websocket"
     },
     screenPropertytSetting: {
-      spinnerWheelDuration: 5
+      spinnerWheelDuration: 10
     }
   },
   clickPoint: false,
