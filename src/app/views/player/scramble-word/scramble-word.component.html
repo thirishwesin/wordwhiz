@@ -1,4 +1,5 @@
-<img class="mx-auto d-block scrambleword_bg" src="../../../assets/images/spin_bg.png">
+<img [src]="Images.sping_bg" class="mx-auto d-block scrambleword_bg">
+
 <div class="container-fluid scramble_word">
     <div class="round2_answer">
         <div id="scramble-word1" class="col-sm-1 word-margin" [ngClass]="scrambleWord.word1? 'border-bottom-green': 'border-bottom-blue'">
@@ -30,28 +31,28 @@
     <div class="round2_word">
         <div class="col-sm-1">
             <button class="btn round2_btn" id="scramble-btn1" value="A">
-        <img src="../../../../assets/images/BLUE/blue_blank.png">
+        <img [src]="Images.blue_bg">
         <input type="text" class="btn_txt" [value]="scrambleHint.hint1">
       </button>
         </div>
 
         <div class="col-sm-1">
             <button class="btn round2_btn" id="scramble-btn2" value="B">
-        <img src="../../../../assets/images/BLUE/blue_blank.png">
+        <img [src]="Images.blue_bg">
         <input type="text" class="btn_txt" [value]="scrambleHint.hint2">
       </button>
         </div>
 
         <div class="col-sm-1">
             <button class="btn round2_btn" id="scramble-btn3" value="C">
-        <img src="../../../../assets/images/BLUE/blue_blank.png">
+        <img [src]="Images.blue_bg">
         <input type="text" class="btn_txt" [value]="scrambleHint.hint3">
       </button>
         </div>
 
         <div class="col-sm-1">
             <button class="btn round2_btn" id="scramble-btn4" value="D">
-        <img src="../../../../assets/images/BLUE/blue_blank.png">
+        <img [src]="Images.blue_bg">
         <input type="text" class="btn_txt" [value]="scrambleHint.hint4">
       </button>
         </div>

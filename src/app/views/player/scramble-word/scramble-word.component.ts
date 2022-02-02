@@ -1,14 +1,17 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { ScrambleHint, ScrambleWord } from '../../../core/models/scramble';
 import { DOCUMENT } from '@angular/common';
-import { playerAnswer } from '../../../core/actions/externalDevice.actions';
+import { Images } from '../../../common/images';
 
 @Component({
   selector: 'app-scramble-word',
   templateUrl: './scramble-word.component.html',
   styleUrls: ['./scramble-word.component.scss']
 })
+
 export class ScrambleWordComponent implements OnInit {
+
+  Images = Images;
 
   @Input() playerAnsFontSize: number;
   @Input() playerClueFontSize: number;
