@@ -458,30 +458,32 @@
                                 <input class="form-control common_input" OnlyNumber="true" [(ngModel)]="episode.players[0].pointFontSize" (ngModelChange)="changePlayerPointSize($event)">
                             </div>
                         </div>
-                        <div class=" form-group col-6 col-md-4" *ngIf="currentQuestion?.playerClueFontSize">
-                          <label for="" class="common_label" style="margin-top: 8%;">Clue Name</label>
-                          <h6 class="fontsize_limit">Recommended - 60 </h6>
-                          <div class="container_up">
-                              <input class="form-control common_input" OnlyNumber="true"
-                              [(ngModel)]="currentQuestion.playerClueFontSize">
+                        <ng-container *ngIf="currentRound.questionType == 8">
+                          <div class=" form-group col-6 col-md-4">
+                            <label for="" class="common_label" style="margin-top: 8%;">Clue Name</label>
+                            <h6 class="fontsize_limit">Recommended - 60 </h6>
+                            <div class="container_up">
+                                <input class="form-control common_input" OnlyNumber="true"
+                                [(ngModel)]="currentQuestion.playerClueFontSize">
+                            </div>
                           </div>
-                        </div>
-                        <div class=" form-group col-6 col-md-4" *ngIf="currentQuestion?.hints[0]?.playerHintFontSize">
-                          <label for="" class="common_label" style="margin-top: 8%;">Hint 1</label>
-                          <h6 class="fontsize_limit">Recommended - 45 </h6>
-                          <div class="container_up">
-                              <input class="form-control common_input" OnlyNumber="true"
-                              [(ngModel)]="currentQuestion.hints[0].playerHintFontSize">
+                          <div class=" form-group col-6 col-md-4">
+                            <label for="" class="common_label" style="margin-top: 8%;">Hint 1</label>
+                            <h6 class="fontsize_limit">Recommended - 45 </h6>
+                            <div class="container_up">
+                                <input class="form-control common_input" OnlyNumber="true"
+                                [(ngModel)]="currentQuestion.hints[0].playerHintFontSize">
+                            </div>
                           </div>
-                        </div>
-                        <div class=" form-group col-6 col-md-4" *ngIf="currentQuestion?.playerAnsFontSize">
-                          <label for="" class="common_label" style="margin-top: 8%;">Answer</label>
-                          <h6 class="fontsize_limit">Recommended - 35 </h6>
-                          <div class="container_up">
-                              <input class="form-control common_input" OnlyNumber="true"
-                              [(ngModel)]="currentQuestion.playerAnsFontSize">
+                          <div class=" form-group col-6 col-md-4">
+                            <label for="" class="common_label" style="margin-top: 8%;">Answer</label>
+                            <h6 class="fontsize_limit">Recommended - 35 </h6>
+                            <div class="container_up">
+                                <input class="form-control common_input" OnlyNumber="true"
+                                [(ngModel)]="currentQuestion.playerAnsFontSize">
+                            </div>
                           </div>
-                        </div>
+                        </ng-container>
                     </div>
                 </div>
                 <!-- External Device Setting -->
@@ -499,30 +501,32 @@
                                 <input class="form-control common_input" [(ngModel)]="control.fontSettings.externalDeviceSetting.websocketUrl">
                             </div>
                         </div>
-                        <div class=" form-group col-6 col-md-4" *ngIf="currentQuestion.tabletClueFontSize">
-                          <label for="" class="common_label" style="margin-top: 8%;">Clue Name</label>
-                          <h6 class="fontsize_limit">Recommended - 60 </h6>
-                          <div class="container_up">
-                              <input class="form-control common_input" OnlyNumber="true"
-                              [(ngModel)]="currentQuestion.tabletClueFontSize">
+                        <ng-container *ngIf="currentRound.questionType == 8">
+                          <div class=" form-group col-6 col-md-4">
+                            <label for="" class="common_label" style="margin-top: 8%;">Clue Name</label>
+                            <h6 class="fontsize_limit">Recommended - 60 </h6>
+                            <div class="container_up">
+                                <input class="form-control common_input" OnlyNumber="true"
+                                [(ngModel)]="currentQuestion.tabletClueFontSize">
+                            </div>
                           </div>
-                        </div>
-                        <div class=" form-group col-6 col-md-4" *ngIf="currentQuestion.hints[0].tabletHintFontSize">
-                          <label for="" class="common_label" style="margin-top: 8%;">Hint 1</label>
-                          <h6 class="fontsize_limit">Recommended - 45 </h6>
-                          <div class="container_up">
-                              <input class="form-control common_input" OnlyNumber="true"
-                              [(ngModel)]="currentQuestion.hints[0].tabletHintFontSize">
+                          <div class=" form-group col-6 col-md-4">
+                            <label for="" class="common_label" style="margin-top: 8%;">Hint 1</label>
+                            <h6 class="fontsize_limit">Recommended - 45 </h6>
+                            <div class="container_up">
+                                <input class="form-control common_input" OnlyNumber="true"
+                                [(ngModel)]="currentQuestion.hints[0].tabletHintFontSize">
+                            </div>
                           </div>
-                        </div>
-                        <div class=" form-group col-6 col-md-4" *ngIf="currentQuestion.tabletAnsFontSize">
-                          <label for="" class="common_label" style="margin-top: 8%;">Answer</label>
-                          <h6 class="fontsize_limit">Recommended - 35 </h6>
-                          <div class="container_up">
-                              <input class="form-control common_input" OnlyNumber="true"
-                              [(ngModel)]="currentQuestion.tabletAnsFontSize">
+                          <div class=" form-group col-6 col-md-4">
+                            <label for="" class="common_label" style="margin-top: 8%;">Answer</label>
+                            <h6 class="fontsize_limit">Recommended - 35 </h6>
+                            <div class="container_up">
+                                <input class="form-control common_input" OnlyNumber="true"
+                                [(ngModel)]="currentQuestion.tabletAnsFontSize">
+                            </div>
                           </div>
-                        </div>
+                        </ng-container>
                     </div>
                 </div>
                 <!-- Screen Properties Setting -->
