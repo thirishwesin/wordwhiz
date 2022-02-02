@@ -20,5 +20,6 @@ export const Images = {
   greenlong_bg: require("../../assets/images/greenlong_bg.png"),
   max_icon: require("../../assets/images/max_icon.png"),
   min_icon: require("../../assets/images/min_icon.png"),
-  times_icon: require("../../assets/images/times-solid.svg")
+  times_icon: require("../../assets/images/times-solid.svg"),
+  spinner_bg: require("./../../assets/images/spin_bg.png")
 };
