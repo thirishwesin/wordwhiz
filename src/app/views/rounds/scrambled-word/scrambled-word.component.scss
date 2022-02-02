@@ -1,19 +1,17 @@
 .word {
-    letter-spacing: 46px;
-    font-size: 60px !important;
-    width: 316px;
+    letter-spacing: 20px;
+    width: 500px;
     text-align: center;
     margin: 0;
     height: 80px;
     border: none;
     outline: none;
-    padding-top: 0px;
+    padding-top: 9px;
     color: #fff;
     font-weight: bolder;
     text-shadow: 1px 2px 2px #333333;
-    padding-left: 30px;
+    padding-left: 8px;
     position: fixed;
-    top: -15px;
 }
 
 .one_word_green_three {
@@ -292,11 +290,10 @@
 }
 
 .long_word_blue_SCR .scrambled_long_text{
-    background: url(../../../../assets/images/bluelong_bg3.png) center no-repeat;
+    background: transparent;
     padding-bottom: 7px !important;
-    letter-spacing: 50px;
-    font-size: 80px !important;
-    width: 845px;
+    letter-spacing: 20px;
+    width: 585px;
     text-align: center;
     margin: 0;
     height: 107px;
@@ -304,11 +301,11 @@
     font-size: 45px;
     outline: none;
     margin-left: 1px;
-    padding-top: 0px;
+    padding-top: 10px;
     color: #fff;
     font-weight: bolder;
     text-shadow: 1px 2px 2px #333333;
-    padding-left: 60px;
+    padding-left: 30px;
     margin-bottom: 60px;
 }
 
@@ -316,30 +313,37 @@
     width: 70px;
     text-align: center !important;
     margin: 0;
-    height: 95px;
+    /* height: 95px; */
     background: none;
     border: none;
     font-size: 45px;
     outline: none;
     margin-left: 1px;
-    padding-top: 6px;
-    padding-bottom: 8px;
+    /* padding-top: 6px; */
+    padding-bottom: 0px;
     color: #fff;
     font-weight: bolder;
     text-shadow: 1px 2px 2px #333333;
-    // letter-spacing: normal;
     padding-left: 0px;
     margin-bottom: 0px;
-    width: 92px;
-    font-size: 70px !important;
 }
 
 
 .long_word_blue {
     text-align: center;
-    background: url(../../../../assets/images/bluelong_bg3.png)center no-repeat;
-    height: 75px;
-    width: 316px;
-    margin-left: 80px;
-    margin-bottom: 16px !important;
+    background: url(../../../../assets/images/round_two_box.png) no-repeat;
+    background-size: cover;
+    height: 90px;
+    width: 500px;
+    margin-left: -14px;
+    margin-bottom: 7px !important;
+}
+
+.round2_hint_bg{
+    background: url(../../../../assets/images/round_two_box.png) no-repeat;
+    background-size: cover;
+    max-height: 120px;
+    margin-left: 130px;
+    margin-bottom: 40px;
+    width: calc(33em + 3vw) !important;
 }
