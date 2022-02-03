@@ -293,6 +293,7 @@
     font-weight: bold;
     background: repeating-linear-gradient(152deg, #f9f906bf, #41faffcc);
     margin-right: 5%;
+    width: 90px;
 }
 
 .adjust:hover {
@@ -305,6 +306,7 @@
     font-weight: bold;
     background: repeating-linear-gradient(152deg, #f9f906bf, #41faffcc);
     margin-right: -5%;
+    width: 90px;
 }
 
 .adjustMin:hover {
@@ -462,7 +464,7 @@
 .showans_btn {
     // float: right;
     padding-right: 18px;
-    text-align: right;
+    text-align: center;
     margin-bottom: 17px;
     &.TimerReset {
         text-align: left;
@@ -894,6 +896,15 @@ row {
     display: block;
 }
 
-.margin-b-21{
+.select_container{
     margin-bottom: 21px;
+    text-align: center;
+    padding-right: 20px;
+}
+.select_player{
+    width: 200px !important;
+}
+
+.adjust_container{
+    text-align: left !important;
 }

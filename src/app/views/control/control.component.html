@@ -52,7 +52,7 @@
                             <button class="btn adjustMin" (click)="prevRound()">
                 < </button>
                         </div>
-                        <div class="col-sm-2">
+                        <div class="col-sm-2 adjust_container">
                             <button class="btn adjust" (click)="nextRound()">></button>
                         </div>
                     </div>
@@ -148,14 +148,14 @@
                             <button class="btn adjustMin" (click)="prevQuestion()">
                 < </button>
                         </div>
-                        <div class="col-sm-2" *ngIf="!currentRound.hasCategory">
+                        <div class="col-sm-2 adjust_container" *ngIf="!currentRound.hasCategory">
                             <button class="btn adjust" (click)="nextQuestion()">></button>
                         </div>
                     </div>
 
                     <div class="col-sm-4 button_group" *ngIf="!currentRound.hasCategory">
-                        <div ngbDropdown class="d-inline-block" *ngIf="currentRound.questionType == 8 || currentRound.questionType == 7">
-                            <button class="btn common_input" id="dropdownBasic1" ngbDropdownToggle>
+                        <div ngbDropdown class="d-inline-block select_container" *ngIf="currentRound.questionType == 8 || currentRound.questionType == 7">
+                            <button class="btn common_input select_player" id="dropdownBasic1" ngbDropdownToggle>
                 <p class="section_text">
                   {{externalDevPlayerId ? 'Player' + externalDevPlayerId : 'Select Player'}}
                 </p>
