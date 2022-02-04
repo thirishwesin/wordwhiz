@@ -4,7 +4,6 @@ const SCRAMBLE_BTN_IDS = '#scramble-btn1, #scramble-btn2, #scramble-btn3, #scram
 $(document).ready(() => {
 
 	var answerWord = null;
-	var animationForAnswer = 'animate__animated animate__flash';
 	var animationForButton = 'animate__animated animate__pulse';
 
 	$(SCRAMBLE_BTN_IDS).click(function() {
@@ -14,9 +13,7 @@ $(document).ready(() => {
 		});
 		$(".underline-word").each(function() {
 			if ($(this).hasClass('border-bottom-blue')) {
-				$(this).addClass(animationForAnswer).one('animationend', function() {
-					$(this).removeClass(animationForAnswer);
-				});
+				$(this).fadeOut(100).fadeIn(100);
 			}
 		})
 	});
