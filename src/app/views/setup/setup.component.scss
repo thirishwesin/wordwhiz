@@ -549,8 +549,28 @@
 
 .second_body .common_label{
   color: #ffffff;
+  font-size: 15px;
+  letter-spacing: 3px;
 }
-
+.second_body .common_textarea{
+  color: #545454;
+  padding-top: 10px;
+  background: #eeeeee;
+  letter-spacing: 1.5px;
+}
+.second_body .common_input{
+  color: #545454;
+  background: #eeeeee;
+  letter-spacing: 1.5px;
+}
+.second_body .common_textarea::placeholder{
+  color: #545454cc;
+  background: #eeeeee;
+}
+.second_body .common_input::placeholder{
+  color: #545454cc;
+  background: #eeeeee;
+}
 .setup-border-design {
   padding: 10px 0px;
   border-bottom: 1.5px solid #fff;
@@ -562,4 +582,16 @@
 }
 .pad-b-15{
   padding-bottom: 15px;
+}
+
+
+
+.lbl_header{
+  width: 154px;
+  font-size: 22px !important;
+  height: 40px;
+  background: #00000057;
+  padding: 3px 20px;
+  border-radius: 40px;
+  margin-bottom: 10px;
 }
