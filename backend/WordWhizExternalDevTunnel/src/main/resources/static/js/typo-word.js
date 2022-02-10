@@ -1,13 +1,13 @@
-var canvas;
 var signaturePad;
 
 $(document).ready(function () {
   var sign = document.getElementById("signature");
 
-  var wrapper = document.getElementById("signature-pad");
-  canvas = wrapper.querySelector("canvas");
-
   signaturePad = new SignaturePad(sign, {
+    velocityFilterWeight: 0.1,
+    minWidth: 2,
+    maxWidth: 6.5,
+    minPointDistance: 3,
     backgroundColor: 'rgb(255, 255, 255)',
   });
 
