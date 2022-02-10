@@ -156,6 +156,11 @@ export class PlayerComponent implements OnInit {
         this.typoWordImage = this.answerObj.answer;
       } else if (this.control.currentRoundId == 8 && this.sendFromPlayerId == this.playerId) {
         const { answerIndex, answer } = this.answerObj;
+        for(let word in this.scrambleWord) {
+          if(this.scrambleWord[word] == answer) {
+            this.scrambleWord[word] = "";
+          }
+        }
         switch (answerIndex) {
           case '1': this.scrambleWord.word1 = answer; break;
           case '2': this.scrambleWord.word2 = answer; break;
