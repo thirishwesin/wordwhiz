@@ -9,6 +9,9 @@ $(document).ready(function () {
 
   signaturePad = new SignaturePad(sign, {
     backgroundColor: 'rgb(255, 255, 255)',
+    dotSize:'1',
+    minWidth:'1.5',
+    minWidth:'3',
   });
 
   $('#clear-signature').on('click', function () {
