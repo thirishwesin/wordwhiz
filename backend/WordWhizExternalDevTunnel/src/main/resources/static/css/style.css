@@ -87,7 +87,7 @@ height: 80px;
 
 /* start style for typo word */
 #typo-word-screen{
-	margin-top: 15%;
+	margin-top: 12%;
 }
 .btn_align {
 	text-align: right;
@@ -147,7 +147,7 @@ height: 80px;
 }
 @media (max-width: 1200px) and (max-height: 1920px) {	
 	#typo-word-screen{
-		margin-top: 40%;
+		margin-top: 30%;
 	}
 }
 /* end style for typo word */
