@@ -19,10 +19,13 @@ $(document).ready(() => {
 	});
 
 	$(SCRAMBLE_WORD_IDS).click(function() {
-		$(this).find("p").html(answerWord);
-		$(this).find("div").removeClass("border-bottom-blue").addClass("border-bottom-green");
-		var answerIndex = $(this).attr("data-wz-index");
-		submitAnswer(answerWord, answerIndex);
+		if(answerWord) {
+			$(this).find("p").html(answerWord);
+			$(this).find("div").removeClass("border-bottom-blue").addClass("border-bottom-green");
+			var answerIndex = $(this).attr("data-wz-index");
+			submitAnswer(answerWord, answerIndex);
+			answerWord = "";
+		}
 	})
 
 });
