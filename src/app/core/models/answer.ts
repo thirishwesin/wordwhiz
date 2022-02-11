@@ -3,4 +3,5 @@ export interface Answer {
     answerIndex: string;
     sendFrom: string;
     sendTo: string;
+    scrambleBtnId: string;
 }

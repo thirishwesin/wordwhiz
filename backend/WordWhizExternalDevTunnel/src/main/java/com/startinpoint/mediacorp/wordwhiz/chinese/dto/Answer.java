@@ -6,6 +6,7 @@ public class Answer {
 	private String sendFrom;
 	private String sendTo;
 	private String answerIndex;
+	private String scrambleBtnId;
 
 	public Answer() {
 	}
@@ -41,10 +42,20 @@ public class Answer {
 	public void setAnswerIndex(String answerIndex) {
 		this.answerIndex = answerIndex;
 	}
+	
+	public String getScrambleBtnId() {
+		return scrambleBtnId;
+	}
+
+	public void setScrambleBtnId(String scrambleBtnId) {
+		this.scrambleBtnId = scrambleBtnId;
+	}
 
 	@Override
 	public String toString() {
-		return "Answer{" + "answer='" + answer + '\'' + ", sendFrom='" + sendFrom + '\'' + ", sendTo='" + sendTo + '\''
-				+ '}';
+		return "Answer [answer=" + answer + ", sendFrom=" + sendFrom + ", sendTo=" + sendTo + ", answerIndex="
+				+ answerIndex + ", scrambleBtnId=" + scrambleBtnId + "]";
 	}
+	
+	
 }

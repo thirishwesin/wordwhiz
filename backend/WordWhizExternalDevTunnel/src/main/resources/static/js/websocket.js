@@ -30,12 +30,13 @@ function connect() {
   SessionUtil.setValueToSessionStorage("user-name", $("#" + choosePlayer).text());
 }
 
-function submitAnswer(answer, answerIndex = '') {
+function submitAnswer(answer, answerIndex = '', scrambleBtnId = '') {
   stompClient.send("/app-screen/submit/answer", {}, JSON.stringify({
     'answer': answer,
     'answerIndex': answerIndex,
     'sendFrom': '',
-    'sendTo': 'control-screen'
+    'sendTo': 'control-screen',
+    'scrambleBtnId': scrambleBtnId
   }));
 }
 

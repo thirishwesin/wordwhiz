@@ -5,9 +5,11 @@ $(document).ready(() => {
 
 	var answerWord = null;
 	var animationForButton = 'animate__animated animate__pulse';
+	var scrambleBtnId = "";
 
 	$(SCRAMBLE_BTN_IDS).click(function () {
 		answerWord = $(this).val();
+		scrambleBtnId = $(this).attr("id");
 		// $(".btn.round2_btn").each(function(){
 		// 	$(this).removeAttr("disabled");
 		// })
@@ -24,7 +26,7 @@ $(document).ready(() => {
 
 	$(SCRAMBLE_WORD_IDS).click(function () {
 		$(".answer").each(function() {
-			if($(this).text() == answerWord) {
+			if($(this).siblings().first().val() === scrambleBtnId) {
 				$(this).text("")
 				$(this).parent().removeClass("border-bottom-green").addClass("border-bottom-blue");
 			}
@@ -32,7 +34,8 @@ $(document).ready(() => {
 		$(this).find("p").html(answerWord);
 		$(this).find("div").removeClass("border-bottom-blue").addClass("border-bottom-green");
 		var answerIndex = $(this).attr("data-wz-index");
-		submitAnswer(answerWord, answerIndex);
+		submitAnswer(answerWord, answerIndex, scrambleBtnId);
+		$(this).find("input").val(scrambleBtnId);
 	})
 
 });

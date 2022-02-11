@@ -2,61 +2,63 @@
 
 <div class="container-fluid scramble_word">
     <div class="round2_answer">
-        <div id="scramble-word1" class="col-sm-1 word-margin" [ngClass]="scrambleWord.word1? 'border-bottom-green': 'border-bottom-blue'">
+        <div id="scramble-word1" class="col-sm-1 word-margin"
+            [ngClass]="scrambleWord.word1? 'border-bottom-green': 'border-bottom-blue'">
             <div class="underline-word">
                 <span class="answer">{{scrambleWord.word1}}</span>
             </div>
         </div>
 
-        <div id="scramble-word2" class="col-sm-1 word-margin" [ngClass]="scrambleWord.word2? 'border-bottom-green': 'border-bottom-blue'">
+        <div id="scramble-word2" class="col-sm-1 word-margin"
+            [ngClass]="scrambleWord.word2? 'border-bottom-green': 'border-bottom-blue'">
             <div class="underline-word">
                 <span class="answer">{{scrambleWord.word2}}</span>
             </div>
         </div>
 
-        <div id="scramble-word3" class="col-sm-1 word-margin" [ngClass]="scrambleWord.word3? 'border-bottom-green': 'border-bottom-blue'">
+        <div id="scramble-word3" class="col-sm-1 word-margin"
+            [ngClass]="scrambleWord.word3? 'border-bottom-green': 'border-bottom-blue'">
             <div class="underline-word">
                 <span class="answer">{{scrambleWord.word3}}</span>
             </div>
         </div>
 
-        <div id="scramble-word4" class="col-sm-1 word-margin" [ngClass]="scrambleWord.word4? 'border-bottom-green': 'border-bottom-blue'">
+        <div id="scramble-word4" class="col-sm-1 word-margin"
+            [ngClass]="scrambleWord.word4? 'border-bottom-green': 'border-bottom-blue'">
             <div class="underline-word">
                 <span class="answer">{{scrambleWord.word4}}</span>
             </div>
         </div>
-
     </div>
 
     <div class="round2_word">
         <div class="col-sm-1">
             <button class="btn round2_btn" id="scramble-btn1" value="A">
-        <img [src]="Images.blue_bg">
-        <input type="text" class="btn_txt" [value]="scrambleHint.hint1">
-      </button>
+                <img [src]="Images.blue_bg">
+                <input type="text" class="btn_txt" [value]="scrambleHint.hint1">
+            </button>
         </div>
 
         <div class="col-sm-1">
             <button class="btn round2_btn" id="scramble-btn2" value="B">
-        <img [src]="Images.blue_bg">
-        <input type="text" class="btn_txt" [value]="scrambleHint.hint2">
-      </button>
+                <img [src]="Images.blue_bg">
+                <input type="text" class="btn_txt" [value]="scrambleHint.hint2">
+            </button>
         </div>
 
         <div class="col-sm-1">
             <button class="btn round2_btn" id="scramble-btn3" value="C">
-        <img [src]="Images.blue_bg">
-        <input type="text" class="btn_txt" [value]="scrambleHint.hint3">
-      </button>
+                <img [src]="Images.blue_bg">
+                <input type="text" class="btn_txt" [value]="scrambleHint.hint3">
+            </button>
         </div>
 
         <div class="col-sm-1">
             <button class="btn round2_btn" id="scramble-btn4" value="D">
-        <img [src]="Images.blue_bg">
-        <input type="text" class="btn_txt" [value]="scrambleHint.hint4">
-      </button>
+                <img [src]="Images.blue_bg">
+                <input type="text" class="btn_txt" [value]="scrambleHint.hint4">
+            </button>
         </div>
-
     </div>
 
 </div>

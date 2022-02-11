@@ -15,6 +15,10 @@ import { Round } from "../../core/models/round";
 import { Question } from "../../core/models/question";
 import { defaultTypWordImage } from "../../common/base64";
 
+interface wordAndBtn {
+  word: string;
+  btnId: string;
+}
 
 @Component({
   selector: "app-player",
@@ -46,6 +50,12 @@ export class PlayerComponent implements OnInit {
     hint2: "",
     hint3: "",
     hint4: ""
+  }
+  scrambleState = {
+    word1: "",
+    word2: "",
+    word3: "",
+    word4: ""
   }
   currentRound: Round;
   currentQuestion: Question;
@@ -156,9 +166,9 @@ export class PlayerComponent implements OnInit {
         this.typoWordImage = this.answerObj.answer;
       } else if (this.control.currentRoundId == 8 && this.sendFromPlayerId == this.playerId) {
         const { answerIndex, answer } = this.answerObj;
-        for(let word in this.scrambleWord) {
-          if(this.scrambleWord[word] == answer) {
-            this.scrambleWord[word] = "";
+        for (let i = 1; i < 5; i++) {
+          if (this.scrambleState["word" + i] == this.answerObj.scrambleBtnId) {
+            this.scrambleWord["word" + i] = "";
           }
         }
         switch (answerIndex) {
@@ -167,6 +177,7 @@ export class PlayerComponent implements OnInit {
           case '3': this.scrambleWord.word3 = answer; break;
           case '4': this.scrambleWord.word4 = answer; break;
         }
+        this.scrambleState["word" + this.answerObj.answerIndex] = this.answerObj.scrambleBtnId;
       }
     }
   }
