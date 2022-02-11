@@ -25,17 +25,14 @@ public class ControlScreenResource {
 
     @MessageMapping("/show/question/to/specific-player")
     public void showQuestionToSpecificPlayer(@Payload QuestionDTO questionDTO){
-      System.out.println("QuestionDTO For Specific Player: " + questionDTO);
       Question question = new Question(questionDTO.getPlayerId(), questionDTO.getCurrentRoundId(),
         questionDTO.getQuestion(), questionDTO.getHint(), questionDTO.getFontSetting());
-      System.out.println("question: " + question);
       this.messagingTemplate.convertAndSendToUser(question.getToPlayer(),
                 "/show/question/to/specific-player", question);
     }
 
     @MessageMapping("/show/question/to/all-player")
     public void showQuestionToAllPlayer(@Payload QuestionDTO questionDTO){
-        System.out.println("Question For All Player: " + questionDTO);
       Question question = new Question(questionDTO.getPlayerId(), questionDTO.getCurrentRoundId(),
         questionDTO.getQuestion(), questionDTO.getHint(), questionDTO.getFontSetting());
         this.messagingTemplate.convertAndSend("/show/question/to/all-player", question);
@@ -45,7 +42,6 @@ public class ControlScreenResource {
     private void getOnlineUsers() throws InterruptedException {
       List<String> onlineUsers = this.simpUserRegistry.getUsers().stream().map(SimpUser::getName)
         .collect(Collectors.toList());
-      System.out.println("online users: " + onlineUsers);
       Thread.sleep(1000);
       this.messagingTemplate.convertAndSendToUser(CONTROL_SCREEN,
         "/get/online-users", onlineUsers);

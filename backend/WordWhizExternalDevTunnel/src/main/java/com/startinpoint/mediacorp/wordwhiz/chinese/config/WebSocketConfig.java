@@ -50,7 +50,6 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer  {
 				StompHeaderAccessor accessor = MessageHeaderAccessor.getAccessor(message, StompHeaderAccessor.class);
 				if (StompCommand.CONNECT.equals(accessor.getCommand())) {
 					String username = accessor.getFirstNativeHeader("username");
-          System.out.println("Connected username: " + username);
 					if (!StringUtils.isEmpty(username)) {
 						List<GrantedAuthority> authorities = new ArrayList<>();
 						authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
