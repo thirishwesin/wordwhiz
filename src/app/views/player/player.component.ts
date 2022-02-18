@@ -124,16 +124,6 @@ export class PlayerComponent implements OnInit {
           };
         }
 
-        console.log("Current Question => ", this.currentQuestion);
-
-        // if(this.currentQuestion.ans.length == 3) {
-        //   this.document.getElementById("scramble-word4").style.display = "none";
-        //   this.document.getElementById("scramble-btn4").parentElement.style.display = "none";
-        // }else {
-        //   this.document.getElementById("scramble-word4").style.display = "block";
-        //   this.document.getElementById("scramble-btn4").parentElement.style.display = "block";
-        // }
-
         this.updatePlayerState();
         // this.updateAnswerState();
 
