@@ -23,7 +23,7 @@
             </div>
         </div>
 
-        <div id="scramble-word4" class="col-sm-1 word-margin"
+        <div id="scramble-word4" class="col-sm-1 word-margin" [hidden]="scrambleWord.word4 === undefined"
             [ngClass]="scrambleWord.word4? 'border-bottom-green': 'border-bottom-blue'">
             <div class="underline-word">
                 <span class="answer">{{scrambleWord.word4}}</span>
@@ -53,7 +53,7 @@
             </button>
         </div>
 
-        <div class="col-sm-1">
+        <div class="col-sm-1" [hidden]="scrambleHint.hint4 === undefined">
             <button class="btn round2_btn" id="scramble-btn4" value="D">
                 <img [src]="Images.blue_bg">
                 <input type="text" class="btn_txt" [value]="scrambleHint.hint4">

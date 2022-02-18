@@ -16,23 +16,14 @@ export class ScrambleWordComponent implements OnInit {
   @Input() playerAnsFontSize: number;
   @Input() playerClueFontSize: number;
 
-  @Input() scrambleWord: ScrambleWord = {
-    word1: '',
-    word2: '',
-    word3: '',
-    word4: ''
-  };
+  @Input() scrambleWord: ScrambleWord;
 
-  @Input() scrambleHint: ScrambleHint = {
-    hint1: '',
-    hint2: '',
-    hint3: '',
-    hint4: ''
-  }
+  @Input() scrambleHint: ScrambleHint;
 
   constructor(@Inject(DOCUMENT) private document: Document) { }
 
   ngOnInit() {
+    console.log("Scramble Word => ", this.scrambleWord);
     this.setFontSizeWithClassName('answer', this.playerAnsFontSize, 'px');
     this.setFontSizeWithClassName('btn_txt', this.playerClueFontSize, 'px');
   }

@@ -45,6 +45,13 @@ class ScrambleWordService {
 		$(SCRAMBLE_WORD_IDS).find("p").css("font-size", questionObj.fontSetting.answerFontSize).html("");
 		$(SCRAMBLE_BTN_IDS).find("input").css("font-size", questionObj.fontSetting.hintFontSize);
 		$(".underline-word").removeClass("border-bottom-green").addClass("border-bottom-blue");
+		if(questionObj.hint.length == 3) {
+			$("#scramble-word4").hide();
+			$("#scramble-btn4").parent().hide();
+		}else {
+			$("#scramble-word4").show();
+			$("#scramble-btn4").parent().show();
+		}
 		for (let i = 1; i <= questionObj.hint.length; i++) {
 			let word = questionObj.hint.charAt(i - 1);
 			$("#scramble-btn" + i).attr('value', word);
