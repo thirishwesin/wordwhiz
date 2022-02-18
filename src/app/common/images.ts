@@ -23,5 +23,6 @@ export const Images = {
   times_icon: require("../../assets/images/times-solid.svg"),
   spinner_bg: require("./../../assets/images/spin_bg.png"),
   player_round_bg: require("./../../assets/images/spin_bg.png"),
-  round3_long_block: require("./../../assets/images/Round_03_Question_Box.png")
+  round3_long_block: require("./../../assets/images/Round_03_Question_Box.png"),
+  Square_Box_Purple: require("./../../assets/images/BLUE/Square_Box_Purple.png")
 };
