@@ -1,4 +1,4 @@
-import { Component, OnInit, NgZone } from "@angular/core";
+import { Component, OnInit, NgZone, Inject } from "@angular/core";
 import { Store } from "@ngrx/store";
 import { WordWhiz } from "../../core/models/wordWhiz";
 import { Control } from "../../core/models/control";
@@ -14,6 +14,7 @@ import { find as _find } from 'lodash';
 import { Round } from "../../core/models/round";
 import { Question } from "../../core/models/question";
 import { defaultTypWordImage } from "../../common/base64";
+import { DOCUMENT } from "@angular/common";
 
 interface wordAndBtn {
   word: string;
@@ -67,7 +68,8 @@ export class PlayerComponent implements OnInit {
       externalDevice: ExternalDevice
     }>,
     readonly nz: NgZone,
-    public route: ActivatedRoute
+    public route: ActivatedRoute,
+    @Inject(DOCUMENT) private document: Document
   ) {
     const ipc = require("electron").ipcRenderer;
 
@@ -102,6 +104,10 @@ export class PlayerComponent implements OnInit {
             this.control.currentQuestionId
           ]);
           let hint = this.currentQuestion.hints[0].value;
+          if(hint.length == 3) {
+            delete this.scrambleHint.hint4;
+            delete this.scrambleWord.word4;
+          }
           for (let i = 1; i <= hint.length; i++) {
             let singleWord = hint.charAt(i - 1);
             switch (i) {
@@ -117,6 +123,16 @@ export class PlayerComponent implements OnInit {
             }
           };
         }
+
+        console.log("Current Question => ", this.currentQuestion);
+
+        // if(this.currentQuestion.ans.length == 3) {
+        //   this.document.getElementById("scramble-word4").style.display = "none";
+        //   this.document.getElementById("scramble-btn4").parentElement.style.display = "none";
+        // }else {
+        //   this.document.getElementById("scramble-word4").style.display = "block";
+        //   this.document.getElementById("scramble-btn4").parentElement.style.display = "block";
+        // }
 
         this.updatePlayerState();
         // this.updateAnswerState();
