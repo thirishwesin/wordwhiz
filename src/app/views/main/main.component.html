@@ -45,7 +45,8 @@
         <div
           [ngStyle]="{'visibility': currentRound && currentRound.questionType == 2 && control.showQuestion ?  'unset': 'hidden'}">
           <div>
-            <img src="./assets/images/round_two_box.png" class="roundtwo_box" alt="">
+            <!-- <img src="./assets/images/round_two_box.png" class="roundtwo_box" alt=""> -->
+            <img [src]="Images.round3_long_block" class="roundtwo_box" alt="">
             <input [value]="currentQuestion?.clue" [ngStyle]="{'font-size':  currentQuestion?.clueFontSize + 'px'}"
               class="roundtwohit" />
           </div>
@@ -353,7 +354,8 @@
           <div *ngIf="currentRound.questionType == 7 ">
             <div>
               <div class="roundseven_body">
-                <img src="./assets/images/round_two_box.png" class="roundseven_box" alt="">
+                <!-- <img src="./assets/images/round_two_box.png" class="roundseven_box" alt=""> -->
+                <img [src]="Images.round3_long_block" class="roundseven_box" alt="">
                 <div class="roundseven_question">
                   <ng-container *ngFor="let char of currentQuestion.clue.split('')">
                     <input class="roundseven_text" [ngStyle]="{'font-size': currentQuestion?.clueFontSize + 'px'}"

@@ -43,10 +43,10 @@ export class SpinnerWheelComponent implements OnInit {
       'rotationAngle': -45,
       'segments':
         [
-          { 'fillStyle': '#3e0560', 'strokeStyle': '#fff', 'textFillStyle': '#ffffff', 'text': '1', 'textFontSize': 70 },
-          { 'fillStyle': '#6940a0', 'strokeStyle': '#fff', 'textFillStyle': '#ffffff', 'text': '2', 'textFontSize': 70 },
-          { 'fillStyle': '#3e0560', 'strokeStyle': '#fff', 'textFillStyle': '#ffffff', 'text': '3', 'textFontSize': 70 },
-          { 'fillStyle': '#6940a0', 'strokeStyle': '#fff', 'textFillStyle': '#ffffff', 'text': '4', 'textFontSize': 70 }
+          { 'fillStyle': '#fbaeff', 'strokeStyle': '#fff', 'textFillStyle': '#0e163f', 'text': '1', 'textFontSize': 70 },
+          { 'fillStyle': '#be97fe', 'strokeStyle': '#fff', 'textFillStyle': '#0e163f', 'text': '2', 'textFontSize': 70 },
+          { 'fillStyle': '#b5f1ff', 'strokeStyle': '#fff', 'textFillStyle': '#0e163f', 'text': '3', 'textFontSize': 70 },
+          { 'fillStyle': '#fff5a4', 'strokeStyle': '#fff', 'textFillStyle': '#0e163f', 'text': '4', 'textFontSize': 70 }
         ],
       'lineWidth': 3,
       'pins':    // Specify pin parameters.
