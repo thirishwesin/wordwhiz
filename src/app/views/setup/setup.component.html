@@ -206,7 +206,7 @@
 
               <div class="col-sm-12">
                 <div class="form-group ">
-                  <label for="answer_0" style="width:123px;" class="common_label lbl_header">ANSWER</label>
+                  <label for="answer_0" style="width:152px;" class="common_label lbl_header">ANSWER</label>
                   <input id="answer_0" *ngIf="currentRound.questionType == 6" type="text" maxlength="4" class="common_input w_100" [(ngModel)]="question.ans"
                   (ngModelChange)="questionAnsChanged($event)" />
                     <input id="answer_0" type="text" *ngIf="currentRound.questionType != 6" class="common_input w_100" [(ngModel)]="question.ans"
@@ -248,7 +248,7 @@
                 <div class="row" *ngIf="hint.position == 2">
                   <div class="col-sm-5">
                     <div class="form-group ">
-                      <label for="answer" style="width:123px;" class="common_label lbl_header">ANSWER</label>
+                      <label for="answer" style="width:152px;" class="common_label lbl_header">ANSWER</label>
                       <input id="answer" [readonly]="hint.id !== 1" type="text" class="common_input w_100" [ngClass]="hint.id == 1 ? undefined: 'common_input w_100 disabled'" [(ngModel)]="question.ans" />
                       <div>
                         <label class="common_label">MAIN ANSWER FONT SIZE</label>
@@ -265,7 +265,7 @@
                   </div>
                   <div class="col-sm-5">
                     <div class="form-group">
-                      <label [for]="'hint' + hintIndex" style="width:95px;" class="common_label lbl_header">HINT{{ question.hints.length <= 1 ? "" : hint.id }}</label>
+                      <label [for]="'hint' + hintIndex" style="width:103px;" class="common_label lbl_header">HINT{{ question.hints.length <= 1 ? "" : hint.id }}</label>
                           <input [id]="'hint' + hintIndex" type="text" class="common_input w_100" (keyup)="changeHint($event, hint.id)" [value]="hint.value" />
                           <div>
                             <label class="common_label">MAIN HINT FONT SIZE</label>
@@ -284,7 +284,7 @@
                 <div class="row" *ngIf="hint.position != 2">
                   <div class="col-sm-5">
                     <div class="form-group">
-                      <label for="" style="width:95px;" class="common_label lbl_header">HINT
+                      <label for="" style="width:103px;" class="common_label lbl_header">HINT
                         {{ question.hints.length <= 1 ? "" : hint.id }}</label>
                           <span class="error_msg" *ngIf="invalidQuestion && currentRound.questionType == 4">*Already
                             exist
@@ -310,7 +310,7 @@
                   </div>
                   <div class="col-sm-5">
                     <div class="form-group ">
-                      <label for="" style="width:123px;" class="common_label lbl_header">ANSWER</label>
+                      <label for="" style="width:152px;" class="common_label lbl_header">ANSWER</label>
                       <input [readonly]="hint.id == 1 ? false : true" type="text" [ngClass]="
                             hint.id == 1
                               ? 'common_input w_100'
@@ -392,7 +392,7 @@
                 </div>
                 <div class="setup-border-design1">
                   <div class="form-group">
-                    <label for="ans" style="width:123px;" class="common_label lbl_header">ANSWER</label>
+                    <label for="ans" style="width:152px;" class="common_label lbl_header">ANSWER</label>
                     <input type="text" id="ans" class="common_input w_100" [(ngModel)]="question.ans" (ngModelChange)="questionAnsChanged($event)" />
                   </div>
                   <div class="form-group">
@@ -412,7 +412,7 @@
               <ng-container *ngIf="currentRound.questionType == 4">
                 <div class="col-sm-12" style="padding: 0;">
                   <div class="form-group">
-                    <label [for]="'hint' + hintIndex" style="width:95px;" class="common_label lbl_header">HINT{{ question.hints.length <= 1 ? "" : hint.id }}</label>
+                    <label [for]="'hint' + hintIndex" style="width:103px;" class="common_label lbl_header">HINT{{ question.hints.length <= 1 ? "" : hint.id }}</label>
                         <input [id]="'hint' + hintIndex" type="text" class="common_input w_100" (keyup)="changeHint($event, hint.id)" [value]="hint.value" />
                         <div class="row">
                           <div class="col-sm-6">
@@ -428,7 +428,7 @@
                 </div>
                 <div class="col-sm-12" style="padding: 0;" *ngIf="hintIndex == 2">
                   <div class="form-group ">
-                    <label for="hint_ans_2" style="width:123px;" class="common_label lbl_header">ANSWER</label>
+                    <label for="hint_ans_2" style="width:152px;" class="common_label lbl_header">ANSWER</label>
                     <input id="hint_ans_2" type="text" class="common_input w_100" [(ngModel)]="question.ans" />
                   </div>
                   <div class="row form-group">
@@ -510,7 +510,7 @@
                 </div>
                 <div class="setup-border-design1">
                   <div class="form-group">
-                    <label for="ans" style="width:123px;" class="common_label lbl_header">ANSWER</label>
+                    <label for="ans" style="width:152px;" class="common_label lbl_header">ANSWER</label>
                     <input type="text" id="ans" maxlength="4" class="common_input w_100" [(ngModel)]="question.ans"
                       (ngModelChange)="questionAnsChanged($event)" />
                   </div>

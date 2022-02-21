@@ -1,5 +1,6 @@
 html,* {
-    font-family: "simsun";
+    /* font-family: "simsun"; */
+    font-family: "msyh" !important;
 }
 
 /* start style for scramble word */
@@ -242,6 +243,12 @@ height: 80px;
     font-family: 'fredoka_oneregular';
     src: url('../fonts/fredokaone-regular-webfont.woff2') format('woff2'),
          url('../fonts/fredokaone-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'msyh';
+    src: url('../fonts/msyh.ttc') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
