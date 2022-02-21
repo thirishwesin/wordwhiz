@@ -976,7 +976,10 @@ export class ControlComponent implements OnInit {
           clearInterval(this.interval);
 
           this.store.dispatch(updateStartCount({ control: this.control }));
-
+          if(this.currentRound.questionType == 5 && this.control.isPlay) {
+            this.control.isPlay = false
+            this.isPlay = false;
+          }
           this.broadcastScreens();
 
           //show CorrectAnswer count for round 4 after timeout
