@@ -16,24 +16,25 @@
     margin-top: 50px;
 }
 .spin-pointer1 {
-    width: 60px;
-    height: 40px;
-    background-color: #9200c1;
+    width: 80px;
+    height: 80px;
+    background-color: #ce448b;
     position: absolute;
-    margin-left: -330px;
-    top: 60px;
+    margin-left: -340px;
+    top: 312px;
     z-index: 999;
+    border-radius: 40px;
 }
 .spin-pointer {
     width: 0px;
     height: 0px;
-    border-left: 30px solid transparent;
-    border-right: 30px solid transparent;
-    border-top: 30px solid #9200c1;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 50px solid #ff6b01;
     position: absolute;
-    margin-left: -330px;
-    top: 99px;
-    z-index: 999;
+    margin-left: -320px;
+    top: 270px;
+    z-index: 998;
 }
 
 #spin_btn{

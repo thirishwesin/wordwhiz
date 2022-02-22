@@ -36,25 +36,27 @@ export class SpinnerWheelComponent implements OnInit {
   createWheel(duration: number): any {
     return new Winwheel({
       'canvasId': 'canvas',
-      'outerRadius': 240,
+      'outerRadius': 230,
       'innerRadius': 20,
       'numSegments': 4,
       'textAlignment': 'center',
       'rotationAngle': -45,
+      'textOrientation' : 'curved',
+      'textAligment' : 'center',
       'segments':
         [
-          { 'fillStyle': '#fbaeff', 'strokeStyle': '#fff', 'textFillStyle': '#0e163f', 'text': '1', 'textFontSize': 70 },
-          { 'fillStyle': '#be97fe', 'strokeStyle': '#fff', 'textFillStyle': '#0e163f', 'text': '2', 'textFontSize': 70 },
-          { 'fillStyle': '#b5f1ff', 'strokeStyle': '#fff', 'textFillStyle': '#0e163f', 'text': '3', 'textFontSize': 70 },
-          { 'fillStyle': '#fff5a4', 'strokeStyle': '#fff', 'textFillStyle': '#0e163f', 'text': '4', 'textFontSize': 70 }
+          { 'fillStyle': '#fbaeff', 'strokeStyle': '#fff', 'textFillStyle': '#5c2ee5', 'text': '1', 'textFontSize': 70 },
+          { 'fillStyle': '#be97fe', 'strokeStyle': '#fff', 'textFillStyle': '#5c2ee5', 'text': '2', 'textFontSize': 70 },
+          { 'fillStyle': '#fff5a4', 'strokeStyle': '#fff', 'textFillStyle': '#5c2ee5', 'text': '3', 'textFontSize': 70 },
+          { 'fillStyle': '#b5f1ff', 'strokeStyle': '#fff', 'textFillStyle': '#5c2ee5', 'text': '4', 'textFontSize': 70 }
         ],
       'lineWidth': 3,
       'pins':    // Specify pin parameters.
       {
-        'number': 24,
-        'outerRadius': 5,
-        'margin': 10,
-        'fillStyle': '#ffffff',
+        'number': 8,
+        'outerRadius': 7,
+        'margin': -25,
+        'fillStyle': '#edc79b',
       },
       'animation':
       {
