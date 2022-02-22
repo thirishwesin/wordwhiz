@@ -155,7 +155,7 @@ export class PlayerComponent implements OnInit {
 
   updatePlayerState() {
 
-    this.playerAnsFontSize = this.currentQuestion.playerAnsFontSize;
+    this.playerAnsFontSize = this.currentQuestion.playerAnsFontSize || 0;
     this.currentQuestion.playerClueFontSize;
 
     this.episode.players.map(player => {
