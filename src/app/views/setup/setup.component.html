@@ -334,7 +334,7 @@
               <ng-container *ngIf="currentRound.questionType == 1">
                 <div class="setup-border-design">
                   <div class="form-group" *ngIf="currentRound.questionType !== 6">
-                    <label [for]="'hint' + hintIndex" style="width: 95px;" class="common_label lbl_header">HINT</label>
+                    <label [for]="'hint' + hintIndex" style="width: 105px;" class="common_label lbl_header">HINT</label>
                     <input type="text" [id]="'hint' + hintIndex" class="common_input w_100" [(ngModel)]="hint.value" />
                   </div>
                   <div *ngIf="currentRound.questionType !== 6">
@@ -445,7 +445,7 @@
               </ng-container>
               <ng-container *ngIf="currentRound.questionType == 7">
                 <div class="form-group">
-                  <label for="hint" style="width:180px;" class="common_label lbl_header">WRONG WORD</label>
+                  <label for="hint" style="width:240px;" class="common_label lbl_header">WRONG WORD</label>
                   <input type="text" id="hint" class="common_input w_100" [(ngModel)]="hint.value" />
                 </div>
                 <!-- <div class="form-group">
@@ -480,7 +480,7 @@
               <ng-container *ngIf="currentRound.questionType == 8">
                 <div class="setup-border-design">
                   <div class="form-group">
-                    <label [for]="'hint' + hintIndex" style="width: 95px;" class="common_label lbl_header">HINT</label>
+                    <label [for]="'hint' + hintIndex" style="width: 105px;" class="common_label lbl_header">HINT</label>
                     <input type="text" [id]="'hint' + hintIndex" maxlength="4" class="common_input w_100" [(ngModel)]="hint.value" />
                   </div>
                   <div class="row form-group">
