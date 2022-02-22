@@ -358,9 +358,14 @@
                 <img [src]="Images.round3_long_block" class="roundseven_box" alt="">
                 <div class="roundseven_question">
                   <ng-container *ngFor="let char of currentQuestion.clue.split('')">
-                    <input class="roundseven_text" [ngStyle]="{'font-size': currentQuestion?.clueFontSize + 'px'}"
+                    <ng-container *ngIf="char === '\n'; else input_content">
+                      <br/>
+                    </ng-container>
+                    <ng-template #input_content>
+                      <input class="roundseven_text" [ngStyle]="{'font-size': currentQuestion?.clueFontSize + 'px'}"
                       [value]="char"
                       [ngClass]="{'green_answer_text' : char == currentQuestion.hints[0].value && control.showAns}" />
+                    </ng-template>
                   </ng-container>
                 </div>
               </div>
