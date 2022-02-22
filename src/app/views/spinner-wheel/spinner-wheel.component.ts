@@ -1,84 +1,45 @@
-import { ThrowStmt } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
 import { Images } from "../../common/images";
-declare var Winwheel: any;
-
+import { AppConfig } from '../../../environments/environment';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-spinner-wheel',
   templateUrl: './spinner-wheel.component.html',
   styleUrls: ['./spinner-wheel.component.scss']
 })
-export class SpinnerWheelComponent implements OnInit {
+export class SpinnerWheelComponent {
   Images = Images;
-  theWheel: any;
-  spinnerWheel : {isSpinningWheel: boolean, spinnerWheelDuration: number} = {isSpinningWheel: false, spinnerWheelDuration: 5}
+  spinnerWheel: { isSpinningWheel: boolean, spinnerWheelDuration: number } = { isSpinningWheel: false, spinnerWheelDuration: 5 }
+  @ViewChild('videoElement', { static: false }) videoElement: ElementRef
+  videoUrl: any = `file://${this.getVideoDir()}/spinner/SpineWheel_0.mp4`;
+  constructor(@Inject(DOCUMENT) private document: Document) {
 
-  constructor() {
 
     const ipc = require("electron").ipcRenderer;
-
+    let spinElement = this.document.getElementById("spinVideo") as HTMLMediaElement
     ipc.on("spin_the_wheel", (event, message) => {
-      this.spinnerWheel = message
-      this.theWheel = this.createWheel(this.spinnerWheel.spinnerWheelDuration)
+      let spinNumber = this.getSpinRandomNumber(1, 5);
+      this.spinnerWheel = message;
+      console.log(spinNumber);
       if (this.spinnerWheel.isSpinningWheel) {
-        this.startAnimation();
+        this.videoUrl = `file://${this.getVideoDir()}/spinner/SpineWheel_${spinNumber}.mp4`;
+        this.videoElement.nativeElement.src = this.videoUrl;
+        this.videoElement.nativeElement.load();
+        this.videoElement.nativeElement.play();
       } else {
-        this.stopAnimation();
+        this.videoElement.nativeElement.pause();
       }
     });
   }
 
-  ngOnInit() {
-    this.theWheel = this.createWheel(this.spinnerWheel.spinnerWheelDuration)
+  getVideoDir(): string {
+    if (AppConfig.production) return `${process.env.PORTABLE_EXECUTABLE_DIR}/data/videos`
+    else return `${process.cwd()}/release/data/videos`
   }
 
-  createWheel(duration: number): any {
-    return new Winwheel({
-      'canvasId': 'canvas',
-      'outerRadius': 230,
-      'innerRadius': 20,
-      'numSegments': 4,
-      'textAlignment': 'center',
-      'rotationAngle': -45,
-      'textOrientation' : 'curved',
-      'textAligment' : 'center',
-      'segments':
-        [
-          { 'fillStyle': '#fbaeff', 'strokeStyle': '#fff', 'textFillStyle': '#5c2ee5', 'text': '1', 'textFontSize': 70 },
-          { 'fillStyle': '#be97fe', 'strokeStyle': '#fff', 'textFillStyle': '#5c2ee5', 'text': '2', 'textFontSize': 70 },
-          { 'fillStyle': '#fff5a4', 'strokeStyle': '#fff', 'textFillStyle': '#5c2ee5', 'text': '3', 'textFontSize': 70 },
-          { 'fillStyle': '#b5f1ff', 'strokeStyle': '#fff', 'textFillStyle': '#5c2ee5', 'text': '4', 'textFontSize': 70 }
-        ],
-      'lineWidth': 3,
-      'pins':    // Specify pin parameters.
-      {
-        'number': 8,
-        'outerRadius': 7,
-        'margin': -25,
-        'fillStyle': '#edc79b',
-      },
-      'animation':
-      {
-        'type': 'spinToStop',
-        'duration': duration,
-        'spins': 4,
-      }
-    });
-  }
 
-  startAnimation() {
-    this.resetAnimation();
-    this.theWheel.startAnimation();
-  }
-
-  resetAnimation() {
-    this.theWheel.stopAnimation(false);
-    this.theWheel.rotationAngle = 0;
-    this.theWheel.draw();
-  }
-
-  stopAnimation() {
-    this.theWheel.stopAnimation();
+  getSpinRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
   }
 }

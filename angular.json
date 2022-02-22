@@ -30,8 +30,7 @@
                             "src/styles.scss"
                         ],
                         "scripts": ["node_modules/jquery/dist/jquery.min.js",
-                            "node_modules/winwheel/lib/winwheel.js",
-                            "src/app/common/TweenMax.min.js"
+                            "node_modules/winwheel/lib/winwheel.js"
                         ]
                     },
                     "configurations": {
