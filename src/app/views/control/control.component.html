@@ -161,7 +161,8 @@
                             <button class="btn button ans" (click)="startTimer(true)" [disabled]="!control.showQuestion || disableStart">{{control.startCount == timerEnum.START ? 'Stop Timer' : 'Start Timer'}}</button>
                         </div>
                         <div class="showans_btn">
-                            <button class="btn button ans" (click)="toggleAnswer()" [disabled]="!control.showQuestion">{{control.showAns ? 'Hide Answer' : 'Show Answer'}}</button>
+                            <button class="btn button ans" (click)="toggleAnswer()" [disabled]="!control.showQuestion">
+                              {{control.showAns && currentRound.questionType != 2 ? 'Hide Answer' : 'Show Answer'}}</button>
                         </div>
                         <div class="showans_btn">
                             <button class="btn button ans" (click)="wrongAnswer()" [disabled]="!control.showQuestion">Wrong

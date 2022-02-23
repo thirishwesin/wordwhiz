@@ -880,7 +880,6 @@ export class ControlComponent implements OnInit {
   }
 
   toggleAnswer() {
-    console.log("toggle answer >> ", this.control.showAns);
     clearInterval(this.interval);
     this.audio.pause();
     this.count10sec.pause();
@@ -907,9 +906,10 @@ export class ControlComponent implements OnInit {
 
     // play audio if press Show Answer button
     if (!this.control.showAns) this.correct_answer_audio.play();
+    if(this.currentRound.questionType == 2) this.correct_answer_audio.play();
 
     this.control.startCount = TimerEnum.STOP;
-    this.control.showAns = !this.control.showAns;
+    this.control.showAns = this.currentRound.questionType == 2 && this.control.showAns ? this.control.showAns: !this.control.showAns;
     this.control.clickPoint = false;
     this.control.resetCount = false;
     // this.store.dispatch(updateShowAns({ control: { ...this.control } }));
