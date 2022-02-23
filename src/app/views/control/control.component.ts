@@ -131,6 +131,7 @@ export class ControlComponent implements OnInit {
   stompClient: CompatClient
   onlineUsers: string[] = []
   externalDevPlayerId: string
+  showQuestionInTablet: boolean = false;
 
   constructor(
     private store: Store<{
@@ -670,6 +671,7 @@ export class ControlComponent implements OnInit {
     if (this.currentRound.questionType == 8 || this.currentRound.questionType == 7) {
       this.externalDevPlayerId = undefined
       this.control.currentPlayerId = undefined
+      this.showQuestionInTablet = false
     }
     this.currentRoundName = round.roundName
     //reset the category section
@@ -831,6 +833,7 @@ export class ControlComponent implements OnInit {
     if (this.currentRound.questionType == 8 || this.currentRound.questionType == 7) {
       this.externalDevPlayerId = undefined
       this.control.currentPlayerId = undefined
+      this.showQuestionInTablet = false
     }
     this.roundFourHintValue = undefined
     this.disableStart = false;
@@ -934,11 +937,6 @@ export class ControlComponent implements OnInit {
       });
     }
     this.broadcastScreens();
-    if (this.control.showQuestion) {
-      this.sendQuestionToExternalDevice('specific-player', this.control.currentRoundId);
-    } else {
-      this.sendQuestionToExternalDevice('specific-player', 0);
-    }
   }
 
   startTimer(isStart) {
@@ -1589,5 +1587,14 @@ export class ControlComponent implements OnInit {
   selectPlayer(playerId: string): void {
     this.externalDevPlayerId = playerId
     this.control.currentPlayerId = `player${playerId}`
+  }
+
+  toggleQuestionForTablet(){
+    this.showQuestionInTablet = !this.showQuestionInTablet;
+    if (this.showQuestionInTablet) {
+      this.sendQuestionToExternalDevice('specific-player', this.control.currentRoundId);
+    } else {
+      this.sendQuestionToExternalDevice('specific-player', 0);
+    }
   }
 }
