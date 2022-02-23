@@ -1591,10 +1591,12 @@ export class ControlComponent implements OnInit {
 
   toggleQuestionForTablet(){
     this.showQuestionInTablet = !this.showQuestionInTablet;
+    this.control.isShowQuestionInTablet = this.showQuestionInTablet;
     if (this.showQuestionInTablet) {
       this.sendQuestionToExternalDevice('specific-player', this.control.currentRoundId);
     } else {
       this.sendQuestionToExternalDevice('specific-player', 0);
     }
+    this.broadcastScreens();
   }
 }

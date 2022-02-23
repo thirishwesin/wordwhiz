@@ -25,4 +25,5 @@ export interface Control {
   roundTwoStatus: string;
   isChangePlayerBgImage: boolean;
   isPlay: boolean;
+  isShowQuestionInTablet: boolean;
 }
