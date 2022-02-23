@@ -1587,6 +1587,10 @@ export class ControlComponent implements OnInit {
   selectPlayer(playerId: string): void {
     this.externalDevPlayerId = playerId
     this.control.currentPlayerId = `player${playerId}`
+    this.sendQuestionToExternalDevice('all-player', 0);
+    this.showQuestionInTablet = false;
+    this.control.isShowQuestionInTablet = this.showQuestionInTablet;
+    this.broadcastScreens();
   }
 
   toggleQuestionForTablet(){
@@ -1595,7 +1599,7 @@ export class ControlComponent implements OnInit {
     if (this.showQuestionInTablet) {
       this.sendQuestionToExternalDevice('specific-player', this.control.currentRoundId);
     } else {
-      this.sendQuestionToExternalDevice('specific-player', 0);
+      this.sendQuestionToExternalDevice('all-player', 0);
     }
     this.broadcastScreens();
   }
