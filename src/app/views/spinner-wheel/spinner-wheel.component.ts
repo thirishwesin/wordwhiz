@@ -1,7 +1,6 @@
-import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Images } from "../../common/images";
 import { AppConfig } from '../../../environments/environment';
-import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-spinner-wheel',
@@ -10,22 +9,22 @@ import { DOCUMENT } from '@angular/common';
 })
 export class SpinnerWheelComponent {
   Images = Images;
-  spinnerWheel: { isSpinningWheel: boolean, spinnerWheelDuration: number } = { isSpinningWheel: false, spinnerWheelDuration: 5 }
+  spinnerWheel: { isSpinningWheel: boolean }
   @ViewChild('videoElement', { static: false }) videoElement: ElementRef
   videoUrl: any = `file://${this.getVideoDir()}/spinner/SpineWheel_0.mp4`;
-  constructor(@Inject(DOCUMENT) private document: Document) {
 
-
+  constructor() {
     const ipc = require("electron").ipcRenderer;
-    let spinElement = this.document.getElementById("spinVideo") as HTMLMediaElement
+
     ipc.on("spin_the_wheel", (event, message) => {
       let spinNumber = this.getSpinRandomNumber(1, 5);
       this.spinnerWheel = message;
-      console.log(spinNumber);
+
+      console.log("Current Spin Number : ", spinNumber);
+
       if (this.spinnerWheel.isSpinningWheel) {
         this.videoUrl = `file://${this.getVideoDir()}/spinner/SpineWheel_${spinNumber}.mp4`;
         this.videoElement.nativeElement.src = this.videoUrl;
-        this.videoElement.nativeElement.load();
         this.videoElement.nativeElement.play();
       } else {
         this.videoElement.nativeElement.pause();

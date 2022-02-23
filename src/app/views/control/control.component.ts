@@ -125,7 +125,7 @@ export class ControlComponent implements OnInit {
   currentRoundName: string = '第一回合'
   currentPoint: number
   spinnerWheelNo: number
-  isSpinningWheel: boolean = false
+  isSpinningWheel: boolean = true
 
   //Vairbles for websocket
   stompClient: CompatClient
@@ -1578,19 +1578,12 @@ export class ControlComponent implements OnInit {
   }
 
   toggleSpinnerWheel(): void {
-    this.isSpinningWheel = !this.isSpinningWheel;
     let spinnerWheel = {
       isSpinningWheel: this.isSpinningWheel,
-      spinnerWheelDuration: +this.control.fontSettings.screenPropertytSetting.spinnerWheelDuration
     }
     this.newWindows.forEach(w => {
       w.webContents.send("spin_the_wheel", spinnerWheel);
     });
-
-    setTimeout(() => {
-      this.isSpinningWheel = false;
-    }, 5000)
-    console.log('isSpinningWheel: ', this.isSpinningWheel)
   }
 
   selectPlayer(playerId: string): void {
