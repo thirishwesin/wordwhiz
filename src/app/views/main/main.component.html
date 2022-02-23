@@ -34,7 +34,7 @@
         <div [hidden]="!currentRound && currentRound?.questionType != 4">
           <p class="clude_txt" [ngStyle]="{'font-size': currentRound.clueLabelFontSize + 'px'}"
             *ngIf="currentRound && (currentRound?.questionType == 1 || currentRound?.questionType == 3 || currentRound?.questionType == 6 || currentRound?.questionType == 8)">
-            提示:
+            {{currentRound?.questionType == 1 ? '题目:' : '提示:'}}
           </p>
           <img class="cube_img" name="cube_img" alt="" />
           <span class="clude_hint" [ngStyle]="{'font-size': currentQuestion?.clueFontSize + 'px'}"
@@ -196,6 +196,7 @@
                 </ng-container>
                 <ng-container *ngIf="currentRound.questionType == 1">
                   <ng-container *ngIf="!control.showAns">
+                    <p class="clude_txt" style="padding-bottom: 105px;" [ngStyle]="{'font-size': currentRound.hintLabelFontSize + 'px'}">提示</p>
                     <div class="one_word_green one_word_green_Ronetwo retangle{{control.fontSettings.main_answer}}"
                       [ngClass]="char == ' ' ? 'hide_char': currentRound.questionType == 1 ? 'blue_bg animated heartBeat': 'animated heartBeat' "
                       *ngFor="let char of currentQuestion.hints[0].value.split(''); let i=index;">

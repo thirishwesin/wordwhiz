@@ -354,6 +354,13 @@
                                 <input class="form-control common_input " OnlyNumber="true" [(ngModel)]="currentRound.clueLabelFontSize">
                             </div>
                         </div>
+                        <div class=" form-group col-6 col-md-4" *ngIf="currentRound.questionType == 1">
+                          <label for="" class="common_label" style="margin-top: 8%;">Hint Label</label>
+                          <h6 class="fontsize_limit">Recommended - {{recommendFontSize.main_clue}}</h6>
+                          <div class="container_up">
+                              <input class="form-control common_input " OnlyNumber="true" [(ngModel)]="currentRound.hintLabelFontSize">
+                          </div>
+                      </div>
                         <div class=" form-group col-6 col-md-4">
                             <label for="" class="common_label" style="margin-top: 8%;">Clue Name</label>
                             <h6 class="fontsize_limit">Recommended - {{recommendFontSize.main_clue}}</h6>
