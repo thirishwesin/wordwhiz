@@ -161,7 +161,7 @@ button {
 }
 
 .alpha_wrapper {
-    top: 65%;
+    top: 85%;
     left: 56%;
     position: absolute;
     transform: translate(-50%, -50%);
@@ -1194,4 +1194,11 @@ button {
     transform: scaleY(0.5);
     top: 19px;
     position: relative;
+}
+
+
+.second_hint{
+    height: 100px;
+    top: -70px;
+    left: 420px;
 }
