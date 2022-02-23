@@ -1,20 +1,5 @@
-<script src="../../common/TweenMax.min.js"></script>
 <section>
     <div class="container-fluid pad-zero position-fixed">
-        <img class="mx-auto d-block spinner_center_bg" [src]=Images.spinner_bg>
-        <!-- <div class="spinner_bg"></div> -->
-        <div class="row spinner_body">
-            <div class="col-lg-3"></div>
-            <div class="col-lg-6">               
-                <div class="canvasContainer">
-                    <canvas id='canvas' width='600' height='600'>
-                        Canvas not supported, use another browser.
-                    </canvas>
-                    <span class="spin-pointer1"></span>
-                    <span class="spin-pointer"></span>
-                </div>
-            </div>
-            <div class="col-lg-3"></div>
-        </div>
+        <video [src]="videoUrl" #videoElement class="videoName" style="width: 1920px;height: 1080px;"></video>
     </div>
 </section>

@@ -185,8 +185,7 @@
                             <button class="btn button ans" (click)="toggleVideo()" *ngIf="currentRound.id==5" [disabled]="!control.showQuestion">{{isPlay ? 'Pause' : 'Play'}}</button>
                         </div>
                         <div class="showans_btn">
-                            <button class="btn button ans" (click)="toggleSpinnerWheel()" *ngIf="currentRound.questionType == 5">
-                {{isSpinningWheel ? 'Stop Spinner' : 'Start Spinner'}}</button>
+                            <button class="btn button ans" (click)="toggleSpinnerWheel()" *ngIf="currentRound.questionType == 5">Start Spinner</button>
                         </div>
                     </div>
 
@@ -459,30 +458,27 @@
                             </div>
                         </div>
                         <ng-container *ngIf="currentRound.questionType == 8">
-                          <div class=" form-group col-6 col-md-4">
-                            <label for="" class="common_label" style="margin-top: 8%;">Clue Name</label>
-                            <h6 class="fontsize_limit">Recommended - 60 </h6>
-                            <div class="container_up">
-                                <input class="form-control common_input" OnlyNumber="true"
-                                [(ngModel)]="currentQuestion.playerClueFontSize">
+                            <div class=" form-group col-6 col-md-4">
+                                <label for="" class="common_label" style="margin-top: 8%;">Clue Name</label>
+                                <h6 class="fontsize_limit">Recommended - 60 </h6>
+                                <div class="container_up">
+                                    <input class="form-control common_input" OnlyNumber="true" [(ngModel)]="currentQuestion.playerClueFontSize">
+                                </div>
                             </div>
-                          </div>
-                          <div class=" form-group col-6 col-md-4">
-                            <label for="" class="common_label" style="margin-top: 8%;">Hint 1</label>
-                            <h6 class="fontsize_limit">Recommended - 45 </h6>
-                            <div class="container_up">
-                                <input class="form-control common_input" OnlyNumber="true"
-                                [(ngModel)]="currentQuestion.hints[0].playerHintFontSize">
+                            <div class=" form-group col-6 col-md-4">
+                                <label for="" class="common_label" style="margin-top: 8%;">Hint 1</label>
+                                <h6 class="fontsize_limit">Recommended - 45 </h6>
+                                <div class="container_up">
+                                    <input class="form-control common_input" OnlyNumber="true" [(ngModel)]="currentQuestion.hints[0].playerHintFontSize">
+                                </div>
                             </div>
-                          </div>
-                          <div class=" form-group col-6 col-md-4">
-                            <label for="" class="common_label" style="margin-top: 8%;">Answer</label>
-                            <h6 class="fontsize_limit">Recommended - 35 </h6>
-                            <div class="container_up">
-                                <input class="form-control common_input" OnlyNumber="true"
-                                [(ngModel)]="currentQuestion.playerAnsFontSize">
+                            <div class=" form-group col-6 col-md-4">
+                                <label for="" class="common_label" style="margin-top: 8%;">Answer</label>
+                                <h6 class="fontsize_limit">Recommended - 35 </h6>
+                                <div class="container_up">
+                                    <input class="form-control common_input" OnlyNumber="true" [(ngModel)]="currentQuestion.playerAnsFontSize">
+                                </div>
                             </div>
-                          </div>
                         </ng-container>
                     </div>
                 </div>
@@ -502,50 +498,47 @@
                             </div>
                         </div>
                         <ng-container *ngIf="currentRound.questionType == 8">
-                          <div class=" form-group col-6 col-md-4">
-                            <label for="" class="common_label" style="margin-top: 8%;">Clue Name</label>
-                            <h6 class="fontsize_limit">Recommended - 60 </h6>
-                            <div class="container_up">
-                                <input class="form-control common_input" OnlyNumber="true"
-                                [(ngModel)]="currentQuestion.tabletClueFontSize">
+                            <div class=" form-group col-6 col-md-4">
+                                <label for="" class="common_label" style="margin-top: 8%;">Clue Name</label>
+                                <h6 class="fontsize_limit">Recommended - 60 </h6>
+                                <div class="container_up">
+                                    <input class="form-control common_input" OnlyNumber="true" [(ngModel)]="currentQuestion.tabletClueFontSize">
+                                </div>
                             </div>
-                          </div>
-                          <div class=" form-group col-6 col-md-4">
-                            <label for="" class="common_label" style="margin-top: 8%;">Hint 1</label>
-                            <h6 class="fontsize_limit">Recommended - 45 </h6>
-                            <div class="container_up">
-                                <input class="form-control common_input" OnlyNumber="true"
-                                [(ngModel)]="currentQuestion.hints[0].tabletHintFontSize">
+                            <div class=" form-group col-6 col-md-4">
+                                <label for="" class="common_label" style="margin-top: 8%;">Hint 1</label>
+                                <h6 class="fontsize_limit">Recommended - 45 </h6>
+                                <div class="container_up">
+                                    <input class="form-control common_input" OnlyNumber="true" [(ngModel)]="currentQuestion.hints[0].tabletHintFontSize">
+                                </div>
                             </div>
-                          </div>
-                          <div class=" form-group col-6 col-md-4">
-                            <label for="" class="common_label" style="margin-top: 8%;">Answer</label>
-                            <h6 class="fontsize_limit">Recommended - 35 </h6>
-                            <div class="container_up">
-                                <input class="form-control common_input" OnlyNumber="true"
-                                [(ngModel)]="currentQuestion.tabletAnsFontSize">
+                            <div class=" form-group col-6 col-md-4">
+                                <label for="" class="common_label" style="margin-top: 8%;">Answer</label>
+                                <h6 class="fontsize_limit">Recommended - 35 </h6>
+                                <div class="container_up">
+                                    <input class="form-control common_input" OnlyNumber="true" [(ngModel)]="currentQuestion.tabletAnsFontSize">
+                                </div>
                             </div>
-                          </div>
                         </ng-container>
                     </div>
                 </div>
                 <!-- Screen Properties Setting -->
                 <div class="setting_body" style="margin-top: 3%;">
-                  <div class="row ">
-                      <div class="col-sm-12 font-title">
-                          <h1>Screen Properties Setting</h1>
-                      </div>
-                  </div>
-                  <div class="row dialog-input-field">
-                      <div class=" form-group col-6 col-md-8">
-                          <label for="" class="common_label">Spinner Wheel Duration</label>
-                          <h6 class="fontsize_limit"></h6>
-                          <div class="container_up" style="margin-right: 36%;">
-                              <input class="form-control common_input" [(ngModel)]="control.fontSettings.screenPropertytSetting.spinnerWheelDuration">
-                          </div>
-                      </div>
-                  </div>
-              </div>
+                    <div class="row ">
+                        <div class="col-sm-12 font-title">
+                            <h1>Screen Properties Setting</h1>
+                        </div>
+                    </div>
+                    <div class="row dialog-input-field">
+                        <div class=" form-group col-6 col-md-8">
+                            <label for="" class="common_label">Spinner Wheel Duration</label>
+                            <h6 class="fontsize_limit"></h6>
+                            <div class="container_up" style="margin-right: 36%;">
+                                <input class="form-control common_input" [(ngModel)]="control.fontSettings.screenPropertytSetting.spinnerWheelDuration">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class=" modal-footer ">
                 <button type=" button " class="btn btn-add" (click)=" modal.dismiss( 'Cancel click' ) ">Cancel</button>
