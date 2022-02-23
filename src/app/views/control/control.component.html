@@ -169,7 +169,7 @@
                 Answer</button>
                         </div>
                         <ng-container *ngIf="(currentRound.questionType == 8 || currentRound.questionType == 7)">
-                          <div ngbDropdown class="d-inline-block select_container" *ngIf="currentRound.questionType == 8 || currentRound.questionType == 7">
+                          <div ngbDropdown class="d-inline-block select_container">
                             <button class="btn common_input select_player" id="dropdownBasic1" ngbDropdownToggle>
                               <p class="section_text">
                                 {{externalDevPlayerId ? 'Player' + externalDevPlayerId : 'Select Player'}}
@@ -179,10 +179,11 @@
                             <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
                                 <button ngbDropdownItem *ngFor="let player of episode.players" (click)="selectPlayer(player.id)">{{player.name}}</button>
                             </div>
-                        </div>
+                          </div>
                           <div class="showans_btn">
-                            <button class="btn button ans" (click)="toggleQuestionForTablet()" [disabled]="!externalDevPlayerId">{{showQuestionInTablet ? 'Hide Question In Tablet' : 'Show Question In Tablet'}}</button>
-                        </div>
+                            <button class="btn button ans" (click)="toggleQuestionForTablet()" [disabled]="!externalDevPlayerId || !control.showQuestion">
+                              {{showQuestionInTablet ? 'Hide Question In Tablet' : 'Show Question In Tablet'}}</button>
+                          </div>
                         </ng-container>
                         <!-- <div class="showans_btn">
                             <button class="btn button ans" (click)="resetExtraKey()" *ngIf="currentRound.id==5" [disabled]="!control.showQuestion">Reset</button>
