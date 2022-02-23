@@ -56,6 +56,7 @@ export class MainComponent implements OnInit {
   cubeImage = new Image();
   prevRoundId: number
   mainScreen: ScreenType = ScreenType.MAIN
+  previousQuestionId: number = undefined
 
   constructor(
     private store: Store<{
@@ -231,7 +232,7 @@ export class MainComponent implements OnInit {
 
   updateMainBoardState() {
     if(this.prevRoundId == undefined) this.prevRoundId = this.control.currentRoundId;
-
+    if(this.prevRoundId != this.control.currentRoundId) this.previousQuestionId = undefined
     //update current round
     this.currentRound = _.find(this.episode.rounds, [
       "id",
@@ -314,7 +315,10 @@ export class MainComponent implements OnInit {
 
       if (this.currentRound.questionType == 2) {
         if (this.control.showQuestion){
-          this.setGridValue();
+          if(this.previousQuestionId != this.control.currentQuestionId) {
+            this.setGridValue();
+            this.previousQuestionId = this.control.currentQuestionId;
+          }
           if (this.control.showAns) {
             this.showGridEachAnswer();
           } else {

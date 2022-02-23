@@ -55,6 +55,7 @@ export class OneThirdScreenComponent implements OnInit {
   hints: string = "";
   prevRoundId: number
   oneThirdScreen: ScreenType = ScreenType.ONETHIRD
+  previousQuestionId: number = undefined
 
   constructor(
     private router: Router,
@@ -227,6 +228,7 @@ export class OneThirdScreenComponent implements OnInit {
 
   getData() {
     if(this.prevRoundId == undefined) this.prevRoundId = this.control.currentRoundId;
+    if(this.prevRoundId != this.control.currentRoundId) this.previousQuestionId = undefined
     //update current round
     this.currentRound = _.find(this.episode.rounds, [
       "id",
@@ -374,7 +376,10 @@ export class OneThirdScreenComponent implements OnInit {
           this.prevCategoryId = this.currentQuestion.categoryId
         }
         if (this.control.showQuestion){
-          this.setGridValue();
+          if(this.previousQuestionId != this.control.currentQuestionId) {
+            this.setGridValue();
+            this.previousQuestionId = this.control.currentQuestionId;
+          }
           if (this.control.showAns) {
             this.showGridEachAnswer();
           } else {
