@@ -313,17 +313,13 @@ export class MainComponent implements OnInit {
       }
 
       if (this.currentRound.questionType == 2) {
-        if (this.prevCategoryId == undefined) this.prevCategoryId = this.currentQuestion.categoryId
-        else if (this.prevCategoryId !== this.currentQuestion.categoryId) {
-          this.prevCategoryId = this.currentQuestion.categoryId
-        }
-        if (this.prevRoundId != this.control.currentRoundId && this.control.currentRoundId == 2){
+        if (this.control.showQuestion){
           this.setGridValue();
-        }
-        if (this.control.showAns) {
-          this.showGridEachAnswer();
-        } else if(!this.control.showAns && this.control.showQuestion){
-          // this.hideGridEachAnswer();
+          if (this.control.showAns) {
+            this.showGridEachAnswer();
+          } else {
+            // this.hideGridEachAnswer();
+          }
         }
       }
     }
@@ -445,53 +441,39 @@ export class MainComponent implements OnInit {
   }
 
   setGridValue() {
-    console.log('called setGridValue function()')
-    this.currentRound.questionArray.forEach(question => {
-      question.hints[0].position.forEach((id, index) => {
-        if (question.ans.includes(id)) {
-          setTimeout(() => {
-            (<HTMLInputElement>document.getElementById(id+'_val')).value =
-            question.hints[0].value.charAt(index).toUpperCase();
-            (<HTMLInputElement>document.getElementById(id+'_bg')).style.background =
-              `url(./assets/images/BLUE/Square_Box_Purple.png) no-repeat`;
-            let greenBgDiv = (<HTMLDivElement>document.getElementById(id+'_bg'));
-            if(greenBgDiv.style.background.includes('GREEN')){
-              // greenBgDiv.style.background = `url(./assets/images/BLUE/blue_blank.png) no-repeat`;
-              greenBgDiv.style.background = `url(./assets/images/BLUE/Square_Box_Purple.png) no-repeat`;
-            }
-          }, 0);
-        }else{
-          setTimeout(() => {
-            let inputValue = (<HTMLInputElement>document.getElementById(id+'_val')).value;
-            if(inputValue == ''){
-              (<HTMLDivElement>document.getElementById(id+'_bg')).style.background =
-              'url(./assets/images/GREEN/Square_Box_Pink.png) no-repeat';
-              // 'url(./assets/images/GREEN/green_blank.png) no-repeat';
-            }
-          }, 0);
-        }
-        if(index == 0){
-            setTimeout(() => {
-              let spanHorisontal = (<HTMLSpanElement>document.getElementById(id+'_horizontal'));
-              let spanVertical = (<HTMLSpanElement>document.getElementById(id+'_vertical'));
-              let spanHorisontalVal = (<HTMLSpanElement>document.getElementById(id+'_horizontal_val'));
-              let spanVerticalVal = (<HTMLSpanElement>document.getElementById(id+'_vertical_val'));
-              if(question.hints[0].positionCalss.includes('vertical')){
-                spanVerticalVal.innerHTML = ''+ question.id;
-                spanVertical.className = question.hints[0].positionCalss;
-              }else if(question.hints[0].positionCalss.includes('horizontal')){
-                spanHorisontalVal.innerHTML = ''+ question.id;
-                spanHorisontal.className = question.hints[0].positionCalss;
-              }
-
-            }, 0);
-        }
-      })
+    console.log('current question position: ', this.currentQuestion.hints[0].position)
+    this.currentQuestion.hints[0].position.forEach((id, index) => {
+      // set hint position's background image and value
+      if (this.currentQuestion.ans.includes(id)) {
+        setTimeout(() => {
+          // set hint position's value
+          (<HTMLInputElement>document.getElementById(id+'_val')).value =
+          this.currentQuestion.hints[0].value.charAt(index).toUpperCase();
+          // set hint position's background image
+          (<HTMLInputElement>document.getElementById(id+'_bg')).style.background =
+            `url(./assets/images/BLUE/Square_Box_Purple.png) no-repeat`;
+          // change previous answered background image to current hit position's background image
+          let blueBgDiv = (<HTMLDivElement>document.getElementById(id+'_bg'));
+          console.log('blueBgDiv: ', blueBgDiv.style.background)
+          if(blueBgDiv.style.background.includes('BLUE')){
+            blueBgDiv.style.background = `url(./assets/images/BLUE/Square_Box_Purple.png) no-repeat`;
+          }
+        }, 0);
+      }else{
+        // set hided letter's background image
+        setTimeout(() => {
+          let inputValue = (<HTMLInputElement>document.getElementById(id+'_val')).value;
+          if(inputValue == ''){
+            (<HTMLDivElement>document.getElementById(id+'_bg')).style.background =
+            'url(./assets/images/GREEN/Square_Box_Pink.png) no-repeat';
+            // 'url(./assets/images/GREEN/green_blank.png) no-repeat';
+          }
+        }, 0);
+      }
     })
   }
 
   showGridEachAnswer() {
-    console.log('called showGridEachAnswer function()')
     this.currentQuestion.hints[0].position.forEach((id, index) => {
       setTimeout(() => {
         (<HTMLInputElement>document.getElementById(id+'_val')).value =
@@ -513,7 +495,7 @@ export class MainComponent implements OnInit {
       } else {
         setTimeout(() => {
           if((<HTMLInputElement>document.getElementById(id+'_val')).value != ""
-          && (<HTMLDivElement>document.getElementById(id+'_bg')).style.background.includes('GREEN')){
+          && (<HTMLDivElement>document.getElementById(id+'_bg')).style.background.includes('BLUE')){
             setTimeout(() => {
               (<HTMLInputElement>document.getElementById(id+'_val')).value = "";
               (<HTMLDivElement>document.getElementById(id+'_bg')).style.background =

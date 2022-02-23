@@ -131,6 +131,7 @@ export class ControlComponent implements OnInit {
   stompClient: CompatClient
   onlineUsers: string[] = []
   externalDevPlayerId: string
+  showQuestionInTablet: boolean = false;
 
   constructor(
     private store: Store<{
@@ -670,6 +671,7 @@ export class ControlComponent implements OnInit {
     if (this.currentRound.questionType == 8 || this.currentRound.questionType == 7) {
       this.externalDevPlayerId = undefined
       this.control.currentPlayerId = undefined
+      this.showQuestionInTablet = false
     }
     this.currentRoundName = round.roundName
     //reset the category section
@@ -831,6 +833,7 @@ export class ControlComponent implements OnInit {
     if (this.currentRound.questionType == 8 || this.currentRound.questionType == 7) {
       this.externalDevPlayerId = undefined
       this.control.currentPlayerId = undefined
+      this.showQuestionInTablet = false
     }
     this.roundFourHintValue = undefined
     this.disableStart = false;
@@ -877,7 +880,6 @@ export class ControlComponent implements OnInit {
   }
 
   toggleAnswer() {
-    console.log("toggle answer >> ", this.control.showAns);
     clearInterval(this.interval);
     this.audio.pause();
     this.count10sec.pause();
@@ -904,9 +906,10 @@ export class ControlComponent implements OnInit {
 
     // play audio if press Show Answer button
     if (!this.control.showAns) this.correct_answer_audio.play();
+    if(this.currentRound.questionType == 2) this.correct_answer_audio.play();
 
     this.control.startCount = TimerEnum.STOP;
-    this.control.showAns = !this.control.showAns;
+    this.control.showAns = this.currentRound.questionType == 2 && this.control.showAns ? this.control.showAns: !this.control.showAns;
     this.control.clickPoint = false;
     this.control.resetCount = false;
     // this.store.dispatch(updateShowAns({ control: { ...this.control } }));
@@ -934,11 +937,6 @@ export class ControlComponent implements OnInit {
       });
     }
     this.broadcastScreens();
-    if (this.control.showQuestion) {
-      this.sendQuestionToExternalDevice('specific-player', this.control.currentRoundId);
-    } else {
-      this.sendQuestionToExternalDevice('specific-player', 0);
-    }
   }
 
   startTimer(isStart) {
@@ -1589,5 +1587,14 @@ export class ControlComponent implements OnInit {
   selectPlayer(playerId: string): void {
     this.externalDevPlayerId = playerId
     this.control.currentPlayerId = `player${playerId}`
+  }
+
+  toggleQuestionForTablet(){
+    this.showQuestionInTablet = !this.showQuestionInTablet;
+    if (this.showQuestionInTablet) {
+      this.sendQuestionToExternalDevice('specific-player', this.control.currentRoundId);
+    } else {
+      this.sendQuestionToExternalDevice('specific-player', 0);
+    }
   }
 }

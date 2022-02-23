@@ -154,30 +154,36 @@
                     </div>
 
                     <div class="col-sm-4 button_group" *ngIf="!currentRound.hasCategory">
-                        <div ngbDropdown class="d-inline-block select_container" *ngIf="currentRound.questionType == 8 || currentRound.questionType == 7">
-                            <button class="btn common_input select_player" id="dropdownBasic1" ngbDropdownToggle>
-                <p class="section_text">
-                  {{externalDevPlayerId ? 'Player' + externalDevPlayerId : 'Select Player'}}
-                </p>
-                <img [src]=Images.dropDown class="drop_down_icon">
-              </button>
-                            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                                <button ngbDropdownItem *ngFor="let player of episode.players" (click)="selectPlayer(player.id)">{{player.name}}</button>
-                            </div>
-                        </div>
                         <div class=" showans_btn">
-                            <button class="btn button que" [disabled]="!externalDevPlayerId && (currentRound.questionType == 8 || currentRound.questionType == 7)" (click)="toggleQuestion()">{{control.showQuestion ? 'Hide Question' : 'Show Question'}}</button>
+                            <button class="btn button que" (click)="toggleQuestion()">{{control.showQuestion ? 'Hide Question' : 'Show Question'}}</button>
                         </div>
                         <div class=" showans_btn">
                             <button class="btn button ans" (click)="startTimer(true)" [disabled]="!control.showQuestion || disableStart">{{control.startCount == timerEnum.START ? 'Stop Timer' : 'Start Timer'}}</button>
                         </div>
                         <div class="showans_btn">
-                            <button class="btn button ans" (click)="toggleAnswer()" [disabled]="!control.showQuestion">{{control.showAns ? 'Hide Answer' : 'Show Answer'}}</button>
+                            <button class="btn button ans" (click)="toggleAnswer()" [disabled]="!control.showQuestion">
+                              {{control.showAns && currentRound.questionType != 2 ? 'Hide Answer' : 'Show Answer'}}</button>
                         </div>
                         <div class="showans_btn">
                             <button class="btn button ans" (click)="wrongAnswer()" [disabled]="!control.showQuestion">Wrong
                 Answer</button>
                         </div>
+                        <ng-container *ngIf="(currentRound.questionType == 8 || currentRound.questionType == 7)">
+                          <div ngbDropdown class="d-inline-block select_container" *ngIf="currentRound.questionType == 8 || currentRound.questionType == 7">
+                            <button class="btn common_input select_player" id="dropdownBasic1" ngbDropdownToggle>
+                              <p class="section_text">
+                                {{externalDevPlayerId ? 'Player' + externalDevPlayerId : 'Select Player'}}
+                              </p>
+                              <img [src]=Images.dropDown class="drop_down_icon">
+                            </button>
+                            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                <button ngbDropdownItem *ngFor="let player of episode.players" (click)="selectPlayer(player.id)">{{player.name}}</button>
+                            </div>
+                        </div>
+                          <div class="showans_btn">
+                            <button class="btn button ans" (click)="toggleQuestionForTablet()" [disabled]="!externalDevPlayerId">{{showQuestionInTablet ? 'Hide Question In Tablet' : 'Show Question In Tablet'}}</button>
+                        </div>
+                        </ng-container>
                         <!-- <div class="showans_btn">
                             <button class="btn button ans" (click)="resetExtraKey()" *ngIf="currentRound.id==5" [disabled]="!control.showQuestion">Reset</button>
                         </div> -->
@@ -354,6 +360,13 @@
                                 <input class="form-control common_input " OnlyNumber="true" [(ngModel)]="currentRound.clueLabelFontSize">
                             </div>
                         </div>
+                        <div class=" form-group col-6 col-md-4" *ngIf="currentRound.questionType == 1">
+                          <label for="" class="common_label" style="margin-top: 8%;">Hint Label</label>
+                          <h6 class="fontsize_limit">Recommended - {{recommendFontSize.main_clue}}</h6>
+                          <div class="container_up">
+                              <input class="form-control common_input " OnlyNumber="true" [(ngModel)]="currentRound.hintLabelFontSize">
+                          </div>
+                      </div>
                         <div class=" form-group col-6 col-md-4">
                             <label for="" class="common_label" style="margin-top: 8%;">Clue Name</label>
                             <h6 class="fontsize_limit">Recommended - {{recommendFontSize.main_clue}}</h6>

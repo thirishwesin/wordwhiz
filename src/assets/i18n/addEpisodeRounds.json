@@ -13,6 +13,7 @@
     "questionArray": [],
     "roundNameFontSize": "90",
     "clueLabelFontSize": "60",
+    "hintLabelFontSize": "60",
     "roundName": "第一回合"
   },
   {

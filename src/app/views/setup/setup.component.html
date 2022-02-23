@@ -48,6 +48,12 @@
             <label for="round_name_font_size" class="common_label">ROUND AND ROUND NAME FONT SIZE</label>
             <input id="round_name_font_size" type="text" class="common_input w_321" [(ngModel)]="currentRound.roundNameFontSize" OnlyNumber="true" />
           </div>
+          <ng-container *ngIf="currentRound.questionType == 1">
+            <div class="form-group">
+              <label for="clue_font_size" class="common_label">HINT LABEL FONT SIZE</label>
+              <input type="text" class="common_input w_321" [(ngModel)]="currentRound.hintLabelFontSize" OnlyNumber="true" />
+            </div>
+          </ng-container>
           <!-- choose category(theme) -->
           <div class="form-group" *ngIf="currentRound.questionType == 4">
             <label for="category" class="common_label"></label>
@@ -137,7 +143,7 @@
           </div>
 
           <div class="form-group">
-            <label for="clue_font_size" class="common_label">CLUE FONT SIZE</label>
+            <label for="clue_font_size" class="common_label">CLUE LABEL FONT SIZE</label>
             <input id="clue_font_size" type="text" class="common_input w_321" [(ngModel)]="currentRound.clueLabelFontSize" OnlyNumber="true" />
           </div>
           <div class="form-group">

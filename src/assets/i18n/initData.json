@@ -238,7 +238,8 @@
           "clueLabelFontSize": "75",
           "roundName": "第一回合",
           "secondPoint": 5,
-          "secondTimeOut": 5
+          "secondTimeOut": 5,
+          "hintLabelFontSize": "60"
         },
         {
           "id": 8,
@@ -585,7 +586,7 @@
           "questionArray": [
             {
               "id": 1,
-              "clue": "他总是装出一副很可玲的样子， 博取他人的注意和同情。",
+              "clue": "他总是装出一副很可玲的样子， 博取他人的注意和同情\n。",
               "categoryId": 0,
               "hints": [
                 {
@@ -593,20 +594,20 @@
                   "value": "玲",
                   "position": 0,
                   "isCharacter": false,
-                  "hintFontSize": "50",
-                  "otHintFontSize": "50"
+                  "hintFontSize": 50,
+                  "otHintFontSize": 50
                 }
               ],
               "ans": "怜",
               "isAnsCharacter": true,
-              "clueFontSize": "50",
-              "otClueFontSize": "50",
-              "ansFontSize": "50",
-              "otAnsFontSize": "50"
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
             },
             {
               "id": 2,
-              "clue": "比利不尊守校规， 而且多次迟到早退，班主任找了他的爸妈了解情况。",
+              "clue": "比利不尊守校规，\n而且多次迟到早退，\n班主任找了他的爸妈了解情况。",
               "categoryId": 0,
               "hints": [
                 {
@@ -614,20 +615,20 @@
                   "value": "尊",
                   "position": 0,
                   "isCharacter": false,
-                  "hintFontSize": "50",
-                  "otHintFontSize": "50"
+                  "hintFontSize": 50,
+                  "otHintFontSize": 50
                 }
               ],
               "ans": "遵 ",
               "isAnsCharacter": true,
-              "clueFontSize": "50",
-              "otClueFontSize": "50",
-              "ansFontSize": "50",
-              "otAnsFontSize": "50"
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
             },
             {
               "id": 3,
-              "clue": "祖父总爱在吃完晚餐后到附近的公园潵步。 ",
+              "clue": "祖父总爱在吃完晚餐后到附近的公园潵步\n。 ",
               "categoryId": 0,
               "hints": [
                 {
@@ -635,20 +636,20 @@
                   "value": "潵",
                   "position": 0,
                   "isCharacter": false,
-                  "hintFontSize": "50",
-                  "otHintFontSize": "50"
+                  "hintFontSize": 50,
+                  "otHintFontSize": 50
                 }
               ],
               "ans": "散",
               "isAnsCharacter": true,
-              "clueFontSize": "50",
-              "otClueFontSize": "50",
-              "ansFontSize": "50",
-              "otAnsFontSize": "50"
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
             },
             {
               "id": 4,
-              "clue": "老师称赞晓德写作能力强， 他就开始觉得有些自瞒，轻飘飘起来。 ",
+              "clue": "老师称赞晓德写作能力强， 他就开始觉得有些自瞒，\n轻飘飘起来。 ",
               "categoryId": 0,
               "hints": [
                 {
@@ -656,16 +657,16 @@
                   "value": "瞒",
                   "position": 0,
                   "isCharacter": false,
-                  "hintFontSize": "50",
-                  "otHintFontSize": "50"
+                  "hintFontSize": 50,
+                  "otHintFontSize": 50
                 }
               ],
               "ans": "满",
               "isAnsCharacter": true,
-              "clueFontSize": "50",
-              "otClueFontSize": "50",
-              "ansFontSize": "50",
-              "otAnsFontSize": "50"
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
             },
             {
               "id": 5,
