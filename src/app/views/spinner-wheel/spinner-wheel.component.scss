@@ -96,3 +96,11 @@
 .position-fixed{
     position: fixed;
 }
+
+.video-container{
+    width: 1920px;
+    height: 1080px;
+    background-image: url(../../../assets/images/spin_main_bg.png);
+    background-repeat: no-repeat;   /* Ensure that background does not repeat */
+    background-position: center;    /* Ensure image is centred */
+}
