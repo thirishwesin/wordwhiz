@@ -201,7 +201,7 @@
                       *ngFor="let char of currentQuestion.hints[0].value.split(''); let i=index;">
                       <input type="text" [value]="char" class="round1_text oneword_text_Ronetwo"
                         [class]="'letter'+currentQuestion.hints[0].positionCalss[i]"
-                        [ngStyle]="{'font-size': currentQuestion.ansFontSize + 'px'}"
+                        [ngStyle]="{'font-size': currentQuestion.hints[0]?.hintFontSize + 'px'}"
                         [ngClass]="control.showAns || currentRound.showfirstAnsChar ? 'animated zoomIn' : 'transparent'">
                     </div>
                   </ng-container>
