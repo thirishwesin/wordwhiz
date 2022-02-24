@@ -9,7 +9,7 @@
         [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint ? 'animated zoomIn':''"
         [ngStyle]="{'font-size': currentQuestion.hints[0].hintFontSize + 'px'}" class="scrambled_long_text" />
     </div> -->
-        <div class="text-left roundthree_body" *ngIf="currentQuestion?.isAnsCharacter">
+        <div class="text-left roundthree_body margin-top-10" *ngIf="currentQuestion?.isAnsCharacter">
             <div class="one_word_green scrambled_one_word_green text-center retangle{{control.fontSettings.main_answer}}" [ngClass]="{'hide_char': char == ' ' , 'animated heartBeat': control.startCount == timerEnum.START && round4hintAnimated || control.showQuestion && !currentRound.showfirstAnsChar && !control.showAns && !control.clickTimer && !control.fontSettingOpenClose, 'blue_bg' : i == 0 && currentRound.showfirstAnsChar}"
                 *ngFor="let char of ansCharacterArr; let i=index;">
                 <span *ngIf="!currentRound.showfirstAnsChar">
