@@ -8,7 +8,7 @@
         <span>
           <input type="text" [value]="char"
             [ngClass]="{'animated zoomIn': control.showAns && !control.clickPoint && !control.clickTimer && !control.fontSettingOpenClose && !control.resetCount}"
-            [ngStyle]="{'font-size': currentQuestion.ansFontSize + 'px'}" class="roundthree_text">
+            [ngStyle]="{'font-size': currentQuestion.clueFontSize+ 'px'}" class="roundthree_text">
         </span>
       </div>
     </div>
@@ -30,21 +30,21 @@
 
 <ng-container *ngIf="screenType === screenTypeEnum.ONETHIRD">
   <ng-container *ngIf="control.showQuestion && !control.showAns">
-    <div class="text-center scrambel_word_body">
+    <div class="text-center scrambel_word_body mt-8">
       <div class="blue_bg_one_third one_word_green_three retangle{{control.fontSettings.oneThird_answer}}"
         [ngClass]="{'hide_char': char == ' ' , 'animated heartBeat': control.startCount == timerEnum.START && round4hintAnimated || control.showQuestion && !currentRound.showfirstAnsChar && !control.showAns && !control.clickTimer && !control.fontSettingOpenClose}"
         *ngFor="let char of currentQuestion.clue.split(''); let i=index;">
         <span>
           <input
             [ngClass]="{'animated zoomIn': control.showAns && !control.clickPoint && !control.clickTimer && !control.fontSettingOpenClose && !control.resetCount}"
-            [value]="char" [ngStyle]="{'font-size': currentQuestion.otAnsFontSize + 'px'}"
+            [value]="char" [ngStyle]="{'font-size': currentQuestion.otClueFontSize + 'px'}"
             class="roundthree_textgreen" />
         </span>
       </div>
     </div>
   </ng-container>
   <ng-container *ngIf="control.showAns">
-    <div class="text-center scrambel_word_body">
+    <div class="text-center scrambel_word_body mt-8">
       <div class="one_word_green_one_third one_word_green_three retangle{{control.fontSettings.oneThird_answer}}"
         [ngClass]="{'hide_char': char == ' ' , 'animated heartBeat': control.startCount == timerEnum.START && round4hintAnimated || control.showQuestion && !currentRound.showfirstAnsChar && !control.showAns && !control.clickTimer && !control.fontSettingOpenClose}"
         *ngFor="let char of ansCharacterArr; let i=index;">
