@@ -268,6 +268,9 @@ export class MainComponent implements OnInit {
     }else if(this.currentRound.questionType == 7){
       this.cubeImageEle.src = ''
       this.rFourCubeImageEle.src = ''
+    }else if(this.currentRound.questionType == 8){
+      this.cubeImageEle.src = ''
+      this.rFourCubeImageEle.src = ''
     }
     else {
       this.cubeImageEle.src = this.cubeImage.src;

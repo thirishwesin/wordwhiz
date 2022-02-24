@@ -275,6 +275,8 @@ export class OneThirdScreenComponent implements OnInit {
       this.image.style.background = "url(" + this.oneThirdBgImage.src + ")";
       this.image.style.backgroundSize = "cover";
       this.roundTwoBgImageEle.style.background = ""
+    }else if(this.currentRound.questionType == 8){
+      this.cube_image.src = ''
     }
     else {
       this.cube_image.src = this.cubeImage.src;

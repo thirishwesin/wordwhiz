@@ -1,50 +1,60 @@
 <!-- for main screen -->
 <ng-container *ngIf="screenType === screenTypeEnum.MAIN">
-    <div *ngFor="let hint of currentQuestion?.hints; let hintIndex = index">
-        <!-- hnit close by KKK -->
-        <!-- <div class="long_word_blue_SCR longBlueRoundFour{{hint.value.length}} long_retangle{{control.fontSettings.main_hint}} long_word_blue_SCR round2_hint_bg"
-      [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose || round4hintAnimated && control.startCount == timerEnum.START ? 'animated heartBeat':''"
-      *ngIf="!hint?.isCharacter">
-      <input type="text" [value]="hint.value"
-        [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint ? 'animated zoomIn':''"
-        [ngStyle]="{'font-size': currentQuestion.hints[0].hintFontSize + 'px'}" class="scrambled_long_text" />
-    </div> -->
-        <div class="text-left roundthree_body margin-top-10 scrambel_word_body" *ngIf="currentQuestion?.isAnsCharacter">
-            <div class="one_word_green scrambled_one_word_green text-center retangle{{control.fontSettings.main_answer}}" [ngClass]="{'hide_char': char == ' ' , 'animated heartBeat': control.startCount == timerEnum.START && round4hintAnimated || control.showQuestion && !currentRound.showfirstAnsChar && !control.showAns && !control.clickTimer && !control.fontSettingOpenClose, 'blue_bg' : i == 0 && currentRound.showfirstAnsChar}"
-                *ngFor="let char of ansCharacterArr; let i=index;">
-                <span *ngIf="!currentRound.showfirstAnsChar">
-          <input type="text" [value]="char"   
-            [ngClass]="{'animated zoomIn': control.showAns && !control.clickPoint && !control.clickTimer && !control.fontSettingOpenClose && !control.resetCount , 'transparent': !control.showAns && !control.clickPoint  || !control.showAns &&control.clickPoint}"
+  <ng-container *ngIf="control.showQuestion && !control.showAns">
+    <div class="text-left roundthree_body margin-top-10 scrambel_word_body">
+      <div class="blue_bg scrambled_one_word_green text-center retangle{{control.fontSettings.main_answer}}"
+        [ngClass]="{'hide_char': char == ' ' , 'animated heartBeat': control.startCount == timerEnum.START && round4hintAnimated || control.showQuestion && !currentRound.showfirstAnsChar && !control.showAns && !control.clickTimer && !control.fontSettingOpenClose}"
+        *ngFor="let char of currentQuestion.clue.split(''); let i=index;">
+        <span>
+          <input type="text" [value]="char"
+            [ngClass]="{'animated zoomIn': control.showAns && !control.clickPoint && !control.clickTimer && !control.fontSettingOpenClose && !control.resetCount}"
             [ngStyle]="{'font-size': currentQuestion.ansFontSize + 'px'}" class="roundthree_text">
         </span>
-            </div>
-        </div>
+      </div>
     </div>
+  </ng-container>
+  <ng-container *ngIf="control.showAns">
+    <div class="text-left roundthree_body margin-top-10 scrambel_word_body">
+      <div class="one_word_green scrambled_one_word_green text-center retangle{{control.fontSettings.main_answer}}"
+        [ngClass]="{'hide_char': char == ' ' , 'animated heartBeat': control.startCount == timerEnum.START && round4hintAnimated || control.showQuestion && !currentRound.showfirstAnsChar && !control.showAns && !control.clickTimer && !control.fontSettingOpenClose}"
+        *ngFor="let char of ansCharacterArr; let i=index;">
+        <span>
+          <input type="text" [value]="char"
+            [ngClass]="{'animated zoomIn': control.showAns && !control.clickPoint && !control.clickTimer && !control.fontSettingOpenClose && !control.resetCount}"
+            [ngStyle]="{'font-size': currentQuestion.ansFontSize + 'px'}" class="roundthree_text">
+        </span>
+      </div>
+    </div>
+  </ng-container>
 </ng-container>
 
 <ng-container *ngIf="screenType === screenTypeEnum.ONETHIRD">
-    <div *ngFor="let hint of currentQuestion.hints; let hintIndex = index">
-        <!-- hnint close by KKK -->
-        <!-- <div class="hint_ans_center">
-      <div class="long_word_blue wordRoundFourLength{{hint.value.length}} mb-1 long_word_blue1"
-        [ngClass]="control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose || round4hintAnimated && control.startCount == timerEnum.START ? 'animated heartBeat':''"
-        *ngIf="!hint?.isCharacter">
-        <p class="word font{{control.fontSettings.oneThird_hint}} mb-0" [ngStyle]="{'font-size': currentQuestion.hints[0].otHintFontSize + 'px'}"
-          [ngClass]="control.showQuestion && !blockAnimated  && !control.clickPoint && !control.fontSettingOpenClose ? 'animated zoomIn':''">
-          {{ hint.value }}
-        </p>
-      </div>
-    </div> -->
-        <div class="text-center scrambel_word_body">
-            <div class="blue_bg one_word_green_three retangle{{control.fontSettings.oneThird_answer}}" [ngClass]="{'hide_char': char == ' ' , 'animated heartBeat': control.startCount == timerEnum.START && round4hintAnimated || control.showQuestion && !currentRound.showfirstAnsChar && !control.showAns && !control.clickTimer && !control.fontSettingOpenClose, 'blue_bg' : i == 0 && currentRound.showfirstAnsChar}"
-                *ngFor="let char of ansCharacterArr; let i=index;">
-                <span *ngIf="!currentRound.showfirstAnsChar">
+  <ng-container *ngIf="control.showQuestion && !control.showAns">
+    <div class="text-center scrambel_word_body">
+      <div class="blue_bg_one_third one_word_green_three retangle{{control.fontSettings.oneThird_answer}}"
+        [ngClass]="{'hide_char': char == ' ' , 'animated heartBeat': control.startCount == timerEnum.START && round4hintAnimated || control.showQuestion && !currentRound.showfirstAnsChar && !control.showAns && !control.clickTimer && !control.fontSettingOpenClose}"
+        *ngFor="let char of currentQuestion.clue.split(''); let i=index;">
+        <span>
           <input
-            [ngClass]="{'animated zoomIn': control.showAns && !control.clickPoint && !control.clickTimer && !control.fontSettingOpenClose && !control.resetCount , 'transparent': !control.showAns && !control.clickPoint || !control.showAns &&control.clickPoint}"
+            [ngClass]="{'animated zoomIn': control.showAns && !control.clickPoint && !control.clickTimer && !control.fontSettingOpenClose && !control.resetCount}"
             [value]="char" [ngStyle]="{'font-size': currentQuestion.otAnsFontSize + 'px'}"
-            class="roundthree_text roundthree_textgreen" />
+            class="roundthree_textgreen" />
         </span>
-            </div>
-        </div>
+      </div>
     </div>
+  </ng-container>
+  <ng-container *ngIf="control.showAns">
+    <div class="text-center scrambel_word_body">
+      <div class="one_word_green_one_third one_word_green_three retangle{{control.fontSettings.oneThird_answer}}"
+        [ngClass]="{'hide_char': char == ' ' , 'animated heartBeat': control.startCount == timerEnum.START && round4hintAnimated || control.showQuestion && !currentRound.showfirstAnsChar && !control.showAns && !control.clickTimer && !control.fontSettingOpenClose}"
+        *ngFor="let char of ansCharacterArr; let i=index;">
+        <span>
+          <input
+            [ngClass]="{'animated zoomIn': control.showAns && !control.clickPoint && !control.clickTimer && !control.fontSettingOpenClose && !control.resetCount}"
+            [value]="char" [ngStyle]="{'font-size': currentQuestion.otAnsFontSize + 'px'}"
+            class="roundthree_textgreen" />
+        </span>
+      </div>
+    </div>
+  </ng-container>
 </ng-container>
