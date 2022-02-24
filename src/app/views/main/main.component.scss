@@ -1036,7 +1036,7 @@ button {
     position: relative;
     text-align: center;
     left: -4%;
-    top: -100px
+    top: -150px
 }
 
 .roundseven_question {
@@ -1081,12 +1081,13 @@ button {
 
 .roundseven_answer {
     margin-left: 41%;
-    margin-top: -11%;
-    width: 130px;
-    height: 130px;
+    width: 150px;
+    height: 150px;
+    position: relative;
+    margin-top: -30%;
     .round1_text {
-        margin-left: 14px;
-        margin-top: 10px;
+        width: 150px;
+    height: 150px;
     }
 }
 
