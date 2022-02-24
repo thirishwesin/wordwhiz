@@ -1082,6 +1082,12 @@ button {
 .roundseven_answer {
     margin-left: 41%;
     margin-top: -11%;
+    width: 130px;
+    height: 130px;
+    .round1_text {
+        margin-left: 14px;
+        margin-top: 10px;
+    }
 }
 
 //round 3 text
@@ -1196,8 +1202,7 @@ button {
     position: relative;
 }
 
-
-.second_hint{
+.second_hint {
     height: 100px;
     top: -18%;
     left: 420px;
