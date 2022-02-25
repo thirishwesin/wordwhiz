@@ -103,7 +103,7 @@ export class PlayerComponent implements OnInit {
             "id",
             this.control.currentQuestionId
           ]);
-          let hint = this.currentQuestion.hints[0].value;
+          let hint = this.currentQuestion.clue;
           if(hint.length == 3) {
             delete this.scrambleHint.hint4;
             delete this.scrambleWord.word4;
@@ -156,7 +156,7 @@ export class PlayerComponent implements OnInit {
   updatePlayerState() {
 
     this.playerAnsFontSize = this.currentQuestion.playerAnsFontSize || 0;
-    this.currentQuestion.playerClueFontSize;
+    this.playerClueFontSize = this.currentQuestion.playerClueFontSize || 0;
 
     this.episode.players.map(player => {
       if (player.id == this.playerId) {
