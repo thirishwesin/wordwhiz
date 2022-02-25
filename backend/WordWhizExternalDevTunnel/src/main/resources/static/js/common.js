@@ -59,8 +59,11 @@ class ScreenUtil {
         this.showScrambleWord();
         break
       case 7:
-        signaturePad.clear();
+       if(SessionUtil.getValueFromSessionStorage("questionId") != questionObj.questionId.toString()){
+         signaturePad.clear();
+       }
         this.showTypoWord();
+        SessionUtil.setValueToSessionStorage("questionId", questionObj.questionId)
         break;
     }
   }

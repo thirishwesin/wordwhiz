@@ -77,7 +77,7 @@ export class PlayerComponent implements OnInit {
       console.log("incoming broadcast event from control", message);
       //to render the view
       this.nz.run(() => {
-        if (message.control.currentRoundId != this.control.currentRoundId || message.control.currentQuestionId != this.control.currentQuestionId) {
+        if ((message.control.currentRoundId != this.control.currentRoundId || message.control.currentQuestionId != this.control.currentQuestionId) && message.control.currentPlayerId != this.playerId) {
           this.scrambleWord = {
             word1: "",
             word2: "",

@@ -9,6 +9,7 @@ public class Question {
 
   private String toPlayer;
   private int round;
+  private int questionId;
   private String question;
   private String hint;
   private QuestionDTO.FontSetting fontSetting;
