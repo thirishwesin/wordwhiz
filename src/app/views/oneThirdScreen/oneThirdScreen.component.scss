@@ -909,8 +909,8 @@
 .roundseven_body {
     position: relative;
     text-align: center;
-    left: -4%;
-    top: -100px
+    left: -3%;
+    top: -120px
 }
 
 .roundseven_question {
@@ -918,16 +918,16 @@
     top: 52%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 80%;
+    width: 85%;
 }
 
 .roundseven_box {
-    height: 240px;
     // position: absolute;
-    width: 88%;
     // z-index: -1;
     // margin-left: -6%;
     // margin-top: -12px;
+    height: 230px;
+    width: 91%;
 }
 
 .roundseven_text {
@@ -960,7 +960,7 @@
     margin-left: -19%;
     z-index: 9999;
     position: relative;
-    margin-top: 17%;
+    margin-top: 15%;
     text-shadow: 1px 2px 2px #333333;
     font-weight: bolder;
 }
