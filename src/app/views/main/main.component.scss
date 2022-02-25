@@ -973,7 +973,7 @@ button {
 
 .roundtwo_alpha_body {
     margin-left: 15%;
-    margin-top: 4%;
+    margin-top: 1%;
 }
 
 .timer-top {
@@ -1033,25 +1033,27 @@ button {
 
 //round seven
 .roundseven_body {
-    position: relative;
-    text-align: center;
-    left: -4%;
-    top: -150px
+        /* position: relative; */
+        text-align: center;
+        left: -4%;
+        // top: -10;
+        margin-top: -20%;
 }
 
 .roundseven_question {
     position: absolute;
-    top: 53%;
-    left: 54%;
+    top: -27%;
+    left: 50%;
     transform: translate(-50%, -50%);
     width: 103%;
 }
 
 .roundseven_box {
     height: 350px;
-    width: 1380px;
+    width: 106%;
     z-index: -1;
     display: block;
+    margin-left: -40px;
 }
 
 .roundseven_text {
@@ -1083,8 +1085,6 @@ button {
     margin-left: 41%;
     width: 180px;
     height: 180px;
-    position: relative;
-    margin-top: -30%;
     .round1_text {
         width: 180px;
     height: 180px;
@@ -1207,4 +1207,9 @@ button {
     height: 100px;
     top: -18%;
     left: 420px;
+}
+
+.WH_150px{
+    width: 150px;
+    height: 150px;
 }

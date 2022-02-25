@@ -222,7 +222,7 @@
                   [ngClass]="{'animated heartBeat': control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose, 'green_bg' : char.visible && control.showAns , 'hide_char' : char.word == ' '}"
                   *ngFor="let char of control.extraWord">
                   <input type="text" [value]="char.word" [ngStyle]="{'font-size': currentQuestion.ansFontSize + 'px'}"
-                    class="one_word font{{control.fontSettings.main_answer}}" [ngClass]="
+                    class="one_word WH_150px font{{control.fontSettings.main_answer}}" [ngClass]="
                                     control.showAns && !control.clickPoint && !control.clickTimer && !control.fontSettingOpenClose && char.visible && !control.resetCount ||
                                     char.visible && !control.showAns && control.animationExtraWord == char.word && !control.fontSettingOpenClose && !control.resetCount ? 'animated zoomIn':
                                     !char.visible  ? 'transparent': ''" class="round1_text">

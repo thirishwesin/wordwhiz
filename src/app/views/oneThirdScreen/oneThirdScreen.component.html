@@ -60,14 +60,14 @@
                 </div>
 
                 <div *ngIf="currentRound.questionType == 5" class="hint_ans_center center_answer_box">
-                  <div class="one_word_blue retangle{{control.fontSettings.oneThird_answer}}"
+                  <div class="one_word_blue WH_175px retangle{{control.fontSettings.oneThird_answer}}"
                     [ngClass]="{'animated heartBeat':control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose && control.startCount == timerEnum.STOP , 'green_bg' : char.visible && control.showAns, 'hide_char' : char.word == ' '}"
                     *ngFor="let char of control.extraWord">
                     <input [ngClass]="
                                     control.showAns && !control.clickPoint && !control.clickTimer && char.visible && !control.fontSettingOpenClose && !control.resetCount ||
                                     char.visible && !control.showAns && control.animationExtraWord == char.word && !control.fontSettingOpenClose && !control.resetCount ? 'animated zoomIn':
                                     !char.visible  ? 'transparent': ''" [value]="char.word"
-                      [ngStyle]="{'font-size': currentQuestion.otAnsFontSize + 'px'}" class="roundfive_text" />
+                      [ngStyle]="{'font-size': currentQuestion.otAnsFontSize + 'px'}" class="roundfive_text WH_175px" />
                   </div>
                 </div>
               </div>
