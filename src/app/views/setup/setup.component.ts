@@ -323,8 +323,8 @@ export class SetupComponent implements OnInit {
         }else if (this.currentRound.questionType == 5){
           this.saveVideo(this.uploadFilePath,'tempSave',`${this.question.clue}.mp4`)
         }else if(this.currentRound.questionType == 8){
-          this.question.hints[0].hintFontSize = +this.question.hints[0].hintFontSize || 30;
-          this.question.hints[0].otHintFontSize = +this.question.hints[0].otHintFontSize || 30;
+          // this.question.hints[0].hintFontSize = +this.question.hints[0].hintFontSize || 30;
+          // this.question.hints[0].otHintFontSize = +this.question.hints[0].otHintFontSize || 30;
           this.question.playerAnsFontSize = +this.question.playerAnsFontSize || 40;
           this.question.playerClueFontSize = +this.question.playerClueFontSize || 40;
           this.question.tabletAnsFontSize = +this.question.tabletAnsFontSize || 40;
