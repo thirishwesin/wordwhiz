@@ -10,11 +10,10 @@ $(document).ready(() => {
 	$(SCRAMBLE_BTN_IDS).click(function () {
 		answerWord = $(this).val();
 		scrambleBtnId = $(this).attr("id");
-		// $(".btn.round2_btn").each(function(){
-		// 	$(this).removeAttr("disabled");
-		// })
-		// $(this).attr("disabled", true);
-		$(this).css('--animate-duration', '.3s').addClass(animationForButton).one('animationend', function () {
+		$(".btn.round2_btn").each(function(){
+			$(this).css("opacity", "");
+		})
+		$(this).css({'--animate-duration': '.3s', 'opacity' : '0.5'}).addClass(animationForButton).one('animationend', function () {
 			$(this).removeClass(animationForButton);
 		});
 		$(".underline-word").each(function () {
