@@ -92,7 +92,7 @@ height: 80px;
 
 /* start style for typo word */
 #typo-word-screen{
-	margin-top: 12%;
+	margin-top: 17%;
 }
 .btn_align {
 	text-align: right;
@@ -100,18 +100,17 @@ height: 80px;
 
 .clear_btn {
 	background: repeating-linear-gradient(152deg, #3e0560, #8141a7ad);
-	color: #ffffff;
-	background-color: #fff;
-	box-shadow: 0px 7px 34px 2px #fb00ff;
-	font-weight: bold;
-	padding: 10px 20px;
-	font-size: 20px;
-	border-top-right-radius: 15px;
-	border-bottom-left-radius: 15px;
-	margin: 30px 0px;
-/* 	position: absolute;
-	bottom: 0; */
-	width: 200px;
+    color: #ffffff;
+    background-color: #fff;
+    box-shadow: 0px 7px 34px 2px #fb00ff;
+    font-weight: bold;
+    padding: 10px 20px;
+    font-size: 30px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    margin: 30px 0px;
+    width: 250px;
+    height: 75px;
 }
 .clear_btn:hover{
 	color: #fff;
@@ -138,15 +137,14 @@ height: 80px;
     position: absolute;
     top: 23%; */
     text-align: center;
-    width: 700px;
+    width: 1600px;
     margin: auto;
-    height: 500px;
 
 }
 #signature-pad{
 	border: 3px solid #ede0ff;
-    width: 700px;
-    height: 500px;
+    width: 1600px;
+    height: 750px;
     box-shadow: 0px 0px 50px 0px #c000ff;
     opacity: 0.6;
 }
