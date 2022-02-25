@@ -41,7 +41,11 @@ $(document).ready(() => {
 
 class ScrambleWordService {
 	static showQuestion(questionObj) {
-		$(SCRAMBLE_WORD_IDS).find("p").css("font-size", questionObj.fontSetting.answerFontSize).html("");
+		if(SessionUtil.getValueFromSessionStorage("questionId") != questionObj.questionId.toString()){
+			$(SCRAMBLE_WORD_IDS).each(function() {
+				$(SCRAMBLE_WORD_IDS).find("p").css("font-size", questionObj.fontSetting.answerFontSize).html("");
+			})
+		  }
 		$(SCRAMBLE_BTN_IDS).find("input").css("font-size", questionObj.fontSetting.questionFontSize);
 		$(".underline-word").removeClass("border-bottom-green").addClass("border-bottom-blue");
 		if(questionObj.question.length == 3) {
@@ -56,5 +60,6 @@ class ScrambleWordService {
 			$("#scramble-btn" + i).attr('value', word);
 			$("#scramble-btn" + i).find("input").attr('value', word);
 		}
+		SessionUtil.setValueToSessionStorage("questionId", questionObj.questionId);
 	}
 }
