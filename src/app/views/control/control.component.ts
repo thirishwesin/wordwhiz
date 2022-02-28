@@ -339,7 +339,7 @@ export class ControlComponent implements OnInit {
   getExternalDeviceQuestion(currentRoundId: number): ExternalDeviceQuestion {
     let externalDeviceQuestion: ExternalDeviceQuestion = {
       question: this.currentQuestion.clue,
-      hint: this.currentQuestion.hints[0].value,
+      hint: '',//this.currentQuestion.hints[0].value,
       timeout: this.currentRound.timeOut,
       playerId: `player${this.externalDevPlayerId}`,
       currentQuestionId: this.control.currentQuestionId,
@@ -347,7 +347,7 @@ export class ControlComponent implements OnInit {
       currentEpisodeId: this.control.currentEpisodeId,
       fontSetting: {
         questionFontSize: +this.currentQuestion.tabletClueFontSize,
-        hintFontSize: +this.currentQuestion.hints[0].tabletHintFontSize,
+        hintFontSize: 0,//+this.currentQuestion.hints[0].tabletHintFontSize,
         answerFontSize: +this.currentQuestion.tabletAnsFontSize
       }
     }
