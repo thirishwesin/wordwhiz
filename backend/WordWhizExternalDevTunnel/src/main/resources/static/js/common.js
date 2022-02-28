@@ -50,6 +50,7 @@ class ScreenUtil {
   }
 
   static showGameScreen(questionObj) {
+    questionObj.isLock ? $(".lock_screen").show() : $(".lock_screen").hide();
     switch (questionObj.round) {
       case 0:
         this.showWelcomeScreen()
@@ -59,9 +60,9 @@ class ScreenUtil {
         this.showScrambleWord();
         break
       case 7:
-       if(SessionUtil.getValueFromSessionStorage("questionId") != questionObj.questionId.toString()){
-         signaturePad.clear();
-       }
+        if (SessionUtil.getValueFromSessionStorage("questionId") != questionObj.questionId.toString()) {
+          signaturePad.clear();
+        }
         this.showTypoWord();
         SessionUtil.setValueToSessionStorage("questionId", questionObj.questionId)
         break;

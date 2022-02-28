@@ -2,30 +2,26 @@
 
 <div class="container-fluid scramble_word">
     <div class="round2_answer">
-        <div id="scramble-word1" class="col-sm-2 word-margin"
-            [ngClass]="scrambleWord.word1? 'border-bottom-green': 'border-bottom-blue'">
-            <div class="underline-word">
+        <div id="scramble-word1" class="col-sm-2 word-margin">
+            <div [ngClass]="scrambleWord.word1? 'underline-word border-bottom-green': 'underline-word border-bottom-blue'">
                 <p class="answer">{{scrambleWord.word1}}</p>
             </div>
         </div>
 
-        <div id="scramble-word2" class="col-sm-2 word-margin"
-            [ngClass]="scrambleWord.word2? 'border-bottom-green': 'border-bottom-blue'">
-            <div class="underline-word">
+        <div id="scramble-word2" class="col-sm-2 word-margin">
+            <div [ngClass]="scrambleWord.word2? 'underline-word border-bottom-green': 'underline-word border-bottom-blue'">
                 <p class="answer">{{scrambleWord.word2}}</p>
             </div>
         </div>
 
-        <div id="scramble-word3" class="col-sm-2 word-margin"
-            [ngClass]="scrambleWord.word3? 'border-bottom-green': 'border-bottom-blue'">
-            <div class="underline-word">
+        <div id="scramble-word3" class="col-sm-2 word-margin">
+            <div [ngClass]="scrambleWord.word3? 'underline-word border-bottom-green': 'underline-word border-bottom-blue'">
                 <p class="answer">{{scrambleWord.word3}}</p>
             </div>
         </div>
 
-        <div id="scramble-word4" class="col-sm-2 word-margin" [hidden]="scrambleWord.word4 === undefined"
-            [ngClass]="scrambleWord.word4? 'border-bottom-green': 'border-bottom-blue'">
-            <div class="underline-word">
+        <div id="scramble-word4" class="col-sm-2 word-margin" [hidden]="scrambleWord.word4 === undefined">
+            <div [ngClass]="scrambleWord.word4? 'underline-word border-bottom-green': 'underline-word border-bottom-blue'">
                 <p class="answer">{{scrambleWord.word4}}</p>
             </div>
         </div>

@@ -12,6 +12,7 @@ public class Question {
   private int questionId;
   private String question;
   private String hint;
+  private Boolean isLock;
   private QuestionDTO.FontSetting fontSetting;
 
 }

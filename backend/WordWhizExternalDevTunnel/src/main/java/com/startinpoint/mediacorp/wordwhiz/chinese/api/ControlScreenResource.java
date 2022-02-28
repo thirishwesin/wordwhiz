@@ -19,33 +19,33 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class ControlScreenResource {
 
-    private final SimpMessagingTemplate messagingTemplate;
-    private final SimpUserRegistry simpUserRegistry;
-    private static final String CONTROL_SCREEN = "control-screen";
+  private final SimpMessagingTemplate messagingTemplate;
+  private final SimpUserRegistry simpUserRegistry;
+  private static final String CONTROL_SCREEN = "control-screen";
 
-    @MessageMapping("/show/question/to/specific-player")
-    public void showQuestionToSpecificPlayer(@Payload QuestionDTO questionDTO){
+  @MessageMapping("/show/question/to/specific-player")
+  public void showQuestionToSpecificPlayer(@Payload QuestionDTO questionDTO) {
 //      System.out.println("QuestionDTO For Specific Player: "+ questionDTO.toString());
-      Question question = new Question(questionDTO.getPlayerId(), questionDTO.getCurrentRoundId(),
-        questionDTO.getCurrentQuestionId(), questionDTO.getQuestion(), questionDTO.getHint(), questionDTO.getFontSetting());
-      this.messagingTemplate.convertAndSendToUser(question.getToPlayer(),
-                "/show/question/to/specific-player", question);
-    }
+    Question question = new Question(questionDTO.getPlayerId(), questionDTO.getCurrentRoundId(),
+      questionDTO.getCurrentQuestionId(), questionDTO.getQuestion(), questionDTO.getHint(), questionDTO.getIsLock(), questionDTO.getFontSetting());
+    this.messagingTemplate.convertAndSendToUser(question.getToPlayer(),
+      "/show/question/to/specific-player", question);
+  }
 
-    @MessageMapping("/show/question/to/all-player")
-    public void showQuestionToAllPlayer(@Payload QuestionDTO questionDTO){
+  @MessageMapping("/show/question/to/all-player")
+  public void showQuestionToAllPlayer(@Payload QuestionDTO questionDTO) {
 //      System.out.println("QuestionDTO For All Player: "+ questionDTO.toString());
-      Question question = new Question(questionDTO.getPlayerId(), questionDTO.getCurrentRoundId(),
-        questionDTO.getCurrentQuestionId(), questionDTO.getQuestion(), questionDTO.getHint(), questionDTO.getFontSetting());
-        this.messagingTemplate.convertAndSend("/show/question/to/all-player", question);
-    }
+    Question question = new Question(questionDTO.getPlayerId(), questionDTO.getCurrentRoundId(),
+      questionDTO.getCurrentQuestionId(), questionDTO.getQuestion(), questionDTO.getHint(), questionDTO.getIsLock(), questionDTO.getFontSetting());
+    this.messagingTemplate.convertAndSend("/show/question/to/all-player", question);
+  }
 
-    @MessageMapping("/get/online-users")
-    private void getOnlineUsers() throws InterruptedException {
-      List<String> onlineUsers = this.simpUserRegistry.getUsers().stream().map(SimpUser::getName)
-        .collect(Collectors.toList());
-      Thread.sleep(1000);
-      this.messagingTemplate.convertAndSendToUser(CONTROL_SCREEN,
-        "/get/online-users", onlineUsers);
-    }
+  @MessageMapping("/get/online-users")
+  private void getOnlineUsers() throws InterruptedException {
+    List<String> onlineUsers = this.simpUserRegistry.getUsers().stream().map(SimpUser::getName)
+      .collect(Collectors.toList());
+    Thread.sleep(1000);
+    this.messagingTemplate.convertAndSendToUser(CONTROL_SCREEN,
+      "/get/online-users", onlineUsers);
+  }
 }
