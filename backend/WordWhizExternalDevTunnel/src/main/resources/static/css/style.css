@@ -344,3 +344,21 @@ height: 80px;
 	    padding: 0;
 	}
 }
+
+@media (max-width: 1024px) and (max-height: 616px) {	
+	.welcome-text-container{
+		padding: 25px;
+	}
+	.welcome-text{
+		font-size: 30px;
+	}
+	.welcome-player-name{
+		margin-top: 20px;
+		font-size: 30px;
+	}
+	.disconnect-btn{
+	    width: 200px;
+    	font-size: 25px;
+    	margin: 20px 0px;
+	}
+}
