@@ -2,37 +2,33 @@
 
 <div class="container-fluid scramble_word">
     <div class="round2_answer">
-        <div id="scramble-word1" class="col-sm-1 word-margin"
-            [ngClass]="scrambleWord.word1? 'border-bottom-green': 'border-bottom-blue'">
-            <div class="underline-word">
-                <span class="answer">{{scrambleWord.word1}}</span>
+        <div id="scramble-word1" class="col-sm-2 word-margin">
+            <div [ngClass]="scrambleWord.word1? 'underline-word border-bottom-green': 'underline-word border-bottom-blue'">
+                <p class="answer">{{scrambleWord.word1}}</p>
             </div>
         </div>
 
-        <div id="scramble-word2" class="col-sm-1 word-margin"
-            [ngClass]="scrambleWord.word2? 'border-bottom-green': 'border-bottom-blue'">
-            <div class="underline-word">
-                <span class="answer">{{scrambleWord.word2}}</span>
+        <div id="scramble-word2" class="col-sm-2 word-margin">
+            <div [ngClass]="scrambleWord.word2? 'underline-word border-bottom-green': 'underline-word border-bottom-blue'">
+                <p class="answer">{{scrambleWord.word2}}</p>
             </div>
         </div>
 
-        <div id="scramble-word3" class="col-sm-1 word-margin"
-            [ngClass]="scrambleWord.word3? 'border-bottom-green': 'border-bottom-blue'">
-            <div class="underline-word">
-                <span class="answer">{{scrambleWord.word3}}</span>
+        <div id="scramble-word3" class="col-sm-2 word-margin">
+            <div [ngClass]="scrambleWord.word3? 'underline-word border-bottom-green': 'underline-word border-bottom-blue'">
+                <p class="answer">{{scrambleWord.word3}}</p>
             </div>
         </div>
 
-        <div id="scramble-word4" class="col-sm-1 word-margin" [hidden]="scrambleWord.word4 === undefined"
-            [ngClass]="scrambleWord.word4? 'border-bottom-green': 'border-bottom-blue'">
-            <div class="underline-word">
-                <span class="answer">{{scrambleWord.word4}}</span>
+        <div id="scramble-word4" class="col-sm-2 word-margin" [hidden]="scrambleWord.word4 === undefined">
+            <div [ngClass]="scrambleWord.word4? 'underline-word border-bottom-green': 'underline-word border-bottom-blue'">
+                <p class="answer">{{scrambleWord.word4}}</p>
             </div>
         </div>
     </div>
 
     <div class="round2_word">
-        <div class="col-sm-1">
+        <div class="col-sm-2">
             <button class="btn round2_btn" id="scramble-btn1" value="A">
                 <!-- <img [src]="Images.blue_bg"> -->
                 <img [src]="Images.Square_Box_Purple">
@@ -40,7 +36,7 @@
             </button>
         </div>
 
-        <div class="col-sm-1">
+        <div class="col-sm-2">
             <button class="btn round2_btn" id="scramble-btn2" value="B">
                 <!-- <img [src]="Images.blue_bg"> -->
                 <img [src]="Images.Square_Box_Purple">
@@ -48,7 +44,7 @@
             </button>
         </div>
 
-        <div class="col-sm-1">
+        <div class="col-sm-2">
             <button class="btn round2_btn" id="scramble-btn3" value="C">
                 <!-- <img [src]="Images.blue_bg"> -->
                 <img [src]="Images.Square_Box_Purple">
@@ -56,7 +52,7 @@
             </button>
         </div>
 
-        <div class="col-sm-1" [hidden]="scrambleHint.hint4 === undefined">
+        <div class="col-sm-2" [hidden]="scrambleHint.hint4 === undefined">
             <button class="btn round2_btn" id="scramble-btn4" value="D">
                 <!-- <img [src]="Images.blue_bg"> -->
                 <img [src]="Images.Square_Box_Purple">

@@ -8,6 +8,7 @@ export interface ExternalDeviceQuestion {
 	currentQuestionId: number
   currentRoundId: number
   currentEpisodeId: number
+  isLock: boolean
   fontSetting: FontSetting
 }
 
