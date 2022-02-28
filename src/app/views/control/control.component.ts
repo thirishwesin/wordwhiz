@@ -132,6 +132,7 @@ export class ControlComponent implements OnInit {
   onlineUsers: string[] = []
   externalDevPlayerId: string
   showQuestionInTablet: boolean = false;
+  isLockTablet: boolean = false;
 
   constructor(
     private store: Store<{
@@ -339,15 +340,16 @@ export class ControlComponent implements OnInit {
   getExternalDeviceQuestion(currentRoundId: number): ExternalDeviceQuestion {
     let externalDeviceQuestion: ExternalDeviceQuestion = {
       question: this.currentQuestion.clue,
-      hint: this.currentQuestion.hints[0].value,
+      hint: this.currentQuestion.hints.length ? this.currentQuestion.hints[0].value : null,
       timeout: this.currentRound.timeOut,
       playerId: `player${this.externalDevPlayerId}`,
       currentQuestionId: this.control.currentQuestionId,
       currentRoundId: currentRoundId,
       currentEpisodeId: this.control.currentEpisodeId,
+      isLock: this.isLockTablet,
       fontSetting: {
         questionFontSize: +this.currentQuestion.tabletClueFontSize,
-        hintFontSize: +this.currentQuestion.hints[0].tabletHintFontSize,
+        hintFontSize: this.currentQuestion.hints.length ? +this.currentQuestion.hints[0].tabletHintFontSize:0,
         answerFontSize: +this.currentQuestion.tabletAnsFontSize
       }
     }
@@ -672,6 +674,7 @@ export class ControlComponent implements OnInit {
       this.externalDevPlayerId = undefined
       this.control.currentPlayerId = undefined
       this.showQuestionInTablet = false
+      this.isLockTablet = false
     }
     this.currentRoundName = round.roundName
     //reset the category section
@@ -834,6 +837,7 @@ export class ControlComponent implements OnInit {
       this.externalDevPlayerId = undefined
       this.control.currentPlayerId = undefined
       this.showQuestionInTablet = false
+      this.isLockTablet = false
     }
     this.roundFourHintValue = undefined
     this.disableStart = false;
@@ -935,6 +939,9 @@ export class ControlComponent implements OnInit {
       _.map(this.control.extraWord, obj => {
         obj.visible = false;
       });
+      if(this.currentRound.questionType == 8 || this.currentRound.questionType == 7) {
+        this.isLockTablet = false;
+      }
     }
     this.broadcastScreens();
   }
@@ -1587,8 +1594,9 @@ export class ControlComponent implements OnInit {
   selectPlayer(playerId: string): void {
     this.externalDevPlayerId = playerId
     this.control.currentPlayerId = `player${playerId}`
-    this.sendQuestionToExternalDevice('all-player', 0);
     this.showQuestionInTablet = false;
+    this.isLockTablet = false
+    this.sendQuestionToExternalDevice('all-player', 0);
     this.control.isShowQuestionInTablet = this.showQuestionInTablet;
     this.broadcastScreens();
   }
@@ -1599,8 +1607,14 @@ export class ControlComponent implements OnInit {
     if (this.showQuestionInTablet) {
       this.sendQuestionToExternalDevice('specific-player', this.control.currentRoundId);
     } else {
+      this.isLockTablet = false;
       this.sendQuestionToExternalDevice('all-player', 0);
     }
     this.broadcastScreens();
+  }
+
+  toggleLockTablet(){
+    this.isLockTablet = !this.isLockTablet;
+    this.sendQuestionToExternalDevice('specific-player', this.control.currentRoundId);
   }
 }

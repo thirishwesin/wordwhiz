@@ -12,6 +12,7 @@ public class QuestionDTO {
   private int currentQuestionId;
   private int currentRoundId;
   private int currentEpisodeId;
+  private Boolean isLock;
   private FontSetting fontSetting;
 
   @Data

@@ -183,6 +183,11 @@
                   [disabled]="!externalDevPlayerId || !control.showQuestion">
                   {{showQuestionInTablet ? 'Hide Question In Tablet' : 'Show Question In Tablet'}}</button>
               </div>
+              <div class="showans_btn">
+                <button class="btn button ans" (click)="toggleLockTablet()"
+                  [disabled]="!externalDevPlayerId || !control.showQuestion">
+                  {{isLockTablet ? 'Unlock Tablet' : 'Lock Tablet'}}</button>
+              </div>
             </ng-container>
             <!-- <div class="showans_btn">
                             <button class="btn button ans" (click)="resetExtraKey()" *ngIf="currentRound.id==5" [disabled]="!control.showQuestion">Reset</button>

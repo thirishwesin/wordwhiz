@@ -25,6 +25,7 @@ public class ControlScreenResource {
 
     @MessageMapping("/show/question/to/specific-player")
     public void showQuestionToSpecificPlayer(@Payload QuestionDTO questionDTO){
+//      System.out.println("QuestionDTO For Specific Player: "+ questionDTO.toString());
       Question question = new Question(questionDTO.getPlayerId(), questionDTO.getCurrentRoundId(),
         questionDTO.getCurrentQuestionId(), questionDTO.getQuestion(), questionDTO.getHint(), questionDTO.getFontSetting());
       this.messagingTemplate.convertAndSendToUser(question.getToPlayer(),
@@ -33,6 +34,7 @@ public class ControlScreenResource {
 
     @MessageMapping("/show/question/to/all-player")
     public void showQuestionToAllPlayer(@Payload QuestionDTO questionDTO){
+//      System.out.println("QuestionDTO For All Player: "+ questionDTO.toString());
       Question question = new Question(questionDTO.getPlayerId(), questionDTO.getCurrentRoundId(),
         questionDTO.getCurrentQuestionId(), questionDTO.getQuestion(), questionDTO.getHint(), questionDTO.getFontSetting());
         this.messagingTemplate.convertAndSend("/show/question/to/all-player", question);
