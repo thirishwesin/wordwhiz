@@ -362,3 +362,92 @@ height: 80px;
     	margin: 20px 0px;
 	}
 }
+
+
+@media (max-width: 1024px){
+	.col-sm-3 {
+	    -ms-flex: 0 0 33.333333%;
+	    flex: 0 0 33.333333%;
+    	max-width: 33.333333%;
+	}
+	.mg_60{
+		margin: 0 40px;
+	}
+	.player_body .player_text .player_btn{
+		font-size: 20px;
+	}
+	.action_btn .btn{
+		font-size: 20px;
+    	width: 200px;
+    	height: 50px;
+	}
+	.top-right {
+	    width: 35px;
+	    position: absolute;
+	    top: 13px;
+	    right: 26px;
+	    border-radius: 50%;
+	}
+	
+	/* welcome */
+	
+	.disconnect-btn {
+	    width: 180px;
+	    height: 50px;
+	    font-size: 20px;
+	    margin: 20px 0px;
+	}
+	
+	/* Round2 */
+	
+	.answer{
+		    margin-bottom: 30px;
+	}
+	.underline-word{
+		width: 150px;
+	}
+	.btn_txt{
+		margin-left: -150px;
+	    width: 150px;
+	    height: 150px;
+	}
+	.round2_word img {
+	    width: 150px;
+	    height: 150px;
+	}
+	.border-bottom-blue {
+	    border-bottom: 10px solid #8c46c1;
+	}
+	.border-bottom-green {
+	    border-bottom: 10px solid #ff5efd;
+	}
+	
+	/* Round4 */
+	typo-word-screen {
+	    margin-top: 18%;
+	}
+	.signaturePad_body {
+	    width: 800px;
+	}
+	.clear_btn {
+	    background: repeating-linear-gradient(152deg, #3e0560, #8141a7ad);
+	    color: #ffffff;
+	    background-color: #fff;
+	    box-shadow: 0px 7px 34px 2px #fb00ff;
+	    font-weight: bold;
+	    padding: 10px 20px;
+	    font-size: 20px;
+	    border-top-right-radius: 15px;
+	    border-bottom-left-radius: 15px;
+	    margin: 20px 0px;
+	    width: 150px;
+	    height: 50px;
+	}
+	#signature-pad {
+	    width: 800px;
+	    height: 330px;
+	}
+	#typo-word-screen {
+	    margin-top: 17%;
+	}
+}
