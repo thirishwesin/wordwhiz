@@ -18,7 +18,6 @@ html,* {
 	width: 320px;
     margin: auto;
     min-height: 100px;
-    margin-left: 35px;
 }
 
 .border-bottom-green {
@@ -326,4 +325,22 @@ height: 80px;
 }
 
 
-
+@media (max-width: 1920px){	
+	.underline-word{
+		width: 290px;
+	}
+	.btn_txt{
+		margin-left: -320px;
+	    width: 320px;
+	    height: 320px;
+	}
+	.round2_word img {
+	    width: 320px;
+	    height: 320px;
+	}
+	.round2_answer .col-sm-2, .round2_word .col-sm-2 {
+	    text-align: center;
+	    margin: 10px 30px;
+	    padding: 0;
+	}
+}
