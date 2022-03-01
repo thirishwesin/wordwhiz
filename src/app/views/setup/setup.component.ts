@@ -776,11 +776,14 @@ export class SetupComponent implements OnInit {
       }
       // Add hint
       else if (this.isDefaultOrHint == 'hint') {
-        if (div.style.backgroundColor == '' || div.style.backgroundColor == 'red') {
+        console.log("includes?: " , this.currentRound.questionArray[questIndex].ans.includes(id));
+        console.log('color: ', div.style.backgroundColor)
+        if (!this.currentRound.questionArray[questIndex].ans.includes(id) &&
+          (div.style.backgroundColor == '' || div.style.backgroundColor == 'red')) {
           div.style.backgroundColor = 'red'
           this.currentRound.questionArray[questIndex].ans += id + ',';
-        } else {
-          // div.style.backgroundColor = '';
+        } else if (this.currentRound.questionArray[questIndex].ans.includes(id) && div.style.backgroundColor == 'red') {
+          div.style.backgroundColor = '';
           console.log('id => ', id)
           let old = id + ','
           this.currentRound.questionArray[questIndex].ans = this.currentRound.questionArray[questIndex].ans.replace(old, '');
