@@ -16,11 +16,6 @@ import { Question } from "../../core/models/question";
 import { defaultTypWordImage } from "../../common/base64";
 import { DOCUMENT } from "@angular/common";
 
-interface wordAndBtn {
-  word: string;
-  btnId: string;
-}
-
 @Component({
   selector: "app-player",
   templateUrl: "./player.component.html",
@@ -53,12 +48,6 @@ export class PlayerComponent implements OnInit {
     hint3: "",
     hint4: ""
   }
-  scrambleState = {
-    word1: "",
-    word2: "",
-    word3: "",
-    word4: ""
-  }
   currentRound: Round;
   currentQuestion: Question;
 
@@ -74,6 +63,7 @@ export class PlayerComponent implements OnInit {
   ) {
     const ipc = require("electron").ipcRenderer;
 
+    //Listen to control screen
     ipc.on("word_whizControl", (event, message) => {
       console.log("incoming broadcast event from control", message);
       //to render the view
@@ -102,20 +92,20 @@ export class PlayerComponent implements OnInit {
           this.control.currentQuestionId
         ]);
 
-        console.log("Episode => ", this.episode);
-        console.log("Current Round => ", this.currentRound);
-        console.log("Current Question => ", this.currentQuestion);
-
+        //Typo word round
         if (this.currentRound.questionType == 7) {
           this.typoWordQuestion = this.currentQuestion.clue;
         }
 
+        //Scramble word round
         if (this.currentRound.questionType == 8) {
           let hint = this.currentQuestion.clue;
+          //Handle question word count 3 or 4
           if (hint.length == 3) {
             delete this.scrambleHint.hint4;
             delete this.scrambleWord.word4;
           }
+          //Initialize scramble hint to show question in scramble round
           for (let i = 1; i <= hint.length; i++) {
             let singleWord = hint.charAt(i - 1);
             switch (i) {
@@ -131,14 +121,13 @@ export class PlayerComponent implements OnInit {
             }
           };
         }
-
         this.updatePlayerState();
-        // this.updateAnswerState();
-
-        this.sendFromPlayerId = message.control.currentPlayerId != undefined ? parseInt(message.control.currentPlayerId.match(/\d/g)[0]) : 0;
+        this.sendFromPlayerId = message.control.currentPlayerId != undefined ?
+          parseInt(message.control.currentPlayerId.match(/\d/g)[0]) : 0;
       });
     });
 
+    //Listen to tablet screen
     ipc.on("submit-answer", (event, message) => {
       this.store.dispatch(playerAnswer({ playerAnswer: message }));
       this.nz.run(() => {
@@ -166,6 +155,7 @@ export class PlayerComponent implements OnInit {
     this.playerAnsFontSize = this.currentQuestion ? this.currentQuestion.playerAnsFontSize : 0;
     this.playerClueFontSize = this.currentQuestion ? this.currentQuestion.playerClueFontSize : 0;
 
+    //Handle specific player screen
     this.episode.players.map(player => {
       if (player.id == this.playerId) {
         this.playerPoint = player.point;
@@ -176,23 +166,26 @@ export class PlayerComponent implements OnInit {
 
   updateAnswerState() {
     if (this.answerObj) {
-      if (this.control.currentRoundId == 7 && this.sendFromPlayerId == this.playerId) {
+      if (this.control.currentRoundId == 7 && this.sendFromPlayerId == this.playerId) { //Typo word round
         this.typoWordImage = this.answerObj.answer;
-      } else if (this.control.currentRoundId == 8 && this.sendFromPlayerId == this.playerId) {
+      } else if (this.control.currentRoundId == 8 && this.sendFromPlayerId == this.playerId) { //Scramble word round
         const { answerIndex, answer } = this.answerObj;
-        if(parseInt(answerIndex) != -1) {
-          for(let key in this.scrambleWord) {
-            if(!this.scrambleWord[key]) {
-               this.scrambleWord[key] = answer;
-               break;
+        //The tablet screen will pass answerIdex -1 when click backspace button
+        if (parseInt(answerIndex) != -1) {
+          //Add answer word in order
+          for (let key in this.scrambleWord) {
+            if (!this.scrambleWord[key]) {
+              this.scrambleWord[key] = answer;
+              break;
             }
-         }
-        }else {
-          for(let i = Object.keys(this.scrambleWord).length; i > 0; i--) {
-             if(this.scrambleWord[`word${i}`]) {
-                this.scrambleWord[`word${i}`] = "";
-                break;
-             }
+          }
+        } else {
+          for (let i = Object.keys(this.scrambleWord).length; i > 0; i--) {
+            //Remove last answer
+            if (this.scrambleWord[`word${i}`]) {
+              this.scrambleWord[`word${i}`] = "";
+              break;
+            }
           }
         }
       }

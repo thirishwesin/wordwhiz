@@ -450,33 +450,15 @@ export class MainComponent implements OnInit {
   setGridValue() {
     console.log('current question position: ', this.currentQuestion.hints[0].position)
     this.currentQuestion.hints[0].position.forEach((id, index) => {
-      // set hint position's background image and value
-      if (this.currentQuestion.ans.includes(id)) {
-        setTimeout(() => {
-          // set hint position's value
+      console.log('id: ', id, ', index: ', index)
+      setTimeout(() => {
+        if(this.currentQuestion.ans.includes(id)){
           (<HTMLInputElement>document.getElementById(id+'_val')).value =
-          this.currentQuestion.hints[0].value.charAt(index).toUpperCase();
-          // set hint position's background image
-          (<HTMLInputElement>document.getElementById(id+'_bg')).style.background =
-            `url(./assets/images/BLUE/Square_Box_Purple.png) no-repeat`;
-          // change previous answered background image to current hit position's background image
-          let blueBgDiv = (<HTMLDivElement>document.getElementById(id+'_bg'));
-          console.log('blueBgDiv: ', blueBgDiv.style.background)
-          if(blueBgDiv.style.background.includes('BLUE')){
-            blueBgDiv.style.background = `url(./assets/images/BLUE/Square_Box_Purple.png) no-repeat`;
-          }
-        }, 0);
-      }else{
-        // set hided letter's background image
-        setTimeout(() => {
-          let inputValue = (<HTMLInputElement>document.getElementById(id+'_val')).value;
-          if(inputValue == ''){
-            (<HTMLDivElement>document.getElementById(id+'_bg')).style.background =
-            'url(./assets/images/GREEN/Square_Box_Pink.png) no-repeat';
-            // 'url(./assets/images/GREEN/green_blank.png) no-repeat';
-          }
-        }, 0);
-      }
+            this.currentQuestion.hints[0].value.charAt(index).toUpperCase();
+        }
+        (<HTMLInputElement>document.getElementById(id+'_bg')).style.background =
+          `url(./assets/images/BLUE/Square_Box_Purple.png) no-repeat`;
+      },0)
     })
   }
 
