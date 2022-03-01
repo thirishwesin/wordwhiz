@@ -1,8 +1,7 @@
-<img class="mx-auto d-block typoword_bg" [src]="Images.player_round_bg">
-<div class="typo_word">
-    <div class="text-center pb-5">
-        <img alt="" class="cube_img typo_question_box" name="cube_img" [src]="Images.round3_long_block">
-        <input type="text" [value]=typoWordQuestion class="typo_question_txt">
+<section>
+    <!-- <img class="mx-auto d-block spinner_center_bg" [src]=Images.spinner_bg> -->
+
+    <div class="container-fluid pad-zero position-fixed video-container">
+        <video [src]="videoUrl" #videoElement class="videoName" style="width: 384px;height: 512px;"></video>
     </div>
-    <img [src]=typoWordImage alt="Typo Word Image" class="signature" width="900px" height="550px">
-</div>
+</section>
