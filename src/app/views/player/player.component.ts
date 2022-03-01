@@ -33,6 +33,7 @@ export class PlayerComponent implements OnInit {
   playerPoint: number;
   control: Control
   playerName: string;
+  typoWordQuestion: string;
   typoWordImage: string = defaultTypWordImage;
   Images = Images;
   currentRoundId: number;
@@ -89,22 +90,29 @@ export class PlayerComponent implements OnInit {
         //update store
         this.store.dispatch(updateStoreFromControl({ control: message }));
         this.episode = message.episode;
-        this.control = message.control
+        this.control = message.control;
+
         this.currentRound = _find(this.episode.rounds, [
           "id",
           this.control.currentRoundId
         ]);
 
+        this.currentQuestion = _find(this.currentRound.questionArray, [
+          "id",
+          this.control.currentQuestionId
+        ]);
+
         console.log("Episode => ", this.episode);
         console.log("Current Round => ", this.currentRound);
+        console.log("Current Question => ", this.currentQuestion);
+
+        if (this.currentRound.questionType == 7) {
+          this.typoWordQuestion = this.currentQuestion.clue;
+        }
 
         if (this.currentRound.questionType == 8) {
-          this.currentQuestion = _find(this.currentRound.questionArray, [
-            "id",
-            this.control.currentQuestionId
-          ]);
           let hint = this.currentQuestion.clue;
-          if(hint.length == 3) {
+          if (hint.length == 3) {
             delete this.scrambleHint.hint4;
             delete this.scrambleWord.word4;
           }
@@ -155,8 +163,8 @@ export class PlayerComponent implements OnInit {
 
   updatePlayerState() {
 
-    this.playerAnsFontSize = this.currentQuestion? this.currentQuestion.playerAnsFontSize : 0;
-    this.playerClueFontSize = this.currentQuestion? this.currentQuestion.playerClueFontSize : 0;
+    this.playerAnsFontSize = this.currentQuestion ? this.currentQuestion.playerAnsFontSize : 0;
+    this.playerClueFontSize = this.currentQuestion ? this.currentQuestion.playerClueFontSize : 0;
 
     this.episode.players.map(player => {
       if (player.id == this.playerId) {

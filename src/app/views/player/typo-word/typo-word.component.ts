@@ -9,7 +9,9 @@ import { Images } from '../../../common/images';
 export class TypoWordComponent implements OnInit {
 
   Images = Images;
+  @Input() typoWordQuestion: string;
   @Input() typoWordImage: any;
+
 
   constructor() { }
 

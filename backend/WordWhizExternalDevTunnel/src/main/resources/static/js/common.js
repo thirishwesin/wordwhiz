@@ -40,13 +40,20 @@ class ScreenUtil {
     $("#scramble-word-screen").show();
   }
 
-  static showTypoWord() {
+  static showTypoWord(questionObj) {
+    if (SessionUtil.getValueFromSessionStorage("questionId") != questionObj.questionId.toString()) {
+      signaturePad.clear();
+    }
+
     let tempScreenIdList = screenIdList.filter(s => s != 'typo-word-screen');
     for (const screen of tempScreenIdList) {
       $("#" + screen).hide();
     }
+
+    $("#typo-word-question").text(questionObj.question);
     $("#wordwhiz-container").attr('class', 'typo_bg_theme');
     $("#typo-word-screen").show();
+    SessionUtil.setValueToSessionStorage("questionId", questionObj.questionId)
   }
 
   static showGameScreen(questionObj) {
@@ -60,11 +67,7 @@ class ScreenUtil {
         this.showScrambleWord();
         break
       case 7:
-        if (SessionUtil.getValueFromSessionStorage("questionId") != questionObj.questionId.toString()) {
-          signaturePad.clear();
-        }
-        this.showTypoWord();
-        SessionUtil.setValueToSessionStorage("questionId", questionObj.questionId)
+        this.showTypoWord(questionObj);
         break;
     }
   }
