@@ -366,6 +366,23 @@ height: 80px;
 	}
 }
 
+@media (max-width: 1074px){	
+	.welcome-text-container{
+		padding: 25px;
+	}
+	.welcome-text{
+		font-size: 30px;
+	}
+	.welcome-player-name{
+		margin-top: 20px;
+		font-size: 30px;
+	}
+	.disconnect-btn{
+	    width: 200px;
+    	font-size: 25px;
+    	margin: 20px 0px;
+	}
+}
 
 @media (max-width: 1024px){
 	.col-sm-3 {
@@ -430,7 +447,7 @@ height: 80px;
 	    margin-top: 18%;
 	}
 	.signaturePad_body {
-	    width: 800px;
+	    width: 806px;
 	}
 	.clear_btn {
 	    background: repeating-linear-gradient(152deg, #3e0560, #8141a7ad);
@@ -447,8 +464,8 @@ height: 80px;
 	    height: 50px;
 	}
 	#signature-pad {
-	    width: 800px;
-	    height: 330px;
+	    width: 806px;
+	    height: 336px;
 	}
 	#typo-word-screen {
 	    margin-top: 17%;
