@@ -8,42 +8,47 @@ $(document).ready(() => {
 	var scrambleBtnId = "";
 	const clickedBtn = 'clicked-btn';
 
-	$(SCRAMBLE_BTN_IDS).click(function () {
-		answerWord = $(this).val();
-		scrambleBtnId = $(this).attr("id");
-		$(".btn.round2_btn").each(function () {
-			$(this).removeClass(clickedBtn)
-		})
-		$(this).css({ '--animate-duration': '.3s' }).addClass(`${animationForButton} ${clickedBtn}`).one('animationend', function () {
-			$(this).removeClass(animationForButton);
-		});
-		$(".underline-word").each(function () {
-			if ($(this).hasClass('border-bottom-blue')) {
-				$(this).fadeOut(100).fadeIn(100);
-			}
-		})
-	});
+	// $(SCRAMBLE_BTN_IDS).click(function () {
+	// 	answerWord = $(this).val();
+	// 	scrambleBtnId = $(this).attr("id");
+	// 	$(".btn.round2_btn").each(function () {
+	// 		$(this).removeClass(clickedBtn)
+	// 	})
+	// 	$(this).css({ '--animate-duration': '.3s' }).addClass(`${animationForButton} ${clickedBtn}`).one('animationend', function () {
+	// 		$(this).removeClass(animationForButton);
+	// 	});
+	// 	$(".underline-word").each(function () {
+	// 		if ($(this).hasClass('border-bottom-blue')) {
+	// 			$(this).fadeOut(100).fadeIn(100);
+	// 		}
+	// 	})
+	// });
 
 	$(SCRAMBLE_WORD_IDS).click(function () {
-		if (answerWord) {
-			$(".answer").each(function () {
-				if ($(this).siblings().first().val() === scrambleBtnId) {
-					$(this).text("")
-					$(this).parent().removeClass("border-bottom-green").addClass("border-bottom-blue");
-				}
-			})
-			$(SCRAMBLE_BTN_IDS).each(function () {
-				if ($(this).hasClass(clickedBtn)) {
-					$(this).removeClass(clickedBtn);
-				}
-			})
-			$(this).find("p").html(answerWord);
-			$(this).find("div").removeClass("border-bottom-blue").addClass("border-bottom-green");
-			var answerIndex = $(this).attr("data-wz-index");
-			submitAnswer(answerWord, answerIndex, scrambleBtnId);
-			$(this).find("input").val(scrambleBtnId);
-			answerWord = '';
+		answerWord = $(this).find("p").text();
+		$(SCRAMBLE_BTN_IDS).each(function () {
+			if(!$(this).find("input").val()) {
+				$(this).find("input").val(answerWord);
+				return false;
+			}
+		})
+		// $(this).find("div").removeClass("border-bottom-blue").addClass("border-bottom-green");
+		var answerIndex = $(this).attr("data-wz-index");
+		submitAnswer(answerWord, answerIndex, scrambleBtnId);
+		$(this).find("input").val(scrambleBtnId);
+	})
+
+	$('#backspace-btn').click(function() {
+		const btnIdArray = SCRAMBLE_BTN_IDS.split(",");
+		let btnCount = $("#scramble-btn4").is(":visible") ? btnIdArray.length-1 : btnIdArray.length - 2
+		
+		for(let i = btnCount; i > -1; i--) {
+			if($(btnIdArray[i]).find("input").val()) {
+				$(btnIdArray[i]).find("input").val("");
+				break;
+			}
 		}
+		submitAnswer(answerWord, -1, scrambleBtnId);
 	})
 
 });
@@ -66,8 +71,7 @@ class ScrambleWordService {
 		}
 		for (let i = 1; i <= questionObj.question.length; i++) {
 			let word = questionObj.question.charAt(i - 1);
-			$("#scramble-btn" + i).attr('value', word);
-			$("#scramble-btn" + i).find("input").attr('value', word);
+			$("#scramble-word" + i).find("p").text(word);
 		}
 		SessionUtil.setValueToSessionStorage("questionId", questionObj.questionId);
 	}

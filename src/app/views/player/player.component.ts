@@ -180,18 +180,21 @@ export class PlayerComponent implements OnInit {
         this.typoWordImage = this.answerObj.answer;
       } else if (this.control.currentRoundId == 8 && this.sendFromPlayerId == this.playerId) {
         const { answerIndex, answer } = this.answerObj;
-        for (let i = 1; i < 5; i++) {
-          if (this.scrambleState["word" + i] == this.answerObj.scrambleBtnId) {
-            this.scrambleWord["word" + i] = "";
+        if(parseInt(answerIndex) != -1) {
+          for(let key in this.scrambleWord) {
+            if(!this.scrambleWord[key]) {
+               this.scrambleWord[key] = answer;
+               break;
+            }
+         }
+        }else {
+          for(let i = Object.keys(this.scrambleWord).length; i > 0; i--) {
+             if(this.scrambleWord[`word${i}`]) {
+                this.scrambleWord[`word${i}`] = "";
+                break;
+             }
           }
         }
-        switch (answerIndex) {
-          case '1': this.scrambleWord.word1 = answer; break;
-          case '2': this.scrambleWord.word2 = answer; break;
-          case '3': this.scrambleWord.word3 = answer; break;
-          case '4': this.scrambleWord.word4 = answer; break;
-        }
-        this.scrambleState["word" + this.answerObj.answerIndex] = this.answerObj.scrambleBtnId;
       }
     }
   }

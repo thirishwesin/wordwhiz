@@ -89,6 +89,10 @@ height: 80px;
 .clicked-btn {
 	opacity: 0.5;
 }
+#backspace-btn {
+    float: right;
+    margin-right: 110px;
+}
 /* end style for scramble word */
 
 
