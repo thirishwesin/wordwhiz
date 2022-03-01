@@ -430,7 +430,7 @@ height: 80px;
 	    margin-top: 18%;
 	}
 	.signaturePad_body {
-	    width: 800px;
+	    width: 806px;
 	}
 	.clear_btn {
 	    background: repeating-linear-gradient(152deg, #3e0560, #8141a7ad);
@@ -447,8 +447,8 @@ height: 80px;
 	    height: 50px;
 	}
 	#signature-pad {
-	    width: 800px;
-	    height: 330px;
+	    width: 806px;
+	    height: 336px;
 	}
 	#typo-word-screen {
 	    margin-top: 17%;
