@@ -59,7 +59,7 @@ height: 80px;
 	   height: 350px;
 }
 #scramble-word-screen{
-    top: 35%;
+    top: 32%;
     position: absolute;
 	width: 100%;
 }
@@ -495,4 +495,16 @@ height: 80px;
     border: none;
     outline: none;
     color: #fff;
+}
+
+.typo_back_btn{
+	background: repeating-linear-gradient(152deg , #3e0560, #8141a7ad);
+    color: #ffffff;
+    background-color: #fff;
+    box-shadow: 0px 7px 34px 2px #fb00ff;
+    padding: 8px 20px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border: none;
+    margin: 5px;
 }
