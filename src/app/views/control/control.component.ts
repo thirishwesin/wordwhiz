@@ -1,6 +1,6 @@
 import { Player } from './../../core/models/player';
 import { Component, OnInit, NgZone } from "@angular/core";
-import { Store, select } from "@ngrx/store";
+import { Store, select, State } from "@ngrx/store";
 import { Observable, from } from "rxjs";
 import { WordWhiz } from "../../core/models/wordWhiz";
 import { BrowserWindow, remote } from "electron";
@@ -313,16 +313,23 @@ export class ControlComponent implements OnInit {
   sendQuestionToExternalDevice(sendTo: string, currentRoundId: number): void {
     if (this.stompClient && (this.currentRound.questionType == 8 || this.currentRound.questionType == 7)) {
       let externalDevQuestion = this.getExternalDeviceQuestion(currentRoundId);
+      let isConnectedToWebsocket;
+      this.store.select('externalDevice').subscribe(currentState => isConnectedToWebsocket = currentState.wordWhizIsConnected);
+      
       console.log('externalDevQuestion: ', externalDevQuestion)
-      switch (sendTo) {
-        case 'specific-player':
-          this.sendToSpecificPlayer(externalDevQuestion)
-          break;
-        case 'all-player':
-          this.sendToAllPlayer(externalDevQuestion)
-          break;
-        default:
-          break;
+      console.log(isConnectedToWebsocket ? 'Websocket connection is connected' : 'Websocket connection is disconnected, please connect again.');
+
+      if(isConnectedToWebsocket){
+        switch (sendTo) {
+          case 'specific-player':
+            this.sendToSpecificPlayer(externalDevQuestion)
+            break;
+          case 'all-player':
+            this.sendToAllPlayer(externalDevQuestion)
+            break;
+          default:
+            break;
+        }
       }
     }
   }
