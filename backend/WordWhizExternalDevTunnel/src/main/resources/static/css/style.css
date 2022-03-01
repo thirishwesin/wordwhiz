@@ -463,7 +463,7 @@ height: 80px;
 	    font-size: 20px;
 	    border-top-right-radius: 15px;
 	    border-bottom-left-radius: 15px;
-	    margin: 20px 0px;
+	    margin: 5px 0px;
 	    width: 150px;
 	    height: 50px;
 	}
@@ -477,20 +477,20 @@ height: 80px;
 }
 
 .typo_question_box{
-	height: 80px;
-    width: 54%;
+	height: 120px;
+    width: 58%;
     z-index: -1;
     display: block;
     margin: auto;
 }
 
 .typo_question_txt{
-	width: 53%;
+	width: 57%;
     text-align: center;
-    left: 24%;
+    left: 22%;
     position: absolute;
     top: 17%;
-    height: 57px;
+    height: 96px;
     background: none;
     border: none;
     outline: none;
