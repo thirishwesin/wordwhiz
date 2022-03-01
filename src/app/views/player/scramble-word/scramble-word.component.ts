@@ -24,8 +24,8 @@ export class ScrambleWordComponent implements OnInit {
 
   ngOnInit() {
     console.log("Scramble Word => ", this.scrambleWord);
-    this.setFontSizeWithClassName('answer', this.playerAnsFontSize, 'px');
-    this.setFontSizeWithClassName('btn_txt', this.playerClueFontSize, 'px');
+    this.setFontSizeWithClassName('answer', this.playerClueFontSize, 'px');
+    this.setFontSizeWithClassName('btn_txt', this.playerAnsFontSize, 'px');
   }
 
   setFontSizeWithClassName(className: string, fontSize:number, sizeUnit: string) {
