@@ -50,7 +50,7 @@ class ScreenUtil {
       $("#" + screen).hide();
     }
 
-    $("#typo-word-question").text(questionObj.question);
+    $("#typo-word-question").val(questionObj.question);
     $("#wordwhiz-container").attr('class', 'typo_bg_theme');
     $("#typo-word-screen").show();
     SessionUtil.setValueToSessionStorage("questionId", questionObj.questionId)

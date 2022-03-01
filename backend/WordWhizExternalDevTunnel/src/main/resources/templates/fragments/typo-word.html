@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <div th:fragment="typo-word">
-  <div>
-    <p class="text-center text-white" id="typo-word-question"></p>
+  <div class="text-center">
+    <input type="text" id="typo-word-question">
   </div>
   <div class="signaturePad_body">
-  	<div class="btn_align">
-   		<button class="btn clear_btn" id="clear-signature">Clear</button>
+    <div class="btn_align">
+      <button class="btn clear_btn" id="clear-signature">Clear</button>
     </div>
     <div id="signature-pad">
-    	<canvas width="800px" height="330px" id="signature"></canvas>
+      <canvas width="800px" height="330px" id="signature"></canvas>
     </div>
 
   </div>
