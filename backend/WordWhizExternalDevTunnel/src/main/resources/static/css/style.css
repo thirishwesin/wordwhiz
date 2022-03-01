@@ -256,8 +256,8 @@ height: 80px;
     font-style: normal;
 }
 @font-face {
-    font-family: 'msyh';
-    src: url('../fonts/msyh.ttc') format('woff2');
+    font-family: 'dfhei';
+    src: url('../fonts/dfhei.ttc') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
