@@ -1,6 +1,6 @@
 html,* {
     /* font-family: "simsun"; */
-    font-family: "msyh" !important;
+    font-family: "dfhei" !important;
 }
 
 /* start style for scramble word */
@@ -257,7 +257,7 @@ height: 80px;
 }
 @font-face {
     font-family: 'dfhei';
-    src: url('../fonts/dfhei.ttc') format('woff2');
+    src: url('../fonts/dfhei.ttf') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
