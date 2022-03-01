@@ -8,13 +8,35 @@
 }
 .typo_word {
     text-align: center;
-    top: 38%;
+    top: 32%;
     position: fixed;
-    left: 28%;
+    left: 50%;
+    transform: translate(-50%, 0px);
 }
 
 .signature {
     border: 3px solid #ede0ff;
     box-shadow: 0px 0px 50px 0px #c000ff;
     opacity: 0.6;
+}
+
+.typo_question_box{
+	height: 80px;
+    width: 900px;
+    z-index: -1;
+    display: block;
+    margin: auto;
+}
+
+.typo_question_txt{
+    width: 880px;
+    text-align: center;
+    left: 1%;
+    position: absolute;
+    top: 2%;
+    height: 58px;
+    background: none;
+    border: none;
+    outline: none;
+    color: #fff;
 }
