@@ -763,6 +763,7 @@ export class SetupComponent implements OnInit {
       const questIndex = this.currentRound.questionArray.indexOf(quest);
       console.log('question array index => ', questIndex)
       let div = document.getElementById(id) as HTMLDivElement;
+      // Add word
       if (this.isDefaultOrHint == 'default') {
         if (this.gridValue) {
           div.innerText = this.gridValue.charAt(0);
@@ -772,12 +773,14 @@ export class SetupComponent implements OnInit {
             this.currentWord = undefined
           }
         }
-      } else if (this.isDefaultOrHint == 'hint') {
-        if (div.style.backgroundColor == '') {
+      }
+      // Add hint
+      else if (this.isDefaultOrHint == 'hint') {
+        if (div.style.backgroundColor == '' || div.style.backgroundColor == 'red') {
           div.style.backgroundColor = 'red'
           this.currentRound.questionArray[questIndex].ans += id + ',';
         } else {
-          div.style.backgroundColor = '';
+          // div.style.backgroundColor = '';
           console.log('id => ', id)
           let old = id + ','
           this.currentRound.questionArray[questIndex].ans = this.currentRound.questionArray[questIndex].ans.replace(old, '');

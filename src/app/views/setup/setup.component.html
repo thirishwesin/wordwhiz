@@ -704,27 +704,27 @@
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th class="table_title" *ngIf="currentRound.questionType == 2">Question Number</th>
+                  <!-- <th class="table_title" *ngIf="currentRound.questionType == 2">Question Number</th> -->
                   <th class="table_title">{{currentRound.questionType != 5 ? 'QUESTION' : 'VIDEO DESCRIPTION'}}</th>
-                  <th class="table_title" *ngIf="currentRound.questionType != 2">ANSWER</th>
-                  <th class="table_title" *ngFor="let hint of question.hints">HINT {{ question.hints.length <=1 ? "" : hint.id }} </th>
+                  <th class="table_title">{{ currentRound.questionType == 2 ? 'HINT' : 'ANSWER'}}</th>
+                  <th class="table_title" *ngFor="let hint of question.hints">{{ currentRound.questionType == 2 ? 'ANSWER' : 'HINT'}} {{ question.hints.length <=1 ? "" : hint.id }} </th>
                   <th class="table_title" *ngIf="currentRound.questionType == 1">POSITION</th>
                   <th class="table_title act_width text-center" *ngIf="currentRound.questionType != 2">ACTION</th>
-                  <th class="table_title" *ngIf="currentRound.questionType == 2">POSITION</th>
+                  <!-- <th class="table_title" *ngIf="currentRound.questionType == 2">POSITION</th> -->
                 </tr>
               </thead>
               <tbody *ngIf="currentRound.questionArray.length > 0">
                 <tr *ngFor="let question of filterQuestion(currentRound.questionArray)">
-                  <ng-container *ngIf="currentRound.questionType == 2">
+                  <!-- <ng-container *ngIf="currentRound.questionType == 2">
                     <td class="common_data">{{ question.id }}</td>
-                  </ng-container>
+                  </ng-container> -->
                   <ng-container *ngIf="currentRound.questionType == 5; else sampleTd">
                     <td class="common_data"><a (click)="previewVideo(videoModal,question.clue)"><u>{{ question.clue }} (perview)</u></a></td>
                   </ng-container>
                   <ng-template #sampleTd>
                     <td class="common_data">{{ question.clue }}</td>
                   </ng-template>
-                  <td class="common_data" *ngIf="currentRound.questionType != 2">{{ question.ans }}</td>
+                  <td class="common_data">{{ question.ans }}</td>
                   <ng-container *ngIf="question.hints.length == 0; else hintTemplate">
                     <!-- <td class="common_data"></td> -->
                   </ng-container>
@@ -740,14 +740,14 @@
                       <button class="btn-primary btn_table button" (click)=" deleteQuestionList(question.id)">DELETE</button>
                     </div>
                   </td>
-                  <ng-container *ngIf="currentRound.questionType == 2">
+                  <!-- <ng-container *ngIf="currentRound.questionType == 2">
                     <td class="common_data">
                       <select class="custom_select" (change)="choosePositionClass(positionCalss.value, question.id)" #positionCalss>
                         <option value="horizontal-cross-num" [selected]="'horizontal-cross-num' == question.hints[0]?.positionCalss">Horizontal</option>
                         <option value="vertical-cross-num" [selected]="'vertical-cross-num' == question.hints[0]?.positionCalss">Vertical</option>
                       </select>
                     </td>
-                  </ng-container>
+                  </ng-container> -->
                 </tr>
                 <tr *ngIf="(currentRound.questionType == 4) && noDatabyCategory">
                   <td align="center" colspan="5">
