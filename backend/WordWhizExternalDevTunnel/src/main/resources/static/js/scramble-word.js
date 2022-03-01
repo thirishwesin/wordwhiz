@@ -4,9 +4,7 @@ const SCRAMBLE_BTN_IDS = '#scramble-btn1, #scramble-btn2, #scramble-btn3, #scram
 $(document).ready(() => {
 
 	var answerWord = null;
-	var animationForButton = 'animate__animated animate__pulse';
 	var scrambleBtnId = "";
-	const clickedBtn = 'clicked-btn';
 
 	// $(SCRAMBLE_BTN_IDS).click(function () {
 	// 	answerWord = $(this).val();
@@ -27,23 +25,22 @@ $(document).ready(() => {
 	$(SCRAMBLE_WORD_IDS).click(function () {
 		answerWord = $(this).find("p").text();
 		$(SCRAMBLE_BTN_IDS).each(function () {
-			if(!$(this).find("input").val()) {
+			if (!$(this).find("input").val()) {
 				$(this).find("input").val(answerWord);
 				return false;
 			}
 		})
-		// $(this).find("div").removeClass("border-bottom-blue").addClass("border-bottom-green");
 		var answerIndex = $(this).attr("data-wz-index");
 		submitAnswer(answerWord, answerIndex, scrambleBtnId);
 		$(this).find("input").val(scrambleBtnId);
 	})
 
-	$('#backspace-btn').click(function() {
+	$('#backspace-btn').click(function () {
 		const btnIdArray = SCRAMBLE_BTN_IDS.split(",");
-		let btnCount = $("#scramble-btn4").is(":visible") ? btnIdArray.length-1 : btnIdArray.length - 2
-		
-		for(let i = btnCount; i > -1; i--) {
-			if($(btnIdArray[i]).find("input").val()) {
+		let btnCount = $("#scramble-btn4").is(":visible") ? btnIdArray.length - 1 : btnIdArray.length - 2
+
+		for (let i = btnCount; i > -1; i--) {
+			if ($(btnIdArray[i]).find("input").val()) {
 				$(btnIdArray[i]).find("input").val("");
 				break;
 			}
@@ -56,11 +53,9 @@ $(document).ready(() => {
 class ScrambleWordService {
 	static showQuestion(questionObj) {
 		if (SessionUtil.getValueFromSessionStorage("questionId") != questionObj.questionId.toString()) {
-			$(SCRAMBLE_WORD_IDS).each(function () {
-				$(SCRAMBLE_WORD_IDS).find("p").css("font-size", questionObj.fontSetting.answerFontSize).html("");
-			})
+            $(SCRAMBLE_BTN_IDS).find("input").css("font-size", questionObj.fontSetting.answerFontSize).val("");
 		}
-		$(SCRAMBLE_BTN_IDS).find("input").css("font-size", questionObj.fontSetting.questionFontSize);
+		$(SCRAMBLE_WORD_IDS).find("p").css("font-size", questionObj.fontSetting.questionFontSize);
 		$(".underline-word").removeClass("border-bottom-green").addClass("border-bottom-blue");
 		if (questionObj.question.length == 3) {
 			$("#scramble-word4").hide();

@@ -98,7 +98,7 @@ height: 80px;
 
 /* start style for typo word */
 #typo-word-screen{
-	margin-top: 17%;
+	margin-top: 9%;
 }
 .btn_align {
 	text-align: right;
@@ -474,4 +474,25 @@ height: 80px;
 	#typo-word-screen {
 	    margin-top: 17%;
 	}
+}
+
+.typo_question_box{
+	height: 80px;
+    width: 54%;
+    z-index: -1;
+    display: block;
+    margin: auto;
+}
+
+.typo_question_txt{
+	width: 53%;
+    text-align: center;
+    left: 24%;
+    position: absolute;
+    top: 17%;
+    height: 57px;
+    background: none;
+    border: none;
+    outline: none;
+    color: #fff;
 }
