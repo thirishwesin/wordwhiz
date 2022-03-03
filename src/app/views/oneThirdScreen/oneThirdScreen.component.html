@@ -200,8 +200,8 @@
                 </div>
                 <ng-container *ngIf="currentRound.questionType == 7">
                   <div class="roundseven_body">
-                    <!-- <img src="./assets/images/round_two_box.png" class="roundseven_box" alt=""> -->
-                    <img [src]="Images.round3_long_block" class="roundseven_box" alt="">
+                    <!-- <img [src]="Images.round3_long_block" class="roundseven_box" alt=""> -->
+                    <img [src]="Images.round_two_box" class="roundseven_box" alt="">
                     <div class="roundseven_question">
                       <ng-container *ngFor="let char of currentQuestion.clue.split('')">
                         <ng-container *ngIf="char === '\n'; else input_content">
@@ -365,8 +365,8 @@
         </div>
       </div>
       <div style="margin-top: 47px;" *ngIf="control.showQuestion">
-        <!-- <img src="./assets/images/round_two_box.png" class="roundtwo_box" alt=""> -->
-        <img [src]="Images.round3_long_block" class="roundtwo_box" alt="">
+        <!-- <img [src]="Images.round3_long_block" class="roundtwo_box" alt=""> -->
+        <img [src]="Images.round_two_box" class="roundtwo_box" alt="">
         <input [value]="currentQuestion?.clue" class="roundtwohit"
           [ngStyle]="{'font-size': currentQuestion.otClueFontSize + 'px'}" />
       </div>

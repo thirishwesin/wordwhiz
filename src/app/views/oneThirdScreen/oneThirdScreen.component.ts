@@ -479,7 +479,7 @@ export class OneThirdScreenComponent implements OnInit {
             this.currentQuestion.hints[0].value.charAt(index).toUpperCase();
         }
         (<HTMLInputElement>document.getElementById(id+'_bg')).style.background =
-          `url(./assets/images/BLUE/Square_Box_Purple.png) no-repeat`;
+          `url(./assets/images/blue_blank.png) no-repeat`;
       },0)
     })
   }
@@ -490,7 +490,7 @@ export class OneThirdScreenComponent implements OnInit {
         (<HTMLInputElement>document.getElementById(id+'_val')).value =
           this.currentQuestion.hints[0].value.charAt(index).toUpperCase();
         (<HTMLDivElement>document.getElementById(id+'_bg')).style.background =
-          `url(./assets/images/GREEN/Square_Box_Pink.png) no-repeat`;
+          `url(./assets/images/green_blank.png) no-repeat`;
       }, 0);
     })
   }
@@ -502,7 +502,7 @@ export class OneThirdScreenComponent implements OnInit {
         (<HTMLInputElement>document.getElementById(id+'_val')).value =
           this.currentQuestion.hints[0].value.charAt(index).toUpperCase();
         (<HTMLDivElement>document.getElementById(id+'_bg')).style.background =
-          `url(./assets/images/BLUE/Square_Box_Purple.png) no-repeat`
+          `url(./assets/images/blue_blank.png) no-repeat`
       } else {
         setTimeout(() => {
           if((<HTMLInputElement>document.getElementById(id+'_val')).value != ""
@@ -510,7 +510,7 @@ export class OneThirdScreenComponent implements OnInit {
             setTimeout(() => {
               (<HTMLInputElement>document.getElementById(id+'_val')).value = "";
               (<HTMLDivElement>document.getElementById(id+'_bg')).style.background =
-                'url(./assets/images/GREEN/Square_Box_Pink.png) no-repeat';
+                'url(./assets/images/green_blank.png) no-repeat';
             }, 0);
           }
         }, 0);
