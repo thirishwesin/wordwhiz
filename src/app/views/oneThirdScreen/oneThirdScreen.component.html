@@ -244,7 +244,13 @@
   <div class="row" *ngIf="currentRound && currentRound.questionType == 2">
     <div class="col-sm-3">
     </div>
-    <div class="col-sm-6" style="margin-top: 190px;">
+    <div class="col-sm-6" style="margin-top: 69px;">
+      <div style="margin-top: 0px;" *ngIf="control.showQuestion">
+        <!-- <img [src]="Images.round3_long_block" class="roundtwo_box" alt=""> -->
+        <img [src]="Images.round_two_box" class="roundtwo_box" alt="">
+        <input [value]="currentQuestion?.clue" class="roundtwohit"
+          [ngStyle]="{'font-size': currentQuestion.otClueFontSize + 'px'}" />
+      </div>
       <div *ngIf="this.prevCategoryId == this.currentQuestion.categoryId">
         <div style="margin-top: 30px;margin-left: -55px;">
           <div class="row" style="flex-wrap: initial;">
@@ -363,12 +369,6 @@
             </div>
           </div>
         </div>
-      </div>
-      <div style="margin-top: 47px;" *ngIf="control.showQuestion">
-        <!-- <img [src]="Images.round3_long_block" class="roundtwo_box" alt=""> -->
-        <img [src]="Images.round_two_box" class="roundtwo_box" alt="">
-        <input [value]="currentQuestion?.clue" class="roundtwohit"
-          [ngStyle]="{'font-size': currentQuestion.otClueFontSize + 'px'}" />
       </div>
     </div>
   </div>
