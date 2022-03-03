@@ -53,6 +53,7 @@ class ScreenUtil {
     $("#typo-word-question").val(questionObj.question);
     $("#wordwhiz-container").attr('class', 'typo_bg_theme');
     $("#typo-word-screen").show();
+    $("#typo-word-question").css("font-size", questionObj.fontSetting.questionFontSize)
     SessionUtil.setValueToSessionStorage("questionId", questionObj.questionId)
   }
 

@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { Images } from '../../../common/images';
 
 @Component({
@@ -11,11 +12,13 @@ export class TypoWordComponent implements OnInit {
   Images = Images;
   @Input() typoWordQuestion: string;
   @Input() typoWordImage: any;
+  @Input() playerClueFontSize: number;
 
 
-  constructor() { }
+  constructor(@Inject(DOCUMENT) private document: Document) { }
 
   ngOnInit() {
+    this.document.getElementById("typo_question").style.fontSize = this.playerClueFontSize + 'px';
   }
 
 }
