@@ -482,18 +482,15 @@ height: 80px;
     z-index: -1;
     display: block;
     margin: auto;
+    position: absolute;
 }
 
 .typo_question_txt{
-	width: 57%;
-    text-align: center;
-    left: 22%;
-    position: absolute;
-    top: 17%;
-    height: 96px;
-    background: none;
-    border: none;
-    outline: none;
+	white-space: pre;
+    font-size: 25px;
+    letter-spacing: 5px;
+    width: 55%;
+    margin-bottom: 0;
     color: #fff;
 }
 
@@ -508,3 +505,11 @@ height: 80px;
     border: none;
     margin: 5px;
 }
+
+.typo_question_container{
+	height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
