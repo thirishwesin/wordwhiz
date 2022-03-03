@@ -179,7 +179,7 @@
                   (ngModelChange)="questionClueFontSizeChanged($event)">
               </div>
             </div>
-            <ng-container *ngIf="currentRound.questionType == 8">
+            <ng-container *ngIf="currentRound.questionType == 8 || currentRound.questionType == 7">
               <div class="row form-group">
                 <div class="col-sm-6">
                   <label class="common_label">PLAYER QUESTION FONT SIZE</label>

@@ -329,6 +329,9 @@ export class SetupComponent implements OnInit {
           this.question.playerClueFontSize = +this.question.playerClueFontSize || 40;
           this.question.tabletAnsFontSize = +this.question.tabletAnsFontSize || 40;
           this.question.tabletClueFontSize = +this.question.tabletClueFontSize || 40;
+        }else if(this.currentRound.questionType == 7){
+          this.question.playerClueFontSize = +this.question.playerClueFontSize || 40;
+          this.question.tabletClueFontSize = +this.question.tabletClueFontSize || 40;
         }
 
         let generateId =
@@ -384,7 +387,7 @@ export class SetupComponent implements OnInit {
             question.otAnsFontSize = +this.question.otAnsFontSize;
             question.hints = this.question.hints;
             if(!this.currentRound.hasCategory){
-              if (this.currentRound.id == 2 || this.currentRound.id == 3 || this.currentRound.id == 4 || this.currentRound.questionType == 7) {
+              if (this.currentRound.id == 2 || this.currentRound.id == 3 || this.currentRound.id == 4) {
                 question.hints[0].hintFontSize = +this.question.hints[0].hintFontSize;
                 question.hints[0].otHintFontSize = +this.question.hints[0].otHintFontSize;
               }else if(this.currentRound.id == 8){
@@ -393,6 +396,9 @@ export class SetupComponent implements OnInit {
                 question.playerAnsFontSize = +this.question.playerAnsFontSize;
                 question.playerClueFontSize = +this.question.playerClueFontSize;
                 question.tabletAnsFontSize = +this.question.tabletAnsFontSize;
+                question.tabletClueFontSize = +this.question.tabletClueFontSize;
+              }else if(this.currentRound.id == 7){
+                question.playerClueFontSize = +this.question.playerClueFontSize;
                 question.tabletClueFontSize = +this.question.tabletClueFontSize;
               }
             }else{
