@@ -21,11 +21,11 @@ html,* {
 }
 
 .border-bottom-green {
-	border-bottom: 15px solid #ff5efd;
+	border-bottom: 15px solid #48b822;
 }
 
 .border-bottom-blue {
-	border-bottom: 15px solid #8c46c1;
+	border-bottom: 15px solid #013ad6;
 }
 
 .word-margin {
@@ -440,10 +440,10 @@ height: 80px;
 	    height: 150px;
 	}
 	.border-bottom-blue {
-	    border-bottom: 10px solid #8c46c1;
+	    border-bottom: 10px solid #013ad6;
 	}
 	.border-bottom-green {
-	    border-bottom: 10px solid #ff5efd;
+	    border-bottom: 10px solid #48b822;
 	}
 	
 	/* Round4 */
