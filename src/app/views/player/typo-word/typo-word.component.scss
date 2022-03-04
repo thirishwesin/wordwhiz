@@ -8,7 +8,7 @@
 }
 .typo_word {
     text-align: center;
-    top: 25%;
+    top: 20%;
     position: fixed;
     left: 50%;
     transform: translate(-50%, 0px);
@@ -21,8 +21,8 @@
 }
 
 .typo_question_box{
-	height: 155px;
-    width: 900px;   
+    height: 180px;
+    width: 1110px;
     z-index: -1;
     display: block;
     margin: auto;
@@ -33,13 +33,13 @@
 	white-space: pre;
     font-size: 25px;
     letter-spacing: 5px;
-    width: 96%;
+    width: 1080px;
     margin-bottom: 0;
     color: #fff;
 }
 
 .typo_question_container{
-	height: 120px;
+	height: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
