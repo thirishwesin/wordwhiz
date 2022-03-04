@@ -22,7 +22,7 @@ export const Images = {
   min_icon: require("../../assets/images/min_icon.png"),
   times_icon: require("../../assets/images/times-solid.svg"),
   spinner_bg: require("./../../assets/images/spin_bg.png"),
-  player_round_bg: require("./../../assets/images/spin_bg.png"),
+  player_round_bg: require("./../../assets/images/player_screen_bg.png"),
   round3_long_block: require("./../../assets/images/Round_03_Question_Box.png"),
   round_two_box: require("./../../assets/images/round_two_box.png")
   // Square_Box_Purple: require("./../../assets/images/BLUE/Square_Box_Purple.png")

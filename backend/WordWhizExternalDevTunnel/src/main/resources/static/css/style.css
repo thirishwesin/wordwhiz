@@ -6,12 +6,12 @@ html,* {
 /* start style for scramble word */
 .bg_theme{
 	/* height: 100vh; */
-    background: url(../../image/round2_bg.png) no-repeat fixed;
+    background: url(../../image/player_screen_bg.png) no-repeat fixed;
     background-size: cover;
 }
 .typo_bg_theme{
 	/* height: 100vh; */
-    background: url(../../image/round2_bg.png) no-repeat fixed;
+    background: url(../../image/player_screen_bg.png) no-repeat fixed;
     background-size: cover;
 }
 .underline-word {
@@ -59,7 +59,7 @@ height: 80px;
 	   height: 350px;
 }
 #scramble-word-screen{
-    top: 32%;
+    top: 22%;
     position: absolute;
 	width: 100%;
 }
