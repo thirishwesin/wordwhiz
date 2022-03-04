@@ -292,8 +292,8 @@
           </div>
 
           <div class="row player_wrapper">
-            <div class="col-sm-3"></div>
-            <div class="col-sm-3" *ngFor="let player of episode.players">
+            <!-- <div class="col-sm-3"></div> -->
+            <div class="col-sm-4" *ngFor="let player of episode.players">
               <!--  <h3 class="player_name">{{player.name}}</h3> -->
               <input class="custom_input player_name common_input" type="text" value="{{player.name}}"
                 (keyup)="changePlayerName($event,player.id)" />
@@ -308,9 +308,19 @@
                   (click)="increasePoint(player.id)">+</button>
               </div>
             </div>
-            <div class="col-sm-3" style="margin-left: 44%;top: 20px;">
+            <!-- <div class="col-sm-3" style="margin-left: 44%;top: 20px;">
               <div class=" showans_btn" *ngFor="let player of episode.players">
                 <button class="btn button" style="width: 300px;"
+                  (click)="changePlayerBgImage(player)">{{control?.playersToChangeBgImage?.includes(player.id) ? 'Hide '+player.name+' Background Image' :
+                  'Show '+player.name+' Background Image'}}</button>
+              </div>
+            </div> -->
+          </div>
+          <div class="row">
+            <!-- <div class="col-sm-3"></div> -->
+            <div class="col-sm-4"  *ngFor="let player of episode.players">
+              <div class="showans_btn">
+                <button class="btn button" style="margin-top: 15px; width: 100%;"
                   (click)="changePlayerBgImage(player)">{{control?.playersToChangeBgImage?.includes(player.id) ? 'Hide '+player.name+' Background Image' :
                   'Show '+player.name+' Background Image'}}</button>
               </div>
