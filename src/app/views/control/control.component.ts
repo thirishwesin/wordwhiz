@@ -151,6 +151,7 @@ export class ControlComponent implements OnInit {
       this.episode = item.episode;
       this.control = item.control;
       this.externalDevice = item.externalDevice;
+      this.addPlayers();
       // for dev
       if (this.wordWhiz.fontSettings == null) {
         this.control.fontSettings = {
@@ -197,6 +198,13 @@ export class ControlComponent implements OnInit {
     // sort by roundName
     //this.episode.rounds.sort((a,b) => (a.roundName > b.roundName) ? 1 : ((b.roundName > a.roundName) ? -1 : 0))
     this.recommendFontSize = fontSizeForWindow.normalSize;
+  }
+
+  // add players to playersToChangeBgImage array in control obj coz first render must be bg image.
+  addPlayers(): void {
+    if(this.control.playersToChangeBgImage.length === 0){
+      this.control.playersToChangeBgImage.push(...this.episode.players.map(player => +player.id))
+    }
   }
 
   get timerEnum(): typeof TimerEnum { return TimerEnum }
@@ -315,7 +323,7 @@ export class ControlComponent implements OnInit {
       let externalDevQuestion = this.getExternalDeviceQuestion(currentRoundId);
       let isConnectedToWebsocket;
       this.store.select('externalDevice').subscribe(currentState => isConnectedToWebsocket = currentState.wordWhizIsConnected);
-      
+
       console.log('externalDevQuestion: ', externalDevQuestion)
       console.log(isConnectedToWebsocket ? 'Websocket connection is connected' : 'Websocket connection is disconnected, please connect again.');
 
@@ -1499,10 +1507,16 @@ export class ControlComponent implements OnInit {
     }, 0);
   }
 
-  changePlayerBgImage() {
-    this.control.isChangePlayerBgImage = !this.control.isChangePlayerBgImage;
-    this.store.dispatch(updatePlayerScreenBackground({ isChangePlayerBgImage: this.control.isChangePlayerBgImage }));
+  changePlayerBgImage(player: Player) {
+    if(this.control.playersToChangeBgImage.includes(+player.id)){
+      this.control.playersToChangeBgImage.splice(this.control.playersToChangeBgImage.indexOf(+player.id),1)
+    }else{
+      this.control.playersToChangeBgImage.push(+player.id);
+    }
     this.broadcastScreens();
+    // this.control.isChangePlayerBgImage = !this.control.isChangePlayerBgImage;
+    // this.store.dispatch(updatePlayerScreenBackground({ isChangePlayerBgImage: this.control.isChangePlayerBgImage }));
+    // this.broadcastScreens();
   }
 
   toggleVideo() {

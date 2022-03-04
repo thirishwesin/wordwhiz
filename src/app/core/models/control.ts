@@ -26,4 +26,5 @@ export interface Control {
   isChangePlayerBgImage: boolean;
   isPlay: boolean;
   isShowQuestionInTablet: boolean;
+  playersToChangeBgImage: number[];
 }
