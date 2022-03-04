@@ -34,7 +34,8 @@
         <div [hidden]="!currentRound && currentRound?.questionType != 4">
           <p class="clude_txt" [ngStyle]="{'font-size': currentRound.clueLabelFontSize + 'px'}"
             *ngIf="currentRound && (currentRound?.questionType == 1 || currentRound?.questionType == 3 || currentRound?.questionType == 6 || currentRound?.questionType == 8)">
-            {{currentRound?.questionType == 1 ? '题目' : '提示'}}
+            {{currentRound?.questionType == 1 || currentRound?.questionType == 6 ? '题目' : ''}}
+            {{currentRound?.questionType == 8 && !control.showAns? '提示' : ''}}
           </p>
           <img class="cube_img" name="cube_img" alt="" />
           <span class="clude_hint" [ngStyle]="{'font-size': currentQuestion?.clueFontSize + 'px'}"
