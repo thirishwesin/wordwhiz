@@ -107,12 +107,12 @@ export class OneThirdScreenComponent implements OnInit {
     if (AppConfig.production) {
       this.oneThirdBgImage.src = process.env.PORTABLE_EXECUTABLE_DIR + "/data/images/one_third_header.png";
       this.cubeImage.src = process.env.PORTABLE_EXECUTABLE_DIR + "/data/images/cube.png";
-      this.roundTowBgImage.src = process.env.PORTABLE_EXECUTABLE_DIR + "/data/images/one-third-round-2.png";
+      this.roundTowBgImage.src = process.env.PORTABLE_EXECUTABLE_DIR + "/data/images/one-third-round-3.png";
 
     } else {
       this.oneThirdBgImage.src = "../../../assets/images/temp/one_third_header.png";
       this.cubeImage.src = "../../../assets/images/temp/cube.png";
-      this.roundTowBgImage.src = "../../../assets/images/temp/one-third-round-2.png";
+      this.roundTowBgImage.src = "../../../assets/images/temp/one-third-round-3.png";
     }
 
     this.store.subscribe(item => {
