@@ -61,7 +61,8 @@ export const initialState: Control = {
   roundFourStatus: [],
   isChangePlayerBgImage: true,
   isPlay: false,
-  isShowQuestionInTablet: false
+  isShowQuestionInTablet: false,
+  playersToChangeBgImage: []
 };
 
 const _controlReducer = createReducer(

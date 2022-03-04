@@ -11,7 +11,7 @@
 }
 
 .main_background .top-wrapper {
-    height: 27%;
+    height: 20%;
     position: relative;
     width: 100%;
 }
@@ -42,7 +42,7 @@ button {
     // text-align: center;
     //   font-size: 45px;
     // padding: 10px;
-    margin-top: 3%;
+    margin-top: 7%;
     p {
         display: inline;
     }
@@ -104,7 +104,7 @@ button {
     text-shadow: 0 0 0.5em #41faff, 0 0 0.5em #41faff, 0 0 0.5em #41faff;
     text-align: center;
     position: absolute;
-    top: 5%;
+    top: 3%;
     left: 40%;
     transform: translate(-50%, -50%);
     font-size: 60px;
@@ -125,7 +125,7 @@ button {
 
 .cube_img {
     position: absolute;
-    top: 28%;
+    top: 30%;
     left: 39%;
     transform: translate(-50%, -50%);
     width: 480px;
@@ -141,7 +141,7 @@ button {
 
 .clude_hint {
     position: absolute;
-    top: 28%;
+    top: 30%;
     left: 39%;
     transform: translate(-50%, -50%);
     /*   font-size: calc(0.3em + 1vw); */
@@ -161,7 +161,7 @@ button {
 }
 
 .alpha_wrapper {
-    top: 85%;
+    top: 97%;
     left: 56%;
     position: absolute;
     transform: translate(-50%, -50%);
@@ -972,7 +972,7 @@ button {
 }
 
 .roundtwo_alpha_body {
-    margin-left: 15%;
+    margin-left: 10%;
     margin-top: 1%;
 }
 
@@ -1212,4 +1212,8 @@ button {
 .WH_150px{
     width: 150px;
     height: 150px;
+}
+
+.mt-30{
+    margin-top: -30px;
 }

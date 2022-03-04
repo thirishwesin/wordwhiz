@@ -15,7 +15,7 @@
   <!-- body text -->
   <div class="container-fluid">
     <div class="row">
-      <div class="col-3 mt10 left-wrapper">
+      <div class="col-3 mt-30 left-wrapper">
         <!-- Round 4 Cube -->
         <div [hidden]="!currentRound && currentRound?.questionType == 4">
           <p class="clude_txt clude_txt_four" [ngStyle]="{'font-size': currentRound.clueLabelFontSize + 'px'}"
@@ -176,7 +176,7 @@
           *ngIf="control.showQuestion || control.runCategoryRound">
 
           <!-- //! for round 1 and round 5 -->
-          <div
+          <div 
             *ngIf="currentQuestion?.hints.length == 0 || (currentRound.questionType == 1 && currentQuestion.hints.length == 1)">
             <div class="long_word_green animated heartBeat long_retangle{{control.fontSettings.main_answer}} "
               *ngIf="!currentQuestion?.isAnsCharacter">
@@ -218,7 +218,7 @@
                   </ng-container>
                 </ng-container>
               </div>
-              <div style="margin-left: -30%; margin-top:22%" *ngIf="currentRound.questionType == 5">
+              <div style="margin-left: -30%; margin-top:14%" *ngIf="currentRound.questionType == 5">
                 <div class="one_word_blue retangle{{control.fontSettings.main_answer}} "
                   [ngClass]="{'animated heartBeat': control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose, 'green_bg' : char.visible && control.showAns , 'hide_char' : char.word == ' '}"
                   *ngFor="let char of control.extraWord">
