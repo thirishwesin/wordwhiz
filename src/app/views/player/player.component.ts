@@ -81,7 +81,7 @@ export class PlayerComponent implements OnInit {
         this.store.dispatch(updateStoreFromControl({ control: message }));
         this.episode = message.episode;
         this.control = message.control;
-
+        console.log("control ",this.control);
         this.currentRound = _find(this.episode.rounds, [
           "id",
           this.control.currentRoundId

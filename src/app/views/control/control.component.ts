@@ -203,7 +203,9 @@ export class ControlComponent implements OnInit {
   // add players to playersToChangeBgImage array in control obj coz first render must be bg image.
   addPlayers(): void {
     if(this.control.playersToChangeBgImage.length === 0){
-      this.control.playersToChangeBgImage.push(...this.episode.players.map(player => +player.id))
+      this.control.playersToChangeBgImage.push(...this.episode.players.map(player => +player.id));
+      // Added 4 to check playersToChangeBgImage is already initialized or not.
+      this.control.playersToChangeBgImage.push(4)
     }
   }
 
@@ -1258,6 +1260,7 @@ export class ControlComponent implements OnInit {
   }
 
   increasePoint(playerId) {
+    debugger;
     this.episode.players.map(player => {
       if (player.id == playerId) player.point += this.currentPoint
     });
@@ -1270,6 +1273,7 @@ export class ControlComponent implements OnInit {
     this.store.dispatch(
       updateClickPoint({ clickPoint: this.control.clickPoint })
     );
+    console.log("this.control.playersToChangeBgImage ", this.control.playersToChangeBgImage)
     this.broadcastScreens();
   }
 

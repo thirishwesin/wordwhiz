@@ -27,7 +27,9 @@
           </span>
         </div>
         <div class="apng-ani mx-auto d-block"
-          [ngClass]="{'timer-top': currentRound && (currentRound?.questionType == 1 || currentRound?.questionType == 3 || currentRound?.questionType == 5 || currentRound?.questionType == 2 || currentRound?.questionType == 8), 'timer-top-r4': currentRound?.questionType == 4}">
+          [ngClass]="{'timer-top': currentRound && (currentRound?.questionType == 1 || currentRound?.questionType == 3
+          || currentRound?.questionType == 5 || currentRound?.questionType == 2 || currentRound?.questionType == 8 ||
+          currentRound?.questionType == 7), 'timer-top-r4': currentRound?.questionType == 4}">
         </div>
       </div>
       <div class="col-8">
