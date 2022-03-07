@@ -5,8 +5,9 @@ $(document).ready(function () {
 
   signaturePad = new SignaturePad(sign, {
     minWidth: 2,
-    maxWidth: 6.5,
-    backgroundColor: 'rgb(255, 255, 255)',
+    maxWidth: 4.5,
+    penColor: 'rgb(255, 0, 0)',
+    backgroundColor: 'rgb(255, 255, 255,0.1)',
   });
 
   $('#clear-signature').on('click', function () {

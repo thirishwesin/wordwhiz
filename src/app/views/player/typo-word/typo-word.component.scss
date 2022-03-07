@@ -1,4 +1,4 @@
-.typoword_bg{
+.typoword_bg {
     width: 1920px;
     height: 1200px;
     position: absolute;
@@ -6,6 +6,7 @@
     z-index: 0;
     top: 0;
 }
+
 .typo_word {
     text-align: center;
     top: 20%;
@@ -17,30 +18,43 @@
 .signature {
     border: 3px solid #ede0ff;
     box-shadow: 0px 0px 50px 0px #c000ff;
-    opacity: 0.6;
+    opacity: 1;
 }
 
-.typo_question_box{
+.typo_question_box {
     height: 180px;
-    width: 1110px;
+    width: 530px;
     z-index: -1;
     display: block;
     margin: auto;
     position: absolute;
 }
 
-.typo_question_txt{
-	white-space: pre;
+.typo_question_txt {
+    white-space: pre;
     font-size: 25px;
     letter-spacing: 5px;
-    width: 1080px;
+    width: 527px;
     margin-bottom: 0;
     color: #fff;
 }
 
-.typo_question_container{
-	height: 200px;
-    display: flex;
+.typo_question_container {
+    height: 100px;
     align-items: center;
     justify-content: center;
+    top: 11%;
+    position: absolute;
+    left: 5%;
+    display: flex;
+    z-index: -1;
+}
+
+.canvas_span_bg {
+    width: 582px;
+    height: 511px;
+    position: absolute;
+    background: rgb(255, 255, 255, 0.5);
+    z-index: -5;
+    margin-left: -582px;
 }

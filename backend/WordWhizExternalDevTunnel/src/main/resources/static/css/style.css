@@ -170,7 +170,7 @@ html, * {
   width: 1600px;
   height: 750px;
   box-shadow: 0px 0px 50px 0px #c000ff;
-  opacity: 0.6;
+  opacity: 1;
 }
 
 @media (max-width: 1200px) and (max-height: 1920px) {
@@ -500,7 +500,7 @@ html, * {
   }
 
   .signaturePad_body {
-    width: 806px;
+    width: 906px;
   }
 
   .clear_btn {
@@ -519,9 +519,9 @@ html, * {
   }
 
   #signature-pad {
-    width: 582px;
+    width: 900px;
     height: 511px;
-    margin-left: 14%;
+    margin: auto;
   }
 
   #typo-word-screen {
@@ -531,7 +531,7 @@ html, * {
 
 .typo_question_box {
   height: 150px;
-  width: 104%;
+  width: 850px;
   z-index: -1;
   display: block;
   margin: auto;
@@ -543,10 +543,12 @@ html, * {
 .typo_question_txt {
   font-size: 25px;
   letter-spacing: 5px;
-  width: 527px;
+  width: 830px;
   margin-bottom: 0;
   color: #fff;
   margin-top: -47px;
+  z-index: -1;
+  position: relative;
 }
 
 .typo_back_btn {
@@ -565,13 +567,27 @@ html, * {
   height: 100px;
   align-items: center;
   justify-content: center;
+  display: flex;
   top: 22%;
   position: absolute;
-  left: 24%;
+  left: 10%;
+  z-index: -2;
 }
 
 .typo_btn {
   position: relative;
-  left: 38%;
-  margin-top: -20px;
+  margin-top: -125px;
+}
+
+.clear_btn_container {
+  position: absolute;
+  right: 3%;
+}
+
+.canvas_span_bg {
+  width: 900px;
+  height: 511px;
+  position: absolute;
+  background: rgb(255, 255, 255, 0.5);
+  z-index: -5;
 }
