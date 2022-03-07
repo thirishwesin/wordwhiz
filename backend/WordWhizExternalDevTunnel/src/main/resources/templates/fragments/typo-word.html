@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <div th:fragment="typo-word">
-  <div class="text-center typo_question_container">  
-  	<img alt="" class="cube_img typo_question_box" name="cube_img" src="../../image/cube.png">
-    <!-- <input type="text" id="typo-word-question" class="typo_question_txt"> -->
-    <div id="typo-word-question" class="typo_question_txt"> </div>
-  </div>
+
   <div class="signaturePad_body">
-    <div class="btn_align">
-      <button class="btn clear_btn" id="clear-signature">Clear</button>
+
+    <div class="text-center typo_question_container">
+      <img alt="" class="cube_img typo_question_box" name="cube_img" src="../../image/cube.png">
+      <!-- <input type="text" id="typo-word-question" class="typo_question_txt"> -->
+      <div class="btn_align">
+        <button class="btn clear_btn typo_btn" id="clear-signature">Clear</button>
+      </div>
+      <div id="typo-word-question" class="typo_question_txt"></div>
     </div>
     <div id="signature-pad">
-      <canvas width="800px" height="330px" id="signature"></canvas>
+      <canvas width="582px" height="511px" id="signature"></canvas>
     </div>
 
   </div>
