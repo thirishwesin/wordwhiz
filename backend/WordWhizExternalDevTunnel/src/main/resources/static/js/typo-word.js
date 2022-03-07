@@ -7,7 +7,7 @@ $(document).ready(function () {
     minWidth: 2,
     maxWidth: 4.5,
     penColor: 'rgb(255, 0, 0)',
-    backgroundColor: 'rgb(255, 255, 255,0.1)',
+    backgroundColor: 'rgb(255, 255, 255,0)',
   });
 
   $('#clear-signature').on('click', function () {

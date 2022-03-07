@@ -16,8 +16,8 @@
 }
 
 .signature {
-    border: 3px solid #ede0ff;
-    box-shadow: 0px 0px 50px 0px #c000ff;
+    // border: 3px solid #ede0ff;
+    // box-shadow: 0px 0px 50px 0px #c000ff;
     opacity: 1;
 }
 
@@ -51,10 +51,12 @@
 }
 
 .canvas_span_bg {
-    width: 900px;
-    height: 511px;
+    width: 1600px;
+    height: 800px;
     position: absolute;
     background: rgba(255, 255, 255, 0.5);
     z-index: -5;
-    margin-left: -900px;
+    margin-left: -1250px;
+    border: 3px solid #ede0ff;
+    box-shadow: 0px 0px 50px 0px #c000ff;
 }
