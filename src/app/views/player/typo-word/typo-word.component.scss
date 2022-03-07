@@ -23,7 +23,7 @@
 
 .typo_question_box {
     height: 180px;
-    width: 530px;
+    width: 850px;
     z-index: -1;
     display: block;
     margin: auto;
@@ -34,7 +34,7 @@
     white-space: pre;
     font-size: 25px;
     letter-spacing: 5px;
-    width: 527px;
+    width: 820px;
     margin-bottom: 0;
     color: #fff;
 }
@@ -51,10 +51,10 @@
 }
 
 .canvas_span_bg {
-    width: 582px;
+    width: 900px;
     height: 511px;
     position: absolute;
-    background: rgb(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.5);
     z-index: -5;
-    margin-left: -582px;
+    margin-left: -900px;
 }

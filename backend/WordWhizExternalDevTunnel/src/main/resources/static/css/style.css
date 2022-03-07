@@ -541,6 +541,7 @@ html, * {
 }
 
 .typo_question_txt {
+  white-space: pre;
   font-size: 25px;
   letter-spacing: 5px;
   width: 830px;
