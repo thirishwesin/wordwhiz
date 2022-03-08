@@ -9,7 +9,7 @@
         </div>
         <div class="col-lg-9 row right_wrapper">
           <div class="col-lg-12" style="text-align: center; top: 3%;">
-            <img [hidden]="currentRound?.questionType == 5" class="cube_img_center" name="cube_img" alt="" />
+            <img [hidden]="!control.showQuestion && currentRound?.questionType == 1" class="cube_img_center" name="cube_img" alt="" />
             <div class="clude_hint" [ngStyle]="{'font-size': currentQuestion.otClueFontSize + 'px'}"
               *ngIf="currentRound && (control.showQuestion || control.runCategoryRound) && (currentRound.questionType == 1 || currentRound.questionType == 6) ">
               {{currentQuestion?.clue }}</div>
