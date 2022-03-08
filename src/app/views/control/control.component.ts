@@ -530,6 +530,11 @@ export class ControlComponent implements OnInit {
         // width: size[0],
         // height: Number((size[1] / 3).toFixed()),
       };
+    } else if (playerId == 14) {
+      windowData = {
+        width: 384,
+        height: 512
+      };
     } else {
       windowData = {
         width: 1200,
