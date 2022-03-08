@@ -1,6 +1,6 @@
 html, * {
   /* font-family: "simsun"; */
-  font-family: "STHeiti Medium" !important;
+  font-family: "Heiti SC" !important;
 
 }
 
@@ -288,8 +288,8 @@ html, * {
 }
 
 @font-face {
-  font-family: 'STHeiti Medium';
-  src: url('../fonts/STHeiti_Medium.ttc') format('woff2');
+  font-family: 'Heiti SC';
+  src: url('../fonts/STHeiti_Medium.ttf') format('woff2');
   font-weight: normal;
   font-style: normal;
 }

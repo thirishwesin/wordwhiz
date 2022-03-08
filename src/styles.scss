@@ -1,19 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 
 @font-face {
-    font-family:'STHeiti Medium';
+    font-family:'Heiti SC';
     // src: url(assets/fonts/DIN-Bold.otf) format("opentype");
     // src: url(assets/fonts/msyh.ttc) format("opentype");
     // src: url(assets/fonts/msyhl.ttc) format("opentype");
     // src: url(assets/fonts/msyhbd.ttc) format("opentype");
     //src: url(assets/fonts/simsun.ttf) format("opentype");
-    src: url(assets/fonts/STHeiti_Medium.ttc) format("opentype")
+    src: url(assets/fonts/STHeiti_Medium.ttf) format("opentype")
 
 }
 
 * {
     // font-family: "simsun";
-    font-family: "STHeiti Medium";
+    font-family: "Heiti SC";
 }
 
 html {
