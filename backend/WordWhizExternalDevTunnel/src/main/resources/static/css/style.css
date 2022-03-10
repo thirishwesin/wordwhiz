@@ -282,14 +282,14 @@ html, * {
 @font-face {
   font-family: 'fredoka_oneregular';
   src: url('../fonts/STHeiti_Medium.ttf') format('woff2'),
-  url('../fonts/STHeiti_Medium.ttf') format('woff');
+  url('../fonts/STHeiti_Medium.ttf') format('woff'),url('../fonts/STHeiti_Medium.ttf') format('ttf');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Heiti SC';
-  src: url('../fonts/STHeiti_Medium.ttf') format('woff2');
+  src: url('../fonts/STHeiti_Medium.ttf') format('woff2'),url('../fonts/STHeiti_Medium.ttf') format('ttf');
   font-weight: normal;
   font-style: normal;
 }
