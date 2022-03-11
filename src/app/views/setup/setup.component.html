@@ -39,7 +39,7 @@
           </div>
 
           <!-- Second Point -->
-          <div class="form-group" *ngIf="currentRound.questionType === 6 || currentRound.questionType === 2 || currentRound.questionType === 1|| currentRound.questionType === 8">
+          <div class="form-group" *ngIf="currentRound.questionType === 6 || currentRound.questionType === 2 || currentRound.questionType === 1|| currentRound.questionType === 8 || currentRound.questionType === 7">
             <label for="second_point" class="common_label">SECOND POINT</label>
             <input #secondPoint type="text" id="second_point" class="common_input w_321" [value]="currentRound?.secondPoint" OnlyNumber="true" (keyup)="changePoint(secondPoint, 'secondPoint')" />
           </div>
@@ -129,7 +129,7 @@
           </div>
 
           <!-- Second Time out -->
-          <div class="form-group" *ngIf="currentRound.questionType === 6 || currentRound.questionType === 2 || currentRound.questionType === 1 || currentRound.questionType === 8">
+          <div class="form-group" *ngIf="currentRound.questionType === 6 || currentRound.questionType === 2 || currentRound.questionType === 1 || currentRound.questionType === 8 || currentRound.questionType === 7">
             <label for="second_time_out" class="common_label">SECOND TIMEOUT</label>
             <div ngbDropdown class="d-inline-block">
               <button class="btn common_input" id="sec_time_out_choose_drop_down" ngbDropdownToggle>

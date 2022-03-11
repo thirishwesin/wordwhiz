@@ -66,6 +66,8 @@
     ],
     "timeOut": 15,
     "point": 20,
+    "secondTimeOut": 10,
+    "secondPoint": 10,
     "questionArray": [],
     "roundNameFontSize": "90",
     "clueLabelFontSize": "60",
