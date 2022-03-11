@@ -1,20 +1,13 @@
 @font-face {
-  font-family: 'Heiti SC';
-  // src: url(../assets/fonts/DIN-Bold.otf) format("opentype");
-  // src: url(../assets/fonts/msyh.ttc) format("opentype");
-  //   src: url(../assets/fonts/msyhl.ttc) format("opentype");
-  //   src: url(../assets/fonts/msyhbd.ttc) format("opentype");
-    src: url(../assets/fonts/STHeiti_Medium.ttf) format("ttf");
-}
-
-@font-face {
   font-family: 'STHeiti';
-    src: url(../assets/fonts/STHeiti_Medium.ttf) format("ttf");
+  src: url('assets/fonts/STHeiti.woff2') format('woff2'),
+      url('assets/fonts/STHeiti.woff') format('woff'),
+      url('assets/fonts/STHeiti_Medium.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 * {
-  // font-family: "simsun";
-  //font-family: "msyh";
-  // font-family: "Heiti SC";
   font-family: "STHeiti";
 }

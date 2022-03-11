@@ -1,24 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
 @font-face {
-    font-family:'Heiti SC';
-    // src: url(assets/fonts/DIN-Bold.otf) format("opentype");
-    // src: url(assets/fonts/msyh.ttc) format("opentype");
-    // src: url(assets/fonts/msyhl.ttc) format("opentype");
-    // src: url(assets/fonts/msyhbd.ttc) format("opentype");
-    //src: url(assets/fonts/simsun.ttf) format("opentype");
-    src: url(assets/fonts/STHeiti_Medium.ttf) format("ttf"),url(assets/fonts/STHeiti_Medium.woff) format("woff");
-
-}
-
-// * {
-//     // font-family: "simsun";
-//     font-family: "Heiti SC";
-// }
-@font-face {
     font-family: 'STHeiti';
     src: url('assets/fonts/STHeiti.woff2') format('woff2'),
-        url('assets/fonts/STHeiti.woff') format('woff');
+        url('assets/fonts/STHeiti.woff') format('woff'),
+        url('assets/fonts/STHeiti_Medium.ttf') format('ttf');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
