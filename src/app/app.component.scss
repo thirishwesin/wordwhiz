@@ -7,8 +7,14 @@
     src: url(../assets/fonts/STHeiti_Medium.ttf) format("ttf");
 }
 
+@font-face {
+  font-family: 'STHeiti';
+    src: url(../assets/fonts/STHeiti_Medium.ttf) format("ttf");
+}
+
 * {
   // font-family: "simsun";
   //font-family: "msyh";
-  font-family: "Heiti SC";
+  // font-family: "Heiti SC";
+  font-family: "STHeiti";
 }

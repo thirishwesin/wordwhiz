@@ -1,6 +1,6 @@
 html, * {
   /* font-family: "simsun"; */
-  font-family: "Heiti SC" !important;
+  font-family: "STHeiti" !important;
 
 }
 
@@ -292,6 +292,15 @@ html, * {
   src: url('../fonts/STHeiti_Medium.ttf') format('woff2'),url('../fonts/STHeiti_Medium.ttf') format('ttf');
   font-weight: normal;
   font-style: normal;
+}
+
+@font-face {
+  font-family: 'STHeiti';
+  src: url('assets/fonts/STHeiti.woff2') format('woff2'),
+      url('assets/fonts/STHeiti.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 .welcome-text-container {

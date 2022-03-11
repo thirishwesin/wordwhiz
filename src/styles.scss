@@ -7,15 +7,26 @@
     // src: url(assets/fonts/msyhl.ttc) format("opentype");
     // src: url(assets/fonts/msyhbd.ttc) format("opentype");
     //src: url(assets/fonts/simsun.ttf) format("opentype");
-    src: url(assets/fonts/STHeiti_Medium.ttf) format("ttf");
+    src: url(assets/fonts/STHeiti_Medium.ttf) format("ttf"),url(assets/fonts/STHeiti_Medium.woff) format("woff");
 
 }
 
-* {
-    // font-family: "simsun";
-    font-family: "Heiti SC";
+// * {
+//     // font-family: "simsun";
+//     font-family: "Heiti SC";
+// }
+@font-face {
+    font-family: 'STHeiti';
+    src: url('assets/fonts/STHeiti.woff2') format('woff2'),
+        url('assets/fonts/STHeiti.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 
+  * {
+    font-family: "STHeiti";
+  }
 html {
     margin: 0;
     padding: 0;
