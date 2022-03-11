@@ -273,11 +273,11 @@
               <!-- [ngClass]="timeOut > 3 ? 'timer' : 'timer_warnning'" -->
               <div class=" showans_btn TimerReset">
                 <button class="btn button timer_btn" [disabled]="control.startCount == timerEnum.START"
-                  (click)="resetTimer(currentRound.timeOut)">Reset Timer {{currentRound.timeOut}}</button>
+                  (click)="resetTimer(currentRound.timeOut, 'timeOut')">Reset Timer {{currentRound.timeOut}}</button>
               </div>
               <div class=" showans_btn TimerReset" *ngIf="currentRound.secondTimeOut">
                 <button class="btn button timer_btn" [disabled]="control.startCount == timerEnum.START"
-                  (click)="resetTimer(currentRound.secondTimeOut)">Reset Timer {{currentRound?.secondTimeOut}}</button>
+                  (click)="resetTimer(currentRound.secondTimeOut, 'secondTimeOut')">Reset Timer {{currentRound?.secondTimeOut}}</button>
               </div>
             </div>
             <div class="col-sm-6">

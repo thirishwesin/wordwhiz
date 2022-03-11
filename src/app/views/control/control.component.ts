@@ -751,9 +751,9 @@ export class ControlComponent implements OnInit {
     }
   }
 
-  resetTimer(timeOut: number) {
+  resetTimer(timeOut: number, propertyName: string) {
     this.timeOut = timeOut;//this.currentRound.timeOut;
-    this.changeCurrentPoint(timeOut);
+    this.changeCurrentPoint(propertyName);
     this.disableStart = false;
 
     this.resetAudio();
@@ -1546,47 +1546,48 @@ export class ControlComponent implements OnInit {
     this.clickQuestion(firstQuestionByCategoryId, 1)
   }
 
-  changeCurrentPoint(timeOut: number) {
-    // update point for round Two
-    if (this.currentRound.questionType == 6) {
-      if (timeOut == 10) {
-        this.currentPoint = this.currentRound.point
-      } else if (timeOut == 5) {
-        this.currentPoint = this.currentRound.secondPoint
-      }
-    }
-    // update point for round Three
-    if (this.currentRound.questionType == 2) {
-      if (timeOut == 10) {
-        this.currentPoint = this.currentRound.point
-      } else if (timeOut == 5) {
-        this.currentPoint = this.currentRound.secondPoint
-      }
-    }
-    // update point for round one
-    if (this.currentRound.questionType == 1) {
-      if (timeOut == 10) {
-        this.currentPoint = this.currentRound.point
-      } else if (timeOut == 5) {
-        this.currentPoint = this.currentRound.secondPoint
-      }
-    }
-    // update point for round one
-    if (this.currentRound.questionType == 8) {
-      if (timeOut == 10) {
-        this.currentPoint = this.currentRound.point
-      } else if (timeOut == 5) {
-        this.currentPoint = this.currentRound.secondPoint
-      }
-    }
-    // update point for round one
-    if (this.currentRound.questionType == 7) {
-      if (timeOut == 15) {
-        this.currentPoint = this.currentRound.point
-      } else if (timeOut == 10) {
-        this.currentPoint = this.currentRound.secondPoint
-      }
-    }
+  changeCurrentPoint(propertyName: string) {
+    this.currentPoint = propertyName === 'timeOut' ? this.currentRound.point: this.currentRound.secondPoint;
+    // // update point for round Two
+    // if (this.currentRound.questionType == 6) {
+    //   if (timeOut == 10) {
+    //     this.currentPoint = this.currentRound.point
+    //   } else if (timeOut == 5) {
+    //     this.currentPoint = this.currentRound.secondPoint
+    //   }
+    // }
+    // // update point for round Three
+    // if (this.currentRound.questionType == 2) {
+    //   if (timeOut == 10) {
+    //     this.currentPoint = this.currentRound.point
+    //   } else if (timeOut == 5) {
+    //     this.currentPoint = this.currentRound.secondPoint
+    //   }
+    // }
+    // // update point for round one
+    // if (this.currentRound.questionType == 1) {
+    //   if (timeOut == 10) {
+    //     this.currentPoint = this.currentRound.point
+    //   } else if (timeOut == 5) {
+    //     this.currentPoint = this.currentRound.secondPoint
+    //   }
+    // }
+    // // update point for round one
+    // if (this.currentRound.questionType == 8) {
+    //   if (timeOut == 10) {
+    //     this.currentPoint = this.currentRound.point
+    //   } else if (timeOut == 5) {
+    //     this.currentPoint = this.currentRound.secondPoint
+    //   }
+    // }
+    // // update point for round one
+    // if (this.currentRound.questionType == 7) {
+    //   if (timeOut == 15) {
+    //     this.currentPoint = this.currentRound.point
+    //   } else if (timeOut == 10) {
+    //     this.currentPoint = this.currentRound.secondPoint
+    //   }
+    // }
   }
 
   toggleWebSocketConnection(): void {
