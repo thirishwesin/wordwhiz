@@ -1579,6 +1579,14 @@ export class ControlComponent implements OnInit {
         this.currentPoint = this.currentRound.secondPoint
       }
     }
+    // update point for round one
+    if (this.currentRound.questionType == 7) {
+      if (timeOut == 15) {
+        this.currentPoint = this.currentRound.point
+      } else if (timeOut == 10) {
+        this.currentPoint = this.currentRound.secondPoint
+      }
+    }
   }
 
   toggleWebSocketConnection(): void {
