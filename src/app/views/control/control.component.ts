@@ -1036,7 +1036,7 @@ export class ControlComponent implements OnInit {
               this.count5sec.play();
             }
           } else if (timer == 30 || timer == 15) {
-            if (this.timeOut < 13) {
+            if (this.timeOut < 11) {
               this.audio.pause();
               this.audio.currentTime = 0;
               this.count10sec.play();

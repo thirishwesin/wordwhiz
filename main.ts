@@ -49,7 +49,7 @@ try {
       webPreferences: {
         nodeIntegration: true,
         devTools: serve,
-        webSecurity: AppConfig.production
+        webSecurity: false
       },
     });
 
