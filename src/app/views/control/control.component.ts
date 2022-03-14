@@ -1656,4 +1656,9 @@ export class ControlComponent implements OnInit {
     this.isLockTablet = !this.isLockTablet;
     this.sendQuestionToExternalDevice('specific-player', this.control.currentRoundId);
   }
+
+  togglePlayersPoint(): void {
+    this.control.isShowPlayersPoint = !this.control.isShowPlayersPoint
+    this.broadcastScreens();
+  }
 }

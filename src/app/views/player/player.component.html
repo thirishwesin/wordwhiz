@@ -4,7 +4,7 @@
                     (control.currentRoundId == 8 || control.currentRoundId == 7))">
             <div class="player_body" *ngIf="!control?.playersToChangeBgImage?.includes(+playerId)">
                 <img [src]=Images.player_center_bg class="mx-auto d-block player_center_bg">
-                <p class="player_mark" [ngStyle]="{'font-size': episode.players[0]?.pointFontSize + 'px'}">
+                <p *ngIf="control.isShowPlayersPoint" class="player_mark" [ngStyle]="{'font-size': episode.players[0]?.pointFontSize + 'px'}">
                     {{playerPoint}}
                 </p>
             </div>

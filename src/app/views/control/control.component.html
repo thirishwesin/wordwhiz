@@ -252,7 +252,7 @@
             <input readonly [ngClass]="!control.showAns ? 'col-sm-9 common_input disabled':'col-sm-9 common_input'"
               type="text" value={{currentQuestion?.ans}} />
           </div>
-          <div ngbDropdown class="d-inline-block col-sm-8" *ngIf="currentRound.questionType == 5">
+          <div ngbDropdown class="d-inline-block col-sm-8 row" *ngIf="currentRound.questionType == 5">
             <button class="btn common_input" id="dropdownBasic1" ngbDropdownToggle>
               <p class="section_text">
                 {{spinnerWheelNo + 1 ? spinnerWheelNo + 1 : 'Spineer Wheel Number'}}
@@ -262,6 +262,12 @@
             <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
               <button ngbDropdownItem *ngFor="let number of [0,1,2,3]"
                 (click)="selectSpinnerWheelNumber(number)">{{number + 1}}</button>
+            </div>
+          </div>
+          <div class="col-sm-8 row">
+            <div class=" showans_btn">
+              <button class="btn button que" (click)="togglePlayersPoint()">
+                {{control.isShowPlayersPoint ? 'Hide Players Point' : 'Show Players Point'}}</button>
             </div>
           </div>
         </div>

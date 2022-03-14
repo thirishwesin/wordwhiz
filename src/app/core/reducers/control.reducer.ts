@@ -62,7 +62,8 @@ export const initialState: Control = {
   isChangePlayerBgImage: true,
   isPlay: false,
   isShowQuestionInTablet: false,
-  playersToChangeBgImage: []
+  playersToChangeBgImage: [],
+  isShowPlayersPoint: true
 };
 
 const _controlReducer = createReducer(
