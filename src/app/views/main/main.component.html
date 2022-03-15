@@ -37,7 +37,7 @@
           <p class="clude_txt" [ngStyle]="{'font-size': currentRound.clueLabelFontSize + 'px'}"
             *ngIf="currentRound && (currentRound?.questionType == 1 || currentRound?.questionType == 3 || currentRound?.questionType == 6 || currentRound?.questionType == 8)">
             {{(currentRound?.questionType == 1 && control.showQuestion) || currentRound?.questionType == 6 ? '题目' : ''}}
-            
+
           </p>
           <img [hidden]="!control.showQuestion && currentRound?.questionType == 1" class="cube_img" name="cube_img" alt="" />
           <span class="clude_hint" [ngStyle]="{'font-size': currentQuestion?.clueFontSize + 'px'}"
@@ -221,15 +221,22 @@
                 </ng-container>
               </div>
               <div style="margin-left: -30%; margin-top:14%" *ngIf="currentRound.questionType == 5">
-                <div class="one_word_blue retangle{{control.fontSettings.main_answer}} "
-                  [ngClass]="{'animated heartBeat': control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose, 'green_bg' : char.visible && control.showAns , 'hide_char' : char.word == ' '}"
-                  *ngFor="let char of control.extraWord">
-                  <input type="text" [value]="char.word" [ngStyle]="{'font-size': currentQuestion.ansFontSize + 'px'}"
-                    class="one_word WH_150px font{{control.fontSettings.main_answer}}" [ngClass]="
-                                    control.showAns && !control.clickPoint && !control.clickTimer && !control.fontSettingOpenClose && char.visible && !control.resetCount ||
-                                    char.visible && !control.showAns && control.animationExtraWord == char.word && !control.fontSettingOpenClose && !control.resetCount ? 'animated zoomIn':
-                                    !char.visible  ? 'transparent': ''" class="round1_text">
-                </div>
+                <ng-container *ngIf="!control.showAns">
+                  <div class="one_word_blue retangle{{control.fontSettings.main_answer}}"
+                  [ngClass]="{'animated heartBeat': control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose, 'hide_char' : char == ' '}" *ngFor="let char of currentQuestion.ans.split(''); let i=index;">
+                    <input type="text" [value]="char" class="one_word WH_150px font{{control.fontSettings.main_answer}}"
+                      [ngClass]="control.showAns || currentRound.showfirstAnsChar ? 'animated zoomIn' : 'transparent'" class="round1_text">
+                  </div>
+                </ng-container>
+                <ng-container *ngIf="control.showAns">
+                  <div class="one_word_green one_word_green_Ronetwo retangle{{control.fontSettings.main_answer}}"
+                  [ngClass]="{'animated heartBeat': control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose, 'green_bg' : control.showAns , 'hide_char' : char == ' '}"
+                    *ngFor="let char of currentQuestion.ans.split(''); let i=index;">
+                    <input type="text" [value]="char" class="round1_text oneword_text_Ronetwo"
+                      [ngStyle]="{'font-size': currentQuestion.ansFontSize + 'px'}" [ngClass]="control.showAns ?
+                                    'animated zoomIn ' : 'transparent'" class="round1_text">
+                  </div>
+                </ng-container>
               </div>
             </div>
           </div>

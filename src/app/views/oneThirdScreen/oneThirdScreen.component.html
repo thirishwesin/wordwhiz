@@ -60,15 +60,22 @@
                 </div>
 
                 <div *ngIf="currentRound.questionType == 5" class="hint_ans_center center_answer_box">
-                  <div class="one_word_blue WH_175px retangle{{control.fontSettings.oneThird_answer}}"
-                    [ngClass]="{'animated heartBeat':control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose && control.startCount == timerEnum.STOP , 'green_bg' : char.visible && control.showAns, 'hide_char' : char.word == ' '}"
-                    *ngFor="let char of control.extraWord">
-                    <input [ngClass]="
-                                    control.showAns && !control.clickPoint && !control.clickTimer && char.visible && !control.fontSettingOpenClose && !control.resetCount ||
-                                    char.visible && !control.showAns && control.animationExtraWord == char.word && !control.fontSettingOpenClose && !control.resetCount ? 'animated zoomIn':
-                                    !char.visible  ? 'transparent': ''" [value]="char.word"
-                      [ngStyle]="{'font-size': currentQuestion.otAnsFontSize + 'px'}" class="roundfive_text WH_175px" />
-                  </div>
+                  <ng-container *ngIf="!control.showAns">
+                    <div class="one_word_blue WH_175px retangle{{control.fontSettings.oneThird_answer}}"
+                    [ngClass]="{'animated heartBeat':control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose && control.startCount == timerEnum.STOP , 'hide_char' : char == ' '}" *ngFor="let char of currentQuestion.ans.split(''); let i=index;">
+                      <input type="text" [value]="char" class="roundfive_text WH_175px"
+                        [ngClass]="control.showAns || currentRound.showfirstAnsChar ? 'animated zoomIn' : 'transparent'">
+                    </div>
+                  </ng-container>
+                  <ng-container *ngIf="control.showAns">
+                    <div class="one_word_blue WH_175px retangle{{control.fontSettings.oneThird_answer}}"
+                    [ngClass]="{'animated heartBeat': control.showQuestion && !blockAnimated && !control.clickPoint && !control.fontSettingOpenClose && control.startCount == timerEnum.STOP, 'green_bg' : control.showAns , 'hide_char' : char == ' '}"
+                      *ngFor="let char of currentQuestion.ans.split(''); let i=index;">
+                      <input type="text" [value]="char" class="roundfive_text WH_175px"
+                      [ngStyle]="{'font-size': currentQuestion.otAnsFontSize + 'px'}" [ngClass]="control.showAns ?
+                                      'animated zoomIn ' : 'transparent'">
+                    </div>
+                  </ng-container>
                 </div>
               </div>
 
