@@ -6,19 +6,19 @@
         {
           "id": 1,
           "name": "Player1",
-          "point": 10,
+          "point": 250,
           "pointFontSize": 300
         },
         {
           "id": 2,
           "name": "Player2",
-          "point": 0,
+          "point": 150,
           "pointFontSize": 300
         },
         {
           "id": 3,
           "name": "Player3",
-          "point": 0,
+          "point": 50,
           "pointFontSize": 300
         }
       ],
@@ -35,7 +35,7 @@
           "questionArray": [
             {
               "id": 1,
-              "clue": "方便",
+              "clue": "方便方便",
               "categoryId": 0,
               "hints": [
                 {
@@ -54,7 +54,7 @@
               "ans": "麻烦",
               "isAnsCharacter": true,
               "clueFontSize": 75,
-              "otClueFontSize": "51",
+              "otClueFontSize": 51,
               "ansFontSize": 60,
               "otAnsFontSize": 50
             },
@@ -235,15 +235,15 @@
             }
           ],
           "roundNameFontSize": "90",
-          "clueLabelFontSize": "75",
+          "clueLabelFontSize": "80",
           "roundName": "第一回合",
           "secondPoint": 5,
           "secondTimeOut": 5,
-          "hintLabelFontSize": "60"
+          "hintLabelFontSize": "80"
         },
         {
           "id": 8,
-          "name": "SCRAMBLED WORD",
+          "name": "乾坤大挪移",
           "questionType": 8,
           "showfirstAnsChar": false,
           "hasCategory": false,
@@ -255,91 +255,55 @@
           "questionArray": [
             {
               "id": 1,
-              "clue": "King of forest",
+              "clue": "懒虫惰",
               "categoryId": 0,
-              "hints": [
-                {
-                  "id": 1,
-                  "value": "獅子獅子",
-                  "position": 0,
-                  "isCharacter": false,
-                  "hintFontSize": 50,
-                  "otHintFontSize": 50,
-                  "positionCalss": "",
-                  "playerHintFontSize": "47",
-                  "tabletHintFontSize": 42
-                }
-              ],
-              "ans": "獅子獅子",
+              "hints": [],
+              "ans": "懒惰虫",
               "isAnsCharacter": true,
-              "clueFontSize": 50,
+              "clueFontSize": 99,
               "otClueFontSize": 50,
-              "ansFontSize": 51,
+              "ansFontSize": 90,
               "otAnsFontSize": 50,
-              "playerAnsFontSize": 41,
-              "tabletAnsFontSize": 48,
               "playerClueFontSize": 41,
-              "tabletClueFontSize": 46
+              "tabletClueFontSize": 60,
+              "tabletAnsFontSize": 41,
+              "playerAnsFontSize": 41
             },
             {
               "id": 2,
-              "clue": "King of football nickname",
+              "clue": "点小红",
               "categoryId": 0,
-              "hints": [
-                {
-                  "id": 1,
-                  "value": "山羊山羊",
-                  "position": 0,
-                  "isCharacter": false,
-                  "hintFontSize": 50,
-                  "otHintFontSize": 50,
-                  "positionCalss": "",
-                  "playerHintFontSize": 41,
-                  "tabletHintFontSize": 42
-                }
-              ],
-              "ans": "山羊山羊",
+              "hints": [],
+              "ans": "小红点",
               "isAnsCharacter": true,
-              "clueFontSize": 50,
+              "clueFontSize": 90,
               "otClueFontSize": 50,
-              "ansFontSize": 50,
+              "ansFontSize": 90,
               "otAnsFontSize": 50,
-              "playerAnsFontSize": 41,
-              "tabletAnsFontSize": 42,
               "playerClueFontSize": 41,
-              "tabletClueFontSize": 42
+              "tabletClueFontSize": 42,
+              "playerAnsFontSize": 41,
+              "tabletAnsFontSize": 41
             },
             {
               "id": 3,
-              "clue": "Luffy's hat",
+              "clue": "外活动课",
               "categoryId": 0,
-              "hints": [
-                {
-                  "id": 1,
-                  "value": "草帽草帽",
-                  "position": 0,
-                  "isCharacter": false,
-                  "hintFontSize": 40,
-                  "otHintFontSize": 40,
-                  "positionCalss": "",
-                  "playerHintFontSize": "40",
-                  "tabletHintFontSize": "40"
-                }
-              ],
-              "ans": "草帽草帽",
+              "hints": [],
+              "ans": "课外活动",
               "isAnsCharacter": true,
-              "clueFontSize": 50,
+              "clueFontSize": 100,
               "otClueFontSize": 50,
-              "ansFontSize": 50,
+              "ansFontSize": 100,
               "otAnsFontSize": 50,
-              "playerClueFontSize": 50,
-              "tabletClueFontSize": 50,
               "playerAnsFontSize": 50,
-              "tabletAnsFontSize": 50
+              "tabletAnsFontSize": 50,
+              "tabletClueFontSize": 50,
+              "playerClueFontSize": 50
             }
           ],
           "roundNameFontSize": "90",
-          "clueLabelFontSize": "60",
+          "clueLabelFontSize": "100",
           "roundName": "第二回合"
         },
         {
@@ -400,7 +364,7 @@
                   "positionCalss": "horizontal-cross-num"
                 }
               ],
-              "ans": "37,",
+              "ans": "36,",
               "isAnsCharacter": true,
               "clueFontSize": 50,
               "otClueFontSize": 50,
@@ -559,6 +523,60 @@
               "otClueFontSize": 50,
               "ansFontSize": 50,
               "otAnsFontSize": 50
+            },
+            {
+              "id": 9,
+              "clue": "RED FRUIT",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "APPLE",
+                  "position": [
+                    61,
+                    51,
+                    41,
+                    31,
+                    21
+                  ],
+                  "isCharacter": false,
+                  "hintFontSize": 30,
+                  "otHintFontSize": 30,
+                  "positionCalss": "horizontal-cross-num"
+                }
+              ],
+              "ans": "21,51,",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            },
+            {
+              "id": 10,
+              "clue": "BLACK ON FACE",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "EYE",
+                  "position": [
+                    21,
+                    22,
+                    23
+                  ],
+                  "isCharacter": false,
+                  "hintFontSize": 30,
+                  "otHintFontSize": 30,
+                  "positionCalss": "horizontal-cross-num"
+                }
+              ],
+              "ans": "21,22,",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
             }
           ],
           "roundNameFontSize": "90",
@@ -586,7 +604,7 @@
           "questionArray": [
             {
               "id": 1,
-              "clue": "他总是装出一副很可玲的样子， 博取他人的注意和同情\n。",
+              "clue": "他总是装出一副很可玲的样子， 博取他人的注意和同情。",
               "categoryId": 0,
               "hints": [
                 {
@@ -603,11 +621,13 @@
               "clueFontSize": 50,
               "otClueFontSize": 50,
               "ansFontSize": 50,
-              "otAnsFontSize": 50
+              "otAnsFontSize": 50,
+              "tabletClueFontSize": "30",
+              "playerClueFontSize": "30"
             },
             {
               "id": 2,
-              "clue": "比利不尊守校规，\n而且多次迟到早退，\n班主任找了他的爸妈了解情况。",
+              "clue": "比利不尊守校规，而且多次迟到早退，\n班主任找了他的爸妈了解情况。",
               "categoryId": 0,
               "hints": [
                 {
@@ -624,7 +644,9 @@
               "clueFontSize": 50,
               "otClueFontSize": 50,
               "ansFontSize": 50,
-              "otAnsFontSize": 50
+              "otAnsFontSize": 50,
+              "tabletClueFontSize": "30",
+              "playerClueFontSize": "35"
             },
             {
               "id": 3,
@@ -649,7 +671,7 @@
             },
             {
               "id": 4,
-              "clue": "老师称赞晓德写作能力强， 他就开始觉得有些自瞒，\n轻飘飘起来。 ",
+              "clue": "老师称赞晓德写作能力强， 他就开始\n觉得有些自瞒，轻飘飘起来。觉得有， ",
               "categoryId": 0,
               "hints": [
                 {
@@ -769,7 +791,7 @@
           "questionArray": [
             {
               "id": 1,
-              "clue": "01",
+              "clue": "CIMBSystemAdmin_ErrorPage",
               "categoryId": 0,
               "hints": [],
               "ans": "反义词",
@@ -777,19 +799,11 @@
               "clueFontSize": 50,
               "otClueFontSize": 50,
               "ansFontSize": 50,
-              "otAnsFontSize": 50
-            },
-            {
-              "id": 2,
-              "clue": "mov_bbb",
-              "categoryId": 0,
-              "hints": [],
-              "ans": "test",
-              "isAnsCharacter": true,
-              "clueFontSize": 50,
-              "otClueFontSize": 50,
-              "ansFontSize": 50,
-              "otAnsFontSize": 50
+              "otAnsFontSize": 50,
+              "playerClueFontSize": 40,
+              "tabletClueFontSize": 40,
+              "playerAnsFontSize": 50,
+              "tabletAnsFontSize": 50
             }
           ],
           "roundNameFontSize": "90",
@@ -835,11 +849,12 @@
           "questionArray": [],
           "roundNameFontSize": "90",
           "clueLabelFontSize": "60",
-          "roundName": "第一回合"
+          "roundName": "第一回合",
+          "hintLabelFontSize": "80"
         },
         {
           "id": 8,
-          "name": "SCRAMBLED WORD",
+          "name": "乾坤大挪移",
           "questionType": 8,
           "showfirstAnsChar": false,
           "hasCategory": false,
@@ -864,7 +879,62 @@
           "point": 15,
           "secondTimeOut": 5,
           "secondPoint": 10,
-          "questionArray": [],
+          "questionArray": [
+            {
+              "id": 1,
+              "clue": "RED FRUIT",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "APPLE",
+                  "position": [
+                    75,
+                    65,
+                    55,
+                    45,
+                    35
+                  ],
+                  "isCharacter": false,
+                  "hintFontSize": 30,
+                  "otHintFontSize": 30,
+                  "positionCalss": "horizontal-cross-num"
+                }
+              ],
+              "ans": "75,55,",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            },
+            {
+              "id": 2,
+              "clue": "EAR",
+              "categoryId": 0,
+              "hints": [
+                {
+                  "id": 1,
+                  "value": "EAR",
+                  "position": [
+                    35,
+                    36,
+                    37
+                  ],
+                  "isCharacter": false,
+                  "hintFontSize": 30,
+                  "otHintFontSize": 30,
+                  "positionCalss": "horizontal-cross-num"
+                }
+              ],
+              "ans": "35,36,",
+              "isAnsCharacter": true,
+              "clueFontSize": 50,
+              "otClueFontSize": 50,
+              "ansFontSize": 50,
+              "otAnsFontSize": 50
+            }
+          ],
           "roundNameFontSize": "90",
           "clueLabelFontSize": "60",
           "roundName": "第三回合"
@@ -921,8 +991,8 @@
     },
     {
       "id": 8,
-      "name": "SCRAMBLED WORD",
-      "hintsCount": 1,
+      "name": "乾坤大挪移",
+      "hintsCount": 0,
       "isHintChar": false,
       "isAnsChar": true,
       "showfirstAnsChar": false,
