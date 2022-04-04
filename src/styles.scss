@@ -1,183 +1,49 @@
 /* You can add global styles to this file, and also import other style files */
+html, body {
+  margin: 0;
+  padding: 0;
 
-@font-face {
-    font-family: 'STHeiti';
-    src: url('assets/fonts/STHeiti.woff2') format('woff2'),
-        url('assets/fonts/STHeiti.woff') format('woff'),
-        url('assets/fonts/STHeiti_Medium.ttf') format('ttf');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-  * {
-    font-family: "STHeiti";
+/* CAN (MUST) BE REMOVED ! Sample Global style */
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background: url(./assets/background.jpg) no-repeat center fixed;
+  -webkit-background-size: cover; /* pour anciens Chrome et Safari */
+  background-size: cover; /* version standardisée */
+
+  .title {
+    color: white;
+    margin: 0;
+    padding: 50px 20px;
   }
-html {
-    margin: 0;
-    padding: 0;
-    height: auto;
-}
 
-@mixin theme($color: false) {
-    height: 100%;
-    margin-left: 0px;
-    background: url(assets/images/control_bg.png) no-repeat fixed;
-    -webkit-background-size: cover;
-    background-size: cover;
-    padding: 0px !important;
-    background-color: #005e98;
-    @if $color {
-        background: #000;
-    }
-}
+  a {
+    color: #fff !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #ed3330;
+    padding: 20px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    transition: all 0.4s ease 0s;
 
-.img-theme {
-    @include theme($color: false);
-}
-
-.color-theme {
-    @include theme($color: true);
-}
-
-.loading {
-    font-weight: bold;
-    font-size: 15px;
-    color: #48B822;
-    margin-top: 30%;
-    margin-left: 50%;
-}
-
-.loader {
-    animation: rotate 1s infinite;
-    height: 50px;
-    width: 50px;
-    margin-top: 25%;
-    margin-left: 50%;
-    position: absolute;
-}
-
-.loader:before,
-.loader:after {
-    border-radius: 50%;
-    content: '';
-    display: block;
-    height: 20px;
-    width: 20px;
-}
-
-.loader:before {
-    animation: ball1 1s infinite;
-    background-color: #cb2025;
-    box-shadow: 30px 0 0 #f8b334;
-    margin-bottom: 10px;
-}
-
-.loader:after {
-    animation: ball2 1s infinite;
-    background-color: #00a096;
-    box-shadow: 30px 0 0 #97bf0d;
-}
-
-@keyframes rotate {
-    0% {
-        -webkit-transform: rotate(0deg) scale(0.8);
-        -moz-transform: rotate(0deg) scale(0.8);
+    &:hover {
+      background: #fff;
+      color: #ed3330 !important;
+      letter-spacing: 1px;
+      -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+      -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+      box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+      transition: all 0.4s ease 0s;
     }
-    50% {
-        -webkit-transform: rotate(360deg) scale(1.2);
-        -moz-transform: rotate(360deg) scale(1.2);
-    }
-    100% {
-        -webkit-transform: rotate(720deg) scale(0.8);
-        -moz-transform: rotate(720deg) scale(0.8);
-    }
-}
-
-@keyframes ball1 {
-    0% {
-        box-shadow: 30px 0 0 #f8b334;
-    }
-    50% {
-        box-shadow: 0 0 0 #f8b334;
-        margin-bottom: 0;
-        -webkit-transform: translate(15px, 15px);
-        -moz-transform: translate(15px, 15px);
-    }
-    100% {
-        box-shadow: 30px 0 0 #f8b334;
-        margin-bottom: 10px;
-    }
-}
-
-@keyframes ball2 {
-    0% {
-        box-shadow: 30px 0 0 #97bf0d;
-    }
-    50% {
-        box-shadow: 0 0 0 #97bf0d;
-        margin-top: -20px;
-        -webkit-transform: translate(15px, 15px);
-        -moz-transform: translate(15px, 15px);
-    }
-    100% {
-        box-shadow: 30px 0 0 #97bf0d;
-        margin-top: 0;
-    }
-}
-
-// End of loading
-//* common padding class by KKK
-@for $i from 1 through 20 {
-    .pt#{$i} {
-        //! p means padding
-        padding-top: $i * 5px;
-    }
-    .pl#{$i} {
-        padding-left: $i * 5px;
-    }
-    .pr#{$i} {
-        padding-right: $i * 5px;
-    }
-    .pb#{$i} {
-        padding-bottom: $i * 5px;
-    }
-    .pad#{$i} {
-        padding: $i * 5px;
-    }
-}
-
-//* common margin class by KKK
-@for $i from 1 through 20 {
-    .mt#{$i} {
-        //! m means margin
-        margin-top: $i * 5px !important;
-    }
-    .ml#{$i} {
-        margin-left: $i * 5px;
-    }
-    .mr#{$i} {
-        margin-right: $i * 5px;
-    }
-    .mb#{$i} {
-        margin-bottom: $i * 5px;
-    }
-    .mar#{$i} {
-        margin: $i * 5px;
-    }
-}
-
-@for $f from 1 through 10000 {
-    .font#{$f} {
-        font-size: $f * 1px;
-    }
-}
-
-// input[type=number]::-webkit-inner-spin-button {
-//   -webkit-appearance: none;
-// }
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  }
 }
