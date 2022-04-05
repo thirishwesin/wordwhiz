@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { WordWhizStore } from './../state/wordwhiz.store';
-import data from './../state/initData';
+import { WordWhizStore } from '../../core/state/wordwhiz.store';
+import data from '../../core/state/initData';
 
 @Component({
   selector: 'app-home',

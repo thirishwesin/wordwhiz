@@ -9,7 +9,7 @@ Store.initRenderer();
 
 let win: BrowserWindow = null;
 const args = process.argv.slice(1),
-serve = args.some(val => val === '--serve');
+  serve = args.some(val => val === '--serve');
 process.env["ELECTRON_DISABLE_SECURITY_WARNINGS"] = "true";
 
 function createWindow(): BrowserWindow {
@@ -26,7 +26,7 @@ function createWindow(): BrowserWindow {
     webPreferences: {
       nodeIntegration: true,//(serve) ? true : false,
       contextIsolation: false,  // false if you want to run 2e2 test with Spectron
-      enableRemoteModule : true, // true if you want to run 2e2 test  with Spectron or use remote module in renderer context (ie. Angular)
+      enableRemoteModule: true, // true if you want to run 2e2 test  with Spectron or use remote module in renderer context (ie. Angular)
       webSecurity: false
     },
   });

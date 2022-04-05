@@ -2,7 +2,7 @@ import { Subject } from "rxjs";
 
 const Store = require('electron-store');
 
-class ElectronStore {
+class ElectronStore{
     private static _instance: ElectronStore;
     private subject: Subject<any>;
     private static store: typeof Store;
