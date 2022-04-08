@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Images } from "../../common/Images";
 
 @Component({
   selector: 'app-control',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./control.component.scss']
 })
 export class ControlComponent implements OnInit {
+
+  Images = Images;
 
   constructor() { }
 
