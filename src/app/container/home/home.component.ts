@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { WordWhizStore } from '../../core/state/wordwhiz.store';
 import data from '../../core/state/initData';
+import { Images } from "../../common/Images";
 
 @Component({
   selector: 'app-home',
@@ -14,6 +15,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   wordWhizStore =  WordWhizStore.Instance;
   wordWhizStore$: Subscription;
   unsubscribe: Function;
+
+  Images = Images;
 
   constructor(private router: Router) { }
 

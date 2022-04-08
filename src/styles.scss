@@ -15,7 +15,7 @@ html, body {
   align-items: center;
   justify-content: center;
 
-  background: url(./assets/background.jpg) no-repeat center fixed;
+  //background: url(./assets/background.jpg) no-repeat center fixed;
   -webkit-background-size: cover; /* pour anciens Chrome et Safari */
   background-size: cover; /* version standardisée */
 
@@ -45,5 +45,89 @@ html, body {
       box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
       transition: all 0.4s ease 0s;
     }
+  }
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  height: auto;
+}
+
+.img-theme {
+  height: 100%;
+  margin-left: 0px;
+  background: url(assets/images/control_bg.png) no-repeat fixed;
+  -webkit-background-size: cover;
+  background-size: cover;
+  padding: 0px !important;
+  background-color: #005e98;
+}
+
+// margin and paindding base 2px
+@for $x from 0 through 100 {
+  .pad_basetwo#{$x} {
+    padding: $x * 2px;
+  }
+  .padt_basetwo#{$x} {
+    padding-top: $x * 2px;
+  }
+  .padb_basetwo#{$x} {
+    padding-bottom: $x * 2px;
+  }
+  .padr_basetwo#{$x} {
+    padding-right: $x * 2px;
+  }
+  .padl_basetwo#{$x} {
+    margin-left: $x * 2px;
+  }
+  .mar_basetwo#{$x} {
+    margin: $x * 2px;
+  }
+  .mart_basetwo#{$x} {
+    margin-top: $x * 2px;
+  }
+  .marb_basetwo#{$x} {
+    margin-bottom: $x * 2px;
+  }
+  .marr_basetwo#{$x} {
+    margin-right: $x * 2px;
+  }
+  .marl_basetwo#{$x} {
+    margin-left: $x * 2px;
+  }
+}
+
+// margin and paindding base 5px
+@for $x from 0 through 100 {
+  .pad_basefive#{$x} {
+    padding: $x * 5px !important;
+  }
+  .padt_basefive#{$x} {
+    padding-top: $x * 5px !important;
+  }
+  .padb_basefive#{$x} {
+    padding-bottom: $x * 5px !important;
+  }
+  .padr_basefive#{$x} {
+    padding-right: $x * 5px !important;
+  }
+  .padl_basefive#{$x} {
+    padding-left: $x * 5px !important;
+  }
+  .mar_basefive#{$x} {
+    margin: $x * 5px !important;
+  }
+  .mart_basefive#{$x} {
+    margin-top: $x * 5px !important;
+  }
+  .marb_basefive#{$x} {
+    margin-bottom: $x * 5px !important;
+  }
+  .marr_basefive#{$x} {
+    margin-right: $x * 5px !important;
+  }
+  .marl_basefive#{$x} {
+    margin-left: $x * 5px !important;
   }
 }
