@@ -10,6 +10,10 @@ export class ScrambleWordLogicComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.font_size(100);
+  }
+  font_size(scramble_block_f) {
+    document.documentElement.style.setProperty("--scramble-block-font-size", scramble_block_f+"px");
   }
 
 }
