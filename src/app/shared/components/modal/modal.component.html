@@ -1,0 +1,18 @@
+<div class="bg_img">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Word Whiz</h4>
+        <button type="button" class="close" aria-label="Close"
+            (click)="activeModal.dismiss(modalConstant.CLICK_EVENT.CROSS_CLICK)">
+            <span aria-hidden=" true ">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <label>{{modalQuestion}}</label>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-add" (click)="activeModal.dismiss( modalConstant.CLICK_EVENT.CANCEL_CLICK )">Cancel</button>
+        <button type="butto " class="btn btn-add" (click)="activeModal.close( modalAction )">
+            {{modalAction}}
+        </button>
+    </div>
+</div>

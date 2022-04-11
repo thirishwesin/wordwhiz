@@ -1,66 +1,55 @@
 <div class="container-fluid home">
   <div class="button">
-    <button class="btn button__common">User View</button>
-    <button class="btn button__common">Admin View</button>
-    <button class="btn button__close">X</button>
+    <button class="btn button__common" (click)="clickUserOrAdmin(true)">User View</button>
+    <button class="btn button__common" (click)="clickUserOrAdmin(false)">Admin View</button>
+    <button class="btn button__close"
+      (click)="openModal(modalConstant.QUESTIONS.ADD_EPISODE ,modalConstant.ACTION.QUIT)">
+      X</button>
   </div>
-
-
+  
   <!-- user view section -->
-  <section>
+  <section *ngIf="isUserView">
     <div class="container-fluid episode">
       <div class="row marl_basefive12 marr_basefive12">
-        <div class="col-sm-3">
-          <div class="episode__body">
+        <div class="col-sm-3" *ngFor="let episode of episodes; let index = index">
+          <div class="episode__body" (click)="clickEpisode(episode.episodeId)">
             <img [src]="Images.epiImg" class="mx-auto d-block episode__image" />
             <p class="episode__text">
-                <button class="btn episode__btn">EPISODE "1"</button>
-            </p>
-          </div>
-        </div>
-
-        <div class="col-sm-3">
-          <div class="episode__body">
-            <img [src]="Images.epiImg" class="mx-auto d-block episode__image" />
-            <p class="episode__text">
-                <button class="btn episode__btn">EPISODE "2"</button>
+              <button class="btn episode__btn">EPISODE "{{index+1}}"</button>
             </p>
           </div>
         </div>
       </div>
     </div>
-  </section> 
+  </section>
   <!-- End of user view section -->
 
   <!-- Admin View Section -->
-  <section>
+  <section *ngIf="!isUserView">
     <div class="container-fluid episode">
       <div class="row marl_basefive12 marr_basefive12">
-        <div class="col-sm-3">
+        <div class="col-sm-3" *ngFor="let episode of episodes; let index = index">
           <div class="episode__body">
-            <img [src]="Images.minus" class="mx-auto d-block minus-image" />
+            <img [src]="Images.minus" class="mx-auto d-block minus-image" (click)="openModal(
+                modalConstant.QUESTIONS.REMOVE_EPISODE.replace('{episodeId}', index+1+''),
+                modalConstant.ACTION.REMOVE,
+                episode.episodeId
+              )" />
             <div>
               <img [src]="Images.epiImg" class="mx-auto d-block episode__image" />
-                <p class="episode__text">
-                  <button class="btn episode__btn">EPISODE "2"</button>
-                </p>
+              <p class="episode__text">
+                <button class="btn episode__btn">EPISODE "{{index + 1}}"</button>
+              </p>
             </div>
           </div>
         </div>
-
-        <div class="col-sm-3">
-          <div class="episode__body">
-            <img [src]="Images.minus" class="mx-auto d-block minus-image" />
-            <div>
-              <img [src]="Images.epiImg" class="mx-auto d-block episode__image" />
-                <p class="episode__text">
-                  <button class="btn episode__btn">EPISODE "2"</button>
-                </p>
-            </div>
-          </div>
+        <div class="col-sm-3 add_body">
+          <button (click)="openModal(modalConstant.QUESTIONS.ADD_EPISODE, modalConstant.ACTION.ADD)" class="add_btn">
+            <fa-icon class="add_icon" [icon]="faPlusCircle"></fa-icon>
+          </button>
         </div>
       </div>
     </div>
-  </section> 
+  </section>
   <!-- End of Admin View Section -->
 </div>

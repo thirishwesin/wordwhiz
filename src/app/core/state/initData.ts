@@ -1,55 +1,27 @@
 const data = {
     episodes: [
         {
-            id: 1,
-            players: [
-                {
-                    id: 1,
-                    name: "Player name",
-                    point: 200,
-                    pointFontSize: 100
-                }
-            ],
+            episodeId: 1,
             rounds: [
                 {
-                    orderNumber: 1,
-                    orderName: "Round 1",
-                    roundName: "SCRAMBLED WORD",
-                    timers: [
-                        "20s",
-                        "10s",
-                        "5s"
-                    ],
-                    points: [20, 10, 5],
-                    questionGroups: [
-                        {
-                            id: 1,
-                            groupName: ""
-                        }
-                    ],
+                    roundId: 1,
+                    gameLogicId: 1,
+                    gameLogicName: "SCRAMBLED WORD",
+                    timeout: 15,
+                    scorePoint: 10,
                     questions: [
                         {
-                            id: 1,
-                            value: "What is this?",
-                            questionGroupId: 1,
-                            hints: [
-                                {
-                                    value: "LION",
-                                    wordPositions: [],
-                                    wordPositionsToShow: [],
-                                    mainScreenHintFontSize: 45,
-                                    onethirdScreenHintFontSize: 30,
+                            questionId: 1,
+                            question: "GOAT",
+                            answer: "ROLANDO",
+                            ui: {
+                                font: {
+                                    question: 23,
+                                    answer: 23
                                 }
-                            ],
-                            answer: "",
-                            mainScreenquestionFontSize: 50,
-                            onethirdScreenquestionFontSize: 40,
+                            }
                         }
-                    ],
-                    marinScreenRoundNameFontSize: 59,
-                    onethirdScreenRoundNameFontSize: 50,
-                    mainScreenOrderNameFontSize: 70,
-                    onethirdScreenOrderNameFontSize: 45
+                    ]
                 }
             ]
         }
