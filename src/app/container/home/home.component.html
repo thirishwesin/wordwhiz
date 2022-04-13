@@ -13,7 +13,7 @@
       <div class="row marl_basefive12 marr_basefive12">
         <div class="col-sm-3" *ngFor="let episode of episodes; let index = index">
           <div class="episode__body" (click)="clickEpisode(episode.episodeId)">
-            <img [src]="Images.epiImg" class="mx-auto d-block episode__image" />
+            <img [src]="Images.EPISODE" class="mx-auto d-block episode__image" />
             <p class="episode__text">
               <button class="btn episode__btn">EPISODE "{{index+1}}"</button>
             </p>
@@ -30,13 +30,13 @@
       <div class="row marl_basefive12 marr_basefive12">
         <div class="col-sm-3" *ngFor="let episode of episodes; let index = index">
           <div class="episode__body">
-            <img [src]="Images.minus" class="mx-auto d-block minus-image" (click)="openModal(
+            <img [src]="Images.MINUS" class="mx-auto d-block minus-image" (click)="openModal(
                 modalConstant.QUESTIONS.REMOVE_EPISODE.replace('{episodeId}', index+1+''),
                 modalConstant.ACTION.REMOVE,
                 episode.episodeId
               )" />
             <div>
-              <img [src]="Images.epiImg" class="mx-auto d-block episode__image" />
+              <img [src]="Images.EPISODE" class="mx-auto d-block episode__image" />
               <p class="episode__text">
                 <button class="btn episode__btn">EPISODE "{{index + 1}}"</button>
               </p>
