@@ -50,7 +50,7 @@ class WordWhizStore {
     }
 
     public getAllEpisodes(): Episode[] {
-        return ElectronStore.Instance.get(STORE_KEY.EPISODES);
+        return ElectronStore.Instance.get(STORE_KEY.EPISODES) || [];
     }
 
     public getEpisodeById(episodeId: number): Episode {
