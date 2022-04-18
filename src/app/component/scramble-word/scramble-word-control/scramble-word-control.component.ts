@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Images } from '../../../common/images';
 
 @Component({
   selector: 'app-scramble-word-control',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScrambleWordControlComponent implements OnInit {
 
+  Images = Images;
+  
   constructor() { }
 
   ngOnInit(): void {

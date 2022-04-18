@@ -24,3 +24,38 @@
         </div>
       </div>
 </div>
+
+<div class="row" style="padding: 50px 10px 10px 10px;">
+  <div class="col">
+      <div class="row col-sm-12 marb_basetwo7">
+        <div class="col-sm-4">
+          <div class="form-group">
+            <div ngbDropdown class="d-inline-block">
+              <button class="btn common_input" id="time_out_choose_drop_down" ngbDropdownToggle>
+                <p class="section_text"></p>
+                <img [src]="Images.dropDown" class="drop_down_icon" alt="drop down image">
+              </button>
+              <div ngbDropdownMenu aria-labelledby="time_out_choose_drop_down">
+                <button id="time_out" ngbDropdownItem></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <input class="common_input common_style" name="words" readonly="">
+        </div>
+        <div class="col-sm-2">
+            <button class="btn adjustMin"> &lt; </button>
+        </div>
+        <div class="col-sm-2">
+            <button class="btn adjustMin"> &gt; </button>
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <app-scramble-word-control></app-scramble-word-control>
+      </div>
+  </div>
+  <div class="col">
+
+  </div>
+</div>
