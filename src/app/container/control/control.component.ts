@@ -13,13 +13,20 @@ import { WordWhizStore } from '../../core/state/wordwhiz.store';
 export class ControlComponent implements OnInit, OnDestroy {
 
   Images = Images;
+  currentEpisodeId: number;
   currentEpisode: Episode;
+  currentEpisodeIndex: number;
   wordWhizStore = WordWhizStore.Instance;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    console.log("Current Episode =>", this.wordWhizStore.getCurrentEpisode());
+    this.route.params.subscribe(params => {
+      this.currentEpisodeId = parseInt(params['episodeId']);
+      this.currentEpisodeIndex = parseInt(params['episodeIndex'])
+      this.currentEpisode = this.wordWhizStore.getEpisodeById(this.currentEpisodeId);
+    })
+    console.log("Current Episode => ", this.currentEpisode);
   }
 
   ngOnDestroy(): void {

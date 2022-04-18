@@ -1,8 +1,7 @@
 import { Component, NgZone, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Notification, Subscription } from 'rxjs';
 import { WordWhizStore } from '../../core/state/wordwhiz.store';
-import data from '../../core/state/initData';
 import { Images } from "../../common/Images";
 import { Episode } from '../../core/models/episode';
 import { faPlusCircle, faMinusCircle } from "@fortawesome/free-solid-svg-icons";
@@ -10,7 +9,8 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalComponent } from '../../shared/components/modal/modal.component';
 import { ModalConstant } from '../../common/constant/modal.constant';
 import { assign as _assign, cloneDeep as _cloneDeep, isFunction as _isFunction } from 'lodash';
-import { rounds } from '../../core/state/default.rounds';
+import { rounds } from '../../common/default-app-data';
+import { STORE_KEY } from '../../common/constant/store-key.constant';
 
 @Component({
   selector: 'app-home',
@@ -33,15 +33,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   constructor(private router: Router, private modalService: NgbModal, private nz: NgZone) { }
 
   ngOnInit(): void {
-
-    if (WordWhizStore.Instance.getAllEpisodes().length === 0) {
-      this.wordWhizStore.initData(data);
-    }
     this.episodes = this.wordWhizStore.getAllEpisodes();
     this.wordWhizStore$ = this.wordWhizStore.onAnyDataChange().subscribe(res => {
       this.unsubscribeOnAnyDataChange = res.unsubscribe;
       this.nz.run(() => {
-        this.episodes = _cloneDeep(res.newValue['episodes']);
+        this.episodes = _cloneDeep(res.newValue[STORE_KEY.EPISODES]);
       })
     })
   }
@@ -57,8 +53,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     });
     _assign(modalRef.componentInstance, { modalQuestion, modalAction, episodeId });
     modalRef.result.then(
-      (result: string) => {
-        switch (result) {
+      (reason: string) => {
+        switch (reason) {
           case this.modalConstant.ACTION.ADD:
             let _episodes: Episode[] = this.wordWhizStore.getAllEpisodes();
             const newEpisode = this.wordWhizStore.addEpisode({
@@ -72,15 +68,14 @@ export class HomeComponent implements OnInit, OnDestroy {
             break;
         }
       },
-      (reason) => console.log("Modal Reason => ", reason)
     )
   }
 
-  clickEpisode(episodeId: number) {
-    let episode: Episode = this.wordWhizStore.getEpisodeById(episodeId);
-    this.wordWhizStore.addCurrentEpisode(episode);
-    this.router.navigate(['control']).then(isRouted => {
+  clickEpisode(episodeId: number, episodeIndex: number) {
+    this.router.navigate(['control', episodeId, episodeIndex]).then(isRouted => {
       console.log("Is successfully routed => ", isRouted);
+    }).catch(error => {
+      console.error("Getting error when route to control screen => ", error);
     })
   }
 

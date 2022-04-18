@@ -1,6 +1,6 @@
-import { Round } from "../models/round";
+import { Round } from "../../core/models/round";
 
-export const rounds: Round[] = [
+const rounds: Round[] = [
     {
         "roundId": 1,
         "gameLogicId": 1,
@@ -62,3 +62,38 @@ export const rounds: Round[] = [
         ]
     }
 ]
+
+const initialData = {
+    episodes: [
+        {
+            episodeId: 1,
+            rounds: [
+                {
+                    roundId: 1,
+                    gameLogicId: 1,
+                    gameLogicName: "SCRAMBLED WORD",
+                    timeout: 15,
+                    scorePoint: 10,
+                    questions: [
+                        {
+                            questionId: 1,
+                            question: "GOAT",
+                            answer: "ROLANDO",
+                            ui: {
+                                font: {
+                                    question: 23,
+                                    answer: 23
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+
+
+
+}
+
+export {rounds, initialData};

@@ -12,7 +12,7 @@
     <div class="container-fluid episode">
       <div class="row marl_basefive12 marr_basefive12">
         <div class="col-sm-3" *ngFor="let episode of episodes; let index = index">
-          <div class="episode__body" (click)="clickEpisode(episode.episodeId)">
+          <div class="episode__body" (click)="clickEpisode(episode.episodeId, index+1)">
             <img [src]="Images.EPISODE" class="mx-auto d-block episode__image" />
             <p class="episode__text">
               <button class="btn episode__btn">EPISODE "{{index+1}}"</button>
