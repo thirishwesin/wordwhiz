@@ -1,109 +1,20 @@
-.common_input{
-    border-radius: 28px;
-    background: #eeeeee75;
-    padding: 0px 10px;
-    border: 2px solid #4DB821;
-    outline: none;
-    color: #fff;
-    font-size: 14px;
-    font-weight: bold;
-    letter-spacing: 0.5px;
-    height: 40px;
-    margin-bottom: 0px;
-    box-shadow: 1px 4px #00000017;
-    width: 100%;
-}
 .w_321 {
     width: 321px;
 }
-.common_label {
-    font-size: 14px;
-    font-weight: bold;
-    color: #41faff;
-    letter-spacing: 0.7px;
-    margin-bottom: 0px;
-    text-align: left;
-    padding-bottom: 5px;
-    width: auto;
-    display: block;
-}
+
 .select_body{
     padding-left: 50px;
 }
 
-
-.dropdown-toggle::after {
-    display: none;
-  }
-  
-  .dropdown {
-    .dropdown-menu.show {
-      width: 100%;
-      font-weight: bold;
-      border-radius: 15px;
-      background: #ffffff;
-  
-      .dropdown-item {
-        padding: .35rem 1rem;
-        font-size: 14px;
-        font-weight: bold;
-        outline: none;
-  
-        .roundDropDown {
-          padding-right: 60%;
-          padding-top: 2%;
-          padding-bottom: 3%;
-        }
-      }
-  
-      .dropdown-item:focus {
-        color: #000 !important;
-        text-decoration: none;
-        background-color: #b4f5ee5c !important;
-      }
-  
-      .dropdown-item:hover {
-        color: #000 !important;
-        text-decoration: none;
-        background-color: #b4f5ee5c !important;
-      }
-    }
-  
+.dropdown {  
+  width: 321px;
     .dropdown-toggle {
       width: 321px;
       text-align: left;
-  
-  
-      .drop_down_icon {
-        float: right;
-        width: 30px;
-        margin-top: -15px;
-      }
-  
-      .down_icon {
-        // filter: progid: DXImageTransform.Microsoft.BasicImage(rotation=0.5);
-        -webkit-transform: rotate(90deg);
-        -moz-transform: rotate(90deg);
-        -ms-transform: rotate(90deg);
-        -o-transform: rotate(90deg);
-        transform: rotate(90deg);
-        display: inline-block;
-        /* background: #fff; */
-        border-radius: 50%;
-        height: 20px;
-        width: 15px;
-        margin: 0;
-        padding-right: 10px;
-        font-size: 18px;
-        color: #4DB821;
-        margin-left: 23px;
-        float: right;
-        margin-top: -22px;
-      }
     }
-  }
+}
 
-  .second_body{
+.second_body{
     padding: 10px 40px;
     margin-bottom: 15px;
     background: radial-gradient(#00000029, #ffffff38);
@@ -124,13 +35,6 @@
   padding: 3px 20px;
   border-radius: 40px;
   margin-bottom: 10px;
-}
-.common_textarea {
-  height: 100px;
-  border-radius: 15px;
-  width: 100%;
-  margin-bottom: 1rem;
-  resize: none;
 }
 
 .second_body .common_textarea{
