@@ -1,14 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ElectronService } from './core/services';
 import { TranslateService } from '@ngx-translate/core';
 import { AppConfig } from '../environments/environment';
+import { WordWhizStore } from './core/state/wordwhiz.store';
+import { initialData } from './common/default-app-data';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  wordWhizStore = WordWhizStore.Instance;
   constructor(
     private electronService: ElectronService,
     private translate: TranslateService
@@ -23,6 +26,12 @@ export class AppComponent {
       console.log('NodeJS childProcess', this.electronService.childProcess);
     } else {
       console.log('Run in browser');
+    }
+  }
+
+  ngOnInit(): void {
+    if (this.wordWhizStore.getAllEpisodes().length === 0) {
+      this.wordWhizStore.initData(initialData);
     }
   }
 }

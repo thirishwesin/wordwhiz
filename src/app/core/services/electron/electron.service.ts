@@ -28,8 +28,8 @@ export class ElectronService {
       this.webFrame = window.require('electron').webFrame;
 
       // If you want to use remote object in renderer process, please set enableRemoteModule to true in main.ts
-      // this.remote = window.require('@electron/remote');
-      // console.log('remote - globalShortcut', this.remote.globalShortcut);
+      this.remote = window.require('@electron/remote');
+      console.log('remote - globalShortcut', this.remote.globalShortcut);
 
       this.childProcess = window.require('child_process');
       this.fs = window.require('fs');

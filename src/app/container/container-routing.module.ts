@@ -11,7 +11,7 @@ import { PlayerComponent } from './player/player.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'admin', component: AdminComponent},
-  { path: 'control', component: ControlComponent},
+  { path: 'control/:episodeId/:episodeIndex', component: ControlComponent},
   { path: 'main', component: MainComponent},
   { path: 'one-third-screen', component: OneThirdScreenComponent},
   { path: 'player', component: PlayerComponent }

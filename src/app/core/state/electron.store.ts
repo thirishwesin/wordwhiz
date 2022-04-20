@@ -21,20 +21,22 @@ class ElectronStore{
         return this._instance;
     }
 
-    public listenDataChange(): Subject<any> {
+    public listenDataChange(): Subject<{newValue: string, oldValue: string, unsubscribe: Function}> {
         if(!this.subject) {
             this.subject = new Subject();
         }
-        const unsubscribe = ElectronStore.store.onDidAnyChange((newValue, oldValue) => {
+        const unsubscribe = ElectronStore.store.onDidAnyChange((newValue: any, oldValue: any) => {
             let valueObj = {
-                newValue, oldValue, unsubscribe
+                newValue, 
+                oldValue, 
+                unsubscribe
             }
             this.subject.next(valueObj);
         })
         return this.subject;
     }
 
-    public set(value: Partial<Object>) {
+    public set(value: any) {
         ElectronStore.store.set(value);
     }
 

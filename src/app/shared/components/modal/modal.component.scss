@@ -1,0 +1,66 @@
+.bg_img {
+    height: 100%;
+    margin-left: 0px;
+    background: url(../../../../assets/images/control_bg.png) no-repeat;
+    -webkit-background-size: cover;
+    /* pour anciens Chrome et Safari */
+    background-size: cover;
+    padding: 0px;
+    border: 2px solid #48b822;
+    border-radius: 5px;
+}
+
+.modal-header {
+    color: #fff !important;
+    background: 
+    #48b822 !important;
+    padding: 10px 1rem !important;
+    border: none !important;
+    border: none;
+    h4 {
+        font-size: 20px !important;
+    }
+    button {
+        outline: none !important;
+    }
+}
+
+.modal-body {
+    text-align: center !important;
+    color: #fff !important;
+    padding-top: 4em !important;
+    label {
+        font-weight: bold !important;
+        letter-spacing: 0.5px !important;
+    }
+}
+
+.modal-footer {
+    border: none;
+    .btn-add {
+        width: 100px !important;
+        border-top-right-radius: 17px !important;
+        border-bottom-left-radius: 17px !important;
+        padding: 10px !important;
+        margin-top: 10px !important;
+        background: #000 !important;
+        border: none !important;
+        background: repeating-linear-gradient(152deg, #f9f906bf, #41faffcc) !important;
+        margin-left: 10px !important;
+        font-weight: bold !important;
+        letter-spacing: 0.5px !important;
+        cursor: pointer !important;
+        border: 1px solid #4db821 !important;
+        outline: none !important;
+        color: #013ad6 !important;
+    }
+    .btn-add:active {
+        color: #013ad6 !important;
+        background-color: #4db821;
+        border-color: #4db821;
+        outline: none !important;
+    }
+    .btn-add:hover {
+        background: #4db821 !important;
+    }
+}
