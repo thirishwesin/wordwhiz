@@ -1,4 +1,75 @@
-<div class="container">
-    <p>admin works!</p>
-    <a routerLink="/home">HOME</a>
+<a class="btn main_btn" routerLink="/home"> Go Back Home </a>
+
+<span class="title">EPISODE 1</span>
+
+<div class=" container-fluid mart_basetwo25">
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-4 padl_basetwo25">
+            <div class="form-group">
+                <div ngbDropdown class="d-inline-block">
+                    <button class="btn common_input" id="time_out_choose_drop_down" ngbDropdownToggle>
+                        <p class="section_text"></p>
+                        <img [src]="Images.DROPDOWN" class="drop_down_icon" alt="drop down image">
+                    </button>
+                    <div ngbDropdownMenu aria-labelledby="time_out_choose_drop_down">
+                        <button id="time_out" ngbDropdownItem></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div ngbDropdown class="d-inline-block">
+                    <button class="btn common_input" id="time_out_choose_drop_down" ngbDropdownToggle>
+                        <p class="section_text"></p>
+                        <img [src]="Images.DROPDOWN" class="drop_down_icon" alt="drop down image">
+                    </button>
+                    <div ngbDropdownMenu aria-labelledby="time_out_choose_drop_down">
+                        <button id="time_out" ngbDropdownItem></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
 </div>
+
+<!-- <app-typo-word-admin></app-typo-word-admin> -->
+<app-scramble-word-admin></app-scramble-word-admin>
+
+<div class="container-fluid padb_basetwo25">
+    <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-8 pad_basetwo0">
+        <div class="table_body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th class="table_title">QUESTION</th>
+                <th class="table_title">ANSWER</th>
+                <th class="table_title">HINT</th>
+                <th class="table_title">POSITION</th>
+                <th class="table_title act_width text-center">ACTION</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="common_data">QUESTION</td>
+                <td class="common_data">ANSWER</td>
+                <td class="common_data">HINT</td>
+                <td class="common_data">POSITION</td>
+                <td style="text-align: center;">
+                    <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic">
+                        <button class="btn-primary btn_table button">EDIT</button>
+                        <button class="btn-primary btn_table button">DELETE</button>
+                    </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class=" col-sm-2 "></div>
+    </div>
+  </div>

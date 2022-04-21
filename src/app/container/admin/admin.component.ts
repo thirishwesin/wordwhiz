@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Images } from '../../common/images';
 
 @Component({
   selector: 'app-admin',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
+
+  Images = Images;
 
   constructor() { }
 
