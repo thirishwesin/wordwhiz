@@ -1,0 +1,156 @@
+
+<div class=" container-fluid">
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-4 select_body">
+            <!-- Point -->
+            <div class="form-group">
+                <label for="_point" class="common_label">POINT</label>
+                <input id="_point" type="text" class="common_input w_321" OnlyNumber="true"/>
+            </div>
+            <!-- Second Point -->
+            <div class="form-group">
+                <label for="second_point" class="common_label">SECOND POINT</label>
+                <input id="second_point" type="text" class="common_input w_321" OnlyNumber="true"/>
+            </div>
+    
+            <div class="form-group">
+                <label for="round_name_font_size" class="common_label">ROUND AND ROUND NAME FONT SIZE</label>
+                <input id="round_name_font_size" type="text" class="common_input w_321" OnlyNumber="true" />
+            </div>
+            <div class="form-group">
+                <label for="round_name_font_size" class="common_label">HINT LABEL FONT SIZE</label>
+                <input id="round_name_font_size" type="text" class="common_input w_321" OnlyNumber="true" />
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label for="time_out" class="common_label">FIRST TIMEOUT</label>
+                <div ngbDropdown class="d-inline-block">
+                  <button class="btn common_input" id="time_out_choose_drop_down" ngbDropdownToggle>
+                    <p class="section_text"></p>
+                    <img [src]="Images.DROPDOWN" class="drop_down_icon" alt="drop down image">
+                  </button>
+                  <div ngbDropdownMenu aria-labelledby="time_out_choose_drop_down">
+                    <button id="time_out" ngbDropdownItem></button>
+                  </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="time_out" class="common_label">SECOND TIMEOUT</label>
+                <div ngbDropdown class="d-inline-block">
+                  <button class="btn common_input" id="time_out_choose_drop_down" ngbDropdownToggle>
+                    <p class="section_text" ></p>
+                    <img [src]="Images.DROPDOWN" class="drop_down_icon" alt="drop down image">
+                  </button>
+                  <div ngbDropdownMenu aria-labelledby="time_out_choose_drop_down">
+                    <button id="time_out" ngbDropdownItem></button>
+                  </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="_point" class="common_label">CLUE LABEL FONT SIZE</label>
+                <input id="_point" type="text" class="common_input w_321" OnlyNumber="true"/>
+            </div>
+            <div class="form-group">
+                <label for="_point" class="common_label">PLAYER POINT FONT SIZE</label>
+                <input id="_point" type="text" class="common_input w_321" OnlyNumber="true"/>
+            </div>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8 second_body">
+            <div class="setup-border-design">
+                <label for="question" class="common_label lbl_header"> QUESTION </label>
+                <!-- <span class="error_msg ml-5">*Already exist in question list !</span> -->
+                <textarea id="question" type="text" class="common_input common_textarea"></textarea>
+                <div class="row form-group">
+                    <div class="col-sm-6">
+                    <label for="main_quest_font_size" class="common_label">MAIN QUESTION FONT SIZE </label>
+                    <input id="main_quest_font_size" type="text" class="common_input w_30" OnlyNumber="true" >
+                    </div>
+                    <div class="col-sm-6">
+                    <label for="one_third_quest_font_size" class="common_label">ONE THIRD QUESTION FONT SIZE </label>
+                    <input id="one_third_quest_font_size" type="text" class="common_input w_30" OnlyNumber="true" >
+                    </div>
+                </div>
+            </div>
+            <div class="setup-border-design">
+                <div class="form-group padb_basetwo5">
+                  <label for="ans" style="width:100px;" class="common_label lbl_header">HINT</label>
+                  <input type="text" id="ans" class="common_input w_100"/>
+                </div>
+                <div class="form-group">
+                  <div>
+                    <label class="common_label">HINT ONE POSITION</label>
+                  </div>
+                  <input type="radio" name="hintOnePosition" />
+                  <label class="r1_radio_label">Center</label>
+                  <input type="radio" name="hintOnePosition"/>
+                  <label class="r1_radio_label">Left</label>
+                  <input type="radio" name="hintOnePosition"/>
+                  <label class="r1_radio_label">Right</label>
+                  <input type="radio" name="hintOnePosition"/>
+                  <label class="r1_radio_label">Top</label>
+                  <input type="radio" name="hintOnePosition"/>
+                  <label class="r1_radio_label">Bottom</label>
+                </div>
+                <div class="form-group pad-b-15">
+                  <div>
+                    <label class="common_label">HINT TWO POSITION</label>
+                  </div>
+                  <input type="radio" name="hintTwoPosition" (change)="changeROneHintPosition('center', 1)"
+                    [checked]="question.hints[0]?.positionCalss && question.hints[0]?.positionCalss[1] == 'center'"/>
+                  <label class="r1_radio_label">Center</label>
+                  <input type="radio" name="hintTwoPosition" (change)="changeROneHintPosition('left', 1)"
+                  [checked]="question.hints[0]?.positionCalss && question.hints[0]?.positionCalss[1] == 'left'"/>
+                  <label class="r1_radio_label">Left</label>
+                  <input type="radio" name="hintTwoPosition" (change)="changeROneHintPosition('right', 1)"
+                  [checked]="question.hints[0]?.positionCalss && question.hints[0]?.positionCalss[1] == 'right'"/>
+                  <label class="r1_radio_label">Right</label>
+                  <input type="radio" name="hintTwoPosition" (change)="changeROneHintPosition('top', 1)"
+                  [checked]="question.hints[0]?.positionCalss && question.hints[0]?.positionCalss[1] == 'top'"/>
+                  <label class="r1_radio_label">Top</label>
+                  <input type="radio" name="hintTwoPosition" (change)="changeROneHintPosition('bottom', 1)"
+                  [checked]="question.hints[0]?.positionCalss && question.hints[0]?.positionCalss[1] == 'bottom'"/>
+                  <label class="r1_radio_label">Bottom</label>
+                </div >
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <label for="main_ans_font_size" class="common_label">MAIN HINT FONT SIZE</label>
+                      <input type="text" id="main_ans_font_size" class="common_input w_30" OnlyNumber="true"/>
+                    </div>
+                    <div class="col-sm-6">
+                      <label for="one_third_ans_font_size" class="common_label">ONE THIRD HINT FONT SIZE</label>
+                      <input type="text" id="one_third_ans_font_size" class="common_input w_30" OnlyNumber="true"/>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="setup-border-design1">
+                <div class="form-group">
+                  <label for="ans" style="width:152px;" class="common_label lbl_header">ANSWER</label>
+                  <input type="text" id="ans" class="common_input w_100"/>
+                </div>
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <label for="main_ans_font_size" class="common_label">MAIN ANSWER FONT SIZE</label>
+                      <input type="text" id="main_ans_font_size" class="common_input w_30" OnlyNumber="true"/>
+                    </div>
+                    <div class="col-sm-6">
+                      <label for="one_third_ans_font_size" class="common_label">ONE THIRD ANSWER FONT SIZE</label>
+                      <input type="text" id="one_third_ans_font_size" class="common_input w_30" OnlyNumber="true"/>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>
