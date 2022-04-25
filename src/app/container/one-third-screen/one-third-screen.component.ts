@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Images } from '../../common/images';
 
 @Component({
   selector: 'app-one-third-screen',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./one-third-screen.component.scss']
 })
 export class OneThirdScreenComponent implements OnInit {
+
+  Images = Images;
 
   constructor() { }
 
