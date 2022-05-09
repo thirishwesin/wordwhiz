@@ -1,0 +1,143 @@
+
+<div class=" container-fluid">
+  <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-4 select_body">
+          <!-- Point -->
+          <div class="form-group">
+              <label for="_point" class="common_label">POINT</label>
+              <input id="_point" type="text" class="common_input w_321" OnlyNumber="true"/>
+          </div>
+          <!-- Second Point -->
+          <div class="form-group">
+              <label for="second_point" class="common_label">SECOND POINT</label>
+              <input id="second_point" type="text" class="common_input w_321" OnlyNumber="true"/>
+          </div>
+  
+          <div class="form-group">
+              <label for="round_name_font_size" class="common_label">ROUND AND ROUND NAME FONT SIZE</label>
+              <input id="round_name_font_size" type="text" class="common_input w_321" OnlyNumber="true" />
+          </div>
+      </div>
+      <div class="col-sm-4">
+          <div class="form-group">
+              <label for="time_out" class="common_label">FIRST TIMEOUT</label>
+              <div ngbDropdown class="d-inline-block">
+                <button class="btn common_input" id="time_out_choose_drop_down" ngbDropdownToggle>
+                  <p class="section_text"></p>
+                  <img [src]="Images.DROPDOWN" class="drop_down_icon" alt="drop down image">
+                </button>
+                <div ngbDropdownMenu aria-labelledby="time_out_choose_drop_down">
+                  <button id="time_out" ngbDropdownItem></button>
+                </div>
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="time_out" class="common_label">SECOND TIMEOUT</label>
+              <div ngbDropdown class="d-inline-block">
+                <button class="btn common_input" id="time_out_choose_drop_down" ngbDropdownToggle>
+                  <p class="section_text" ></p>
+                  <img [src]="Images.DROPDOWN" class="drop_down_icon" alt="drop down image">
+                </button>
+                <div ngbDropdownMenu aria-labelledby="time_out_choose_drop_down">
+                  <button id="time_out" ngbDropdownItem></button>
+                </div>
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="_point" class="common_label">CLUE LABEL FONT SIZE</label>
+              <input id="_point" type="text" class="common_input w_321" OnlyNumber="true"/>
+          </div>
+          <div class="form-group">
+              <label for="_point" class="common_label">PLAYER POINT FONT SIZE</label>
+              <input id="_point" type="text" class="common_input w_321" OnlyNumber="true"/>
+          </div>
+      </div>
+      <div class="col-sm-2"></div>
+  </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8 second_body">
+            <div class="row"><div class="col-sm-8">
+                <div class="container" style="padding: 20px;">
+                  <div class="row" style="flex-wrap: initial;">
+                    <div class="cross_alpha_text"
+                      *ngFor="let item of [11,12,13,14,15,16,17,18,19,110]; let i = index" [id]="item">
+                    </div>
+                  </div>
+                  <div class="row" style="flex-wrap: initial;">
+                    <div class="cross_alpha_text"
+                      *ngFor="let item of [21,22,23,24,25,26,27,28,29,210]; let i = index" [id]="item">
+                    </div>
+                  </div>
+                  <div class="row" style="flex-wrap: initial;">
+                    <div class="cross_alpha_text"
+                      *ngFor="let item of [31,32,33,34,35,36,37,38,39,310]; let i = index" [id]="item">
+                    </div>
+                  </div>
+                  <div class="row" style="flex-wrap: initial;">
+                    <div class="cross_alpha_text"
+                         *ngFor="let item of [41,42,43,44,45,46,47,48,49,410]; let i = index" [id]="item">
+                    </div>
+                  </div>
+                  <div class="row" style="flex-wrap: initial;">
+                    <div class="cross_alpha_text"
+                         *ngFor="let item of [51,52,53,54,55,56,57,58,59,510]; let i = index" [id]="item">
+                    </div>
+                  </div>
+                  <div class="row" style="flex-wrap: initial;">
+                    <div class="cross_alpha_text"
+                      *ngFor="let item of [61,62,63,64,65,66,67,68,69,610]; let i = index" [id]="item">
+                    </div>
+                  </div>
+                  <div class="row" style="flex-wrap: initial;">
+                    <div class="cross_alpha_text"
+                      *ngFor="let item of [71,72,73,74,75,76,77,78,79,710]; let i = index" [id]="item">
+                    </div>
+                  </div>
+                  <div class="row" style="flex-wrap: initial;">
+                    <div class="cross_alpha_text"
+                      *ngFor="let item of [81,82,83,84,85,86,87,88,89,810]; let i = index" [id]="item">
+                    </div>
+                  </div>
+                  <div class="row" style="flex-wrap: initial;">
+                    <div class="cross_alpha_text"
+                      *ngFor="let item of [91,92,93,94,95,96,97,98,99,910]; let i = index" [id]="item">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group" style="margin-top: 20px;">
+
+                  <div class="form-group">
+                    <label for="time_out" class="common_label">WORD</label>
+                    <div ngbDropdown class="d-inline-block">
+                      <button class="btn common_input" id="time_out_choose_drop_down" ngbDropdownToggle>
+                        <p class="section_text" ></p>
+                        <img [src]="Images.DROPDOWN" class="drop_down_icon" alt="drop down image">
+                      </button>
+                      <div ngbDropdownMenu aria-labelledby="time_out_choose_drop_down">
+                        <button id="time_out" ngbDropdownItem></button>
+                      </div>
+                    </div>
+                </div>
+          
+                  <div style="margin-left:4px;margin-bottom: 13%;">
+                    <input #word type="radio" name="gridstatus" value="default" (change)="changeGridStatus(word.value)" />
+                    <label class="option_text">Add Word</label>
+                    <input #hint type="radio" name="gridstatus" value="hint" (change)="changeGridStatus(hint.value)" />
+                    <label class="option_text">Add Hint</label>
+                  </div>
+                  <button class="btn-primary common-button" style="width: 100%; margin-left: 5px !important;"
+                    (click)="clearWord(currentWord.hints[0].value )">
+                    Clear Word
+                  </button>
+                </div>
+              </div></div>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>

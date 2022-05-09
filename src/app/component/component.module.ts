@@ -11,6 +11,10 @@ import { TypoWordLogicComponent } from './typo-word/typo-word-logic/typo-word-lo
 import { TypoWordControlComponent } from './typo-word/typo-word-control/typo-word-control.component';
 import { TypoWordAdminComponent } from './typo-word/typo-word-admin/typo-word-admin.component';
 import { TypoWordLogicOnethirdComponent } from './typo-word/typo-word-logic-onethird/typo-word-logic-onethird.component';
+import { CrossWordLogicComponent } from './cross-word/cross-word-logic/cross-word-logic.component';
+import { CrossWordLogicOnethirdComponent } from './cross-word/cross-word-logic-onethird/cross-word-logic-onethird.component';
+import { CrossWordAdminComponent } from './cross-word/cross-word-admin/cross-word-admin.component';
+import { CrossWordControlComponent } from './cross-word/cross-word-control/cross-word-control.component';
 
 @NgModule({
     declarations: [
@@ -23,7 +27,11 @@ import { TypoWordLogicOnethirdComponent } from './typo-word/typo-word-logic-onet
         TypoWordLogicComponent,
         TypoWordControlComponent,
         TypoWordAdminComponent,
-        TypoWordLogicOnethirdComponent
+        TypoWordLogicOnethirdComponent,
+        CrossWordLogicComponent,
+        CrossWordLogicOnethirdComponent,
+        CrossWordAdminComponent,
+        CrossWordControlComponent
     ],
     imports: [
         CommonModule,
@@ -39,7 +47,11 @@ import { TypoWordLogicOnethirdComponent } from './typo-word/typo-word-logic-onet
         TypoWordLogicComponent,
         TypoWordControlComponent,
         TypoWordAdminComponent,
-        TypoWordLogicOnethirdComponent
+        TypoWordLogicOnethirdComponent,
+        CrossWordLogicComponent,
+        CrossWordLogicOnethirdComponent,
+        CrossWordAdminComponent,
+        CrossWordControlComponent
     ]
 })
 export class ComponentModule {}
