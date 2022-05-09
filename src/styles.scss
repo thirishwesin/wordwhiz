@@ -67,34 +67,34 @@ html {
 // margin and paindding base 2px
 @for $x from 0 through 100 {
   .pad_basetwo#{$x} {
-    padding: $x * 2px;
+    padding: $x * 2px !important;
   }
   .padt_basetwo#{$x} {
-    padding-top: $x * 2px;
+    padding-top: $x * 2px !important;
   }
   .padb_basetwo#{$x} {
-    padding-bottom: $x * 2px;
+    padding-bottom: $x * 2px !important;
   }
   .padr_basetwo#{$x} {
-    padding-right: $x * 2px;
+    padding-right: $x * 2px !important;
   }
   .padl_basetwo#{$x} {
-    padding-left: $x * 2px;
+    padding-left: $x * 2px !important;
   }
   .mar_basetwo#{$x} {
-    margin: $x * 2px;
+    margin: $x * 2px !important;
   }
   .mart_basetwo#{$x} {
-    margin-top: $x * 2px;
+    margin-top: $x * 2px !important;
   }
   .marb_basetwo#{$x} {
-    margin-bottom: $x * 2px;
+    margin-bottom: $x * 2px !important;
   }
   .marr_basetwo#{$x} {
-    margin-right: $x * 2px;
+    margin-right: $x * 2px !important;
   }
   .marl_basetwo#{$x} {
-    margin-left: $x * 2px;
+    margin-left: $x * 2px !important;
   }
 }
 
@@ -276,4 +276,84 @@ html {
   padding-right: 22px;
   text-align: center;
   margin-bottom: 20px;
+}
+
+
+.blue-block{
+  background-image: url(assets/images/blue_blank.png);
+  background-size: 100% 100%;
+}
+.green-block{
+  background-image: url(assets/images/green_blank.png);
+  background-size: 100% 100%;
+}
+.gray-block{
+  background-image: url(assets/images/gray_blank.png);
+  background-size: 100% 100%;
+}
+
+.blue-long-block{
+  background-image: url(assets/images/blue_long_block.png);
+  background-size: 100% 100%;
+}
+
+// admin page 
+
+.w_321 {
+  width: 321px;
+}
+
+.select_body{
+  padding-left: 50px;
+}
+
+.second_body{
+  padding: 10px 40px;
+  margin-bottom: 15px;
+  background: radial-gradient(#00000029, #ffffff38);
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.second_body .common_label {
+  color: #ffffff;
+  font-size: 15px;
+  letter-spacing: 3px;
+}
+.lbl_header{
+  width: 180px;
+  font-size: 22px !important;
+  height: 40px;
+  background: #00000057;
+  padding: 3px 20px;
+  border-radius: 40px;
+  margin-bottom: 10px;
+}
+
+.second_body .common_textarea{
+  padding-top: 10px;
+}
+
+.r1_radio_label{
+  vertical-align: 2px;
+  margin-left: 10px;
+  color: #41faff;
+  margin-right: 30px;
+}
+.setup-border-design {
+  padding: 10px 0px;
+  border-bottom: 1.5px solid #fff;
+  margin-bottom: 1rem;
+}
+.setup-border-design1 {
+  padding: 10px 0px;
+  margin-bottom: 1rem;
+}
+
+
+.option_text {
+  vertical-align: -2px;
+  margin-left: 10px;
+  color: #fff;
+  margin-right: 30px;
 }
