@@ -1,0 +1,77 @@
+
+<div class=" container-fluid">
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-4 select_body">
+            <!-- Point -->
+            <div class="form-group">
+                <label for="_point" class="common_label">POINT</label>
+                <input id="_point" type="text" class="common_input w_321" OnlyNumber="true"/>
+            </div>
+            <div class="form-group">
+                <label for="round_name_font_size" class="common_label">ROUND AND ROUND NAME FONT SIZE</label>
+                <input id="round_name_font_size" type="text" class="common_input w_321" OnlyNumber="true" />
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label for="time_out" class="common_label">TIMEOUT</label>
+                <div ngbDropdown class="d-inline-block">
+                  <button class="btn common_input" id="time_out_choose_drop_down" ngbDropdownToggle>
+                    <p class="section_text"></p>
+                    <img [src]="Images.DROPDOWN" class="drop_down_icon" alt="drop down image">
+                  </button>
+                  <div ngbDropdownMenu aria-labelledby="time_out_choose_drop_down">
+                    <button id="time_out" ngbDropdownItem></button>
+                  </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="_point" class="common_label">CLUE LABEL FONT SIZE</label>
+                <input id="_point" type="text" class="common_input w_321" OnlyNumber="true"/>
+            </div>
+            <div class="form-group">
+                <label for="_point" class="common_label">PLAYER POINT FONT SIZE</label>
+                <input id="_point" type="text" class="common_input w_321" OnlyNumber="true"/>
+            </div>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8 second_body">
+            <div class="setup-border-design1 mart_basetwo8">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <input type="text" id="ans" class="common_input w_100"/>
+                        </div>
+                        <div class="col-sm-3">
+                            <button class="btn common-button mart_basetwo0">UPLOAD VIDEO</button>
+                            <!-- <input class="btn common-button" type="file" value="UPLOAD VIDEO"> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label for="ans" style="width:152px;" class="common_label lbl_header">ANSWER</label>
+                  <input type="text" id="ans" class="common_input w_100"/>
+                </div>
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <label for="main_ans_font_size" class="common_label">MAIN ANSWER FONT SIZE</label>
+                      <input type="text" id="main_ans_font_size" class="common_input w_30" OnlyNumber="true"/>
+                    </div>
+                    <div class="col-sm-6">
+                      <label for="one_third_ans_font_size" class="common_label">ONE THIRD ANSWER FONT SIZE</label>
+                      <input type="text" id="one_third_ans_font_size" class="common_input w_30" OnlyNumber="true"/>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>

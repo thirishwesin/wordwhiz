@@ -19,6 +19,10 @@ import { WrongWordAdminComponent } from './wrong-word/wrong-word-admin/wrong-wor
 import { WrongWordControlComponent } from './wrong-word/wrong-word-control/wrong-word-control.component';
 import { WrongWordLogicComponent } from './wrong-word/wrong-word-logic/wrong-word-logic.component';
 import { WrongWordLogicOnethirdComponent } from './wrong-word/wrong-word-logic-onethird/wrong-word-logic-onethird.component';
+import { VideoWordLogicComponent } from './video-word/video-word-logic/video-word-logic.component';
+import { VideoWordLogicOnethirdComponent } from './video-word/video-word-logic-onethird/video-word-logic-onethird.component';
+import { VideoWordAdminComponent } from './video-word/video-word-admin/video-word-admin.component';
+import { VideoWordControlComponent } from './video-word/video-word-control/video-word-control.component';
 
 @NgModule({
     declarations: [
@@ -39,7 +43,11 @@ import { WrongWordLogicOnethirdComponent } from './wrong-word/wrong-word-logic-o
         WrongWordAdminComponent,
         WrongWordControlComponent,
         WrongWordLogicComponent,
-        WrongWordLogicOnethirdComponent
+        WrongWordLogicOnethirdComponent,
+        VideoWordLogicComponent,
+        VideoWordLogicOnethirdComponent,
+        VideoWordAdminComponent,
+        VideoWordControlComponent
     ],
     imports: [
         CommonModule,
@@ -63,7 +71,11 @@ import { WrongWordLogicOnethirdComponent } from './wrong-word/wrong-word-logic-o
         WrongWordAdminComponent,
         WrongWordControlComponent,
         WrongWordLogicComponent,
-        WrongWordLogicOnethirdComponent
+        WrongWordLogicOnethirdComponent,
+        VideoWordLogicComponent,
+        VideoWordLogicOnethirdComponent,
+        VideoWordAdminComponent,
+        VideoWordControlComponent
     ]
 })
 export class ComponentModule {}
