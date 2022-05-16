@@ -1,59 +1,143 @@
 <div class="container-fluid control">
-    <div class="button">
-      <button class="btn button__common" routerLink="/home">Go Back Home</button>
-      <button class="btn button__common">Cancel</button>
-    </div>
+  <div class="button">
+    <button class="btn button__common" routerLink="/home">Go Back Home</button>
+    <button class="btn button__common">Cancel</button>
+  </div>
 
-    <div class="title">
-        <p class="episode-title">EPISODE "{{currentEpisodeIndex}}" <i class="fas fa-caret-down"></i></p>
-    </div>
+  <div class="title">
+    <p class="episode-title">
+      EPISODE "{{ currentEpisodeIndex }}" <i class="fas fa-caret-down"></i>
+    </p>
+  </div>
 
-    <div class="openall_wrapper">
-        <div class="openall-group">
-          <div>Open All</div>
-          <div>Main</div>
-          <div>1/3 Screen</div>
-          <div>Spinning Wheel</div>
-          <div>player 1<span class="circle"></span></div>
-          <div class="resize_icon"><img [src]="Images.MIN_ICON" style="width: 33px;"></div>
-        </div>
+  <div class="openall_wrapper">
+    <div class="openall-group">
+      <div>Open All</div>
+      <div>Main</div>
+      <div>1/3 Screen</div>
+      <div>Spinning Wheel</div>
+      <div>player 1<span class="circle"></span></div>
+      <div class="resize_icon">
+        <img [src]="Images.MIN_ICON" style="width: 33px" />
       </div>
+    </div>
+  </div>
 </div>
 
-<div class="row" style="padding: 50px 10px 10px 10px;">
+<div class="row" style="padding: 50px 10px 10px 10px">
   <div class="col">
-      <div class="row col-sm-12 marb_basetwo7">
-        <div class="col-sm-4">
-          <div class="form-group">
-            <div ngbDropdown class="d-inline-block">
-              <button class="btn common_input" id="time_out_choose_drop_down" ngbDropdownToggle>
-                <p class="section_text"></p>
-                <img [src]="Images.DROPDOWN" class="drop_down_icon" alt="drop down image">
-              </button>
-              <div ngbDropdownMenu aria-labelledby="time_out_choose_drop_down">
-                <button id="time_out" ngbDropdownItem></button>
-              </div>
+    <div class="row col-sm-12 marb_basetwo7">
+      <div class="col-sm-4">
+        <div class="form-group">
+          <div ngbDropdown class="d-inline-block">
+            <button class="btn common_input" id="time_out_choose_drop_down" ngbDropdownToggle >
+              <p class="section_text"></p>
+              <img [src]="Images.DROPDOWN" class="drop_down_icon" alt="drop down image"/>
+            </button>
+            <div ngbDropdownMenu aria-labelledby="time_out_choose_drop_down">
+              <button id="time_out" ngbDropdownItem></button>
             </div>
           </div>
         </div>
-        <div class="col-sm-4">
-          <input class="common_input common_style" name="words" readonly="">
-        </div>
-        <div class="col-sm-2">
-            <button class="btn adjustMin"> &lt; </button>
-        </div>
-        <div class="col-sm-2">
-            <button class="btn adjustMin"> &gt; </button>
-        </div>
       </div>
-      <div class="col-sm-12">
-        <!-- <app-scramble-word-control></app-scramble-word-control> -->
+      <div class="col-sm-4">
+        <input class="common_input common_style" name="words" readonly="" />
       </div>
+      <div class="col-sm-2">
+        <button class="btn adjustMin">&lt;</button>
+      </div>
+      <div class="col-sm-2">
+        <button class="btn adjustMin">&gt;</button>
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <app-video-word-control></app-video-word-control>
+    </div>
   </div>
-  <div class="col">
-
+  <div class="col padr_basefive6">
+    <div class="row">
+      <div class="col-sm-3">
+        <div>
+          <app-timer></app-timer>
+        </div>
+        <div class="marb_basetw10">
+          <button class="btn common-button marb_basetwo10">Reset Timer 10</button>
+        </div>
+        <div>
+          <button class="btn common-button">Reset Timer 5</button>
+        </div>
+      </div>
+      <div class="col-sm-9">
+        <div class="point-wapper">
+          <img [src]="Images.POINT_BG" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="row mart_basetwo15">
+      <div class="col-sm-4">
+        <label class="player_lbl">Player 1</label>
+      </div>
+      <div class="col-sm-4">
+        <label class="player_lbl">Player 2</label>
+      </div>
+      <div class="col-sm-4">
+        <label class="player_lbl">Player 3</label>
+      </div>
+    </div>
+    <div class="row mart_basetwo10">
+      <div class="col-sm-4">
+        <div class="parallelogram_green">
+          <label class="control_player_point">10</label>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="parallelogram_green">
+          <label class="control_player_point">20</label>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="parallelogram_green">
+          <label class="control_player_point">10</label>
+        </div>
+      </div>
+    </div>
+    <div class="row mart_basetwo10">
+      <div class="col-sm-4">
+        <div class="player-btn-wapper">
+          <button class="btn common-button player-min-plus-btn">-</button>
+          <button class="btn common-button player-min-plus-btn">+</button>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="player-btn-wapper">
+          <button class="btn common-button player-min-plus-btn">-</button>
+          <button class="btn common-button player-min-plus-btn">+</button>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="player-btn-wapper">
+          <button class="btn common-button player-min-plus-btn">-</button>
+          <button class="btn common-button player-min-plus-btn">+</button>
+        </div>
+      </div>
+    </div>
+    <div class="row mart_basetwo10">
+      <div class="col-sm-4">
+        <button class="btn common-button">Hide Player 1 Background Image</button>
+      </div>
+      <div class="col-sm-4">
+        <button class="btn common-button">Hide Player 2 Background Image</button>
+      </div>
+      <div class="col-sm-4">
+        <button class="btn common-button">Hide Player 3 Background Image</button>
+      </div>
+    </div>
+    <div class="row mart_basetwo10">
+      <div class="col-sm-12">
+        <button class="btn common-button">Hide Player Point</button>
+      </div>
+    </div>
   </div>
 </div>
 
-
-<app-scramble-word-admin></app-scramble-word-admin>
+<!-- <app-wrong-word-admin></app-wrong-word-admin> -->
