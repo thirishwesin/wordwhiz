@@ -1,0 +1,44 @@
+:root {
+    --typo-q-block-font-size: 50px;
+    --typo-a-block-font-size: 50px;
+    --q-lbl-font-size: 50px;
+    --h-lbl-font-size: 50px;
+}
+.header-top-wapper {
+    align-content: start;
+    justify-content: left;
+}
+
+.missing-body {
+    width: 900px;
+    text-align: center;
+}
+   
+.missing-q-block {
+    text-align: center;
+    color: #fff;
+    font-size: var(--typo-q-block-font-size);
+    height: calc(var(--typo-q-block-font-size) * 1.5);
+    width: max-content;
+    padding-left: calc(var(--typo-q-block-font-size) * 0.5);
+    padding-right: calc(var(--typo-q-block-font-size) * 0.5);
+    background-size: 100% 100%;
+    margin: auto;
+}
+  
+.answer-block-container{
+    display: flex;
+    width: max-content;
+    margin: auto;
+  }
+.missing-a-block {
+    text-align: center;
+    color: #fff;
+    font-size: var(--typo-a-block-font-size);
+    height: calc(var(--typo-a-block-font-size) * 1.5);
+    width: calc(var(--typo-a-block-font-size) * 1.5);
+    margin-right: calc(var(--typo-a-block-font-size) * 0.2);
+    margin-left: calc(var(--typo-a-block-font-size) * 0.2);
+    background-size: 100% 100%;
+    float: left;
+}
