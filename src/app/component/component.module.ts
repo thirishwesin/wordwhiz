@@ -15,6 +15,8 @@ import { CrossWordLogicComponent } from './cross-word/cross-word-logic/cross-wor
 import { CrossWordLogicOnethirdComponent } from './cross-word/cross-word-logic-onethird/cross-word-logic-onethird.component';
 import { CrossWordAdminComponent } from './cross-word/cross-word-admin/cross-word-admin.component';
 import { CrossWordControlComponent } from './cross-word/cross-word-control/cross-word-control.component';
+import { MissingWordLogicComponent } from './missing-word/missing-word-logic/missing-word-logic.component';
+import { MissingWordLogicOnethirdComponent } from './missing-word/missing-word-logic-onethird/missing-word-logic-onethird.component';
 
 @NgModule({
     declarations: [
@@ -31,7 +33,9 @@ import { CrossWordControlComponent } from './cross-word/cross-word-control/cross
         CrossWordLogicComponent,
         CrossWordLogicOnethirdComponent,
         CrossWordAdminComponent,
-        CrossWordControlComponent
+        CrossWordControlComponent,
+        MissingWordLogicComponent,
+        MissingWordLogicOnethirdComponent
     ],
     imports: [
         CommonModule,
@@ -51,7 +55,9 @@ import { CrossWordControlComponent } from './cross-word/cross-word-control/cross
         CrossWordLogicComponent,
         CrossWordLogicOnethirdComponent,
         CrossWordAdminComponent,
-        CrossWordControlComponent
+        CrossWordControlComponent,
+        MissingWordLogicComponent,
+        MissingWordLogicOnethirdComponent
     ]
 })
 export class ComponentModule {}
