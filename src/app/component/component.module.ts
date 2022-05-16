@@ -26,6 +26,7 @@ import { VideoWordControlComponent } from './video-word/video-word-control/video
 import { MissingWordLogicComponent } from "./missing-word/missing-word-logic/missing-word-logic.component";
 import { MissingWordLogicOnethirdComponent } from "./missing-word/missing-word-logic-onethird/missing-word-logic-onethird.component";
 
+
 @NgModule({
     declarations: [
         MainTitleComponent,
