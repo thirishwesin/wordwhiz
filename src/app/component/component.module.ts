@@ -23,8 +23,8 @@ import { VideoWordLogicComponent } from './video-word/video-word-logic/video-wor
 import { VideoWordLogicOnethirdComponent } from './video-word/video-word-logic-onethird/video-word-logic-onethird.component';
 import { VideoWordAdminComponent } from './video-word/video-word-admin/video-word-admin.component';
 import { VideoWordControlComponent } from './video-word/video-word-control/video-word-control.component';
-import { MissingWordLogicOnethirdComponent } from "./missing-word/missing-word-logic-onethird/missing-word-logic-onethird.component";
 import { MissingWordLogicComponent } from "./missing-word/missing-word-logic/missing-word-logic.component";
+import { MissingWordLogicOnethirdComponent } from "./missing-word/missing-word-logic-onethird/missing-word-logic-onethird.component";
 
 @NgModule({
     declarations: [
@@ -82,4 +82,4 @@ import { MissingWordLogicComponent } from "./missing-word/missing-word-logic/mis
         VideoWordControlComponent
     ]
 })
-export class ComponentModule { }
+export class ComponentModule {}
