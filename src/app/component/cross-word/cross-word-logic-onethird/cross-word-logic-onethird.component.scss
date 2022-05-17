@@ -1,5 +1,4 @@
 :root {
-    --round-header-font-size: 50px;
     --question-font-size: 60px;
     --alphatext-font-size: 40px;
   }
@@ -16,14 +15,12 @@
   margin-top: 170px;
 }
 
-.roundthree-alpha-body {
+.cross-word-alpha-body {
   max-width: 950px;
-//   margin: 0px 30px;
 }
 .alpha-row {
   display: flex;
   margin: 0px 40px;
-//   justify-content: center;
 }
 .alpha-text {
   text-align: center;
@@ -31,6 +28,4 @@
   font-size: var(--alphatext-font-size);
   width: calc(var(--alphatext-font-size) * 1.5);
   height: calc(var(--alphatext-font-size) * 1.5);
-  // margin-left: calc(var(--alphatext-font-size) * 0.05);
-  // margin-right: calc(var(--alphatext-font-size) * 0.05);
 }

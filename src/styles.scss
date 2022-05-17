@@ -259,6 +259,10 @@ html {
   }
 }
 
+.section_text {
+  margin-bottom: 0;
+  padding-top: 4px;
+}
 
 // control page 
 
@@ -278,7 +282,7 @@ html {
   margin-bottom: 20px;
 }
 
-
+// start for block color or block background
 .blue-block{
   background-image: url(assets/images/blue_blank.png);
   background-size: 100% 100%;
@@ -296,6 +300,7 @@ html {
   background-image: url(assets/images/blue_long_block.png);
   background-size: 100% 100%;
 }
+// end for block color or block background
 
 // admin page 
 
