@@ -1,8 +1,6 @@
 :root {
     --typo-q-block-font-size: 50px;
     --typo-a-block-font-size: 50px;
-    --q-lbl-font-size: 50px;
-    --h-lbl-font-size: 50px;
   }
   
   .typo-body {
@@ -10,19 +8,6 @@
       margin-left: 300px;
     }
   
-  .question-lbl{
-      text-align: center;
-      font-size: var(--q-lbl-font-size);
-      margin-bottom: 10px;
-      margin-top: 50px;
-  }
-  
-  .hints-lbl{
-      text-align: center;
-      font-size: var(--h-lbl-font-size);
-      margin-bottom: 10px;
-      margin-top: 50px;
-  }
   
   .typo-q-block {
     text-align: center;
@@ -55,12 +40,3 @@
       float: left;
     }
   
-  .blue-long-block{
-    background-image: url(../../../../assets/images/blue_long_block.png);
-  }
-  .blue-block{
-    background-image: url(../../../../assets/images/blue_blank.png);
-  }
-  .green-block{
-    background-image: url(../../../../assets/images/green_blank.png);
-  }

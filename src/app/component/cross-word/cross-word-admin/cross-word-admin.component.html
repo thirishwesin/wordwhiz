@@ -5,18 +5,18 @@
       <div class="col-sm-4 select_body">
           <!-- Point -->
           <div class="form-group">
-              <label for="_point" class="common_label">POINT</label>
-              <input id="_point" type="text" class="common_input w_321" OnlyNumber="true"/>
+              <label class="common_label">POINT</label>
+              <input type="text" class="common_input w_321" OnlyNumber="true"/>
           </div>
           <!-- Second Point -->
           <div class="form-group">
-              <label for="second_point" class="common_label">SECOND POINT</label>
-              <input id="second_point" type="text" class="common_input w_321" OnlyNumber="true"/>
+              <label class="common_label">SECOND POINT</label>
+              <input  type="text" class="common_input w_321" OnlyNumber="true"/>
           </div>
   
           <div class="form-group">
-              <label for="round_name_font_size" class="common_label">ROUND AND ROUND NAME FONT SIZE</label>
-              <input id="round_name_font_size" type="text" class="common_input w_321" OnlyNumber="true" />
+              <label class="common_label">ROUND AND ROUND NAME FONT SIZE</label>
+              <input type="text" class="common_input w_321" OnlyNumber="true" />
           </div>
       </div>
       <div class="col-sm-4">
@@ -45,12 +45,12 @@
               </div>
           </div>
           <div class="form-group">
-              <label for="_point" class="common_label">CLUE LABEL FONT SIZE</label>
-              <input id="_point" type="text" class="common_input w_321" OnlyNumber="true"/>
+              <label class="common_label">CLUE LABEL FONT SIZE</label>
+              <input type="text" class="common_input w_321" OnlyNumber="true"/>
           </div>
           <div class="form-group">
-              <label for="_point" class="common_label">PLAYER POINT FONT SIZE</label>
-              <input id="_point" type="text" class="common_input w_321" OnlyNumber="true"/>
+              <label class="common_label">PLAYER POINT FONT SIZE</label>
+              <input type="text" class="common_input w_321" OnlyNumber="true"/>
           </div>
       </div>
       <div class="col-sm-2"></div>
@@ -126,15 +126,12 @@
                 </div>
           
                   <div style="margin-left:4px;margin-bottom: 13%;">
-                    <input #word type="radio" name="gridstatus" value="default" (change)="changeGridStatus(word.value)" />
+                    <input #word type="radio" name="gridstatus" value="default"/>
                     <label class="option_text">Add Word</label>
-                    <input #hint type="radio" name="gridstatus" value="hint" (change)="changeGridStatus(hint.value)" />
+                    <input #hint type="radio" name="gridstatus" value="hint" />
                     <label class="option_text">Add Hint</label>
                   </div>
-                  <button class="btn-primary common-button" style="width: 100%; margin-left: 5px !important;"
-                    (click)="clearWord(currentWord.hints[0].value )">
-                    Clear Word
-                  </button>
+                  <button class="btn common-button" style="width: 100%; margin-left: 5px !important;">Clear Word</button>
                 </div>
               </div></div>
         </div>

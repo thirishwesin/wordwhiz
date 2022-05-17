@@ -10,16 +10,12 @@ export class MissingWordLogicComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.font_size(80,80,60,60);
+    this.font_size(80,80,60);
   }
   
-  font_size(typo_q_block_f,typo_a_block_f,q_lbl_f,h_lbl_f) {
-    document.documentElement.style.setProperty("--typo-q-block-font-size", typo_q_block_f+"px");
-    document.documentElement.style.setProperty("--typo-a-block-font-size", typo_a_block_f+"px");
+  font_size(missing_q_block_f,missing_a_block_f,q_lbl_f) {
+    document.documentElement.style.setProperty("--missing-q-block-font-size", missing_q_block_f+"px");
+    document.documentElement.style.setProperty("--missing-a-block-font-size", missing_a_block_f+"px");
     document.documentElement.style.setProperty("--q-lbl-font-size", q_lbl_f+"px");
-    document.documentElement.style.setProperty("--h-lbl-font-size", h_lbl_f+"px");
-
-    // var q_lbl_w = document.getElementById("q-block").offsetWidth;
-    // document.documentElement.style.setProperty("--q-lbl-w", q_lbl_w+"px");
   }
 }
