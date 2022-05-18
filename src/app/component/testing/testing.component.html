@@ -1,0 +1,11 @@
+<button (click)="back()">Back</button>
+
+
+<!-- Timer Testing -->
+<div>
+  <button (click)="clickTimerButton()">{{startTimer ? 'Stop' : 'Start'}}</button>
+  <button (click)="chooseNumber(10)">10</button>
+  <button (click)="chooseNumber(15)">15</button>
+  <button (click)="chooseNumber(30)">30</button>
+  <app-timer [timeOut]="timeout" [startTimer]="startTimer"></app-timer>
+</div>

@@ -2,11 +2,12 @@
   <div class="button">
     <button class="btn button__common" (click)="clickUserOrAdmin(true)">User View</button>
     <button class="btn button__common" (click)="clickUserOrAdmin(false)">Admin View</button>
-    <button class="btn button__close"
+    <button class="btn button__common" (click)="clickTestingComponent()">Testing Component</button>
+    <button class="btn button__close" *ngIf="!env.production"
       (click)="openModal(modalConstant.QUESTIONS.ADD_EPISODE ,modalConstant.ACTION.QUIT)">
       X</button>
   </div>
-  
+
   <!-- user view section -->
   <section *ngIf="isUserView">
     <div class="container-fluid episode">

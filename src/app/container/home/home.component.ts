@@ -1,4 +1,4 @@
-import { Component, NgZone, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, NgZone, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Notification, Subscription } from 'rxjs';
 import { WordWhizStore } from '../../core/state/wordwhiz.store';
@@ -11,11 +11,13 @@ import { ModalConstant } from '../../common/constant/modal.constant';
 import { assign as _assign, cloneDeep as _cloneDeep, isFunction as _isFunction } from 'lodash';
 import { rounds } from '../../common/default-app-data';
 import { STORE_KEY } from '../../common/constant/store-key.constant';
+import { AppConfig } from '../../../environments/environment';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
@@ -29,6 +31,8 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   Images = Images;
   modalConstant = ModalConstant;
+
+  env = AppConfig;
 
   constructor(private router: Router, private modalService: NgbModal, private nz: NgZone) { }
 
@@ -84,6 +88,10 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.unsubscribeOnAnyDataChange();
     }
     this.wordWhizStore$.unsubscribe();
+  }
+
+  clickTestingComponent(): void {
+    this.router.navigateByUrl('/testing');
   }
 
 }

@@ -25,6 +25,7 @@ import { VideoWordAdminComponent } from './video-word/video-word-admin/video-wor
 import { VideoWordControlComponent } from './video-word/video-word-control/video-word-control.component';
 import { MissingWordLogicComponent } from "./missing-word/missing-word-logic/missing-word-logic.component";
 import { MissingWordLogicOnethirdComponent } from "./missing-word/missing-word-logic-onethird/missing-word-logic-onethird.component";
+import { TestingComponent } from './testing/testing.component';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { MissingWordLogicOnethirdComponent } from "./missing-word/missing-word-l
         VideoWordAdminComponent,
         VideoWordControlComponent,
         MissingWordLogicComponent,
-        MissingWordLogicOnethirdComponent
+        MissingWordLogicOnethirdComponent,
+        TestingComponent
     ],
     imports: [
         CommonModule,
