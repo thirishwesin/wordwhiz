@@ -15,13 +15,14 @@ src/**/*.js
 /node_modules
 
 # IDEs and editors
-/.idea
+.idea
 .project
 .classpath
 .c9/
 *.launch
 .settings/
 *.sublime-workspace
+/backend/WordWhizExternalDevTunnel/target/
 
 # IDE - VSCode
 .vscode/*
@@ -48,3 +49,6 @@ package-lock.json
 # System Files
 .DS_Store
 Thumbs.db
+/yarn.lock
+/*-lock.json
+

@@ -1,0 +1,31 @@
+:root {
+    --question-font-size: 60px;
+    --alphatext-font-size: 40px;
+  }
+
+.question-title {
+  max-width: 950px;
+  text-align: center;
+  color: #fff;
+  font-size: var(--question-font-size);
+  width: auto;
+  height: auto;
+  padding: 5px 25px;
+  margin: auto;
+  margin-top: 170px;
+}
+
+.cross-word-alpha-body {
+  max-width: 950px;
+}
+.alpha-row {
+  display: flex;
+  margin: 0px 40px;
+}
+.alpha-text {
+  text-align: center;
+  color: #fff;
+  font-size: var(--alphatext-font-size);
+  width: calc(var(--alphatext-font-size) * 1.5);
+  height: calc(var(--alphatext-font-size) * 1.5);
+}

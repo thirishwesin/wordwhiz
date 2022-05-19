@@ -1,0 +1,28 @@
+:root {
+    --video-word-block-font-size: 50px;
+  }
+
+.video_body{
+    width: 900px;
+    height: 550px;
+}
+
+.video-word-body{
+  display: flex;
+  margin-top: 30px;
+  width: 900px;
+  justify-content: center;
+}
+
+
+.video-word-block {
+    text-align: center;
+    color: #fff;
+    font-size: var(--video-word-block-font-size);
+    height: calc(var(--video-word-block-font-size) * 1.5);
+    width: calc(var(--video-word-block-font-size) * 1.5);
+    margin-right: calc(var(--video-word-block-font-size) * 0.2);
+    margin-left: calc(var(--video-word-block-font-size) * 0.2);
+    background-size: 100% 100%;
+    float: left;
+  }

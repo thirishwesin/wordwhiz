@@ -1,0 +1,99 @@
+
+<div class=" container-fluid">
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-4 select_body">
+            <!-- Point -->
+            <div class="form-group">
+                <label class="common_label">POINT</label>
+                <input type="text" class="common_input w_321" OnlyNumber="true"/>
+            </div>
+            <!-- Second Point -->
+            <div class="form-group">
+                <label class="common_label">SECOND POINT</label>
+                <input type="text" class="common_input w_321" OnlyNumber="true"/>
+            </div>
+    
+            <div class="form-group">
+                <label class="common_label">ROUND AND ROUND NAME FONT SIZE</label>
+                <input type="text" class="common_input w_321" OnlyNumber="true" />
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label for="time_out" class="common_label">FIRST TIMEOUT</label>
+                <div ngbDropdown class="d-inline-block">
+                  <button class="btn common_input" id="time_out_choose_drop_down" ngbDropdownToggle>
+                    <p class="section_text"></p>
+                    <img [src]="Images.DROPDOWN" class="drop_down_icon" alt="drop down image">
+                  </button>
+                  <div ngbDropdownMenu aria-labelledby="time_out_choose_drop_down">
+                    <button id="time_out" ngbDropdownItem></button>
+                  </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="time_out" class="common_label">SECOND TIMEOUT</label>
+                <div ngbDropdown class="d-inline-block">
+                  <button class="btn common_input" id="time_out_choose_drop_down" ngbDropdownToggle>
+                    <p class="section_text" ></p>
+                    <img [src]="Images.DROPDOWN" class="drop_down_icon" alt="drop down image">
+                  </button>
+                  <div ngbDropdownMenu aria-labelledby="time_out_choose_drop_down">
+                    <button id="time_out" ngbDropdownItem></button>
+                  </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="common_label">CLUE LABEL FONT SIZE</label>
+                <input type="text" class="common_input w_321" OnlyNumber="true"/>
+            </div>
+            <div class="form-group">
+                <label class="common_label">PLAYER POINT FONT SIZE</label>
+                <input type="text" class="common_input w_321" OnlyNumber="true"/>
+            </div>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8 second_body">
+            <div class="setup-border-design">
+                <label class="common_label lbl_header"> QUESTION </label>
+                <!-- <span class="error_msg ml-5">*Already exist in question list !</span> -->
+                <textarea type="text" class="common_input common_textarea"></textarea>
+                <div class="row form-group">
+                    <div class="col-sm-6">
+                    <label class="common_label">MAIN QUESTION FONT SIZE </label>
+                    <input type="text" class="common_input" OnlyNumber="true" >
+                    </div>
+                    <div class="col-sm-6">
+                    <label class="common_label">ONE THIRD QUESTION FONT SIZE </label>
+                    <input type="text" class="common_input" OnlyNumber="true" >
+                    </div>
+                </div>
+            </div>
+            <div class="setup-border-design1">
+                <div class="form-group">
+                  <label style="width:152px;" class="common_label lbl_header">ANSWER</label>
+                  <input type="text" class="common_input w_100"/>
+                </div>
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <label  class="common_label">MAIN ANSWER FONT SIZE</label>
+                      <input type="text" class="common_input" OnlyNumber="true"/>
+                    </div>
+                    <div class="col-sm-6">
+                      <label class="common_label">ONE THIRD ANSWER FONT SIZE</label>
+                      <input type="text" class="common_input" OnlyNumber="true"/>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>

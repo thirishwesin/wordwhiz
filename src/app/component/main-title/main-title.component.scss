@@ -1,0 +1,25 @@
+
+:root {
+    --header-font-size: 50px;
+}
+
+.header-top-wapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+.head-wrapper {
+  text-align: center;
+  color: #41faff;
+  margin-top: 5%;
+  font-weight: bold;
+  font-size: var(--header-font-size);
+  p {
+    display: inline;
+  }
+  span {
+    display: inline;
+  }
+}

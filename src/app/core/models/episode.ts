@@ -1,8 +1,7 @@
-import { Player } from "./player";
+import { Font } from "./font";
 import { Round } from "./round";
 
 export interface Episode {
-  id: number;
-  players: Player[];
-  rounds: Round[];
+    episodeId : number;
+    rounds : Round[];
 }

@@ -1,0 +1,53 @@
+.one-third-wapper {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    height: calc(100% / 3);
+}
+
+.one-third-background {
+    background: url("../../../assets/images/one_third_background.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+    object-fit: fill;
+    background-color: black;
+  }
+
+.timer-wapper {
+  // width: 100%;
+  display: flex;
+  align-items: center;
+  padding-top: 5%;
+}
+.timer-wapper img {
+    max-width: 75% !important;
+    margin: auto !important;
+}
+
+.one-third-background-cross {
+  background: url("../../../assets/images/one-third-background-cross-word.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+  object-fit: fill;
+  background-color: black;
+}
+
+.one-third-wapper-cross{
+  height: 100%;
+}
+
+.left-wapper-cross {
+  display: flex;
+  align-items: center;
+  padding-top: 5%;
+  width: 22%;
+}
+.right-wapper-cross {
+  width: 78%;
+}

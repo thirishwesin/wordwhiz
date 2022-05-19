@@ -1,36 +1,37 @@
-import { Component } from "@angular/core";
-import { ElectronService } from "./core/services";
-import { TranslateService } from "@ngx-translate/core";
-import { AppConfig } from "../environments/environment";
-import { Router } from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { ElectronService } from './core/services';
+import { TranslateService } from '@ngx-translate/core';
+import { AppConfig } from '../environments/environment';
+import { WordWhizStore } from './core/state/wordwhiz.store';
+import { initialData } from './common/default-app-data';
 
 @Component({
-  selector: "app-root",
-  templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.scss"]
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  wordWhizStore = WordWhizStore.Instance;
   constructor(
-    public electronService: ElectronService,
-    private translate: TranslateService,
-    public router: Router
+    private electronService: ElectronService,
+    private translate: TranslateService
   ) {
-    translate.setDefaultLang("en");
-    console.log("AppConfig", AppConfig);
+    this.translate.setDefaultLang('en');
+    console.log('AppConfig', AppConfig);
 
     if (electronService.isElectron) {
       console.log(process.env);
-      console.log("Mode electron");
-      console.log("Electron ipcRenderer", electronService.ipcRenderer);
-      console.log("NodeJS childProcess", electronService.childProcess);
-      // if (!window.localStorage.getItem("endpoints")) {
-      //     this.router.navigate(["main"]);
-      //     window.localStorage.setItem("endpoints", "true");
-      //   } else {
-      //     this.router.navigate(["home"]);
-      //   }
+      console.log('Run in electron');
+      console.log('Electron ipcRenderer', this.electronService.ipcRenderer);
+      console.log('NodeJS childProcess', this.electronService.childProcess);
     } else {
-      console.log("Mode web");
+      console.log('Run in browser');
+    }
+  }
+
+  ngOnInit(): void {
+    if (this.wordWhizStore.getAllEpisodes().length === 0) {
+      this.wordWhizStore.initData(initialData);
     }
   }
 }
