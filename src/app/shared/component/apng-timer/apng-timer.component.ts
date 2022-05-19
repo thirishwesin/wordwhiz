@@ -1,9 +1,9 @@
 import { Component, Input, NgZone, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { readFile, readFileSync } from 'fs';
-import { AppConfig } from '../../../environments/environment';
-import { Images } from '../../common/images';
+import { AppConfig } from '../../../../environments/environment';
+import { Images } from '../../../common/images';
 import parseAPNG from "apng-js";
-import { AudioService } from '../../core/services/audio.service';
+import { AudioService } from '../../../core/services/audio.service';
 
 @Component({
   selector: 'app-apng-timer',

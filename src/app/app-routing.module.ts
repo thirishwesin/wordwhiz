@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TestingComponent } from './component/testing/testing.component';
 import { ContainerRoutingModule } from './container/container-routing.module';
-import { PageNotFoundComponent } from './shared/components';
+import { PageNotFoundComponent } from './shared/component';
 
 const routes: Routes = [
   {

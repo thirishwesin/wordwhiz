@@ -6,7 +6,7 @@ import { Images } from "../../common/Images";
 import { Episode } from '../../core/models/episode';
 import { faPlusCircle, faMinusCircle } from "@fortawesome/free-solid-svg-icons";
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ModalComponent } from '../../shared/components/modal/modal.component';
+import { ModalComponent } from '../../shared/component/modal/modal.component';
 import { ModalConstant } from '../../common/constant/modal.constant';
 import { assign as _assign, cloneDeep as _cloneDeep, isFunction as _isFunction } from 'lodash';
 import { rounds } from '../../common/default-app-data';

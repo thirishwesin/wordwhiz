@@ -1,0 +1,28 @@
+.load_img {
+  position: relative;
+  margin-left: -103px;
+  margin-top: -10px;
+  width: 350px;
+  z-index: -100;
+}
+
+.timer {
+  // position: absolute;
+  top: 57px;
+  font-size: 45px;
+  text-shadow: 3px 4px 3px #333333;
+  color: #FFFFFF;
+  width: 135px;
+  text-align: center;
+}
+
+.timer_style {
+  // position: absolute;
+  top: 57px;
+  font-size: 45px;
+  color: #F00;
+  width: 135px;
+  text-align: center;
+  text-shadow: 3px 4px 3px #333333;
+  font-weight: bold;
+}
