@@ -8,8 +8,11 @@ import { Router } from '@angular/router';
 })
 export class TestingComponent implements OnInit {
 
-  startTimer: boolean;
-  timeout: number;
+  startApngTimer: boolean;
+  apngTimeout: number;
+
+  startSimpleTimer: boolean;
+  simpleTimeout: number;
 
   constructor(private router: Router) { }
 
@@ -20,12 +23,20 @@ export class TestingComponent implements OnInit {
     this.router.navigateByUrl('');
   }
 
-  clickTimerButton(): void {
-    this.startTimer = !this.startTimer;
+  clickApngTimerButton(): void {
+    this.startApngTimer = !this.startApngTimer;
   }
 
-  chooseNumber(timeOut: number): void {
-    this.timeout = timeOut;
+  chooseApngNumber(timeOut: number): void {
+    this.apngTimeout = timeOut;
+  }
+
+  clickSimpleTimerButton(): void {
+    this.startSimpleTimer = !this.startSimpleTimer;
+  }
+
+  chooseSimpleNumber(timeOut: number): void {
+    this.simpleTimeout = timeOut;
   }
 
 }

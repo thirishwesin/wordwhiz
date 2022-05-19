@@ -2,7 +2,6 @@ import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { SharedModule } from "../shared/shared.module";
 import { MainTitleComponent } from "./main-title/main-title.component";
-import { ApngTimerComponent } from "./apng-timer/apng-timer.component";
 import { ScrambleWordLogicComponent } from "./scramble-word/scramble-word-logic/scramble-word-logic.component";
 import { ScrambleWordControlComponent } from "./scramble-word/scramble-word-control/scramble-word-control.component";
 import { ScrambleWordAdminComponent } from "./scramble-word/scramble-word-admin/scramble-word-admin.component";
@@ -31,7 +30,6 @@ import { TestingComponent } from './testing/testing.component';
 @NgModule({
   declarations: [
     MainTitleComponent,
-    ApngTimerComponent,
     ScrambleWordLogicComponent,
     ScrambleWordControlComponent,
     ScrambleWordAdminComponent,
@@ -54,7 +52,7 @@ import { TestingComponent } from './testing/testing.component';
     VideoWordControlComponent,
     MissingWordLogicComponent,
     MissingWordLogicOnethirdComponent,
-    TestingComponent
+    TestingComponent,
   ],
   imports: [
     CommonModule,
@@ -62,7 +60,6 @@ import { TestingComponent } from './testing/testing.component';
   ],
   exports: [
     MainTitleComponent,
-    ApngTimerComponent,
     ScrambleWordLogicComponent,
     ScrambleWordControlComponent,
     ScrambleWordAdminComponent,

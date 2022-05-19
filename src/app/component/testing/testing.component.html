@@ -3,9 +3,21 @@
 
 <!-- Timer Testing -->
 <div>
-  <button (click)="clickTimerButton()">{{startTimer ? 'Stop' : 'Start'}}</button>
-  <button (click)="chooseNumber(10)">10</button>
-  <button (click)="chooseNumber(15)">15</button>
-  <button (click)="chooseNumber(30)">30</button>
-  <app-apng-timer [timeOut]="timeout" [startTimer]="startTimer"></app-apng-timer>
+  <h3>Apng Timer Test</h3>
+  <button (click)="clickApngTimerButton()">{{startApngTimer ? 'Stop' : 'Start'}}</button>
+  <button (click)="chooseApngNumber(10)">10</button>
+  <button (click)="chooseApngNumber(15)">15</button>
+  <button (click)="chooseApngNumber(30)">30</button>
+  <app-apng-timer [timeOut]="apngTimeout" [startTimer]="startApngTimer"></app-apng-timer>
 </div>
+
+<div>
+  <h3>Simple Timer Test</h3>
+  <button (click)="clickSimpleTimerButton()">{{startSimpleTimer ? 'Stop' : 'Start'}}</button>
+  <button (click)="chooseSimpleNumber(10)">10</button>
+  <button (click)="chooseSimpleNumber(15)">15</button>
+  <button (click)="chooseSimpleNumber(30)">30</button>
+  <app-simple-timer [timeOut]="simpleTimeout" [startTimer]="startSimpleTimer"></app-simple-timer>
+</div>
+
+
