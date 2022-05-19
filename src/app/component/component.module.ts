@@ -2,7 +2,7 @@ import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { SharedModule } from "../shared/shared.module";
 import { MainTitleComponent } from "./main-title/main-title.component";
-import { TimerComponent } from "./timer/timer.component";
+import { ApngTimerComponent } from "./apng-timer/apng-timer.component";
 import { ScrambleWordLogicComponent } from "./scramble-word/scramble-word-logic/scramble-word-logic.component";
 import { ScrambleWordControlComponent } from "./scramble-word/scramble-word-control/scramble-word-control.component";
 import { ScrambleWordAdminComponent } from "./scramble-word/scramble-word-admin/scramble-word-admin.component";
@@ -29,60 +29,60 @@ import { TestingComponent } from './testing/testing.component';
 
 
 @NgModule({
-    declarations: [
-        MainTitleComponent,
-        TimerComponent,
-        ScrambleWordLogicComponent,
-        ScrambleWordControlComponent,
-        ScrambleWordAdminComponent,
-        ScrambleWordLogicOnethirdComponent,
-        TypoWordLogicComponent,
-        TypoWordControlComponent,
-        TypoWordAdminComponent,
-        TypoWordLogicOnethirdComponent,
-        CrossWordLogicComponent,
-        CrossWordLogicOnethirdComponent,
-        CrossWordAdminComponent,
-        CrossWordControlComponent,
-        WrongWordAdminComponent,
-        WrongWordControlComponent,
-        WrongWordLogicComponent,
-        WrongWordLogicOnethirdComponent,
-        VideoWordLogicComponent,
-        VideoWordLogicOnethirdComponent,
-        VideoWordAdminComponent,
-        VideoWordControlComponent,
-        MissingWordLogicComponent,
-        MissingWordLogicOnethirdComponent,
-        TestingComponent
-    ],
-    imports: [
-        CommonModule,
-        SharedModule
-    ],
-    exports: [
-        MainTitleComponent,
-        TimerComponent,
-        ScrambleWordLogicComponent,
-        ScrambleWordControlComponent,
-        ScrambleWordAdminComponent,
-        ScrambleWordLogicOnethirdComponent,
-        TypoWordLogicComponent,
-        TypoWordControlComponent,
-        TypoWordAdminComponent,
-        TypoWordLogicOnethirdComponent,
-        CrossWordLogicComponent,
-        CrossWordLogicOnethirdComponent,
-        CrossWordAdminComponent,
-        CrossWordControlComponent,
-        WrongWordAdminComponent,
-        WrongWordControlComponent,
-        WrongWordLogicComponent,
-        WrongWordLogicOnethirdComponent,
-        VideoWordLogicComponent,
-        VideoWordLogicOnethirdComponent,
-        VideoWordAdminComponent,
-        VideoWordControlComponent
-    ]
+  declarations: [
+    MainTitleComponent,
+    ApngTimerComponent,
+    ScrambleWordLogicComponent,
+    ScrambleWordControlComponent,
+    ScrambleWordAdminComponent,
+    ScrambleWordLogicOnethirdComponent,
+    TypoWordLogicComponent,
+    TypoWordControlComponent,
+    TypoWordAdminComponent,
+    TypoWordLogicOnethirdComponent,
+    CrossWordLogicComponent,
+    CrossWordLogicOnethirdComponent,
+    CrossWordAdminComponent,
+    CrossWordControlComponent,
+    WrongWordAdminComponent,
+    WrongWordControlComponent,
+    WrongWordLogicComponent,
+    WrongWordLogicOnethirdComponent,
+    VideoWordLogicComponent,
+    VideoWordLogicOnethirdComponent,
+    VideoWordAdminComponent,
+    VideoWordControlComponent,
+    MissingWordLogicComponent,
+    MissingWordLogicOnethirdComponent,
+    TestingComponent
+  ],
+  imports: [
+    CommonModule,
+    SharedModule
+  ],
+  exports: [
+    MainTitleComponent,
+    ApngTimerComponent,
+    ScrambleWordLogicComponent,
+    ScrambleWordControlComponent,
+    ScrambleWordAdminComponent,
+    ScrambleWordLogicOnethirdComponent,
+    TypoWordLogicComponent,
+    TypoWordControlComponent,
+    TypoWordAdminComponent,
+    TypoWordLogicOnethirdComponent,
+    CrossWordLogicComponent,
+    CrossWordLogicOnethirdComponent,
+    CrossWordAdminComponent,
+    CrossWordControlComponent,
+    WrongWordAdminComponent,
+    WrongWordControlComponent,
+    WrongWordLogicComponent,
+    WrongWordLogicOnethirdComponent,
+    VideoWordLogicComponent,
+    VideoWordLogicOnethirdComponent,
+    VideoWordAdminComponent,
+    VideoWordControlComponent
+  ]
 })
-export class ComponentModule {}
+export class ComponentModule { }

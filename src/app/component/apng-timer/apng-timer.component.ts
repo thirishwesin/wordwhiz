@@ -6,11 +6,11 @@ import parseAPNG from "apng-js";
 import { AudioService } from '../../core/services/audio.service';
 
 @Component({
-  selector: 'app-timer',
-  templateUrl: './timer.component.html',
-  styleUrls: ['./timer.component.scss']
+  selector: 'app-apng-timer',
+  templateUrl: './apng-timer.component.html',
+  styleUrls: ['./apng-timer.component.scss']
 })
-export class TimerComponent implements OnInit, OnChanges {
+export class ApngTimerComponent implements OnInit, OnChanges {
 
   Images = Images;
   timerInfoArr : Array<{fileName : string, value: number, apngData: any}> = [];
